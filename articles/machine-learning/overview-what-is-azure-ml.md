@@ -10,12 +10,12 @@ author: BlackMist
 ms.date: 04/08/2021
 ms.custom: devx-track-python
 adobe-target: true
-ms.openlocfilehash: 086c1f6ebd1b9e448a8f5e229bc6706493729422
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 89d839a9b507530eb0b3fc763b2fbba36208f79c
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108762900"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081900"
 ---
 # <a name="what-is-azure-machine-learning"></a>¿Qué es Azure Machine Learning?
 
@@ -44,8 +44,6 @@ Azure Machine Learning proporciona todas las herramientas que los desarrolladore
 
 + Cuadernos de Jupyter Notebook: use nuestros [cuadernos de ejemplo](https://github.com/Azure/MachineLearningNotebooks) o cree los suyos propios para aprovechar los ejemplos del <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK para Python</a> para el aprendizaje automático. 
 
-+ Scripts o cuadernos de R en los que usa el <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK para R</a> para escribir su propio código, o use los módulos de R en el diseñador.
-
 + [Many Models Solution Accelerator](https://aka.ms/many-models) (versión preliminar) se basa en Azure Machine Learning y permite entrenar, usar y administrar cientos o incluso miles de modelos de Machine Learning.
 
 + La [extensión de Machine Learning para Visual Studio Code (versión preliminar)](how-to-set-up-vs-code-remote.md) proporciona un entorno de desarrollo completo para crear y administrar proyectos de aprendizaje automático.
@@ -58,9 +56,9 @@ Azure Machine Learning proporciona todas las herramientas que los desarrolladore
 
 Incluso puede usar [MLflow para realizar un seguimiento de las métricas e implementar modelos](how-to-use-mlflow.md) o Kubeflow para [compilar canalizaciones de flujo de trabajo de un extremo a otro](https://www.kubeflow.org/docs/azure/).
 
-## <a name="build-ml-models-in-python-or-r"></a>Creación de modelos de aprendizaje automático en Python o R
+## <a name="build-ml-models-in-with-the-python-sdk"></a>Integración de modelos de ML con el SDK de Python
 
-Empiece a entrenar en su máquina local mediante el <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK de Python </a> o el <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK de R</a> para Azure Machine Learning. Luego, puede escalar horizontalmente a la nube. 
+Empiece el entrenamiento en la máquina local mediante el <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK de Python </a> para Azure Machine Learning. Luego, puede escalar horizontalmente a la nube. 
 
 Con muchos [destinos de proceso](how-to-create-attach-compute-studio.md) disponibles, por ejemplo, los procesos de Azure Machine Learning y [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks), y con los [servicios avanzados de ajuste de hiperparámetros](how-to-tune-hyperparameters.md), puede compilar mejores modelos de forma más rápida gracias al potencial de la nube.
 
@@ -134,7 +132,7 @@ Empiece con el artículo de [inicio rápido: introducción a Azure Machine Learn
   + [Administración de recursos en Visual Studio Code](how-to-manage-resources-vscode.md)
   + [Uso de Visual Studio Code para entrenar e implementar un modelo de clasificación de imágenes](tutorial-train-deploy-image-classification-model-vscode.md)
   + [Uso de las funcionalidades de arrastrar y colocar del diseñador para entrenar e implementar](tutorial-designer-automobile-price-train-score.md) 
-  + [Uso de la CLI de Machine Learning para entrenar e implementar un modelo](tutorial-train-deploy-model-cli.md)
+  + [Uso de la CLI de Machine Learning para entrenar un modelo](how-to-train-cli.md)
 
 - Aprenda sobre [la canalización de aprendizaje automático ](concept-ml-pipelines.md) para crear, optimizar y administrar los escenarios de aprendizaje automático.
 

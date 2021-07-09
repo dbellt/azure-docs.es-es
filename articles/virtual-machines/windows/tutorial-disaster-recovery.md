@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.collection: windows
 ms.subservice: recovery
 ms.topic: tutorial
-ms.date: 11/05/2020
+ms.date: 05/18/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: fd5d8c3e2c6e4ee5556568ebd23ac99b48300e9d
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: e76245c9ad08a9a826e1d0431c2dd01b61a6b860
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106382037"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110077579"
 ---
 # <a name="tutorial-enable-disaster-recovery-for-windows-vms"></a>Tutorial: Habilitación de la recuperación ante desastres para máquinas virtuales Windows
 
@@ -37,21 +37,21 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
         - Crear una máquina virtual en la red virtual seleccionada.
         - Escribir en una cuenta de Azure Storage.
         - Escribir en un disco administrado de Azure.
-    - El rol integrado Colaborador de la máquina virtual para administrar las operaciones de Site Recovery en el almacén. 
+    - El rol integrado Colaborador de la máquina virtual para administrar las operaciones de Site Recovery en el almacén.
 3. Se recomienda usar una máquina virtual Windows que use Windows Server 2012, o cualquier versión posterior. Para este tutorial, el disco de la máquina virtual no debería estar cifrado.
 4. Si las conexiones salientes de la máquina virtual usan un proxy basado en URL, asegúrese de que puede acceder a estas direcciones URL. No se admite el uso de un proxy autenticado.
 
     **Nombre** | **Nube pública** | **Nube del gobierno** | **Detalles**
     --- | --- | --- | ---
-    Storage | `*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`| Escriba datos desde la máquina virtual a la cuenta de almacenamiento de caché en la región de origen. 
-    Azure AD  | `login.microsoftonline.com` | `login.microsoftonline.us`| Realice la autorización y autenticación de las direcciones URL del servicio Site Recovery. 
-    Replicación | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`  |Comunicación de la máquina virtual con el servicio Site Recovery. 
-    Service Bus | `*.servicebus.windows.net` | `*.servicebus.usgovcloudapi.net` | La máquina virtual escribe en Site Recovery datos de supervisión y diagnóstico. 
+    Storage | `*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`| Escriba datos desde la máquina virtual a la cuenta de almacenamiento de caché en la región de origen.
+    Azure AD  | `login.microsoftonline.com` | `login.microsoftonline.us`| Realice la autorización y autenticación de las direcciones URL del servicio Site Recovery.
+    Replicación | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`  |Comunicación de la máquina virtual con el servicio Site Recovery.
+    Service Bus | `*.servicebus.windows.net` | `*.servicebus.usgovcloudapi.net` | La máquina virtual escribe en Site Recovery datos de supervisión y diagnóstico.
 
 4. Si usa grupos de seguridad de red para limitar el tráfico de red en las máquinas virtuales, cree reglas de NSG que permitan la conectividad saliente (HTTPS 443) para la máquina virtual mediante estas etiquetas de servicio (grupos de direcciones IP). Lo primero que debe hacer es probar las reglas en un grupo de seguridad de red de prueba.
 
-    **Tag** | **Permitir** 
-    --- | --- 
+    **Tag** | **Permitir**
+    --- | ---
     Etiqueta Storage | Permite que los datos se puedan escribir desde la máquina virtual a la cuenta de almacenamiento de caché.
     Etiqueta Azure AD | Permite el acceso a todas las direcciones IP que correspondan a Azure AD.
     Etiqueta EventsHub | Permite el acceso a la supervisión de Site Recovery.
@@ -70,17 +70,20 @@ Opcionalmente, puede habilitar la recuperación ante desastres al crear una máq
 5. En **Almacén de Recovery Services**, seleccione el almacén que quiere usar para la replicación. Si no tiene un almacén, seleccione **Crear nuevo**. Seleccione un grupo de recursos en el que colocar el almacén y un nombre de almacén.
 6. En **Site Recovery policy** (Directiva de Site Recovery), deje la directiva predeterminada o seleccione **Crear nueva** para establecer valores personalizados.
 
-    - Los puntos de recuperación se crean a partir de instantáneas de los discos de máquina virtual tomadas en un momento determinado. Al conmutar por error una máquina virtual, se usa un punto de recuperación para restaurarla en la región de destino. 
-    - Cada cinco minutos se crea un punto de recuperación coherente frente a bloqueos. No se puede modificar esta configuración. Una instantánea coherente frente a bloqueos captura los datos que estaban en el disco en el momento de tomarse la instantánea. No incluye nada de la memoria. 
+    - Los puntos de recuperación se crean a partir de instantáneas de los discos de máquina virtual tomadas en un momento determinado. Al conmutar por error una máquina virtual, se usa un punto de recuperación para restaurarla en la región de destino.
+    - Cada cinco minutos se crea un punto de recuperación coherente frente a bloqueos. No se puede modificar esta configuración. Una instantánea coherente frente a bloqueos captura los datos que estaban en el disco en el momento de tomarse la instantánea. No incluye nada de la memoria.
     - De forma predeterminada, Site Recovery conserva los puntos de recuperación coherentes frente a bloqueos durante 24 horas. Sin embargo, puede establecer un valor personalizado comprendido entre 0 y 72 horas.
-    - Cada cuatro horas se toma una instantánea coherente con la aplicación. Instantánea coherente con la aplicación 
+    - Cada cuatro horas se toma una instantánea coherente con la aplicación. Instantánea coherente con la aplicación
     - De forma predeterminada, Site Recovery conserva los puntos de recuperación durante 24 horas.
 
 7. En **Opciones de disponibilidad**, especifique si la máquina virtual se implementa como independiente, en una zona de disponibilidad o en un conjunto de disponibilidad.
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/create-vm.png" alt-text="Habilitación de la replicación en la página de propiedades de administración de máquinas virtuales.":::
+    :::image type="content" source="./media/tutorial-disaster-recovery/create-vm.png" alt-text="Habilitación de la replicación en la página de propiedades de administración de máquinas virtuales".
 
 8. Termine de crear la máquina virtual.
+
+>[!NOTE]
+> Cuando se habilita la replicación al crear una VM Windows, solo se replica el disco del sistema operativo. El usuario debe inicializar los discos de datos, a continuación, Azure Site Recovery los replicará automáticamente.
 
 ## <a name="enable-disaster-recovery-for-an-existing-vm"></a>Habilitación de la recuperación ante desastres en una máquina virtual existente
 
@@ -131,7 +134,7 @@ Cuando el trabajo de replicación finalice, puede comprobar el estado de replica
 1. Abra la página de propiedades de la máquina virtual.
 2. En **Operaciones**, seleccione **Recuperación ante desastres**.
 3. Expanda la sección **Essentials** para revisar los valores predeterminados del almacén, la directiva de replicación y la configuración de destino.
-4. En **Mantenimiento y estado**, obtenga información sobre el estado de replicación de la máquina virtual, la versión del agente, la preparación de la conmutación por error y los puntos de recuperación más recientes. 
+4. En **Mantenimiento y estado**, obtenga información sobre el estado de replicación de la máquina virtual, la versión del agente, la preparación de la conmutación por error y los puntos de recuperación más recientes.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/essentials.png" alt-text="Vista de Essentials para la recuperación ante desastres de máquinas virtuales.":::
 
@@ -142,22 +145,22 @@ Cuando el trabajo de replicación finalice, puede comprobar el estado de replica
 
 ## <a name="run-a-drill"></a>Ejecución de un simulacro
 
-Realice un simulacro para asegurarse de que la recuperación ante desastres funciona según lo previsto. Cuando se realiza una conmutación por error de prueba, se crea una copia de la máquina virtual sin que ello afecte a la replicación en curso ni al entorno de producción. 
+Realice un simulacro para asegurarse de que la recuperación ante desastres funciona según lo previsto. Cuando se realiza una conmutación por error de prueba, se crea una copia de la máquina virtual sin que ello afecte a la replicación en curso ni al entorno de producción.
 
 1. En la página de recuperación ante desastres de la máquina virtual, seleccione **Conmutación por error de prueba**.
 2. En **Conmutación por error de prueba**, deje el valor predeterminado de **Latest processed (low RPO)** [Procesado recientemente (RPO bajo)] del punto de recuperación.
 
    Esta opción proporciona el objetivo de punto de recuperación (RPO) más bajo y, habitualmente, la puesta en marcha más rápida de la máquina virtual de destino. Procesa primero todos los datos que se han enviado al servicio Site Recovery para crear un punto de recuperación para cada máquina virtual antes de conmutarla por error a dicho punto de recuperación. Este punto de recuperación tiene todos los datos replicados en Site Recovery cuando se desencadenó la conmutación por error.
 
-3. Seleccione la red virtual en la que se encontrará la máquina virtual después de la conmutación por error. 
+3. Seleccione la red virtual en la que se encontrará la máquina virtual después de la conmutación por error.
 
      :::image type="content" source="./media/tutorial-disaster-recovery/test-failover-settings.png" alt-text="Página en la que se establecen las opciones de la conmutación por error de prueba.":::
 
 4. Comienza el proceso de conmutación por error de prueba. El progreso se puede supervisar en las notificaciones.
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/test-failover-notification.png" alt-text="Notificaciones de la conmutación por error de prueba."::: 
-    
-   Una vez que se complete la conmutación por error de prueba, la máquina virtual se encuentra en el estado *Limpieza de conmutación por error de prueba pendiente* en la página **Essentials**. 
+    :::image type="content" source="./media/tutorial-disaster-recovery/test-failover-notification.png" alt-text="Notificaciones de la conmutación por error de prueba.":::
+
+   Una vez que se complete la conmutación por error de prueba, la máquina virtual se encuentra en el estado *Limpieza de conmutación por error de prueba pendiente* en la página **Essentials**.
 
 
 
@@ -167,15 +170,15 @@ Site Recovery limpia automáticamente la máquina virtual después del simulacro
 
 1. Para iniciar la limpieza automática, seleccione **Limpiar conmutación por error de prueba**.
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/start-cleanup.png" alt-text="Iniciar la limpieza en la página Essentials."::: 
+    :::image type="content" source="./media/tutorial-disaster-recovery/start-cleanup.png" alt-text="Iniciar la limpieza en la página Essentials.":::
 
 2. En **Limpieza de la conmutación por error de prueba**, escriba las notas que desee grabar para la conmutación por error y, después, seleccione **Testing is complete. Delete test failover virtual machine** (Se ha completado la prueba. Elimine las máquinas virtuales de la conmutación por error de prueba). Después, seleccione **Aceptar**.
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/delete-test.png" alt-text="Página para registrar las notas y eliminar la máquina virtual de prueba."::: 
+    :::image type="content" source="./media/tutorial-disaster-recovery/delete-test.png" alt-text="Página para registrar las notas y eliminar la máquina virtual de prueba.":::
 
 7. Comienza el proceso de eliminación. El progreso se puede supervisar en las notificaciones.
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/delete-test-notification.png" alt-text="Notificaciones para supervisar la eliminación de una máquina virtual de prueba."::: 
+    :::image type="content" source="./media/tutorial-disaster-recovery/delete-test-notification.png" alt-text="Notificaciones para supervisar la eliminación de una máquina virtual de prueba.":::
 
 ### <a name="stop-replicating-the-vm"></a>Detención de la replicación de la máquina virtual
 
@@ -190,10 +193,10 @@ Detenga la replicación como se indica a continuación:
 1. En la página de recuperación ante desastres de la máquina virtual, seleccione **Deshabilitar replicación**.
 2. En **Deshabilitar replicación**, seleccione las razones por las que desea deshabilitar la replicación. Después, seleccione **Aceptar**.
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/disable-replication.png" alt-text="Página para deshabilitar la replicación y proporcionar un motivo."::: 
+    :::image type="content" source="./media/tutorial-disaster-recovery/disable-replication.png" alt-text="Página para deshabilitar la replicación y proporcionar un motivo.":::
 
 
-La extensión de Site Recovery instalada en la máquina virtual durante la replicación no se elimina de forma automática. Si deshabilita la replicación de la máquina virtual y no desea volver a replicarla más tarde, puede quitar la extensión de Site Recovery manualmente, como se indica a continuación: 
+La extensión de Site Recovery instalada en la máquina virtual durante la replicación no se elimina de forma automática. Si deshabilita la replicación de la máquina virtual y no desea volver a replicarla más tarde, puede quitar la extensión de Site Recovery manualmente, como se indica a continuación:
 
 1. Vaya a la máquina virtual > **Configuración** > **Extensiones**.
 2. En la página **Extensiones**, seleccione todas las entradas de *Microsoft.Azure.RecoveryServices* para Linux.

@@ -1,26 +1,28 @@
 ---
-title: 'Tutorial: Regresión con aprendizaje automático automatizado'
+title: 'Tutorial: AutoML (entrenamiento del modelo de regresión)'
 titleSuffix: Azure Machine Learning
-description: Escriba código con el SDK de Python para crear un experimento de aprendizaje automático automatizado que genere automáticamente un modelo de regresión.
+description: Entrene un modelo de regresión para predecir tarifas de taxi de Nueva York con el SDK de Python para Azure Machine Learning mediante el modelo de ML automatizado de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: aniththa
-ms.author: anumamah
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 08/14/2020
+ms.date: 06/11/2021
 ms.custom: devx-track-python, automl
-ms.openlocfilehash: 7dc42c305ff8cd7320d711574e4095141041d8b4
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 243dd16cc70a77a0d1da0adf190dc92d83ad1ab4
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108773888"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112033444"
 ---
-# <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutorial: Uso del aprendizaje automático para crear predecir tarifas de taxi
+# <a name="tutorial-train-a-regression-model-with-automl-and-python"></a>Tutorial: Entrenamiento de un modelo de regresión con AutoML y Python
 
-En este tutorial, se usa el aprendizaje automático automatizado del SDK de Azure Machine Learning para crear un [modelo de regresión](concept-automated-ml.md#regression) que prediga los precios de las tarifas de taxi de Nueva York. Este proceso acepta valores de configuración y datos de entrenamiento y, después, itera automáticamente las combinaciones de diferentes métodos de estandarización o normalización de características, modelos y configuraciones de hiperparámetros para llegar al mejor modelo.
+En este tutorial, aprenderá a entrenar un modelo de regresión con el SDK de Python para Azure Machine Learning mediante el modelo de ML automatizado de Azure Machine Learning. Este modelo de regresión predice las tarifas de taxi de Nueva York. 
+
+Este proceso acepta valores de configuración y datos de entrenamiento y, después, itera automáticamente las combinaciones de diferentes métodos de estandarización o normalización de características, modelos y configuraciones de hiperparámetros para llegar al mejor modelo. 
 
 ![Diagrama de flujo](./media/tutorial-auto-train-models/flow2.png)
 
@@ -31,10 +33,11 @@ En este tutorial escribirá código con el SDK de Python.  Aprenderá las siguie
 > * Entrenar un modelo de regresión con aprendizaje automático automatizado
 > * Calcular la precisión del modelo
 
-Pruebe también el aprendizaje automático automatizado para estos otros tipos de modelos: 
+Para AutoML sin código, pruebe los siguientes tutoriales: 
 
-* [Tutorial: Creación de un modelo de clasificación con aprendizaje automático automatizado en Azure Machine Learning](tutorial-first-experiment-automated-ml.md): un ejemplo sin código.
-* [Tutorial: Previsión de la demanda con aprendizaje automático automatizado:](tutorial-automated-ml-forecast.md) un ejemplo sin código.
+* [Tutorial: Entrenamiento de modelos de clasificación sin código](tutorial-first-experiment-automated-ml.md)
+
+* [Tutorial: Previsión de la demanda con aprendizaje automático automatizado](tutorial-automated-ml-forecast.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 

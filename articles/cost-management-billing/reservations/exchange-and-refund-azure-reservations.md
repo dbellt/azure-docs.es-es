@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 04/14/2021
 ms.author: banders
-ms.openlocfilehash: 3e8f50efd04364483c32ecb8ef5020bdd053e55b
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: d45682a3ccdc67cdbff8ef0c1edd542817875fbc
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515488"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111891561"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Autoservicio de cambios y reembolsos de reservas de Azure
 
@@ -65,6 +65,7 @@ Para cambiar una reserva, el nuevo importe de compra debe ser mayor que el impor
 ## <a name="exchange-non-premium-storage-for-premium-storage"></a>Intercambio de almacenamiento no premium por almacenamiento premium
 
 Puede intercambiar una reserva comprada para un tamaño de máquina virtual que no es compatible con el almacenamiento premium por un tamaño de máquina virtual que sí lo es. Por ejemplo, un _F1_ por un _F1s_. Para hacer el intercambio, vaya a los detalles de la reserva y seleccione **Intercambiar**. El intercambio no restablece el plazo de la instancia reservada ni crea una nueva transacción.
+Si se cambia por un tamaño, una serie, una región o una frecuencia de pago diferentes, el plazo se restablecerá para la nueva reserva. 
 
 ## <a name="how-transactions-are-processed"></a>Procesamiento de las transacciones
 

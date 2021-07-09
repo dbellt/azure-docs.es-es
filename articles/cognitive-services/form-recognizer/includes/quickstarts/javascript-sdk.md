@@ -4,18 +4,18 @@ description: Use la biblioteca cliente de Form Recognizer para JavaScript con el
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/12/2021
 ms.author: lajanuar
 ms.custom: devx-track-js
-ms.openlocfilehash: 84d6f181636c65aea5c247185bfd7ef083151c75
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: aafe6caab127736d950ef78804f7af08242ced41
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110374208"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111894339"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -24,7 +24,9 @@ ms.locfileid: "110374208"
 
 > [!IMPORTANT]
 >
-> * Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas. Para más información, consulte la siguiente documentación de referencia.
+> * En este artículo de inicio rápido se usa la versión **3.1.0** del SDK y la API de destino, versión **2.1**.
+>
+>* Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas. Para más información, consulte la siguiente documentación de referencia.
 
 [Documentación de referencia](../../index.yml) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/) | [Paquete (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Ejemplos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
 
@@ -67,9 +69,6 @@ Cree un archivo llamado `index.js`, ábralo e importe las bibliotecas siguientes
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_imports)]
 
-> [!TIP]
-> ¿Desea ver todo el archivo de código de inicio rápido de una vez? Puede encontrarlo en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/FormRecognizerQuickstart.js), que contiene los ejemplos de código de este inicio rápido.
-
 Cree variables para el punto de conexión y la clave de Azure del recurso.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_creds)]
@@ -77,7 +76,7 @@ Cree variables para el punto de conexión y la clave de Azure del recurso.
 > [!IMPORTANT]
 > Vaya a Azure Portal. Si el recurso de Form Recognizer que ha creado en la sección **Requisitos previos** se ha implementado correctamente, haga clic en el botón **Ir al recurso** en **Pasos siguientes**. Puede encontrar su clave y punto de conexión en la página de **clave y punto de conexión** del recurso, en **Administración de recursos**.
 >
-> Recuerde quitar la clave del código cuando haya terminado y no hacerla nunca pública. En el caso de producción, considere la posibilidad de usar alguna forma segura de almacenar las credenciales, y acceder a ellas. Para más información, consulte el artículo sobre la [seguridad](../../../cognitive-services-security.md) de Cognitive Services.
+> Recuerde quitar la clave del código cuando haya terminado y no hacerla nunca pública. En producción, use métodos seguros para almacenar y acceder a sus credenciales. Para más información, consulte el artículo sobre la [seguridad](../../../cognitive-services-security.md) de Cognitive Services.
 
 ## <a name="object-model"></a>Modelo de objetos
 
@@ -103,20 +102,6 @@ Con Form Recognizer, puede crear dos tipos de cliente diferentes. El primero, `F
 > [!NOTE]
 > Los modelos también se pueden entrenar mediante una interfaz gráfica de usuario, como la [herramienta de etiquetado de Form Recognizer](../../label-tool.md).
 
-## <a name="code-examples"></a>Ejemplos de código
-
-Estos fragmentos de código muestran cómo realizar las siguientes tareas con la biblioteca cliente de Form Recognizer para JavaScript:
-
-* [Autenticar el cliente](#authenticate-the-client)
-* [Análisis de diseño](#analyze-layout)
-* [Análisis de las confirmaciones de recepción](#analyze-receipts)
-* [Análisis de tarjetas de presentación](#analyze-business-cards)
-* [Análisis de facturas](#analyze-invoices)
-* [Análisis de documentos de identidad](#analyze-identity-documents)
-* [Entrenar un modelo personalizado](#train-a-custom-model)
-* [Analizar formularios con un modelo personalizado](#analyze-forms-with-a-custom-model)
-* [Administración de modelos personalizados](#manage-custom-models)
-
 ## <a name="authenticate-the-client"></a>Autenticar el cliente
 
 Autentique un objeto de cliente mediante las variables de suscripción que ha definido. Usará un objeto `AzureKeyCredential`, de modo que, si es necesario, pueda actualizar la clave de API sin crear otros objetos de cliente. También creará un objeto de cliente de entrenamiento.
@@ -127,9 +112,10 @@ Autentique un objeto de cliente mediante las variables de suscripción que ha de
 
 También tendrá que agregar referencias a las direcciones URL de los datos de entrenamiento y prueba.
 
-* [!INCLUDE [get SAS URL](../sas-instructions.md)]
+* [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
 
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="Recuperación de la dirección URL de SAS":::
+
 * Use las imágenes de envío y de recepción que se incluyen en los ejemplos siguientes (también disponibles en [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/assets)). O bien, siga los pasos anteriores para obtener la dirección URL de SAS de un documento individual en el almacenamiento de blobs.
 
 ## <a name="analyze-layout"></a>Análisis de diseño
@@ -139,7 +125,7 @@ Puede usar Form Recognizer para analizar tablas, líneas y palabras de los docum
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_getcontent)]
 
 > [!TIP]
-> También puede obtener contenido de un archivo local. Consulte los métodos [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), como **beginRecognizeContent**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para escenarios relacionados con imágenes locales.
+> También puede obtener contenido de un archivo local con métodos [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), como **beginRecognizeContent**. 
 
 ### <a name="output"></a>Resultados
 
@@ -166,7 +152,7 @@ Para analizar los recibos de un identificador URI, use el método `beginRecogniz
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_receipts)]
 
 > [!TIP]
-> También puede analizar imágenes de recibos locales. Consulte los métodos [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), como **beginRecognizeReceipts**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para escenarios relacionados con imágenes locales.
+> También puede analizar imágenes de recibos locales con métodos [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), como **beginRecognizeReceipts**. 
 
 ### <a name="output"></a>Resultados
 
@@ -189,10 +175,10 @@ En esta sección se muestra cómo analizar y extraer campos comunes de tarjetas 
 
 Para analizar tarjetas de presentación en una dirección URL, use el método `beginRecognizeBusinessCardsFromURL`.
 
-:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js" id="snippet_bc":::
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_bc)]
 
 > [!TIP]
-> También puede analizar imágenes de tarjeta de presentación locales. Consulte los métodos de [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), como **beginRecognizeBusinessCards**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para escenarios relacionados con imágenes locales.
+ > También puede analizar imágenes de tarjetas de presentación locales con métodos [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), como **beginRecognizeBusinessCards**. 
 
 ## <a name="analyze-invoices"></a>Análisis de facturas
 
@@ -200,25 +186,25 @@ En esta sección se muestra cómo analizar y extraer campos comunes de facturas 
 
 Para analizar facturas de una dirección URL, use el método `beginRecognizeInvoicesFromUrl`.
 
-:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js" id="snippet_invoice":::
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_invoice)]
 
 > [!TIP]
-> También puede analizar imágenes de tarjeta de presentación locales. Consulte los métodos [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), como **beginRecognizeInvoices**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para escenarios relacionados con imágenes locales.
+> También puede analizar imágenes de facturas locales con métodos [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), como **beginRecognizeInvoices**. 
 
 ## <a name="analyze-identity-documents"></a>Análisis de documentos de identidad
 
-En esta sección se muestra cómo analizar y extraer información clave de documentos de identificación emitidos por la administración pública (pasaportes de todo el mundo y permisos de conducir de EE. UU.) mediante el modelo de identificación precompilado de Form Recognizer. Para obtener más información sobre el análisis de facturas, consulte nuestra [guía conceptual del modelo de identificación precompilado](../../concept-identification-cards.md).
+En esta sección se muestra cómo analizar y extraer información clave de documentos de identificación emitidos por la administración pública (pasaportes de todo el mundo y permisos de conducir de EE. UU.) mediante el modelo de identificación precompilado de Form Recognizer. Para obtener más información sobre el análisis de documentos de identificación, consulte nuestra [guía conceptual del modelo de identificación precompilado](../../concept-identification-cards.md).
 
 Para analizar documentos de identificación de una dirección URL, use el método `beginRecognizeIdDocumentsFromUrl`.
 
-:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js" id="snippet_id":::
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_id)]
 
 ## <a name="train-a-custom-model"></a>Entrenamiento de un modelo personalizado
 
 En esta sección se muestra cómo entrenar un modelo con sus propios datos. Un modelo entrenado puede generar datos estructurados que incluyan las relaciones clave-valor del documento de formulario original. Después de entrenar el modelo, puede probarlo, volver a entrenarlo y finalmente usarlo para extraer datos de forma confiable de más formularios en función de las propias necesidades.
 
 > [!NOTE]
-> También puede entrenar modelos con una interfaz gráfica de usuario, como la [herramienta de etiquetado de ejemplo de Form Recognizer](../../label-tool.md).
+> También puede entrenar modelos con una interfaz gráfica de usuario (GUI), como la [herramienta de etiquetado de ejemplo de Form Recognizer](../../label-tool.md).
 
 ### <a name="train-a-model-without-labels"></a>Entrenamiento de un modelo sin etiquetas
 
@@ -314,7 +300,7 @@ Usará el método `beginRecognizeCustomFormsFromUrl`. El valor devuelto es una c
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_analyze)]
 
 > [!TIP]
-> También puede analizar archivos locales. Consulte los métodos [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), como **beginRecognizeCustomForms**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para escenarios relacionados con imágenes locales.
+> También puede analizar archivos locales con métodos [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), como **beginRecognizeCustomForms**. 
 
 ### <a name="output"></a>Resultados
 

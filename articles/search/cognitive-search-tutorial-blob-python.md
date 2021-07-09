@@ -10,16 +10,16 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ea1cc022cbea7dbf3d1fa12cb83cfe3084b28560
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c9d54040fc4defa30adb52cec6edb335cc7bdc76
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92788090"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111559185"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Uso de Python y AI para generar contenido que permita búsquedas desde blobs de Azure
 
-Si tiene texto no estructurado o imágenes en Azure Blob Storage, una [canalización de enriquecimiento de inteligencia artificial](cognitive-search-concept-intro.md) puede extraer la información y crear contenido útil en escenarios de búsqueda de texto completo o minería de conocimiento. Aunque una canalización puede procesar los archivos de imagen, este tutorial de Python se centra en el texto y se aplica la detección de idioma y el procesamiento del lenguaje natural para crear campos que se puedan aprovechar en las consultas, las facetas y los filtros.
+Si tiene imágenes o texto no estructurado en Azure Blob Storage, una [canalización de enriquecimiento de inteligencia artificial](cognitive-search-concept-intro.md) puede extraer la información y crear contenido útil en escenarios de búsqueda de texto completo o minería de conocimientos. Aunque una canalización puede procesar los archivos de imagen, este tutorial de Python se centra en el texto y se aplica la detección de idioma y el procesamiento del lenguaje natural para crear campos que se puedan aprovechar en las consultas, las facetas y los filtros.
 
 En este tutorial se usa Python y las [API REST de Search](/rest/api/searchservice/) para realizar las siguientes tareas:
 
@@ -49,7 +49,7 @@ Si no tiene una suscripción a Azure, abra una [cuenta gratuita](https://azure.m
 
 ## <a name="1---create-services"></a>1: Creación de servicios
 
-En este tutorial se usa Azure Cognitive Search en la indexación y las consultas, Cognitive Services en el back-end para el enriquecimiento de inteligencia artificial y Azure Blob Storage en la provisión de datos. Este tutorial permanece por debajo de la asignación gratuita de 20 transacciones por indexador al día en Cognitive Services, por lo que los únicos servicios que tiene que crear son la búsqueda y el almacenamiento.
+En este tutorial se usa Azure Cognitive Search para la indexación y las consultas, Cognitive Services en el back-end para el enriquecimiento con IA y Azure Blob Storage para proporcionar los datos. Este tutorial permanece por debajo de la asignación gratuita de 20 transacciones por indexador al día en Cognitive Services, por lo que los únicos servicios que tiene que crear son la búsqueda y el almacenamiento.
 
 Si es posible, cree los dos en la misma región y grupo de recursos para la proximidad y la capacidad de administración. En la práctica, la cuenta de Azure Storage puede estar en cualquier región.
 
@@ -107,7 +107,7 @@ Dado que en este tutorial solo se usan siete transacciones, puede omitir el apro
 
 El tercer componente es Azure Cognitive Search, que se puede [crear en el portal](search-create-service-portal.md). Puede usar el nivel Gratis para realizar este tutorial. 
 
-Al igual que con Azure Blob Storage dedique un momento a recopilar la clave de acceso. Además, cuando empiece a estructurar las solicitudes, deberá proporcionar el punto de conexión y la clave de la API de administración que se usan para autenticar cada solicitud.
+Al igual que con Azure Blob Storage, dedique un momento a recopilar la clave de acceso. Además, cuando empiece a estructurar las solicitudes, deberá proporcionar el punto de conexión y la clave de la API de administración que se usan para autenticar cada solicitud.
 
 ### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Obtención de una clave de API de administración y una dirección URL para Azure Cognitive Search
 
@@ -196,7 +196,7 @@ En Azure Portal, en la página del panel de información del servicio de búsque
 
 En este paso, definirá un conjunto de pasos de enriquecimiento para aplicar a los datos. Llamará a cada paso de enriquecimiento una *aptitud* y al conjunto de pasos de enriquecimiento, un *conjunto de aptitudes*. Este tutorial usa un conjunto de [aptitudes cognitivas integradas](cognitive-search-predefined-skills.md):
 
-+ [Reconocimiento de entidades](cognitive-search-skill-entity-recognition.md) para extraer los nombres de las organizaciones del contenido del contenedor de blobs.
++ [Reconocimiento de entidades](cognitive-search-skill-entity-recognition-v3.md) para extraer los nombres de las organizaciones del contenido del contenedor de blobs.
 
 + [Detección de idioma](cognitive-search-skill-language-detection.md) para identificar el idioma del contenido.
 

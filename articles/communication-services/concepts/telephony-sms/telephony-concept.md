@@ -8,12 +8,12 @@ ms.author: bobazile
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 3e698abbdad4b45a58f14e350e1f2b268a7de371
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 5fba53125e22eed6797db7ada6b99e679e136ea8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324498"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110092411"
 ---
 # <a name="telephony-concepts"></a>Conceptos de telefonía
 
@@ -40,7 +40,9 @@ Con esta opción:
 - No se requiere la implementación ni el mantenimiento de una implementación local, ya que Llamadas de voz (RTC) funciona fuera de Azure Communication Services.
 - Nota: Si es necesario, puede conectar un controlador de límites de sesión (SBC) compatible mediante el enrutamiento directo de Azure para lograr interoperabilidad con las PBX de terceros, los dispositivos analógicos y otros equipos de telefonía de terceros compatibles con el SBC.
 
-Esta opción requiere una conexión ininterrumpida a Azure Communication Services.
+Esta opción requiere una conexión ininterrumpida a Azure Communication Services.  
+
+En el caso de las llamadas a la nube, las llamadas salientes se facturan según tarifas por minuto en función del país de destino. Consulte la [lista de tarifas actuales para las llamadas RTC](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv).
 
 ### <a name="azure-direct-routing"></a>Enrutamiento directo de Azure
 

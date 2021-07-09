@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/13/2021
 ms.author: jeedes
-ms.openlocfilehash: ba6a06b51a9fd3a4efec98d5a713d1a791e9a321
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 96794d2ab07f9fe352f611c7d0cf511067928bee
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108136920"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111413202"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con New Relic
 
@@ -31,7 +31,7 @@ En este tutorial, aprenderá a integrar New Relic con Azure Active Directory (Az
 Para empezar, necesitará lo siguiente:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
-* Una suscripción habilitada para el inicio de sesión único en New Relic.
+* Una organización de New Relic con el [modelo de cuenta o usuario de New Relic One](https://docs.newrelic.com/docs/accounts/original-accounts-billing/original-product-based-pricing/overview-changes-pricing-user-model/#user-models) y en las ediciones Pro o Enterprise. Para más información, consulte [Requisitos de New Relic](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/authentication-domains-saml-sso-scim-more).
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -76,11 +76,8 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, proporcione los valores de **identificador** y **URL de respuesta**.
 
-   * Para recuperar estos valores, use la aplicación New Relic **My Organization**. Para usar esta aplicación:
-      1. [Inicie sesión](https://login.newrelic.com/) en New Relic.
-      1. En el menú superior, seleccione **Apps** (Aplicaciones).
-      1. En la sección **Sus aplicaciones**, seleccione **Mi organización** > **Dominios de autenticación**.
-      1. Elija el dominio de autenticación al que desea que se conecte el inicio de sesión único de Azure AD (si tiene más de un dominio de autenticación). La mayoría de las empresas solo tienen un dominio de autenticación llamado **Default** (Predeterminada). Si solo hay un dominio de autenticación, no es necesario que seleccione nada.
+   * Recupere estos valores de la [interfaz de usuario del dominio de autenticación de New Relic](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/authentication-domains-saml-sso-scim-more/#ui). Una vez allí: 
+      1. Si tiene más de un dominio de autenticación, elija aquel al que desea que se conecte el inicio de sesión único de Azure AD. La mayoría de las empresas solo tienen un dominio de autenticación llamado **Default** (Predeterminada). Si solo hay un dominio de autenticación, no es necesario que seleccione nada.
       1. En la sección **Authentication** (Autenticación), el campo **Assertion consumer URL** (URL del consumidor de aserciones) contiene el valor que se va a usar en **URL de respuesta**.
       1. En la sección **Authentication** (Autenticación), el campo **Our entity ID** (Nuestro Id. de entidad) contiene el valor que se va a usar para **Identificador**.
 
@@ -119,13 +116,11 @@ En esta sección, va a permitir que B. Simon acceda a New Relic utilizando el i
 
 ## <a name="configure-new-relic-sso"></a>Configuración del inicio de sesión único de New Relic
 
-Siga estos pasos para configurar el inicio de sesión único en New Relic.
+Siga estos pasos para configurar el inicio de sesión único en New Relic. 
 
 1. [Inicie sesión](https://login.newrelic.com/) en New Relic.
 
-1. En el menú superior, seleccione **Apps** (Aplicaciones).
-
-1. En la sección **Sus aplicaciones**, seleccione **Mi organización** > **Dominios de autenticación**.
+1. Vaya a la [interfaz de usuario del dominio de autenticación](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/authentication-domains-saml-sso-scim-more/#ui). 
 
 1. Elija el dominio de autenticación al que desea que se conecte el inicio de sesión único de Azure AD (si tiene más de un dominio de autenticación). La mayoría de las empresas solo tienen un dominio de autenticación llamado **Default** (Predeterminada). Si solo hay un dominio de autenticación, no es necesario que seleccione nada.
 
@@ -143,9 +138,7 @@ En esta sección, creará un usuario llamado B.Simon en New Relic.
 
 1. [Inicie sesión](https://login.newrelic.com/) en New Relic.
 
-1. En el menú superior, seleccione **Apps** (Aplicaciones).
-
-1. En la sección **Your apps** (Sus aplicaciones), seleccione **User Management** (Administración de usuarios).
+1. Vaya a la [interfaz de usuario **User management** (Administración de usuarios)](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/add-manage-users-groups-roles/#where).
 
 1. Seleccione **Agregar usuario**.
 
@@ -175,4 +168,8 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado New Relic, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la exfiltración y la filtración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez hecho esto, para comprobar que los usuarios se hayan agregado a New Relic, vaya a la [interfaz de usuario **User Management** (Administración de usuarios)](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/add-manage-users-groups-roles/#where) y vea si están allí. 
+
+A continuación, es probable que desee asignar los usuarios a roles o cuentas específicos de New Relic. Para más información al respecto, consulte [Conceptos de administración de usuarios.](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/add-manage-users-groups-roles/#understand-concepts) 
+
+En la interfaz de usuario del dominio de autenticación de New Relic, puede configurar [otras opciones](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/authentication-domains-saml-sso-scim-more/#session-mgmt), como el control de sesión, que protege frente a la filtración e infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

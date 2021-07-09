@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Instalación, desempaquetamiento, montaje en el bastidor y cableado del dispositivo físico de Azure Stack Edge Pro | Microsoft Docs'
-description: El segundo tutorial sobre la instalación de Azure Stack Edge Pro con GPU cubre cómo desempaquetar el dispositivo físico, montarlo en el bastidor y cablearlo.
+title: Tutorial para desempaquetar, montar en bastidor, cablear el dispositivo físico Azure Stack Edge Pro con FPGA | Microsoft Docs
+description: El segundo tutorial sobre la instalación de Azure Stack Edge Pro con FPGA abarca cómo desempaquetar el dispositivo físico, montarlo en el bastidor y cablearlo.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 01/17/2020
 ms.author: alkohli
-ms.openlocfilehash: caf64de55c48d763b8600988e5ff2aba2c83e4f9
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 91fa1e0d74d050e2d812153bb203a9141bbe98df
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060200"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461298"
 ---
-# <a name="tutorial-install-azure-stack-edge-pro"></a>Tutorial: Instalación de Azure Stack Edge Pro
+# <a name="tutorial-install-azure-stack-edge-pro-fpga"></a>Tutorial: Instalación de Azure Stack Edge Pro con FPGA
 
-Este tutorial describe cómo instalar un dispositivo físico de Azure Stack Edge Pro. El procedimiento de instalación incluye el desempaquetado, el montaje en el bastidor y el cableado del dispositivo. 
+En este tutorial se describe cómo instalar un dispositivo físico Azure Stack Edge Pro con FPGA. El procedimiento de instalación incluye el desempaquetado, el montaje en el bastidor y el cableado del dispositivo. 
 
 La instalación puede tardar aproximadamente dos horas en completarse.
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a:
 > * Montaje en bastidor del dispositivo
 > * Cableado del dispositivo
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Los requisitos previos para instalar un dispositivo físico son los siguientes:
 
@@ -36,12 +36,12 @@ Los requisitos previos para instalar un dispositivo físico son los siguientes:
 
 Antes de comenzar, asegúrese de que:
 
-* Ha completado todos los pasos del tutorial [Preparación de la implementación de Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md).
+* Ha completado todos los pasos del tutorial [Preparación de la implementación de Azure Stack Edge Pro con FPGA](azure-stack-edge-deploy-prep.md).
     * Ha creado un recurso de Azure Stack Edge para implementar el dispositivo.
     * Ha generado la clave de activación para activar el dispositivo con el recurso de Azure Stack Edge.
 
  
-### <a name="for-the-azure-stack-edge-pro-physical-device"></a>Para el dispositivo físico de Azure Stack Edge Pro
+### <a name="for-the-azure-stack-edge-pro-fpga-physical-device"></a>Para el dispositivo físico Azure Stack Edge Pro con FPGA
 
 Antes de implementar un dispositivo:
 
@@ -57,7 +57,7 @@ Antes de implementar un dispositivo:
 
 Antes de empezar:
 
-- Revise los requisitos de red para implementar Azure Stack Edge Pro y configure la red del centro de datos según dichos requisitos. Para más información, consulte los [Requisitos de red de Azure Stack Edge Pro](azure-stack-edge-system-requirements.md#networking-port-requirements).
+- Revise los requisitos de red para implementar Azure Stack Edge Pro con FPGA y configure la red del centro de datos según dichos requisitos. Para más información, consulte [Requisitos de red de Azure Stack Edge Pro con FPGA](azure-stack-edge-system-requirements.md#networking-port-requirements).
 
 - Asegúrese de que el ancho de banda mínimo de Internet sea de 20 Mbps para que el dispositivo funcione de forma óptima.
 
@@ -69,12 +69,12 @@ Este dispositivo se suministra en una única caja. Realice los pasos siguientes 
 1. Coloque la caja en una superficie plana y nivelada.
 2. Compruebe si la caja y la espuma del embalaje presentan golpes, cortes, daños por agua o cualquier otro daño evidente. Si la caja o el embalaje están muy dañados, no los abra. Póngase en contacto con el soporte técnico de Microsoft para ayudarle a determinar si el dispositivo está en buen estado.
 3. Desempaquete la caja. Después de desempaquetar la caja, asegúrese de que dispone de:
-    - Un solo dispositivo contenedor de Azure Stack Edge Pro
+    - Un dispositivo contenedor Azure Stack Edge Pro con FPGA
     - Dos cables de alimentación
     - Un ensamblaje de kit de raíl
     - Un folleto informativo sobre la seguridad, el entorno y las normativas
 
-Si no recibió alguno de los elementos enumerados aquí, póngase en contacto con el soporte técnico de Azure Stack Edge Pro. El paso siguiente es el montaje en bastidor del dispositivo.
+Si no ha recibido todos los elementos enumerados aquí, póngase en contacto con el equipo de soporte técnico de Azure Stack Edge Pro con FPGA. El paso siguiente es el montaje en bastidor del dispositivo.
 
 
 ## <a name="rack-the-device"></a>Montaje del dispositivo en el bastidor
@@ -82,10 +82,10 @@ Si no recibió alguno de los elementos enumerados aquí, póngase en contacto co
 El dispositivo debe instalarse en un bastidor estándar de 19 pulgadas. Use el siguiente procedimiento para montar el dispositivo en un bastidor estándar de 19 pulgadas.
 
 > [!IMPORTANT]
-> Los dispositivos de Azure Stack Edge Pro tienen que estar montados en un bastidor para funcionar correctamente.
+> Los dispositivos de Azure Stack Edge Pro con FPGA tienen que estar montados en un bastidor para funcionar correctamente.
 
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 - Antes de comenzar, lea las instrucciones de seguridad en el folleto sobre la seguridad, el entorno y las normativas. Este folleto se envió junto con el dispositivo.
 - Comience la instalación de los raíles en el espacio asignado más próximo a la parte inferior del armario del bastidor.
@@ -156,11 +156,11 @@ Ubique los componentes de instalación de ensamblaje del kit de raíl:
 
 ## <a name="cable-the-device"></a>Cableado del dispositivo
 
-Disponga los cables y, a continuación, conéctelos al dispositivo. En los siguientes procedimientos se describe cómo realizar el cableado del dispositivo de Azure Stack Edge Pro para la conexión a la corriente eléctrica y a la red.
+Disponga los cables y, a continuación, conéctelos al dispositivo. En los siguientes procedimientos se describe cómo realizar el cableado del dispositivo Azure Stack Edge Pro con FPGA para la conexión a la corriente eléctrica y a la red.
 
 Antes de empezar el cableado del dispositivo, necesita lo siguiente:
 
-- El dispositivo físico de Azure Stack Edge Pro, desempaquetado y montado en el bastidor.
+- El dispositivo físico Azure Stack Edge Pro con FPGA, desempaquetado y montado en el bastidor.
 - Dos cables de alimentación.
 - Al menos un cable de red RJ-45 de 1-GbE cable para conectarse a la interfaz de administración de red. Hay dos interfaces de red de 1-GbE, uno de administración y otro de datos, en el dispositivo.
 - Un cable de cobre SFP+ de 25 GbE para cada interfaz de red de datos que se va a configurar. Al menos una interfaz de red de datos de entre los PUERTOS 2, 3, 4, 5 o 6, debe estar conectada a Internet (para la conectividad a Azure).  
@@ -169,9 +169,9 @@ Antes de empezar el cableado del dispositivo, necesita lo siguiente:
 > [!NOTE]
 > - Si va a conectar solo una interfaz de red de datos, es recomendable que use una interfaz de red de 25/10 GbE como la de los PUERTOS 3, 4, 5 o 6 para enviar datos a Azure. 
 > - Para obtener el mejor rendimiento y controlar grandes volúmenes de datos, considere la posibilidad de conectar todos los puertos de datos.
-> - El dispositivo de Azure Stack Edge Pro debe estar conectado a la red del centro de datos para que pueda realizar la ingesta de datos desde los servidores de origen de datos.
+> - El dispositivo Azure Stack Edge Pro con FPGA debe estar conectado a la red del centro de datos para que pueda ingerir datos de servidores de origen de datos.
 
-En el dispositivo de Azure Stack Edge Pro:
+En el dispositivo Azure Stack Edge Pro con FPGA:
 
 - El panel frontal tiene unidades de disco y un botón de encendido.
 
@@ -212,7 +212,7 @@ Realice los pasos siguientes para realizar el cableado de los cables de alimenta
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha obtenido información acerca de varios temas relacionados con Azure Stack Edge Pro, como:
+En este tutorial, ha aprendido sobre varios temas relacionados con Azure Stack Edge Pro con FPGA, tales como:
 
 > [!div class="checklist"]
 > * Desempaquetado del dispositivo
@@ -222,4 +222,4 @@ En este tutorial, ha obtenido información acerca de varios temas relacionados c
 Pase al siguiente tutorial para aprender a conectar, configurar y activar el dispositivo.
 
 > [!div class="nextstepaction"]
-> [Conexión y configuración de Azure Stack Edge Pro](./azure-stack-edge-deploy-connect-setup-activate.md)
+> [Conexión y configuración de Azure Stack Edge Pro con FPGA](./azure-stack-edge-deploy-connect-setup-activate.md)

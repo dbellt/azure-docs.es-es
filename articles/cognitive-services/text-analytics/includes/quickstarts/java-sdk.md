@@ -6,22 +6,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 04/19/2021
+ms.date: 06/11/2021
 ms.custom: devx-track-java
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
-ms.openlocfilehash: d39f40d4059b43246f523b4d01ca92c0360bc574
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: bd2babf0ae88cce5d6162ddd797225a83ef9367b
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765117"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112084064"
 ---
 <a name="HOLTop"></a>
 
 # <a name="version-31-preview"></a>[Versión 3.1 (versión preliminar)](#tab/version-3-1)
 
-[Documentación de referencia](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-preview) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.1.0-beta.5/sdk/textanalytics/azure-ai-textanalytics) | [Paquete](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.5) | [Ejemplos](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.0-beta.5/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
+[Documentación de referencia](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-preview) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.0-beta.7/sdk/textanalytics/azure-ai-textanalytics) | [Paquete](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.7) | [Ejemplos](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.0-beta.7/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
 # <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
@@ -44,14 +44,14 @@ ms.locfileid: "107765117"
 
 # <a name="version-31-preview"></a>[Versión 3.1 (versión preliminar)](#tab/version-3-1)
 
-Cree un proyecto de Maven en el entorno de desarrollo o IDE que prefiera. Luego, agregue la siguiente dependencia al archivo *pom.xml* del proyecto. La sintaxis de implementación [de otras herramientas de compilación](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.5) se puede encontrar en línea.
+Cree un proyecto de Maven en el entorno de desarrollo o IDE que prefiera. Luego, agregue la siguiente dependencia al archivo *pom.xml* del proyecto. La sintaxis de implementación [de otras herramientas de compilación](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.7) se puede encontrar en línea.
 
 ```xml
 <dependencies>
      <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-ai-textanalytics</artifactId>
-        <version>5.1.0-beta.5</version>
+        <version>5.1.0-beta.7</version>
     </dependency>
 </dependencies>
 ```
@@ -207,7 +207,7 @@ Recognized sentence sentiment: positive, positive score: 1.0, neutral score: 0.0
 Recognized sentence sentiment: neutral, positive score: 0.21, neutral score: 0.77, negative score: 0.02.
 ```
 
-### <a name="opinion-mining"></a>Minería de opiniones
+## <a name="opinion-mining"></a>Minería de opiniones
 
 Para realizar análisis de sentimiento con la minería de opiniones, cree una nueva función llamada `sentimentAnalysisWithOpinionMiningExample()` que tome el cliente que creó anteriormente y llame a su función `analyzeSentiment()` con el objeto de opción de configuración `AnalyzeSentimentOptions`. El objeto `AnalyzeSentimentResult` devuelto contendrá `documentSentiment` y `sentenceSentiments` si la operación se realiza correctamente, o `errorMessage` si no. 
 
@@ -365,66 +365,6 @@ Recognized entity: Seattle, entity category: Location, entity sub-category: GPE,
 Recognized entity: last week, entity category: DateTime, entity sub-category: DateRange, score: 0.8, offset: 24, length: 9.
 ```
 
-### <a name="entity-linking"></a>Vinculación de entidad
-
-Cree una función denominada `recognizeLinkedEntitiesExample()` que tome el cliente que creó anteriormente y llame a su función `recognizeLinkedEntities()`. El objeto devuelto `LinkedEntityCollection` contendrá una lista de `LinkedEntity` si la operación se realiza correctamente o `errorMessage` si no. Puesto que las entidades vinculadas se identifican de forma única, las apariciones de la misma entidad se agrupan bajo un objeto `LinkedEntity` como una lista de objetos `LinkedEntityMatch`.
-
-
-```java
-static void recognizeLinkedEntitiesExample(TextAnalyticsClient client)
-{
-    // The text that need be analyzed.
-    String text = "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, " +
-        "to develop and sell BASIC interpreters for the Altair 8800. " +
-        "During his career at Microsoft, Gates held the positions of chairman, " +
-        "chief executive officer, president and chief software architect, " +
-        "while also being the largest individual shareholder until May 2014.";
-
-    System.out.printf("Linked Entities:%n");
-    for (LinkedEntity linkedEntity : client.recognizeLinkedEntities(text)) {
-        System.out.printf("Name: %s, ID: %s, URL: %s, Data Source: %s.%n",
-            linkedEntity.getName(),
-            linkedEntity.getDataSourceEntityId(),
-            linkedEntity.getUrl(),
-            linkedEntity.getDataSource());
-        System.out.printf("Matches:%n");
-        for (LinkedEntityMatch linkedEntityMatch : linkedEntity.getMatches()) {
-            System.out.printf("Text: %s, Score: %.2f, Offset: %s, Length: %s%n",
-            linkedEntityMatch.getText(),
-            linkedEntityMatch.getConfidenceScore(),
-            linkedEntityMatch.getOffset(),
-            linkedEntityMatch.getLength());
-        }
-    }
-}
-```
-
-### <a name="output"></a>Output
-
-```console
-Linked Entities:
-Name: Microsoft, ID: Microsoft, URL: https://en.wikipedia.org/wiki/Microsoft, Data Source: Wikipedia.
-Matches:
-Text: Microsoft, Score: 0.55, Offset: 9, Length: 0
-Text: Microsoft, Score: 0.55, Offset: 9, Length: 150
-Name: Bill Gates, ID: Bill Gates, URL: https://en.wikipedia.org/wiki/Bill_Gates, Data Source: Wikipedia.
-Matches:
-Text: Bill Gates, Score: 0.63, Offset: 10, Length: 25
-Text: Gates, Score: 0.63, Offset: 5, Length: 161
-Name: Paul Allen, ID: Paul Allen, URL: https://en.wikipedia.org/wiki/Paul_Allen, Data Source: Wikipedia.
-Matches:
-Text: Paul Allen, Score: 0.60, Offset: 10, Length: 40
-Name: April 4, ID: April 4, URL: https://en.wikipedia.org/wiki/April_4, Data Source: Wikipedia.
-Matches:
-Text: April 4, Score: 0.32, Offset: 7, Length: 54
-Name: BASIC, ID: BASIC, URL: https://en.wikipedia.org/wiki/BASIC, Data Source: Wikipedia.
-Matches:
-Text: BASIC, Score: 0.33, Offset: 5, Length: 89
-Name: Altair 8800, ID: Altair 8800, URL: https://en.wikipedia.org/wiki/Altair_8800, Data Source: Wikipedia.
-Matches:
-Text: Altair 8800, Score: 0.88, Offset: 11, Length: 116
-```
-
 
 ### <a name="personally-identifiable-information-recognition"></a>Reconocimiento de información de identificación personal
 
@@ -485,7 +425,71 @@ Recognized entity: Seattle, entity category: Location, entity sub-category: GPE,
 Recognized entity: last week, entity category: DateTime, entity sub-category: DateRange, score: 0.8.
 ```
 
-### <a name="entity-linking"></a>Vinculación de entidad
+---
+
+## <a name="entity-linking"></a>Vinculación de entidad
+
+# <a name="version-31-preview"></a>[Versión 3.1 (versión preliminar)](#tab/version-3-1)
+
+Cree una función denominada `recognizeLinkedEntitiesExample()` que tome el cliente que creó anteriormente y llame a su función `recognizeLinkedEntities()`. El objeto devuelto `LinkedEntityCollection` contendrá una lista de `LinkedEntity` si la operación se realiza correctamente o `errorMessage` si no. Puesto que las entidades vinculadas se identifican de forma única, las apariciones de la misma entidad se agrupan bajo un objeto `LinkedEntity` como una lista de objetos `LinkedEntityMatch`.
+
+
+```java
+static void recognizeLinkedEntitiesExample(TextAnalyticsClient client)
+{
+    // The text that need be analyzed.
+    String text = "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, " +
+        "to develop and sell BASIC interpreters for the Altair 8800. " +
+        "During his career at Microsoft, Gates held the positions of chairman, " +
+        "chief executive officer, president and chief software architect, " +
+        "while also being the largest individual shareholder until May 2014.";
+
+    System.out.printf("Linked Entities:%n");
+    for (LinkedEntity linkedEntity : client.recognizeLinkedEntities(text)) {
+        System.out.printf("Name: %s, ID: %s, URL: %s, Data Source: %s.%n",
+            linkedEntity.getName(),
+            linkedEntity.getDataSourceEntityId(),
+            linkedEntity.getUrl(),
+            linkedEntity.getDataSource());
+        System.out.printf("Matches:%n");
+        for (LinkedEntityMatch linkedEntityMatch : linkedEntity.getMatches()) {
+            System.out.printf("Text: %s, Score: %.2f, Offset: %s, Length: %s%n",
+            linkedEntityMatch.getText(),
+            linkedEntityMatch.getConfidenceScore(),
+            linkedEntityMatch.getOffset(),
+            linkedEntityMatch.getLength());
+        }
+    }
+}
+```
+
+### <a name="output"></a>Output
+
+```console
+Linked Entities:
+Name: Microsoft, ID: Microsoft, URL: https://en.wikipedia.org/wiki/Microsoft, Data Source: Wikipedia.
+Matches:
+Text: Microsoft, Score: 0.55, Offset: 9, Length: 0
+Text: Microsoft, Score: 0.55, Offset: 9, Length: 150
+Name: Bill Gates, ID: Bill Gates, URL: https://en.wikipedia.org/wiki/Bill_Gates, Data Source: Wikipedia.
+Matches:
+Text: Bill Gates, Score: 0.63, Offset: 10, Length: 25
+Text: Gates, Score: 0.63, Offset: 5, Length: 161
+Name: Paul Allen, ID: Paul Allen, URL: https://en.wikipedia.org/wiki/Paul_Allen, Data Source: Wikipedia.
+Matches:
+Text: Paul Allen, Score: 0.60, Offset: 10, Length: 40
+Name: April 4, ID: April 4, URL: https://en.wikipedia.org/wiki/April_4, Data Source: Wikipedia.
+Matches:
+Text: April 4, Score: 0.32, Offset: 7, Length: 54
+Name: BASIC, ID: BASIC, URL: https://en.wikipedia.org/wiki/BASIC, Data Source: Wikipedia.
+Matches:
+Text: BASIC, Score: 0.33, Offset: 5, Length: 89
+Name: Altair 8800, ID: Altair 8800, URL: https://en.wikipedia.org/wiki/Altair_8800, Data Source: Wikipedia.
+Matches:
+Text: Altair 8800, Score: 0.88, Offset: 11, Length: 116
+```
+
+# <a name="version-30-preview"></a>[Versión preliminar 3.0](#tab/version-3)
 
 Cree una función denominada `recognizeLinkedEntitiesExample()` que tome el cliente que creó anteriormente y llame a su función `recognizeLinkedEntities()`. El objeto devuelto `LinkedEntityCollection` contendrá una lista de `LinkedEntity` si la operación se realiza correctamente o `errorMessage` si no. Puesto que las entidades vinculadas se identifican de forma única, las apariciones de la misma entidad se agrupan bajo un objeto `LinkedEntity` como una lista de objetos `LinkedEntityMatch`.
 
@@ -574,6 +578,8 @@ veterinarian
 
 # <a name="version-31-preview"></a>[Versión 3.1 (versión preliminar)](#tab/version-3-1)
 
+Puede usar la operación Analyze para realizar solicitudes por lotes asincrónicas para: NER, extracción de frases clave, análisis de sentimiento y detección de información de identificación personal. En el ejemplo siguiente se muestra un ejemplo básico sobre una operación. Puede encontrar un ejemplo más avanzado [en GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample_AnalyzeActions.md).
+
 [!INCLUDE [Analyze Batch Action pricing](../analyze-operation-pricing-caution.md)]
 
 Cree una nueva función llamada `analyzeBatchActionsExample()`, que llame a la función `beginAnalyzeBatchActions()`. El resultado será una operación de larga duración que se sondeará para encontrar resultados.
@@ -586,16 +592,16 @@ static void analyzeBatchActionsExample(TextAnalyticsClient client)
                         );
 
         
-        SyncPoller<AnalyzeBatchActionsOperationDetail, PagedIterable<AnalyzeBatchActionsResult>> syncPoller =
-                client.beginAnalyzeBatchActions(documents,
+        SyncPoller<AnalyzeActionsOperationDetail, PagedIterable<AnalyzeActionsResult>> syncPoller =
+                client.beginAnalyzeActions(documents,
                         new TextAnalyticsActions().setDisplayName("Analyze Batch Actions Quickstart")
                                 .setRecognizeEntitiesOptions(new RecognizeEntitiesOptions()),
-                        new AnalyzeBatchActionsOptions().setIncludeStatistics(false),
+                        new AnalyzeActionsOptions().setIncludeStatistics(false),
                         Context.NONE);
 
         // Task operation statistics
         while (syncPoller.poll().getStatus() == LongRunningOperationStatus.IN_PROGRESS) {
-            final AnalyzeBatchActionsOperationDetail operationResult = syncPoller.poll().getValue();
+            final AnalyzeActionsOperationDetail operationResult = syncPoller.poll().getValue();
             System.out.printf("Action display name: %s, Successfully completed actions: %d, in-process actions: %d, failed actions: %d, total actions: %d%n",
                     operationResult.getDisplayName(), operationResult.getActionsSucceeded(),
                     operationResult.getActionsInProgress(), operationResult.getActionsFailed(),
@@ -604,13 +610,13 @@ static void analyzeBatchActionsExample(TextAnalyticsClient client)
 
         syncPoller.waitForCompletion();
 
-        Iterable<PagedResponse<AnalyzeBatchActionsResult>> pagedResults = syncPoller.getFinalResult().iterableByPage();
-        for (PagedResponse<AnalyzeBatchActionsResult> page : pagedResults) {
+        Iterable<PagedResponse<AnalyzeActionsResult>> pagedResults = syncPoller.getFinalResult().iterableByPage();
+        for (PagedResponse<AnalyzeActionsResult> page : pagedResults) {
             System.out.printf("Response code: %d, Continuation Token: %s.%n", page.getStatusCode(), page.getContinuationToken());
-            page.getElements().forEach(analyzeBatchActionsResult -> {
+            page.getElements().forEach(analyzeActionsResult -> {
                 System.out.println("Entities recognition action results:");
                 IterableStream<RecognizeEntitiesActionResult> recognizeEntitiesActionResults =
-                        analyzeBatchActionsResult.getRecognizeEntitiesActionResults();
+                        analyzeActionsResult.getRecognizeEntitiesActionResults();
                 if (recognizeEntitiesActionResults != null) {
                     recognizeEntitiesActionResults.forEach(actionResult -> {
                         if (!actionResult.isError()) {
@@ -660,7 +666,7 @@ Recognized entity: Bill Gates, entity category: Person, entity subcategory: null
 Recognized entity: Paul Allen, entity category: Person, entity subcategory: null, confidence score: 0.990000.
 ```
 
-También puede usar la operación Analyze para detectar información de identificación personal, para reconocer entidades vinculadas y para la extracción de frases clave. Consulte el [ejemplo de Analyze](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro) de GitHub.
+También puede usar la operación Analyze para ejecutar NER, la extracción de frases clave, el análisis de sentimiento y la detección de información de identificación personal. Consulte el [ejemplo de Analyze](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/AnalyzeActionsAsync.java) de GitHub.
 
 # <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 

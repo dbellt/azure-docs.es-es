@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/28/2021
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: aba837ab590ae941e161e10e88782dcce944c085
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: b38b5303f21cb31115a2279648c8d631e31aa8bf
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108760470"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459321"
 ---
 # <a name="tutorial-create-logical-data-warehouse-with-serverless-sql-pool"></a>Tutorial: Creación de un almacenamiento de datos lógico con un grupo de SQL sin servidor
 
@@ -88,8 +88,10 @@ Los formatos de archivo externos definen la estructura de los archivos almacenad
 ```sql
 CREATE EXTERNAL FILE FORMAT ParquetFormat WITH (  FORMAT_TYPE = PARQUET );
 GO
-CREATE EXTERNAL FILE FORMAT CsvFormat WITH (  FORMAT_TYPE = CSV );
+CREATE EXTERNAL FILE FORMAT CsvFormat WITH (  FORMAT_TYPE = DELIMITEDTEXT );
 ```
+
+Para más información, [consulte este artículo](develop-tables-external-tables.md?tabs=native#syntax-for-create-external-file-format).
 
 ## <a name="explore-your-data"></a>Exploración de los datos
 
@@ -98,11 +100,11 @@ Una vez configurados los orígenes de datos, puede usar la función `OPENROWSET`
 ```sql
 select top 10  *
 from openrowset(bulk 'latest/ecdc_cases.parquet',
-                data_source = 'ecdc_cases'
+                data_source = 'ecdc_cases',
                 format='parquet') as a
 ```
 
-La función `OPENROWSET` le proporciona información sobre la columna de los contenedores o archivos externos, y le permite definir un esquema de las tablas y vistas externas.
+La función `OPENROWSET` le proporciona información sobre las columnas de los contenedores o archivos externos, y le permite definir un esquema de las tablas y vistas externas.
 
 ## <a name="create-external-tables-on-azure-storage"></a>Creación de tablas externas en Azure Storage
 
@@ -177,11 +179,23 @@ Para optimizar el rendimiento, debe usar los tipos más pequeños posibles de la
 ## <a name="access-and-permissions"></a>Acceso y permisos
 
 Como último paso, debe crear usuarios de base de datos que puedan acceder al almacenamiento de datos lógico y concederles permisos para seleccionar datos de las tablas y vistas externas.
-En el siguiente script puede ver cómo agregar un nuevo usuario y proporcionar permisos para leer datos:
+En el siguiente script puede ver cómo agregar un nuevo usuario que se autenticará mediante la identidad de Azure AD:
 
 ```sql
 CREATE USER [jovan@contoso.com] FROM EXTERNAL PROVIDER;
 GO
+```
+
+En lugar de entidades de seguridad de Azure AD, puede crear entidades de seguridad de SQL que se autentiquen con el nombre de inicio de sesión y la contraseña.
+
+```sql
+CREATE LOGIN [jovan] WITH PASSWORD = 'My Very strong Password ! 1234';
+CREATE USER [jovan] FROM LOGIN [jovan];
+```
+
+En ambos casos, puede asignar permisos a los usuarios.
+
+```sql
 DENY ADMINISTER DATABASE BULK OPERATIONS TO [jovan@contoso.com]
 GO
 GRANT SELECT ON SCHEMA::ecdc_adls TO [jovan@contoso.com]
@@ -202,6 +216,31 @@ Este usuario tiene los permisos mínimos necesarios para consultar datos externo
 ```sql
 GRANT CONTROL TO [jovan@contoso.com]
 ```
+
+### <a name="role-based-security"></a>Seguridad basada en roles
+
+En lugar de asignar permisos a los usos individuales, una buena práctica es organizar a los usuarios en roles y administrar los permisos en el nivel de rol.
+El ejemplo de código siguiente crea un nuevo rol que representa a las personas que pueden analizar casos de COVID-19 y agrega tres usuarios a este rol:
+
+```sql
+CREATE ROLE CovidAnalyst;
+
+ALTER ROLE CovidAnalyst ADD MEMBER [jovan@contoso.com];
+ALTER ROLE CovidAnalyst ADD MEMBER [milan@contoso.com];
+ALTER ROLE CovidAnalyst ADD MEMBER [petar@contoso.com];
+```
+
+Puede asignar los permisos a todos los usuarios que pertenecen al grupo:
+
+```sql
+GRANT SELECT ON SCHEMA::ecdc_cosmosdb TO [CovidAnalyst];
+GO
+DENY SELECT ON SCHEMA::ecdc_adls TO [CovidAnalyst];
+GO
+DENY ADMINISTER DATABASE BULK OPERATIONS TO [CovidAnalyst];
+```
+
+Este control de acceso de seguridad basada en roles puede simplificar la administración de las reglas de seguridad.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

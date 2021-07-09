@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/17/2021
+ms.date: 05/25/2021
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: dab265c41bc1c951a31ff764c9214e7f21ee3df4
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 08868a6ab3a3755d7bc9c2e7af4ab6c9116831d0
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279568"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110791816"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Tutorial: Uso del cifrado dinámico de DRM y el servicio de entrega de licencias
 
@@ -32,7 +32,7 @@ Puede usar Azure Media Services para entregar sus transmisiones cifradas con lic
 
 Media Services también proporciona un servicio para entregar licencias DRM de PlayReady, Widevine y FairPlay. Cuando un usuario solicita contenido protegido con DRM, la aplicación del reproductor solicita una licencia del servicio de licencias de Media Services. Si la aplicación del reproductor está autorizada, el servicio de licencias de Media Services otorga una licencia al reproductor. Una licencia contiene la clave de descifrado que puede usar el reproductor cliente para descifrar y hacer streaming del contenido.
 
-Este artículo se basa en el ejemplo de [Cifrado con DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM).
+Este artículo se basa en el ejemplo de [Cifrado con DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM).
 
 El ejemplo descrito en este artículo genera el siguiente resultado:
 
@@ -68,16 +68,24 @@ Clone en la máquina un repositorio GitHub que contenga el ejemplo de .NET compl
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
  ```
  
-El ejemplo "Encrypt with DRM" se encuentra en la carpeta [EncryptWithDRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM).
+El ejemplo "Encrypt with DRM" se encuentra en la carpeta [EncryptWithDRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM).
 
 > [!NOTE]
 > En el ejemplo se crean recursos únicos cada vez que se ejecuta la aplicación. Normalmente, se volverán a usar los recursos existentes, como las transformaciones y las directivas (si los recursos existentes tienen las configuraciones necesarias).
 
-## <a name="start-using-media-services-apis-with-net-sdk"></a>Uso de las API de Media Services con SDK de .NET
+### <a name="start-using-media-services-apis-with-the-net-sdk"></a>Empiece a usar las API de Media Services con el SDK de .NET.
 
-Para empezar a usar las API de Media Services con .NET, cree un objeto **AzureMediaServicesClient**. Para crear el objeto, debe proporcionar las credenciales necesarias para que el cliente se conecte a Azure mediante Azure AD. En el código que se clonó al principio del artículo, la función **GetCredentialsAsync** crea el objeto ServiceClientCredentials basándose en las credenciales proporcionadas en el archivo de configuración local.
+Para empezar a usar las API de Media Services con. NET, debe crear un objeto `AzureMediaServicesClient`. Para crear el objeto, debe proporcionar las credenciales para que el cliente se conecte a Azure mediante Azure Active Directory. Otra opción es usar la autenticación interactiva, que se implementa en `GetCredentialsInteractiveAuthAsync`.
 
-[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CreateMediaServicesClient)]
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#CreateMediaServicesClientAsync)]
+
+En el código que ha clonado al principio del artículo, la función `GetCredentialsAsync` crea el objeto `ServiceClientCredentials` en función de las credenciales proporcionadas en el archivo de configuración local (*appsettings.json*) o por medio del archivo de variables de entorno *.env* situado en la raíz del repositorio.
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#GetCredentialsAsync)]
+
+En el caso de la autenticación interactiva, la función `GetCredentialsInteractiveAuthAsync` crea el objeto `ServiceClientCredentials` en función de una autenticación interactiva y los parámetros de conexión proporcionados en el archivo de configuración local (*appsettings.json*) o a través del archivo de variables de entorno *.env* en la raíz del repositorio. En ese caso, AADCLIENTID y AADSECRET no son necesarios en el archivo de variables de entorno ni de configuración.
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#GetCredentialsInteractiveAuthAsync)]
 
 ## <a name="create-an-output-asset"></a>Creación de un recurso de salida  
 

@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: REST y AI a través de blobs de Azure'
 titleSuffix: Azure Cognitive Search
-description: Recorra un ejemplo de extracción de texto y de procesamiento de lenguaje natural por el contenido del almacenamiento de blobs con las API REST de Azure Cognitive Search y Postman.
+description: Recorra un ejemplo de extracción de texto y procesamiento de lenguaje natural en el contenido de Blob Storage con las API REST de Azure Cognitive Search y Postman.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/17/2020
-ms.openlocfilehash: 21f0d141567f17c470732088c6a93a2ae7ed3c67
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 878bdc1224134f7b9de684635cde77d057b221a7
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94738057"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111555999"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Uso de REST y AI para generar contenido en el que se pueden realizar búsquedas desde blobs de Azure
 
@@ -32,7 +32,7 @@ Si no tiene una suscripción a Azure, abra una [cuenta gratuita](https://azure.m
 
 ## <a name="overview"></a>Información general
 
-En este tutorial se usa C# y las API REST de Azure Cognitive Search para crear un origen de datos, un índice, un indexador y un conjunto de aptitudes. Empezará con documentos completos (texto no estructurado) como PDF, HTML, DOCX y PPTX en Azure Blob Storage y, a continuación, los ejecutará mediante un conjunto de aptitudes para extraer entidades, frases clave y otro texto en los archivos de contenido.
+En este tutorial se usa C# y las API REST de Azure Cognitive Search para crear un origen de datos, un índice, un indexador y un conjunto de aptitudes. Empezará con documentos completos (texto no estructurado) como PDF, HTML, DOCX y PPTX en Azure Blob Storage y, a continuación, los pasará por un conjunto de aptitudes para extraer entidades, frases clave y otro texto en los archivos de contenido.
 
 Este conjunto de aptitudes usa aptitudes integradas basadas en Cognitive Services APIs. Los pasos de la canalización incluyen la detección de los idiomas del texto, la extracción de frases clave y el reconocimiento de entidades (organizaciones). La nueva información se almacena en campos nuevos que se pueden aprovechar en consultas, facetas y filtros.
 
@@ -55,7 +55,7 @@ Opcionalmente, también puede descargar el código fuente, un archivo de colecci
 
 ## <a name="1---create-services"></a>1: Creación de servicios
 
-En este tutorial se usa Azure Cognitive Search en la indexación y las consultas, Cognitive Services en el back-end para el enriquecimiento de inteligencia artificial y Azure Blob Storage en la provisión de datos. Este tutorial permanece por debajo de la asignación gratuita de 20 transacciones por indexador al día en Cognitive Services, por lo que los únicos servicios que tiene que crear son la búsqueda y el almacenamiento.
+En este tutorial se usa Azure Cognitive Search para la indexación y las consultas, Cognitive Services en el back-end para el enriquecimiento con IA y Azure Blob Storage para proporcionar los datos. Este tutorial permanece por debajo de la asignación gratuita de 20 transacciones por indexador al día en Cognitive Services, por lo que los únicos servicios que tiene que crear son la búsqueda y el almacenamiento.
 
 Si es posible, cree los dos en la misma región y grupo de recursos para la proximidad y la capacidad de administración. En la práctica, la cuenta de Azure Storage puede estar en cualquier región.
 
@@ -113,7 +113,7 @@ Sin embargo, en este ejercicio puede omitir el aprovisionamiento de recursos, po
 
 El tercer componente es Azure Cognitive Search, que se puede [crear en el portal](search-create-service-portal.md). Puede usar el nivel Gratis para completar este tutorial. 
 
-Al igual que con Azure Blob Storage dedique un momento a recopilar la clave de acceso. Además, cuando empiece a estructurar las solicitudes, deberá proporcionar el punto de conexión y la clave de la API de administración que se usan para autenticar cada solicitud.
+Al igual que con Azure Blob Storage, dedique un momento a tomar nota de la clave de acceso. Además, cuando empiece a estructurar las solicitudes, deberá proporcionar el punto de conexión y la clave de la API de administración que se usan para autenticar cada solicitud.
 
 ### <a name="copy-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Copia de una clave de API de administración y una dirección URL para Azure Cognitive Search
 
@@ -185,7 +185,7 @@ Un [objeto conjunto de aptitudes](/rest/api/searchservice/create-skillset) es un
 
    | Habilidad                 | Descripción    |
    |-----------------------|----------------|
-   | [Reconocimiento de entidades](cognitive-search-skill-entity-recognition.md) | Extrae los nombres de las personas, organizaciones y ubicaciones del contenido del contenedor de blobs. |
+   | [Reconocimiento de entidades](cognitive-search-skill-entity-recognition-v3.md) | Extrae los nombres de las personas, organizaciones y ubicaciones del contenido del contenedor de blobs. |
    | [Detección de idioma](cognitive-search-skill-language-detection.md) | Detecta el idioma del contenido. |
    | [División de texto](cognitive-search-skill-textsplit.md)  | Divide el contenido de gran tamaño en fragmentos más pequeños antes de llamar a la aptitud de extracción de frases clave. La extracción de frases clave acepta entradas de 50 000 caracteres o menos. Algunos de los archivos de ejemplo deben dividirse para no superar este límite. |
    | [Extracción de frases clave](cognitive-search-skill-keyphrases.md) | Extrae las principales frases clave. |

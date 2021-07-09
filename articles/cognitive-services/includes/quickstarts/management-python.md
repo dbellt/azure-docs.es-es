@@ -6,14 +6,14 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/05/2020
+ms.date: 06/04/2021
 ms.author: pafarley
-ms.openlocfilehash: fb908cdcf3e235654effc043de29e599a48179d4
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: d98b71680e8be744b52f5060cc9be38366963fd6
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104879568"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111594368"
 ---
 [Documentación de referencia](/python/api/azure-mgmt-cognitiveservices/azure.mgmt.cognitiveservices) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices) | [Paquete (PyPi)](https://pypi.org/project/azure-mgmt-cognitiveservices/) | [Ejemplos](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices/tests)
 
@@ -21,6 +21,7 @@ ms.locfileid: "104879568"
 
 * Una suscripción a Azure válida: [cree una de manera gratuita](https://azure.microsoft.com/free/).
 * [Python 3.x](https://www.python.org/)
+* [!INCLUDE [terms-azure-portal](./terms-azure-portal.md)]
 
 [!INCLUDE [Create a service principal](./create-service-principal.md)]
 
@@ -83,6 +84,8 @@ Para ver todos los recursos de su cuenta de Azure (de todos los grupos de recurs
 La función siguiente elimina el recurso especificado del grupo de recursos dado.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/azure_management_service/create_delete_resource.py?name=snippet_delete)]
+
+Si necesita recuperar un recurso eliminado, consulte el artículo sobre la [recuperación de recursos de Cognitive Services eliminados](../../manage-resources.md).
 
 ## <a name="call-management-functions"></a>Funciones de administración de llamadas
 

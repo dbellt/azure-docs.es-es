@@ -6,12 +6,12 @@ ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: overview
 ms.date: 3/22/2021
-ms.openlocfilehash: ce582f810f483f2e5d3fdda2c3379ecad3842d51
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 902cd7c9cf0f682541be86e82a1d51525ad5b3f9
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107813279"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110678038"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>¿Qué es IoT industrial (IIoT)?
 
@@ -21,9 +21,9 @@ Microsoft Azure IoT industrial (IIoT) es un conjunto de módulos y servicios de 
 
 ## <a name="discover-register-and-manage-your-industrial-assets-with-azure"></a>Detección, registro y administración de los recursos industriales con Azure
 
-Azure IoT industrial permite a los operarios de la planta detectar los servidores habilitados para OPC UA de una red de la fábrica y registrarlos en Azure IoT Hub. El personal de operaciones puede suscribirse y reaccionar a los eventos de la fábrica desde cualquier lugar del mundo, recibir alertas y alarmas, y reaccionar ante ellos en tiempo real.
+La plataforma de Azure Industrial IoT permite a los operarios de la planta detectar los servidores habilitados para OPC UA de una red de la fábrica y registrarlos en Azure IoT Hub. El personal de operaciones puede suscribirse y reaccionar a los eventos de la fábrica desde cualquier lugar del mundo, recibir alertas y alarmas, y reaccionar ante ellos en tiempo real.
 
-IIoT proporciona un conjunto de microservicios que implementan la funcionalidad de OPC UA. Las API REST de microservicios reflejan el lado perimetral de los servicios de OPC UA. Están protegidas con la autenticación y la autorización de OAUTH respaldadas por Azure Active Directory (AAD). De esta forma, las aplicaciones en la nube pueden examinar los espacios de direcciones de servidor o las variables de lectura y escritura, y ejecutar métodos mediante HTTPS y cargas JSON sencillas de OPC UA. Los servicios perimetrales se implementan como módulos de Azure IoT Edge y se ejecutan de forma local. Los microservicios en la nube se implementan como microservicios de ASP.NET con una interfaz de REST y se ejecutan en una instancia administrada de Azure Kubernetes Services o de forma independiente en Azure App Service. Para los servicios perimetrales y en la nube, IIoT proporciona contenedores de Docker creados previamente en Microsoft Container Registry (MCR), lo que elimina este paso para el cliente. Los servicios perimetrales y en la nube se utilizan entre sí y deben usarse juntos. IIoT también proporciona scripts de implementación fáciles de usar que permiten implementar toda la plataforma con un solo comando.
+IIoT proporciona un conjunto de microservicios que implementan la funcionalidad de OPC UA. Las API REST de microservicios reflejan el lado perimetral de los servicios de OPC UA. Esto permite que las aplicaciones en la nube examinen los espacios de direcciones de servidor o las variables de lectura y escritura, y ejecutar métodos mediante HTTPS y cargas JSON sencillas de OPC UA. Los servicios perimetrales se implementan como módulos de Azure IoT Edge y se ejecutan de forma local. Los microservicios en la nube se implementan como microservicios de ASP.NET con una interfaz de REST y se ejecutan en una instancia administrada de Azure Kubernetes Services o de forma independiente en Azure App Service. Para los servicios perimetrales y en la nube, IIoT proporciona contenedores de Docker creados previamente en Microsoft Container Registry (MCR). Los servicios perimetrales y en la nube se utilizan entre sí y deben usarse juntos. IIoT también proporciona scripts de implementación fáciles de usar que permiten implementar toda la plataforma con un solo comando.
 
 Además, se pueden usar las API REST con cualquier lenguaje de programación mediante la especificación Open API (Swagger) expuesta. Esto significa que, al integrar OPC UA en soluciones de administración en la nube, los desarrolladores pueden elegir la tecnología que coincida con sus aptitudes, intereses y opciones de arquitectura. Por ejemplo, un desarrollador web de pila completa que desarrolle una aplicación para un panel de alarmas y eventos puede escribir la lógica para responder a los eventos en JavaScript o TypeScript sin tener conocimientos del SDK de OPC UA, C, C++, Java o C#.
 
@@ -40,7 +40,7 @@ Las soluciones de Azure IIoT se crean a partir de componentes específicos. Entr
 - **Módulos Edge industriales.**
 
 ### <a name="iot-hub"></a>IoT Hub
-Azure IoT Hub (https://azure.microsoft.com/services/iot-hub/ ) actúa como un centro de mensajes común para la comunicación bidireccional segura entre la aplicación IoT y los dispositivos que administra. Es una oferta de plataforma como servicio (PaaS) en la nube, abierta y flexible que admite SDK de código abierto y diversos protocolos. 
+[Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) actúa como un centro de mensajes común para la comunicación bidireccional segura entre la aplicación IoT y los dispositivos que administra. Es una oferta de plataforma como servicio (PaaS) en la nube, abierta y flexible que admite SDK de código abierto y diversos protocolos. 
 
 La recopilación de los datos industriales y empresariales en un centro de IoT permite almacenar los datos de forma segura, realizar análisis empresariales y de eficiencia sobre los datos y generar informes a partir de ellos. También puede aplicar servicios y herramientas de Microsoft Azure, como [Power BI](https://powerbi.microsoft.com), en los datos consolidados.
 
@@ -57,7 +57,10 @@ Un dispositivo IoT Edge se compone del entorno de ejecución de Edge y de módul
 - **Detección**: el módulo de detección, representado por la identidad del programa de detección, proporciona servicios de detección en el perímetro, que incluyen la detección de servidores de OPC UA. Si la detección está configurada y habilitada, el módulo enviará los resultados de un sondeo de examen a través de la ruta de acceso de telemetría de IoT Edge e IoT Hub al servicio de incorporación. El servicio procesa los resultados y actualiza todas las identidades relacionadas en el Registro.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que ha aprendido qué es IoT industrial, puede leer sobre la plataforma de IoT industrial y OPC Publisher:
+Ahora que aprendió qué es Industrial IoT, puede leer más sobre OPC Publisher o empezar a implementar la plataforma de IIoT:
 
 > [!div class="nextstepaction"]
 > [¿Qué es OPC Publisher?](overview-what-is-opc-publisher.md)
+
+> [!div class="nextstepaction"]
+> [Implementación de la plataforma de Industrial IoT](tutorial-deploy-industrial-iot-platform.md)

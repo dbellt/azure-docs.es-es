@@ -6,13 +6,13 @@ ms.author: banders
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/12/2020
-ms.openlocfilehash: ca4c1810912771f56661ca5b682b6991735f526e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 06/10/2021
+ms.openlocfilehash: 476e2bfb6883307fa243cfdc7af3d54d7fde6921
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023149"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112006102"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Aplicación del descuento por reserva a Azure Cosmos DB
 
@@ -43,15 +43,15 @@ El descuento por reserva se aplica a los costos de rendimiento de Azure Cosmos D
 |Azure Cosmos DB - 100 RU/s/Hora - Sur de Corea del Sur|    Sur de Corea del Sur     |     1    |
 |Azure Cosmos DB - 100 RU/s/Hora - Oeste de Europa|    Oeste de Europa     |      1   |
 |Azure Cosmos DB - 100 RU/s/Hora - Centro de Corea del Sur|   Centro de Corea del Sur    |       1  |
-|Azure Cosmos DB - 100 RU/s/Hora - Sur de Reino Unido|   Sur de Reino Unido 2      |     1    |
+|Azure Cosmos DB - 100 RU/s/Hora - Sur de Reino Unido|   Sur de Reino Unido      |     1    |
 |Azure Cosmos DB - 100 RU/s/Hora - Oeste de Reino Unido|   Oeste de Reino Unido      |    1     |
 |Azure Cosmos DB - 100 RU/s/Hora - Norte de Reino Unido |   Norte de Reino Unido    |     1    |
 |Azure Cosmos DB - 100 RU/s/Hora - Sur de Reino Unido 2|   Sur de Reino Unido 2      |     1    |
-|Azure Cosmos DB - 100 RU/s/Hora - Este de EE. UU. 2|  Este de EE. UU. 2     |     1    |
+|Azure Cosmos DB - 100 RU/s/Hora - Este de EE. UU. 2|  Este de EE. UU. 2     |     1    |
 |Azure Cosmos DB - 100 RU/s/Hora - Centro y norte de EE. UU.|   Centro y norte de EE. UU.      |     1    |
 |Azure Cosmos DB - 100 RU/s/Hora - Oeste de EE. UU.|   Oeste de EE. UU.      |     1    |
-|Azure Cosmos DB - 100 RU/s/Hora - Centro de EE. UU.| Centro de EE. UU.        |     1    |
-|Azure Cosmos DB - 100 RU/s/Hora - Oeste de EE. UU. 2|   Oeste de EE. UU. 2      |      1   |
+|Azure Cosmos DB - 100 RU/s/Hora - Centro de EE. UU.| Centro de EE. UU.        |     1    |
+|Azure Cosmos DB - 100 RU/s/Hora - Oeste de EE. UU. 2|   Oeste de EE. UU. 2      |      1   |
 |Azure Cosmos DB - 100 RU/s/Hora - Centro-oeste de EE. UU.|   Centro-oeste de EE. UU.      |       1  |
 |Azure Cosmos DB - 100 RU/s/Hora - Este de EE. UU.|   Este de EE. UU.      |  1       |
 |Azure Cosmos DB - 100 RU/s/Hora - Norte de Sudáfrica|     Norte de Sudáfrica    |   1      |
@@ -62,7 +62,7 @@ El descuento por reserva se aplica a los costos de rendimiento de Azure Cosmos D
 |Azure Cosmos DB - 100 RU/s/Hora - Oeste de Japón|     Oeste de Japón    |   1,125       |
 |Azure Cosmos DB - 100 RU/s/Hora - India occidental|     India occidental    |    1,1375     |
 |Azure Cosmos DB - 100 RU/s/Hora - India central|    Centro de la India     |  1,1375       |
-|Azure Cosmos DB - 100 RU/s/Hora - Este de Australia|     Este de Australia    |   1,15       |
+|Azure Cosmos DB - 100 RU/s/Hora - Este de Australia|     Este de Australia    |   1.15       |
 |Azure Cosmos DB - 100 RU/s/Hora - Centro de Canadá|  Centro de Canadá       |   1.2       |
 |Azure Cosmos DB - 100 RU/s/Hora - Centro de Francia|   Centro de Francia      |    1,25      |
 |Azure Cosmos DB - 100 RU/s/Hora - Sur de Brasil|  Sur de Brasil       |   1.5      |
@@ -74,7 +74,7 @@ El descuento por reserva se aplica a los costos de rendimiento de Azure Cosmos D
 
 Tenga en cuenta los siguientes requisitos para una reserva:
 
-* Capacidad de proceso necesaria: 50 000 RU/s  
+* Rendimiento necesario: 50 000 RU/s  
 * Regiones que usa: 2
 
 En este caso, sus gastos totales por demanda serían de 500 unidades de la métrica de 100 RU/s en estas dos regiones. El consumo total es de 100 000 RU/s por hora.
@@ -83,7 +83,7 @@ En este caso, sus gastos totales por demanda serían de 500 unidades de la métr
 
 Por ejemplo, suponga que necesita implementaciones de Azure Cosmos DB en las regiones "Centro y norte de EE. UU." y "Oeste de EE. UU.". Cada región tiene un consumo de rendimiento de 50 000 RU/s. Una compra de reserva de 100 000 RU/s. equilibrará por completo los gastos por demanda.
 
-El descuento que cubre una reserva se calcula como: consumo de rendimiento x proporción_descuento_por_reservas_para_región. Para las regiones "Centro y norte de EE. UU." y "Oeste de EE. UU.", la proporción de descuento por reserva es 1. Por lo tanto, se descuentan en total 100 000 RU/s. Este valor se calcula de la siguiente forma: 50 000 x 1 + 50 000 x 1 = 100 000 RU/s. No deberá pagar cargos adicionales en las tarifas de pago por uso normales.
+El descuento que cubre una reserva se calcula como: consumo de rendimiento x proporción_descuento_por_reservas_para_región. Para las regiones "Centro y norte de EE. UU." y "Oeste de EE. UU.", la proporción de descuento por reserva es 1. Por lo tanto, se descuentan en total 100 000 RU/s. Este valor se calcula de la siguiente forma: 50 000 x 1 + 50 000 x 1 = 100 000 RU/s. No deberá pagar cargos adicionales en las tarifas de pago por uso normales.
 
 |Descripción de la métrica | Region |Consumo de rendimiento (RU/s) |Descuento por reserva aplicado a las RU/s |
 |---------|---------|---------|---------|
@@ -99,9 +99,15 @@ Por ejemplo, suponga que necesita implementaciones de Azure Cosmos DB en las reg
 |Azure Cosmos DB - 100 RU/s/Hora - Centro de Australia 2  |  Centro de Australia 2   |  50.000  |  50.000   |
 |Azure Cosmos DB - 100 RU/s/Hora - Sur de Francia  |  Sur de Francia   |  50.000 |  15 384  |
 
-Usar 50 000 unidades en la región "Centro de Australia 2" se corresponde a 75 000 RU/s de uso facturables (o uso normalizado). Dicho valor se calcula de la siguiente forma: consumo de rendimiento x proporción_descuento_por_reservas_para_región. El cálculo da como resultado 75 000 RU/s de uso facturable o normalizado. Este valor se calcula de la siguiente forma: 50 000 x 1,5 = 75 000 RU/s.
+*  Usar 50 000 unidades en la región Centro de Australia 2 se corresponde a 75 000 RU/s de uso de reserva facturables (o uso normalizado). Dicho valor se calcula de la siguiente forma: consumo de rendimiento x proporción_descuento_por_reservas_para_región. El cálculo da como resultado 75 000 RU/s de uso facturable o normalizado. Este valor se calcula de la siguiente forma: 50 000 x 1,5 = 75 000 RU/s.
 
-Las 100 000 RU/s de la compra de reserva cubrirían las 75 000 RU/s en "Centro de Australia 2". Así, quedarían 25 000 RU/s para la región "Sur de Francia". De las restantes 25 000 RU/s, se aplica un descuento por reserva de 15 384 RU/s a la región "Sur de Francia". Este valor se calcula de la siguiente forma: 25 000/1,625 = 15 384 RU/s. Las restantes 34 616 RU/s de la región "Sur de Francia" se cobran según las tarifas de pago por uso normales.
+* Un uso de 50 000 unidades en la región Sur de Francia corresponde a 50 000 * 1625 = 81 250 RU/s de reserva necesarias.
+
+* La compra total de reserva es 100 000. Dado que la región Centro de Australia 2 usa 75 000 RU/s, quedan 25 000 RU/s para la otra región.
+
+* Para la región Sur de Francia, se usa la compra de reserva de 25 000 RU/s y quedan 56 250 RU/s de reserva (81 250 – 25 000 = 56 250 RU/s).
+
+* Se requieren 56 250 RU/s al usar la reserva. Para pagar estas RU/s a precios normales, debe convertirlas en RU/s normales dividiendo con la relación de reserva 56 250/1625 = 34 616 RU/s. Las RU/s normales se cobran según las tarifas normales de pago por uso.
 
 El sistema de facturación de Azure asignará el beneficio de la facturación por reserva a la primera instancia que se procese y coincida con la configuración de reserva. Por ejemplo, "Centro de Australia 2", en este caso.
 
@@ -113,7 +119,7 @@ Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técni
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información acerca de las reservas de Azure, consulte los siguientes artículos:
+Para obtener más información sobre las reservas de Azure, vea los artículos siguientes:
 
 * [Qué son las reservas de Azure](save-compute-costs-reservations.md)  
 * [Pago por adelantado para recursos de Azure Cosmos DB con capacidad reservada de Azure Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)  

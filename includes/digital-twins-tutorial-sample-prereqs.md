@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 1/20/2021
 ms.author: baanders
-ms.openlocfilehash: 5da84a797c4d04ff917832445a54846809790027
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 3a3e32a0ef85ba870cfe7af9639794632549f614
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787687"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "111350710"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -25,9 +25,9 @@ Para realizar este tutorial, instale [Visual Studio 2019](https://visualstudio
 >[!NOTE]
 > Asegúrese de que la instalación de Visual Studio 2019 incluye la [carga de trabajo de desarrollo de Azure](/dotnet/azure/configure-visual-studio) . Esta carga de trabajo permite a una aplicación publicar Azure Functions y realizar otras tareas de desarrollo de Azure.
 
-El tutorial utiliza un proyecto de ejemplo escrito en C#. El ejemplo se encuentra aquí: [Ejemplos de Azure Digital Twins de un extremo a otro](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Para **obtener el proyecto de ejemplo** en la máquina, vaya al vínculo del ejemplo y seleccione el botón *Browse code* (Examinar código) situado debajo del título. Esta acción le llevará al repositorio de GitHub donde encontrará los ejemplos, que puede descargar como un archivo ZIP seleccionando el botón *Código* y *Descargar archivo ZIP*.
+El tutorial se basa en [un proyecto de ejemplo completo de Azure Digital Twins escrito en C#](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Para **obtener el proyecto de ejemplo** en la máquina, vaya al vínculo del ejemplo y seleccione el botón *Browse code* (Examinar código) situado debajo del título. Esta acción le llevará al repositorio de GitHub donde encontrará los ejemplos, que puede descargar como un archivo ZIP seleccionando el botón *Código* y *Descargar archivo ZIP*.
 
-:::image type="content" source="../articles/digital-twins/media/includes/download-repo-zip.png" alt-text="Captura de pantalla del repositorio digital-twins-samples en GitHub. El botón Código está seleccionado y se muestra un pequeño cuadro de diálogo en el que el botón Descargar archivo ZIP está resaltado." lightbox="../articles/digital-twins/media/includes/download-repo-zip.png":::
+:::image type="content" source="../articles/digital-twins/media/includes/download-repo-zip.png" alt-text="Captura de pantalla del repositorio digital-twins-samples en GitHub, donde están resaltados los pasos para descargarlo como un archivo ZIP." lightbox="../articles/digital-twins/media/includes/download-repo-zip.png":::
 
 Esta acción descargará una carpeta ZIP en la máquina denominada **digital-twins-samples-master.zip**. Descomprima la carpeta y extraiga los archivos.
 

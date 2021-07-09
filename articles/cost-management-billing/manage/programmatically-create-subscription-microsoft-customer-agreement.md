@@ -9,16 +9,16 @@ ms.date: 03/29/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: fef8859e01b019cb174faee160bdfda135a23c4b
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 8928e4752f8b1201cc3f4d26e48fa64e75bdd1fd
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108293339"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111903498"
 ---
 # <a name="programmatically-create-azure-subscriptions-for-a-microsoft-customer-agreement-with-the-latest-apis"></a>Creación de suscripciones de Azure mediante programación para el Contrato de cliente de Microsoft con las API más recientes
 
-Este artículo le ayuda a crear mediante programación suscripciones de Azure para el Contrato de cliente de Microsoft con las versiones más recientes de las API. Si todavía usa la versión preliminar anterior, consulte [Creación de suscripciones de Azure mediante programación con las API de versión preliminar](programmatically-create-subscription-preview.md). 
+Este artículo le ayuda a crear mediante programación suscripciones de Azure para el Contrato de cliente de Microsoft con las versiones más recientes de las API. Si todavía usa la versión preliminar anterior, consulte [Creación de suscripciones de Azure mediante programación con las API heredadas](programmatically-create-subscription-preview.md). 
 
 En este artículo, se ofrece información sobre cómo crear suscripciones mediante programación con Azure Resource Manager.
 

@@ -6,19 +6,19 @@ author: vladvino
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: api-management
 ms.topic: include
-ms.date: 02/19/2021
+ms.date: 06/09/2021
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 0614e6fb1df13332cb05dcb7bb9b0f07a1764d23
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 0c01e797d74cd058bed94ee3bf8d52b927fd36cc
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107251628"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111889819"
 ---
-| Resource | Límite |
+| Recurso | Límite |
 | ---------------------------------------------------------------------- | -------------------------- |
-| Número máximo de unidades de escalado | 10 por región<sup>1</sup> |
+| Número máximo de unidades de escalado | 12 por región<sup>1</sup> |
 | Tamaño de memoria caché | 5 GiB por unidad<sup>2</sup> |
 | Conexiones simultáneas de back-end<sup>3</sup> por autoridad HTTP | 2048 por unidad<sup>4</sup> |
 | Tamaño máximo de respuestas en caché | 2 MiB |

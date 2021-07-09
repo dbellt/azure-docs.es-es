@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: ee7ccb126eb04e168ccc213f0429d41a76a8bc2f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 704697a88a723182c2dbbcb2f25eb18df7be34c1
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103021167"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111429595"
 ---
 **Volumen de colección de datos y retención** 
 
@@ -37,7 +37,7 @@ ms.locfileid: "103021167"
 
 | Category | Límite | Comentarios |
 |:---|:---|:---|
-| Número máximo de registros devueltos por una consulta de registro | 10 000 | Para reducir los resultados, use un ámbito de consulta, intervalo de tiempo y filtros en la consulta. |
+| Número máximo de registros devueltos por una consulta de registro | 30,000 | Para reducir los resultados, use un ámbito de consulta, intervalo de tiempo y filtros en la consulta. |
 
 
 **API de recopilador de datos**
@@ -52,7 +52,7 @@ ms.locfileid: "103021167"
 | Category | Límite | Comentarios |
 |:---|:---|:---|
 | Número máximo de registros devueltos por una única consulta | 500.000 | |
-| Tamaño máximo de los datos devueltos | 64 000 000 bytes (~61 MiB)| |
+| Tamaño máximo de los datos devueltos | Aprox. 104 MB (aprox. 100 MiB)| |
 | Tiempo máximo de ejecución de la consulta | 10 minutos | Consulte [Tiempos de espera](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) para obtener más detalles.  |
 | Velocidad máxima de solicitud | 200 solicitudes por 30 segundos por dirección IP de cliente o usuario de Azure AD | Consulte [Límites de velocidad](https://dev.loganalytics.io/documentation/Using-the-API/Limits) para obtener más detalles. |
 
@@ -61,6 +61,7 @@ ms.locfileid: "103021167"
 | Category | Límite | Comentarios |
 |:---|:---|:---|
 | Número máximo de registros | 500.000 | |
+| Tamaño máximo de los datos devueltos | Aprox. 104 MB (aprox. 100 MiB) | |
 | Tiempo de espera máximo de las consultas | 110 segundos | |
 | Gráficos | | La visualización en la página Registros y el conector utilizan diferentes bibliotecas de gráficos y algunas funcionalidades no están disponibles en el conector actualmente. |
 

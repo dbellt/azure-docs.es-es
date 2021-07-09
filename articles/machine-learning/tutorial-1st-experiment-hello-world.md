@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Ejecución de un script "Hola mundo" de Python'
+title: 'Tutorial: Introducción a un script de Python'
 titleSuffix: Azure Machine Learning
-description: La parte 1 de la serie de introducción de Azure Machine Learning muestra cómo enviar un script de Python "Hola mundo" trivial a la nube.
+description: Introducción al primer script de Python en Azure Machine Learning. Esta es la primera parte de una serie introductoria de tres partes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,19 +10,19 @@ author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 04/27/2021
-ms.custom: devx-track-python
-ms.openlocfilehash: d50105b88c7c719aa1d89aaa3f29fad43abc0a28
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.custom: devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.openlocfilehash: ccc28c5a20fd31d3200f6473210150587fd5b4ad
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108740810"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112028638"
 ---
-# <a name="tutorial-run-a-hello-world-python-script-part-1-of-3"></a>Tutorial: Ejecución de un script "Hola mundo" Script de Python (parte 1 de 3)
+# <a name="tutorial-get-started-with-a-python-script-in-azure-machine-learning-part-1-of-3"></a>Tutorial: Introducción a un script de Python en Azure Machine Learning (parte 1 de 3)
 
-En este tutorial aprenderá a usar el SDK de Azure Machine Learning para Python para enviar y ejecutar un script "Hola mundo" de Python.
+En este tutorial, ejecutará su primer script de Python en la nube con Azure Machine Learning. Esta es la *parte 1 de una serie de tutoriales de tres partes*.
 
-Este tutorial es la *parte 1 de una serie de tutoriales de tres partes* en la que aprenderá los aspectos básicos de Azure Machine Learning y completará tareas de aprendizaje automático basadas en trabajos en Azure. 
+En este tutorial se evita la complejidad del entrenamiento de un modelo de Machine Learning. Ejecutará un script de Python "Hola mundo" en la nube. Aprenderá cómo se usa un script de control para configurar y crear una ejecución en Azure Machine Learning.
 
 En este tutorial, aprenderá lo siguiente:
 
@@ -129,7 +129,7 @@ Esta es una descripción de cómo funciona el script de control:
       `config = ScriptRunConfig( ... )` 
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) ajusta el código `hello.py` y lo pasa al área de trabajo. Como sugiere su nombre, puede usar esta clase para _configurar_ cómo quiera el _script_ para su _ejecución_ en Azure Machine Learning. También especifica el destino de proceso en el que se ejecutará el script. En este código, el destino es el clúster de proceso que creó en el [tutorial de configuración](tutorial-1st-experiment-sdk-setup-local.md).
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) ajusta el código `hello.py` y lo pasa al área de trabajo. Como sugiere su nombre, puede usar esta clase para _configurar_ cómo quiera el _script_ para su _ejecución_ en Azure Machine Learning. También especifica el destino de proceso en el que se ejecutará el script. En este código, el destino es el clúster de proceso que creó en el [tutorial de configuración](./quickstart-create-resources.md).
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -157,6 +157,9 @@ Esta es una descripción de cómo funciona el script de control:
 Seleccione **Guardar y ejecutar el script en el terminal** para ejecutar el script de control, que a su vez ejecuta `hello.py` en el clúster de proceso que creó en el [tutorial de configuración](quickstart-create-resources.md).
 
 En el terminal, es posible que se le pida que inicie sesión para autenticarse.  Copie el código y siga el vínculo para completar este paso.
+
+> [!TIP]
+> Si acaba de crear el clúster de proceso, es posible que vea el error "UserError: Required Docker image not found..." (Error de usuario: No se encontró la imagen de Docker requerida..."). Espere unos 5 minutos e inténtelo de nuevo.  Es posible que el clúster de proceso necesite más tiempo antes de que esté listo para crear nodos.
 
 > [!div class="nextstepaction"]
 > [He enviado código en la nube](?success=submit-to-cloud#monitor) [He tenido un problema](https://www.research.net/r/7C2NTH7?issue=submit-to-cloud)

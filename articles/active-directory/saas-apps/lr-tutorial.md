@@ -9,34 +9,28 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/14/2019
+ms.date: 05/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 832c08123904b9fb889231faa86c1308704a2581
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f4c0ab8cb09839d208a1508730d9439a0c22ce60
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97606426"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111555729"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-loginradius"></a>Tutorial: Integración de Azure Active Directory con LoginRadius
 
-En este tutorial, aprenderá a integrar LoginRadius con Azure Active Directory (Azure AD).
+En este tutorial, aprenderá a integrar LoginRadius con Azure Active Directory (Azure AD). Al integrar LoginRadius con Azure AD, puede hacer lo siguiente:
 
-La integración de LoginRadius con Azure AD proporciona las siguientes ventajas:
+* Controlar en Azure AD quién tiene acceso a LoginRadius.
+* Permitir que los usuarios inicien sesión automáticamente en LoginRadius con sus cuentas de Azure AD.
+* Administrar las cuentas desde una ubicación central (Azure Portal).
 
-* Puede controlar en Azure AD quién tiene acceso a LoginRadius.
-* Puede permitir que los usuarios inicien sesión automáticamente en LoginRadius (inicio de sesión único) con sus cuentas de Azure AD.
-* Puede administrar sus cuentas en una ubicación central: Azure Portal.
-
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
-
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con LoginRadius, se necesitan los siguientes elementos:
 
-* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una cuenta gratuita](https://azure.microsoft.com/free/)
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una cuenta gratuita](https://azure.microsoft.com/free/).
 * Una suscripción habilitada para el inicio de sesión único en LoginRadius.
 
 ## <a name="scenario-description"></a>Descripción del escenario
@@ -45,69 +39,50 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 
 * LoginRadius admite el inicio de sesión único iniciado por **SP**.
 
-## <a name="adding-loginradius-from-the-gallery"></a>Adición de LoginRadius desde la galería
+> [!NOTE]
+> El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
+
+## <a name="add-loginradius-from-the-gallery"></a>Incorporación de LoginRadius desde la galería
 
 Para configurar la integración de LoginRadius con Azure AD, será preciso que agregue LoginRadius desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Incorporación de LoginRadius desde la galería:**
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. En la sección **Agregar desde la galería**, escriba **LoginRadius** en el cuadro de búsqueda.
+1. Seleccione **LoginRadius** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , seleccione el icono de **Azure Active Directory**.
+## <a name="configure-and-test-azure-ad-sso-for-loginradius"></a>Configuración y prueba del inicio de sesión único de Azure AD para LoginRadius
 
-    ![Botón Azure Active Directory](common/select-azuread.png)
+Configure y pruebe el inicio de sesión único de Azure AD con LoginRadius mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de LoginRadius.
 
-2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
+Para configurar y probar el inicio de sesión único de Azure AD con LoginRadius, lleve a cabo los siguientes pasos:
 
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+1. **[Configuración del inicio de sesión único en LoginRadius](#configure-loginradius-sso)** : para configurar los valores de Inicio de sesión único en la aplicación.
+    1. **[Creación de un usuario de prueba de LoginRadius](#create-loginradius-test-user)** : para tener un homólogo de B.Simon en LoginRadius que esté vinculado a la representación del usuario en Azure AD.
+1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación**.
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
-    ![Botón Nueva aplicación](common/add-new-app.png)
+Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-4. En el cuadro de búsqueda, escriba **LoginRadius**, seleccione **LoginRadius** en el panel de resultados y, a continuación, seleccione el botón **Agregar** para incorporar la aplicación.
+1. En Azure Portal, en la página de integración de aplicaciones de **LoginRadius**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
-    ![LoginRadius en la lista de resultados](common/search-new-app.png)
+   ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
-
-En esta sección, configurará y probará el inicio de sesión único de Azure AD con LoginRadius con un usuario de prueba llamado **Britta Simon**.
-Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de LoginRadius.
-
-Para configurar y probar el inicio de sesión único de Azure AD con LoginRadius, es preciso completar los siguientes bloques de creación:
-
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de LoginRadius](#configure-loginradius-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de LoginRadius](#create-loginradius-test-user)** : para tener un homólogo de Britta Simon en LoginRadius que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
-
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
-
-Para configurar el inicio de sesión único de Azure AD con LoginRadius, realice los pasos siguientes:
-
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **LoginRadius**, seleccione **Inicio de sesión único**.
-
-    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
-
-2. En el panel **Seleccione un método de inicio de sesión único**, elija el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
-
-    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
-
-3. En la página **Configuración del inicio de sesión único con SAML**, seleccione el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
-
-    ![Edición de la configuración básica de SAML](common/edit-urls.png)
-
-4. En la sección **Configuración básica de SAML**:
-
-   ![Información de dominio y direcciones URL de inicio de sesión único de LoginRadius](common/sp-identifier.png)
-
-   1. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://secure.loginradius.com/login`
+4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
    1. En el cuadro de texto **Identificador (Id. de entidad)** , escriba la dirección URL: `https://lr.hub.loginradius.com/`
 
    1. En el cuadro de texto **Dirección URL de respuesta (URL del Servicio de consumidor de aserciones)** , escriba la URL de ACS de LoginRadius: `https://lr.hub.loginradius.com/saml/serviceprovider/AdfsACS.aspx` 
+
+   1. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://secure.loginradius.com/login`
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, seleccione **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdalo en el equipo.
 
@@ -117,13 +92,31 @@ Para configurar el inicio de sesión único de Azure AD con LoginRadius, realice
 
    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-   - URL de inicio de sesión
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
-   - Identificador de Azure AD
+En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-   - URL de cierre de sesión
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En el campo **Nombre**, escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+   1. Haga clic en **Crear**.
 
-## <a name="configure-loginradius-single-sign-on"></a>Configuración del inicio de sesión único de LoginRadius
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+
+En esta sección, va a permitir que B.Simon acceda a LoginRadius utilizando el inicio de sesión único de Azure.
+
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **LoginRadius**.
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
+1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+
+## <a name="configure-loginradius-sso"></a>Configuración del inicio de sesión único de LoginRadius
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en la consola de administración de LoginRadius.
 
@@ -134,6 +127,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en la con
 3. Seleccione la pestaña **Inicio de sesión único** y, a continuación, **Azure AD**:
 
    ![Captura de pantalla que muestra el menú de inicio de sesión único en la consola de administración del equipo de LoginRadius.](./media/loginradius-tutorial/azure-ad.png)
+
 4. En la página de configuración de Azure AD, complete los pasos siguientes:
 
    ![Captura de pantalla que muestra la configuración de Azure Active Directory en la consola de administración del equipo de LoginRadius.](./media/loginradius-tutorial/single-sign-on.png)
@@ -170,56 +164,6 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en la con
     > [!NOTE]
     > La asignación de campos **Email** es obligatoria. Las asignaciones de campos **FirstName** y **LastName** son opcionales.
 
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
-
-El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en Azure Portal.
-
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
-
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
-
-2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-
-    ![Botón Nuevo usuario](common/new-user.png)
-
-3. En las propiedades de  **usuario**, siga estos pasos que se indican a continuación.
-
-   ![Cuadro de diálogo Usuario](common/user-properties.png)
-
-   1. En el campo **Nombre**, escriba **BrittaSimon**.
-  
-   1. En el campo **Nombre de usuario**, escriba `brittasimon@yourcompanydomain.extension`. Por ejemplo, BrittaSimon@contoso.com.
-
-   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-
-   1. Seleccione **Crear**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-
-En esta sección, permitirá que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a LoginRadius.
-
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **LoginRadius**.
-
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
-
-2. En la lista de aplicaciones, seleccione **LoginRadius**.
-
-    ![El vínculo de LoginRadius en la lista de aplicaciones](common/all-applications.png)
-
-3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
-
-    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
-4. Haga clic en el botón **Agregar usuario** y seleccione **Usuarios y grupos** en el panel **Agregar asignación**.
-
-    ![Panel Agregar asignación](common/add-assign-user.png)
-
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de **usuarios**. A continuación, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-
-6. Si espera algún valor de rol en la aserción de SAML, en el panel **Seleccionar rol**, seleccione el rol adecuado para el usuario en la lista. A continuación, elija el botón **Seleccionar** situado en la parte inferior de la pantalla.
-
-7. En el panel **Agregar asignación**, seleccione el botón **Asignar**.
-
 ### <a name="create-loginradius-test-user"></a>Creación de un usuario de prueba de LoginRadius
 
 1. Inicie sesión en su cuenta de la [consola de administración](https://adminconsole.loginradius.com/login) de LoginRadius.
@@ -227,23 +171,20 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 2. Vaya a la sección de administración del equipo en la consola de administración de LoginRadius.
 
    ![Captura de pantalla que muestra la consola de administración de LoginRadius.](./media/loginradius-tutorial/team-management.png)
+
 3. Seleccione **Agregar un miembro del equipo** en el menú lateral para abrir el formulario. 
 
 4. En el formulario **Agregar un miembro del equipo**, creará un usuario llamado Britta Simon en el sitio de LoginRadius al proporcionar los detalles del usuario y asignar los permisos que desea para el usuario. Para obtener más información sobre los permisos basados en roles, consulte la sección de [permisos de acceso de rol](https://www.loginradius.com/docs/api/v2/admin-console/team-management/manage-team-members#roleaccesspermissions0) del documento de [administración de miembros del equipo](https://www.loginradius.com/docs/api/v2/admin-console/team-management/manage-team-members#roleaccesspermissions0). Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
+## <a name="test-sso"></a>Prueba de SSO
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección probará la configuración de inicio de sesión único de Azure AD mediante Aplicaciones.
 
 1. En un explorador, vaya a https://accounts.loginradius.com/auth.aspx y seleccione **Fed SSO log in** (Inicio de sesión único Fed).
 2. Escriba el nombre de la aplicación LoginRadius y, a continuación, seleccione **inicio de sesión**.
 3. Debería abrirse una ventana emergente para solicitarle que inicie sesión en su cuenta de Azure AD.
 4. Después de la autenticación, se cerrará la ventana emergente y se iniciará sesión en la consola de administración de LoginRadius.
 
-## <a name="additional-resources"></a>Recursos adicionales
+## <a name="next-steps"></a>Pasos siguientes
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
-
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
+Una vez que haya configurado LoginRadius, puede aplicar el control de sesión, que protege su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

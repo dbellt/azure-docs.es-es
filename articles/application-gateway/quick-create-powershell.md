@@ -5,22 +5,25 @@ description: En esta guía de inicio rápido, obtendrá información sobre cómo
 services: application-gateway
 author: vhorne
 ms.author: victorh
-ms.date: 01/19/2021
+ms.date: 06/14/2021
 ms.topic: quickstart
 ms.service: application-gateway
 ms.custom: devx-track-azurepowershell - mvc - mode-api
-ms.openlocfilehash: a50c264829ce08b409b52b321ca9c31b3688aed9
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 66c28c68dccad7874d65c7c4c1c9c78cc2ea13da
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108320626"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072260"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway-using-azure-powershell"></a>Inicio rápido: Tráfico web directo con Azure Application Gateway mediante Azure PowerShell
 
 En este inicio rápido, usará Azure PowerShell para crear una puerta de enlace de aplicaciones. Luego, lo probará para asegurarse de que funciona correctamente. 
 
 La puerta de enlace de aplicaciones dirige el tráfico web de la aplicación a recursos específicos de un grupo de back-end. Se asignan escuchas a los puertos, se crean reglas y se agregan recursos a un grupo de back-end. Para simplificar, en este artículo se usa una configuración sencilla con una dirección IP de front-end pública, un cliente de escucha básico para hospedar un único sitio en la puerta de enlace de aplicaciones, una regla de enrutamiento de solicitudes básica y dos máquinas virtuales del grupo de back-end.
+
+:::image type="content" source="media/quick-create-portal/application-gateway-qs-resources.png" alt-text="recursos de Application Gateway":::
+
 
 También puede completar este inicio rápido con la [CLI de Azure](quick-create-cli.md) o con [Azure Portal](quick-create-portal.md).
 
@@ -59,15 +62,15 @@ Para que Azure se comunique entre los recursos que se crean, se necesita una red
 ```azurepowershell-interactive
 $agSubnetConfig = New-AzVirtualNetworkSubnetConfig `
   -Name myAGSubnet `
-  -AddressPrefix 10.0.1.0/24
+  -AddressPrefix 10.21.0.0/24
 $backendSubnetConfig = New-AzVirtualNetworkSubnetConfig `
   -Name myBackendSubnet `
-  -AddressPrefix 10.0.2.0/24
+  -AddressPrefix 10.21.1.0/24
 New-AzVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
   -Name myVNet `
-  -AddressPrefix 10.0.0.0/16 `
+  -AddressPrefix 10.21.0.0/16 `
   -Subnet $agSubnetConfig, $backendSubnetConfig
 New-AzPublicIpAddress `
   -ResourceGroupName myResourceGroupAG `

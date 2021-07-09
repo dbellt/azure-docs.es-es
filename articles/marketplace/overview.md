@@ -4,26 +4,50 @@ description: Información general de las ventajas y las opciones para los asocia
 author: mingshen-ms
 ms.author: mingshen
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: overview
+ms.custom: contperf-fy21q4
 ms.date: 10/15/2020
-ms.openlocfilehash: b624b8ba997acf75c652a522ce1eae9737371c97
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 443dcf5bf34622fd0767ac75ece83e3ea6dc3ad0
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108133194"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112075572"
 ---
 # <a name="what-is-the-microsoft-commercial-marketplace"></a>¿Qué es el marketplace comercial de Microsoft?
 
-Un catálogo de soluciones de nuestros proveedores de software independientes (ISV) asociados. Como miembro de la red de proveedores de software independientes de Microsoft Partner Network, puede crear, publicar y administrar sus ofertas del marketplace comercial en el Centro de partners. Las soluciones se muestran en nuestras tiendas en línea, junto con nuestras propias soluciones de Microsoft, para conectarle con empresas, organizaciones y agencias gubernamentales de todo el mundo.
+Un catálogo de soluciones de nuestros proveedores de software independientes (ISV) asociados. Como miembro de la red de proveedores de software independientes de Microsoft Partner Network, puede crear, publicar y administrar sus ofertas del marketplace comercial en el Centro de partners. Sus soluciones se muestran junto con nuestras propias soluciones de Microsoft, para conectarle con empresas, organizaciones y agencias gubernamentales de todo el mundo.
 
 El marketplace comercial está disponible en más de 100 países y regiones, y administramos el pago de impuestos en muchos de ellos. Si vende a clientes de Microsoft establecidos, estos tienen la ventaja adicional de incluir las compras en el marketplace comercial en sus contratos de compra de Microsoft existentes para recibir una factura consolidada de Microsoft.
 
+## <a name="why-sell-with-microsoft"></a>Motivos para vender con Microsoft
+
+Nuestro objetivo es ayudarle a acelerar su negocio en colaboración con Microsoft y a conectar a los clientes de Microsoft con las mejores soluciones que ofrece nuestro ecosistema de asociados. Para ello, le ayudaremos en su viaje, desde la incorporación a la publicación y el desarrollo. Aproveche las funcionalidades de marketplace comercial para desarrollar su negocio.
+
+- Expanda la cartera de soluciones a nuevos mercados y segmentos.
+- Genere nuevos clientes potenciales y oportunidades de venta.
+- Venda sus soluciones y escale las ventas a medida que los clientes mueven sus cargas de trabajo a la nube. 
+- Reduzca los ciclos de ventas, acelere los proyectos y aumente la rentabilidad con la venta de soluciones para escenarios de cargas de trabajo y del sector específicos.
+- Obtenga información útil sobre el rendimiento de los anuncios y los pedidos para aprender a maximizar las actividades de campaña para la solución.
+
+Los asociados que publican anuncios en el marketplace comercial pueden acceder a un conjunto diverso de ventajas técnicas, de marketing y de ventas gratuitas que contribuyen al crecimiento de su negocio:
+
+- Obtenga los recursos técnicos que necesita para preparar la aplicación para su lanzamiento, desde el soporte técnico, el diseño de aplicaciones y el diseño de la arquitectura hasta el crédito de Azure para el desarrollo y las pruebas.
+- Acceso gratuito a los aspectos básicos de la comercialización de Microsoft para ayudar a lanzar y promocionar su solución. También puede optar a campañas de marketing de Microsoft y a oportunidades de destacarse en el marketplace comercial.
+- Llegue a más clientes y amplíe sus oportunidades de venta con el programa [Proveedor de soluciones en la nube](https://partner.microsoft.com/cloud-solution-provider) (CSP), el programa de [venta conjunta](./co-sell-overview.md) y los equipos de ventas de Microsoft.
+
+Para más información sobre estas ventajas, consulte [Las ventajas del marketplace comercial](gtm-your-marketplace-benefits.md).
+
 ## <a name="commercial-marketplace-online-stores"></a>Tiendas en línea del marketplace comercial
 
-El marketplace comercial de Microsoft cuenta con dos tiendas en línea: [Microsoft AppSource](https://appsource.microsoft.com/) y [Azure Marketplace](https://azuremarketplace.microsoft.com/). Microsoft AppSource contiene soluciones empresariales y Azure Marketplace, soluciones de TI. El software y los servicios del marketplace comerciales también se pueden encontrar en productos de Microsoft como Microsoft 365, Dynamics 365, Microsoft Power Platform y Azure. Nuestras tiendas en línea y experiencias integradas en los productos atraen mensualmente a millones de clientes potenciales. Cada tienda en línea ofrece diferentes escenarios para garantizar que la solución o el servicio están disponibles para los clientes adecuados.
+El marketplace comercial de Microsoft, como se describe en este artículo, tiene dos tiendas en línea principales: 
 
-Al crear una oferta del marketplace comercial en el Centro de partners, se publicará en cualquiera de las tiendas en línea (o en las dos), en función del tipo de oferta, las categorías y otras opciones que seleccione. En el caso excepcional de que la oferta sea pertinente para los usuarios de ambas tiendas en línea, puede aparecer en ambos. Para más información, consulte [Opciones de lista y precios en función de la tienda en línea](determine-your-listing-type.md#listing-and-pricing-options-by-online-store) y la [Guía del comprador para Microsoft AppSource y Azure Marketplace](https://aka.ms/MarketplaceBuyerGuide).
+- [Microsoft AppSource](https://appsource.microsoft.com/), que contiene soluciones empresariales y Azure Marketplace.
+- [Azure Marketplace](https://azuremarketplace.microsoft.com/), que está diseñado para soluciones de TI.
+
+> [!NOTE]
+> Otros servicios y software del marketplace comercial también se pueden encontrar en productos de Microsoft como Microsoft 365, Dynamics 365, Microsoft Power Platform y Azure. Nuestras tiendas en línea y experiencias integradas en los productos atraen mensualmente a millones de clientes potenciales. Cada tienda en línea ofrece diferentes escenarios para garantizar que la solución o el servicio están disponibles para los clientes adecuados.
 
 ### <a name="microsoft-appsource"></a>Microsoft AppSource
 
@@ -31,7 +55,7 @@ Al crear una oferta del marketplace comercial en el Centro de partners, se publi
 
 Este es un ejemplo de página de oferta en AppSource:
 
-:::image type="content" source="media/overview/example-appsource.png" alt-text="Ilustra una página de oferta en Microsoft AppSource.":::
+:::image type="content" source="media/overview/example-appsource.png" alt-text="Captura de pantalla que muestra una página de oferta en Microsoft AppSource.":::
 
 ####  <a name="appsource-in-product-experience"></a>Experiencia dentro del producto de AppSource
 
@@ -45,7 +69,7 @@ Esta opción abre una ventana en la que el cliente puede buscar complementos de 
 
 ### <a name="azure-marketplace"></a>Azure Marketplace
 
-[Azure Marketplace](https://azuremarketplace.microsoft.com/) es para las soluciones integradas o creadas para Azure y diseñadas para profesionales y desarrolladores de TI. Esto incluye los anuncios de consultoría y los servicios administrados. Los servicios de consultoría de Azure Marketplace son ofertas de servicios profesionales que ayudan a los clientes a empezar a usar Azure o a acelerar su uso.
+[Azure Marketplace](https://azuremarketplace.microsoft.com/) es para las soluciones integradas o creadas para Azure y diseñadas para profesionales y desarrolladores de TI. Esta tienda incluye los anuncios de consultoría y los servicios administrados. Los servicios de consultoría de Azure Marketplace son ofertas de servicios profesionales que ayudan a los clientes a empezar a usar Azure o a acelerar su uso.
 
 Este es un ejemplo de página de oferta en Azure Marketplace:
 
@@ -61,23 +85,8 @@ Esta opción abre Azure Marketplace en Azure Portal, donde se pueden buscar solu
 
 :::image type="content" source="media/overview/search-portal.png" alt-text="Se muestran las opciones de búsqueda de Azure Marketplace en Azure Portal"::: 
 
-## <a name="benefits-of-selling-with-microsoft"></a>Ventajas de vender con Microsoft
-
-Nuestro objetivo es ayudarle a acelerar su negocio en colaboración con Microsoft y a conectar a los clientes de Microsoft con las mejores soluciones que ofrece nuestro ecosistema de asociados. Para ello, le ayudaremos en su viaje, desde la incorporación a la publicación y el desarrollo. Aproveche las funcionalidades de marketplace comercial para desarrollar su negocio.
-
-- Expanda la cartera de soluciones a nuevos mercados y segmentos.
-- Genere nuevos clientes potenciales y oportunidades de venta.
-- Venda sus soluciones y escale las ventas a medida que los clientes mueven sus cargas de trabajo a la nube. 
-- Reduzca los ciclos de ventas, acelere los proyectos y aumente la rentabilidad con la venta de soluciones para escenarios de cargas de trabajo y del sector específicos.
-- Obtenga información útil sobre el rendimiento de los anuncios y los pedidos para aprender a maximizar las actividades de campaña para la solución.
-
-Los asociados que publican anuncios en el marketplace comercial pueden acceder a un conjunto diverso de ventajas técnicas, de marketing y de ventas gratuitas que contribuyen al crecimiento de su negocio:
-
-- Aproveche los recursos técnicos que necesita para preparar la aplicación para su lanzamiento, desde el soporte técnico, el diseño de aplicaciones y el diseño de la arquitectura hasta el crédito de Azure para el desarrollo y las pruebas.
-- Acceso gratuito a los aspectos básicos de la comercialización de Microsoft para ayudar a lanzar y promocionar su solución. También puede optar a la inclusión en campañas de marketing de Microsoft adicionales y a oportunidades de destacarse en marketplace comercial.
-- Llegue a más clientes y amplíe sus oportunidades de venta con el programa [Proveedor de soluciones en la nube](https://partner.microsoft.com/cloud-solution-provider) (CSP), el programa [Co-Sell](./co-sell-overview.md) y los equipos de ventas de Microsoft.
-
-Para más información sobre estas ventajas, consulte [Las ventajas del marketplace comercial](gtm-your-marketplace-benefits.md).
+### <a name="which-store-should-i-choose"></a>¿Qué tienda debo elegir?
+Al crear una oferta del marketplace comercial en el Centro de partners, se publicará en cualquiera de las tiendas en función del tipo de oferta, las categorías y otras opciones que seleccione. En el caso excepcional de que la oferta sea pertinente para los usuarios de ambas tiendas en línea, puede aparecer en ambos. Para más información, consulte [Opciones de lista y precios en función de la tienda en línea](determine-your-listing-type.md#listing-and-pricing-options-by-online-store).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

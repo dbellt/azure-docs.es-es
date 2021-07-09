@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 08/04/2020
-ms.openlocfilehash: 9285928c94f0e1ce3de37f357aed57c32b5be01d
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 70793c997979be1c94dda0a5198df8c450e16496
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109713043"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031014"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Tutorial: Migración de SQL Server a una Instancia administrada de Azure SQL en línea mediante DMS
 
@@ -34,8 +34,8 @@ En este tutorial, aprenderá a:
 > * Realizar la migración total cuando esté listo.
 
 > [!IMPORTANT]
-> Para realizar migraciones en línea de SQL Server a la Instancia administrada de SQL mediante Azure Database Migration Service, debe proporcionar la copia de seguridad completa de la base de datos y las copias de seguridad de registros posteriores del recurso compartido de red SMB que el servicio pueda usar para migrar las bases de datos. Azure Database Migration Service no se inicia copias de seguridad y en su lugar usa las copias de seguridad existentes, que puede que ya tenga como parte de su plan de recuperación ante desastres, para la migración.
-> Asegúrese de que realiza las [copias de seguridad mediante la opción WITH CHECKSUM](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?preserve-view=true&view=sql-server-2017). Además, asegúrese de que no anexa varias copias de seguridad (es decir, completa y del registro de transacciones) a un único soporte físico de copia de seguridad; realice cada copia de seguridad en un archivo de copia de seguridad independiente. Por último, puede usar copias de seguridad comprimidas para reducir la probabilidad de experimentar posibles problemas asociados con la migración de copias de seguridad de gran tamaño.
+> En el caso de las migraciones en línea de SQL Server a SQL Managed Instance mediante Azure Database Migration Service, es preciso proporcionar la copia de seguridad de la base de datos completa y las posteriores copias de seguridad del registro en el recurso compartido de red SMB que el servicio puede usar para migrar bases de datos. Azure Database Migration Service no se inicia copias de seguridad y en su lugar usa las copias de seguridad existentes, que puede que ya tenga como parte de su plan de recuperación ante desastres, para la migración.
+> Asegúrese de que realiza las [copias de seguridad mediante la opción WITH CHECKSUM](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?preserve-view=true&view=sql-server-2017). Cada copia de seguridad se puede escribir en un archivo de copia de seguridad independiente o en varios archivos de copia de seguridad. Sin embargo, no se admite la anexación de varias copias de seguridad (es decir, el registro completo y de transacciones) en un único medio de copia de seguridad. Por último, puede usar copias de seguridad comprimidas para reducir la probabilidad de experimentar posibles problemas asociados con la migración de copias de seguridad de gran tamaño.
 
 > [!NOTE]
 > El uso de Azure Database Migration Service para realizar una migración en línea requiere la creación de una instancia basada en el plan de tarifa Premium.

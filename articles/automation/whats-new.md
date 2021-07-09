@@ -1,18 +1,17 @@
 ---
 title: Novedades de Azure Automation
 description: Se realizan actualizaciones significativas de la documentación de Azure Automation todos los meses.
+services: automation
 ms.subservice: ''
 ms.topic: overview
-author: mgoedtel
-ms.author: magoedte
-ms.date: 04/09/2021
+ms.date: 06/09/2021
 ms.custom: references_regions
-ms.openlocfilehash: f8b4d6965a8a1f046fd2459ce9fe5cce8ea45443
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 6eae4a65412ad922724d4c35b7628b15698ba841
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107531078"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982941"
 ---
 # <a name="whats-new-in-azure-automation"></a>Novedades de Azure Automation
 
@@ -24,13 +23,43 @@ Azure Automation recibe mejoras de forma continua. Para mantenerse al día de lo
 
 Esta página se actualiza mensualmente, por lo que se recomienda visitarla con frecuencia.
 
+## <a name="june-2021"></a>Junio de 2021
+
+### <a name="support-for-automation-and-state-configuration-available-in-west-us-3"></a>Compatibilidad con Automation y State Configuration disponible en Oeste de EE. UU. 3
+
+**Tipo:** Nueva característica
+
+Para más información, consulte [Residencia de datos en Azure](https://azure.microsoft.com/global-infrastructure/data-residency/) y seleccione su ubicación geográfica de la lista desplegable.
+
+## <a name="may-2021"></a>Mayo de 2021
+
+### <a name="startstop-vms-during-off-hours-v1"></a>Start/Stop VMs during off-hours (v1)
+
+**Tipo:** Plan de cambio
+
+Start/Stop VMs during off-hours (v1) caerá en desuso el 21 de mayo de 2022. Los clientes deben evaluar y planificar la migración a Start/Stop VMs v2 (versión preliminar). Para más información, consulte [Información general sobre Start/Stop VMs v2 (versión preliminar)](../azure-functions/start-stop-vms/overview.md).
+
+## <a name="april-2021"></a>Abril de 2021
+
+### <a name="support-for-update-management-and-change-tracking"></a>Compatibilidad con Update Management y Change Tracking
+
+**Tipo:** Nueva característica
+
+La asignación de regiones se ha actualizado para admitir Update Management y Change Tracking Este de Noruega, Norte de Emiratos Árabes Unidos, Centro-norte de EE. UU., Sur de Brasil y Centro de Corea del Sur. Para más información, consulte [Asignaciones admitidas](./how-to/region-mappings.md#supported-mappings).
+
+### <a name="support-for-system-assigned-managed-identities"></a>Compatibilidad para identidades administradas asignadas por el sistema
+
+**Tipo:** Nueva característica
+
+Azure Automation ahora admite [identidades administradas asignadas por el sistema](./automation-security-overview.md#managed-identities-preview) para trabajos híbridos y en la nube en las regiones públicas y Gov de Azure. Para más información, lea este [anuncio](https://azure.microsoft.com/updates/azure-automation-system-assigned-managed-identities/).
+
 ## <a name="march-2021"></a>Marzo de 2021
 
 ### <a name="new-azure-automation-built-in-policies"></a>Nuevas directivas integradas de Azure Automation
 
 **Tipo:** Nueva característica
 
-Azure Automation ha agregado 5 nuevas directivas integradas:
+Azure Automation ha agregado cinco nuevas directivas integradas:
 
 - Las cuentas de Automation deben deshabilitar el acceso a la red pública.
 - Las cuentas de Azure Automation deben usar claves administradas por el cliente para cifrar los datos en reposo.
@@ -38,7 +67,7 @@ Azure Automation ha agregado 5 nuevas directivas integradas:
 - Configurar conexiones de punto de conexión privado en cuentas de Azure Automation
 - Las conexiones de punto de conexión privado en cuentas de Automation deben estar habilitadas.
 
-Consulte el artículo [Referencia de las directivas](./policy-reference.md) para más información.
+Para más información, consulte la [referencia sobre Policy](./policy-reference.md).
 
 ### <a name="support-for-automation-and-state-configuration-declared-ga-in-south-india"></a>Compatibilidad con la disponibilidad general declarada de Automation y State Configuration en Sur de la India
 
@@ -58,7 +87,7 @@ Use las funcionalidades de automatización de procesos y de configuración de es
 
 Use las funcionalidades de automatización de procesos y de configuración de estados en la región Centro de Emiratos Árabes Unidos. Para más información, lea este [anuncio](https://azure.microsoft.com/updates/azure-automation-in-uae-central-region/).
 
-### <a name="support-for-automation-and-state-configuration-available-in-australia-central-2--norway-west-and-france-south"></a>La compatibilidad con Automation y State Configuration está disponible para las regiones Centro de Australia 2, Oeste de Noruega y Sur de Francia
+### <a name="support-for-automation-and-state-configuration-available-in-australia-central-2-norway-west-and-france-south"></a>Compatibilidad con Automation y State Configuration disponible en Centro de Australia 2, Oeste de Noruega y Sur de Francia
 
 **Tipo:** Nueva característica
 
@@ -74,19 +103,19 @@ Se han agregado dos nuevos scripts al [repositorio de GitHub](https://github.com
 
 **Tipo:** Nueva característica
 
-Consulte [Uso de un webhook de una plantilla de ARM](./automation-webhooks.md#use-a-webhook-from-an-arm-template) para más información.
+Para más información, consulte [Uso de un webhook de una plantilla de ARM](./automation-webhooks.md#use-a-webhook-from-an-arm-template).
 
 ### <a name="azure-update-management-now-supports-centos-8x-red-hat-enterprise-linux-server-8x-and-suse-linux-enterprise-server-15"></a>Azure Update Management ahora admite Centos 8.x, Red Hat Enterprise Linux Server 8.x y SUSE Linux Enterprise Server 15
 
 **Tipo:** Nueva característica
 
-Consulte la [lista completa](./update-management/overview.md#supported-operating-systems) de sistemas operativos Linux compatibles para más información.
+Consulte la [lista completa](./update-management/operating-system-requirements.md) de sistemas operativos Linux compatibles para más información.
 
 ### <a name="in-region-data-residency-support-for-brazil-south-and-south-east-asia"></a>Compatibilidad con la residencia de datos en la región para las regiones Sur de Brasil y Sudeste de Asia 
 
 **Tipo:** Nueva característica
 
-En todas las regiones excepto Sur de Brasil y Sudeste de Asia, los datos de Azure Automation se almacenan en una región diferente (región emparejada de Azure) para proporcionar continuidad empresarial y recuperación ante desastres (BCDR). En el caso de las regiones Sur de Brasil y Sudeste de Asia, los datos de Azure Automation se almacenan en la misma región para adaptarse a los requisitos de residencia de datos de estas regiones. Consulte [Replicación geográfica en Azure Automation](./automation-managing-data.md#geo-replication-in-azure-automation) para más información.
+En todas las regiones excepto Sur de Brasil y Sudeste de Asia, los datos de Azure Automation se almacenan en una región diferente (región emparejada de Azure) para proporcionar continuidad empresarial y recuperación ante desastres (BCDR). En el caso de las regiones Sur de Brasil y Sudeste de Asia, los datos de Azure Automation se almacenan en la misma región para adaptarse a los requisitos de residencia de datos de estas regiones. Para más información, consulte [Replicación geográfica en Azure Automation](./automation-managing-data.md#geo-replication-in-azure-automation).
 
 ## <a name="february-2021"></a>Febrero de 2021
 
@@ -180,7 +209,7 @@ Administre máquinas con Oracle Linux 6 y 7 con Automation y State Configuratio
 
 **Tipo:** Nueva característica
 
-Azure Automation ahora admite la ejecución híbrida y en la nube de Python 3 en la versión preliminar pública en todas las regiones de la nube de Azure Global. Para más información, vea el [anuncio]((https://azure.microsoft.com/updates/azure-automation-python-3-public-preview/).
+Azure Automation ahora admite la ejecución híbrida y en la nube de Python 3 en la versión preliminar pública en todas las regiones de la nube de Azure Global. Para más información, consulte el anuncio (https://azure.microsoft.com/updates/azure-automation-python-3-public-preview/).
 
 ## <a name="november-2020"></a>Noviembre de 2020
 
@@ -244,7 +273,7 @@ Automation Hybrid Runbook Worker es compatible con el sistema operativo Windows 
 
 **Tipo:** Nueva característica
 
-Update Management admite la evaluación y aplicación de revisiones en el sistema operativo Windows Server 2008 R2. Consulte el apartado sobre [sistemas operativos compatibles ](update-management/overview.md#clients) para conocer las actualizaciones de la documentación que refleja estos cambios.
+Update Management admite la evaluación y aplicación de revisiones en el sistema operativo Windows Server 2008 R2. Consulte el apartado sobre [sistemas operativos compatibles ](update-management/operating-system-requirements.md) para conocer las actualizaciones de la documentación que refleja estos cambios.
 
 ### <a name="automation-diagnostic-logs-schema-update"></a>Actualización del esquema de registros de diagnóstico de Automation
 
@@ -290,7 +319,7 @@ Los registros DNS de Azure Automation se han actualizado para admitir Private Li
 
 **Tipo:** Nueva característica
 
-Además de mejorar la seguridad de los recursos, los runbooks y los scripts de DSC también se cifran para mejorar la seguridad de Azure Automation.
+Además de mejorar la seguridad de los recursos, los runbooks y DSC, los scripts también se cifran para mejorar la seguridad de Azure Automation.
 
 ## <a name="april-2020"></a>Abril de 2020
 
@@ -334,7 +363,7 @@ Los clientes pueden administrar y proteger el cifrado de los recursos de Azure A
 
 **Tipo:** Retirada
 
-Las API REST de Azure Service Management (ASM) para Azure Automation se retirarán y dejarán de tener soporte técnico el 30 de enero de 2020. Para más información, vea el [anuncio](https://azure.microsoft.com/updates/azure-automation-service-management-rest-apis-are-being-retired-april-30-2019/).
+Las API REST de Azure Service Management (ASM) para Azure Automation se retirarán y dejarán de tener soporte técnico el 30 de enero de 2020. Para más información, vea el [anuncio](https://azure.microsoft.com/updates/azure-automation-service-management-rest-apis-are-being-retired-april-30-2019/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

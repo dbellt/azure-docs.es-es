@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dca888bf9e3dc75e80764949a11d95efe3514635
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ba78cc0ff3104dd0827b0fe5108ad981183c413a
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96861823"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953511"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migración de la federación a la sincronización de hash de contraseña para Azure Active Directory
 
@@ -156,7 +156,7 @@ En esta sección se describen las personalizaciones de AD FS comunes.
 
 AD FS emite la notificación **InsideCorporateNetwork** si el usuario que realiza la autenticación está dentro de la red corporativa. Esta notificación se puede transmitir entonces a Azure AD. La notificación se utiliza para omitir la autenticación multifactor basada en la ubicación de red del usuario. Para obtener información sobre cómo determinar si esta funcionalidad actualmente está habilitada en AD FS, consulte [Direcciones IP de confianza para usuarios federados](../authentication/howto-mfa-adfs.md).
 
-La notificación **InsideCorporateNetwork** dejará de estar estará disponible cuando los dominios se conviertan a la sincronización de hash de contraseña. Se pueden usar las [ubicaciones con nombre de Azure AD](../reports-monitoring/quickstart-configure-named-locations.md) para reemplazar esta funcionalidad.
+La notificación **InsideCorporateNetwork** dejará de estar estará disponible cuando los dominios se conviertan a la sincronización de hash de contraseña. Se pueden usar las [ubicaciones con nombre de Azure AD](../conditional-access/location-condition.md) para reemplazar esta funcionalidad.
 
 Una vez que se han configurado las ubicaciones con nombre, debe actualizar todas las directivas de acceso condicional que se configuraron para incluir o excluir los valores de red **Todas las ubicaciones de confianza** o **IP de confianza de MFA** para reflejar las ubicaciones con nombre recién creadas.
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/21/2020
+ms.date: 05/14/2021
 ms.author: jeedes
-ms.openlocfilehash: b76c41787d7a35fb3024fa18c0122bc966243bbc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 05831b88c492051b2b8d48071702335b3aac76b9
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96008402"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110062506"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trend-micro-web-security-tmws"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Trend Micro Web Security (TMWS)
 
@@ -25,8 +25,6 @@ En este tutorial aprenderá a integrar Trend Micro Web Security (TMWS) con Azure
 * Controlar en Azure AD quién tiene acceso a TMWS.
 * Permitir que los usuarios inicien sesión automáticamente en TMWS con sus cuentas de Azure AD.
 * Administrar sus cuentas en una ubicación central: Azure Portal.
-
-Para más información acerca de la integración de aplicaciones SaaS con Azure AD, consulte [Inicio de sesión único en aplicaciones de Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -39,14 +37,13 @@ Para empezar, necesitará lo siguiente:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* TMWS admite el inicio de sesión único iniciado por SP.
-* Una vez configurado TMWS, puede aplicar el control de sesión, que protege la filtración e infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. Para obtener información sobre cómo aplicar el control de sesión mediante Microsoft Cloud App Security, consulte [Incorporación e implementación de Control de aplicaciones de acceso condicional para cualquier aplicación](/cloud-app-security/proxy-deployment-any-app).
+* TMWS admite el SSO iniciado por **SP**.
 
 ## <a name="add-tmws-from-the-gallery"></a>Incorporación de TMWS desde la galería
 
 Para configurar la integración de TMWS en Azure AD, deberá agregar dicha solución desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta Microsoft personal, profesional o educativa.
+1. Inicie sesión en Azure Portal con una cuenta Microsoft personal, profesional o educativa.
 1. En el panel izquierdo, seleccione el servicio **Azure Active Directory**.
 1. Seleccione **Aplicaciones empresariales** y, después, **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
@@ -70,7 +67,7 @@ Completará estos pasos básicos para configurar y probar el inicio de sesión �
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Trend Micro Web Security (TMWS)** , busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de aplicaciones de **Trend Micro Web Security (TMWS)** , busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
 1. En la página **Configuración del inicio de sesión único con SAML**, seleccione el botón de lápiz de **Configuración básica de SAML** para editar la configuración:
 
@@ -127,13 +124,7 @@ En esta sección va a permitir que B.Simon acceda a TMWS mediante el inicio de s
 1. En Azure Portal, seleccione **Aplicaciones empresariales** y, a continuación, seleccione **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **Trend Micro Web Security (TMWS)** .
 1. En la sección **Administrar** de la página de información general de la aplicación, seleccione **Usuarios y grupos**:
-
-   ![Seleccionar Usuarios y grupos](common/users-groups-blade.png)
-
 1. Seleccione **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
-
-    ![Selección de Agregar usuario](common/add-assign-user.png)
-
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** en la lista **Usuarios** y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 1. En el cuadro de diálogo **Agregar asignación**, seleccione **Asignar**.
@@ -228,16 +219,6 @@ Después de configurar correctamente el servicio Azure AD y especificar Azure 
 
 1. En la ventana de inicio de sesión de Azure AD, escriba las credenciales de la cuenta de Azure AD. Con esto debe haber iniciado sesión en TMWS.
 
-## <a name="additional-resources"></a>Recursos adicionales
+## <a name="next-steps"></a>Pasos siguientes
 
-- [Tutoriales para la integración de aplicaciones SaaS con Azure Active Directory ](./tutorial-list.md)
-
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
-
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
-
-- [Pruebe Trend Micro Web Security con Azure AD](https://aad.portal.azure.com/)
-
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
-
-- [Protección de Trend Micro Web Security con controles y visibilidad avanzados](/cloud-app-security/proxy-intro-aad)
+Una vez configurado TMWS, puede aplicar el control de sesión, que protege la filtración e infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

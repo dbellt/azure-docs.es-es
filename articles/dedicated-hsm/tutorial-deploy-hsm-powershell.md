@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: 5ed5ac90f446f74c54488f6d0cf23adbd63a3e1e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2b93496244ed36ce2ca08dfd48b7bb176d6cdd40
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606885"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949459"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutorial: Implementación de HSM en una red virtual existente con PowerShell
 
@@ -33,7 +33,7 @@ Una arquitectura de implementación típica, con alta disponibilidad y para vari
 
 ![implementación de varias regiones](media/tutorial-deploy-hsm-powershell/high-availability.png)
 
-Este tutorial se centra en dos HSM y en la puerta de enlace de ExpressRoute necesaria (consulte la Subred 1 anterior) que se integra en una red virtual ya existente (consulte la red virtual 1 anterior).  Todos los demás recursos son recursos estándar de Azure. Se puede utilizar el mismo proceso de integración para HSM en la subred 4 de la red virtual 3 anterior.
+Este tutorial se centra en dos HSM y en la [puerta de enlace de ExpressRoute](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) necesaria (consulte la subred 1 anterior) que se integra en una red virtual existente (consulte la red virtual 1 anterior).  Todos los demás recursos son recursos estándar de Azure. Se puede utilizar el mismo proceso de integración para HSM en la subred 4 de la red virtual 3 anterior.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -52,7 +52,7 @@ Todas las instrucciones que aparecen a continuación presuponen que ya ha ido a 
 
 ## <a name="provisioning-a-dedicated-hsm"></a>Aprovisionamiento de un HSM dedicado
 
-El aprovisionamiento de los HSM y la integración en una red virtual ya existente mediante la puerta de enlace de ExpressRoute se validará con la herramienta de línea de comandos ssh para garantizar la accesibilidad y disponibilidad básica del dispositivo HSM para otras actividades de configuración. Los siguientes comandos usarán una plantilla de Resource Manager para crear los recursos HSM y los recursos de red asociados.
+El aprovisionamiento de los HSM y la integración en una red virtual existente mediante la [puerta de enlace de ExpressRoute](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) se validará mediante la herramienta de línea de comandos de SSH para garantizar la accesibilidad y disponibilidad básica del dispositivo HSM para otras actividades de configuración. Los siguientes comandos usarán una plantilla de Resource Manager para crear los recursos HSM y los recursos de red asociados.
 
 ### <a name="validating-feature-registration"></a>Validación del registro de características
 
@@ -68,7 +68,7 @@ El comando debe devolver un estado "Registrado" (como se muestra a continuación
 
 ### <a name="creating-hsm-resources"></a>Creación de recursos HSM
 
-Un dispositivo HSM se aprovisiona en la red virtual de un cliente. Esto conlleva que sea necesaria una subred. Se requiere una dependencia para que el HSM habilite la comunicación entre la red virtual y el dispositivo físico en una puerta de enlace de ExpressRoute y, finalmente, también se requiere una red virtual para acceder al dispositivo HSM mediante el software cliente Thales. Estos recursos se han recopilado en un archivo de plantilla, junto con el correspondiente archivo de parámetros, para facilitar su uso. Para obtener los archivos póngase en contacto con Microsoft directamente en HSMrequest@Microsoft.com.
+Un dispositivo HSM se aprovisiona en la red virtual de un cliente. Esto conlleva que sea necesaria una subred. Una dependencia para que el HSM habilite la comunicación entre la red virtual y el dispositivo físico en una [puerta de enlace de ExpressRoute](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) y, por último, se requiere una red virtual para acceder al dispositivo HSM mediante el software cliente Thales. Estos recursos se han recopilado en un archivo de plantilla, junto con el correspondiente archivo de parámetros, para facilitar su uso. Para obtener los archivos póngase en contacto con Microsoft directamente en HSMrequest@Microsoft.com.
 
 Una vez que tenga los archivos, debe editar el archivo de parámetros para insertar los nombres preferidos de los recursos. Esto significa editar las líneas con "value": "".
 

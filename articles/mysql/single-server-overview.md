@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: b0f8c5806ba22708db6dc537d391c1f1b1a183ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9752b97e2f9bcff2f08dd2a280014e2c3d4a06c6
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92543821"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110470277"
 ---
 # <a name="azure-database-for-mysql-single-server"></a>Servidor único de Azure Database for MySQL
 
@@ -59,9 +59,9 @@ El servicio de servidor único está disponible en tres niveles de SKU: Básico,
 
 ## <a name="enterprise-grade-security-compliance-and-governance"></a>Seguridad, cumplimiento y gobernanza empresarial
 
-El servicio de servidor único usa el módulo criptográfico con validación FIPS 140-2 para el cifrado del almacenamiento de los datos en reposo. Se cifran los datos, incluidas las copias de seguridad, y los archivos temporales creados mientras se ejecutan las consultas. El servicio usa el cifrado AES de 256 bits que se incluye en el cifrado de Azure Storage, y el sistema (valor predeterminado) o [el cliente](concepts-data-encryption-mysql.md) pueden administrar las claves. El servicio cifra los datos en movimiento con la Seguridad de la capa de transporte (SSL/TLS) que se aplica de manera predeterminada. El servicio admite las versiones de TLS 1.2, 1.1 y 1.0 con capacidad para aplicar la [versión de TLS mínima](concepts-ssl-connection-security.md). 
+El servicio de servidor único usa el módulo criptográfico con validación FIPS 140-2 para el cifrado del almacenamiento de los datos en reposo. Se cifran los datos, incluidas las copias de seguridad, y los archivos temporales creados mientras se ejecutan las consultas. El servicio usa el cifrado AES de 256 bits que se incluye en el cifrado de Azure Storage, y el sistema (valor predeterminado) o [el cliente](concepts-data-encryption-mysql.md) pueden administrar las claves. El servicio cifra los datos en movimiento con la Seguridad de la capa de transporte (SSL/TLS) que se aplica de manera predeterminada. El servicio admite las versiones de TLS 1.2, 1.1 y 1.0 con capacidad para aplicar la [versión de TLS mínima](concepts-ssl-connection-security.md). 
 
-El servicio permite el acceso privado a los servidores mediante el [vínculo privado](concepts-data-access-security-private-link.md) y ofrece una característica de [protección contra amenazas avanzada](concepts-data-access-and-security-threat-protection.md). La protección contra amenazas avanzada detecta las actividades anómalas que indican intentos poco habituales y posiblemente dañinos de acceder a las bases de datos o aprovecharse de ellas.
+El servicio permite el acceso privado a los servidores mediante la conexión de [vínculo privado](concepts-data-access-security-private-link.md) y ofrece protección contra amenazas a través del plan opcional [Azure Defender para bases de datos relacionales de código abierto](../security-center/defender-for-databases-introduction.md). Azure Defender detecta actividades anómalas que indican intentos inusuales y potencialmente peligrosos de obtener acceso a las bases de datos o de vulnerar su seguridad.
 
 Además de la autenticación nativa, el servicio de servidor único admite la autenticación de [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). La autenticación de Azure AD es un mecanismo que permite conectar con los servidores de MySQL mediante identidades definidas y administradas en Azure AD. Con la autenticación de Azure AD, puede administrar las identidades de los usuarios de la base de datos y otros servicios de Azure en una ubicación central, lo que simplifica y centraliza el control de acceso.
 

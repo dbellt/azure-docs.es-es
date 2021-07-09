@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: f108062c04292c322d07980155fea9c8808beb0a
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 07fbe0cff104c25eca6db2750c2db692429ada65
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326748"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110786521"
 ---
 # <a name="tutorial-migrate-web-service-from-bing-maps"></a>Tutorial: Migración de servicios web desde Mapas de Bing
 
@@ -44,7 +44,7 @@ En la siguiente tabla se indican las API de servicio de Azure Maps que proporcio
 | Servicios de datos espaciales (SDS)           | [Search](/rest/api/maps/search) + [Route](/rest/api/maps/route) + otros servicios de Azure |
 | Zona horaria                             | [Zona horaria](/rest/api/maps/timezone)  |
 | Incidentes de tráfico                     | [Detalles del incidente de tráfico](/rest/api/maps/traffic/gettrafficincidentdetail)                     |
-| Elevation                             | [Elevation (versión preliminar)](/rest/api/maps/elevation)
+| Elevation                             | [Elevación](/rest/api/maps/elevation)
 
 Las siguientes API de servicio no están disponibles actualmente en Azure Maps:
 
@@ -53,7 +53,7 @@ Las siguientes API de servicio no están disponibles actualmente en Azure Maps:
 
 Azure Maps tiene varios servicios web REST adicionales que pueden ser de interés:
 
--   [Azure Maps Creator (versión preliminar)](./creator-indoor-maps.md): cree un gemelo digital privado y personalizado de edificios y espacios.
+-   [Azure Maps Creator](./creator-indoor-maps.md): cree un gemelo digital privado personalizado de edificios y espacios.
 -   [Operaciones espaciales](/rest/api/maps/spatial): descargue cálculos y operaciones espaciales complejos, como geovallas, en un servicio.
 -   [Mosaicos de mapa](/rest/api/maps/render/getmaptile): acceda a mosaicos de carreteras e imágenes desde Azure Maps en forma de mosaicos de trama y vectoriales.
 -   [Rutas por lotes](/rest/api/maps/route/postroutedirectionsbatchpreview): permite realizar hasta 1000 solicitudes de ruta en un único lote durante un período. Las rutas se calculan en paralelo en el servidor para acelerar el procesamiento.

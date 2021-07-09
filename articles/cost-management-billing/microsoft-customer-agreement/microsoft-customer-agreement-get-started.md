@@ -6,15 +6,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/29/2021
+ms.date: 05/21/2021
 ms.author: banders
 ms.reviewer: baolcsva
-ms.openlocfilehash: 60d42598da2e0b7f29bfea832d27dc5156761556
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 9ef2d08f3cbc557cfa914c13298b1675afbf455c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108322066"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110458695"
 ---
 # <a name="key-next-steps-after-accepting-your-microsoft-customer-agreement"></a>Pasos clave siguientes después de aceptar el Contrato de cliente de Microsoft
 
@@ -96,6 +96,10 @@ Asegúrese de actualizar el identificador fiscal después de mover las suscripci
 1. Realice las actualizaciones y, después, seleccione **Guardar**.
 
 [Obtenga más información sobre cómo actualizar la configuración de la cuenta de facturación](/microsoft-store/update-microsoft-store-for-business-account-settings).
+
+## <a name="cancel-support-plan"></a>Cancelación del plan de soporte técnico
+
+Obtenga información sobre cómo [cancelar un plan de soporte técnico anterior.](../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json#cancel-a-prior-support-plan)
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Ponerse en contacto con nosotros
 

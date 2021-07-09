@@ -8,16 +8,16 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 10/16/2020
-ms.openlocfilehash: 15b67c969cb0464256caed58a2e7388eb7a76b9c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7c60addd80f7ed027870744d12975fd76983b2f5
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608802"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109813837"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Tutorial: Creación de una definición de trabajo de Apache Spark en Synapse Studio
 
-En este tutorial se muestra cómo usar Azure Synapse Studio para crear definiciones de trabajos de Apache Spark y enviarlas luego a un grupo de Apache Spark sin servidor.
+En este tutorial se muestra cómo usar Synapse Studio para crear definiciones de trabajos de Apache Spark y enviarlas luego a un grupo de Apache Spark sin servidor.
 
 En este tutorial se describen las tareas siguientes:
 > [!div class="checklist"]
@@ -45,7 +45,7 @@ Antes de comenzar este tutorial, asegúrese de que se cumplen los requisitos sig
 
 En esta sección, creará una definición de trabajo de Apache Spark para PySpark (Python).
 
-1. Abra [Azure Synapse Studio](https://web.azuresynapse.net/).
+1. Abra [Synapse Studio](https://web.azuresynapse.net/).
 
 2. Puede ir a [Sample files for creating Apache Spark job definitions](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python) (Archivos de ejemplo de creación de definiciones de trabajo en Apache Spark) para descargar **archivos de ejemplo para python.zip**; después, descomprima el paquete y extraiga los archivos **wordcount.py** y **shakespeare.txt**. 
 

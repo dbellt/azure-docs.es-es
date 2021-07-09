@@ -3,18 +3,18 @@ title: Información sobre los datos de Azure Cost Management
 description: Este artículo le ayudará a comprender mejor qué datos se incluyen en Azure Cost Management y con qué frecuencia se procesan, recopilan, muestran y cierran.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/17/2021
+ms.date: 05/24/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 568f3d811876073dc899204cb8ca4d1753d9cfd0
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 025208685d45658824956b5625993a5dfdbf5e6a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102499308"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467540"
 ---
 # <a name="understand-cost-management-data"></a>Descripción de los datos de Cost Management
 
@@ -31,32 +31,30 @@ La siguiente información muestra las [ofertas de Microsoft Azure](https://azure
 | **Categoría**  | **Nombre de la oferta** | **Identificador de la cuota** | **Número de la oferta** | **Datos disponibles desde** |
 | --- | --- | --- | --- | --- |
 | **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P | Mayo de 2014<sup>1</sup> |
-| **Azure Government** | Pago por uso de Azure Government | PayAsYouGo_2014-09-01 | MS-AZR-USGOV-0003P | 2 de octubre de 2018<sup>2</sup> |
+| **Azure Government** | Pago por uso de Azure Government | PayAsYouGo_2014-09-01 | MS-AZR-USGOV-0003P | 2 de octubre de 2018 |
 | **Contrato Enterprise (EA)** | Desarrollo/pruebas - Enterprise                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P | Mayo de 2014<sup>1</sup> |
 | **Contrato Enterprise (EA)** | Microsoft Azure Enterprise | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | Mayo de 2014<sup>1</sup> |
-| **Contrato de cliente de Microsoft** | Plan de Microsoft Azure | EnterpriseAgreement_2014-09-01 | N/D | Marzo de 2019<sup>3</sup> |
-| **Contrato de cliente de Microsoft** | Plan de Microsoft Azure para desarrollo y pruebas | MSDNDevTest_2014-09-01 | N/D | Marzo de 2019<sup>3</sup> |
+| **Contrato de cliente de Microsoft** | Plan de Microsoft Azure | EnterpriseAgreement_2014-09-01 | N/D | Marzo de 2019<sup>2</sup> |
+| **Contrato de cliente de Microsoft** | Plan de Microsoft Azure para desarrollo y pruebas | MSDNDevTest_2014-09-01 | N/D | Marzo de 2019<sup>2</sup> |
 | **Contrato de cliente de Microsoft admitido por los asociados** | Plan de Microsoft Azure | CSP_2015-05-01, CSP_MG_2017-12-01 y CSPDEVTEST_2018-05-01<br><br>El identificador de cuota se reutiliza para el Contrato de cliente de Microsoft y las suscripciones de CSP heredadas. Actualmente, solo se admiten las suscripciones de Contrato de cliente de Microsoft. | N/D | Octubre de 2019 |
-| **Microsoft Developer Network (MSDN)** | Plataformas de MSDN<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2 de octubre de 2018<sup>2</sup> |
-| **Pay-As-You-Go** | Pay-As-You-Go                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2 de octubre de 2018<sup>2</sup> |
-| **Pay-As-You-Go** | Desarrollo/pruebas - Pago por uso         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2 de octubre de 2018<sup>2</sup> |
-| **Pay-As-You-Go** | Microsoft Partner Network      | MPN_2014-09-01 | MS-AZR-0025P | 2 de octubre de 2018<sup>2</sup> |
-| **Pay-As-You-Go** | Evaluación gratuita<sup>4</sup>         | FreeTrial_2014-09-01 | MS-AZR-0044P | 2 de octubre de 2018<sup>2</sup> |
-| **Pay-As-You-Go** | Azure bajo licencia Open<sup>4</sup>      | AzureInOpen_2014-09-01 | MS-AZR-0111P | 2 de octubre de 2018<sup>2</sup> |
-| **Pay-As-You-Go** | Pase para Azure<sup>4</sup>                                                            | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P | 2 de octubre de 2018<sup>2</sup> |
-| **Visual Studio** | Visual Studio Enterprise – MPN<sup>4</sup>     | MPN_2014-09-01 | MS-AZR-0029P | 2 de octubre de 2018<sup>2</sup> |
-| **Visual Studio** | Visual Studio Professional<sup>4</sup>         | MSDN_2014-09-01 | MS-AZR-0059P | 2 de octubre de 2018<sup>2</sup> |
-| **Visual Studio** | Visual Studio Test Professional<sup>4</sup>    | MSDNDevTest_2014-09-01 | MS-AZR-0060P | 2 de octubre de 2018<sup>2</sup> |
-| **Visual Studio** | Visual Studio Enterprise<sup>4</sup>           | MSDN_2014-09-01 | MS-AZR-0063P | 2 de octubre de 2018<sup>2</sup> |
-| **Visual Studio** | Visual Studio Enterprise: BizSpark<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0064P | 2 de octubre de 2018<sup>2</sup> |
+| **Microsoft Developer Network (MSDN)** | Plataformas de MSDN<sup>3</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2 de octubre de 2018 |
+| **Pay-As-You-Go** | Pay-As-You-Go                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2 de octubre de 2018 |
+| **Pay-As-You-Go** | Desarrollo/pruebas - Pago por uso         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2 de octubre de 2018 |
+| **Pay-As-You-Go** | Microsoft Partner Network      | MPN_2014-09-01 | MS-AZR-0025P | 2 de octubre de 2018 |
+| **Pay-As-You-Go** | Evaluación gratuita<sup>3</sup>         | FreeTrial_2014-09-01 | MS-AZR-0044P | 2 de octubre de 2018 |
+| **Pay-As-You-Go** | Azure bajo licencia Open<sup>3</sup>      | AzureInOpen_2014-09-01 | MS-AZR-0111P | 2 de octubre de 2018 |
+| **Pay-As-You-Go** | Pase para Azure<sup>3</sup>                                                            | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P | 2 de octubre de 2018 |
+| **Visual Studio** | Visual Studio Enterprise: MPN<sup>3</sup>     | MPN_2014-09-01 | MS-AZR-0029P | 2 de octubre de 2018 |
+| **Visual Studio** | Visual Studio Professional<sup>3</sup>         | MSDN_2014-09-01 | MS-AZR-0059P | 2 de octubre de 2018 |
+| **Visual Studio** | Visual Studio Test Professional<sup>3</sup>    | MSDNDevTest_2014-09-01 | MS-AZR-0060P | 2 de octubre de 2018 |
+| **Visual Studio** | Visual Studio Enterprise<sup>3</sup>           | MSDN_2014-09-01 | MS-AZR-0063P | 2 de octubre de 2018 |
+| **Visual Studio** | Visual Studio Enterprise: BizSpark<sup>3</sup> | MSDN_2014-09-01 | MS-AZR-0064P | 2 de octubre de 2018 |
 
 _<sup>**1**</sup> Para los datos antes de mayo de 2014, visite [Azure Enterprise Portal](https://ea.azure.com)._
 
-_<sup>**2**</sup> Para los datos antes del 2 de octubre de 2018, visite el [Centro de cuentas de Azure](https://account.azure.com/subscriptions) para cuentas globales y el [Centro de cuentas de Azure Government](https://account.windowsazure.us/subscriptions) para cuentas de Azure Government._
+_<sup>**2**</sup> Los contratos de cliente de Microsoft comenzaron en marzo de 2019 y no tienen ningún dato histórico antes de este momento._
 
-_<sup>**3**</sup> Los contratos de cliente de Microsoft comenzaron en marzo de 2019 y no tienen ningún dato histórico antes de este punto._
-
-_<sup>**4**</sup> Es posible que los datos históricos de las suscripciones basadas en crédito y pagadas por adelantado no coincidan con la factura. Consulte [Los datos históricos pueden no coincidir con la factura](#historical-data-might-not-match-invoice) a continuación._
+_<sup>**3**</sup> Es posible que los datos históricos de las suscripciones de pago por adelantado y basadas en crédito no coincidan con la factura. Consulte [Los datos históricos pueden no coincidir con la factura](#historical-data-might-not-match-invoice) a continuación._
 
 Las siguientes ofertas todavía no se admiten:
 
@@ -67,7 +65,7 @@ Las siguientes ofertas todavía no se admiten:
 | **Proveedor de soluciones en la nube (CSP)** | Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
 | **Proveedor de soluciones en la nube (CSP)** | Azure Alemania en CSP para Microsoft Cloud Alemania   | CSP_2015-05-01 | MS-AZR-DE-0145P |
 | **Pay-As-You-Go**                 | Paquete de inicio de Azure for Students | DreamSpark_2015-02-01 | MS-AZR-0144P |
-| **Pay-As-You-Go** | Azure for Students<sup>4</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P |
+| **Pay-As-You-Go** | Azure for Students<sup>3</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P |
 | **Pay-As-You-Go**                 | Patrocinio de Microsoft Azure | Sponsored_2016-01-01 | MS-AZR-0036P |
 | **Planes de soporte técnico** | Soporte técnico Standard                    | Default_2014-09-01 | MS-AZR-0041P |
 | **Planes de soporte técnico** | Soporte técnico Professional Direct         | Default_2014-09-01 | MS-AZR-0042P |
@@ -93,17 +91,17 @@ Las siguientes tablas muestran los datos que se incluyen o no se incluyen en Cos
 
 | **Se incluye** | **No se incluye** |
 | --- | --- |
-| Uso del servicio de Azure<sup>5</sup>        | Cargos de soporte técnico - Para obtener más información, consulte [Explicación de los términos de facturación](../understand/understand-invoice.md). |
-| Uso de la oferta de Marketplace<sup>6</sup> | Impuestos - Para obtener más información, consulte [Explicación de los términos de facturación](../understand/understand-invoice.md). |
-| Compras de Marketplace<sup>6</sup>      | Créditos - Para obtener más información, consulte [Explicación de los términos de facturación](../understand/understand-invoice.md). |
-| Compras de reserva<sup>7</sup>      |  |
-| Amortización de las compras de reserva<sup>7</sup>      |  |
+| Uso de servicios de Azure<sup>4</sup>        | Cargos de soporte técnico - Para obtener más información, consulte [Explicación de los términos de facturación](../understand/understand-invoice.md). |
+| Uso de ofertas de Marketplace<sup>5</sup> | Impuestos - Para obtener más información, consulte [Explicación de los términos de facturación](../understand/understand-invoice.md). |
+| Compras de Marketplace<sup>5</sup>      | Créditos - Para obtener más información, consulte [Explicación de los términos de facturación](../understand/understand-invoice.md). |
+| Compras de reservas<sup>6</sup>      |  |
+| Amortización de las compras de reservas<sup>6</sup>      |  |
 
-_<sup>**5**</sup> El uso del servicio de Azure se basa en la reserva y la negociación de los precios._
+_<sup>**4**</sup> El uso de servicios de Azure se basa en los precios de reserva y negociados._
 
-_<sup>**6**</sup> En este momento, las compras del marketplace no están disponible para las ofertas de MSDN o Visual Studio._
+_<sup>**5**</sup> En este momento, las compras de Marketplace no están disponible para las ofertas de MSDN o Visual Studio._
 
-_<sup>**7**</sup> En este momento, las compras de reserva solo están disponibles para las cuentas de Contrato Enterprise (EA) y Contrato de cliente de Microsoft._
+_<sup>**6**</sup> En este momento, las compras de reservas solo están disponibles para las cuentas de Contrato Enterprise (EA) y Contrato de cliente de Microsoft._
 
 ## <a name="how-tags-are-used-in-cost-and-usage-data"></a>Uso de las etiquetas en los datos de costo y uso
 

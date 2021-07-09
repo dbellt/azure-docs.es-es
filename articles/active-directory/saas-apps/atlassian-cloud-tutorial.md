@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/02/2020
+ms.date: 05/17/2021
 ms.author: jeedes
-ms.openlocfilehash: fe83a012cac68f705bc9fabc7748f5a7c7c61bbb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b76f5ec2cffde60379b12a0ad7d623ebe9a06c2
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94330566"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110473196"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Tutorial: Integración de Atlassian Cloud con Azure Active Directory
 
@@ -41,7 +41,7 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba. 
 
-* Atlassian Cloud admite SSO iniciado por **SP e IDP**
+* Atlassian Cloud admite SSO iniciado por **SP e IDP**.
 * Atlassian Cloud admite el [aprovisionamiento y desaprovisionamiento automático de usuarios](atlassian-cloud-provisioning-tutorial.md).
 
 ## <a name="adding-atlassian-cloud-from-the-gallery"></a>Incorporación de Atlassian Cloud desde la galería
@@ -187,6 +187,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
       c. Las asignaciones de atributo finales deben tener el aspecto siguiente.
 
       ![imagen 4](./media/atlassian-cloud-tutorial/default-attributes-2.png)
+
+ > [!NOTE]
+ > Puede establecer varias directivas de seguridad si selecciona la opción **Directivas de autenticación** en el cajón izquierdo. Una directiva de autenticación permite especificar la configuración de autenticación para diferentes conjuntos de usuarios y configuraciones de su organización. Comprueba que los usuarios que acceden a la organización de Atlassian son auténticos. Para obtener más información, consulte [Directivas de autenticación](https://support.atlassian.com/security-and-access-policies/docs/understand-authentication-policies/).
      
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -247,7 +250,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Haga clic en **Probar esta aplicación** en Azure Portal, y debería iniciarse sesión automáticamente en la instancia de Atlassian Cloud para la que configuró el inicio de sesión único. 
 
-También puede usar el Panel de acceso de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Atlassian Cloud en el Panel de acceso, si se ha configurado en el modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para iniciar el flujo de inicio de sesión. Si se ha configurado en modo IDP, debería iniciarse sesión automáticamente en la instancia de Atlassian Cloud para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Atlassian Cloud en Aplicaciones, si se ha configurado en el modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para iniciar el flujo de inicio de sesión. Si se ha configurado en modo IDP, debería iniciarse sesión automáticamente en la instancia de Atlassian Cloud para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

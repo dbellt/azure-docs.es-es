@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/17/2020
+ms.date: 05/13/2021
 ms.author: jeedes
-ms.openlocfilehash: e876c819ea797eb75ca8b2365fba83d416ff6168
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5affe9f8876ef8d69a585119155d6cdd77ab46ac
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92318893"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110078741"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alertmedia"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con AlertMedia
 
@@ -25,8 +25,6 @@ En este tutorial, aprenderá a integrar AlertMedia con Azure Active Directory (
 * Controlar en Azure AD quién tiene acceso a AlertMedia.
 * Permitir que los usuarios puedan iniciar sesión automáticamente en AlertMedia con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
-
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -41,25 +39,23 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * AlertMedia admite el inicio de sesión único iniciado por **IDP**.
 * AlertMedia admite el aprovisionamiento de usuarios **Just-In-Time**.
-* Una vez configurado AlertMedia, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-alertmedia-from-the-gallery"></a>Adición de AlertMedia desde la galería
+## <a name="add-alertmedia-from-the-gallery"></a>Incorporación de AlertMedia desde la galería
 
 Para configurar la integración de AlertMedia en Azure AD, es preciso agregar AlertMedia desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **AlertMedia** en el cuadro de búsqueda.
 1. Seleccione **AlertMedia** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-
-## <a name="configure-and-test-azure-ad-single-sign-on-for-alertmedia"></a>Configuración y prueba del inicio de sesión único de Azure AD para AlertMedia
+## <a name="configure-and-test-azure-ad-sso-for-alertmedia"></a>Configuración y prueba del inicio de sesión único de Azure AD para AlertMedia
 
 Configure y pruebe el inicio de sesión único de Azure AD con AlertMedia mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario correspondiente de AlertMedia.
 
-Para configurar y probar el inicio de sesión único de Azure AD con AlertMedia, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con AlertMedia, realice los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
@@ -72,13 +68,13 @@ Para configurar y probar el inicio de sesión único de Azure AD con AlertMedia
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **AlertMedia**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de aplicaciones de **AlertMedia**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la página **Configurar el inicio de sesión único con SAML**, escriba los valores de los siguientes campos:
+1. En la página **Configurar inicio de sesión único con SAML** realice los siguientes pasos:
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<SUBDOMAIN>.alertmedia.com`
 
@@ -122,15 +118,9 @@ En esta sección, va a permitir que B.Simon acceda a AlertMedia mediante el inic
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **AlertMedia**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
-   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
 1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-
-    ![Vínculo de Agregar usuario](common/add-assign-user.png)
-
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ## <a name="configure-alertmedia-sso"></a>Configuración del inicio de sesión único de AlertMedia
@@ -138,14 +128,15 @@ En esta sección, va a permitir que B.Simon acceda a AlertMedia mediante el inic
 1. En otra ventana del explorador web, inicie sesión como administrador en el sitio de la compañía en AlertMedia.
 1. Vaya a **Company** (Empresa) y seleccione **Single Sign-On** (Inicio de sesión único).
 
-    ![Botón de cuenta](./media/alertmedia-tutorial/Configure1.png)
-1. En **Authentication Method** (Método de autenticación), seleccione **Remote SAML Metadata** (Metadatos de SAML remoto).
+    ![Botón de cuenta](./media/alertmedia-tutorial/account.png)
+
+1. En **Método de autenticación**, seleccione **Remote SAML Metadata** (Metadatos de SAML remoto).
 1. Active **Sign Request** (Firmar solicitud).
-1. Active **permitir solicitudes pasivas** (Permitir solicitudes pasivas).
+1. Active **Allow Passive Requests** (Permitir solicitudes pasivas).
 1. En el cuadro de texto **Metadata URL** (Dirección URL de metadatos), pegue el valor de **Dirección URL de metadatos de federación de aplicaciones** que copió de Azure Portal.
-1. Establezca la opción **Requested Authentication Context Comparison** (Comparación del contexto de autenticación solicitado) en **exact** (Exacto).
+1. Seleccione **Requested Authentication Context Comparison** (Comparación del contexto de autenticación solicitado) en **exact** (exacto).
 1. En el cuadro de texto **IDP Login URL** (Dirección URL de inicio de sesión del IDP), pegue el valor de **URL de inicio de sesión** que ha copiado de Azure Portal.
-1. Haga clic en **Guardar**
+1. Haga clic en **Save**(Guardar).
 
 ### <a name="create-alertmedia-test-user"></a>Creación de un usuario de prueba de AlertMedia
 
@@ -153,20 +144,12 @@ En esta sección se crea un usuario llamado Britta Simon en AlertMedia. AlertMed
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
 
-Al hacer clic en el icono de AlertMedia en el panel de acceso, debería iniciar sesión automáticamente en la instancia de AlertMedia para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+* Haga clic en Probar esta aplicación en Azure Portal; debería iniciar sesión automáticamente en la instancia de AlertMedia para la que configuró el inicio de sesión único.
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de AlertMedia en Mis aplicaciones, debería iniciar sesión automáticamente en la instancia de AlertMedia para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+## <a name="next-steps"></a>Pasos siguientes
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
-
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
-
-- [Prueba de AlertMedia con Azure AD](https://aad.portal.azure.com/)
-
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
-
-- [Protección de AlertMedia con controles y visibilidad avanzados](/cloud-app-security/proxy-intro-aad)
+Una vez configurado AlertMedia, puede aplicar el control de sesión, que protege la exfiltración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 03/09/2021
 ms.custom: devx-track-js
 ms.devlang: javascript
-ms.openlocfilehash: f6c23c7b0870fe8caed1f82e8ce102539aa2e950
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 3353ff11a93fa4a79c266b7bd323071b55cd76c6
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107950232"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109848112"
 ---
 # <a name="4---javascript-search-integration-cheat-sheet"></a>4\. Hoja de información rápida de integración de funcionalidad de búsqueda de JavaScript
 

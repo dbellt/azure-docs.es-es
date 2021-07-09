@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 11/10/2020
 ms.author: pafarley
-ms.openlocfilehash: 0939216e1d96e898d7c45b9e7a3ec72453b263d6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: adcabf8427f515a1814dd740bc5c70b8b0e7b9b7
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105958018"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109858199"
 ---
 Comience a usar el reconocimiento facial con la biblioteca cliente de Face para Python. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas. El servicio Face le proporciona acceso a algoritmos avanzados para detectar y reconocer rostros humanas en imágenes.
 
@@ -235,10 +235,10 @@ Si ha creado un objeto **PersonGroup** en este inicio rápido y desea eliminarlo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha aprendido a usar la biblioteca cliente de Face para Python para realizar tareas básicas de reconocimiento facial. A continuación, consulte la documentación de referencia para más información sobre la biblioteca.
+En este inicio rápido, ha aprendido a usar la biblioteca cliente de Face para Python para realizar tareas básicas de reconocimiento facial. A continuación, obtenga información sobre los diferentes modelos de detección de caras y cómo especificar el modelo adecuado para su caso de uso.
 
 > [!div class="nextstepaction"]
-> [Referencia de Face API (Python)](/python/api/azure-cognitiveservices-vision-face/)
+> [Especificación de una versión del modelo de detección de caras](../../Face-API-How-to-Topics/specify-detection-model.md)
 
 * [¿Qué es el servicio Face?](../../overview.md)
 * El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py).

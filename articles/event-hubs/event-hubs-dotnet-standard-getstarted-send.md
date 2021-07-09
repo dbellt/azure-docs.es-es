@@ -2,22 +2,17 @@
 title: Envío o recepción de eventos desde Azure Event Hubs mediante .NET (más reciente)
 description: Este artículo es un tutorial para crear una aplicación de .NET Core que envíe eventos a Azure Event Hubs, o los reciba de él, mediante el paquete Microsoft.Azure.EventHubs más reciente.
 ms.topic: quickstart
-ms.date: 09/25/2020
+ms.date: 06/10/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 58da331336481614cf0f85bdf6c1136c8bdc8db7
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: c6f28e46aff12b5730a1cc73f56fe9bd31805923
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107536509"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112004385"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Envío y recepción de eventos desde Azure Event Hubs: .NET (Azure.Messaging.EventHubs) 
 En este inicio rápido se muestra cómo enviar y recibir eventos desde un centro de eventos mediante la biblioteca de .NET **Azure.Messaging.EventHubs**. 
-
-> [!IMPORTANT]
-> Este inicio rápido usa la nueva biblioteca del servicio **Azure.Messaging.EventHubs**. Para ver un inicio rápido que use la biblioteca **Microsoft.Azure.EventHubs** anterior, consulte [Envío y recepción de eventos mediante la biblioteca Microsoft.Azure.EventHubs](event-hubs-dotnet-standard-get-started-send-legacy.md). 
-
-
 
 ## <a name="prerequisites"></a>Prerrequisitos
 Si es la primera vez que usa Azure Event Hubs, consulte la [información general de Event Hubs](event-hubs-about.md) antes de continuar con este inicio rápido. 
@@ -38,13 +33,13 @@ En esta sección se muestra cómo crear una aplicación de consola de .NET Core 
 1. En el cuadro de diálogo **Crear un nuevo proyecto**, siga estos pasos: Si no ve este cuadro de diálogo, seleccione **Archivo** en el menú, seleccione **Nuevo** y, después, seleccione **Proyecto**. 
     1. Seleccione **C#** como lenguaje de programación.
     1. Seleccione **Consola** como tipo de aplicación. 
-    1. Seleccione **Aplicación de consola (.NET Core)** en la lista de resultados. 
+    1. Seleccione **Aplicación de consola** en la lista de resultados. 
     1. Después, seleccione **Siguiente**. 
 
-        ![Cuadro de diálogo Nuevo proyecto](./media/getstarted-dotnet-standard-send-v2/new-send-project.png)    
+        :::image type="content" source="./media/getstarted-dotnet-standard-send-v2/new-send-project.png" alt-text="Imagen que muestra el cuadro de diálogo Nuevo proyecto":::
 1. Escriba **EventHubsSender** como nombre del proyecto, **EventHubsQuickStart** como nombre de la solución y, después, seleccione **Aceptar** para crear el proyecto. 
 
-    ![C# > Aplicación de consola](./media/getstarted-dotnet-standard-send-v2/project-solution-names.png)
+    :::image type="content" source="./media/getstarted-dotnet-standard-send-v2/project-solution-names.png" alt-text="Imagen que muestra la página donde se escriben los nombres de la solución y del proyecto":::
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Incorporación del paquete NuGet de Event Hubs
 
@@ -56,7 +51,7 @@ En esta sección se muestra cómo crear una aplicación de consola de .NET Core 
     ```
 
 
-### <a name="write-code-to-send-messages-to-the-event-hub"></a>Escritura de código para enviar mensajes al centro de eventos
+### <a name="write-code-to-send-events-to-the-event-hub"></a>Escritura de código para enviar eventos al centro de eventos
 
 1. Agregue las siguientes instrucciones `using` al principio del archivo **Program.cs**:
 
@@ -68,50 +63,79 @@ En esta sección se muestra cómo crear una aplicación de consola de .NET Core 
     using Azure.Messaging.EventHubs.Producer;
     ```
 
-2. Agregue constantes a la clase `Program` de la cadena de conexión de Event Hubs y del nombre del centro de eventos. Reemplace los marcadores de posición entre llaves por los valores adecuados que recibió al crear el centro de eventos. Asegúrese de que `{Event Hubs namespace connection string}` es la cadena de conexión en el nivel de espacio de nombres y no la cadena de Event Hub. 
+2. Agregue constantes a la clase `Program` de la cadena de conexión de Event Hubs y del nombre del centro de eventos.  
 
     ```csharp
-    private const string connectionString = "<EVENT HUBS NAMESPACE - CONNECTION STRING>";
-    private const string eventHubName = "<EVENT HUB NAME>";
+        // connection string to the Event Hubs namespace
+        private const string connectionString = "<EVENT HUBS NAMESPACE - CONNECTION STRING>";
+
+        // name of the event hub
+        private const string eventHubName = "<EVENT HUB NAME>";
+
+        // number of events to be sent to the event hub
+        private const int numOfEvents = 3;
     ```
 
-3. Reemplace el método `Main` por el siguiente método `async Main`. Vea los comentarios de código para obtener más detalles. 
+    > [!NOTE]
+    > Reemplace los valores de marcador de posición por la cadena de conexión al espacio de nombres y el nombre del centro de eventos. Asegúrese de que la cadena de conexión es la cadena de conexión de nivel de espacio de nombres.
+3. Agregue la siguiente propiedad estática a la clase `Program`. Vea los comentarios de código. 
+
+    ```csharp
+        // The Event Hubs client types are safe to cache and use as a singleton for the lifetime
+        // of the application, which is best practice when events are being published or read regularly.
+        static EventHubProducerClient producerClient;    
+    ```
+1. Reemplace el método `Main` por el siguiente método `async Main`. Vea los comentarios de código para obtener más detalles. 
 
     ```csharp
         static async Task Main()
         {
             // Create a producer client that you can use to send events to an event hub
-            await using (var producerClient = new EventHubProducerClient(connectionString, eventHubName))
+            producerClient = new EventHubProducerClient(connectionString, eventHubName);
+
+            // Create a batch of events 
+            using EventDataBatch eventBatch = await producerClient.CreateBatchAsync();
+
+            for (int i = 1; i <= 3; i++)
             {
-                // Create a batch of events 
-                using EventDataBatch eventBatch = await producerClient.CreateBatchAsync();
+                if (! eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes($"Event {i}"))))
+                {
+                    // if it is too large for the batch
+                    throw new Exception($"Event {i} is too large for the batch and cannot be sent.");
+                }
+            }
 
-                // Add events to the batch. An event is a represented by a collection of bytes and metadata. 
-                eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes("First event")));
-                eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes("Second event")));
-                eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes("Third event")));
-
+            try
+            {
                 // Use the producer client to send the batch of events to the event hub
                 await producerClient.SendAsync(eventBatch);
                 Console.WriteLine("A batch of 3 events has been published.");
+            }
+            finally
+            {
+                await producerClient.DisposeAsync();
             }
         }
     ```
 5. Compile el proyecto y asegúrese de que no hay errores.
 6. Ejecute el programa y espere el mensaje de confirmación. 
-7. En Azure Portal, puede comprobar que el centro de eventos ha recibido los mensajes. Cambie a la vista **Mensajes** en la sección **Métricas**. Actualice la página para actualizar el gráfico. Puede tardar unos segundos en mostrar que los mensajes se han recibido. 
 
-    [![Comprobación de que el centro de eventos ha recibido los mensajes](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png)](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png#lightbox)
+    ```csharp
+    A batch of 3 events has been published.
+    ```
+1. En Azure Portal, puede comprobar que el centro de eventos ha recibido los eventos. Cambie a la vista **Mensajes** en la sección **Métricas**. Actualice la página para actualizar el gráfico. Puede tardar unos segundos en mostrar que los mensajes se han recibido. 
+
+    :::image type="content" source="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png" alt-text="Imagen de la página de Azure Portal para comprobar que el centro de eventos recibió los eventos" lightbox="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png":::
 
     > [!NOTE]
     > Para ver el código fuente completo con comentarios muy útiles, consulte [este archivo en GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/samples/Sample04_PublishingEvents.md).
 
 ## <a name="receive-events"></a>Recepción de eventos
-En esta sección se muestra cómo escribir una aplicación de consola de .NET Core que reciba mensajes de un centro de eventos mediante un procesador de eventos. El procesador de eventos simplifica la recepción de eventos desde centros de eventos mediante la administración de puntos de control persistentes y las recepciones paralelas desde esos centros de eventos. Un procesador de eventos está asociado a un centro de eventos concreto y a un grupo de consumidores. Recibe eventos de varias particiones del centro de eventos y los pasa a un controlador delegado para que realice el procesamiento mediante el código que se ha especificado. 
+En esta sección se muestra cómo escribir una aplicación de consola de .NET Core que reciba eventos de un centro de eventos mediante un procesador de eventos. El procesador de eventos simplifica la recepción de eventos desde centros de eventos mediante la administración de puntos de control persistentes y las recepciones paralelas desde esos centros de eventos. Un procesador de eventos está asociado a un centro de eventos concreto y a un grupo de consumidores. Recibe eventos de varias particiones del centro de eventos y los pasa a un controlador delegado para que realice el procesamiento mediante el código que se ha especificado. 
 
 
 > [!WARNING]
-> Si ejecuta este código en Azure Stack Hub, experimentará errores en tiempo de ejecución a menos que tenga como destino una versión específica de la API de Storage. Esto se debe a que el SDK de Event Hubs usa la API de Azure Storage más reciente disponible en Azure, que puede que no esté disponible en la plataforma de Azure Stack Hub. Azure Stack Hub puede admitir una versión diferente del SDK de Blob Storage que las que suelen estar disponibles en Azure. Si usa Azure Blob Storage como almacén de puntos de control, compruebe la [versión de la API de Azure Storage admitida para la compilación de Azure Stack Hub](/azure-stack/user/azure-stack-acs-differences?#api-version) y establezca esa versión como destino en el código. 
+> Si ejecuta este código en **Azure Stack Hub**, experimentará errores en tiempo de ejecución a menos que tenga como destino una versión específica de la API de Storage. Esto se debe a que el SDK de Event Hubs usa la API de Azure Storage más reciente disponible en Azure, que puede que no esté disponible en la plataforma de Azure Stack Hub. Azure Stack Hub puede admitir una versión diferente del SDK de Blob Storage que las que suelen estar disponibles en Azure. Si usa Azure Blob Storage como almacén de puntos de control, compruebe la [versión de la API de Azure Storage admitida para la compilación de Azure Stack Hub](/azure-stack/user/azure-stack-acs-differences?#api-version) y establezca esa versión como destino en el código. 
 >
 > Por ejemplo, si trabaja en la versión 2005 de Azure Stack Hub, la versión más reciente disponible para el servicio Storage es la 2019-02-02. De forma predeterminada, la biblioteca de cliente del SDK de Event Hubs usa la versión más reciente disponible en Azure (2019-07-07 en el momento de la versión del SDK). En este caso, además de seguir los pasos de esta sección, también tendrá que agregar código para usar como destino la versión 2019-02-02 de la API del servicio de almacenamiento. Consulte [este ejemplo en GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/) para ver cómo usar como destino una versión específica de la API de Storage. 
  
@@ -129,12 +153,14 @@ En este inicio rápido, se usa Azure Storage como almacén de puntos de control.
 ### <a name="create-a-project-for-the-receiver"></a>Creación de un proyecto para el destinatario
 
 1. En la ventana del Explorador de soluciones, haga clic con el botón derecho en la solución **EventHubQuickStart**, haga clic en **Agregar** y seleccione **Nuevo proyecto**. 
-1. Seleccione **Aplicación de consola (.NET Core)** y, después, **Siguiente**. 
+1. Seleccione **Aplicación de consola** y elija **Siguiente**. 
 1. Escriba **EventHubsReceiver** en **Nombre de proyecto** y seleccione **Crear**. 
+1. En la ventana del **Explorador de soluciones**, haga clic con el botón derecho en **EventHubsReceiver** y seleccione **Set as a Startup Project** (Establecer como proyecto de inicio). 
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Incorporación del paquete NuGet de Event Hubs
 
 1. Seleccione **Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes** en el menú. 
+1. En la ventana de la **Consola del Administrador de paquetes**, confirme que **EventHubsReceiver** está seleccionado como **Proyecto predeterminado**. Si no es así, use la lista desplegable para seleccionarlo.
 1. Ejecute el siguiente comando para instalar el paquete NuGet **Azure.Messaging.EventHubs**:
 
     ```cmd
@@ -167,7 +193,16 @@ En este inicio rápido, se usa Azure Storage como almacén de puntos de control.
         private const string blobStorageConnectionString = "<AZURE STORAGE CONNECTION STRING>";
         private const string blobContainerName = "<BLOB CONTAINER NAME>";
     ```
-3. Reemplace el método `Main` por el siguiente método `async Main`. Vea los comentarios de código para obtener más detalles. 
+3. Agregue las siguientes propiedades estáticas a la clase `Program`. 
+
+    ```csharp
+        static BlobContainerClient storageClient;
+
+        // The Event Hubs client types are safe to cache and use as a singleton for the lifetime
+        // of the application, which is best practice when events are being published or read regularly.        
+        static EventProcessorClient processor;    
+    ```
+1. Reemplace el método `Main` por el siguiente método `async Main`. Vea los comentarios de código para obtener más detalles. 
 
     ```csharp
         static async Task Main()
@@ -176,10 +211,10 @@ En este inicio rápido, se usa Azure Storage como almacén de puntos de control.
             string consumerGroup = EventHubConsumerClient.DefaultConsumerGroupName;
 
             // Create a blob container client that the event processor will use 
-            BlobContainerClient storageClient = new BlobContainerClient(blobStorageConnectionString, blobContainerName);
+            storageClient = new BlobContainerClient(blobStorageConnectionString, blobContainerName);
 
             // Create an event processor client to process events in the event hub
-            EventProcessorClient processor = new EventProcessorClient(storageClient, consumerGroup, ehubNamespaceConnectionString, eventHubName);
+            processor = new EventProcessorClient(storageClient, consumerGroup, ehubNamespaceConnectionString, eventHubName);
 
             // Register handlers for processing events and handling errors
             processor.ProcessEventAsync += ProcessEventHandler;
@@ -193,7 +228,7 @@ En este inicio rápido, se usa Azure Storage como almacén de puntos de control.
 
             // Stop the processing
             await processor.StopProcessingAsync();
-        }    
+        }
     ```
 1. Ahora, agregue los siguientes métodos de control de eventos y errores a la clase. 
 
@@ -220,10 +255,13 @@ En este inicio rápido, se usa Azure Storage como almacén de puntos de control.
     > [!NOTE]
     > Para ver el código fuente completo con comentarios muy útiles, consulte [este archivo en GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample01_HelloWorld.md).
 6. Ejecute la aplicación del destinatario. 
-1. Debería ver un mensaje que indica que el evento se ha recibido. 
+1. Debería ver un mensaje que indica que se han recibido los eventos. 
 
-    ![Evento recibido](./media/getstarted-dotnet-standard-send-v2/event-received.png)
-
+    ```bash
+    Received event: Event 1
+    Received event: Event 2
+    Received event: Event 3    
+    ```
     Estos eventos son los tres que envió al centro de eventos anteriormente mediante la ejecución del programa del emisor. 
 
 

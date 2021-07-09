@@ -6,21 +6,21 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.reviewer: andalmia
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 06/09/2021
 ms.author: banders
-ms.openlocfilehash: 039e728f6518d21ddfb9c7c359a6cf2ec743f232
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 897c9d851227a59e6ab8e6a35829e113b980c2e4
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185111"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111902508"
 ---
-# <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Concesión de acceso para crear suscripciones de Azure Enterprise (versión preliminar)
+# <a name="grant-access-to-create-azure-enterprise-subscriptions-legacy"></a>Concesión de acceso para crear suscripciones de Azure Enterprise (heredado)
 
 Como cliente de Azure del [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), puede conceder a otro usuario u otra entidad de servicio permisos para crear suscripciones facturadas en su cuenta. En este artículo, aprenderá a usar el [control de acceso basado en rol (RBAC)](../../role-based-access-control/role-assignments-portal.md) para compartir la capacidad de crear suscripciones y cómo auditar creaciones de suscripciones. Debe tener el rol de propietario en la cuenta que desea compartir.
 
 > [!NOTE]
-> Esta API solo funciona con las [API de versión preliminar para la de creación de suscripciones](programmatically-create-subscription-preview.md). Si desea emplear la [versión de disponibilidad general](programmatically-create-subscription-enterprise-agreement.md), utilice la versión de API más reciente en [2019-10-01-Preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). Si va a hacer una migración para usar las API más recientes, debe conceder permisos de propietario nuevamente con [2019-10-01-Preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). La configuración anterior que utiliza las siguientes API no permite usar automáticamente las API más recientes.
+> Esta API solo funciona con las [API heredadas para la de creación de suscripciones](programmatically-create-subscription-preview.md). A menos que tenga una necesidad específica de usar las API heredadas, debe usar la información de la [versión de disponibilidad general más reciente](programmatically-create-subscription-enterprise-agreement.md) acerca de la versión de API más reciente [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollment-account-role-assignments/put). Si va a hacer una migración para usar las API más recientes, debe conceder permisos de propietario nuevamente con [2019-10-01-Preview](/rest/api/billing/2019-10-01-preview/enrollment-account-role-assignments/put). La configuración anterior que utiliza las siguientes API no permite usar automáticamente las API más recientes.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

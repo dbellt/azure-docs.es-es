@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 2262290486047c225cec8e8f6bb73242df7258fa
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: d31e52763ed69303ee6ea9bf44fd85403c810179
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106271548"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111993706"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Límites de redes - Azure Resource Manager
 Los límites siguientes solo se aplican a los recursos de redes administrados mediante **Azure Resource Manager** por región y por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
@@ -46,13 +46,14 @@ Los límites siguientes solo se aplican a los recursos de redes administrados me
 | Tablas de rutas definidas por el usuario |200 |
 | Rutas definidas por el usuario por tabla de ruta |400 |
 | Certificados raíz de punto a sitio por Azure VPN Gateway |20 |
+| Certificados de cliente de punto a sitio revocados por Azure VPN Gateway |300 |
 | TAP de red virtual |100 |
 | Configuraciones de TAP de la interfaz de red por TAP de red virtual |100 |
 
 #### <a name="public-ip-address-limits"></a><a name="publicip-address"></a>Límites de dirección IP pública
 | Resource | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
-| Direcciones IP públicas<sup>1</sup> | 10 para Basic. | Póngase en contacto con el servicio de soporte técnico. |
+| Direcciones IP públicas<sup>1,2</sup> | 10 para Basic. | Póngase en contacto con el servicio de soporte técnico. |
 | Direcciones IP públicas estáticas<sup>1</sup> | 10 para Basic. | Póngase en contacto con el servicio de soporte técnico. |
 | Direcciones IP públicas estándar<sup>1</sup> | 10 | Póngase en contacto con el servicio de soporte técnico. |
 | [Direcciones IP públicas por grupo de recursos](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md#microsoftnetwork) | 800 | Póngase en contacto con el servicio de soporte técnico. | 
@@ -60,6 +61,8 @@ Los límites siguientes solo se aplican a los recursos de redes administrados me
 | Longitud del prefijo de IP pública | /28 | Póngase en contacto con el servicio de soporte técnico. |
 
 <sup>1</sup>Los límites predeterminados para las direcciones IP públicas varían según el tipo de categoría de la oferta, por ejemplo, versión de prueba gratuita, Pago por uso o CSP. Por ejemplo, el valor predeterminado para las suscripciones Contrato Enterprise es 1000.
+
+<sup>2</sup>El límite de direcciones IP públicas hace referencia a la cantidad total de direcciones IP públicas, incluidos los niveles Básico y Estándar. 
 
 #### <a name="load-balancer-limits"></a><a name="load-balancer"></a>Límites del equilibrador de carga
 Los límites siguientes solo se aplican a los recursos de redes administrados a través de Azure Resource Manager por región y por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).

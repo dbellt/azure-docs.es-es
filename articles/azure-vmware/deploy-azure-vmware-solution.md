@@ -3,20 +3,21 @@ title: Implementación y configuración de Azure VMware Solution
 description: Aprenda a usar la información recopilada en la fase de planeación para implementar y configurar la nube privada de Azure VMware Solution.
 ms.topic: tutorial
 ms.custom: contperf-fy21q4, devx-track-azurecli
-ms.date: 04/23/2021
-ms.openlocfilehash: fe03713a8bb8cd2304e75c828b27d479eb83c0e0
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.date: 05/19/2021
+ms.openlocfilehash: 824ab46b81a913bc7b1768e56e05025ee8208d17
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109751462"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110473775"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Implementación y configuración de Azure VMware Solution
 
 En este artículo, usará la información de la [sección de planeación](production-ready-deployment-steps.md) para implementar y configurar Azure VMware Solution. 
 
->[!IMPORTANT]
->Es información que ha usado en la [sección de planeamiento](production-ready-deployment-steps.md) antes de continuar.
+En el diagrama se muestra el flujo de trabajo de implementación de Azure VMware Solution. 
+
+:::image type="content" source="media/deploy-azure-vmware-solution-workflow.png" alt-text="Diagrama del flujo de trabajo de implementación de Azure VMware Solution" lightbox="media/deploy-azure-vmware-solution-workflow.png" border="false":::
 
 ## <a name="step-1-register-the-microsoftavs-resource-provider"></a>Paso 1. Registre el proveedor de recursos **Microsoft.AVS**.
 

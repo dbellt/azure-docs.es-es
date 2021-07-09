@@ -6,22 +6,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 04/19/2021
+ms.date: 06/11/2021
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ms.custom: devx-track-js
-ms.openlocfilehash: 72ca331546d53f85ca82f33ec6a02558d91f1c1e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 98e8d7862f1270977ed3eb3ab71605e440d53520
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765106"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112083865"
 ---
 <a name="HOLTop"></a>
 
 # <a name="version-31-preview"></a>[Versión 3.1 (versión preliminar)](#tab/version-3-1)
 
-[Documentación de referencia de v3](/javascript/api/overview/azure/ai-text-analytics-readme?preserve-view=true&view=azure-node-preview) | [Código fuente de la biblioteca v3](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [Paquete v3 (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [Ejemplos de v3](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
+[Documentación de referencia de v3](/javascript/api/overview/azure/ai-text-analytics-readme?preserve-view=true&view=azure-node-preview) | [Código fuente de la biblioteca v3](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [Paquete v3 (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0-beta.6) | [Ejemplos de v3](https://github.com/Azure/azure-sdk-for-js/tree/%40azure/ai-text-analytics_5.1.0-beta.6/sdk/textanalytics/ai-text-analytics/samples)
 
 
 # <a name="version-30"></a>[Versión 3.0](#tab/version-3)
@@ -64,7 +64,7 @@ npm init
 Instale los paquetes NPM `@azure/ai-text-analytics`:
 
 ```console
-npm install --save @azure/ai-text-analytics@5.1.0-beta.5
+npm install --save @azure/ai-text-analytics@5.1.0-beta.6
 ```
 
 > [!TIP]
@@ -124,7 +124,7 @@ El objeto de respuesta es una lista que contiene la información de análisis pa
 
 ## <a name="code-examples"></a>Ejemplos de código
 
-* [Autenticación de cliente](#client-authentication)
+* [Autenticación de cliente](#authenticate-the-client)
 * [Análisis de sentimiento](#sentiment-analysis) 
 * [Minería de opiniones](#opinion-mining)
 * [Detección de idioma](#language-detection)
@@ -133,7 +133,7 @@ El objeto de respuesta es una lista que contiene la información de análisis pa
 * Información de identificación personal
 * [Extracción de frases clave](#key-phrase-extraction)
 
-## <a name="client-authentication"></a>Autenticación de clientes
+## <a name="authenticate-the-client"></a>Autenticar el cliente
 
 # <a name="version-31-preview"></a>[Versión 3.1 (versión preliminar)](#tab/version-3-1)
 
@@ -201,7 +201,57 @@ ID: 0
                 Positive: 0.21  Negative: 0.02  Neutral: 0.77
 ```
 
-### <a name="opinion-mining"></a>Minería de opiniones
+# <a name="version-30"></a>[Versión 3.0](#tab/version-3)
+
+Cree una matriz de cadenas que contenga el documento que quiere analizar. Llame al método `analyzeSentiment()` del cliente y obtenga el objeto `SentimentBatchResult` devuelto. Recorra en iteración la lista de resultados e imprima el identificador de cada documento y la opinión de nivel de documento con puntuaciones de confianza. El resultado contiene, para cada documento, un sentimiento de nivel de oración junto con las puntuaciones de desplazamientos, longitud y confianza.
+
+```javascript
+async function sentimentAnalysis(client){
+
+    const sentimentInput = [
+        "I had the best day of my life. I wish you were there with me."
+    ];
+    const sentimentResult = await client.analyzeSentiment(sentimentInput);
+
+    sentimentResult.forEach(document => {
+        console.log(`ID: ${document.id}`);
+        console.log(`\tDocument Sentiment: ${document.sentiment}`);
+        console.log(`\tDocument Scores:`);
+        console.log(`\t\tPositive: ${document.confidenceScores.positive.toFixed(2)} \tNegative: ${document.confidenceScores.negative.toFixed(2)} \tNeutral: ${document.confidenceScores.neutral.toFixed(2)}`);
+        console.log(`\tSentences Sentiment(${document.sentences.length}):`);
+        document.sentences.forEach(sentence => {
+            console.log(`\t\tSentence sentiment: ${sentence.sentiment}`)
+            console.log(`\t\tSentences Scores:`);
+            console.log(`\t\tPositive: ${sentence.confidenceScores.positive.toFixed(2)} \tNegative: ${sentence.confidenceScores.negative.toFixed(2)} \tNeutral: ${sentence.confidenceScores.neutral.toFixed(2)}`);
+        });
+    });
+}
+sentimentAnalysis(textAnalyticsClient)
+```
+
+Ejecute el código con `node index.js` en la ventana de la consola.
+
+### <a name="output"></a>Output
+
+```console
+ID: 0
+        Document Sentiment: positive
+        Document Scores:
+                Positive: 1.00  Negative: 0.00  Neutral: 0.00
+        Sentences Sentiment(2):
+                Sentence sentiment: positive
+                Sentences Scores:
+                Positive: 1.00  Negative: 0.00  Neutral: 0.00
+                Sentence sentiment: neutral
+                Sentences Scores:
+                Positive: 0.21  Negative: 0.02  Neutral: 0.77
+```
+
+---
+
+## <a name="opinion-mining"></a>Minería de opiniones
+
+# <a name="version-31-preview"></a>[Versión 3.1 (versión preliminar)](#tab/version-3-1)
 
 Para realizar el análisis de sentimiento con la minería de opiniones, cree una matriz de cadenas que contenga el documento que quiere analizar. Llame al método `analyzeSentiment()` del cliente con la marca de opción de adición `includeOpinionMining: true` y obtenga el objeto `SentimentBatchResult` devuelto. Recorra en iteración la lista de resultados e imprima el identificador de cada documento y la opinión de nivel de documento con puntuaciones de confianza. Para cada documento, el resultado contiene la opinión de nivel de oración, así como el aspecto y el sentimiento de nivel de opinión.
 
@@ -283,49 +333,7 @@ Ejecute el código con `node index.js` en la ventana de la consola.
 
 # <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
-Cree una matriz de cadenas que contenga el documento que quiere analizar. Llame al método `analyzeSentiment()` del cliente y obtenga el objeto `SentimentBatchResult` devuelto. Recorra en iteración la lista de resultados e imprima el identificador de cada documento y la opinión de nivel de documento con puntuaciones de confianza. El resultado contiene, para cada documento, un sentimiento de nivel de oración junto con las puntuaciones de desplazamientos, longitud y confianza.
-
-```javascript
-async function sentimentAnalysis(client){
-
-    const sentimentInput = [
-        "I had the best day of my life. I wish you were there with me."
-    ];
-    const sentimentResult = await client.analyzeSentiment(sentimentInput);
-
-    sentimentResult.forEach(document => {
-        console.log(`ID: ${document.id}`);
-        console.log(`\tDocument Sentiment: ${document.sentiment}`);
-        console.log(`\tDocument Scores:`);
-        console.log(`\t\tPositive: ${document.confidenceScores.positive.toFixed(2)} \tNegative: ${document.confidenceScores.negative.toFixed(2)} \tNeutral: ${document.confidenceScores.neutral.toFixed(2)}`);
-        console.log(`\tSentences Sentiment(${document.sentences.length}):`);
-        document.sentences.forEach(sentence => {
-            console.log(`\t\tSentence sentiment: ${sentence.sentiment}`)
-            console.log(`\t\tSentences Scores:`);
-            console.log(`\t\tPositive: ${sentence.confidenceScores.positive.toFixed(2)} \tNegative: ${sentence.confidenceScores.negative.toFixed(2)} \tNeutral: ${sentence.confidenceScores.neutral.toFixed(2)}`);
-        });
-    });
-}
-sentimentAnalysis(textAnalyticsClient)
-```
-
-Ejecute el código con `node index.js` en la ventana de la consola.
-
-### <a name="output"></a>Output
-
-```console
-ID: 0
-        Document Sentiment: positive
-        Document Scores:
-                Positive: 1.00  Negative: 0.00  Neutral: 0.00
-        Sentences Sentiment(2):
-                Sentence sentiment: positive
-                Sentences Scores:
-                Positive: 1.00  Negative: 0.00  Neutral: 0.00
-                Sentence sentiment: neutral
-                Sentences Scores:
-                Positive: 0.21  Negative: 0.02  Neutral: 0.77
-```
+Esta característica no está disponible en la versión 3.0.
 
 ---
 
@@ -395,10 +403,6 @@ ID: 0
 
 # <a name="version-31-preview"></a>[Versión 3.1 (versión preliminar)](#tab/version-3-1)
 
-> [!NOTE]
-> En la versión `3.1`:
-> * La vinculación de entidad es una solicitud independiente distinta a la de NER.
-
 Cree una matriz de cadenas que contenga el documento que quiere analizar. Llame al método `recognizeEntities()` del cliente y obtenga el objeto `RecognizeEntitiesResult`. Recorra en iteración la lista de resultados e imprima el nombre, el tipo, el subtipo, el desplazamiento, la longitud y la puntuación de la entidad.
 
 ```javascript
@@ -442,60 +446,6 @@ Document ID: 1
         Score: 0.8
         Name: Seattle   Category: Location      Subcategory: GPE
         Score: 0.25
-```
-
-### <a name="entity-linking"></a>Entity Linking
-
-Cree una matriz de cadenas que contenga el documento que quiere analizar. Llame al método `recognizeLinkedEntities()` del cliente y obtenga el objeto `RecognizeLinkedEntitiesResult`. Recorra en iteración la lista de resultados e imprima el nombre, el identificador, el origen de datos, la dirección URL y las coincidencias de la entidad. Cada objeto de la matriz `matches` contendrá el desplazamiento, la longitud y la puntuación de esa coincidencia.
-
-```javascript
-async function linkedEntityRecognition(client){
-
-    const linkedEntityInput = [
-        "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800. During his career at Microsoft, Gates held the positions of chairman, chief executive officer, president and chief software architect, while also being the largest individual shareholder until May 2014."
-    ];
-    const entityResults = await client.recognizeLinkedEntities(linkedEntityInput);
-
-    entityResults.forEach(document => {
-        console.log(`Document ID: ${document.id}`);
-        document.entities.forEach(entity => {
-            console.log(`\tName: ${entity.name} \tID: ${entity.dataSourceEntityId} \tURL: ${entity.url} \tData Source: ${entity.dataSource}`);
-            console.log(`\tMatches:`)
-            entity.matches.forEach(match => {
-                console.log(`\t\tText: ${match.text} \tScore: ${match.confidenceScore.toFixed(2)}`);
-        })
-        });
-    });
-}
-linkedEntityRecognition(textAnalyticsClient);
-```
-
-Ejecute el código con `node index.js` en la ventana de la consola.
-
-### <a name="output"></a>Output
-
-```console
-Document ID: 0
-        Name: Altair 8800       ID: Altair 8800         URL: https://en.wikipedia.org/wiki/Altair_8800  Data Source: Wikipedia
-        Matches:
-                Text: Altair 8800       Score: 0.88
-        Name: Bill Gates        ID: Bill Gates  URL: https://en.wikipedia.org/wiki/Bill_Gates   Data Source: Wikipedia
-        Matches:
-                Text: Bill Gates        Score: 0.63
-                Text: Gates     Score: 0.63
-        Name: Paul Allen        ID: Paul Allen  URL: https://en.wikipedia.org/wiki/Paul_Allen   Data Source: Wikipedia
-        Matches:
-                Text: Paul Allen        Score: 0.60
-        Name: Microsoft         ID: Microsoft   URL: https://en.wikipedia.org/wiki/Microsoft    Data Source: Wikipedia
-        Matches:
-                Text: Microsoft         Score: 0.55
-                Text: Microsoft         Score: 0.55
-        Name: April 4   ID: April 4     URL: https://en.wikipedia.org/wiki/April_4      Data Source: Wikipedia
-        Matches:
-                Text: April 4   Score: 0.32
-        Name: BASIC     ID: BASIC       URL: https://en.wikipedia.org/wiki/BASIC        Data Source: Wikipedia
-        Matches:
-                Text: BASIC     Score: 0.33
 ```
 
 ### <a name="personally-identifying-information-pii-recognition"></a>Reconocimiento de información de identificación personal (DCP)
@@ -537,10 +487,6 @@ Redacted Text:  The employee's phone number is **************.
 
 # <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
-> [!NOTE]
-> En la versión `3.0`:
-> * La vinculación de entidad es una solicitud independiente distinta a la de NER.
-
 Cree una matriz de cadenas que contenga el documento que quiere analizar. Llame al método `recognizeEntities()` del cliente y obtenga el objeto `RecognizeEntitiesResult`. Recorra en iteración la lista de resultados e imprima el nombre, el tipo, el subtipo, el desplazamiento, la longitud y la puntuación de la entidad.
 
 ```javascript
@@ -586,7 +532,13 @@ Document ID: 1
         Score: 0.25
 ```
 
-### <a name="entity-linking"></a>Entity Linking
+
+---
+
+
+## <a name="entity-linking"></a>Vinculación de entidad
+
+# <a name="version-31-preview"></a>[Versión 3.1 (versión preliminar)](#tab/version-3-1)
 
 Cree una matriz de cadenas que contenga el documento que quiere analizar. Llame al método `recognizeLinkedEntities()` del cliente y obtenga el objeto `RecognizeLinkedEntitiesResult`. Recorra en iteración la lista de resultados e imprima el nombre, el identificador, el origen de datos, la dirección URL y las coincidencias de la entidad. Cada objeto de la matriz `matches` contendrá el desplazamiento, la longitud y la puntuación de esa coincidencia.
 
@@ -640,6 +592,59 @@ Document ID: 0
                 Text: BASIC     Score: 0.33
 ```
 
+# <a name="version-30"></a>[Versión 3.0](#tab/version-3)
+
+Cree una matriz de cadenas que contenga el documento que quiere analizar. Llame al método `recognizeLinkedEntities()` del cliente y obtenga el objeto `RecognizeLinkedEntitiesResult`. Recorra en iteración la lista de resultados e imprima el nombre, el identificador, el origen de datos, la dirección URL y las coincidencias de la entidad. Cada objeto de la matriz `matches` contendrá el desplazamiento, la longitud y la puntuación de esa coincidencia.
+
+```javascript
+async function linkedEntityRecognition(client){
+
+    const linkedEntityInput = [
+        "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800. During his career at Microsoft, Gates held the positions of chairman, chief executive officer, president and chief software architect, while also being the largest individual shareholder until May 2014."
+    ];
+    const entityResults = await client.recognizeLinkedEntities(linkedEntityInput);
+
+    entityResults.forEach(document => {
+        console.log(`Document ID: ${document.id}`);
+        document.entities.forEach(entity => {
+            console.log(`\tName: ${entity.name} \tID: ${entity.dataSourceEntityId} \tURL: ${entity.url} \tData Source: ${entity.dataSource}`);
+            console.log(`\tMatches:`)
+            entity.matches.forEach(match => {
+                console.log(`\t\tText: ${match.text} \tScore: ${match.confidenceScore.toFixed(2)}`);
+        })
+        });
+    });
+}
+linkedEntityRecognition(textAnalyticsClient);
+```
+
+Ejecute el código con `node index.js` en la ventana de la consola.
+
+### <a name="output"></a>Output
+
+```console
+Document ID: 0
+        Name: Altair 8800       ID: Altair 8800         URL: https://en.wikipedia.org/wiki/Altair_8800  Data Source: Wikipedia
+        Matches:
+                Text: Altair 8800       Score: 0.88
+        Name: Bill Gates        ID: Bill Gates  URL: https://en.wikipedia.org/wiki/Bill_Gates   Data Source: Wikipedia
+        Matches:
+                Text: Bill Gates        Score: 0.63
+                Text: Gates     Score: 0.63
+        Name: Paul Allen        ID: Paul Allen  URL: https://en.wikipedia.org/wiki/Paul_Allen   Data Source: Wikipedia
+        Matches:
+                Text: Paul Allen        Score: 0.60
+        Name: Microsoft         ID: Microsoft   URL: https://en.wikipedia.org/wiki/Microsoft    Data Source: Wikipedia
+        Matches:
+                Text: Microsoft         Score: 0.55
+                Text: Microsoft         Score: 0.55
+        Name: April 4   ID: April 4     URL: https://en.wikipedia.org/wiki/April_4      Data Source: Wikipedia
+        Matches:
+                Text: April 4   Score: 0.32
+        Name: BASIC     ID: BASIC       URL: https://en.wikipedia.org/wiki/BASIC        Data Source: Wikipedia
+        Matches:
+                Text: BASIC     Score: 0.33
+```
 
 ---
 
@@ -710,6 +715,8 @@ ID: 0
 
 # <a name="version-31-preview"></a>[Versión 3.1 (versión preliminar)](#tab/version-3-1)
 
+Puede usar la operación Analyze para realizar solicitudes por lotes asincrónicas para: NER, extracción de frases clave, análisis de sentimiento y detección de información de identificación personal. En el ejemplo siguiente se muestra un ejemplo básico sobre una operación. Puede encontrar ejemplos más avanzados de [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/beginAnalyzeActions.js) y [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/samples/v5/typescript/src/beginAnalyzeActions.ts) en GitHub.
+
 [!INCLUDE [Analyze Batch Action pricing](../analyze-operation-pricing-caution.md)]
 
 Cree una nueva función llamada `analyze_example()`, que llame a la función `beginAnalyze()`. El resultado será una operación de larga duración que se sondeará para encontrar resultados.
@@ -723,7 +730,7 @@ async function analyze_example(client) {
   const actions = {
     recognizeEntitiesActions: [{ modelVersion: "latest" }],
   };
-  const poller = await client.beginAnalyzeBatchActions(documents, actions, "en");
+  const poller = await client.beginAnalyzeActions(documents, actions, "en");
 
   console.log(
     `The analyze batch actions operation was created on ${poller.getOperationState().createdOn}`
@@ -767,15 +774,13 @@ The analyze batch actions operation results will expire on Sat Mar 13 2021 09:53
         - Entity Paul Allen of type Person
 ```
 
-También puede usar la operación Analyze para detectar información de identificación personal, para reconocer entidades vinculadas y para la extracción de frases clave. Consulte los ejemplos de Analyze para [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/v5/javascript) y [TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/v5/typescript/src) en GitHub.
+También puede usar la operación Analyze para ejecutar NER, la extracción de frases clave, el análisis de sentimiento y la detección de información de identificación personal. Consulte los ejemplos de Analyze para [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/beginAnalyzeActions.js) y [TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/v5/typescript/src) en GitHub.
 
 # <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
 Esta característica no está disponible en la versión 3.0.
 
 ---
-
-## <a name="run-the-application"></a>Ejecución de la aplicación
 
 Ejecute la aplicación con el comando `node` en el archivo de inicio rápido.
 

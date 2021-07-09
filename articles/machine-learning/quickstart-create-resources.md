@@ -1,25 +1,26 @@
 ---
-title: 'Inicio rápido: Introducción a Azure Machine Learning'
+title: 'Inicio rápido: Creación de recursos de área de trabajo'
 titleSuffix: Azure Machine Learning
-description: Introducción a Azure Machine Learning.  Configure un área de trabajo y agregue recursos de proceso para crear un entorno de desarrollo.
+description: Cree un área de trabajo de Azure Machine Learning y recursos en la nube que se puedan usar para entrenar modelos de aprendizaje automático.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
-ms.date: 04/26/2021
+ms.date: 06/10/2021
 adobe-target: true
-ms.openlocfilehash: 596c6252b1ed7a0aa4d6f9554e6b417ccf131755
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.custom: contperf-fy21q4
+ms.openlocfilehash: d12b9229fdf4b8cfe32a9db375b9c0943ce53507
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785347"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112033462"
 ---
-# <a name="quickstart-create-resources-youll-need-to-get-started-with-azure-machine-learning"></a>Inicio rápido: Creación de los recursos necesarios para empezar a trabajar con Azure Machine Learning
+# <a name="quickstart-create-workspace-resources-you-need-to-get-started-with-azure-machine-learning"></a>Inicio rápido: Creación de los recursos de área de trabajo necesarios para empezar a trabajar con Azure Machine Learning
 
-En este inicio rápido, creará un área de trabajo y agregará recursos de proceso al área de trabajo. Así tendrá todo lo necesario para empezar a trabajar con Azure Machine Learning.  
+En este inicio rápido, creará un área de trabajo a la que luego agregará recursos de proceso. Así tendrá todo lo necesario para empezar a trabajar con Azure Machine Learning.  
 
 El área de trabajo es el recurso de nivel superior para las actividades de aprendizaje automático y proporciona un lugar centralizado para ver y administrar los artefactos que se crean al usar Azure Machine Learning. Los recursos de proceso proporcionan un entorno basado en la nube preconfigurado que permite entrenar, implementar, automatizar, administrar y realizar un seguimiento de los modelos de aprendizaje automático.
 
@@ -102,10 +103,10 @@ Si planea continuar ahora con el siguiente tutorial, vaya a [Pasos siguientes](#
 
 ### <a name="stop-compute-instance"></a>Detención de una instancia de proceso
 
-Si no va a usarla ahora, detenga la instancia de proceso:
+Si no va a utilizar ahora la instancia de proceso, deténgala:
 
 1. En Studio, a la izquierda, seleccione **Proceso**.
-1. En las pestañas superiores, seleccione **Instancias de proceso**
+1. En las pestañas superiores, seleccione **Instancia de proceso**.
 1. Seleccione la instancia de proceso en la lista.
 1. En la barra de herramientas superior, seleccione **Detener**.
 

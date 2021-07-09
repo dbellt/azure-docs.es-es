@@ -5,22 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 03/03/2021
+ms.date: 05/13/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celested
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: f15fd789264922865acb792bdb766b9624665d91
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 072278ab70484eb427bafafc3e644e39e47eb8a8
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109654767"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111960480"
 ---
 # <a name="investigate-risk-with-identity-protection-in-azure-ad-b2c"></a>Investigación del riesgo con Identity Protection en Azure AD B2C
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 Identity Protection proporciona detección continua de riesgos para el inquilino de Azure AD B2C. Permite a las organizaciones detectar, investigar y corregir los riesgos basados en la identidad. Identity Protection incluye informes de riesgo que se pueden usar para investigar los riesgos de identidad en los inquilinos de Azure AD B2C. En este artículo, aprenderá a investigar y mitigar los riesgos.
 
@@ -83,7 +81,7 @@ A continuación, los administradores pueden elegir tomar medidas en estos evento
 - Bloquear el inicio de sesión del usuario
 - Investigar con más detalle con Azure ATP
 
-Un administrador puede optar por descartar el riesgo de un usuario en Azure Portal o mediante programación a través de [descartar el riesgo de un usuario](https://docs.microsoft.com/graph/api/riskyusers-dismiss?view=graph-rest-beta&preserve-view=true) de Microsoft Graph API. Se requieren privilegios de administrador para descartar el riesgo de un usuario. La corrección de un riesgo la puede realizar el usuario de riesgo o un administrador en nombre del usuario, por ejemplo, a través de un restablecimiento de contraseña.
+Un administrador puede optar por descartar el riesgo de un usuario en Azure Portal o mediante programación a través de [descartar el riesgo de un usuario](/graph/api/riskyusers-dismiss?preserve-view=true&view=graph-rest-beta) de Microsoft Graph API. Se requieren privilegios de administrador para descartar el riesgo de un usuario. La corrección de un riesgo la puede realizar el usuario de riesgo o un administrador en nombre del usuario, por ejemplo, a través de un restablecimiento de contraseña.
 
 ### <a name="navigating-the-risky-users-report"></a>Desplazarse por el informe de usuarios de riesgo
 
@@ -91,9 +89,9 @@ Un administrador puede optar por descartar el riesgo de un usuario en Azure Port
 
 1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
 
-1. En **Servicios de Azure**, seleccione **Azure AD B2C**. O bien, use el cuadro de búsqueda para buscar y seleccionar **Azure AD B2C**.
+1. En **Servicios de Azure**, seleccione **Azure AD B2C**. O bien, use el cuadro de búsqueda para buscar y seleccionar **Azure AD B2C**.
 
-1. En **Seguridad**, seleccione **Usuarios de riesgo (versión preliminar)** .
+1. En **Seguridad**, seleccione **Usuarios de riesgo**.
 
    ![Usuarios de riesgo](media/identity-protection-investigate-risk/risky-users.png)
 
@@ -117,7 +115,7 @@ Los administradores pueden elegir volver al informe de riesgo del usuario o de i
 ### <a name="navigating-the-risk-detections-report"></a>Desplazamiento hasta el informe de detecciones de riesgo
 
 1. En Azure Portal, busque y seleccione **Azure AD B2C**.
-1. En **Seguridad**, seleccione **Detecciones de riesgos (versión preliminar)** .
+1. En **Seguridad**, seleccione **Detecciones de riesgos**.
 
    ![Detecciones de riesgo](media/identity-protection-investigate-risk/risk-detections.png)
 

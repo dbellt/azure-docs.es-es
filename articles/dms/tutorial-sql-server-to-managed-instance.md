@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: 2dfcb4ade9da76d5ec4883e9f4b5b3cb3e0c8682
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: e00af1551d5de5a2c8cbd5ea119c94ef4b38aaa3
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076843"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112030996"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>Tutorial: Migración de SQL Server a Instancia administrada de Azure SQL sin conexión con Database Migration Service
 
@@ -35,7 +35,7 @@ En este tutorial, aprenderá a:
 > - Descargar un informe de migración.
 
 > [!IMPORTANT]
-> En las migraciones sin conexión de SQL Server a Instancia administrada de SQL, Azure Database Migration Service puede crear los archivos de copia de seguridad. Como alternativa, puede proporcionar la última copia de seguridad completa de la base de datos en el recurso compartido de red de SMB, que será la que use el servicio para migrar las bases de datos. No anexe varias copias de seguridad a un solo medio de copia de seguridad; debe realizar cada copia de seguridad en un archivo de copia de seguridad distinto. Tenga en cuenta que también puede usar copias de seguridad comprimidas para reducir la probabilidad de experimentar posibles problemas con la migración de copias de seguridad de gran tamaño.
+> En las migraciones sin conexión de SQL Server a Instancia administrada de SQL, Azure Database Migration Service puede crear los archivos de copia de seguridad. Como alternativa, puede proporcionar la última copia de seguridad completa de la base de datos en el recurso compartido de red de SMB, que será la que use el servicio para migrar las bases de datos. Cada copia de seguridad se puede escribir en un archivo de copia de seguridad independiente o en varios archivos de copia de seguridad. Sin embargo, no se admite la anexación de varias copias de seguridad en un único medio de copia de seguridad. Tenga en cuenta que también puede usar copias de seguridad comprimidas para reducir la probabilidad de experimentar posibles problemas con la migración de copias de seguridad de gran tamaño.
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
