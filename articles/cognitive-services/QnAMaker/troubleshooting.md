@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: troubleshooting
 ms.date: 11/09/2020
-ms.openlocfilehash: e7b4bbafd5630c2c116e002ee6ebafaa5444ce2d
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: d9050b0b414ef6ca49f9376e20498b14a8952480
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110369326"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072584"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Solución de problemas para QnA Maker
 
@@ -279,7 +279,14 @@ Si tiene contenido en varios idiomas, asegúrese de crear un servicio independie
 <details>
 <summary><b>Eliminé mi índice `testkb` en el servicio Search. ¿Cómo lo puedo corregir?</b></summary>
 
-**Respuesta**: No se pueden recuperar los datos antiguos. Cree un nuevo recurso de QnA Maker y cree su base de conocimiento nuevamente.
+**Respuesta:** En caso de que haya eliminado el índice `testkb` en el servicio Search, puede restaurar los datos desde la última KB publicada. Use la herramienta de recuperación [RestoreTestKBIndex](https://github.com/pchoudhari/QnAMakerBackupRestore/tree/master/RestoreTestKBFromProd) disponible en GitHub. 
+
+</details>
+
+<details>
+<summary><b>Recibo el siguiente error: "Compruebe si la configuración de CORS de App Service de QnA Maker permite https://www.qnamaker.ai o si hay restricciones de red específicas de la organización". ¿Cómo puedo resolverlo?</b></summary>
+
+**Respuesta**: En la sección API de la hoja de App Service, actualice el valor de CORS a * o "https://www.qnamaker.ai". Si el problema no se resuelve, compruebe si hay restricciones específicas de la organización.
 
 </details>
 
@@ -360,9 +367,9 @@ Si tiene contenido en varios idiomas, asegúrese de crear un servicio independie
 </details>
 
 <details>
-<summary><b>Eliminé mi índice `testkb` en el servicio Search. ¿Cómo lo puedo corregir?</b></summary>
+<summary><b>Eliminé mi índice `testkbv2` en el servicio Search. ¿Cómo lo puedo corregir?</b></summary>
 
-**Respuesta**: No se pueden recuperar los datos antiguos. Cree un nuevo recurso de QnA Maker y cree su base de conocimiento nuevamente.
+**Respuesta:** En caso de que haya eliminado el índice `testkbv2` en el servicio Search, puede restaurar los datos desde la última KB publicada. Use la herramienta de recuperación [RestoreTestKBIndex](https://github.com/pchoudhari/QnAMakerBackupRestore/tree/master/RestoreTestKBFromProd) disponible en GitHub. 
 
 </details>
 

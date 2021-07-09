@@ -8,16 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/18/2021
+ms.date: 06/14/2021
 ms.author: aahi
-ms.openlocfilehash: b1af4e147f960e8e241a2d49ac94b7fb2594207f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 0e897b71f1f5f99ce2834768a72bf99b9773301f
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078209"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078265"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Idiomas admitidos en Text Analytics API v3 
+
+> [!NOTE]
+> Los idiomas se agregan a medida que se lanzan nuevas versiones del modelo para características concretas de Text Analytics. Consulte [Control de versiones de modelos](concepts/model-versioning.md) para obtener la versión más reciente del modelo para las características que usa y para obtener más información.   
 
 #### <a name="sentiment-analysis"></a>[Análisis de sentimiento](#tab/sentiment-analysis)
 
@@ -79,28 +82,42 @@ ms.locfileid: "110078209"
 
 #### <a name="key-phrase-extraction"></a>[Extracción de frases clave](#tab/key-phrase-extraction)
 
-| Idioma              | Código de lenguaje |  Compatibilidad con la versión 3 | Disponible a partir de la versión del modelo 3: |       Notas        |
+| Idioma              | Código de lenguaje |  Compatibilidad con la versión 3 | A partir de la versión del modelo de la versión 3: |       Notas        |
 |:----------------------|:-------------:|:----------:|:-----------------------------------------:|:------------------:|
-| Danés                |     `da`      |     ✓     |                2019-10-01                 |                    |
+| Afrikáans             |     `af`      |     ✓      |                01-07-2020                 |                    |
+| Búlgaro             |     `bg`      |     ✓      |                01-07-2020                 |                    |
+| Catalán               |     `ca`      |     ✓      |                01-07-2020                 |                    |
+| Chino simplificado    |     `zh-hans` |     ✓      |                01-06-2021                 |                    |
+| Croata              |     `hr`      |     ✓      |                01-07-2020                 |                    |
+| Danés                |     `da`      |     ✓      |                2019-10-01                 |                    |
 | Neerlandés                 |     `nl`      |     ✓      |                2019-10-01                 |                    |
 | Inglés               |     `en`      |     ✓      |                2019-10-01                 |                    |
+| Estonio              |     `et`      |     ✓      |                01-07-2020                 |                    |
 | Finés               |     `fi`      |     ✓      |                2019-10-01                 |                    |
 | Francés                |     `fr`      |     ✓      |                2019-10-01                 |                    |
 | Alemán                |     `de`      |     ✓      |                2019-10-01                 |                    |
+| Griego                 |     `el`      |     ✓      |                01-07-2020                 |                    |
+| Húngaro             |     `hu`      |     ✓      |                01-07-2020                 |                    |
 | Italiano               |     `it`      |     ✓      |                2019-10-01                 |                    |
+| Indonesio            |     `id`      |     ✓      |                01-07-2020                 |                    |
 | Japonés              |     `ja`      |     ✓      |                2019-10-01                 |                    |
 | Coreano                |     `ko`      |     ✓      |                2019-10-01                 |                    |
+| Letón               |     `lv`      |     ✓      |                01-07-2020                 |                    |
 | Noruego (Bokmål)   |     `no`      |     ✓      |                01-07-2020                 | También se acepta `nb` |
 | Polaco                |     `pl`      |    ✓      |                2019-10-01                 |                    |
 | Portugués (Brasil)   |    `pt-BR`    |     ✓      |                2019-10-01                 |                    |
 | Portugués (Portugal) |    `pt-PT`    |    ✓      |                2019-10-01                 | También se acepta `pt` |
+| Rumano              |     `ro`      |     ✓      |                01-07-2020                 |                    |
 | Ruso               |     `ru`      |     ✓      |                2019-10-01                 |                    |
 | Español               |     `es`      |     ✓      |                2019-10-01                 |                    |
+| Eslovaco                |     `sk`      |     ✓      |                01-07-2020                 |                    |
+| Esloveno             |     `sl`      |     ✓      |                01-07-2020                 |                    |
 | Sueco               |     `sv`      |     ✓      |                2019-10-01                 |                    |
+| Turco               |     `tr`      |     ✓      |                01-07-2020                 |                    |
 
 #### <a name="entity-linking"></a>[Vinculación de entidad](#tab/entity-linking)
 
-| Idioma | Código de lenguaje |  Compatibilidad con la versión 3 | Disponible a partir de la versión del modelo 3: | Notas |
+| Idioma | Código de lenguaje |  Compatibilidad con la versión 3 | A partir de la versión del modelo de la versión 3: | Notas |
 |:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
 | Inglés  |     `en`      |     ✓      |                2019-10-01                 |       |
 | Español  |     `es`      |    ✓      |                2019-10-01                 |       |
@@ -126,7 +143,7 @@ Text Analytics API puede detectar una amplia variedad de idiomas, variantes, dia
 
 Si tiene contenido que se expresa en un idioma que se usa con menos frecuencia, puede probar Detección de idioma para ver si devuelve un código. La respuesta para los idiomas que no se pueden detectar es `unknown`.
 
-| Idioma | Código de lenguaje | Compatibilidad con la versión 3 | Disponible a partir de la versión del modelo 3: |
+| Idioma | Código de lenguaje | Compatibilidad con la versión 3 | A partir de la versión del modelo de la versión 3: |
 |:-|:-:|:-:|:-:|
 |Afrikáans|`af`|✓|    |
 |Albanés|`sq`|✓|    |
@@ -250,3 +267,4 @@ Si tiene contenido que se expresa en un idioma que se usa con menos frecuencia, 
 ## <a name="see-also"></a>Consulte también
 
 * [¿Qué es Text Analytics API?](overview.md)   
+* [Versiones del modelo](concepts/model-versioning.md)

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: be28a10f8a96d21d64d08cfacee4543c065168ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c98ed6dbff4be00b6620d96926d6059876494f94
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "85391764"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110084725"
 ---
 # <a name="export-your-model-for-use-with-mobile-devices"></a>Exportación del modelo para su uso con dispositivos móviles
 
@@ -26,8 +26,9 @@ Custom Vision Service permite exportar los clasificadores para ejecutarlos sin c
 Custom Vision Service admite las exportaciones siguientes:
 
 * __Tensorflow__ para __Android__.
+* **TensorflowJS** para marcos de JavaScript como React, Angular y Vue. Esto se ejecutará tanto en dispositivos **Android** como **iOS**.
 * __CoreML__ para __iOS11__.
-* __ONNX__ para __Windows ML__.
+* __ONNX__ para __Windows ML,__ **Android** e **iOS**.
 * __[Kit de desarrollo de Vision AI](https://azure.github.io/Vision-AI-DevKit-Pages/)__ .
 * Un __contenedor de Docker__ para la arquitectura de Windows, Linux o ARM. El contenedor incluye un modelo de Tensorflow y código de servicio para usar Custom Vision API.
 

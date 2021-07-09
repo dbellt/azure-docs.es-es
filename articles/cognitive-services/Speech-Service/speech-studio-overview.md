@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2021
 ms.author: trbye
-ms.openlocfilehash: 069cc8c28930d4c5e124700cac8e07c18c81d79d
-ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
+ms.openlocfilehash: ddf7b85f5775ee25a260f19ae81e43afff95facb
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109665615"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111902345"
 ---
 # <a name="what-is-speech-studio"></a>¿Qué es el Speech Studio?
 
@@ -41,7 +41,8 @@ Las características siguientes del servicio Voz están disponibles como tipos d
 * **Voz en texto en tiempo real**: arrastre y coloque archivos de audio para probar rápidamente la conversión de voz en texto sin usar ningún código. Esta es una herramienta de demostración que permite ver cómo funciona la conversión de voz en texto en sus muestras de audio; consulte la [introducción](speech-to-text.md) a la conversión de voz en texto para explorar toda la funcionalidad disponible.
 * **Habla personalizada**: esta característica permite crear modelos de reconocimiento de voz adaptados a conjuntos de vocabulario y estilos de habla específicos. A diferencia del uso de un modelo base de reconocimiento de voz, los modelos de Habla personalizada constituyen parte de su ventaja competitiva única, porque no son accesibles públicamente. Consulte el [inicio rápido](how-to-custom-speech-test-and-train.md) para empezar a usar la carga de muestras de audio para crear un modelo de Habla personalizada.
 * **Evaluación de la pronunciación**: esta característica evalúa la pronunciación y ofrece información a los hablantes sobre la precisión y la fluidez del audio hablado. Speech Studio proporciona un espacio aislado para probar esta característica rápidamente sin código, pero puede consultar el artículo de [procedimientos](how-to-pronunciation-assessment.md) para usar la característica con el SDK de voz en las aplicaciones.
-* **Voz personalizada**: esta característica permite crear voces personalizadas únicas para la conversión de texto a voz. Puede proporcionar archivos de audio, crear las transcripciones correspondientes en Speech Studio y, a continuación, usar las voces personalizadas en las aplicaciones. Consulte el artículo de [procedimientos](how-to-custom-voice-create-voice.md) sobre la creación y el uso de voces personalizadas mediante puntos de conexión. Tenga en cuenta que Voz personalizada solo se puede usar desde la [API REST](rest-text-to-speech.md).
+* **Galería de voces**: cree aplicaciones y servicios que hablen de forma natural. Elija entre más de 170 voces en más de 70 idiomas y variantes. Dé vida a los escenarios con voces neuronales idénticas a las humanas y altamente expresivas.
+* **Voz personalizada**: esta característica permite crear voces personalizadas únicas para la conversión de texto a voz. Puede proporcionar archivos de audio, crear las transcripciones correspondientes en Speech Studio y, a continuación, usar las voces personalizadas en las aplicaciones. Consulte el artículo de [procedimientos](how-to-custom-voice-create-voice.md) sobre la creación y el uso de voces personalizadas mediante puntos de conexión. 
 * **Creación de contenido de audio**: [Creación de contenido de audio](how-to-audio-content-creation.md) es una herramienta fácil de usar que permite crear contenido de audio muy natural para diversos escenarios como audiolibros, retransmisión de noticias, narraciones en vídeo y bots de chat. Speech Studio permite exportar los archivos de audio creados para usarlos en las aplicaciones.
 * **Palabra clave personalizada**: una palabra clave personalizada es una palabra o frase corta que permite activar el producto por voz. Cree una palabra clave personalizada en Speech Studio y, a continuación, genere un archivo binario para [usarlo con el SDK de Voz](custom-keyword-basics.md) en las aplicaciones.
 * **Comandos personalizados**: esta característica facilita la creación de aplicaciones de comandos de voz enriquecidas y optimizadas para las opciones de interacción que priorizan la voz. Proporciona una experiencia de creación sin código en Speech Studio, un modelo de hospedaje automático y una complejidad relativamente menor, lo que ayuda a centrarse en la creación de la mejor solución para sus escenarios de comandos de voz. Consulte la guía [paso a paso](how-to-develop-custom-commands-application.md) para crear aplicaciones de Comandos personalizados y también la guía para [integrar la aplicación de Comandos personalizados con el SDK de Voz.](how-to-custom-commands-setup-speech-sdk.md)

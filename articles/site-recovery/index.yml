@@ -7,15 +7,15 @@ metadata:
   ms.service: site-recovery
   ms.topic: landing-page
   ms.collection: collection
-  author: rayne-wiselman
-  ms.author: raynew
+  author: JYOTHIRMAISURI
+  ms.author: v-jysur
   ms.date: 11/19/2019
-  ms.openlocfilehash: 35dc762e7114664bb39182107e78d0c3778458b3
-  ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+  ms.openlocfilehash: 9fc3c96c9953810e259cbf72159d87a3130bdf66
+  ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 02/15/2021
-  ms.locfileid: "100521584"
+  ms.lasthandoff: 06/11/2021
+  ms.locfileid: "112029754"
 landingContent:
 - title: Acerca de Site Recovery
   linkLists:
@@ -49,7 +49,7 @@ landingContent:
       url: ./azure-to-azure-move-overview.md
   - linkListType: how-to-guide
     links:
-    - text: Habilitación de la recuperación ante desastres de zona a zona para máquinas virtuales de Azure
+    - text: Recuperación ante desastres de zona a zona
       url: ./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
     - text: Redes para la recuperación ante desastres de las máquinas virtuales de Azure
       url: ./azure-to-azure-about-networking.md

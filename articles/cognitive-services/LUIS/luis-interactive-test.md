@@ -4,17 +4,24 @@ description: Use Language Understanding (LUIS) para trabajar continuamente en la
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/02/2020
-ms.openlocfilehash: 31885eba16d59e2e48a08f84c56271b84e6c565f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: aahi
+author: aahill
+ms.manager: nitinme
+ms.date: 06/01/2021
+ms.openlocfilehash: d5263f85fa8cc2a9f1b55da32b4aa1418e304347
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98790925"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954269"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Prueba de la aplicación de LUIS en el portal de LUIS
 
-La [prueba](luis-concept-test.md) de una aplicación es un proceso iterativo. Tras entrenar la aplicación de LUIS, pruébela con expresiones de ejemplo para ver si las entidades e intenciones se reconocen correctamente. En caso contrario, realice actualizaciones en la aplicación de LUIS, entrénela y pruébela de nuevo.
+
+La realización de pruebas es el proceso por el cual se proporcionan expresiones de ejemplo a LUIS y se obtiene una respuesta de intenciones y entidades reconocidas por LUIS. Puede probar LUIS de forma interactiva, con una expresión cada vez o con un conjunto de expresiones. Durante las pruebas, puede comparar la respuesta de predicción del modelo activo actual con la respuesta de predicción del modelo publicado. 
+
+
+La prueba de una aplicación es un proceso iterativo. Tras entrenar la aplicación de LUIS, pruébela con expresiones de ejemplo para ver si las entidades e intenciones se reconocen correctamente. En caso contrario, realice actualizaciones en la aplicación de LUIS, entrénela y pruébela de nuevo.
 
 <!-- anchors for H2 name changes -->
 <a name="train-your-app"></a>
@@ -22,13 +29,31 @@ La [prueba](luis-concept-test.md) de una aplicación es un proceso iterativo. Tr
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
 
-## <a name="train-before-testing"></a>Entrenamiento antes de las pruebas
+## <a name="interactive-testing"></a>Pruebas interactivas
 
-1. Inicie sesión en el [portal de LUIS](https://www.luis.ai), seleccione su **Suscripción** y **Recurso de creación** para ver las aplicaciones asignadas a ese recurso de creación.
-1. Abra la aplicación mediante la selección de su nombre en la página **Mis aplicaciones**.
-1. Para probar con la versión más reciente de la aplicación activa, seleccione **Entrenar** en el menú superior, antes de realizar las pruebas.
+Las pruebas interactivas se llevan a cabo desde el panel **Test** (Prueba) del portal de LUIS. Puede introducir una expresión para ver cómo se identifican y puntúan las intenciones y las entidades. Si LUIS no predice en el panel de pruebas las intenciones y entidades tal como espera en una expresión, cópiela en la página **Intent** (Intención) como una expresión nueva. Después, etiquete las partes de esa expresión para las entidades y entrene LUIS. 
+
+Consulte [pruebas por lotes](./luis-how-to-batch-test.md) si va a probar más de una expresión a la vez y el artículo [Puntuaciones de predicción](luis-concept-prediction-score.md) si lo que desea es más información sobre las puntuaciones de predicción.
+
+Puede hacer pruebas mediante el [punto de conexión](luis-glossary.md#endpoint) con un máximo de dos versiones de la aplicación. Con la versión principal o activa de la aplicación establecida como punto de conexión de **producción**, agregue una segunda versión al punto de conexión de **ensayo**. Este enfoque le proporciona tres versiones de una expresión: el modelo actual en el panel Prueba del portal de [LUIS](luis-reference-regions.md) y las dos versiones en los dos puntos de conexión diferentes. 
+
+Todas las pruebas de punto de conexión cuentan para la cuota de uso. 
+
+## <a name="logging"></a>Registro
+
+LUIS almacena todas las expresiones registradas en el registro de consultas, que se puede descargar en la página de la lista **Apps** (Aplicaciones) del portal de LUIS, así como las [API de creación](https://go.microsoft.com/fwlink/?linkid=2092087) de LUIS. 
+
+Si hace una prueba en un punto de conexión y no quiere que la expresión quede registrada, recuerde que debe usar la configuración de cadena de consulta `logging=false`.
+
+Todas las expresiones de las que LUIS no esté seguro aparecerán en la página **[Revisión de las expresiones de punto de conexión](luis-how-to-review-endpoint-utterances.md)** del portal de [LUIS](luis-reference-regions.md).  
 
 ## <a name="test-an-utterance"></a>Entrenar una expresión
+
+> [!NOTE]
+> No olvide [entrenar](luis-how-to-train.md) a LUIS después de hacer cambios en el modelo. Los cambios efectuados en la aplicación de LUIS no se ven en las pruebas hasta que se entrena la aplicación.
+> 1. Inicie sesión en el portal de LUIS, seleccione su suscripción y recurso de creación para ver las aplicaciones asignadas a ese recurso.
+> 2. Abra la aplicación mediante la selección de su nombre en la página Mis aplicaciones.
+> 3. Para probar con la versión más reciente de la aplicación activa, seleccione Entrenar en el menú superior, antes de realizar las pruebas.
 
 La expresión de prueba no debe ser exactamente igual que cualquier expresión de ejemplo de la aplicación. La expresión de prueba debe incluir la elección de la palabra, la longitud de la frase y el uso de la entidad que se espera para un usuario.
 
@@ -127,3 +152,4 @@ Si las pruebas indican que la aplicación de LUIS no reconoce las entidades y la
 
 * [Label suggested utterances with LUIS](luis-how-to-review-endpoint-utterances.md) (Etiquetado de expresiones sugeridas con LUIS)
 * [Use features to improve your LUIS app's performance](luis-how-to-add-features.md) (Uso de características para mejorar el rendimiento de la aplicación de LUIS)
+* [procedimientos recomendados](luis-concept-best-practices.md)

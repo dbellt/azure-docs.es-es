@@ -1,0 +1,102 @@
+### YamlMime:Landing
+title: Documentación de Always Encrypted
+summary: Búsqueda de documentación sobre Always Encrypted
+metadata:
+  title: Documentación de Always Encrypted
+  description: Búsqueda de la documentación de Always Encrypted para SQL Server, Azure SQL Database y Azure SQL Managed Instance
+  ms.service: sql-db-mi
+  ms.subservice: security
+  ms.tgt_pltfrm: na
+  ms.devlang: 
+  ms.topic: landing-page
+  author: VanMSFT
+  ms.author: vanto
+  ms.reviewer: 
+  ms.date: 01/15/2021
+  ms.openlocfilehash: 5abf79ca2e650f45f0ad29c34ab799d660c015f8
+  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 06/10/2021
+  ms.locfileid: "111965472"
+landingContent:
+- title: Introducción a Always Encrypted
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Descripción de Always Encrypted
+      url: /sql/relational-databases/security/encryption/always-encrypted-database-engine
+- title: Conceptos de Always Encrypted
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Administración de claves para Always Encrypted
+      url: /sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted
+    - text: Criptografía de Always Encrypted
+      url: /sql/relational-databases/security/encryption/always-encrypted-cryptography
+- title: Tutoriales de Always Encrypted
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Configuración de Always Encrypted con Azure Key Vault
+      url: always-encrypted-azure-key-vault-configure.md
+    - text: Configuración de Always Encrypted mediante el almacén de certificados de Windows
+      url: always-encrypted-certificate-store-configure.md
+- title: Configuración de Always Encrypted
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Configure Always Encrypted using PowerShell
+      url: /sql/relational-databases/security/encryption/configure-always-encrypted-using-powershell
+    - text: Configure Always Encrypted using SQL Server Management Studio (Configurar Always Encrypted con SQL Server Management Studio)
+      url: /sql/relational-databases/security/encryption/configure-always-encrypted-using-sql-server-management-studio
+- title: Administración de claves de Always Encrypted
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Creación y almacenamiento de claves maestras de columna para Always Encrypted
+      url: /sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted
+    - text: Aprovisionamiento de claves de Always Encrypted mediante SQL Server Management Studio
+      url: /sql/relational-databases/security/encryption/configure-always-encrypted-keys-using-ssms
+    - text: Rotación de claves de Always Encrypted mediante SQL Server Management Studio
+      url: /sql/relational-databases/security/encryption/rotate-always-encrypted-keys-using-ssms
+    - text: Aprovisionamiento de claves de Always Encrypted mediante PowerShell
+      url: /sql/relational-databases/security/encryption/configure-always-encrypted-keys-using-powershell
+    - text: Rotación de claves de Always Encrypted con PowerShell
+      url: /sql/relational-databases/security/encryption/rotate-always-encrypted-keys-using-powershell
+- title: Configuración de columnas de Always Encrypted
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Configuración del cifrado de columnas mediante el asistente para Always Encrypted
+      url: /sql/relational-databases/security/encryption/always-encrypted-wizard
+    - text: Configuración del cifrado de columna mediante Always Encrypted con un paquete DAC
+      url: /sql/relational-databases/security/encryption/configure-always-encrypted-using-dacpac
+- title: Consulta de columnas de Always Encrypted
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Consulta de columnas mediante Always Encrypted con SQL Server Management Studio
+      url: /sql/relational-databases/security/encryption/always-encrypted-query-columns-ssms
+    - text: Consulta de columnas mediante Always Encrypted con Azure Data Studio
+      url: /sql/relational-databases/security/encryption/always-encrypted-query-columns-ads
+- title: Migración de datos mediante Always Encrypted
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Exportación e importación de bases de datos con Always Encrypted
+      url: /sql/relational-databases/security/encryption/always-encrypted-migrate-using-bacpac
+    - text: Copia de seguridad y restauración de bases de datos con Always Encrypted
+      url: /sql/relational-databases/security/encryption/always-encrypted-migrate-using-backup-restore
+    - text: Migración de datos a o desde columnas mediante Always Encrypted con el Asistente para importación y exportación de SQL Server
+      url: /sql/relational-databases/security/encryption/always-encrypted-migrate-using-import-export-wizard
+    - text: Carga masiva de datos cifrados en columnas con Always Encrypted
+      url: /sql/relational-databases/security/encryption/migrate-sensitive-data-protected-by-always-encrypted
+    - text: Uso de Always Encrypted con Azure Data Factory
+      url: ../../data-factory/connector-azure-sql-database.md#using-always-encrypted
+- title: Desarrollo de aplicaciones con Always Encrypted
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Desarrollo de aplicaciones con Always Encrypted
+      url: /sql/relational-databases/security/encryption/always-encrypted-client-development

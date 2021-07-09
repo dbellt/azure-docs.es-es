@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: ea22e6a3afe8ee90cb7b59d1aca0a37fc4fa03d6
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 0185a4b18ed56899de9c235bbd0438ef1dedf7c4
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107864926"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111412734"
 ---
 # <a name="get-supported-glossary-formats"></a>Obtención de formatos de glosario admitidos
 
@@ -25,7 +25,7 @@ El método de obtención de formatos de glosario admitidos devuelve una lista de
 
 Envíe una solicitud `GET` a:
 ```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/glossaries/formats
+GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/glossaries/formats
 ```
 
 Aprenda a encontrar su [nombre de dominio personalizado](../get-started-with-document-translation.md#find-your-custom-domain-name).
@@ -62,11 +62,14 @@ Tipo base para la lista devuelta en la API de obtención de formatos de glosario
 
 Tipo base para la lista devuelta en la API de obtención de formatos de glosario admitidos.
 
-|Código de estado|Descripción|
-|--- |--- |
-|200|Aceptar. Devuelve la lista de formatos de archivo de glosario admitidos.|
-|500|Error interno del servidor.|
-|Otros códigos de estado|Demasiadas respuestas. Servidor temporalmente no disponible.|
+|Nombre|Tipo|Descripción|
+|--- |--- |--- |
+|value|FileFormat []|FileFormat[] contiene los detalles siguientes.|
+|value.contentTypes|cadena []|Tipos de contenido admitidos para este formato.|
+|value.defaultVersion|string|Versión predeterminada si no se especifica ninguna|
+|value.fileExtensions|cadena []| Extensión de archivo admitido para este formato.|
+|value.format|string|Nombre del formato.|
+|value.versions|cadena []| Versión admitida.|
 
 ### <a name="error-response"></a>Respuesta de error
 
@@ -74,9 +77,10 @@ Tipo base para la lista devuelta en la API de obtención de formatos de glosario
 |--- |--- |--- |
 |código|string|Enumeraciones que contiene códigos de error de alto nivel. Valores posibles:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>No autorizado</li></ul>|
 |message|string|Obtiene un mensaje de error de alto nivel.|
-|innerError|InnerErrorV2|Nuevo formato de error interno, que cumple las directrices de la API de Cognitive Services. Contiene las propiedades requeridas ErrorCode, mensajey las propiedades opcionales de destino, detalles (par clave-valor), error interno (puede estar anidado).|
+|innerError|InnerTranslationError|Nuevo formato de error interno que cumple las directrices de Cognitive Services API. Contiene las propiedades necesarias ErrorCode, message y las propiedades opcionales, target, details (par clave-valor), inner error (se puede anidar).|
 |innerError.code|string|Obtiene la cadena de error de código.|
 |innerError.message|string|Obtiene un mensaje de error de alto nivel.|
+|innerError.target|string|Obtiene el origen del error. Por ejemplo, sería "documentos" o "id. de documento" en el caso de un documento no válido.|
 
 ## <a name="examples"></a>Ejemplos
 
@@ -95,6 +99,7 @@ Aquí se muestra un ejemplo de respuesta correcta.
             "contentTypes": [
                 "application/xliff+xml"
             ],
+            "defaultVersion": "1.2",
             "versions": [
                 "1.0",
                 "1.1",
@@ -109,11 +114,20 @@ Aquí se muestra un ejemplo de respuesta correcta.
             ],
             "contentTypes": [
                 "text/tab-separated-values"
+            ]
+        },
+        {
+            "format": "CSV",
+            "fileExtensions": [
+                ".csv"
             ],
-            "versions": []
+            "contentTypes": [
+                "text/csv"
+            ]
         }
     ]
 }
+
 ```
 
 ### <a name="example-error-response"></a>Ejemplo de respuesta con error

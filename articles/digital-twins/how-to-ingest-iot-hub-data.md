@@ -2,17 +2,17 @@
 title: Ingesta de telemetría desde IoT Hub
 titleSuffix: Azure Digital Twins
 description: Consulte cómo ingerir los mensajes de telemetría de dispositivos desde IoT Hub.
-author: alexkarcher-msft
-ms.author: alkarche
+author: baanders
+ms.author: baanders
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ac55c3cdc041ab724c80b1042db9d988d2e988fc
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 8160a2fdb35062c678fc1a9f2e629cca7885224d
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783686"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111438993"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Ingesta de telemetría de IoT Hub en Azure Digital Twins
 
@@ -28,6 +28,8 @@ Antes de continuar con este ejemplo, debe configurar los siguientes recursos com
 * **Una instancia de IoT Hub**. Para instrucciones, consulte la sección *Creación de una instancia de IoT Hub* de [este inicio rápido de IoT Hub](../iot-hub/quickstart-send-telemetry-cli.md).
 * **Una instancia de Azure Digital Twins** que recibirá la telemetría del dispositivo. Para instrucciones, consulte [Procedimiento: Configuración de una instancia de Azure Digital Twins y autenticación](./how-to-set-up-instance-portal.md).
 
+En este artículo se utiliza también **Visual Studio**. Puede descargar la versión más reciente de [Descargas de Visual Studio](https://visualstudio.microsoft.com/downloads/).
+
 ### <a name="example-telemetry-scenario"></a>Escenario de telemetría de ejemplo
 
 En este procedimiento se explica cómo enviar mensajes desde IoT Hub a Azure Digital Twins, mediante una función de Azure. Hay muchas configuraciones y estrategias de coincidencia posibles que puede usar para enviar mensajes, pero el ejemplo de este artículo contiene los siguientes elementos:
@@ -39,7 +41,7 @@ En este procedimiento se explica cómo enviar mensajes desde IoT Hub a Azure Dig
 
 Siempre que el dispositivo de termostato envía un evento de telemetría de temperatura, una función procesa la telemetría y la propiedad *temperatura* del gemelo digital debe actualizarse. Este escenario se describe en un diagrama a continuación:
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Diagrama de un dispositivo de IoT Hub envía la telemetría de temperatura con IoT Hub a una función de Azure que actualiza una propiedad de temperatura de un gemelo en Azure Digital Twins." border="false":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Diagrama de un dispositivo de IoT Hub que envía la telemetría de temperatura a una función de Azure que actualiza una propiedad de temperatura en un gemelo de Azure Digital Twins." border="false":::
 
 ## <a name="add-a-model-and-twin"></a>Adición de un modelo y un gemelo
 
@@ -52,16 +54,8 @@ Para crear un gemelo de tipo termostato, primero debe cargar el [modelo](concept
 A continuación, deberá **crear un gemelo con este modelo**. Use el comando siguiente para crear un gemelo de termostato llamado thermostat67 y establezca 0,0 como valor de temperatura inicial.
 
 ```azurecli-interactive
-az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
+az dt twin create  --dt-name <instance-name> --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}'
 ```
-
-> [!Note]
-> Si usa Cloud Shell en el entorno de PowerShell, puede que deba colocar el carácter de escape delante de las comillas en los campos de JSON insertado para que sus valores se analicen correctamente. Este es el comando para crear el gemelo con esta modificación:
->
-> Crear el gemelo:
-> ```azurecli-interactive
-> az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{\"Temperature\": 0.0,}' --dt-name {digital_twins_instance_name}
-> ```
 
 Si el gemelo se crea correctamente, la salida de la CLI del comando debe ser similar a la siguiente:
 ```json
@@ -97,7 +91,7 @@ Agregue los siguientes paquetes al proyecto:
 * [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/)
 * [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/)
 
-Cambie el nombre de la función de ejemplo *Function1.cs* que Visual Studio ha generado con el nuevo proyecto a *IoTHubtoTwins.cs*. Reemplace el código de este archivo por el código siguiente:
+Cambie el nombre de la función de ejemplo *Function1.cs* que Visual Studio ha generado a *IoTHubtoTwins.cs*. Reemplace el código de este archivo por el código siguiente:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/IoTHubToTwins.cs":::
 
@@ -129,7 +123,7 @@ En la página **Crear suscripción de eventos**, rellene los campos como se indi
   1. En **Tipo de punto de conexión**, seleccione _Función de Azure_.
   1. En **Punto de conexión**, use el vínculo _Seleccionar un extremo_ para elegir qué función de Azure se usará para el punto de conexión.
     
-:::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Captura de pantalla de Azure Portal que muestra los detalles de una suscripción a eventos":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Captura de pantalla de Azure Portal que muestra la creación de los detalles de una suscripción a eventos.":::
 
 En la página _Seleccionar la función de Azure_ que se abre, compruebe los detalles siguientes.
  1. **Suscripción**: Su suscripción de Azure.
@@ -146,7 +140,7 @@ Seleccione el botón _Crear_ para crear una suscripción de eventos.
 
 ## <a name="send-simulated-iot-data"></a>Envío de datos de IoT simulados
 
-Para probar la nueva función de entrada, use el simulador de dispositivos de [Tutorial: Conexión de una solución de un extremo a otro](./tutorial-end-to-end.md). Este tutorial se basa en [este proyecto de ejemplo completo de Azure Digital Twins escrito en C#](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Usará el proyecto **DeviceSimulator** en ese repositorio.
+Para probar la nueva función de entrada, use el simulador de dispositivos de [Tutorial: Conexión de una solución de un extremo a otro](./tutorial-end-to-end.md). Este tutorial se basa en este [proyecto de ejemplo completo de Azure Digital Twins escrito en C#](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Usará el proyecto **DeviceSimulator** en ese repositorio.
 
 En este tutorial integral, va a completar los siguientes pasos:
 1. [Registro del dispositivo simulado en el centro de IoT](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)
@@ -157,7 +151,7 @@ En este tutorial integral, va a completar los siguientes pasos:
 Mientras se ejecuta el simulador de dispositivos anterior, cambiará el valor de temperatura del gemelo digital. En la CLI de Azure, ejecute el siguiente comando para ver el valor de temperatura.
 
 ```azurecli-interactive
-az dt twin query --query-command "select * from digitaltwins" --dt-name {digital_twins_instance_name}
+az dt twin query --query-command "select * from digitaltwins" --dt-name <Digital-Twins-instance-name>
 ```
 
 La salida debe contener un valor de temperatura similar al siguiente:
@@ -167,18 +161,14 @@ La salida debe contener un valor de temperatura similar al siguiente:
   "result": [
     {
       "$dtId": "thermostat67",
-      "$etag": "W/\"0000000-1e83-4f7f-b448-524371f64691\"",
+      "$etag": "W/\"dbf2fea8-d3f7-42d0-8037-83730dc2afc5\"",
       "$metadata": {
         "$model": "dtmi:contosocom:DigitalTwins:Thermostat;1",
         "Temperature": {
-          "ackCode": 200,
-          "ackDescription": "Auto-Sync",
-          "ackVersion": 1,
-          "desiredValue": 69.75806974934324,
-          "desiredVersion": 1
+          "lastUpdateTime": "2021-06-03T17:05:52.0062638Z"
         }
       },
-      "Temperature": 69.75806974934324
+      "Temperature": 70.20518558807913
     }
   ]
 }
@@ -189,4 +179,4 @@ Para ver el cambio de valor, ejecute repetidamente el comando de consulta anteri
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre la entrada y salida de datos con Azure Digital Twins:
-* [Conceptos: Integración con otros servicios](concepts-integration.md)
+* [Conceptos: entrada y salida de datos](concepts-data-ingress-egress.md)

@@ -5,14 +5,14 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: tutorial
-ms.date: 03/25/2021
+ms.date: 05/19/2021
 ms.author: victorh
-ms.openlocfilehash: 35bede052f06c0fcffe46460a376d10690fd4417
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f72706d4bb1d9470518fb3b14ee756a1fe1551db
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105559642"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110480553"
 ---
 # <a name="tutorial-create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Tutorial: Creación de una puerta de enlace de aplicaciones con un firewall de aplicaciones web mediante Azure Portal
 
@@ -66,7 +66,7 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
     - **Nombre de subred** (subred de servidor de back-end): En la segunda fila de la cuadrícula **Subredes**, escriba *myBackendSubnet* en la columna **Nombre de subred**.
 
-    - **Intervalo de direcciones** (subred de servidor de back-end): En la segunda fila de la cuadrícula **Subredes**, escriba un intervalo de direcciones que no se superponga al intervalo de direcciones de *myAGSubnet*. Por ejemplo, si el intervalo de direcciones de *myAGSubnet* es 10.0.0.0/24, escriba *10.0.1.0/24* para el intervalo de direcciones de *myBackendSubnet*.
+    - **Intervalo de direcciones** (subred de servidor de back-end): En la segunda fila de la cuadrícula **Subredes**, escriba un intervalo de direcciones que no se superponga al intervalo de direcciones de *myAGSubnet*. Por ejemplo, si el intervalo de direcciones de *myAGSubnet* es 10.21.0.0/24, escriba *10.21.1.0/24* para el intervalo de direcciones de *myBackendSubnet*.
 
     Seleccione **Aceptar** para cerrar la ventana **Crear red virtual** y guarde la configuración de la red virtual.
 
@@ -151,19 +151,22 @@ Para ello, necesitará lo siguiente:
 ### <a name="create-a-virtual-machine"></a>Creación de una máquina virtual
 
 1. En Azure Portal, seleccione **Crear un recurso**. Aparece la ventana **Nuevo**.
-2. Seleccione **Windows Server 2016 Datacenter** en la lista **Popular**. Aparecerá la página **Creación de una máquina virtual**.<br>Application Gateway puede enrutar el tráfico a cualquier tipo de máquina virtual que se use en el grupo de back-end. En este ejemplo se usa un Windows Server 2016 Datacenter.
+2. Seleccione **Windows Server 2019 Datacenter** en la lista **Populares**. Aparecerá la página **Creación de una máquina virtual**.<br>Application Gateway puede enrutar el tráfico a cualquier tipo de máquina virtual que se use en el grupo de back-end. En este ejemplo se usa Windows Server 2019 Datacenter.
 3. Especifique estos valores en la pestaña **Datos básicos** de la siguiente configuración de máquina virtual:
 
     - **Grupo de recursos**: Seleccione **myResourceGroupAG** como nombre del grupo de recursos.
     - **Nombre de la máquina virtual**: Especifique *myVM* como nombre de la máquina virtual.
     - **Nombre de usuario**: Escriba un nombre de usuario para el administrador.
     - **Contraseña**: Escriba una contraseña para el administrador.
+    - **Puertos de entrada públicos:** seleccione **Ninguno**.
 4. Acepte los valores predeterminados y haga clic en **Siguiente: Discos**.  
 5. Acepte los valores predeterminados de la pestaña **Discos** y seleccione **Siguiente: Redes**.
-6. En la pestaña **Redes**, compruebe que **myVNet** está seleccionada como **red virtual** y que la **subred** es **myBackendSubnet**. Acepte los valores predeterminados y haga clic en **Siguiente: Administración**.<br>Application Gateway puede comunicarse con instancias fuera de la red virtual en la que se encuentra, pero hay que comprobar que haya conectividad IP.
-7. En la pestaña **Administración**, establezca **Diagnósticos de arranque** en **Deshabilitar**. Acepte los demás valores predeterminados y seleccione **Revisar y crear**.
-8. En la pestaña **Revisar y crear**, revise la configuración, corrija los errores de validación y, después, seleccione **Crear**.
-9. Espere a que se complete la creación de la máquina virtual antes de continuar.
+6. En la pestaña **Redes**, compruebe que **myVNet** está seleccionada como **red virtual** y que la **subred** es **myBackendSubnet**.
+1. En **IP pública**, seleccione **Ninguno**.
+1. Acepte los valores predeterminados y haga clic en **Siguiente: Administración**.
+1. En la pestaña **Administración**, establezca **Diagnósticos de arranque** en **Deshabilitar**. Acepte los demás valores predeterminados y seleccione **Revisar y crear**.
+1. En la pestaña **Revisar y crear**, revise la configuración, corrija los errores de validación y, después, seleccione **Crear**.
+1. Espere a que se complete la creación de la máquina virtual antes de continuar.
 
 ### <a name="install-iis-for-testing"></a>Instalación de IIS para pruebas
 
@@ -222,24 +225,20 @@ Cree una directiva básica WAF con un conjunto de reglas predeterminado (DRS) ad
    |Configuración  |Value  |
    |---------|---------|
    |Directiva de     |WAF regional (Application Gateway)|
-   |Subscription     |Seleccione el nombre de la suscripción|
+   |Suscripción     |Seleccione el nombre de la suscripción|
    |Resource group     |Seleccione **myResourceGroupAG**.|
    |Nombre de la directiva     |Escriba un nombre único para la directiva WAF.|
-1. Seleccione **Siguiente: Configuración de directivas**
-1. Acepte los valores predeterminados y haga clic en **Siguiente: Reglas administradas**.
+1. Seleccione **Siguiente: Reglas administradas**.
+1. Acepte los valores predeterminados y, a continuación, seleccione **Siguiente: Configuración de directiva**.
 1. Acepte los valores predeterminados y seleccione **Siguiente: Reglas personalizadas**.
 1. Seleccione **Siguiente: Asociación**.
 1. Seleccione **Agregar asociación** y, después, **Application Gateway**.
 1. Active la casilla para **aplicar la configuración de Web Application Firewall aunque sea diferente de la actual**.
 1. Seleccione **Agregar**.
-1. En la pestaña **Asociación**, seleccione **Agregar asociación** y **Application Gateway**.
 
    > [!NOTE]
    > Si asigna una directiva a su Application Gateway (o agente de escucha) que ya tiene una directiva, la directiva original se sobrescribe y se reemplaza por la nueva directiva.
 4. Seleccione **Revisar y crear** y, luego, **Crear**.
-1. Seleccione **Siguiente: Etiquetas**.
-1. Seleccione **Revisar + crear**.
-1. Seleccione **Crear**.
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 

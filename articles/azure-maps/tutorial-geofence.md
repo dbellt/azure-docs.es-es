@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 759adea3cf34b79c76b6facec3bd4626ca54107e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3b9833035aa83f739b2edad7cfea9fd6cd959a69
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98625039"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112032346"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: Configuración de una geovalla con Azure Maps
 
@@ -25,7 +25,7 @@ Este tutorial le guía por los aspectos básicos de la creación y el uso de los
 Azure Maps proporciona una serie de servicios que admiten el seguimiento de los equipos que entran y salen del área de construcción. En este tutorial, hizo lo siguiente:
 
 > [!div class="checklist"]
-> * Cargará los [datos GeoJSON de geovallas](geofence-geojson.md) que definen las áreas del sitio de construcción que desea supervisar. Usará [Data Upload API](/rest/api/maps/data/uploadpreview) para cargar geovallas como coordenadas de polígonos en la cuenta de Azure Maps.
+> * Cargará los [datos GeoJSON de geovallas](geofence-geojson.md) que definen las áreas del sitio de construcción que desea supervisar. Usará [Data Upload API](/rest/api/maps/data-v2/upload-preview) para cargar geovallas como coordenadas de polígonos en la cuenta de Azure Maps.
 > * Configurará dos [aplicaciones lógicas](../event-grid/handler-webhooks.md#logic-apps) que, cuando se desencadenan, envían notificaciones de correo electrónico al administrador de operaciones del sitio de construcción, cuando el equipo entre y salga del área de la geovalla.
 > * Usará [Azure Event Grid](../event-grid/overview.md) para suscribirse a los eventos de entrada y salida de la geovalla de Azure Maps. Configurará dos suscripciones a eventos de webhook que llaman a los puntos de conexión HTTP definidos en las dos aplicaciones lógicas. A continuación, las aplicaciones lógicas enviarán las notificaciones de correo electrónico adecuadas sobre los equipos que salen o entran de la geovalla.
 > * Use [Search Geofence Get API](/rest/api/maps/spatial/getgeofence) para recibir notificaciones cuando una parte del equipo salga y entre de las áreas de la geovalla.
@@ -42,7 +42,7 @@ En este tutorial se usa la aplicación [Postman](https://www.postman.com/), pero
 En este tutorial, se cargarán datos GeoJSON de geovallas que contienen el elemento `FeatureCollection`. La colección `FeatureCollection` contiene dos geovallas que definen áreas poligonales dentro del sitio de construcción. La primera geovalla no tiene ninguna restricción de tiempo ni datos de expiración. La segunda solo se puede consultar en horario comercial (9:00 AM-5:00 PM en la zona horaria del Pacífico) y dejará de ser válida después del 1 de enero de 2022. Para más información sobre el formato GeoJSON, consulte [Datos GeoJSON de geovallas](geofence-geojson.md).
 
 >[!TIP]
->Puede actualizar los datos de geovallas en cualquier momento. Para más información, consulte [Data Upload API](/rest/api/maps/data/uploadpreview).
+>Puede actualizar los datos de geovallas en cualquier momento. Para más información, consulte [Data Upload API](/rest/api/maps/data-v2/upload-preview).
 
 1. Abra la aplicación Postman. Cerca de la parte superior, seleccione **New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Collection** (Colección). Asigne un nombre a la colección y seleccione **Create** (Crear).
 
@@ -51,7 +51,7 @@ En este tutorial, se cargarán datos GeoJSON de geovallas que contienen el eleme
 3. Seleccione el método HTTP **POST** en la pestaña del generador y escriba la siguiente dirección URL para cargar los datos de geovallas en Azure Maps. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal.
 
     ```HTTP
-    https://atlas.microsoft.com/mapData/upload?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&dataFormat=geojson
+    https://us.atlas.microsoft.com/mapData?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.0&dataFormat=geojson
     ```
 
     El parámetro `geojson` en la ruta de acceso de la dirección URL representa el formato de los datos que se cargan.
@@ -144,42 +144,37 @@ En este tutorial, se cargarán datos GeoJSON de geovallas que contienen el eleme
    }
    ```
 
-5. Seleccione **Send** (Enviar) y espere a que se procese la solicitud. Una vez finalizada la solicitud, vaya a la pestaña **Headers** (Encabezados) de la respuesta. Copie el valor de la clave **Location** (Ubicación), que es `status URL`.
+5. Seleccione **Send** (Enviar) y espere a que se procese la solicitud. Una vez finalizada la solicitud, vaya a la pestaña **Headers** (Encabezados) de la respuesta. Copie el valor de la clave de **Operation-Location**, que es `status URL`.
 
     ```http
-    https://atlas.microsoft.com/mapData/operations/<operationId>?api-version=1.0
+    https://us.atlas.microsoft.com/mapData/operations/<operationId>?api-version=2.0
     ```
 
 6. Para comprobar el estado de la llamada de API, cree una solicitud HTTP **GET** en el elemento `status URL`. Tendrá que anexar la clave de suscripción principal a la dirección URL para realizar la autenticación. La solicitud **GET** debe ser como la siguiente dirección URL:
 
    ```HTTP
-   https://atlas.microsoft.com/mapData/<operationId>/status?api-version=1.0&subscription-key={Subscription-key}
+   https://us.atlas.microsoft.com/mapData/<operationId>?api-version=2.0&subscription-key={Subscription-key}
    ```
 
-7. Cuando la solicitud HTTP **GET** se completa correctamente, devuelve un elemento `resourceLocation`. El `resourceLocation` contiene el `udid` único para el contenido cargado. Guarde este `udid` para consultar Get Geofence API en la última sección de este tutorial. Opcionalmente, puede usar la dirección URL del `resourceLocation` para recuperar los metadatos de este recurso en el siguiente paso.
+7. Cuando la solicitud se complete correctamente, seleccione la pestaña **Encabezados** en la ventana de respuesta. Copie el valor de la clave **Resource-Location**, que es `resource location URL`.  `resource location URL` contiene el identificador único (`udid`) de los datos cargados. Guarde este `udid` para consultar Get Geofence API en la última sección de este tutorial. Opcionalmente, puede usar la dirección URL `resource location URL` para recuperar los metadatos de este recurso en el siguiente paso.
 
-      ```json
-      {
-          "status": "Succeeded",
-          "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0"
-      }
-      ```
+    :::image type="content" source="./media/tutorial-geofence/resource-location-url.png" alt-text="Copie la dirección URL de la ubicación del recurso.":::
 
-8. Para recuperar metadatos de contenido, cree una solicitud HTTP **GET** en la dirección URL `resourceLocation` que se recuperó en el paso 7. Asegúrese de anexar la clave de suscripción principal a la dirección URL para la autenticación. La solicitud **GET** debe ser como la siguiente dirección URL:
+8. Para recuperar metadatos de contenido, cree una solicitud HTTP **GET** en la dirección `resource location URL` que se recuperó en el paso 7. Asegúrese de anexar la clave de suscripción principal a la dirección URL para la autenticación. La solicitud **GET** debe ser como la siguiente dirección URL:
 
     ```http
-   https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-9. Cuando la solicitud HTTP **GET** se complete correctamente, el cuerpo de la respuesta contendrá el valor de `udid` especificado en el elemento `resourceLocation` en el paso 7. También contendrá la ubicación para acceder y descargar el contenido en el futuro y otros metadatos sobre el contenido. Un ejemplo de la respuesta general es:
+9. Cuando la solicitud se complete correctamente, seleccione la pestaña **Encabezados** en la ventana de respuesta. Los metadatos deben ser como el siguiente fragmento JSON:
 
     ```json
     {
         "udid": "{udid}",
-        "location": "https://atlas.microsoft.com/mapData/{udid}?api-version=1.0",
-        "created": "7/15/2020 6:11:43 PM +00:00",
-        "updated": "7/15/2020 6:11:45 PM +00:00",
-        "sizeInBytes": 1962,
+        "location": "https://us.atlas.microsoft.com/mapData/6ebf1ae1-2a66-760b-e28c-b9381fcff335?api-version=2.0",
+        "created": "5/18/2021 8:10:32 PM +00:00",
+        "updated": "5/18/2021 8:10:37 PM +00:00",
+        "sizeInBytes": 946901,
         "uploadStatus": "Completed"
     }
     ```

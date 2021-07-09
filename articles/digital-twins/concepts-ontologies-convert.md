@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: bd761ba9785d491e9577dab828f84580d7a08bba
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: ebe6a96c88d061138eb629f50aa37ea90fe40eb4
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787786"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475885"
 ---
 # <a name="convert-industry-standard-ontologies-to-dtdl-for-azure-digital-twins"></a>Conversión de ontologías estándar del sector a DTDL para Azure Digital Twins
 
@@ -49,7 +49,7 @@ El ejemplo es una [aplicación de línea de comandos de .NET Core denominada Rdf
 
 Para descargar el código en la máquina, seleccione el botón **Examinar código** debajo del título de la página de ejemplo, que le llevará al repositorio de GitHub para el ejemplo. Seleccione el botón **Code** (Código) y **Download ZIP** (Descargar ZIP) para descargar el ejemplo como un archivo ZIP denominado *RdfToDtdlConverter-main.zip*. A continuación, puede descomprimir el archivo y explorar el código.
 
-:::image type="content" source="media/concepts-ontologies-convert/download-repo-zip.png" alt-text="Captura de pantalla del repositorio RdfToDtdlConverter en GitHub. El botón Code (Código) está seleccionado y se muestra un pequeño cuadro de diálogo en el que el botón Download ZIP (Descargar ZIP) está resaltado" lightbox="media/concepts-ontologies-convert/download-repo-zip.png":::
+:::image type="content" source="media/concepts-ontologies-convert/download-repo-zip.png" alt-text="Captura de pantalla del repositorio RdfToDtdlConverter en GitHub. El botón Code (Código) está seleccionado y se muestra un cuadro de diálogo en el que el botón Download ZIP (Descargar archivo ZIP) está resaltado." lightbox="media/concepts-ontologies-convert/download-repo-zip.png":::
 
 Puede usar este ejemplo para ver los patrones de conversión en contexto y tener como bloque de creación de sus propias aplicaciones la realización de conversiones de modelos de acuerdo con sus propias necesidades específicas.
 

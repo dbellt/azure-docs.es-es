@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 611d41b166a283dffd36729c0f4516ff80ecd35f
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 73e42ac1f076b67d31cbad0823ea63db40045c1e
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108803087"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746040"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Habilitar el registro en el SDK de voz
 
@@ -68,18 +68,15 @@ StorageFile logFile = await storageFolder.CreateFileAsync("logfile.txt", Creatio
 config.SetProperty(PropertyId.Speech_LogFilename, logFile.Path);
 ```
 
-[Aquí](/windows/uwp/files/file-access-permissions) hay más información sobre el permiso de acceso a los archivos de las aplicaciones de UWP.
-
-### <a name="universal-windows-platform-uwp-on-unity"></a>Plataforma universal de Windows (UWP) en Unity
-
-En la aplicación Unity y UWP, se puede crear un archivo de registro en la carpeta persistente de la aplicación de la siguiente manera:
+En una aplicación de Unity UWP, se puede crear un archivo de registro mediante la carpeta de la ruta de acceso de los datos persistentes de la aplicación como se indica a continuación:
 
 ```csharp
 #if ENABLE_WINMD_SUPPORT
-        string logFile = Application.persistentDataPath + "/logFile.txt";
-        config.SetProperty(PropertyId.Speech_LogFilename, logFile);
+    string logFile = Application.persistentDataPath + "/logFile.txt";
+    config.SetProperty(PropertyId.Speech_LogFilename, logFile);
 #endif
 ```
+Para más información sobre los permisos de acceso a archivos en aplicaciones para UWP, consulte [Permisos de acceso a archivos](/windows/uwp/files/file-access-permissions).
 
 ### <a name="android"></a>Android
 
@@ -103,11 +100,21 @@ También deberá solicitar el permiso `WRITE_EXTERNAL_STORAGE` sobre el archivo 
 </manifest>
 ```
 
+En una aplicación de Unity Android, el archivo de registro se puede crear mediante la carpeta de la ruta de acceso de los datos persistentes de la aplicación como se indica a continuación:
+
+```csharp
+string logFile = Application.persistentDataPath + "/logFile.txt";
+config.SetProperty(PropertyId.Speech_LogFilename, logFile);
+```
+Además, también debe establecer el permiso de escritura en la configuración del reproductor de Unity para Android en "Externo (SDCard)". El registro se escribirá en un directorio al que se puede acceder mediante una herramienta como Device File Explorer de Android Studio. La ruta de acceso exacta del directorio puede variar de un dispositivo Android a otro; la ubicación suele ser el directorio `sdcard/Android/data/your-app-packagename/files`.
+
 [Aquí](https://developer.android.com/guide/topics/data/data-storage.html) hay disponible más información sobre almacenamiento de datos y de archivos para aplicaciones de Android.
 
 #### <a name="ios"></a>iOS
 
-Solo los directorios dentro del espacio aislado de la aplicación son accesibles. Los archivos se pueden crear en los directorios de documentos, biblioteca y temporales. Los archivos del directorio de documentos pueden estar a disposición de un usuario. El fragmento de código siguiente muestra la creación de un archivo de registro en el directorio de documentos de la aplicación:
+Solo los directorios dentro del espacio aislado de la aplicación son accesibles. Los archivos se pueden crear en los directorios de documentos, biblioteca y temporales. Los archivos del directorio de documentos pueden estar a disposición de un usuario. 
+
+Si usa Objective-C en iOS, utilice el siguiente fragmento de código para crear un archivo de registro en el directorio de documentos de la aplicación:
 
 ```objc
 NSString *filePath = [
@@ -123,6 +130,14 @@ Para acceder a un archivo creado, agregue las siguientes propiedades a la lista 
 <true/>
 <key>LSSupportsOpeningDocumentsInPlace</key>
 <true/>
+```
+
+Si usa Swift en iOS, utilice el siguiente fragmento de código para habilitar los registros:
+```swift
+let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+let documentsDirectoryPath = NSURL(string: documentsDirectoryPathString)!
+let logFilePath = documentsDirectoryPath.appendingPathComponent("swift.log")
+self.speechConfig!.setPropertyTo(logFilePath!.absoluteString, by: SPXPropertyId.speechLogFilename)
 ```
 
 [Aquí](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html) hay más información disponible sobre el sistema de archivos de iOS.

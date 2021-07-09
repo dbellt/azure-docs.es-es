@@ -10,12 +10,12 @@ ms.author: petrodeg
 ms.reviewer: laobri
 ms.date: 05/13/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: d0c2884b9c080c214cbebd666cbf4df62a8efcf2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: f493cfc21ff3f5e2aa122bbbc08f24e1a759558e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110383024"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110480951"
 ---
 # <a name="troubleshooting-managed-online-endpoints-deployment-and-scoring-preview"></a>Solución de problemas de implementación y puntuación de puntos de conexión en línea administrados (versión preliminar)
 
@@ -50,6 +50,8 @@ Como parte de la implementación local, se llevan a cabo los pasos siguientes:
 
 - Docker compila una nueva imagen de contenedor o extrae una imagen existente de la caché local de Docker. Se usa una imagen existente si hay una que coincida con la parte del entorno del archivo de especificación.
 - Docker inicia un nuevo contenedor con artefactos locales montados, como archivos de modelo y código.
+
+Para más información, consulte [Implementación y depuración locales mediante puntos de conexión locales](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-using-local-endpoints).
 
 ## <a name="get-container-logs"></a>Obtención de registros de contenedor
 
@@ -164,7 +166,10 @@ az ml endpoint get-logs
 
 Para ejecutar el archivo `score.py` proporcionado como parte de la implementación, Azure crea un contenedor que incluye todos los recursos que necesita `score.py` y ejecuta el script de puntuación en ese contenedor.  El error en este escenario es que este contenedor se bloquea al ejecutarse, lo que significa que no se pudo puntuar. Este error se produce en los casos siguientes:
 
-- Hay un error en `score.py`.
+- Hay un error en `score.py`. Utilice `get--logs` para ayudar a diagnosticar los problemas comunes:
+    - Un paquete que se importó pero no está en el entorno de Conda
+    - Un error de sintaxis
+    - Un error en el método `init()`
 - Los sondeos de preparación o ejecución no están configurados correctamente.
 - Hay un error en la configuración del entorno del contenedor, como una dependencia que falta.
 

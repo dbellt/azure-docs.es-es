@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 540631db87807312f96c96ddd5b8144d4e22ff91
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: a63390073f92625788dfbf43fc1183cc1812024a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110095579"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460333"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Enrutar eventos dentro y fuera de Azure Digital Twins
 
@@ -32,7 +32,7 @@ Una ruta de eventos permite enviar datos de eventos desde gemelos digitales en A
 
 En el diagrama siguiente se ilustra el flujo de datos de eventos a través de una solución de IoT más grande con un aspecto de Azure Digital Twins:
 
-:::image type="content" source="media/concepts-route-events/routing-workflow.png" alt-text="Azure Digital Twins que enruta datos a través de puntos de conexión a varios servicios descendentes" border="false":::
+:::image type="content" source="media/concepts-route-events/routing-workflow.png" alt-text="Diagrama de Azure Digital Twins que enruta datos mediante puntos de conexión a varios servicios del flujo descendente." border="false":::
 
 Los destinos descendentes típicos para las rutas de eventos son recursos como TSI, Azure Maps, almacenamiento y soluciones de análisis.
 
@@ -95,7 +95,7 @@ Cuando un punto de conexión no puede entregar un evento en un período de tiemp
 
 Si se cumple alguna de las condiciones, el evento se quita o pone en la cola de mensajes fallidos. De forma predeterminada, los puntos de conexión individuales **no** activan la cola de mensajes fallidos. Para habilitarla, debe especificar una cuenta de almacenamiento que incluya los eventos no entregados al crear el punto de conexión. Posteriormente, puede extraer los eventos de esta cuenta de almacenamiento para resolver las entregas.
 
-Antes de establecer la ubicación de mensajes fallidos, debe tener una cuenta de almacenamiento con un contenedor. Tiene que proporcionar la dirección URL de este contenedor al crear el punto de conexión. La cola de mensajes fallidos se suministra como una dirección URL del contenedor con un token de SAS. Ese token solo necesita permiso `write` para el contenedor de destino dentro de la cuenta de almacenamiento. La dirección URL totalmente estructurada tendrá este formato: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`.
+Antes de establecer la ubicación de mensajes fallidos, debe tener una cuenta de almacenamiento con un contenedor. Tiene que proporcionar la dirección URL de este contenedor al crear el punto de conexión. La cola de mensajes fallidos se suministra como una dirección URL del contenedor con un token de SAS. Ese token solo necesita permiso `write` para el contenedor de destino dentro de la cuenta de almacenamiento. La dirección URL totalmente estructurada tendrá este formato: `https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>`.
 
 Para obtener más información sobre los tokens de SAS, consulte: [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../storage/common/storage-sas-overview.md) (Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido [SAS])
 

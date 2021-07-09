@@ -2,7 +2,7 @@
 title: 'Inicio rápido: Creación de un área de trabajo de Synapse mediante Azure PowerShell'
 description: Siga los pasos de esta guía para crear un área de trabajo de Azure Synapse mediante Azure PowerShell.
 services: synapse-analytics
-author: alehall
+author: lenadroid
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: workspace
@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: alehall
 ms.reviewer: jrasnick
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1f02833ef7497c34b72db6b858a51c6046bbf3df
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 1b602ecb096293df7071489262175ae4bb7d71b0
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567577"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113113542"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-powershell"></a>Inicio rápido: Creación de un área de trabajo de Azure Synapse con Azure PowerShell
 
@@ -25,7 +25,7 @@ En este inicio rápido, aprenderá a crear un área de trabajo de Synapse median
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una [cuenta de almacenamiento de Azure Data Lake Storage Gen2](../storage/common/storage-account-create.md).
 
@@ -91,8 +91,8 @@ Install-Module -Name Az.Synapse
 1. Obtenga la dirección URL web y de desarrollo del área de trabajo de Azure Synapse:
 
    ```azurepowershell-interactive
-   $WorkspaceWeb = (Get-AzSynapseWorkspace -Name $SynapseWorkspaceName -ResourceGroupName $StorageAccountResourceGroup).ConnectivityEndpoints.Web
-   $WorkspaceDev = (Get-AzSynapseWorkspace -Name $SynapseWorkspaceName -ResourceGroupName $StorageAccountResourceGroup).ConnectivityEndpoints.Dev
+   $WorkspaceWeb = (Get-AzSynapseWorkspace -Name $SynapseWorkspaceName -ResourceGroupName $StorageAccountResourceGroup).ConnectivityEndpoints.web
+   $WorkspaceDev = (Get-AzSynapseWorkspace -Name $SynapseWorkspaceName -ResourceGroupName $StorageAccountResourceGroup).ConnectivityEndpoints.dev
    ```
 
 1. Cree una regla de firewall que le permita acceder al área de trabajo de Azure Synapse desde su máquina:

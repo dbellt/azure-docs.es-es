@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 09/16/2020
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 27c9198558a730d0af49077d6f5baa6db4789416
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be936bf8799d3e16679cf337e2425543163fe8f3
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96009558"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110063305"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Creación y uso de un entorno de una instancia de Azure App Service Environment de Load Balancer 
 
@@ -129,7 +129,7 @@ El nombre del sitio SCM le lleva a la consola de Kudu, denominada **Advanced Por
 
 Los sistemas de CI basados en Internet, como GitHub y Azure DevOps, seguirán funcionando con un ASE de ILB si se puede acceder al agente de compilación a través de Internet y este está en la misma red que ASE de ILB. Por tanto, en el caso de Azure DevOps, si el agente de compilación se crea en la misma red virtual que el ASE de ILB (también puede usar una red virtual diferente), podrá extraer el código del repositorio Git de Azure DevOps e implementarlo en el ASE de ILB. Si no desea crear su propio agente de compilación, deberá usar un sistema de CI que use un modelo de extracción como Dropbox.
 
-Los puntos de conexión de publicación para las aplicaciones en un ASE con un ILB usan el dominio con el que se creó el ASE con un ILB. Este dominio aparece en el perfil de publicación de la aplicación y en la hoja del portal de la aplicación (en **Información general** > **Información esencial** y también en **Propiedades**). Si tiene una instancia de ASE de ILB con el sufijo de dominio *&lt;nombre de ASE&gt;.appserviceenvironment.net* y una aplicación llamada *mytest*, use *mytest.&lt;nombre de ASE&gt;.appserviceenvironment.net* para FTP y *mytest.scm.contoso.net* para la implementación web.
+Los puntos de conexión de publicación para las aplicaciones en un ASE con un ILB usan el dominio con el que se creó el ASE con un ILB. Este dominio aparece en el perfil de publicación de la aplicación y en la hoja del portal de la aplicación (en **Información general** > **Información esencial** y también en **Propiedades**). Si tiene una instancia de ASE de ILB con el sufijo de dominio *&lt;nombre de ASE&gt;.appserviceenvironment.net* y una aplicación llamada *mytest*, use *mytest.&lt;nombre de ASE&gt;.appserviceenvironment.net* para FTP y *mytest.scm.contoso.net* para la implementación de MSDeploy.
 
 ## <a name="configure-an-ilb-ase-with-a-waf-device"></a>Configuración de una instancia de ASE de ILB con un dispositivo WAF ##
 

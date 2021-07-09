@@ -3,20 +3,33 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: include
-ms.date: 09/30/2019
+ms.date: 05/07/2021
 ms.author: alkohli
-ms.openlocfilehash: ca7b83d24f2416b224963559361faf5a7775cd0d
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: a46552639b9cdea135216e544ec4c51f4d9dda3d
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631550"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736261"
 ---
 Cuando Microsoft recibe y examina el dispositivo, el estado del pedido se actualiza a **Received** (Recibido). El dispositivo, a continuación, se somete a una verificación física de daños o signos de manipulación.
 
 Una vez completada la comprobación, el dispositivo Data Box se conecta a la red del centro de datos de Azure. La copia de datos se inicia automáticamente. Dependiendo del tamaño de los datos, la operación de copia puede tardar horas o días en completarse. Puede supervisar el progreso del trabajo de copia en el portal.
 
-Una vez finalizada la copia, el estado del pedido se actualiza a **Completed** (Completado).
+### <a name="review-copy-errors-from-upload"></a>Revisión de los errores de copia desde la carga
+
+Cuando los archivos no se cargan debido a un error que no se puede reintentar, se le notifica que revise los errores antes de continuar. Los errores se enumeran en el registro de copia de datos.
+
+No puede corregir estos errores. La carga se ha completado con errores. La notificación le permite conocer los problemas de configuración que debe corregir antes de probar otra carga mediante transferencia de red o un nuevo pedido de importación. Para obtener instrucciones, consulte [Revisión de los errores de copia en las cargas desde dispositivos Azure Data Box y Azure Data Box Heavy](../articles/databox/data-box-troubleshoot-data-upload.md).
+
+Cuando confirme que ha revisado los errores y está listo para continuar, los datos se borrarán del dispositivo de forma segura. El pedido se completará automáticamente después de 14 días. Si actúa al recibir la notificación, puede avanzar más rápidamente.
+
+[!INCLUDE [data-box-review-nonretryable-errors](data-box-review-nonretryable-errors.md)]
+
+
+### <a name="verify-data-in-completed-upload"></a>Comprobación de los datos en la carga completada
+
+Una vez finalizada la carga de datos, el estado del pedido se actualiza a **Completed** (Completado).
 
 Compruebe que los datos se han cargado en Azure antes de eliminarlos del origen. Los datos pueden estar en:
 
@@ -50,7 +63,7 @@ Una vez que se completa la carga en Azure, Data Box elimina los datos de los dis
 En este tutorial, ha obtenido información acerca de varios temas relacionados con Azure Data Box, como:
 
 > [!div class="checklist"]
-> * Prerequisites
+> * Requisitos previos
 > * Preparación para el envío
 > * Envío de Data Box a Microsoft
 > * Comprobación de la carga de datos en Azure

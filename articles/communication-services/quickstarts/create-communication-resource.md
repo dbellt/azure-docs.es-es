@@ -6,16 +6,16 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-azcli-net-ps
-ms.openlocfilehash: aa5d24229bae0e459471dc40ca375d42ccc1405c
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: b24fbcafa917e4577dc0b13b83e83cf105174332
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108293253"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113113202"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Inicio rápido: Creación y administración de recursos de Communication Services
 
@@ -23,7 +23,7 @@ Aprovisione su primer recurso de Communication Services a fin de empezar a usar 
 
 
 > [!WARNING]
-> Tenga en cuenta que, aunque Communication Services está disponibles en varias regiones geográficas, para obtener un número de teléfono, el recurso debe tener una ubicación de datos establecida en "EE. UU.". Así mismo, tenga presente que los recursos de comunicación no se pueden transferir a otra suscripción durante la versión preliminar pública.
+> Tenga en cuenta que, aunque Communication Services está disponibles en varias regiones geográficas, para obtener un número de teléfono, el recurso debe tener una ubicación de datos establecida en "EE. UU.". Además, observe que no es posible crear un grupo de recursos al mismo tiempo que un recurso para Azure Communication Services. Al crear un recurso, se debe usar un grupo de recursos que ya se ha creado.
 
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/create-resource-azp.md)]
@@ -118,9 +118,12 @@ Después de agregar la variable de entorno, ejecute `source ~/.bash_profile` des
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si quiere limpiar y quitar una suscripción a Communication Services, puede eliminar el recurso o grupo de recursos. Al eliminar el grupo de recursos, también se elimina cualquier otro recurso que esté asociado a él.
+Si quiere limpiar y quitar una suscripción a Communication Services, puede eliminar el recurso o grupo de recursos. Al eliminar el grupo de recursos, también se elimina cualquier otro recurso que esté asociado a él. 
 
-Si tiene números de teléfono asignados a su recurso cuando lo elimine, estos se liberarán automáticamente del recurso al mismo tiempo.
+Si tiene números de teléfono asignados a su recurso cuando lo elimine, estos se liberarán automáticamente del recurso al mismo tiempo. 
+
+> [!Note]
+> La eliminación de recursos es **permanente** y no se puede recuperar ningún dato, incluidos los filtros de Event Grid, los números de teléfono u otros datos vinculados al recurso si lo elimina.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

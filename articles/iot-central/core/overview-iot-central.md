@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc, contperf-fy21q2
-ms.openlocfilehash: 88f59c1b3fc1014cef5035845f1f2e8616bea908
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: ed15d75836f3642622f963ac8c0185c1520bce2b
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739915"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112281312"
 ---
 # <a name="what-is-azure-iot-central"></a>¿Qué es Azure IoT Central?
 
@@ -34,7 +34,7 @@ Para IoT Central, en este artículo se describe lo siguiente:
 
 La documentación IoT Central hace referencia a cuatro roles de usuario que interactúan con una aplicación de IoT Central:
 
-- Un _compilador de soluciones_ es responsable de [crear una aplicación](quick-deploy-iot-central.md), [configurar reglas y acciones](quick-configure-rules.md), [definir integraciones con otros servicios](howto-export-data.md) y personalizar aún más la aplicación para operadores y desarrolladores de dispositivos.
+- Un _compilador de soluciones_ es responsable de [crear una aplicación](quick-deploy-iot-central.md), [configurar reglas y acciones](quick-configure-rules.md), [definir integraciones con otros servicios](quick-export-data.md) y personalizar aún más la aplicación para operadores y desarrolladores de dispositivos.
 - Un _operador_, que [administra los dispositivos](howto-manage-devices.md) conectados a la aplicación.
 - Un _administrador_ es responsable de las tareas administrativas, como la administración de [roles de usuario y permisos](howto-administer.md) dentro de la aplicación.
 - Un _desarrollador de dispositivos_ [crea el código que se ejecuta en un dispositivo](concepts-telemetry-properties-commands.md) o un [módulo de IoT Edge](concepts-iot-edge.md) conectado a la aplicación.
@@ -77,8 +77,6 @@ Tiene varias opciones para crear plantillas de dispositivo:
 - Diseñe la plantilla de dispositivo en IoT Central e implemente el modelo de dispositivo en el código del dispositivo.
 - Cree un modelo de dispositivo mediante Visual Studio Code y publíquelo en un repositorio. Implemente el código del dispositivo desde el modelo y conecte el dispositivo a la aplicación de IoT Central. IoT Central encuentra el modelo de dispositivo en el repositorio y crea automáticamente una plantilla de dispositivo simple.
 - Cree un modelo de dispositivo mediante Visual Studio Code. Implemente el código del dispositivo a partir del modelo. Importe manualmente el modelo de dispositivo en la aplicación de IoT Central y agregue las propiedades, las personalizaciones y los paneles a la nube que necesite la aplicación de IoT Central.
-
-Consulte el inicio rápido [Adición de un dispositivo simulado](quick-create-simulated-device.md) para ver un tutorial sobre cómo crear y conectar su primer dispositivo.
 
 ### <a name="customize-the-ui"></a>Personalización de la interfaz de usuario
 

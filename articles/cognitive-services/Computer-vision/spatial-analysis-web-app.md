@@ -10,16 +10,16 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 6d3be90cc81b1bcd9a55fc8e53cb9f2238e8c6de
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 96c9e2a6726fdfb2436bc3e59995ab9f6633ccff
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285984"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110098009"
 ---
-# <a name="how-to-deploy-a-people-counting-web-application"></a>Procedimientos: Implementación de una aplicación web de recuento de personas
+# <a name="how-to-deploy-a-spatial-analysis-web-application"></a>Implementación de una aplicación web de análisis espacial
 
-Use este artículo para aprender a integrar el análisis espacial en una aplicación web que comprenda el movimiento de las personas y supervise la cantidad de personas que ocupan un espacio físico. 
+Utilice este artículo para aprender a implementar una aplicación web que recopilará datos (información) de análisis espacial de IotHub y los visualizará. Esto puede proporcionar aplicaciones útiles en una amplia serie de escenarios y sectores. Por ejemplo, si una empresa quiere optimizar el uso de su espacio inmobiliario, puede crear rápidamente una solución con distintos escenarios. 
 
 En este tutorial, aprenderá a:
 
@@ -27,6 +27,13 @@ En este tutorial, aprenderá a:
 * Configurar la operación y la cámara
 * Configurar la conexión de IoT Hub en la aplicación web
 * Implementar y probar la aplicación web
+
+Esta aplicación mostrará los escenarios siguientes:
+
+* Recuento de personas que entran y salen de un espacio o almacén
+* Recuento de personas que entran y salen de una zona o área de finalización de la compra y el tiempo empleado en la fila de finalización de la compra (tiempo de permanencia)
+* Recuento de personas que llevan una mascarilla facial 
+* Recuento de personas que infringen las directrices de distanciamiento social
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -63,36 +70,31 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 
 ### <a name="deploy-the-container-on-azure-iot-edge-on-the-host-computer"></a>Implementación del contenedor en Azure IoT Edge en el equipo host
 
-Implemente el contenedor de análisis espacial como un módulo de IoT en el equipo host a través de la CLI de Azure. El proceso de implementación requiere un archivo de manifiesto de implementación que describa los contenedores, las variables y las configuraciones que se necesitan para la implementación. Puede encontrar un ejemplo de [manifiesto de implementación específico de Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), uno [no específico](https://go.microsoft.com/fwlink/?linkid=2152189) y otro de [manifiesto de implementación específico de Azure VM con GPU](https://go.microsoft.com/fwlink/?linkid=2152189) en GitHub, los cuales incluyen una configuración básica de implementación del contenedor *spatial-analysis*. 
-
-Alternativamente, puede usar las extensiones de Azure IoT para Visual Studio Code para realizar operaciones con IoT Hub. Vaya a [Implementación de módulos de Azure IoT Edge desde Visual Studio Code](../../iot-edge/how-to-deploy-modules-vscode.md) para más información.
-
-> [!NOTE] 
-> Los contenedores *spatial-analysis-telegraf* y *spatial-analysis-diagnostics* son opcionales. Puede optar por quitarlos del archivo *DeploymentManifest.json*. Para más información, consulte el artículo [Telemetría y solución de problemas](./spatial-analysis-logging.md). Puede encontrar tres archivos *DeploymentManifest.json* de ejemplo en GitHub, uno para [dispositivos de Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), otro para [máquinas de escritorio](https://go.microsoft.com/fwlink/?linkid=2152189) y otro para [Azure VM con GPU](https://go.microsoft.com/fwlink/?linkid=2152189).
+El paso siguiente es implementar el contenedor de **análisis espacial** como un módulo de IoT en el equipo host a través de la CLI de Azure. El proceso de implementación requiere un archivo de manifiesto de implementación que describa los contenedores, las variables y las configuraciones que se necesitan para la implementación. Puede encontrar un manifiesto de implementación de ejemplo en [DeploymentManifest.json](https://github.com/Azure-Samples/cognitive-services-spatial-analysis/blob/main/deployment.json) que incluye configuraciones pregeneradas para todos los escenarios.  
 
 ### <a name="set-environment-variables"></a>Establecimiento de variables de entorno
 
-La mayoría de las **variables de entorno** para el módulo de IoT Edge ya están establecidas en los archivos *DeploymentManifest.json* de ejemplo anteriormente vinculados. En el archivo, busque las variables de entorno `BILLING_ENDPOINT` y `API_KEY`, que se muestran a continuación. Reemplace los valores por el URI de punto de conexión y la clave de API que creó anteriormente. Asegúrese de que el valor CLUF esté establecido en "accept". 
+La mayoría de las **variables de entorno** para el módulo de IoT Edge ya están establecidas en los archivos *DeploymentManifest.json* de ejemplo anteriormente vinculados. En el archivo, busque las variables de entorno `ENDPOINT` y `APIKEY`, que se muestran a continuación. Reemplace los valores por el URI de punto de conexión y la clave de API que creó anteriormente. Asegúrese de que el valor CLUF esté establecido en "accept". 
 
 ```json
 "EULA": { 
     "value": "accept"
 },
-
-"BILLING_ENDPOINT":{ 
+"ENDPOINT":{ 
     "value": "<Use a key from your Computer Vision resource>"
 },
-"API_KEY":{
+"APIKEY":{
     "value": "<Use the endpoint from your Computer Vision resource>"
 }
 ```
 
 ### <a name="configure-the-operation-parameters"></a>Configuración de los parámetros de la operación
 
-Ahora que se completó la configuración inicial del contenedor *spatial-analysis*, el paso siguiente es configurar los parámetros de operaciones y agregarlos a la implementación. 
+Si usa el ejemplo de [DeploymentManifest.json](https://github.com/Azure-Samples/cognitive-services-spatial-analysis/blob/main/deployment.json) que ya tiene todas las configuraciones necesarias (operaciones, direcciones URL y zonas del archivo de vídeo grabado, etc.), puede ir directamente a la sección **Ejecución de la implementación**.
 
-El primer paso es actualizar el manifiesto de implementación de ejemplo vinculado anteriormente y configurar el identificador de operación `cognitiveservices.vision.spatialanalysis-personcount` como se muestra a continuación:
+Ahora que se ha completado la configuración inicial del contenedor de análisis espacial, el paso siguiente es configurar los parámetros de operaciones y agregarlos a la implementación. 
 
+El primer paso consiste en actualizar el ejemplo de [DeploymentManifest.json](https://github.com/Azure-Samples/cognitive-services-spatial-analysis/blob/main/deployment.json) y configurar la operación que desee. Por ejemplo, se muestra a continuación la configuración para cognitiveservices.vision.spatialanalysis-personcount:
 
 ```json
 "personcount": {
@@ -147,30 +149,17 @@ Localice el *estado en tiempo de ejecución* en la Configuración de módulo IoT
 
 ![Comprobación de implementación de ejemplo](./media/spatial-analysis/deployment-verification.png)
 
-En este momento, el contenedor spatial-analysis ejecuta la operación. Emite conclusiones de IA para la operación `cognitiveservices.vision.spatialanalysis-personcount` y enruta estas conclusiones como telemetría a la instancia de Azure IoT Hub. Para configurar más cámaras, puede actualizar el archivo manifiesto de implementación y volver a ejecutar la implementación.
+En este momento, el contenedor de análisis espacial ejecuta la operación. Emite información de la inteligencia artificial para las operaciones y enruta esta información como telemetría a la instancia de Azure IoT Hub. Para configurar más cámaras, puede actualizar el archivo manifiesto de implementación y volver a ejecutar la implementación.
 
-## <a name="person-counting-web-application"></a>Aplicación web de recuento de personas
+## <a name="spatial-analysis-web-application"></a>Aplicación web de análisis espacial
 
-Esta aplicación web de recuento de personas permite configurar rápidamente una aplicación web de ejemplo y hospedarla en el entorno de Azure.
+La aplicación web de análisis espacial permite a los desarrolladores configurar rápidamente una aplicación web de ejemplo, hospedarla en su entorno de Azure y utilizarla para validar eventos E2E.
 
-### <a name="get-the-person-counting-app-container"></a>Obtención del contenedor de la aplicación de recuento de personas
+## <a name="build-docker-image"></a>Compilación de una imagen de Docker
 
-Hay disponible una forma de contenedor para esta aplicación en Azure Container Registry. Use el comando docker pull siguiente para descargarla. Póngase en contacto con Microsoft en projectarchon@microsoft.com para solicitar el token de acceso.
+Siga la [guía](https://github.com/Azure-Samples/cognitive-services-spatial-analysis/blob/main/README.md#docker-image) para compilar e insertar la imagen en una instancia de Azure Container Registry en la suscripción.
 
-```bash
-docker login rtvsofficial.azurecr.io -u <token name> -p <password>
-docker pull rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0
-```
-
-Inserte el contenedor en su instancia de Azure Container Registry (ACR).
-
-```bash
-az acr login --name <your ACR name>
-
-docker tag rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0 [desired local image name]
-
-docker push [desired local image name]
-```
+## <a name="setup-steps"></a>Pasos de configuración
 
 Para instalar el contenedor, cree una nueva instancia de Azure App Service y rellene los parámetros obligatorios. Luego vaya a la pestaña **Docker**, seleccione **Contenedor único** y, luego, **Azure Container Registry**. Use la instancia de Azure Container Registry en la que insertó la imagen anterior.
 

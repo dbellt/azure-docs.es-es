@@ -2,13 +2,13 @@
 title: Azure Batch ejecuta trabajos paralelos de gran tamaño en la nube
 description: Información acerca del servicio Azure Batch para cargas de trabajo HPC y paralelas a gran escala
 ms.topic: overview
-ms.date: 07/30/2020
-ms.openlocfilehash: dbd27dc1a00966a2d71952335cfb47c7ca55bc24
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/11/2021
+ms.openlocfilehash: 9061da0b479f77353554ef1c9eb311f22220f02d
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98743107"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112007128"
 ---
 # <a name="what-is-azure-batch"></a>¿Qué es Azure Batch?
 
@@ -22,7 +22,7 @@ Para una comparación entre Batch y otras opciones de soluciones de HPC en Azure
 
 ## <a name="run-parallel-workloads"></a>Ejecutar cargas de trabajo paralelas
 
-Batch funciona bien con cargas de trabajo intrínsecamente paralelas (a veces llamadas "embarazosamente paralelas"). Las cargas de trabajo intrínsecamente paralelas tienen aplicaciones que se pueden ejecutar de manera independiente y donde cada instancia completa una parte del trabajo. Cuando se ejecutan las aplicaciones, estas pueden acceder a algunos datos comunes, pero no se comunican con otras instancias de la aplicación. Las cargas de trabajo intrínsecamente paralelas pueden por tanto ejecutarse a gran escala en función de la cantidad de recursos de proceso disponibles para ejecutar las aplicaciones de forma simultánea.
+Batch funciona bien con cargas de trabajo intrínsecamente paralelas (a veces llamadas "embarazosamente paralelas"). Estas cargas de trabajo tienen aplicaciones que se pueden ejecutar de manera independiente y donde cada instancia completa una parte del trabajo. Cuando se ejecutan las aplicaciones, estas pueden acceder a algunos datos comunes, pero no se comunican con otras instancias de la aplicación. Las cargas de trabajo intrínsecamente paralelas pueden por tanto ejecutarse a gran escala en función de la cantidad de recursos de proceso disponibles para ejecutar las aplicaciones de forma simultánea.
 
 A continuación puede ver algunos ejemplos de cargas de trabajo intrínsecamente paralelas con las que puede trabajar en Batch:
 
@@ -43,14 +43,11 @@ Estos son algunos ejemplos de cargas de trabajo estrechamente acopladas:
 - Dinámica de fluidos
 - Aprendizaje de inteligencia artificial multinodo
 
-Muchos trabajos estrechamente acoplados se pueden ejecutar en paralelo mediante Batch. Por ejemplo, realice varias simulaciones con un líquido que fluye a través de tubos de varios diámetros.
+Muchos trabajos estrechamente acoplados se pueden ejecutar en paralelo mediante Batch. Por ejemplo, puede realizar varias simulaciones con un líquido que fluye a través de tubos de varios diámetros.
 
 ## <a name="additional-batch-capabilities"></a>Funcionalidades adicionales de Batch
 
-Azure Batch también tiene funcionalidades disponibles de nivel más alto, específicas para cargas de trabajo:
-
-- Batch admite [cargas de trabajo de representación a gran escala](batch-rendering-service.md) con herramientas de representación que incluyen Autodesk Maya, 3ds Max, Arnold, y V-Ray. 
-- Los usuarios de R pueden instalar el [paquete doAzureParallel](https://github.com/Azure/doAzureParallel) para escalar horizontalmente con facilidad la ejecución de algoritmos R en grupos de Batch.
+Batch admite [cargas de trabajo de representación a gran escala](batch-rendering-service.md) con herramientas de representación que incluyen Autodesk Maya, 3ds Max, Arnold, y V-Ray. 
 
 Azure Batch también se puede ejecutar como parte de un flujo de trabajo mayor de Azure para transformar datos, administrado mediante herramientas como [Azure Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md).
 
@@ -76,12 +73,15 @@ Tenga en cuenta que el flujo de trabajo descrito anteriormente es simplemente un
 Consulte [Flujo de trabajo y recursos del servicio Batch](batch-service-workflow-features.md) para información general sobre características como los grupos, los nodos, los trabajos y las tareas. Consulte también la versión más reciente de las [actualizaciones del servicio Batch](https://azure.microsoft.com/updates/?product=batch).
 
 ## <a name="in-region-data-residency"></a>Residencia de datos en la región
+
 Azure Batch no mueve ni almacena los datos de los clientes fuera de la región en la que se implementa. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Comience a usar Azure Batch con alguna de estas guías de inicio rápido:
+
 - [Ejecución del primer trabajo de Batch con la CLI de Azure](quick-create-cli.md)
 - [Ejecución del primer trabajo de Batch con Azure Portal](quick-create-portal.md)
 - [Ejecución del primer trabajo de Batch con la API de .NET](quick-run-dotnet.md)
 - [Ejecución del primer trabajo de Batch con la API de Python](quick-run-python.md)
+- [Creación de una cuenta de Batch mediante plantillas de ARM](quick-create-template.md)

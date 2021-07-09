@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/2/2021
 ms.author: heikora
-ms.openlocfilehash: b82a732533c3d069b519b07c3209d4b96c472900
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 701a16779a7a485f33e5af44ec30d48801b7c1fd
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385032"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111440815"
 ---
 # <a name="model-and-endpoint-lifecycle"></a>Ciclo de vida del modelo y el punto de conexión
 
@@ -102,7 +102,7 @@ Lo que sucede cuando un modelo expira y cómo se actualiza dependen de cómo se 
 ### <a name="batch-transcription"></a>Transcripción de Azure Batch
 Si expira un modelo que se usa con solicitudes de [transcripción por lotes](batch-transcription.md), se producirá un error 4xx. Para evitar esto, actualice el parámetro `model` en el archivo JSON enviado en el cuerpo de la solicitud **Crear transcripción** para que apunte a un modelo base más reciente o a un modelo personalizado más reciente. También puede quitar la entrada `model` del archivo JSON para usar siempre el modelo base más reciente.
 ### <a name="custom-speech-endpoint"></a>Punto de conexión de Habla personalizada
-Si expira un modelo que usa un [punto de conexión de Habla personalizada](how-to-custom-speech-train-model.md), el servicio revertirá automáticamente al uso del modelo base más reciente para el idioma que esté usando. Puede seleccionar **Implementación** en el menú de **Habla personalizada** en la parte superior de la página y, a continuación, hacer clic en el nombre del punto de conexión para ver sus detalles. En la parte superior de la página de detalles, verá un botón **Actualizar modelo** que le permite actualizar sin problemas el modelo usado por este punto de conexión sin ningún tiempo de inactividad. También puede hacer este cambio mediante programación con la API REST de [**actualización del modelo**](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateModel).
+Si expira un modelo que usa un [punto de conexión de Habla personalizada](how-to-custom-speech-train-model.md), el servicio revertirá automáticamente al uso del modelo base más reciente para el idioma que esté usando. Para actualizar el modelo que utiliza, puede seleccionar **Implementación** en el menú **Habla personalizada** de la parte superior de la página y, después, hacer clic en el nombre del punto de conexión para ver sus detalles. En la parte superior de la página de detalles, verá un botón **Actualizar modelo** que le permite actualizar sin problemas el modelo usado por este punto de conexión sin ningún tiempo de inactividad. También puede hacer este cambio mediante programación con la API REST de [**actualización del modelo**](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateModel).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

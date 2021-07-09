@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 31c99fbac936ab6ec96d6e24bc824d9cb2069e0f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c48f62d193af953ec080fcd559c9d7593428d99e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078785"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110454622"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Administración de un grafo de gemelos digitales con relaciones
 
@@ -28,9 +28,10 @@ Este artículo está centrado en la administración de las relaciones y el grafo
 
 [!INCLUDE [digital-twins-developer-interfaces.md](../../includes/digital-twins-developer-interfaces.md)]
 
-También puede realizar cambios en el grafo mediante el ejemplo de Azure Digital Twins Explorer, que permite visualizar los gemelos y el grafo, y hace uso del SDK en segundo plano. En la sección siguiente se describe este ejemplo en detalle.
-
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
+
+:::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="Captura de pantalla de Azure Digital Twins Explorer que muestra modelos y gemelos de ejemplo." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
+
 
 ## <a name="create-relationships"></a>Crear relaciones
 
@@ -198,7 +199,7 @@ Ahora que ha completado la configuración, puede ejecutar el proyecto de código
 
 Esta es la salida de consola del programa: 
 
-:::image type="content" source="./media/how-to-manage-graph/console-output-twin-graph.png" alt-text="Salida de consola que muestra los detalles de los gemelos y las relaciones entrantes y salientes de los gemelos." lightbox="./media/how-to-manage-graph/console-output-twin-graph.png":::
+:::image type="content" source="./media/how-to-manage-graph/console-output-twin-graph.png" alt-text="Captura de pantalla de la salida de la consola que muestra los detalles de los gemelos y las relaciones entrantes y salientes de los gemelos." lightbox="./media/how-to-manage-graph/console-output-twin-graph.png":::
 
 > [!TIP]
 > El grafo de gemelos es un concepto de creación de relaciones entre gemelos. Si desea ver la representación visual del grafo de gemelos, consulte la sección [Visualización](how-to-manage-graph.md#visualization) de este artículo. 

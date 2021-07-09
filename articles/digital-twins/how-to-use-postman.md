@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: 93a3e6aca050c6fcf74008e7fac23c6f146c984f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 839ce4df4a79b34890a19d3beb470b77fef1f19d
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110090197"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110617662"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Uso de Postman para enviar solicitudes a las API de Azure Digital Twins
 
@@ -23,9 +23,9 @@ En este artículo se describe cómo configurar el [cliente REST de Postman](http
 
 1. Use la CLI de Azure para [obtener un token de portador](#get-bearer-token) que usará para realizar solicitudes de API en Postman.
 1. Configure una [colección de Postman](#about-postman-collections) y el cliente de REST de Postman para que use el token de portador para la autenticación. Al configurar la colección, puede elegir cualquiera de estas opciones:
-    1. [Importar](#import-collection-of-azure-digital-twins-apis) una colección precompilada de solicitudes de API de Azure Digital Twins.
-    1. [Crear](#create-your-own-collection) su propia colección desde cero.
-1. [Agregar solicitudes](#add-an-individual-request) a la colección configurada y enviarlas a las API de Azure Digital Twins.
+    1. [Importar una colección precompilada de solicitudes de Azure Digital Twins API](#import-collection-of-azure-digital-twins-apis).
+    1. [Crear su propia colección desde cero](#create-your-own-collection).
+1. [Agregar solicitudes a la colección configurada](#add-an-individual-request) y enviarlas a Azure Digital Twins API.
 
 Azure Digital Twins tiene dos conjuntos de API con los que puede trabajar: el **plano de datos** y el **plano de control**. Para obtener más información sobre la diferencia entre estos conjuntos de API, consulte [Conceptos: API y SDK de Azure Digital Twins](concepts-apis-sdks.md). Este artículo contiene información de ambos conjuntos de API.
 
@@ -39,7 +39,7 @@ Para continuar con el uso de Postman para acceder a las API de Azure Digital Twi
 
 ### <a name="download-postman"></a>Descarga de Postman
 
-A continuación, descargue la versión de escritorio del cliente de Postman. Vaya a [www.getpostman.com/apps](https://www.getpostman.com/apps) y siga las indicaciones para descargar la aplicación.
+A continuación, [descargue la versión de escritorio del cliente de Postman](https://www.getpostman.com/apps).
 
 ## <a name="get-bearer-token"></a>Obtención de un token de portador
 
@@ -47,7 +47,7 @@ Ahora que ha configurado Postman y su instancia de Azure Digital Twins, deberá 
 
 Este token se puede obtener de varias formas. En este artículo se usa la [CLI de Azure](/cli/azure/install-azure-cli) para iniciar sesión en su cuenta de Azure y obtener así un token.
 
-Si tiene una CLI de Azure [instalada localmente](/cli/azure/install-azure-cli), puede iniciar un símbolo del sistema en la máquina para ejecutar los siguientes comandos.
+Si tiene una [CLI de Azure instalada localmente](/cli/azure/install-azure-cli), puede iniciar un símbolo del sistema en la máquina para ejecutar los siguientes comandos.
 De lo contrario, puede abrir una ventana de [Azure Cloud Shell](https://shell.azure.com) en el explorador y ejecutar los comandos en ella.
 
 1. En primer lugar, asegúrese de que ha iniciado sesión en Azure con las credenciales apropiadas. Para ello, ejecute este comando:
@@ -172,7 +172,7 @@ Si va a realizar una colección de [plano de datos](concepts-apis-sdks.md#overvi
 
 1. Asimismo, en el cuadro de diálogo Editar de la colección, desplácese a la pestaña **Variables**.
 
-1. Use el **nombre de host** de la instancia de la sección de [Requisitos previos](#prerequisites) para establecer el campo CURRENT VALUE de la variable correspondiente. Seleccione **Guardar**.
+1. Use el **nombre de host** de la instancia de la [sección de requisitos previos](#prerequisites) para establecer el campo CURRENT VALUE de la variable correspondiente. Seleccione **Guardar**.
 
     :::image type="content" source="media/how-to-use-postman/postman-variables-imported.png" alt-text="Captura de pantalla del cuadro de diálogo de edición de la colección importada en Postman, que muestra la pestaña &quot;Variables&quot;. El campo &quot;CURRENT VALUE&quot; está resaltado." lightbox="media/how-to-use-postman/postman-variables-imported.png":::
 
@@ -277,7 +277,7 @@ Para realizar una solicitud de Postman en una de las API de Azure Digital Twins,
 Para continuar con una consulta de ejemplo, en este artículo se usará Query API (y su [documentación de referencia](/rest/api/digital-twins/dataplane/query/querytwins)) para consultar todos los gemelos digitales de una instancia.
 
 1. Obtenga la dirección URL y el tipo de la solicitud en la documentación de referencia. En el caso de la API de consulta, actualmente es *POST* `https://digitaltwins-host-name/query?api-version=2020-10-31`.
-1. En Postman, establezca el tipo de la solicitud y escriba la dirección URL de la solicitud, rellenando los marcadores de posición en la dirección URL según sea necesario. Aquí es donde usará el **nombre de host** de la instancia de la sección [Requisitos previos](#prerequisites).
+1. En Postman, establezca el tipo de la solicitud y escriba la dirección URL de la solicitud, rellenando los marcadores de posición en la dirección URL según sea necesario. Aquí es donde usará el **nombre de host** de la instancia de la [sección de requisitos previos](#prerequisites).
     
    :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="Captura de pantalla de los detalles de la nueva solicitud en Postman. La dirección URL de la documentación de referencia se ha rellenado en el cuadro de la dirección URL de la solicitud." lightbox="media/how-to-use-postman/postman-request-url.png":::
     

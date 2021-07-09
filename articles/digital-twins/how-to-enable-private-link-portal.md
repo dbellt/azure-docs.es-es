@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 1/25/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 68c76c92f37ae424bd7e8bc85557e6c204ba742e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6243fce7ad7f83b747e678a25eb20aaea7a4cf76
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108734208"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110616212"
 ---
 # <a name="enable-private-access-with-private-link-preview-azure-portal"></a>Habilitación del acceso privado con Private Link (versión preliminar): Azure portal
 
@@ -28,7 +28,7 @@ Estos son los pasos que se describen en este artículo:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para poder configurar un punto de conexión privado, necesitará una [red virtual de Azure (VNet)](../virtual-network/virtual-networks-overview.md)  en la que se pueda implementar el punto de conexión. Si todavía no tiene una red virtual, puede seguir uno de los [inicios rápidos](../virtual-network/quick-create-portal.md) de Azure Virtual Network para configurarla.
+Para poder configurar un punto de conexión privado, necesitará una [red virtual de Azure (VNet)](../virtual-network/virtual-networks-overview.md)  en la que se pueda implementar el punto de conexión. Si aún no tiene una red virtual, puede seguir uno de los [inicios rápidos de Azure Virtual Network](../virtual-network/quick-create-portal.md) para configurarla.
 
 ## <a name="add-a-private-endpoint-for-an-azure-digital-twins-instance"></a>Adición de un punto de conexión privado para una instancia de Azure Digital Twins 
 
@@ -51,7 +51,7 @@ En esta pestaña, puede habilitar puntos de conexión privados si selecciona la 
 
 Esto agregará una sección llamada **Puntos de conexión privados** donde puede configurar los detalles del punto de conexión privado. Seleccione el botón **+ Agregar** para continuar.
 
-:::image type="content" source="media/how-to-enable-private-link/create-instance-networking-1.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra la pestaña Redes del cuadro de diálogo Crear recurso de Azure Digital Twins. Hay un resaltado alrededor del nombre de la pestaña, la opción Punto de conexión privado para Método de conectividad y el botón + Agregar para crear una conexión de punto de conexión privado." lightbox="media/how-to-enable-private-link/create-instance-networking-1.png":::
+:::image type="content" source="media/how-to-enable-private-link/create-instance-networking-1.png" alt-text="Captura de pantalla de Azure Portal que muestra la pestaña Redes de una nueva instancia de Azure Digital Twins, en la que se resalta cómo crear un punto de conexión privado. El botón &quot;Agregar&quot; está resaltado." lightbox="media/how-to-enable-private-link/create-instance-networking-1.png":::
 
 Se abrirá una página para especificar los detalles de un nuevo punto de conexión privado.
 
@@ -65,9 +65,9 @@ Se abrirá una página para especificar los detalles de un nuevo punto de conexi
 
 Después de rellenar las opciones de configuración, seleccione **Aceptar** para finalizar.
 
-Volverá a la pestaña **Redes** de la configuración de la instancia de Azure Digital Twins, donde el nuevo punto de conexión debe estar visible en **Conexiones de punto de conexión privado.
+Esto le devolverá a la pestaña **Redes** de la configuración de la instancia de Azure Digital Twins, donde el nuevo punto de conexión debe poder verse en **Conexiones de punto de conexión privado**.
 
-:::image type="content" source="media/how-to-enable-private-link/create-instance-networking-2.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra la pestaña Redes del cuadro de diálogo Crear recurso de Azure Digital Twins. Hay un resaltado alrededor de la nueva conexión de punto de conexión privado y los botones de navegación (Revisar y crear, Anterior, Siguiente: Avanzado)." lightbox="media/how-to-enable-private-link/create-instance-networking-2.png":::
+:::image type="content" source="media/how-to-enable-private-link/create-instance-networking-2.png" alt-text="Captura de pantalla de Azure Portal que muestra la pestaña Redes de Azure Digital Twins con un punto de conexión privado recién creado." lightbox="media/how-to-enable-private-link/create-instance-networking-2.png":::
 
 Después, puede usar los botones de navegación inferiores para continuar con el resto de la configuración de la instancia.
 
@@ -83,7 +83,7 @@ En esta sección, habilitará Private Link con un punto de conexión privado en 
 
 1. Seleccione **+ Punto de conexión privado** para abrir la configuración **Crear un punto de conexión privado**.
 
-    :::image type="content" source="media/how-to-enable-private-link/add-endpoint-digital-twins.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra la pestaña Redes (versión preliminar) de una instancia de Azure Digital Twins. La pestaña Conexiones de punto de conexión privado está resaltada y el botón + Punto de conexión privado también." lightbox="media/how-to-enable-private-link/add-endpoint-digital-twins.png":::
+    :::image type="content" source="media/how-to-enable-private-link/add-endpoint-digital-twins.png" alt-text="Captura de pantalla de Azure Portal que muestra la página Redes de una instancia existente de Azure Digital Twins, en la que se resalta cómo crear puntos de conexión privados." lightbox="media/how-to-enable-private-link/add-endpoint-digital-twins.png":::
 
 1. En la pestaña  **Aspectos básicos** , escriba o seleccione la **Suscripción** y el **Grupo de recursos** del proyecto, y un **Nombre** y una **Región** para el punto de conexión. La región debe ser la misma que la de la red virtual que usa.
 
@@ -137,7 +137,7 @@ Para deshabilitar o habilitar el acceso a la red pública en [Azure Portal](http
 
     :::row:::
         :::column:::
-            :::image type="content" source="media/how-to-enable-private-link/network-flag-portal.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra la pestaña Redes (versión preliminar) de una instancia de Azure Digital Twins. La pestaña Acceso público está resaltada y también la opción para permitir el acceso a la red pública." lightbox="media/how-to-enable-private-link/network-flag-portal.png":::
+            :::image type="content" source="media/how-to-enable-private-link/network-flag-portal.png" alt-text="Captura de pantalla de Azure Portal que muestra la página Redes de una instancia de Azure Digital Twins, en la que se resalta cómo alternar el acceso público." lightbox="media/how-to-enable-private-link/network-flag-portal.png":::
         :::column-end:::
         :::column:::
         :::column-end:::

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2021
 ms.author: mbullwin
-ms.openlocfilehash: 8884dce5fed3b5c5125f0169521429658b80a7e9
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 0cbd7415f3b6f79a6c7231c7caa7ed947b9bdc24
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108333431"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110164318"
 ---
 Comience a usar la biblioteca cliente multivariante de Anomaly Detector para Python. Siga estos pasos para instalar el inicio del paquete con los algoritmos que proporciona el servicio. Las nuevas API de detección de anomalías multivariante permiten a los desarrolladores integrar fácilmente inteligencia artificial avanzada para detectar anomalías de grupos de métricas, sin necesidad de tener conocimientos de aprendizaje automático ni usar datos etiquetados. Las dependencias y correlaciones entre distintas señales se consideran automáticamente como factores clave. De este modo, podrá proteger de forma proactiva los sistemas complejos frente a errores.
 
@@ -23,7 +23,7 @@ Utilice la biblioteca cliente multivariante de Anomaly Detector para Python con 
 * Cuando una serie temporal individual no ofrece demasiada información y se deben examinar todas las señales para detectar un problema.
 * Mantenimiento predictivo de recursos físicos costosos con decenas o cientos de tipos de sensores diferentes que miden diversos aspectos del estado del sistema.
 
-[Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/anomalydetector/azure-ai-anomalydetector) | [Paquete (PyPi)](https://pypi.org/project/azure-ai-anomalydetector/3.0.0b3/) | [Código de ejemplo](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_multivariate_detect.py) | [Jupyter Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb)
+[Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/anomalydetector/azure-ai-anomalydetector) | [Paquete (PyPi)](https://pypi.org/project/azure-ai-anomalydetector/3.0.0b3/) | [Código de ejemplo](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_multivariate_detect.py)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -36,6 +36,15 @@ Utilice la biblioteca cliente multivariante de Anomaly Detector para Python con 
 
 
 ## <a name="setting-up"></a>Instalación
+
+### <a name="install-the-client-library"></a>Instalación de la biblioteca cliente
+
+Después de instalar Python, puede instalar las bibliotecas cliente con:
+
+```console
+pip install pandas
+pip install --upgrade azure-ai-anomalydetector
+```
 
 ### <a name="create-a-new-python-application"></a>Creación de una nueva aplicación de Python
 
@@ -52,20 +61,17 @@ from azure.core.credentials import AzureKeyCredential
 from azure.core.exceptions import HttpResponseError
 ```
 
-Cree variables para la clave como una variable de entorno, la ruta de acceso a un archivo de datos de serie temporal y la ubicación de Azure de su suscripción. Por ejemplo, `westus2`.
+Cree variables para la clave como una variable de entorno, la ruta de acceso a un archivo de datos de serie temporal y la ubicación de Azure de su suscripción. 
+
+> [!NOTE]
+> Siempre tendrá la opción de usar una de estas dos claves. Esto es para permitir la rotación de claves segura. Para este inicio rápido, use la primera clave. 
 
 ```python
 subscription_key = "ANOMALY_DETECTOR_KEY"
 anomaly_detector_endpoint = "ANOMALY_DETECTOR_ENDPOINT"
 ```
 
-### <a name="install-the-client-library"></a>Instalación de la biblioteca cliente
 
-Después de instalar Python, puede instalar la biblioteca cliente con:
-
-```console
-pip install --upgrade azure-ai-anomalydetector
-```
 
 ## <a name="code-examples"></a>Ejemplos de código
 
@@ -83,7 +89,7 @@ Para crear una instancia de un nuevo cliente de Anomaly Detector, debe pasar la 
 
 Para usar las API multivariantes de Anomaly Detector, primero debe entrenar sus propios modelos. Los datos de entrenamiento son un conjunto de varias series temporales que cumplen los siguientes requisitos:
 
-Cada serie temporal debe ser un archivo CSV con dos columnas (solo dos) y "timestamp" y "value" (todo en minúsculas) como fila de encabezado. Los valores de "timestamp" deben cumplir la norma ISO 8601; los de "value" pueden ser números enteros o decimales con cualquier número de posiciones decimales. Por ejemplo:
+Cada serie temporal debe ser un archivo CSV con dos columnas (solo dos), "timestamp" y "value" (todo en minúsculas) como fila de encabezado. Los valores de "timestamp" deben cumplir la norma ISO 8601; los de "value" pueden ser números enteros o decimales con cualquier número de posiciones decimales. Por ejemplo:
 
 |timestamp | value|
 |-------|-------|
@@ -95,6 +101,8 @@ Cada serie temporal debe ser un archivo CSV con dos columnas (solo dos) y "times
 Cada archivo CSV debe tener el nombre de una variable diferente que se usará para el entrenamiento del modelo. Por ejemplo, "temperature.csv" y "humidity.csv". Todos los archivos CSV deben comprimirse en un archivo ZIP sin subcarpetas. El archivo ZIP puede tener el nombre que desee. El archivo ZIP debe cargarse en Azure Blob Storage. Una vez que genere la dirección URL de SAS de blob (firmas de acceso compartido) para el archivo ZIP, se puede usar para el entrenamiento. Consulte este documento para obtener información sobre cómo generar direcciones URL de SAS a partir de Azure Blob Storage.
 
 ```python
+class MultivariateSample():
+
 def __init__(self, subscription_key, anomaly_detector_endpoint, data_source=None):
     self.sub_key = subscription_key
     self.end_point = anomaly_detector_endpoint
@@ -105,11 +113,7 @@ def __init__(self, subscription_key, anomaly_detector_endpoint, data_source=None
     self.ad_client = AnomalyDetectorClient(AzureKeyCredential(self.sub_key), self.end_point)
     # </client>
 
-    if not data_source:
-        # Datafeed for test only
-        self.data_source = "YOUR_SAMPLE_ZIP_FILE_LOCATED_IN_AZURE_BLOB_STORAGE_WITH_SAS"
-    else:
-        self.data_source = data_source
+    self.data_source = "YOUR_SAMPLE_ZIP_FILE_LOCATED_IN_AZURE_BLOB_STORAGE_WITH_SAS"
 ```
 
 ## <a name="train-the-model"></a>Entrenar el modelo
@@ -187,6 +191,9 @@ def detect(self, model_id, start_time, end_time, max_tryout=500):
 
 ## <a name="export-model"></a>Exportación de un modelo
 
+> [!NOTE]
+> El comando de exportación está diseñado para permitir la ejecución de modelos multivariados de Anomaly Detector en un entorno en contenedor. Actualmente, no se admite para el multivariado, pero se agregará una compatibilidad en el futuro.
+
 Si desea exportar un modelo, use `export_model` y pase el identificador del modelo que desea exportar:
 
 ```python
@@ -253,4 +260,14 @@ También tenemos una instancia de [Jupyter Notebook detallada](https://github.co
 Ejecute la aplicación con el comando `python` en el nombre de archivo.
 
 
-[!INCLUDE [anomaly-detector-next-steps](../quickstart-cleanup-next-steps.md)]
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede eliminar el recurso o grupo de recursos. Al eliminar el grupo de recursos, también se elimina cualquier otro recurso que esté asociado a dicho grupo.
+
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [CLI de Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* [¿Qué es Anomaly Detector API?](../../overview-multivariate.md)
+* [Procedimientos recomendados cuando se usa Anomaly Detector API.](../../concepts/best-practices-multivariate.md) 

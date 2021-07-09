@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 67d09eb3420143c362914a7903b181a419d7a388
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: f279ea2011b37c01b1ef9ec67a2b5642f7e640b8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109786886"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110078101"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consulta del grafo gemelo de Azure Digital Twins
 
@@ -167,10 +167,7 @@ Puede seleccionar los diversos elementos "principales" en una consulta mediante 
 
 ## <a name="filter-results-specify-return-set-with-projections"></a>Resultados del filtro: especificación del conjunto de devoluciones con proyecciones
 
-El uso de las proyecciones en la instrucción `SELECT` permite elegir las columnas que devolverá una consulta.
-
->[!NOTE]
->En este momento, no se admiten las propiedades complejas. Para asegurarse de que las propiedades de proyección son válidas, combine las proyecciones con una comprobación de `IS_PRIMITIVE`.
+El uso de las proyecciones en la instrucción `SELECT` permite elegir las columnas que devolverá una consulta. Ahora se admite la proyección para propiedades primitivas y complejas. Para más información sobre las proyecciones con Azure Digital Twins, consulte la [documentación de referencia de la cláusula SELECT](reference-query-clause-select.md#select-columns-with-projections).
 
 Este es un ejemplo de una consulta que usa una proyección para devolver gemelos y relaciones. La siguiente consulta proyecta los valores de consumidor, fábrica y borde de un escenario en el que una fábrica con el identificador *ABC* está relacionada con el consumidor mediante una relación *Factory.customer*, y esa relación se presenta como el *Borde*.
 
@@ -233,11 +230,11 @@ Una vez que haya decidido una cadena de consulta, puede ejecutarla realizando un
 
 Puede llamar a la API directamente, o bien usar uno de los [SDK](concepts-apis-sdks.md#overview-data-plane-apis) disponibles para Azure Digital Twins.
 
-En el fragmento de código siguiente se muestra la llamada al [SDK de .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) desde una aplicación cliente:
+En el fragmento de código siguiente se muestra la llamada al [SDK de .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) desde una aplicación cliente:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="RunQuery":::
 
-La consulta utilizada en esta llamada devuelve una lista de gemelos digitales, que el ejemplo anterior representa con objetos [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin). El tipo de valor devuelto de los datos para cada consulta dependerá de los términos que especifique con la instrucción `SELECT`:
+La consulta utilizada en esta llamada devuelve una lista de gemelos digitales, que el ejemplo anterior representa con objetos [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true). El tipo de valor devuelto de los datos para cada consulta dependerá de los términos que especifique con la instrucción `SELECT`:
 * Las consultas que comienzan por `SELECT * FROM ...` devolverán una lista de gemelos digitales (que se pueden serializar como objetos `BasicDigitalTwin` u otros tipos de gemelos digitales personalizados que haya creado).
 * Las consultas que comienzan con el formato `SELECT <A>, <B>, <C> FROM ...` devolverán un diccionario con las claves `<A>`, `<B>` y `<C>`.
 * Se pueden diseñar otros formatos de instrucciones `SELECT` para devolver datos personalizados. Considere la posibilidad de crear sus propias clases para administrar conjuntos de resultados muy personalizados. 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 03/09/2020
+ms.date: 05/18/2021
 ms.author: aahi
 ms.reviewer: jdesousa
-ms.openlocfilehash: f5b63503792b13e089568004ba67e5be8a3d0c7f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 348805670187f2362eb17dae40aa94e70f1daa24
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98932366"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110084689"
 ---
 # <a name="text-offsets-in-the-text-analytics-api-output"></a>Desplazamientos de texto en la salida de Text Analytics API
 
@@ -42,7 +42,7 @@ Text Analytics API devuelve estos elementos textuales también, por motivos de c
 
 ## <a name="offsets-in-api-version-31-preview"></a>Desplazamientos en la API versión 3.1-preview
 
-A partir de la API versión 3.1-preview.1, todos los puntos de conexión de Text Analytics API que devuelven un desplazamiento serán compatibles con el parámetro `stringIndexType`. Este parámetro ajusta los atributos `offset` y `length` en la salida de la API para que coincidan con el esquema solicitado de iteración de cadena. Actualmente, se admiten tres tipos:
+En la versión 3.1 de la API, todos los puntos de conexión de Text Analytics API que devuelven un desplazamiento serán compatibles con el parámetro `stringIndexType`. Este parámetro ajusta los atributos `offset` y `length` en la salida de la API para que coincidan con el esquema solicitado de iteración de cadena. Actualmente, se admiten tres tipos:
 
 1. `textElement_v8` (valor predeterminado): itera por los grafemas, tal y como se define en [Unicode Standard 8.0.0](https://unicode.org/versions/Unicode8.0.0).
 2. `unicodeCodePoint`: itera por los [puntos de código Unicode](http://www.unicode.org/versions/Unicode13.0.0/ch02.pdf#G25564), el esquema predeterminado para Python 3.

@@ -1,7 +1,7 @@
 ---
 title: Cómo obtener eventos de postura facial para la sincronización de labios
 titleSuffix: Azure Cognitive Services
-description: El SDK de Voz admite eventos de visema durante la síntesis de voz, que se usa para representar los planteamientos clave en la voz observada, como la posición de los labios, mandíbula y lengua al generar un fonema determinado.
+description: El SDK de Voz admite eventos de visema durante la síntesis de voz, que representa los planteamientos clave en la voz observada, como la posición de los labios, la mandíbula y la lengua al generar un fonema determinado.
 services: cognitive-services
 author: yulin-li
 manager: nitinme
@@ -12,12 +12,12 @@ ms.date: 03/03/2021
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: 630e05b50f153b816f74a9df1f5783c0e36cb53e
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 7ef3e07eb1585aaa87986fd682b4db00c53e66f3
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109734637"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109810685"
 ---
 # <a name="get-facial-pose-events"></a>Obtención de eventos de postura facial
 
@@ -35,7 +35,10 @@ Mediante las visemas, puede crear asistentes de difusión de noticias más natur
 
 ## <a name="get-viseme-events-with-the-speech-sdk"></a>Obtención de eventos de visema con el SDK de voz
 
-Para realizar eventos de visema, convierta el texto de entrada en un conjunto de secuencias de fonema y sus secuencias visema correspondientes. Estimamos la hora de inicio de cada visema en el audio de voz. Los eventos de visema contienen una secuencia de identificadores de visema, cada uno con un desplazamiento en el audio donde aparece visema. Estos eventos pueden impulsar animaciones de boca que simulan a una persona que habla el texto de entrada.
+Para realizar eventos de visema, el servicio TTS convierte el texto de entrada en un conjunto de secuencias de fonema y sus secuencias visema correspondientes.
+La hora de inicio de cada visema en el audio de voz es aproximada.
+Los eventos de visema contienen una secuencia de identificadores de visema, cada uno con un desplazamiento en el audio donde aparece visema.
+Estos eventos pueden impulsar animaciones de boca que simulan a una persona que habla el texto de entrada.
 
 | Parámetro | Descripción |
 |-----------|-------------|

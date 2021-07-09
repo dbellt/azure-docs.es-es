@@ -11,10 +11,12 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Descarga de un informe de inicio de sesión
-      href: quickstart-download-sign-in-report.md
-    - name: Descarga de un informe de auditoría
-      href: quickstart-download-audit-report.md
+    - name: Filtro del registro de auditoría
+      href: quickstart-filter-audit-log.md
+    - name: Análisis de inicios de sesión
+      href: quickstart-analyze-sign-in.md
+    - name: Acceso a los registros con Graph API
+      href: quickstart-access-log-with-graph-api.md
     - name: Enrutamiento de registros a la cuenta de almacenamiento
       href: quickstart-azure-monitor-route-logs-to-storage-account.md
 - name: Tutoriales

@@ -11,12 +11,12 @@ ms.date: 05/25/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt, troubleshoot
-ms.openlocfilehash: c36e1221c77d7f2b285419be705990405965c005
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 598c578c445cbd7dc7086f22e3c8d4885d67b112
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110383021"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110537337"
 ---
 # <a name="troubleshooting-prebuilt-docker-images-for-inference-preview"></a>Solución de problemas de imágenes de Docker precompiladas para la inferencia (versión preliminar)
 
@@ -47,7 +47,7 @@ docker run -it -v $(pwd):/var/azureml-app -e AZUREML_EXTRA_REQUIREMENTS_TXT="req
 
 ## <a name="enable-local-debugging"></a>Habilitación de la depuración local
 
-El servidor de inferencia local permite depurar rápidamente el script de entrada (`score.py`). En caso de que el script de puntuación subyacente tenga un error, el servidor no podrá inicializar ni atender el modelo. Se producirá una excepción con la ubicación donde se produjeron los problemas.
+El servidor de inferencia local permite depurar rápidamente el script de entrada (`score.py`). En caso de que el script de puntuación subyacente tenga un error, el servidor no podrá inicializar ni atender el modelo. Se producirá una excepción con la ubicación donde se produjeron los problemas. [Más información sobre el servidor HTTP de inferencia de Azure Machine Learning](how-to-inference-server-http.md)
 
 ## <a name="for-common-model-deployment-issues"></a>Para problemas comunes de implementación del modelo
 

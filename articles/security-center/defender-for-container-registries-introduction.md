@@ -7,12 +7,12 @@ ms.date: 04/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 4840fc27133b1d92cb8aaad80921f9d21901569d
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 282777a692b7b0fe54415ef09c2cf1879868dd3b
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107010699"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854439"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introducción a Azure Defender para registros de contenedor
 
@@ -28,7 +28,7 @@ Security Center identifica registros de ACR basados Azure Resource Manager en la
 
 **Azure Defender para registros de contenedor** incluye un detector de vulnerabilidades para examinar las imágenes de los registros de Azure Container Registry basados en Azure Resource Manager y proporciona una mayor visibilidad de las vulnerabilidades de las imágenes. El detector integrado lo proporciona el proveedor de análisis de vulnerabilidades líder del sector, Qualys.
 
-Si Qualys o Security Center encuentran incidencias, recibirá una notificación en el panel de Security Center. Por cada vulnerabilidad, Security Center proporciona recomendaciones útiles, junto con una clasificación de gravedad e información sobre cómo corregir el problema. Para más información sobre las recomendaciones de Security Center para los contenedores, consulte la [lista de recomendaciones de referencia](recommendations-reference.md#recs-compute).
+Si Qualys o Security Center encuentran incidencias, recibirá una notificación en el panel de Security Center. Por cada vulnerabilidad, Security Center proporciona recomendaciones útiles, junto con una clasificación de gravedad e información sobre cómo corregir el problema. Para más información sobre las recomendaciones de Security Center para los contenedores, consulte la [lista de recomendaciones de referencia](recommendations-reference.md#recs-container).
 
 Security Center filtra y clasifica los resultados del análisis. Cuando una imagen es correcta, Security Center la marca como tal. Security Center solo genera recomendaciones de seguridad para las imágenes que tienen incidencias sin resolver. Security Center proporciona detalles de cada vulnerabilidad detectada y una clasificación de gravedad. Asimismo, ofrece instrucciones sobre cómo corregir las vulnerabilidades específicas encontradas en cada imagen.
 
@@ -65,7 +65,7 @@ A continuación se muestra un diagrama detallado de los componentes y las ventaj
 
 
 
-## <a name="faq-for-azure-container-registry-image-scanning"></a>Preguntas más frecuentes sobre el análisis de imágenes de Azure Container Registry
+## <a name="faq---azure-container-registry-image-scanning"></a>Preguntas frecuentes: Análisis de imágenes de Azure Container Registry
 
 ### <a name="how-does-security-center-scan-an-image"></a>¿De qué forma analiza Security Center las imágenes?
 Security Center extrae la imagen del registro y la ejecuta en un espacio aislado con el detector de Qualys. El detector extrae una lista de vulnerabilidades conocidas.
@@ -88,6 +88,8 @@ Sí. Si tiene una necesidad organizativa de omitir un resultado, en lugar de cor
 ### <a name="why-is-security-center-alerting-me-to-vulnerabilities-about-an-image-that-isnt-in-my-registry"></a>¿Por qué me está avisando Security Center de las vulnerabilidades de una imagen que no está en mi registro?
 Security Center proporciona evaluaciones de vulnerabilidades de cada imagen que se inserta o se extrae en un registro. Algunas imágenes pueden volver a usar etiquetas de una imagen que ya se ha examinado. Por ejemplo, puede reasignar la etiqueta "Más reciente" cada vez que se agrega una imagen a un código hash. En esos casos, la imagen "antigua" todavía existe en el registro y es posible que todavía se pueda extraer mediante su código hash. Si la imagen tiene resultados de seguridad y se extrae, mostrará vulnerabilidades de seguridad.
 
+### <a name="what-should-i-do-if-the-scan-results-for-my-image-arent-shown"></a>¿Qué debo hacer si no se muestran los resultados del examen de la imagen?
+Espere unos minutos y, si los resultados no aparecen, intente insertar la imagen de nuevo para desencadenar un nuevo examen. Si aún no aparecen, póngase en contacto con nuestro equipo de soporte técnico. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

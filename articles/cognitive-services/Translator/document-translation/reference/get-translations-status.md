@@ -10,20 +10,24 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: c3301283f0a7334a7c207ff7c80b4f71a13de465
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: a7615a8230b03c928d256fae62fbbe3b4e8651fb
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107864836"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110453395"
 ---
 # <a name="get-translations-status"></a>Obtención del estado de las traducciones
 
-El método de obtención del estado de las traducciones devuelve una lista de solicitudes por lotes enviadas y el estado de cada solicitud. Esta lista solo contiene las solicitudes por lotes enviadas por el usuario (según la suscripción). El estado de cada solicitud se ordena por el identificador.
+El método de obtención del estado de las traducciones devuelve una lista de solicitudes por lotes enviadas y el estado de cada solicitud. Esta lista solo contiene las solicitudes por lotes enviadas por el usuario (en función del recurso).
 
-Si el número de solicitudes supera el límite de paginación, se usa la paginación en el servidor. Las respuestas paginadas indican un resultado parcial e incluyen un token de continuación en la respuesta. La ausencia de un token de continuación significa que no hay ninguna página adicional disponible.
+Si el número de solicitudes supera el límite de paginación, se usa la paginación en el servidor. Las respuestas paginadas indican un resultado parcial e incluyen un token de continuación en la respuesta. La ausencia de un token de continuación significa que no hay otras páginas disponibles.
 
-Los parámetros de consulta $top y $skip se pueden usar para especificar un número de resultados que se van a devolver y un desplazamiento de la colección.
+Los parámetros de consulta $top, $skip y $maxpagesize se pueden usar para especificar el número de resultados que se van a devolver y el desplazamiento en la colección.
+
+$top indica el número total de registros que el usuario desea que se devuelvan entre todas las páginas. $skip indica el número de registros que se omitirán de la lista de lotes según el método de ordenación especificado. De manera predeterminada, se ordena por hora de inicio descendente. $maxpagesize es el número máximo de elementos que se devuelven en una página. Si se solicitan más elementos mediante $top (o no se especifica $top y hay más elementos que devolver), @nextLink contendrá el vínculo a la página siguiente.
+
+El parámetro de consulta $orderBy se puede usar para ordenar la lista devuelta (por ejemplo, "$orderBy=createdDateTimeUtc asc" o "$orderBy=createdDateTimeUtc desc"). La ordenación predeterminada es por createdDateTimeUtc descendente. Se pueden usar algunos parámetros de consulta para filtrar la lista devuelta (por ejemplo, "status=Succeeded,Cancelled") solo devolverá operaciones correctas y canceladas. createdDateTimeUtcStart y createdDateTimeUtcEnd se pueden usar combinados o por separado para especificar un intervalo de fecha y hora por el que filtrar la lista devuelta. Los parámetros de consulta de filtrado admitidos son (status, ID, createdDateTimeUtcStart y createdDateTimeUtcEnd).
 
 El servidor respeta los valores especificados por el cliente. Sin embargo, los clientes deben estar preparados para controlar las respuestas que contienen un tamaño de página diferente o que contienen un token de continuación.
 
@@ -36,7 +40,7 @@ Cuando se incluyen $top y $skip, el servidor debe aplicar primero $skip y, a con
 
 Envíe una solicitud `GET` a:
 ```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches
+GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches
 ```
 
 Aprenda a encontrar su [nombre de dominio personalizado](../get-started-with-document-translation.md#find-your-custom-domain-name).
@@ -50,10 +54,16 @@ Aprenda a encontrar su [nombre de dominio personalizado](../get-started-with-doc
 
 Los parámetros de solicitud que se pasaron en la cadena de consulta son:
 
-|Parámetro de consulta|Obligatorio|Descripción|
-|--- |--- |--- |
-|$skip|False|Omitir las entradas $skip de la colección. Cuando se proporcionan $top y $skip, se aplica primero $skip.|
-|$top|False|Adoptar las entradas $top de la colección. Cuando se proporcionan $top y $skip, se aplica primero $skip.|
+|Parámetro de consulta|En|Obligatorio|Tipo|Descripción|
+|--- |--- |--- |---|---|
+|$maxpagesize|Query|Falso|integer int32|$maxpagesize es el número máximo de elementos que se devuelven en una página. Si se solicitan más elementos mediante $top (o no se especifica $top y hay más elementos que devolver), @nextLink contendrá el vínculo a la página siguiente. Los clientes PUEDEN solicitar la paginación controlada por el servidor con un tamaño de página específico especificando su preferencia para $maxpagesize. El servidor DEBE respetar esta preferencia si el tamaño de página especificado es menor que el tamaño de página predeterminado del servidor.|
+|$orderBy|Query|Falso|array|Consulta de ordenación de la colección (por ejemplo, "CreatedDateTimeUtc asc", "CreatedDateTimeUtc desc")|
+|$skip|Query|Falso|integer int32|$skip indica el número de registros que se omitirán de la lista de registros mantenida por el servidor según el método de ordenación especificado. De manera predeterminada, se ordena por hora de inicio descendente. Los clientes pueden usar los parámetros de consulta $top y $skip para especificar el número de resultados que se van a devolver y el desplazamiento en la colección. Cuando el cliente proporciona $top y $skip, el servidor DEBE aplicar primero $skip y, a continuación, $top en la colección. Nota: Si el servidor no puede respetar $top o $skip, el servidor DEBE devolver un error al cliente que informe al respecto en lugar de simplemente omitir las opciones de consulta.|
+|$top|Query|Falso|integer int32|$top indica el número total de registros que el usuario desea que se devuelvan entre todas las páginas. Los clientes pueden usar los parámetros de consulta $top y $skip para especificar el número de resultados que se van a devolver y el desplazamiento en la colección. Cuando el cliente proporciona $top y $skip, el servidor DEBE aplicar primero $skip y, a continuación, $top en la colección. Nota: Si el servidor no puede respetar $top o $skip, el servidor DEBE devolver un error al cliente que informe al respecto en lugar de simplemente omitir las opciones de consulta.|
+|createdDateTimeUtcEnd|Query|Falso|string date-time|Fecha y hora de finalización para obtener los elementos anteriores.|
+|createdDateTimeUtcStart|Query|Falso|string date-time|Fecha y hora de inicio después de la cual se obtienen los elementos.|
+|ids|Query|Falso|array|Los ID que se usarán en el filtrado.|
+|statuses|Query|Falso|array|Estados que se usarán en el filtrado.|
 
 ## <a name="request-headers"></a>Encabezados de solicitud
 
@@ -83,18 +93,20 @@ En una respuesta correcta se devuelve la información siguiente.
 
 |Nombre|Tipo|Descripción|
 |--- |--- |--- |
-|id|string|Identificador de la operación.|
-|createdDateTimeUtc|string|Fecha y hora de creación de la operación.|
-|lastActionDateTimeUtc|string|Fecha y hora en que se actualizó el estado de la operación.|
-|status|String|Lista de posibles estados del trabajo o documento: <ul><li>Canceled</li><li>Cancelling</li><li>Con error</li><li>NotStarted</li><li>En ejecución</li><li>Correcto</li><li>ValidationFailed</li></ul>|
-|Resumen|StatusSummary[]|Resumen que contiene los detalles que se muestran a continuación.|
-|summary.total|integer|Recuento total de documentos.|
-|summary.failed|integer|Recuento de documentos con errores.|
-|summary.success|integer|Recuento de documentos traducidos correctamente.|
-|summary.inProgress|integer|Recuento de documentos en curso.|
-|summary.notYetStarted|integer|Recuento de documentos que aún no se han empezado a procesar.|
-|summary.cancelled|integer|Recuento de documentos cancelados.|
-|summary.totalCharacterCharged|integer|Recuento total de caracteres cargados.|
+|@nextLink|string|Dirección URL de la página siguiente Valor NULL si no hay más páginas disponibles|
+|value|TranslationStatus[]|Matriz TranslationStatus[] que se muestra a continuación|
+|value.id|string|Identificador de la operación.|
+|value.createdDateTimeUtc|string|Fecha y hora de creación de la operación.|
+|value.lastActionDateTimeUtc|string|Fecha y hora en que se actualizó el estado de la operación.|
+|value.status|String|Lista de posibles estados del trabajo o documento: <ul><li>Canceled</li><li>Cancelling</li><li>Con error</li><li>NotStarted</li><li>En ejecución</li><li>Correcto</li><li>ValidationFailed</li></ul>|
+|value.summary|StatusSummary[]|Resumen que contiene los detalles que se muestran a continuación.|
+|value.summary.total|integer|Recuento total de documentos.|
+|value.summary.failed|integer|Recuento de documentos con errores.|
+|value.summary.success|integer|Recuento de documentos traducidos correctamente.|
+|value.summary.inProgress|integer|Recuento de documentos en curso.|
+|value.summary.notYetStarted|integer|Recuento de documentos que aún no se han empezado a procesar.|
+|value.summary.cancelled|integer|Recuento de documentos cancelados.|
+|value.summary.totalCharacterCharged|integer|Recuento total de caracteres cargados.|
 
 ### <a name="error-response"></a>Respuesta de error
 
@@ -102,10 +114,11 @@ En una respuesta correcta se devuelve la información siguiente.
 |--- |--- |--- |
 |código|string|Enumeraciones que contiene códigos de error de alto nivel. Valores posibles:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>No autorizado</li></ul>|
 |message|string|Obtiene un mensaje de error de alto nivel.|
-|Destino|string|Obtiene el origen del error. Por ejemplo, sería "documentos" o "id. de documento" en el caso de un documento no válido.|
-|innerError|InnerErrorV2|Nuevo formato de error interno, que cumple las directrices de la API de Cognitive Services. Contiene las propiedades requeridas ErrorCode, mensajey las propiedades opcionales de destino, detalles (par clave-valor), error interno (puede estar anidado).|
+|Destino|string|Obtiene el origen del error. Por ejemplo, sería "documentos" o "id. de documento" si se trata de un documento no válido.|
+|innerError|InnerTranslationError|Nuevo formato de error interno, que cumple las directrices de Cognitive Services API. Contiene las propiedades necesarias ErrorCode, message y las propiedades opcionales, target, details (par clave-valor), innerError (se puede anidar).|
 |innerError.code|string|Obtiene la cadena de error de código.|
 |innerError.message|string|Obtiene un mensaje de error de alto nivel.|
+|innerError.target|string|Obtiene el origen del error. Por ejemplo, sería "documentos" o "id. de documento" si se trata de un documento no válido.|
 
 ## <a name="examples"></a>Ejemplos
 
@@ -117,9 +130,9 @@ Aquí se muestra un ejemplo de respuesta correcta.
 {
   "value": [
     {
-      "id": "727bf148-f327-47a0-9481-abae6362f11e",
-      "createdDateTimeUtc": "2020-03-26T00:00:00Z",
-      "lastActionDateTimeUtc": "2020-03-26T01:00:00Z",
+      "id": "273622bd-835c-4946-9798-fd8f19f6bbf2",
+      "createdDateTimeUtc": "2021-03-23T07:03:30.013631Z",
+      "lastActionDateTimeUtc": "2021-03-26T01:00:00Z",
       "status": "Succeeded",
       "summary": {
         "total": 10,
@@ -128,7 +141,7 @@ Aquí se muestra un ejemplo de respuesta correcta.
         "inProgress": 0,
         "notYetStarted": 0,
         "cancelled": 0,
-        "totalCharacterCharged": 0
+        "totalCharacterCharged": 1000
       }
     }
   ]

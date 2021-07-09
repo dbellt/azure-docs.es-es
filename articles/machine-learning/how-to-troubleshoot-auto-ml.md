@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 03/08/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-python, automl, references_regions
-ms.openlocfilehash: 6f64d3511da8fbf953a50eab44702c7356ad3c5b
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 0eda886537f0cfd6819ca69c53b4cafa44746636
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140486"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111540700"
 ---
 # <a name="troubleshoot-automated-ml-experiments-in-python"></a>Solución de problemas de experimentos de aprendizaje automático automatizado en Python
 
@@ -148,8 +148,16 @@ Si la versión indicada no es una versión compatible:
     1. Ejecute `pip uninstall PyJWT` en el shell de comandos y escriba `y` para confirmar.
     1. Realice la instalación mediante `pip install 'PyJWT<2.0.0'`.
   
+
+## <a name="data-access"></a>Acceso a datos
+ 
+Para las ejecuciones de aprendizaje automático automatizado, debe asegurarse de que el almacén de datos de archivos que se conecta al almacenamiento de archivos de Azure tiene las credenciales de autenticación adecuadas. Si no las tiene, aparece el siguiente mensaje. Aprenda a [actualizar las credenciales de autenticación de acceso a datos](how-to-train-with-datasets.md#azurefile-storage).
+
+Mensaje de error: `Could not create a connection to the AzureFileService due to missing credentials. Either an Account Key or SAS token needs to be linked the default workspace blob store.`
+
 ## <a name="databricks"></a>Databricks
 Consulte [Configuración de un experimento de aprendizaje automático automatizado con Databricks](how-to-configure-databricks-automl-environment.md#troubleshooting).
+
 
 ## <a name="forecasting-r2-score-is-always-zero"></a>La puntuación R2 de la previsión siempre es cero
 

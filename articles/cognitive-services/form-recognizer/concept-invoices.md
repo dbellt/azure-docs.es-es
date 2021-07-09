@@ -5,17 +5,17 @@ description: 'Conozca los conceptos relacionados con el análisis de facturas me
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: lajanuar
-ms.openlocfilehash: effe9a1f4959748ee04fadff2bd733c52c14a790
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: fc00e651cf8ec61a884864c57c0cafd2551f1a38
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110374874"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111890697"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modelo de factura precompilado de Form Recognizer
 
@@ -78,6 +78,8 @@ La salida JSON tiene tres partes:
 
 El servicio Invoice extrae el texto, las tablas y 26 campos de la factura. A continuación se muestran los campos extraídos de una factura en la respuesta de salida JSON (la siguiente salida usa esta [factura de ejemplo](media/sample-invoice.jpg)).
 
+### <a name="key-value-pairs"></a>Pares clave-valor 
+
 |Nombre| Tipo | Descripción | Texto | Valor (salida estándar) |
 |:-----|:----|:----|:----| :----|
 | CustomerName | string | Cliente al que se va a facturar | Microsoft Corp |  |
@@ -107,6 +109,8 @@ El servicio Invoice extrae el texto, las tablas y 26 campos de la factura. A c
 | ServiceEndDate | date | Fecha de finalización del período de servicio (por ejemplo, un período de servicio de factura de la utilidad) | 14/11/2019 | 14-11-2019 |
 | PreviousUnpaidBalance | number | Saldo explícito no pagado previamente | 500,00 USD | 500 |
 
+### <a name="line-items"></a>Elementos de línea
+
 A continuación se muestran los elementos de línea extraídos de una factura en la respuesta de salida JSON (la siguiente salida usa esta [factura de ejemplo](./media/sample-invoice.jpg))
 
 |Nombre| Tipo | Descripción | Texto (elemento de línea n.º 1) | Valor (salida estándar) |
@@ -121,6 +125,7 @@ A continuación se muestran los elementos de línea extraídos de una factura en
 | Fecha | fecha| Fecha correspondiente a cada elemento de línea. Suele ser la fecha en la que se ha enviado el elemento de línea | 3/4/2021| 2021-03-04 |
 | Impuesto | number | Impuestos asociados a cada elemento de línea. Los valores posibles incluyen importe de impuestos, porcentaje de impuestos e impuesto S/N | 10 % | |
 
+Los pares de clave/valor y los elementos de línea de la factura extraídos se encuentran en la sección documentResults de la salida JSON. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

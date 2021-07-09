@@ -10,18 +10,18 @@ ms.custom: seodec18, contperf-fy21q2
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 12/14/2020
-ms.openlocfilehash: 54c0d8aa8ba17beb5a2f5a51c4a19795f767733a
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 05/28/2021
+ms.openlocfilehash: cf40cea7e92cdb36f489943d5af2ef140bd92a9e
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110089442"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110706912"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migración a una clave de creación de recursos de Azure
 
 > [!IMPORTANT]
->  A partir del 3 de diciembre, los usuarios existentes de LUIS deben completar el proceso de migración para continuar con la creación de aplicaciones de LUIS.
+>  A partir del 3 de diciembre de 2020, los usuarios existentes de LUIS deben haber completado el proceso de migración para continuar con la creación de aplicaciones de LUIS.
 
 La autenticación de creación de Language Understanding (LUIS) ha cambiado de una cuenta de correo electrónico a un recurso de Azure. Use este artículo para obtener información sobre cómo migrar su cuenta, si aún no ha migrado.  
 

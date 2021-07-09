@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 06/08/2020
-ms.openlocfilehash: b8c9610ca7043ed6b8baa86e35ea76c74ed75bba
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: f434d20a79baf7c0b0210e3eb790b50a153d2d7a
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107884001"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969025"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparación de las máquinas locales para la migración a Azure
 
@@ -111,14 +111,12 @@ Configure esta opción manualmente de la siguiente manera:
 
 Azure Migrate completa automáticamente estas acciones para estas versiones
 
-- Red Hat Enterprise Linux 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x (el agente de máquina virtual Linux de Azure también se instala automáticamente durante la migración)
-- Cent OS 7.7, 7.6, 7.5, 7.4, 6.x (el agente de máquina virtual Linux de Azure también se instala automáticamente durante la migración)
-- SUSE Linux Enterprise Server 12 SP1+
-- SUSE Linux Enterprise Server 15 SP1
+- Red Hat Enterprise Linux 8, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0 y  6.x (el agente de máquina virtual con Linux de Azure también se instala automáticamente durante la migración)
+- Cent OS 8, 7.7, 7.6, 7.5, 7.4 y 6.x (el agente de máquina virtual Linux de Azure también se instala automáticamente durante la migración)
+- SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11
 - Ubuntu 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS (el agente de máquina virtual Linux de Azure también se instala automáticamente durante la migración)
-- Ubuntu 18.04LTS, 16.04LTS
 - Debian 9, 8, 7
-- Oracle Linux 7.7, 7.7-CI
+- Oracle Linux 6, 7.7, 7.7-CI y 7.8 
 
 Para otras versiones, prepare las máquinas como se resume en la tabla.  
 

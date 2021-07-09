@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 5a8abb31b2442a8823437bb155b5b9970db1d181
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: cb005621a3439d5c7976221d816536b46efb986c
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108742272"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745010"
 ---
 # <a name="face-detection-and-attributes"></a>Atributos y detección de caras
 
@@ -48,7 +48,7 @@ Los atributos son un conjunto de características que la API [Face - Detect](htt
 * **Sexo**. Sexo estimado de la cara determinada. Los valores posibles son hombre, mujer y sin sexo definido.
 * **Gafas**. Si la cara determinada tiene gafas. Los valores posibles son NoGlasses, ReadingGlasses, Sunglasses y Swimming Goggles.
 * **Pelo**. Tipo de pelo de la cara. Este atributo muestra si el pelo está visible, así como la calvicie y el color de pelo que se detecten.
-* **Posición de la cabeza**. Orientación de la cara en un espacio 3D. Este atributo se describe mediante los ángulos de rotación alrededor del eje x (pitch), de rotación y de rotación alrededor del eje y (yaw) en grados. Los intervalos de valores son de -90 a 90 grados, de -90 a 90 grados y de-90 a 90 grados, respectivamente. Consulte el siguiente diagrama de asignaciones de ángulos:
+* **Posición de la cabeza**. Orientación de la cara en un espacio 3D. Este atributo se describe mediante los ángulos de giro, desviación e inclinación en grados, que se definen según la [regla de la derecha](https://en.wikipedia.org/wiki/Right-hand_rule). El orden de tres ángulos es giro-desviación-inclinación y el valor de cada ángulo oscila entre -180 y 180 grados. La orientación tridimensional de la cara se calcula mediante los ángulos de giro, desviación e inclinación en orden. Consulte el siguiente diagrama de asignaciones de ángulos:
 
     ![Cabeza con ejes de rotación alrededor del eje x (pitch), de rotación y de rotación alrededor del eje y (yaw) etiquetados](../Images/headpose.1.jpg)
 * **Maquillaje**. Si la cara está maquillada. Este atributo devuelve un valor booleano para eyeMakeup y lipMakeup.
@@ -70,6 +70,12 @@ Utilice las siguientes sugerencias para asegurarse de que las imágenes de entra
 * El tamaño máximo de cara detectable es 4096 x 4096 píxeles.
 * Las caras fuera del intervalo de tamaño de 36 x 36 a 4096 x 4096 píxeles no se detectarán.
 * Es posible que no se puedan detectar algunas caras debido a desafíos técnicos. Unos ángulos de cara extremos (posición de la cabeza) o una oclusión de la cara (objetos como gafas de sol o manos que bloquean parte de la cara) pueden afectar a la detección. Las caras de frente y casi de frente proporcionan los mejores resultados.
+
+Datos de entrada con información de orientación:
+* Algunas imágenes de entrada con formato JPEG pueden contener información de orientación en metadatos de formato de archivo de imagen intercambiable (Exif). Si la orientación Exif está disponible, las imágenes se girarán automáticamente a la orientación correcta antes de su envío para la detección de caras. El rectángulo facial, los puntos de referencia y la posición de la cabeza de todas las caras detectadas se calcularán en función de la imagen girada.
+* Para mostrar correctamente tanto el rectángulo facial como los puntos de referencia es preciso asegurarse de que la imagen se gira correctamente. La mayoría de las herramientas de visualización de imágenes girarán automáticamente la imagen según su orientación Exif de forma predeterminada. Em el caso de otras herramientas, es posible que tenga que usar su propio código para aplicar la rotación. En los ejemplos siguientes se muestra un rectángulo facial en una imagen girada (izquierda) y una imagen no girada (derecha).
+
+![Dos imágenes de caras con o sin rotación](../Images/image-rotation.png)
 
 Si está detectando caras de una fuente de vídeo, puede mejorar el rendimiento mediante el ajuste de determinados valores de la cámara de vídeo:
 

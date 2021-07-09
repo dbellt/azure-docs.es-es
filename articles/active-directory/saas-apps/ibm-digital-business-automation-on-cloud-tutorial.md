@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/08/2020
+ms.date: 05/12/2021
 ms.author: jeedes
-ms.openlocfilehash: 91a50ed85b5802657a27c5a545de0013937e9da0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 85d694c252b05930d31bc95cd56b5589ec9186ec
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92460570"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110477402"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ibm-digital-business-automation-on-cloud"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con IBM Digital Business Automation on Cloud
 
@@ -26,9 +26,7 @@ En este tutorial, aprenderá a integrar IBM Digital Business Automation on Cloud
 * Permitir que los usuarios inicien sesión automáticamente en IBM Digital Business Automation on Cloud con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -40,25 +38,23 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * IBM Digital Business Automation on Cloud admite el inicio de sesión único iniciado por **SP e IDP**.
-* Una vez configurado IBM Digital Business Automation on Cloud, puede aplicar controles de sesión, que protegen la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-ibm-digital-business-automation-on-cloud-from-the-gallery"></a>Incorporación de IBM Digital Business Automation on Cloud desde la galería
+## <a name="add-ibm-digital-business-automation-on-cloud-from-the-gallery"></a>Adición de IBM Digital Business Automation on Cloud desde la galería
 
 Para configurar la integración de IBM Digital Business Automation on Cloud en Azure AD, es preciso agregar IBM Digital Business Automation en la nube desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **IBM Digital Business Automation on Cloud** en el cuadro de búsqueda.
 1. Seleccione **IBM Digital Business Automation on Cloud** en el panel de resultados y, a continuación, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-
-## <a name="configure-and-test-azure-ad-single-sign-on-for-ibm-digital-business-automation-on-cloud"></a>Configuración y prueba del inicio de sesión único de Azure AD para IBM Digital Business Automation on Cloud
+## <a name="configure-and-test-azure-ad-sso-for-ibm-digital-business-automation-on-cloud"></a>Configuración y prueba del inicio de sesión único de Azure AD para IBM Digital Business Automation on Cloud
 
 Configure y pruebe el inicio de sesión único de Azure AD con IBM Digital Business Automation on Cloud mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de IBM Digital Business Automation on Cloud.
 
-Para configurar y probar el inicio de sesión único de Azure AD con IBM Digital Business Automation on Cloud, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con IBM Digital Business Automation on Cloud, es preciso completar los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
@@ -71,9 +67,9 @@ Para configurar y probar el inicio de sesión único de Azure AD con IBM Digita
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **IBM Digital Business Automation on Cloud**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de aplicaciones de **IBM Digital Business Automation on Cloud**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
@@ -91,7 +87,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     > [!Note]
     > Los clientes pueden obtener el archivo de metadatos de su suscripción en la nube del [equipo de soporte técnico de IBM Digital Business Automation on Cloud](mailto:supportbpmoncloud@us.ibm.com).
 
-1. Si no tiene el **archivo de metadatos del proveedor de servicios** en la sección **Configuración básica de SAML** y desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
+1. Si no tiene el **archivo de metadatos del proveedor de servicios** en la sección **Configuración básica de SAML** y desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://www.automationcloud.ibm.com/isam/sps/<TENANT>/saml20`
 
@@ -111,6 +107,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 1. En la sección **Configurar IBM Digital Business Automation on Cloud**, copie las direcciones URL adecuadas en función de sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
@@ -130,15 +127,9 @@ En esta sección, va a permitir que B.Simon acceda a IBM Digital Business Automa
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **Automatización de IBM Digital Business Automation on Cloud**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
-   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
 1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-
-    ![Vínculo de Agregar usuario](common/add-assign-user.png)
-
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ## <a name="configure-ibm-digital-business-automation-on-cloud-sso"></a>Configuración del inicio de sesión único de IBM Digital Business Automation on Cloud
@@ -151,20 +142,20 @@ En esta sección, creará un usuario llamado Britta Simon en IBM Digital Busines
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-Al hacer clic en el icono de IBM Digital Business Automation on Cloud en el Panel de acceso, debería iniciar sesión automáticamente en la instancia de IBM Digital Business Automation on Cloud para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Iniciado por SP:
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de IBM Digital Business Automation on Cloud, donde puede iniciar el flujo de inicio de sesión.  
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+* Vaya directamente a la dirección URL de inicio de sesión de IBM Digital Business Automation on Cloud e inicie el flujo de inicio de sesión desde allí.
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Iniciado por IDP:
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
+* Haga clic en **Probar esta aplicación** en Azure Portal, y debería iniciarse sesión automáticamente en la instancia de IBM Digital Business Automation on Cloud para la que configuró el inicio de sesión único. 
 
-- [Pruebe IBM Digital Business Automation on Cloud con Azure AD](https://aad.portal.azure.com/)
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de IBM Digital Business Automation on Cloud de Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de IBM Digital Business Automation on Cloud para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+## <a name="next-steps"></a>Pasos siguientes
 
-- [Protección de IBM Digital Business Automation on Cloud con visibilidad y controles avanzados](/cloud-app-security/proxy-intro-aad)
+Una vez configurado IBM Digital Business Automation on Cloud, puede aplicar controles de sesión, que protegen la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

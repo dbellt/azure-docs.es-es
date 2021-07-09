@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: e3b7da30f54b9d9468b46a2cd0972a3397e5cdce
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 46348fe35f425811e2ff03208feeae6ab7a112bd
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107865114"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110453586"
 ---
 # <a name="cancel-translation"></a>Cancelación de la traducción
 
@@ -26,7 +26,7 @@ Puede cancelar una operación en colo o cuyo procesamiento está en curso. Sin e
 Envíe una solicitud `DELETE` a:
 
 ```DELETE HTTP
-https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}
+https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches/{id}
 ```
 
 Aprenda a encontrar su [nombre de dominio personalizado](../get-started-with-document-translation.md#find-your-custom-domain-name).
@@ -42,7 +42,7 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
 
 |Parámetro de consulta|Obligatorio|Descripción|
 |-----|-----|-----|
-|id|Verdadero|El identificador de la operación.|
+|id|Verdadero|Identificador de la operación.|
 
 ## <a name="request-headers"></a>Encabezados de solicitud
 
@@ -92,9 +92,10 @@ En una respuesta correcta se devuelve la información siguiente.
 |código|string|Enumeraciones que contiene códigos de error de alto nivel. Valores posibles:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>No autorizado</li></ul>|
 |message|string|Obtiene un mensaje de error de alto nivel.|
 |Destino|string|Obtiene el origen del error. Por ejemplo, sería "documentos" o "id. de documento" para un documentación no válido.|
-|innerError|InnerErrorV2|Nuevo formato de error interno, que cumple las directrices de la API de Cognitive Services. Contiene las propiedades requeridas ErrorCode, mensaje y las propiedades opcionales de destino, detalles (par clave-valor), error interno (puede estar anidado).|
+|innerError|InnerTranslationError|Nuevo formato de error interno, que cumple las directrices de Cognitive Services API. Contiene las propiedades necesarias ErrorCode, message y las propiedades opcionales, target, details (par clave-valor), innerError (se puede anidar).|
 |innerError.code|string|Obtiene la cadena de error de código.|
-|inner.Eroor.message|string|Obtiene un mensaje de error de alto nivel.|
+|innerError.message|string|Obtiene un mensaje de error de alto nivel.|
+|innerError.target|string|Obtiene el origen del error. Por ejemplo, sería "documentos" o "id. de documento" si se trata de un documento no válido.|
 
 ## <a name="examples"></a>Ejemplos
 

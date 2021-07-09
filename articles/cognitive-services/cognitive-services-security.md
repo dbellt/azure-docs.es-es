@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 90fbc41edbfea0ea99d436906d3052e43bfb4fb8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a720eec0c112b54fab0a1651c388b6e0514128c3
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105043886"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094949"
 ---
 # <a name="azure-cognitive-services-security"></a>Seguridad de Azure Cognitive Services
 
@@ -199,7 +199,7 @@ NSString* value =
 
 [La Caja de seguridad del cliente de Microsoft Azure](../security/fundamentals/customer-lockbox-overview.md) proporciona una interfaz para los clientes y así permitirles revisar y aprobar o rechazar las solicitudes de acceso de datos de cliente. Se utiliza en casos donde un ingeniero de Microsoft necesita obtener acceso a los datos del cliente durante una solicitud de soporte técnico. En este artículo se indica la manera de iniciar, seguir y almacenar las solicitudes de la Caja de seguridad del cliente para realizar revisiones y auditorías posteriores; consulte [Caja de seguridad del cliente](../security/fundamentals/customer-lockbox-overview.md). 
 
-La Caja de seguridad del cliente está disponible para esta instancia de Cognitive Services:
+La Caja de seguridad del cliente está disponible para este servicio:
 
 * Traductor
 

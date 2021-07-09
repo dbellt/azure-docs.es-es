@@ -12,12 +12,12 @@ ms.date: 03/02/2021
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: entorno local, Docker, contenedor
-ms.openlocfilehash: e4b79dc278bf41015c84f72994dd68419ae6e230
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 5c16a0245361dfa7e3ff160f5ffa45154555aa0b
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110097955"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110495337"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instalación y ejecución de contenedores de Docker para las API del servicio de voz 
 
@@ -34,7 +34,7 @@ Los contenedores de Voz permiten a los clientes compilar una arquitectura de apl
 > * Texto a voz neuronal
 >
 > Los siguientes contenedores de voz están en versión preliminar controlada.
-> * Detección de idioma de Voz 
+> * Identificación de idioma de la voz 
 >
 > Para usar los contenedores de voz, debe enviar una solicitud en línea y esperar a que se apruebe. Para obtener más información, consulte la sección **Solicitud de aprobación para ejecutar el contenedor** más adelante.
 
@@ -43,7 +43,7 @@ Los contenedores de Voz permiten a los clientes compilar una arquitectura de apl
 | Voz a texto | Analice opiniones y transcriba grabaciones continuas de audio por lotes o de voz en tiempo real con resultados intermedios.  | 2.12.0 |
 | Conversión de voz a texto personalizada | Con un modelo personalizado del [portal de Habla personalizada](https://speech.microsoft.com/customspeech), transcribe las grabaciones continuas de voz en tiempo real o de audio por lotes a texto con resultados inmediatos. | 2.12.0 |
 | Texto a voz | Convierte texto a voz de sonido natural con entrada de texto sin formato o Lenguaje de marcado de síntesis de voz (SSML). | 1.14.0 |
-| Detección de idioma de Voz | Detecte el idioma que se habla en los archivos de audio. | 1,0 |
+| Identificación de idioma de la voz | Detecte el idioma que se habla en los archivos de audio. | 1,0 |
 | Texto a voz neuronal | Convierte texto en voz con un sonido natural utilizando una tecnología de red neuronal profunda, lo que permite obtener una voz sintetizada más natural. | 1.6.0 |
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
@@ -83,7 +83,7 @@ En la tabla siguiente se describe la asignación mínima y recomendada de recurs
 | Voz a texto | 2 núcleos, 2 GB de memoria | 4 núcleos, 4 GB de memoria |
 | Conversión de voz a texto personalizada | 2 núcleos, 2 GB de memoria | 4 núcleos, 4 GB de memoria |
 | Texto a voz | 1 núcleo, 2 GB de memoria | 2 núcleo, 3 GB de memoria |
-| Detección de idioma de Voz | 1 núcleo, 1 GB de memoria | 1 núcleo, 1 GB de memoria |
+| Identificación de idioma de la voz | 1 núcleo, 1 GB de memoria | 1 núcleo, 1 GB de memoria |
 | Texto a voz neuronal | 6 núcleos, 12 GB de memoria | 8 núcleos, 16 GB de memoria |
 
 * Cada núcleo debe ser de 2,6 gigahercios (GHz) como mínimo.
@@ -128,14 +128,14 @@ Las imágenes de contenedor para Voz están disponibles en la instancia de Conta
 |-----------|------------|
 | Texto a voz neuronal | `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech:latest` |
 
-# <a name="speech-language-detection"></a>[Detección de idioma de Voz](#tab/lid)
+# <a name="speech-language-identification"></a>[Identificación de idioma de la voz](#tab/lid)
 
 > [!TIP]
-> Para obtener los resultados más útiles, se recomienda usar el contenedor de detección de idioma de voz con los contenedores de conversión de voz en texto o los contenedores personalizados de conversión de voz en texto. 
+> Para obtener los resultados más útiles posibles, se recomienda usar el contenedor de identificación de idioma del servicio de Voz con los contenedores Conversión de voz en texto o Conversión de voz en texto personalizada. 
 
 | Contenedor | Repositorio |
 |-----------|------------|
-| Detección de idioma de Voz | `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection:latest` |
+| Identificación de idioma de la voz | `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection:latest` |
 
 ***
 
@@ -249,9 +249,9 @@ Para ver todas las configuraciones regionales admitidas y las voces correspondie
 > [!IMPORTANT]
 > Cuando se crea una solicitud HTTP POST de *texto a voz neuronal*, el mensaje del [Lenguaje de marcado de síntesis de voz (SSML)](speech-synthesis-markup.md) necesita un elemento `voice` con un atributo `name`. El valor es la configuración regional del contenedor y la voz correspondiente, que también se conoce como ["nombre corto"](language-support.md#neural-voices). Por ejemplo, la etiqueta `latest` tendría un nombre de voz de `en-US-AriaNeural`.
 
-# <a name="speech-language-detection"></a>[Detección de idioma de Voz](#tab/lid)
+# <a name="speech-language-identification"></a>[Identificación de idioma de la voz](#tab/lid)
 
-#### <a name="docker-pull-for-the-speech-language-detection-container"></a>Docker pull para el contenedor de detección de idioma de Voz
+#### <a name="docker-pull-for-the-speech-language-identification-container"></a>Docker pull para el contenedor Identificación de idioma de la voz
 
 Use el comando [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) para descargar una imagen de contenedor del registro de contenedor de Microsoft.
 
@@ -498,9 +498,9 @@ Este comando:
 * Expone el puerto TCP 5000 y asigna un seudo-TTY para el contenedor.
 * Una vez que se produce la salida, quita automáticamente el contenedor. La imagen del contenedor sigue estando disponible en el equipo host.
 
-# <a name="speech-language-detection"></a>[Detección de idioma de Voz](#tab/lid)
+# <a name="speech-language-identification"></a>[Identificación de idioma de la voz](#tab/lid)
 
-Para ejecutar el contenedor *Detección de idioma de Voz*, ejecute el siguiente comando `docker run`.
+Para ejecutar el contenedor *Identificación de idioma de la voz*, ejecute el siguiente comando `docker run`.
 
 ```bash
 docker run --rm -it -p 5003:5003 --memory 1g --cpus 1 \
@@ -517,7 +517,7 @@ Este comando:
 * Expone el puerto TCP 5003 y asigna un seudo-TTY para el contenedor.
 * Una vez que se produce la salida, quita automáticamente el contenedor. La imagen del contenedor sigue estando disponible en el equipo host.
 
-Si solo envía solicitudes de detección de idioma de voz, tendrá que establecer el valor de `phraseDetection` del cliente de voz en `None`.  
+Si solo envía solicitudes de identificación de idioma de voz, tendrá que establecer el valor de `phraseDetection` del cliente de voz en `None`.  
 
 ```python
 speech_config.set_service_property(
@@ -534,7 +534,7 @@ docker run --rm -v ${HOME}:/root -ti antsu/on-prem-client:latest ./speech-to-tex
 ```
 
 > [!NOTE]
-> Aumentar el número de llamadas simultáneas puede afectar a la confiabilidad y la latencia. Para la detección de idioma, se recomienda un máximo de 4 llamadas simultáneas mediante 1 CPU con 1 GB de memoria. En el caso de hosts con 2 CPU y 2 GB de memoria, se recomienda un máximo de 6 llamadas simultáneas.
+> Aumentar el número de llamadas simultáneas puede afectar a la confiabilidad y la latencia. Para la identificación del idioma, se recomienda un máximo de 4 llamadas simultáneas mediante 1 CPU con 1 GB de memoria. En el caso de hosts con 2 CPU y 2 GB de memoria, se recomienda un máximo de 6 llamadas simultáneas.
 
 ***
 
@@ -549,7 +549,7 @@ docker run --rm -v ${HOME}:/root -ti antsu/on-prem-client:latest ./speech-to-tex
 | Contenedores | Dirección URL del host del SDK | Protocolo |
 |--|--|--|
 | Conversión de voz en texto estándar y personalizada | `ws://localhost:5000` | WS |
-| Conversión de texto a voz (incluida la versión estándar y neuronal), detección de idioma de voz | `http://localhost:5000` | HTTP |
+| Texto a voz (incluidas Estándar y Neuronal), identificación del idioma de la voz | `http://localhost:5000` | HTTP |
 
 Para más información sobre cómo usar los protocolos WSS y HTTPS, consulte la [seguridad del contenedor](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
 
@@ -714,7 +714,7 @@ En este artículo, ha aprendido los conceptos y el flujo de trabajo para la desc
   * *Texto a voz*
   * *Conversión de texto a voz personalizada*
   * *Texto a voz neuronal*
-  * *Detección de idioma de Voz*
+  * *Identificación de idioma de la voz*
 * Las imágenes de contenedor se descargan desde el registro de contenedor de Azure.
 * Las imágenes de contenedor se ejecutan en Docker.
 * Si usa la API REST (solo conversión de texto a voz) o el SDK (conversión de voz a texto o de texto a voz), especifique el URI del host del contenedor. 

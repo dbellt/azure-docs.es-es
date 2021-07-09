@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 531917d9c48915f71354b4cd35747ecd9d33a6f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8ef7137460c997b3685e75d5a37b7949fee86255
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100385037"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111895755"
 ---
 # <a name="use-apprentice-mode-to-train-personalizer-without-affecting-your-existing-application"></a>Uso del modo de aprendiz para el entrenamiento de Personalizer sin que ello afecte a la aplicación existente
 
@@ -71,6 +71,23 @@ Nota sobre la eficacia del modo de aprendiz:
 
 * La eficacia de Personalizer en el modo de aprendiz no suele acercarse al 100 % de la línea de base de la aplicación y nunca lo supera.
 * Los procedimientos recomendados serían no intentar llegar al 100 %. El objetivo sería un intervalo del 60 al 80 % en función del caso de uso.
+
+## <a name="limitations-of-apprentice-mode"></a>Limitaciones del modo de aprendiz
+El modo de aprendiz entrena el modelo de Personalizer mediante la imitación del algoritmo existente que elige elementos de línea de base, con las características presentes en el contexto y las acciones usadas en las llamadas de Rank y los comentarios de las llamadas de Reward. Los siguientes factores afectarán a si el aprendiz de Personalizer aprende suficientes recompensas coincidentes o cuándo.
+
+### <a name="scenarios-where-apprentice-mode-may-not-be-appropriate"></a>Escenarios en los que el modo de aprendiz puede que no sea adecuado:
+
+* **Contenido elegido por la editorial**: en algunos escenarios, como los de noticias o entretenimiento, un equipo editorial podría asignar manualmente el elemento de la línea de base. Esto significa que personas humanas usan sus conocimientos más amplios sobre el mundo, y la comprensión de lo que puede ser un contenido atractivo, para elegir artículos o contenidos multimedia específicos de un grupo y marcarlos como artículos "preferidos" o "prominentes". Dado que estos editores no son un algoritmo y los factores que tienen en cuenta los editores pueden matizarse y no incluirse como características del contexto y las acciones, es poco probable que el modo de aprendiz pueda predecir la siguiente acción de la línea de base. En estas situaciones puede: ** Probar Personalizer en modo en línea: el hecho de que el modo de aprendiz no prediga líneas de base no implica que Personalizer no pueda lograr resultados igual de buenos o incluso mejores. Considere la posibilidad de poner Personalizer en modo en línea durante un período de tiempo o en una prueba A/B si dispone de la infraestructura y, a continuación, ejecute una evaluación sin conexión para evaluar la diferencia.
+** Agregar consideraciones editoriales y recomendaciones como características: pregunte a los editores qué factores influyen en sus elecciones y vea si puede agregarlos como características en su contexto y acciones. Por ejemplo, los editores de una empresa de contenidos multimedia pueden destacar un contenido mientras una determinada celebridad está en las noticias: este conocimiento se podría agregar como una característica de contexto.
+
+### <a name="factors-that-will-improve-and-accelerate-apprentice-mode"></a>Factores que mejorarán y acelerarán el modo de aprendiz
+Si el modo de aprendiz está aprendiendo y obteniendo recompensas coincidentes por encima de cero, pero parece que va creciendo lentamente (no llega al 60 % u 80 % de recompensas coincidentes en 2 semanas), es posible que el desafío disponga de muy pocos datos. La adopción de los pasos siguientes podría acelerar el aprendizaje. 
+
+1. Agregar más eventos con recompensas positivas a lo largo del tiempo: el modo de aprendiz funciona mejor en aquellos casos de uso en los que la aplicación obtiene más de 100 recompensas positivas al día. Por ejemplo, si un sitio web que recompensa un clic tiene un 2 % de tasa de clickthrough, debe tener al menos 5000 visitas al día para tener un aprendizaje perceptible. También puede experimentar con una recompensa que sea más sencilla y que se produzca con más frecuencia. Por ejemplo, pasar de "¿Terminaron los usuarios de leer el artículo?" a "¿Empezaron los usuarios a leer el artículo?".
+2. Agregar características diferenciadoras: puede realizar una inspección visual de las acciones en una llamada de Rank y sus características. ¿La acción de la línea de base tiene características que se diferencian de otras acciones? Si son muy parecidas, agregue más características que las hagan menos semejantes.
+3. Reducción de acciones por evento: Personalizer usará la opción Explorar % para detectar preferencias y tendencias. Cuando una llamada a Rank tiene más acciones, la posibilidad de que se elija una acción para la exploración es menor. Reduzca el número de acciones enviadas en cada llamada de Rank a un número menor, a menos de 10. Puede ser un ajuste temporal para mostrar que el modo de aprendiz tiene los datos adecuados para que coincidan con las recompensas.
+
+
 
 ## <a name="using-apprentice-mode-to-train-with-historical-data"></a>Uso del modo de aprendiz para el entrenamiento con datos históricos
 

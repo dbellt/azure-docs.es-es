@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: 9e8b009ecc2181edfaad5da3d8d05ad0c1909051
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 989e4e48b03f976a647a542771ade053d9229ec7
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95024762"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110058913"
 ---
 # <a name="voice-assistants-on-windows"></a>Asistentes de voz en Windows
 
@@ -45,7 +45,7 @@ Tenga en cuenta que esto significa que una aplicación no se puede activar por v
 
 Al recibir la solicitud de AAR, el servicio en segundo plano inicia la aplicación. La aplicación recibe una señal a través del método de ciclo de vida de OnBackgroundActivated en `App.xaml.cs` con un argumento de evento único. Este argumento indica a la aplicación que se activó mediante AAR y que debe iniciar la comprobación de palabra clave.
 
-Si la aplicación comprueba correctamente la palabra clave, puede hacer que se muestre una solicitud en primer plano. Si esta solicitud se realiza correctamente, la aplicación muestra la interfaz de usuario y continúa su interacción con el usuario.
+Si la aplicación comprueba correctamente la palabra clave, puede hacer que aparezca una solicitud en primer plano. Si esta solicitud se realiza correctamente, la aplicación muestra la interfaz de usuario y continúa su interacción con el usuario.
 
 AAR sigue señalando las aplicaciones activas cuando se pronuncia su palabra clave. Sin embargo, en lugar de enviar una señal a través del método de ciclo de vida de `App.xaml.cs`, lo hace a través de un evento de las API ConversationalAgent.
 

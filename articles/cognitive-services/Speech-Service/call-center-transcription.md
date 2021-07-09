@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 19d4cc388494e149b7f258a8e9f154041a3dd070
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f83948fe0805229c0f01accb9e2b51112da599aa
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95021973"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109838184"
 ---
 # <a name="speech-service-for-telephony-data"></a>Servicio Voz para datos de telefonía
 
@@ -103,7 +103,7 @@ Internamente estamos utilizando las tecnologías anteriores para admitir las lla
 
 Algunas empresas deben transcribir las conversaciones en tiempo real. Se puede utilizar la transcripción en tiempo real para identificar palabras clave y desencadenar búsquedas de contenido y recursos relevantes para la conversación, para supervisar la opinión, para mejorar la accesibilidad o para proporcionar traducciones a los clientes y agentes que no son hablantes nativos.
 
-Para escenarios que requieren transcripción en tiempo real, recomendamos usar [Speech SDK](speech-sdk.md). Actualmente, la conversión de voz a texto está disponible en [más de 20 idiomas](language-support.md) y el SDK está disponible en C++, C#, Java, Python, Node.js, Objective-C y JavaScript. En [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk) se pueden encontrar ejemplos en todos los idiomas. Para las últimas noticias y actualizaciones, consulte las [Notas de la versión](releasenotes.md).
+Para escenarios que requieren transcripción en tiempo real, recomendamos usar [Speech SDK](speech-sdk.md). Actualmente, la conversión de voz a texto está disponible en [más de 20 idiomas](language-support.md) y el SDK está disponible en C++, C#, Java, Python, JavaScript, Objective-C y Go. En [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk) se pueden encontrar ejemplos en todos los idiomas. Para las últimas noticias y actualizaciones, consulte las [Notas de la versión](releasenotes.md).
 
 Internamente estamos utilizando las tecnologías anteriores para analizar en tiempo real las llamadas de los clientes de Microsoft cuando se producen, como se muestra en el diagrama siguiente.
 

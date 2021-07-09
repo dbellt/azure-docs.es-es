@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a10c4c0e6e40636e4803e054155d6fdaa12a9366
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ba41c8e7c63888212a9a59c33e0d7efb2b9fb54d
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96858559"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965970"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migración de la federación a la autenticación de paso a través en Azure Active Directory
 
@@ -144,7 +144,7 @@ En esta sección se describen las personalizaciones de AD FS comunes.
 
 AD FS emite la notificación **InsideCorporateNetwork** si el usuario que realiza la autenticación está dentro de la red corporativa. Esta notificación se puede transmitir entonces a Azure AD. La notificación se utiliza para omitir la autenticación multifactor basada en la ubicación de red del usuario. Para aprender a determinar si esta funcionalidad actualmente está disponible en AD FS, consulte [Direcciones IP de confianza para usuarios federados](../authentication/howto-mfa-adfs.md).
 
-La notificación **InsideCorporateNetwork** no está disponible cuando los dominios se conviertan a la autenticación de paso a través. Se pueden usar las [ubicaciones con nombre de Azure AD](../reports-monitoring/quickstart-configure-named-locations.md) para reemplazar esta funcionalidad.
+La notificación **InsideCorporateNetwork** no está disponible cuando los dominios se conviertan a la autenticación de paso a través. Se pueden usar las [ubicaciones con nombre de Azure AD](../conditional-access/location-condition.md) para reemplazar esta funcionalidad.
 
 Una vez que se han configurado las ubicaciones con nombre, debe actualizar todas las directivas de acceso condicional que se configuraron para incluir o excluir los valores de red **Todas las ubicaciones de confianza** o **IP de confianza de MFA** para reflejar las ubicaciones con nombre recién creadas.
 

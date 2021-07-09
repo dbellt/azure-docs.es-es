@@ -8,14 +8,14 @@ manager: nitinme
 keywords: cognitive services, inteligencia cognitiva, soluciones cognitivas, servicios de inteligencia artificial, servicios de IA
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 06/04/2021
 ms.author: aahi
-ms.openlocfilehash: de855e53f6d54c9175963b34d8cd3da572e02790
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: fb28a431f9f2f136d177a5d51398bc2427a7134d
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109736545"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111540164"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-portal"></a>Inicio rápido: Creación de un recurso de Cognitive Services con Azure Portal
 
@@ -114,6 +114,8 @@ Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede elimin
 1. En Azure Portal, expanda el menú de la izquierda para abrir el menú de servicios y elija **Grupos de recursos** para ver una lista con sus grupos de recursos.
 2. Busque el grupo de recursos que contiene el recurso que quiere eliminar.
 3. Haga clic con el botón derecho en la lista de grupos de recursos. Seleccione **Eliminar grupo de recursos** y confirme.
+
+Si necesita recuperar un recurso eliminado, consulte el artículo sobre la [recuperación de recursos de Cognitive Services eliminados](manage-resources.md).
 
 ## <a name="see-also"></a>Consulte también
 

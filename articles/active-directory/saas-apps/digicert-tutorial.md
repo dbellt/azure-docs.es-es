@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 05/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 1b4bf5b9d9b0341609d4caf0647c849ba92b073f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 00f6de3b18ac4c5abbe87777957ac171617c4a0e
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101647224"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111555783"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Tutorial: integración de Azure Active Directory con DigiCert
 
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar DigiCert con Azure Active Directory (Azur
 * Permitir que los usuarios inicien sesión automáticamente en DigiCert con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -38,6 +38,9 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * DigiCert admite el inicio de sesión único iniciado por **IDP**.
+
+> [!NOTE]
+> El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
 
 ## <a name="add-digicert-from-the-gallery"></a>Adición de DigiCert desde la galería
 
@@ -75,7 +78,14 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    En el cuadro de texto **Identificador**, escriba la dirección URL `https://www.digicert.com/sso`
+    a. En el cuadro de texto **Identificador**, escriba la dirección URL: `https://www.digicert.com/account/sso/metadata`
+
+    b. En el cuadro de texto **URL de respuesta**, escriba la dirección URL: `https://www.digicert.com/account/sso/`
+
+    c. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://www.digicert.com/account/sso/<FEDERATION_NAME>/login`
+
+    > [!NOTE]
+    > El valor de la dirección URL de inicio de sesión no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de DigiCert](mailto:support@digicert.com) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 5. La aplicación DigiCert espera las aserciones de SAML en un formato concreto. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **Atributos de usuario** de la página de integración de aplicaciones. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
 

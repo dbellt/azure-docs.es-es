@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8aaa1b2865b1d0f39e6cb224c3979b4f53eeee81
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 2ce667363c2bd3251eba1a0e4829c60d99d3a4bf
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110066726"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110456606"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Configuración de aplicaciones de funciones de Azure para procesar datos
 
@@ -40,7 +40,7 @@ En Visual Studio 2019, selecciona **Archivo** > **Nuevo** > **Proyecto**. Busq
 
 Especifique un nombre para la aplicación de funciones y, después, seleccione __Crear__.
 
-:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Captura de pantalla de Visual Studio que muestra el cuadro de diálogo para configurar un nuevo proyecto. La configuración incluye el nombre del proyecto, la ubicación de almacenamiento, la opción para crear una nueva solución y el nombre de la solución.":::
+:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Captura de pantalla de Visual Studio que muestra el cuadro de diálogo para configurar un nuevo proyecto, incluido el nombre del proyecto, la ubicación y la opción para crear una nueva solución.":::
 
 Seleccione el tipo de aplicación de funciones **Desencadenador de Event Grid** y, después, seleccione __Crear__.
 
@@ -107,7 +107,7 @@ Ahora que la aplicación está escrita, puede publicarla en Azure.
     > [!Note] 
     > Es posible que tenga que esperar unos minutos o actualizar la página un par de veces antes de que se muestre la función en la lista de funciones publicadas.
 
-    :::image type="content" source="media/how-to-create-azure-function/view-published-functions.png" alt-text="Visualización de las funciones publicadas en Azure Portal." lightbox="media/how-to-create-azure-function/view-published-functions.png":::
+    :::image type="content" source="media/how-to-create-azure-function/view-published-functions.png" alt-text="Captura de pantalla que muestra las funciones publicadas en Azure Portal." lightbox="media/how-to-create-azure-function/view-published-functions.png":::
 
 Para acceder a Azure Digital Twins, la aplicación de funciones necesita una identidad administrada por el sistema con permisos para acceder a la instancia de Azure Digital Twins. Va a realizar esa configuración a continuación.
 
@@ -132,14 +132,14 @@ Para asegurarse de que se pase el token de portador, configure los permisos de [
 1. Use el siguiente comando para ver los detalles de la identidad administrada por el sistema de la función. Anote el valor del campo `principalId` de la salida.
 
     ```azurecli-interactive 
-    az functionapp identity show --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name>   
+    az functionapp identity show --resource-group <your-resource-group> --name <your-App-Service-function-app-name> 
     ```
 
     >[!NOTE]
     > Si el resultado está vacío en lugar de mostrar los detalles de la identidad, cree una nueva identidad administrada por el sistema para la función con este comando:
     > 
     >```azurecli-interactive    
-    >az functionapp identity assign --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name>    
+    >az functionapp identity assign --resource-group <your-resource-group> --name <your-App-Service-function-app-name>  
     >```
     >
     > La salida muestra los detalles de la identidad, incluido el valor de `principalId` requerido para el siguiente paso. 
@@ -158,7 +158,7 @@ Permita que la función acceda a la dirección URL de la instancia mediante la d
 > Para crear la dirección URL de la instancia de Azure Digital Twins, agregue *https://* al principio del nombre de host de la instancia. Para ver el nombre de host, junto con todas las propiedades de la instancia, ejecute `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
 
 ```azurecli-interactive 
-az functionapp config appsettings set --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
+az functionapp config appsettings set --resource-group <your-resource-group> --name <your-App-Service-function-app-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
 ```
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
@@ -224,7 +224,7 @@ Ahora puede crear una configuración de la aplicación:
 
 1. En la ventana que se abre, use el valor de nombre de host que copió para crear una configuración de la aplicación.
     * **Nombre**: ADT_SERVICE_URL
-    * **Valor**: https://{nombre-de-host-de-azure-digital-twins}
+    * **Valor**: https://<nombre-de-host-de-Azure-Digital-Twins>
     
     Seleccione __Aceptar__ para crear una configuración de la aplicación.
     
@@ -232,11 +232,11 @@ Ahora puede crear una configuración de la aplicación:
 
 1. Después de crear la configuración, debería aparecer en la pestaña __Configuración de la aplicación__. Compruebe que **ADT_SERVICE_URL** aparezca en la lista. A continuación, seleccione __Guardar__ para guardar la nueva configuración de la aplicación.
 
-    :::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Captura de pantalla de Azure Portal. En la pestaña Configuración de la aplicación, está resaltada la nueva configuración ADT_SERVICE_URL. El botón Guardar también está resaltado.":::
+    :::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Captura de pantalla de Azure Portal. En la pestaña Configuración de la aplicación, la nueva configuración A D T SERVICE URL y el botón Guardar también están resaltados.":::
 
 1. Cualquier cambio en la configuración de la aplicación requiere un reinicio de la aplicación; por lo tanto, seleccione __Continuar__ para reiniciar la aplicación cuando se le solicite.
 
-    :::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Captura de pantalla de Azure Portal. Una nota indica que los cambios realizados en la configuración de la aplicación reiniciarán la aplicación. El botón Continuar está resaltado.":::
+    :::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Captura de pantalla de Azure Portal. Una nota indica que los cambios realizados en la configuración de la aplicación reiniciarán la aplicación.":::
 
 ---
 

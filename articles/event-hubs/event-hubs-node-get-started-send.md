@@ -4,12 +4,12 @@ description: Este artículo es un tutorial para crear una aplicación de JavaScr
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: c418c13346fb1ec8ba16965fa1020c676ddf3ac6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8bf0b284a4434b15ae818693276cd04712496116
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104602560"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113003201"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs"></a>Envío o recepción de eventos en Event Hubs mediante JavaScript (azure/event-hubs)
 En este inicio rápido se muestra cómo enviar y recibir eventos desde un centro de eventos mediante el paquete de JavaScript **azure/event-hubs**. 
@@ -107,7 +107,7 @@ En esta sección recibe eventos de un centro de eventos mediante un almacén de 
 > [!WARNING]
 > Si ejecuta este código en Azure Stack Hub, experimentará errores en tiempo de ejecución a menos que tenga como destino una versión específica de la API de Storage. Esto se debe a que el SDK de Event Hubs usa la API de Azure Storage más reciente disponible en Azure, que puede que no esté disponible en la plataforma de Azure Stack Hub. Azure Stack Hub puede admitir una versión diferente del SDK de Blob Storage que las que suelen estar disponibles en Azure. Si usa Azure Blob Storage como almacén de puntos de control, compruebe la [versión de la API de Azure Storage admitida para la compilación de Azure Stack Hub](/azure-stack/user/azure-stack-acs-differences?#api-version) y establezca esa versión como destino en el código. 
 >
-> Por ejemplo, si trabaja en la versión 2005 de Azure Stack Hub, la versión más reciente disponible para el servicio Storage es la 2019-02-02. De forma predeterminada, la biblioteca de cliente del SDK de Event Hubs usa la versión más reciente disponible en Azure (2019-07-07 en el momento de la versión del SDK). En este caso, además de seguir los pasos de esta sección, también tendrá que agregar código para usar como destino la versión 2019-02-02 de la API del servicio de almacenamiento. Para ver un ejemplo de cómo establecer como destino una versión específica de la API de Storage, consulte los ejemplos de [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) y [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts) en GitHub. 
+> Por ejemplo, si trabaja en la versión 2005 de Azure Stack Hub, la versión más reciente disponible para el servicio Storage es la 2019-02-02. De forma predeterminada, la biblioteca de cliente del SDK de Event Hubs usa la versión más reciente disponible en Azure (2019-07-07 en el momento de la versión del SDK). En este caso, además de seguir los pasos de esta sección, también tendrá que agregar código para usar como destino la versión 2019-02-02 de la API del servicio de almacenamiento. Para ver un ejemplo de cómo establecer como destino una versión específica de la API de Storage, consulte los ejemplos de [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/eventhub/eventhubs-checkpointstore-blob/samples/v1/javascript/receiveEventsWithApiSpecificStorage.js) y [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/eventhub/eventhubs-checkpointstore-blob/samples/v1/typescript/src/receiveEventsWithApiSpecificStorage.ts) en GitHub. 
 
 
 ### <a name="create-an-azure-storage-account-and-a-blob-container"></a>Creación de una cuenta de Azure Storage y un contenedor de blobs
@@ -186,7 +186,7 @@ Asegúrese de registrar la cadena de conexión y el nombre del contenedor para u
 1. Ejecute `node receive.js` en un símbolo del sistema para ejecutar este archivo. La ventana debe mostrar mensajes sobre los eventos recibidos.
 
     > [!NOTE]
-    > Para ver todo el código fuente, incluidos los comentarios informativos adicionales, vaya a la [página receiveEventsUsingCheckpointStore.js de GitHub](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsUsingCheckpointStore.js).
+    > Para ver todo el código fuente, incluidos los comentarios informativos adicionales, vaya a la [página receiveEventsUsingCheckpointStore.js de GitHub](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/eventhub/eventhubs-checkpointstore-blob/samples/v1/javascript/receiveEventsUsingCheckpointStore.js).
 
 Felicidades. Ya ha recibido eventos procedentes del centro de eventos. El programa del destinatario recibirá los eventos de todas las particiones del grupo de consumidores predeterminado en el centro de eventos.
 

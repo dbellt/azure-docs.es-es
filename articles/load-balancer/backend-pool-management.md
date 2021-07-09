@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 01/28/2021
 ms.author: allensu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8a0294e205dd8a22f9847140511cbce634322c4a
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 3c9d1b7152133bf03b8bcdba9a7b97e5bef4a648
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112285236"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112028296"
 ---
 # <a name="backend-pool-management"></a>Administración de grupos de back-end
 El grupo de back-end es un componente esencial del equilibrador de carga. Define el grupo de recursos que atenderán el tráfico de una regla de equilibrio de carga determinada.
@@ -161,7 +161,7 @@ az vm create \
 
 Siga la [plantilla de Resource Manager de este inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/load-balancer-standard-create/) para implementar un equilibrador de carga y máquinas virtuales, y para agregar las máquinas virtuales al grupo de back-end a través de la interfaz de red.
 
-Siga la [plantilla de Resource Manager de este inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/load-balancer-ip-configured-backend-pool) para implementar un equilibrador de carga y máquinas virtuales, y para agregar las máquinas virtuales al grupo de back-end a través de la dirección IP.
+Siga la [plantilla de Resource Manager de este inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-ip-configured-backend-pool) para implementar un equilibrador de carga y máquinas virtuales, y para agregar las máquinas virtuales al grupo de back-end a través de la dirección IP.
 
 
 ## <a name="configure-backend-pool-by-ip-address-and-virtual-network"></a>Configuración del grupo de back-end por dirección IP y red virtual

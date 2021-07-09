@@ -3,19 +3,19 @@ title: Operaciones de análisis espacial
 titleSuffix: Azure Cognitive Services
 description: Las operaciones de análisis espacial.
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/12/2021
-ms.author: aahi
-ms.openlocfilehash: 37ac7573a1794c97c81fe5364204f85ff14d9fa6
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.date: 06/08/2021
+ms.author: pafarley
+ms.openlocfilehash: 08d2e50df2365c327d16d3232fd3edc0544e3ffd
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538086"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745806"
 ---
 # <a name="spatial-analysis-operations"></a>Operaciones de análisis espacial
 
@@ -70,6 +70,8 @@ Estos son los parámetros necesarios para cada una de estas operaciones de anál
 | VIDEO_DECODE_GPU_INDEX| GPU con la que se va a decodificar el fotograma de vídeo. De manera predeterminada, es 0. Esta información debe corresponder a la misma de `gpu_index` en otra configuración de nodo, como `VICA_NODE_CONFIG`, `DETECTOR_NODE_CONFIG`.|
 | INPUT_VIDEO_WIDTH | Ancho de fotograma de la secuencia o vídeo de entrada (por ejemplo, 1920). Es un campo opcional y, si se proporciona, el fotograma se escalará hasta esta dimensión mientras se conserva la relación de aspecto.|
 | DETECTOR_NODE_CONFIG | JSON que indica en qué GPU se va a ejecutar el nodo detector. Debería tener el siguiente formato: `"{ \"gpu_index\": 0 }",`.|
+| CAMERA_CONFIG | JSON que indica los parámetros calibrados de la cámara para varias cámaras. Si la aptitud que ha usado requiere calibración y ya tiene el parámetro de la cámara, puede usar esta configuración para proporcionarlo directamente. Debe tener el siguiente formato: `"{ \"cameras\": [{\"source_id\": \"endcomputer.0.persondistancegraph.detector+end_computer1\", \"camera_height\": 13.105561256408691, \"camera_focal_length\": 297.60003662109375, \"camera_tiltup_angle\": 0.9738943576812744}] }"`, `source_id` se usa para identificar cada cámara. Se puede obtener de `source_info` del evento que hemos publicado. Solo surtirá efecto cuando `do_calibration=false` se encuentre en `DETECTOR_NODE_CONFIG`.|
+| TRACKER_NODE_CONFIG | JSON que indica si se debe calcular la velocidad en el nodo de seguimiento, o no. Debería tener el siguiente formato: `"{ \"enable_speed\": false }",`.|
 | SPACEANALYTICS_CONFIG | Configuración JSON para la zona y la línea tal como se describe a continuación.|
 | ENABLE_FACE_MASK_CLASSIFIER | `True` para habilitar la detección de personas que lleven máscaras faciales en la secuencia de vídeo; `False` para deshabilitarla. De manera predeterminada, esta opción está deshabilitada. La detección de máscaras faciales requiere que el parámetro de ancho de vídeo de entrada sea 1920 `"INPUT_VIDEO_WIDTH": 1920`. El atributo de máscara facial no se devolverá si la persona detectada no está mirando a la cámara o está demasiado lejos de ella. Consulte la guía de [selección de ubicación de la cámara](spatial-analysis-camera-placement.md) para más información. |
 
@@ -98,6 +100,20 @@ Este es un ejemplo de los parámetros DETECTOR_NODE_CONFIG para todas las operac
 | `calibration_quality_check_one_round_sample_collect_num` | int | Número mínimo de muestras de datos nuevas que se van a recopilar por cada ronda de recopilación de muestras. El valor predeterminado es `10`. Solo se usa con `enable_recalibration=True`.|
 | `calibration_quality_check_queue_max_size` | int | Número máximo de muestras de datos que se van a almacenar cuando se calibre el modelo de cámara. El valor predeterminado es `1000`. Solo se usa con `enable_recalibration=True`.|
 | `enable_breakpad`| bool | Indica si quiere habilitar Breakpad, que se usa para generar volcados de memoria para su uso en la depuración. De forma predeterminada, su valor es `false`. Si lo establece en `true`, también debe agregar `"CapAdd": ["SYS_PTRACE"]` en la parte `HostConfig` del contenedor `createOptions`. De forma predeterminada, el volcado de memoria se carga en la aplicación [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) de AppCenter; si quiere que se carguen en su propia aplicación de AppCenter, puede invalidar la variable de entorno `RTPT_APPCENTER_APP_SECRET` con el secreto de su aplicación.
+| `enable_orientation` | bool | Indica si desea calcular la orientación de las personas detectadas, o no. `enable_orientation` está establecido de forma predeterminada en False. |
+
+
+### <a name="speed-parameter-settings"></a>Configuración de parámetros de velocidad
+Puede configurar el cálculo de la velocidad a través de la configuración de parámetros del nodo de seguimiento.
+```
+{
+"enable_speed": true,
+}
+```
+| Nombre | Tipo| Descripción|
+|---------|---------|---------|
+| `enable_speed` | bool | Indica si desea calcular la velocidad de las personas detectadas, o no. `enable_speed` está establecido de forma predeterminada en False. Se recomienda encarecidamente habilitar tanto la velocidad como la orientación para tener los mejores valores estimados |
+
 
 ## <a name="spatial-analysis-operations-configuration-and-output"></a>Configuración y salida de operaciones de análisis espacial
 ### <a name="zone-configuration-for-cognitiveservicesvisionspatialanalysis-personcount"></a>Configuración de zona para cognitiveservices.vision.spatialanalysis-personcount
@@ -216,6 +232,7 @@ Ejemplo de una entrada JSON para el parámetro SPACEANALYTICS_CONFIG que configu
 | `zones` | list| Lista de zonas. |
 | `name` | string| Nombre descriptivo de esta zona.|
 | `polygon` | list| Cada par de valores representa la x e y de los vértices del polígono. El polígono representa las áreas en las que se realiza el seguimiento o el recuento de personas. Los valores flotantes representan la posición del vértice relativa a la esquina superior izquierda. Para calcular los valores x, y absolutos, debe multiplicar estos valores por el tamaño del fotograma. 
+| `target_side` | int| Especifica un lado de la zona definida por `polygon` para medir el tiempo durante el que las personas se enfrentan a ese lado mientras están en la zona. "dwellTimeForTargetSide" generará esa hora estimada. Cada lado es un borde numerado entre los dos vértices del polígono que representa la zona. Por ejemplo, el borde entre los dos primeros vértices del polígono representa el primer lado, "side"=1. El valor de `target_side` está entre `[0,N-1]` donde `N` es el número de lados de `polygon`. Este campo es opcional.  |
 | `threshold` | FLOAT| Los eventos se generan cuando la persona tiene un tamaño mayor que este número de píxeles dentro de la zona. El valor predeterminado es 48 cuando el tipo es zonecrossing, y 16 cuando la hora es DwellTime. Estos son los valores recomendados para lograr la máxima precisión.  |
 | `type` | string| Para **cognitiveservices.vision.spatialanalysis-personcrossingpolygon**, debe ser `zonecrossing` o `zonedwelltime`.|
 | `trigger`|string|Tipo de desencadenador para enviar un evento.<br>Valores admitidos: "event": se activa cuando alguna persona entra o sale de la zona.|
@@ -536,6 +553,7 @@ Ejemplo de JSON para las detecciones generadas por esta operación.
 | `properties` | collection| Colección de valores|
 | `trackinId` | string| Identificador único de la persona detectada|
 | `status` | string| Dirección de los cruces de líneas, ya sea "CrossLeft" o "CrossRight" La dirección se basa en imaginarse de pie en el "inicio" de cara al "final" de la línea. CrossRight cruza de izquierda a derecha. CrossLeft cruza de derecha a izquierda.|
+| `orientationDirection` | string| La dirección de orientación de la persona detectada después de cruzar la línea. El valor puede ser "Left", "Right" o "Straight". Este valor se genera si `enable_orientation` se establece en `True` en `DETECTOR_NODE_CONFIG` |
 | `zone` | string | Campo "name" de la línea que se cruzó|
 
 | Nombre del campo de detecciones | Tipo| Descripción|
@@ -545,6 +563,9 @@ Ejemplo de JSON para las detecciones generadas por esta operación.
 | `region` | collection| Colección de valores|
 | `type` | string| Tipo de región|
 | `points` | collection| Puntos superior izquierdo e inferior derecho cuando el tipo de región es RECTANGLE (RECTÁNGULO) |
+| `groundOrientationAngle` | FLOAT| Ángulo, en radianes, en el sentido de las agujas reloj de la orientación de la persona del plano del suelo inferido |
+| `mappedImageOrientation` | FLOAT| Ángulo proyectado, en radianes, en el sentido de las agujas del reloj de la orientación de la persona en el espacio de imágenes 2D |
+| `speed` | FLOAT| Velocidad estimada de la persona detectada. La unidad es `foot per second (ft/s)`|
 | `confidence` | FLOAT| Confianza del algoritmo|
 | `face_mask` | FLOAT | El valor de confianza del atributo con el intervalo (0-1) indica que la persona detectada lleva una máscara facial. |
 | `face_nomask` | FLOAT | El valor de confianza del atributo con el intervalo (0-1) indica que la persona detectada **no** lleva una máscara facial. |
@@ -635,7 +656,8 @@ Ejemplo JSON de las detecciones generadas por esta operación con el tipo `zoned
                 "trackingId": "afcc2e2a32a6480288e24381f9c5d00e",
                 "status": "Exit",
                 "side": "1",
-              "durationMs": 7132.0
+                      "dwellTime": 7132.0,
+                      "dwellFrames": 20            
             },
             "zone": "queuecamera"
         }
@@ -666,7 +688,12 @@ Ejemplo JSON de las detecciones generadas por esta operación con el tipo `zoned
                 ]
             },
             "confidence": 0.6267998814582825,
-            "metadataType": ""
+            "metadataType": "",
+             "metadata": { 
+                     "groundOrientationAngle": 1.2,
+                     "mappedImageOrientation": 0.3,
+                     "speed": 1.2
+               },
         }
     ],
     "schemaVersion": "1.0"
@@ -682,7 +709,11 @@ Ejemplo JSON de las detecciones generadas por esta operación con el tipo `zoned
 | `trackinId` | string| Identificador único de la persona detectada|
 | `status` | string| Dirección de los cruces de los polígonos, ya sea "Enter" "Exit"|
 | `side` | int| Número del lado del polígono que cruzó la persona. Cada lado es un borde numerado entre los dos vértices del polígono que representa la zona. El borde entre los dos primeros vértices del polígono representa el primer lado. El "lado" está vacío cuando el evento no está asociado a un lado específico debido a una oclusión. Por ejemplo, se produce una salida cuando una persona desaparece, pero no se la ve cruzar un lado de la zona o se produce una entrada cuando una persona aparece en la zona, pero no se la ve cruzar un lado.|
-| `durationMs` | FLOAT | El número de milisegundos que representa el tiempo que la persona pasó en la zona. Este campo se proporciona cuando el tipo de evento es _personZoneDwellTimeEvent_.|
+| `dwellTime` | FLOAT | El número de milisegundos que representa el tiempo que la persona pasó en la zona. Este campo se proporciona cuando el tipo de evento es personZoneDwellTimeEvent.|
+| `dwellFrames` | int | El número de fotogramas que la persona estuvo en la zona. Este campo se proporciona cuando el tipo de evento es personZoneDwellTimeEvent.|
+| `dwellTimeForTargetSide` | FLOAT | El número de milisegundos que representa el tiempo que la persona pasó en la zona y estuvo mirando a `target_side`. Este campo se proporciona cuando `enable_orientation` tiene el valor `True` en `DETECTOR_NODE_CONFIG ` y el valor de `target_side` se establece en `SPACEANALYTICS_CONFIG`|
+| `avgSpeed` | FLOAT| La velocidad media de la persona en la zona. La unidad es `foot per second (ft/s)`|
+| `minSpeed` | FLOAT| La velocidad mínima de la persona en la zona. La unidad es `foot per second (ft/s)`|
 | `zone` | string | Campo "name" del polígono que representa la zona que se cruzó|
 
 | Nombre del campo de detecciones | Tipo| Descripción|
@@ -692,6 +723,9 @@ Ejemplo JSON de las detecciones generadas por esta operación con el tipo `zoned
 | `region` | collection| Colección de valores|
 | `type` | string| Tipo de región|
 | `points` | collection| Puntos superior izquierdo e inferior derecho cuando el tipo de región es RECTANGLE (RECTÁNGULO) |
+| `groundOrientationAngle` | FLOAT| Ángulo, en radianes, en el sentido de las agujas reloj de la orientación de la persona del plano del suelo inferido |
+| `mappedImageOrientation` | FLOAT| Ángulo proyectado, en radianes, en el sentido de las agujas del reloj de la orientación de la persona en el espacio de imágenes 2D |
+| `speed` | FLOAT| Velocidad estimada de la persona detectada. La unidad es `foot per second (ft/s)`|
 | `confidence` | FLOAT| Confianza del algoritmo|
 | `face_mask` | FLOAT | El valor de confianza del atributo con el intervalo (0-1) indica que la persona detectada lleva una máscara facial. |
 | `face_nomask` | FLOAT | El valor de confianza del atributo con el intervalo (0-1) indica que la persona detectada **no** lleva una máscara facial. |
