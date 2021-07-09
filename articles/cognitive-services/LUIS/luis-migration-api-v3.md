@@ -7,17 +7,17 @@ ms.manager: nitinme
 ms.author: aahi
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 04/21/2021
-ms.openlocfilehash: 957da9d5d26e5e7eaf27433807f700f4d3243765
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.date: 05/28/2021
+ms.openlocfilehash: 6eb5e54f2c1d8a4e7d05204fcfa111ddcb9f951a
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897692"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110692683"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Cambios de punto de conexión para predicciones para la versión 3
 
-Se cambiaron las API v3 del punto de conexión para la predicción de consultas. Use esta guía para aprender a migrar a la versión 3 de las API de punto de conexión.
+Se cambiaron las API v3 del punto de conexión para la predicción de consultas. Use esta guía para aprender a migrar a la versión 3 de las API de punto de conexión. Actualmente no hay ninguna fecha antes de la que sea necesario completar la migración.
 
 **Estado de disponibilidad general**: esta versión 3 de la API incluye cambios importantes en la solicitud JSON y la respuesta en comparación con la versión 2 de la API.
 

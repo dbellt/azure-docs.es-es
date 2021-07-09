@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 5224804b1e0d306bfca8e9e42511ad908a3bb5c1
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: db58b523f1280847815587a5037c2348335482b6
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787750"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110616178"
 ---
 # <a name="secure-azure-digital-twins"></a>Protección de Azure Digital Twins
 
-Por seguridad, Azure Digital Twins permite el control de acceso preciso sobre datos, recursos y acciones específicos en su implementación. Para ello, se usa una estrategia pormenorizada de roles y permisos que se conoce como **Control de acceso basado en roles de Azure (Azure RBAC)** . Puede leer sobre los principios generales de Azure RBAC [aquí](../role-based-access-control/overview.md).
+Por seguridad, Azure Digital Twins permite el control de acceso preciso sobre datos, recursos y acciones específicos en su implementación. Para ello, se usa una estrategia pormenorizada de roles y permisos que se conoce como [Control de acceso basado en roles de Azure (Azure RBAC)](../role-based-access-control/overview.md) .
 
 Azure Digital Twins también admite el cifrado de datos en reposo.
 
@@ -102,7 +102,7 @@ Del mismo modo, puede usar puntos de conexión privados para la instancia de Azu
 
 El punto de conexión privado usa una dirección IP del espacio de direcciones de la red virtual de Azure. El tráfico de red entre un cliente en la red privada y la instancia de Azure Digital Twins atraviesa la red virtual y un servicio Private Link en la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet. Esta es una representación visual del sistema:
 
-:::image type="content" source="media/concepts-security/private-link.png" alt-text="Un diagrama en el que se muestra una red para una empresa PowerGrid que es una red virtual protegida sin acceso a Internet ni a la nube pública, que se conecta a través de Private Link a una instancia de Azure Digital Twins llamada CityOfTwins.":::
+:::image type="content" source="media/concepts-security/private-link.png" alt-text="Diagrama que muestra una red virtual protegida sin acceso a la nube pública y que se conecta a través de Private Link a una instancia de Azure Digital Twins.":::
 
 La configuración de un punto de conexión privado para la instancia de Azure Digital Twins le permite protegerla y eliminar la exposición pública, además de evitar la filtración de datos desde la red virtual.
 

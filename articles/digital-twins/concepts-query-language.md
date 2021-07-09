@@ -8,12 +8,12 @@ ms.date: 4/22/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: e311a39a68a5fb03c68a1685996a8e0fbde206e8
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 8a5a092da37b453b719669109bd4924b032c0604
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108734352"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110616229"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Acerca del lenguaje de consulta para Azure Digital Twins
 
@@ -31,7 +31,7 @@ Puede usar el lenguaje de consulta de Azure Digital Twins para recuperar gemelos
 * relationships
   - propiedades de las relaciones
 
-Para enviar una consulta al servicio desde una aplicación cliente, usará la [API Query](/rest/api/digital-twins/dataplane/query) de Azure Digital Twins. Una manera de usar la API es a mediante uno de los [SDK](concepts-apis-sdks.md#overview-data-plane-apis) de Azure Digital Twins.
+Para enviar una consulta al servicio desde una aplicación cliente, usará la [API Query](/rest/api/digital-twins/dataplane/query) de Azure Digital Twins. Una manera de usar la API es a mediante uno de los [SDK de Azure Digital Twins](concepts-apis-sdks.md#overview-data-plane-apis).
 
 [!INCLUDE [digital-twins-query-reference.md](../../includes/digital-twins-query-reference.md)]
 

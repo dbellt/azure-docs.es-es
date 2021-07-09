@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 05/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 3392cc5f3ee9daef1ae8397f6829f4ca7a42373a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b8dfe8711733efeb33561531c85925111799daba
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98871407"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110479311"
 ---
 # <a name="limits-and-quotas"></a>Límites y cuotas
 
@@ -23,13 +23,13 @@ Hay dos niveles de claves para el servicio Custom Vision. Puede registrarse para
 
 Se espera que el número de etiquetas y de imágenes de aprendizaje por proyecto aumente con el tiempo en los proyectos S0.
 
-|Factor|**F0**|**S0**|
+|Factor|**F0 (gratis)**|**S0 (Estándar)**|
 |-----|-----|-----|
 |Proyectos|2|100|
 |Imágenes de aprendizaje por proyecto |5\.000|100 000|
 |Predicciones/mes|10 000 |Sin límite|
 |Etiquetas/proyecto|50|500|
-|Iteraciones |10|10|
+|Iteraciones |20|20|
 |Mínimo de imágenes marcadas por etiqueta; clasificación (es recomendable 50 o más) |5|5|
 |Mínimo de imágenes marcadas por etiqueta; detección de objetos (es recomendable 50 o más)|15|15|
 |Durante cuánto tiempo se almacenan las imágenes de predicción|30 días|30 días|

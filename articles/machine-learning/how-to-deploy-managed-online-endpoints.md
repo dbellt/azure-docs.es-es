@@ -11,26 +11,26 @@ author: rsethur
 ms.date: 05/13/2021
 ms.topic: how-to
 ms.custom: how-to
-ms.openlocfilehash: 8c14523d1d566086eff73693d6500947ccda7ba4
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 85b587dcaed162a0372f03240f9c4cb33d7507c1
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382989"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969066"
 ---
 # <a name="deploy-and-score-a-machine-learning-model-with-a-managed-online-endpoint-preview"></a>Implementación y puntuación de un modelo de aprendizaje automático con un punto de conexión en línea administrado (versión preliminar)
 
-Los puntos de conexión en línea administrados (versión preliminar) ofrecen la posibilidad de implementar el modelo sin tener que crear y administrar la infraestructura subyacente. En este artículo, comenzará por implementar un modelo en la máquina local para depurar los errores y, después, lo implementará y probará en Azure. También aprenderá a ver los registros y a supervisar el Acuerdo de Nivel de Servicio (SLA). Empezará con un modelo y terminará con un punto de conexión HTTPS/REST escalable que se puede usar para la puntuación en línea o en tiempo real.
+Los puntos de conexión en línea administrados (versión preliminar) le permite implementar su modelo sin necesidad de crear y administrar la infraestructura subyacente. En este artículo, comenzará por implementar un modelo en la máquina local para depurar los errores y, después, lo implementará y probará en Azure. También aprenderá a ver los registros y a supervisar el Acuerdo de Nivel de Servicio (SLA). Empezará con un modelo y terminará con un punto de conexión HTTPS/REST escalable que se puede usar para la puntuación en línea o en tiempo real.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Para usar Azure Machine Learning, debe tener una suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+* Para usar Azure Machine Learning, es preciso tener una suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Debe instalar y configurar la CLI de Azure y la extensión de Machine Learning. Para más información, consulte [Instalación, configuración y uso de la CLI 2.0 (versión preliminar)](how-to-configure-cli.md). 
 
-* Debe tener un grupo de recursos de Azure en el que el usuario (o la entidad de servicio que use) tenga acceso de `Contributor`. Tendrá un grupo de recursos de este tipo si configuró la extensión de Machine Learning según el artículo anterior. 
+* Debe tener un grupo de recursos de Azure, en el que usted (o la entidad de servicio que use) necesita tener acceso de `Contributor`. Tendrá un grupo de recursos de este tipo si configuró la extensión de Machine Learning según el artículo anterior. 
 
 * Debe tener un área de trabajo de Azure Machine Learning. Tendrá este tipo de área de trabajo si configuró la extensión de ML según el artículo anterior.
 
@@ -84,12 +84,12 @@ A continuación, se muestra la referencia para el formato YAML del punto de cone
 | Clave | Descripción |
 | --- | --- |
 | $schema    | [Opcional] El esquema de YAML. Puede ver el esquema del ejemplo anterior en un explorador para examinar todas las opciones disponibles en el archivo YAML.|
-| name       | Nombre del punto de conexión. Debe ser único en el nivel de región de Azure.|
+| name       | Nombre del punto de conexión. Es preciso que sea único en el nivel de región de Azure.|
 | traffic | Porcentaje de tráfico desde el punto de conexión que se desviará a cada implementación. Los valores de tráfico deben sumar 100. |
-| auth_mode | Use `key` para la autenticación basada en claves y `aml_token` para la autenticación basada en tokens de Azure Machine Learning. `key` no expira, pero `aml_token` sí lo hace. Obtenga el token más reciente con el comando `az ml endpoint list-keys`. |
+| auth_mode | Use `key` para la autenticación basada en claves y `aml_token` para la autenticación basada en tokens de Azure Machine Learning. `key` no expira, pero `aml_token` sí lo hace. Obtenga el token más reciente con el comando `az ml endpoint get-credentials`. |
 | deployments | Contiene una lista de implementaciones que se crearán en el punto de conexión. En este caso, solo tenemos una implementación, denominada `blue`. Para más información sobre varias implementaciones, consulte [Implementación segura para puntos de conexión en línea (versión preliminar)](how-to-safely-rollout-managed-endpoints.md).|
 
-Atributos de `deployment`:
+Atributos de `deployments`:
 
 | Clave | Descripción |
 | --- | --- |
@@ -102,6 +102,8 @@ Atributos de `deployment`:
 | scale_settings.scale_type | De momento, este valor debe ser `manual`. Para realizar el escalado o la reducción vertical después de crear el punto de conexión y la implementación, actualice `instance_count` en el archivo YAML y ejecute el comando `az ml endpoint update -n $ENDPOINT_NAME --file <yaml filepath>`.|
 | scale_settings.instance_count | Número de instancias de la implementación. Base el valor en la carga de trabajo esperada. Para conseguir alta disponibilidad, Microsoft recomienda establecerlo en al menos `3`. |
 
+Para más información sobre el esquema de YAML, consulte el documento de [referencia de YAML del punto de conexión en línea](reference-online-endpoint-yaml.md).
+
 > [!Note]
 > Para usar Azure Kubernetes Service (AKS) como destino de proceso en lugar de puntos de conexión administrados:
 > 1. Cree el clúster de AKS y asócielo como destino de proceso al área de Azure Machine Learning [mediante Azure ML Studio](how-to-create-attach-compute-studio.md#whats-a-compute-target).
@@ -110,7 +112,7 @@ Atributos de `deployment`:
 
 ### <a name="registering-your-model-and-environment-separately"></a>Registro del modelo y el entorno por separado
 
- En este ejemplo, se especifican las propiedades del modelo y del entorno en línea `name`, `version` y `local_path` desde las que se cargan los archivos. En segundo plano, la CLI cargará los archivos y registrará automáticamente el modelo y el entorno. Como procedimiento recomendado en producción, debe registrar por separado el modelo y el entorno y especificar el nombre y la versión registrados en el archivo YAML. El formato es `model:azureml:my-model:1` o `environment:azureml:my-env:1`.
+ En este ejemplo, se especifican las propiedades del modelo y del entorno en línea `name`, `version` y `local_path` desde las que se cargan los archivos. En segundo plano, la CLI cargará los archivos y registrará automáticamente el modelo y el entorno. Como procedimiento recomendado en producción, debe registrar por separado el modelo y el entorno y especificar el nombre y la versión registrados en el archivo YAML. El formato es `model: azureml:my-model:1` o `environment: azureml:my-env:1`.
 
  Para realizar el registro, puede extraer las definiciones de YAML de `model` y `environment` en archivos YAML diferentes y usar los comandos `az ml model create` y `az ml environment create`. Para más información sobre estos comandos, ejecute `az ml model create -h` y `az ml environment create -h`.
 
@@ -122,7 +124,7 @@ Puede ver los tipos de instancia de GPU y de uso general admitidos en [Las SKU d
 
 ### <a name="using-more-than-one-model"></a>Uso de más de un modelo
 
-Actualmente, solo puede especificar un modelo por implementación en el archivo YAML. Si tiene más de un modelo, puede solucionar esta limitación: al registrar el modelo, copie todos los modelos (como archivos o subdirectorios) en una carpeta que use para el registro. En el script de puntuación, puede usar la variable de entorno `AZUREML_MODEL_DIR` para obtener la ruta de acceso a la carpeta raíz del modelo; se conserva la estructura de directorios subyacente.
+Actualmente, solo puede especificar un modelo por implementación en el archivo YAML. Si tiene más de un modelo, puede solucionar esta limitación: al registrar el modelo, copie todos los modelos (como archivos o subdirectorios) en la carpeta que use para el registro. En el script de puntuación, puede usar la variable de entorno `AZUREML_MODEL_DIR` para obtener la ruta de acceso a la carpeta raíz del modelo; se conserva la estructura de directorios subyacente.
 
 ## <a name="understand-the-scoring-script"></a>Descripción del script de puntuación
 
@@ -137,13 +139,12 @@ Para ahorrar tiempo en la depuración, se **recomienda encarecidamente** que lle
 
 > [!Note]
 > * Para realizar la implementación localmente, debe tener instalado el [motor de Docker](https://docs.docker.com/engine/install/).
-> * El motor de Docker debe estar en ejecución. Normalmente, el motor se inicia al arrancar; si no es así, puede solucionar los [problemas aquí](https://docs.docker.com/config/daemon/#start-the-daemon-manually).
+> * El motor de Docker debe estar en ejecución. Habitualmente, el motor se inicia en el arranque. Si no lo hace, puede [solucionar el problema aquí](https://docs.docker.com/config/daemon/#start-the-daemon-manually).
 
 > [!Important]
 > El objetivo de la implementación de un punto de conexión local es validar y depurar el código y la configuración antes de implementarlo en Azure. La implementación local tiene las siguientes limitaciones:
 > - Los puntos de conexión locales **no** admiten reglas de tráfico, autenticación, configuración de escalado o configuración de sondeo. 
-> - Los puntos de conexión locales solo admiten una implementación por punto de conexión.
-> - Actualmente, la implementación local requiere la especificación en línea del modelo y el entorno (como en el archivo YAML de ejemplo). Es decir, en una implementación local no puede usar una referencia a un modelo o a un entorno registrados en el área de trabajo de Azure Machine Learning. 
+> - Los puntos de conexión locales solo admiten una implementación por punto de conexión. Es decir, en una implementación local no puede usar una referencia a un modelo o a un entorno registrados en el área de trabajo de Azure Machine Learning. 
 
 ### <a name="deploy-the-model-locally"></a>Implementación del modelo localmente
 
@@ -190,9 +191,9 @@ az ml endpoint get-logs --local -n $ENDPOINT_NAME --deployment blue
 
 Para implementar la configuración de YAML en la nube, ejecute el siguiente comando:
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint.sh" ID="deploy" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="deploy" :::
 
-Esta implementación puede tardar aproximadamente entre 8 y 14 minutos, dependiendo de si el entorno o la imagen subyacentes se están creando por primera vez. Las implementaciones subsiguientes que usen el mismo entorno serán más rápidas.
+Esta implementación puede tardar aproximadamente un máximo de 15 minutos, dependiendo de si es la primera vez que se crean el entorno o la imagen subyacentes. Las implementaciones subsiguientes que usen el mismo entorno serán más rápidas.
 
 > [!Tip]
 > Si prefiere no bloquear la consola de la CLI, puede agregar la marca `--no-wait` al comando. Sin embargo, se detendrá la presentación interactiva del estado de implementación.
@@ -204,7 +205,7 @@ Esta implementación puede tardar aproximadamente entre 8 y 14 minutos, dependi
 
 El comando `show` contiene `provisioning_status` tanto para el punto de conexión como para la implementación:
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint.sh" ID="get_status" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_status" :::
 
 Puede enumerar todos los puntos de conexión del área de trabajo en un formato de tabla con el comando `list`:
 
@@ -216,9 +217,7 @@ az ml endpoint list --output table
 
 Consulte los registros para comprobar si el modelo se implementó sin errores:
 
-```azurecli
-az ml endpoint get-logs --local -n $ENDPOINT_NAME --deployment blue
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
 
 De forma predeterminada, los registros se extraen del servidor de inferencia. Si quiere ver los registros del inicializador de almacenamiento (que monta los recursos, como el modelo y el código, en el contenedor), agregue la marca `--container storage-initializer`.
 
@@ -226,13 +225,13 @@ De forma predeterminada, los registros se extraen del servidor de inferencia. Si
 
 Puede usar el comando `invoke` o un cliente REST de su elección para invocar el punto de conexión y puntuar algunos datos: 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint.sh" ID="test_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint" :::
 
 Puede usar de nuevo el comando `get-logs` mostrado anteriormente para ver los registros de invocación.
 
 Para usar un cliente REST, necesitará el valor de `scoring_uri` y el token o la clave de autenticación. El valor de `scoring_uri` está disponible en la salida del comando `show`:
  
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint.sh" ID="get_scoring_uri" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_scoring_uri" :::
 
 Observe cómo se usa `--query` para filtrar los atributos solo por lo que se necesitan. Puede encontrar más información sobre `--query` en [Consulta de la salida del comando de la CLI de Azure](/cli/azure/query-azure-cli).
 
@@ -262,7 +261,7 @@ az ml endpoint update -n $ENDPOINT_NAME -f endpoints/online/managed/simple-flow/
 > [!IMPORTANT]
 > La actualización mediante YAML es declarativa. Es decir, los cambios en el archivo YAML se reflejarán en los recursos de Azure Resource Manager subyacentes (puntos de conexión e implementaciones). Este enfoque facilita [GitOps](https://www.atlassian.com/git/tutorials/gitops): *TODOS* los cambios en los puntos de conexión o implementaciones pasan por YAML (incluso `instance_count`). Como efecto secundario, si quita una implementación de YAML y ejecuta `az ml endpoint update` con el archivo, esa implementación se eliminará. Puede realizar actualizaciones sin usar el archivo YAML mediante la marca `--set `, como se describe en la siguiente sugerencia.
 
-5. Dado que ha modificado la función `init()`, que se ejecuta cuando se crea o actualiza el punto de conexión, el mensaje `Updated successfully` estará en los registros. Recupere los 0 registros mediante la ejecución de:
+5. Dado que ha modificado la función `init()`, que se ejecuta cuando se crea o actualiza el punto de conexión, el mensaje `Updated successfully` estará en los registros. Recupere los registros ejecutando:
 ```azurecli
 az ml endpoint get-logs -n $ENDPOINT_NAME --deployment blue
 ```
@@ -284,7 +283,7 @@ Puede ver las métricas y establecer alertas en función del Acuerdo de Nivel de
 
 ### <a name="optional-integrate-with-log-analytics"></a>[Opcional] Integración con Log Analytics
 
-El comando `get-logs` solo proporcionará los últimos cientos de líneas de registros de una instancia seleccionada automáticamente. Sin embargo, Log Analytics proporciona una manera de almacenar y analizar los registros de forma duradera. En primer lugar, siga los pasos que se indican en [Creación de un área de trabajo de Log Analytics en Azure Portal](/azure/azure-monitor/logs/quick-create-workspace#create-a-workspace) para crear un área de trabajo de Log Analytics.
+El comando `get-logs` solo proporcionará los últimos cientos de líneas de registros de una instancia seleccionada automáticamente. Sin embargo, Log Analytics proporciona una manera de almacenar y analizar los registros de forma duradera. En primer lugar, siga los pasos que se indican en [Creación de un área de trabajo de Log Analytics en Azure Portal](../azure-monitor/logs/quick-create-workspace.md#create-a-workspace) para crear un área de trabajo de Log Analytics.
 
 Luego, en Azure Portal:
 
@@ -306,9 +305,9 @@ Tenga en cuenta que los registros pueden tardar hasta una hora en conectarse. En
 
 Si no va a usar la implementación, debe eliminarla con el siguiente comando (se elimina el punto de conexión y todas las implementaciones subyacentes):
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Implementación segura para puntos de conexión en línea (versión preliminar)](how-to-safely-rollout-managed-endpoints.md)|
+- [Implementación segura para puntos de conexión en línea (versión preliminar)](how-to-safely-rollout-managed-endpoints.md)
 - [Solución de problemas de implementación de puntos de conexión en línea administrados](how-to-troubleshoot-managed-online-endpoints.md)

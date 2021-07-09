@@ -4,17 +4,17 @@ description: La creación de V3 proporciona un nuevo tipo de entidad, la entidad
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/08/2020
-ms.openlocfilehash: 667226770d25ef1687420b1c13bc71863f987e33
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/28/2021
+ms.openlocfilehash: 6808c5d84a1be6a2e9b262eab00010d4a962c259
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91324695"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110701158"
 ---
 # <a name="migrate-to-v3-authoring-entity"></a>Migración a la creación de V3
 
-La creación de V3 proporciona un nuevo tipo de entidad, la entidad de aprendizaje automático, junto con la capacidad de agregar relaciones a la entidad de aprendizaje automático y a otras entidades o características de la aplicación.
+La creación de V3 proporciona un nuevo tipo de entidad, la entidad de aprendizaje automático, junto con la capacidad de agregar relaciones a la entidad de aprendizaje automático y a otras entidades o características de la aplicación. Actualmente no hay ninguna fecha antes de la que sea necesario completar la migración.
 
 ## <a name="entities-are-decomposable-in-v3"></a>Las entidades se pueden descomponer en V3
 

@@ -155,6 +155,8 @@
               href: sizes-compute.md
             - name: Serie Fsv2
               href: fsv2-series.md
+            - name: FX-series
+              href: fx-series.md
         - name: Memoria optimizada
           items:
             - name: Información general
@@ -206,6 +208,8 @@
               href: ncv3-series.md
             - name: Serie NCasT4_v3
               href: nct4-v3-series.md
+            - name: NDasrA100_v4-series
+              href: nda100-v4-series.md
             - name: Serie ND
               href: nd-series.md
             - name: Serie NDv2
@@ -790,13 +794,13 @@
         - name: Plantillas de Resource Manager
           items:
             - name: Creación de una instancia de Shared Image Gallery
-              href: 'https://azure.microsoft.com/resources/templates/101-sig-create/'
+              href: 'https://azure.microsoft.com/resources/templates/sig-create/'
             - name: Creación de una definición de imagen en una instancia de Shared Image Gallery
-              href: 'https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/'
+              href: 'https://azure.microsoft.com/resources/templates/sig-image-definition-create/'
             - name: Creación de una versión de imagen en una instancia de Shared Image Gallery
-              href: 'https://azure.microsoft.com/resources/templates/101-sig-image-version-create/'
+              href: 'https://azure.microsoft.com/resources/templates/sig-image-version-create/'
             - name: Creación de una máquina virtual a partir de la versión de la imagen
-              href: 'https://azure.microsoft.com/resources/templates/101-vm-from-sig/'
+              href: 'https://azure.microsoft.com/resources/templates/vm-from-sig/'
         - name: Ansible
           href: /azure/developer/ansible/vm-configure-from-azure-shared-image-gallery?tabs=ansible
         - name: Solución de problemas de imágenes compartidas
@@ -809,7 +813,7 @@
           href: managed-disk-from-image-version.md
         - name: Información sobre el plan de compra
           href: marketplace-images.md
-    - name: Generador de imágenes (versión preliminar)
+    - name: Generador de imágenes
       items:
         - name: Información general
           displayName: 'Image builder, images, building'
@@ -965,6 +969,8 @@
       href: disks-shared-enable.md
     - name: Cifrado
       items:
+        - name: Introducción al cifrado de datos
+          href: disk-encryption-overview.md
         - name: Cifrado del servidor
           items:
             - name: Introducción al cifrado del servidor
@@ -1039,7 +1045,9 @@
                 - name: Solución de problemas del cifrado de discos
                   href: ./linux/disk-encryption-troubleshooting.md
                 - name: Preguntas frecuentes sobre el cifrado de discos
-                  href: ./linux/disk-encryption-faq.md
+                  href: ./linux/disk-encryption-faq.yml
+                - name: Actualización de la versión anterior a la actual
+                  href: ./linux/disk-encryption-upgrade.md
                 - name: 'Cifrado de discos: versión anterior'
                   items:
                     - name: Información general
@@ -1070,7 +1078,7 @@
                 - name: Solución de problemas del cifrado de discos
                   href: ./windows/disk-encryption-troubleshooting.md
                 - name: Preguntas frecuentes sobre el cifrado de discos
-                  href: ./windows/disk-encryption-faq.md
+                  href: ./windows/disk-encryption-faq.yml
                 - name: 'Cifrado de discos: versión anterior'
                   items:
                     - name: Información general
@@ -1258,7 +1266,7 @@
               displayName: Find unattached disks
               href: disks-find-unattached-portal.md
         - name: Preguntas más frecuentes de discos
-          href: faq-for-disks.md
+          href: faq-for-disks.yml
     - name: Ejemplos de código
       items:
         - name: CLI
@@ -1453,12 +1461,18 @@
           href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context
         - name: Control de mantenimiento de la actualización de la imagen del sistema operativo
           items:
-            - name: Introducción (versión preliminar)
+            - name: Información general
               displayName: 'Maintenance control for OS image upgrade, OS, image, upgrade'
               href: virtual-machine-scale-sets-maintenance-control.md
-            - name: PowerShell (versión preliminar)
+            - name: PowerShell
               displayName: 'Maintenance control for OS image upgrade, OS, image, upgrade'
               href: virtual-machine-scale-sets-maintenance-control-powershell.md
+            - name: CLI
+              displayName: 'Maintenance control for OS image upgrade, OS, image, upgrade'
+              href: virtual-machine-scale-sets-maintenance-control-cli.md
+            - name: Portal
+              displayName: 'Maintenance control for OS image upgrade, OS, image, upgrade'
+              href: virtual-machine-scale-sets-maintenance-control-portal.md
     - name: Aplicación de revisiones automáticas a los invitados de máquinas virtuales (versión preliminar)
       items:
         - name: Información general
@@ -1827,6 +1841,6 @@
     - name: Preguntas más frecuentes
       items:
         - name: Linux
-          href: ./linux/faq.md
+          href: ./linux/faq.yml
         - name: Windows
-          href: ./windows/faq.md
+          href: ./windows/faq.yml

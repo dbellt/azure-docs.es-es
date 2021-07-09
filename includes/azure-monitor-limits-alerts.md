@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 05/03/2021
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 0a56be93309fd68f73bd542222ff14b8b99f3e5e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 1d9ec2d05374412c17493b47f3bb71524f8cf93f
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108792112"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110630880"
 ---
-| Resource | Límite predeterminado | Límite máximo |
+| Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
 | Alertas de métricas (clásico) |100 reglas de alertas activas por suscripción. | Llame al soporte técnico. |
 | Alertas de métricas |5000 reglas de alertas activas por suscripción tanto en la nube pública de Azure, como en las nubes de Azure China 21Vianet y Azure Government. Si alcanza este límite, examine si puede usar [alertas de varios recursos del mismo tipo](../articles/azure-monitor/alerts/alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor).<br/>5000 series temporales de métricas por regla de alertas. | Llame al soporte técnico. |
 | Alertas de registros de actividad | 100 reglas de alerta activas por suscripción (este número no se puede aumentar). | Igual que el predeterminado. |
-| Alertas de registro | 512 reglas de alertas activas por suscripción. 200 reglas de alertas activas por recurso. | Llame al soporte técnico. |
+| Alertas de registro | 1000 reglas de alertas activas por suscripción. 1000 reglas de alertas activas por recurso. | Llame al soporte técnico. |
 | Longitud de la descripción de las reglas de alertas y las reglas de acción| Alertas de búsqueda de registros: 4096 caracteres<br/>Todas las demás, 2048 caracteres | Igual que el predeterminado. |
 
 ### <a name="alerts-api"></a>API de alertas

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 06/01/2021
 ms.author: jeedes
-ms.openlocfilehash: c26224f388c09ec758373c877004f5485bb420df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec6de7ea5c9da4402126990d1c165d4f4ad6d12f
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97725092"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111557463"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-terraform-cloud"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Terraform Cloud
 
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar Terraform Cloud con Azure Active Director
 * Permitir que los usuarios inicien sesión automáticamente en Terraform Cloud con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -37,11 +37,10 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Terraform Cloud admite el inicio de sesión único iniciado por **SP e IDP**.
+* Terraform Cloud admite el SSO iniciado por **SP e IDP**.
 * Terraform Cloud admite el aprovisionamiento de usuarios **Just-In-Time**.
 
-
-## <a name="adding-terraform-cloud-from-the-gallery"></a>Incorporación de Terraform Cloud desde la galería
+## <a name="add-terraform-cloud-from-the-gallery"></a>Incorporación de Terraform Cloud desde la galería
 
 Para configurar la integración de Terraform Cloud en Azure AD, necesita agregar Terraform Cloud desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -51,7 +50,6 @@ Para configurar la integración de Terraform Cloud en Azure AD, necesita agrega
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **Terraform Cloud** en el cuadro de búsqueda.
 1. Seleccione **Terraform Cloud** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-terraform-cloud"></a>Configuración y prueba del inicio de sesión único de Azure AD para Terraform Cloud
 
@@ -72,24 +70,27 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En Azure Portal, en la página de integración de la aplicación **Terraform Cloud**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
 1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
-    En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://app.terraform.io/sso/saml/samlconf-<ID>/metadata`.
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://app.terraform.io/sso/saml/samlconf-<ID>/metadata`
+
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://app.terraform.io/sso/saml/samlconf-<ID>/acs`
 
 1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
     En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://app.terraform.io/session`
 
     > [!NOTE]
-    > El valor del identificador no es real. Actualícelo con el identificador real. Póngase en contacto con el [equipo de soporte técnico al cliente de Terraform Cloud](mailto:tf-cloud@hashicorp.support) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico al cliente de Terraform Cloud](mailto:tf-cloud@hashicorp.support) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 
     ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
@@ -126,7 +127,7 @@ En esta sección va a permitir que B.Simon acceda a Terraform Cloud mediante el 
 
 3. Si quiere configurar Terraform Cloud manualmente, en otra ventana del explorador web, inicie sesión en el sitio de la empresa Terraform Cloud como administrador.
 
-2. Vaya a **Settings > SSO > Edit Settings** (Configuración > Inicio de sesión único > Editar configuración)
+2. Vaya a **Settings > SSO > Edit Settings** (Configuración > Inicio de sesión único > Editar configuración).
 
     ![Configuración de Terraform Cloud](./media/terraform-cloud-tutorial/sso-settings.png)
 
@@ -158,11 +159,10 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 #### <a name="idp-initiated"></a>Iniciado por IDP:
 
-* Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de Terraform Cloud para la que configurara el inicio de sesión único. 
+* Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de Terraform Cloud para la que configuró el SSO. 
 
-También puede usar el Panel de acceso de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Terraform Cloud en el panel de acceso, si tiene la configuración del modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para iniciar el flujo de inicio de sesión. Si tiene la configuración del modo IDP, debería iniciar sesión automáticamente en la instancia de Terraform Cloud para la que configurara el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
-
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Terraform Cloud en Aplicaciones, si tiene la configuración del modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para iniciar el flujo de inicio de sesión. Si tiene la configuración del modo IDP, debería iniciar sesión automáticamente en la instancia de Terraform Cloud para la que configuró el SSO. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurada la aplicación Terraform Cloud, podrá aplicar el control de sesión, que protege a su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurada la aplicación Terraform Cloud, podrá aplicar el control de sesión, que protege a su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

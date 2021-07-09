@@ -5,17 +5,17 @@ description: Incorporación de fuentes de datos diferentes a Metrics Advisor
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: mbullwin
-ms.openlocfilehash: 4fd01256d94fbcb18fe8437be00c84e49d98f7d0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8ed4f3463a4061fffe480da7006e8660e95a5af6
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606154"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111891183"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Incorporación de fuentes de datos de diferentes orígenes de datos a Metrics Advisor
 
@@ -216,7 +216,7 @@ The timestamp field must match one of these two formats:
 
 * **Nombre de la tabla**: Especifique una tabla en la que realizar la consulta. Se puede encontrar en la instancia de la cuenta de Azure Storage. Haga clic en **Tablas** en la sección **Table Service**.
 
-* **Consulta**: puede usar `@StartTime` en la consulta. `@StartTime` se reemplaza por una cadena con formato aaaa-MM-ddTHH:mm:ss en el script. Sugerencia: Use el explorador de almacenamiento de Azure para crear una consulta con un intervalo de tiempo específico, y asegúrese de que se ejecute de forma correcta y, a continuación, realice el reemplazo.
+* **Consulta**: puede usar `@StartTime` en la consulta. `@StartTime` se reemplaza por una cadena con formato aaaa-MM-ddTHH:mm:ss en el script. Sugerencia: use el Explorador de Azure Storage para crear una consulta con un intervalo de tiempo específico, asegúrese de que se ejecute de forma correcta y, después, realice el reemplazo.
 
     ``` mssql
     date ge datetime'@StartTime' and date lt datetime'@EndTime'

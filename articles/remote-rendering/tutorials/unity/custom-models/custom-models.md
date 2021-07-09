@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3a278b6e725488d6107e6b0819e002d1dafe4774
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 7c3e5adfbadf7188b8fccf97b277f4c2377cd552
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99591670"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964066"
 ---
 # <a name="tutorial-interfaces-and-custom-models"></a>Tutorial: Interfaces y modelos personalizados
 
@@ -77,13 +77,17 @@ Ahora puede agregar el elemento prefabricado **AppMenu** a la escena para obtene
 1. Arrastre el elemento prefabricado **AppMenu** a la escena.
 1. Es probable que vea un cuadro de diálogo **TMP Importer** (Importador de TMP), ya que es la primera vez que se incluyen recursos de *Text Mesh Pro* en la escena. Siga las indicaciones para **importar la información esencial de TMP**. A continuación, cierre el cuadro de diálogo del importador; los ejemplos y los elementos adicionales no son necesarios.
 1. **AppMenu** está configurado para enlazarse automáticamente y proporcionar el modal de consentimiento para conectarse a una sesión, de modo que podemos quitar la omisión colocada anteriormente. En el objeto GameObject **RemoteRenderingCoordinator**, quite la omisión de autorización que hemos implementado anteriormente; para ello, presione el botón "-" en el evento **On Requesting Authorization** (Al solicitar autorización).
- ![Quitar omisión](./media/remove-bypass-event.png).
+
+    ![Eliminación de la omisión](./media/remove-bypass-event.png).
+
 1. Para probar el controlador de vista, presione **Play** (Reproducir) en el editor de Unity.
 1. En el editor, ahora que está configurado MRTK, puede usar las teclas WASD para cambiar la posición de la vista, o mantener presionado el botón derecho del mouse y mover el mouse para cambiar su dirección. Muévase un poco por la escena para hacerse una idea de los controles.
 1. En el dispositivo, puede subir la palma para llamar a **AppMenu**; en el editor de Unity, use la tecla de acceso directo "M".
 1. Si ha perdido de vista el menú, presione la tecla "M" para llamar al menú. El menú se colocará cerca de la cámara para facilitar la interacción.
 1. La autorización se mostrará ahora en forma de solicitud a la derecha de **AppMenu** y, de aquí en adelante, se usará para autorizar a la aplicación la administración de las sesiones de representación remota.
- ![Autorización de la interfaz de usuario](./media/authorize-request-ui.png)
+
+    ![Autorización de la interfaz de usuario](./media/authorize-request-ui.png)
+
 1. Detenga la reproducción de Unity para continuar con el tutorial.
 
 ## <a name="manage-model-state"></a>Administrar el estado del modelo
@@ -257,15 +261,26 @@ Básicamente, **RemoteRenderedModel** contiene los datos necesarios para cargar 
 
 ## <a name="load-the-test-model"></a>Carga del modelo de prueba
 
-Vamos a volver a cargar el modelo de prueba para probar el nuevo script. Crearemos un elemento GameObject que contenga el script y que será un elemento primario del modelo de prueba.
+Vamos a volver a cargar el modelo de prueba para probar el nuevo script. Se agregará un elemento Game Object que contenga el script y que será un elemento primario del modelo de prueba. También se creará una fase virtual que contenga el modelo. La fase permanecerá fija en relación con el mundo real mediante [WorldAnchor](/windows/mixed-reality/develop/unity/spatial-anchors-in-unity?tabs=worldanchor). Se usa una fase fija para que el propio modelo se pueda mover más adelante.
 
-1. Cree un elemento GameObject vacío en la escena y llámelo **TestModel**.
+1. Cree un elemento Game Object vacío en la escena y llámelo **ModelStage**.
+1. Incorporación de un componente de World Anchor a **ModelStage**
+
+    ![Incorporación de un componente de WorldAnchor](./media/add-world-anchor-component.png)
+
+1. Cree un elemento Game Object vacío como elemento secundario de **ModelStage** y asígnele el nombre **TestModel**.
 1. Agregue el script *RemoteRenderedModel* a **TestModel**.
-![Adición del componente RemoteRenderedModel](./media/add-remote-rendered-model-script.png)
+
+    ![Adición del componente RemoteRenderedModel](./media/add-remote-rendered-model-script.png)
+
 1. Rellene `Model Display Name` y `Model Path` con "*TestModel*" y "*builtin://Engine*", respectivamente.
-![Especificación de los detalles del modelo](./media/add-model-script.png)
+
+    ![Especificación de los detalles del modelo](./media/add-model-script.png)
+
 1. Coloque el objeto **TestModel** delante de la cámara, en la posición **x = 0, y = 0, z = 3**.
-![Colocación del objeto](./media/test-model-position.png)
+
+    ![Colocación del objeto](./media/test-model-position.png)
+
 1. Asegúrese de que **AutomaticallyLoad** está activado.
 1. Presione **Play** (Reproducir) en el editor de Unity para probar la aplicación.
 1. Para conceder autorización, haga clic en el botón *Connect* (Conectar) para permitir que la aplicación cree una sesión, se conecte a ella y cargue automáticamente el modelo.
@@ -286,7 +301,9 @@ Siga los pasos especificados en el [Inicio rápido: Conversión de un modelo par
 
 1. Cree un elemento GameObject vacío en la escena y llámelo de forma parecida al modelo personalizado.
 1. Agregue el script *RemoteRenderedModel* al objeto GameObject recién creado.
- ![Adición del componente RemoteRenderedModel](./media/add-remote-rendered-model-script.png)
+
+    ![Adición del componente RemoteRenderedModel](./media/add-remote-rendered-model-script.png)
+
 1. Rellene `Model Display Name` con un nombre adecuado para el modelo.
 1. Rellene `Model Path` con el URI de *firma de acceso compartido (SAS)* del modelo que creó en los pasos de ingesta anteriores.
 1. Coloque el elemento GameObject delante de la cámara, en la posición **x = 0, y = 0, z = 3.**

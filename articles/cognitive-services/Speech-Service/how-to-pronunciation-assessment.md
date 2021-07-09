@@ -12,12 +12,12 @@ ms.date: 01/12/2021
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: 2d1b5e490b7c8212e6103e3d169c1b5491d01dde
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: f9f787af8cad8dffa728e29fd3a13defc8e160ca
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167437"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110494875"
 ---
 # <a name="pronunciation-assessment"></a>Evaluación de la pronunciación
 
@@ -34,7 +34,7 @@ En este artículo, aprenderá a configurar `PronunciationAssessmentConfig` y a r
 
 En los ejemplos siguientes, creará un elemento `PronunciationAssessmentConfig` y le aplicará `SpeechRecognizer`.
 
-En los fragmentos de código siguientes se muestra cómo usar la detección automática de idioma en las aplicaciones:
+En los fragmentos de código siguientes se muestra cómo usar la identificación de idioma en las aplicaciones:
 
 ::: zone pivot="programming-language-csharp"
 

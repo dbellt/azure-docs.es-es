@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/11/2021
 ms.custom: references_regions
-ms.openlocfilehash: da6d19a20a31e4cc4c4fac5bb704cb193611dbbc
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 6e8f9a26836be14d4952ba309933511635ff673a
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382905"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982653"
 ---
 # <a name="qna-maker-managed-is-now-renamed-to-custom-question-answering"></a>QnA Maker administrado se denomina ahora Respuesta personalizada a preguntas
 
@@ -41,7 +41,7 @@ Ya no puede crear un recurso de QnA Maker administrado desde el flujo de creaci�
 
 - Todos los recursos existentes de QnA Maker administrado (versión preliminar) siguen funcionando como antes. En estos momentos no hace falta realizar ninguna acción con relación a estos recursos.
 - El principal cambio es el flujo de creación de Respuesta personalizada a preguntas (versión preliminar). El servicio, el portal, los puntos de conexión, el SDK, etc. no han sufrido cambios.
-- Respuesta personalizada a preguntas (versión preliminar) se sigue ofreciendo como versión preliminar pública y gratuita.
+- Respuesta personalizada a preguntas (versión preliminar) se sigue ofreciendo como versión preliminar pública y gratuita. Esta característica solo está disponible como parte de los recursos de Text Analytics estándar. No cambie el plan de tarifa de los recursos de Text Analytics a gratis.
 - Respuesta personalizada a preguntas (versión preliminar) está disponible en las siguientes regiones:
     - Centro-sur de EE. UU.
     - Norte de Europa
@@ -51,5 +51,4 @@ Ya no puede crear un recurso de QnA Maker administrado desde el flujo de creaci�
 
 * [Introducción a la biblioteca cliente de QnA Maker](./quickstarts/quickstart-sdk.md)
 * [Introducción al portal de QnA Maker](./quickstarts/create-publish-knowledge-base.md)
-
 

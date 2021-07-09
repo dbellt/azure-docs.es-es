@@ -10,13 +10,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 01/21/2021
-ms.openlocfilehash: 5ca13784fe2f9a6a5b448bc838bf508f01b0a9fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/17/2021
+ms.openlocfilehash: bb56ce1b5be30cd36b8368e8ad7b886e81296f43
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101095193"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110083663"
 ---
 # <a name="add-contributors-to-your-app"></a>Adición de colaboradores a su aplicación
 
@@ -80,6 +80,6 @@ Más información sobre el consentimiento y los usuarios de Azure Active Directo
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga información sobre [cómo usar versiones](luis-how-to-manage-versions.md) para controlar el ciclo de vida de la aplicación.
-* Entienda los conceptos, incluidos el [recurso de creación](luis-how-to-azure-subscription.md#authoring-key) y los [colaboradores](luis-how-to-azure-subscription.md#contributions-from-other-authors) de ese recurso.
+* Entienda cómo funcionan los [recursos de creación](luis-how-to-azure-subscription.md) y la [incorporación de colaboradores](luis-how-to-collaborate.md) en este recurso.
 * Obtenga información sobre [cómo crear](luis-how-to-azure-subscription.md) los recursos de creación y de tiempo de ejecución.
 * Migre al nuevo [recurso de creación](luis-migration-authoring.md).

@@ -7,14 +7,14 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 03/12/2021
+ms.date: 06/11/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 8b9c4792fa6dbdc70f657ce3c5f1757473a22fda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2bac4baea6421c0e4a1f6e3b956245202eef18e1
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103225224"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112018287"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebook"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search en Python mediante Jupyter Notebook
 
@@ -356,7 +356,7 @@ Si está usando un servicio gratuito, recuerde que está limitado a tres índice
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Como simplificación, este tutorial de rápido usa una versión abreviada del índice de hoteles. Puede crear la versión completa para realizar más consultas interesantes. Para obtener la versión completa y los 50 documentos, ejecute el asistente **Importar datos** y seleccione *hotels-sample* en los orígenes de datos de ejemplo integrados.
+En este inicio rápido de JavaScript, ha realizado una serie de tareas para crear un índice, cargar documentos en él y ejecutar consultas. Para seguir aprendiendo, pruebe el siguiente tutorial.
 
 > [!div class="nextstepaction"]
-> [Inicio rápido: Creación de un índice de Azure Search en Azure Portal](search-get-started-portal.md)
+> [Tutorial: Incorporación de funcionalidad de búsqueda a las aplicaciones web](tutorial-python-overview.md)

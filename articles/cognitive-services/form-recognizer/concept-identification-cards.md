@@ -5,17 +5,17 @@ description: Conozca los conceptos relacionados con la extracción de datos de l
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: lajanuar
-ms.openlocfilehash: 9ab936f90fb890d50e6e476e216b327ed26fc4f5
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: f829de878b512ae6a8c8f8747e7c61456027cd68
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110374857"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111890679"
 ---
 # <a name="form-recognizer-prebuilt-identification-id-document-model"></a>Modelo de documento de identificación (ID) precompilado de Form Recognizer
 
@@ -54,16 +54,16 @@ El servicio de identificaciones precompiladas extrae los principales valores de 
 
 ### <a name="fields-extracted"></a>Campos extraídos
 
-|Nombre| Tipo | Descripción | Valor |
+|Nombre| Tipo | Descripción | Valor (salida estándar) |
 |:-----|:----|:----|:----|
-|  País | country | Código de país conforme con la norma ISO 3166 estándar. | "USA" |
+|  CountryRegion | countryRegion | Código de país o región que se ajusta a la norma ISO 3166 estándar. | "USA" |
 |  DateOfBirth | date | Fecha de nacimiento en formato AAAA-MM-DD. | "1980-01-01" |
 |  DateOfExpiration | date | Fecha de expiración en formato AAAA-MM-DD. | "2019-05-05" |
 |  DocumentNumber | string | Número de pasaporte, número de permiso de conducir, etc. pertinente. | "340020013" |
 |  FirstName | string | Nombre extraído e inicial del segundo nombre, si procede. | "JENNIFER" |
 |  LastName | string | Apellido extraído | "BROOKS" |
-|  Nacionalidad | country | Código de país conforme con la norma ISO 3166 estándar. | "USA" |
-|  Sex | gender | Los valores extraídos posibles son "M", "F" y "X". | "F" |
+|  Nacionalidad | countryRegion | Código de país o región que se ajusta a la norma ISO 3166 estándar. | "USA" |
+|  Sex | string | Los valores extraídos posibles son "M", "F" y "X". | "F" |
 |  MachineReadableZone | object | Zona de lectura automática del pasaporte extraída, incluidas dos líneas de 44 caracteres cada una. | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
 |  DocumentType | string | Tipo de documento, por ejemplo, pasaporte o permiso de conducir. | "passport" |
 |  Dirección | string | Dirección extraída (solo permiso de conducir) | "123 STREET ADDRESS YOUR CITY WA 99999-1234"|
@@ -87,10 +87,6 @@ La API de ID también devuelve la siguiente información:
 
 [!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
-## <a name="supported-locales"></a>Configuraciones regionales admitidas
-
- **Pre-built ID v2.1** admite documentos de identidad en la configuración regional **en-us**.
-
 ## <a name="supported-identity-document-types"></a>Tipos de documentos de identidad admitidos
 
 * **Pre-built IDs v2.1** extrae los valores principales de los pasaportes de todo el mundo y de los permisos de conducir estadounidenses.
@@ -100,7 +96,7 @@ La API de ID también devuelve la siguiente información:
   >
   > Los tipos de ID admitidos actualmente son los pasaportes de todo el mundo y los permisos de conducir de EE. UU. Estamos tratando de ampliar nuestra compatibilidad con identificaciones a otros documentos de identidad de todo el mundo.
 
-## <a name="post-analyze-id-document"></a>Aplicación de POST a documento de Analyze ID
+## <a name="the-analyze-id-document-operation"></a>La operación Analyze ID Document
 
 La operación [Analyze ID](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7daad1f2612c46f5822) toma una imagen o un archivo PDF de una ID como entrada y extrae los valores de interés. La llamada devuelve un campo de encabezado de respuesta denominado `Operation-Location`. El valor `Operation-Location` es una dirección URL que contiene el id. de resultado que se va a usar en el paso siguiente.
 
@@ -108,13 +104,13 @@ La operación [Analyze ID](https://westus.dev.cognitive.microsoft.com/docs/servi
 |:-----|:----|
 |Operation-Location | `https://cognitiveservice/formrecognizer/v2.1/prebuilt/idDocument/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
-## <a name="get-analyze-id-document-result"></a>Resultado de GET Analyze ID Document
+## <a name="the-get-analyze-id-document-result-operation"></a>La operación Get Analyze ID Document Result
 
 <!---
 Need to update this with updated APIM links when available
 -->
 
-El segundo paso consiste en llamar a la operación [**Get Analyze idDocument Result**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707). Esta operación toma como entrada el identificador de resultado que la operación Analyze ID ha creado. Devuelve una respuesta JSON que contiene un campo de **estado** con los siguientes valores posibles. Llamará a esta operación de forma iterativa hasta que se devuelva con el valor **correcto**. Use un intervalo de 3 a 5 segundos para evitar superar la tasa de solicitudes por segundo (RPS).
+El segundo paso consiste en llamar a la operación [**Get Analyze ID Document Result**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707). Esta operación toma como entrada el identificador de resultado que la operación Analyze ID ha creado. Devuelve una respuesta JSON que contiene un campo de **estado** con los siguientes valores posibles. Llamará a esta operación de forma iterativa hasta que se devuelva con el valor **correcto**. Use un intervalo de 3 a 5 segundos para evitar superar la tasa de solicitudes por segundo (RPS).
 
 |Campo| Tipo | Valores posibles |
 |:-----|:----:|:----|
@@ -129,11 +125,11 @@ Cuando el campo **status** tenga el valor **succeeded**, la respuesta JSON inclu
 
 ### <a name="sample-json-output"></a>Salida de JSON de ejemplo
 
-Consulte el siguiente ejemplo de una respuesta JSON correcta: El nodo `readResults` contiene todo el texto reconocido. El texto se organiza por página, después, por líneas y, finalmente, por palabras individuales. El nodo `documentResults` contiene los valores específicos de ID que el modelo ha descubierto. Este nodo es también donde encontrará pares clave-valor útiles, como el nombre, el apellido, el número de documento, etc.
+Vea el siguiente ejemplo de una respuesta JSON correcta (la salida se ha abreviado por simplicidad): el nodo `readResults` contiene todo el texto reconocido. El texto se organiza por página, después, por líneas y, finalmente, por palabras individuales. El nodo `documentResults` contiene los valores específicos de ID que el modelo ha descubierto. Este nodo es también donde encontrará pares clave-valor útiles, como el nombre, el apellido, el número de documento, etc.
 
 ```json
 {
-   "status": "succeeded",
+  "status": "succeeded",
   "createdDateTime": "2021-03-04T22:29:33Z",
   "lastUpdatedDateTime": "2021-03-04T22:29:36Z",
   "analyzeResult": {
@@ -175,6 +171,8 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta: El nodo `readResul
               }
             ],
           ...
+          }
+        ]
       }
     ],
 
@@ -187,9 +185,9 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta: El nodo `readResul
           1
         ],
         "fields": {
-          "Country": {
-            "type": "country",
-            "valueCountry": "USA",
+          "CountryRegion": {
+            "type": "countryRegion",
+            "valueCountryRegion": "USA",
             "text": "USA"
           },
           "DateOfBirth": {
@@ -218,12 +216,12 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta: El nodo `readResul
             "text": "BROOKS"
           },
           "Nationality": {
-            "type": "country",
-            "valueCountry": "USA",
+            "type": "countryRegion",
+            "valueCountryRegion": "USA",
             "text": "USA"
           },
           "Sex": {
-            "type": "gender",
+            "type": "string",
             "valueGender": "F",
             "text": "F"
           },

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6370e8646c561ae88e27acf4355bfa2e4bf66f98
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d44e73b7d4c2988fb26c947100faac2ebcbe8f8f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078422"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110474618"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configuración de una instancia de Azure Digital Twins y autenticación (CLI)
 
@@ -51,7 +51,7 @@ az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> --resource-g
 
 Si la instancia se creó correctamente, el resultado en Cloud Shell tiene un aspecto similar al siguiente, donde se muestra información sobre el recurso que ha creado:
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/create-instance.png" alt-text="Ventana Comandos con la creación correcta del grupo de recursos y la instancia de Azure Digital Twins":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/create-instance.png" alt-text="Captura de pantalla de Cloud Shell con la creación correcta de un grupo de recursos y una instancia de Azure Digital Twins en Azure Portal.":::
 
 Anote **hostName**, **name** y **resourceGroup** del resultado de la instancia de Azure Digital Twins. Estos son todos los valores importantes que puede necesitar a medida que sigue trabajando con la instancia de Azure Digital Twins para configurar la autenticación y los recursos de Azure relacionados. Si otros usuarios van a programar en la instancia, debe compartirlos con ellos.
 
@@ -87,7 +87,7 @@ El resultado de este comando es la información de salida acerca de la asignaci�
 >
 > Use la [página de Azure Portal de usuarios de Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) para seleccionar la cuenta de usuario y abrir los detalles. Copie el *id. de objeto* del usuario:
 >
-> :::image type="content" source="media/includes/user-id.png" alt-text="Vista de la página de usuario en Azure Portal en la que se resalta el GUID en el campo &quot;Id. de objeto&quot;" lightbox="media/includes/user-id.png":::
+> :::image type="content" source="media/includes/user-id.png" alt-text="Captura de pantalla de la página del usuario en Azure Portal en la que se resalta el GUID del campo &quot;Id. de objeto&quot;." lightbox="media/includes/user-id.png":::
 >
 > A continuación, repita el comando de lista de asignación de roles con el *id. de objeto* del usuario para el parámetro `assignee` anterior.
 

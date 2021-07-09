@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 04/13/2021
-ms.openlocfilehash: 9fe4f21a5c9e9e26a2f94b8a60cba47916842fe3
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.date: 05/18/2021
+ms.openlocfilehash: b6d007d3020d3fa2b001178bd23d721ea6a6aa6b
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107501797"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110067841"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Pruebas por lotes con un conjunto de expresiones de ejemplo
 
@@ -87,7 +87,19 @@ El ejemplo JSON incluye una expresión con una entidad etiquetada para ilustrar 
 
 5. Asigne un nombre al conjunto de datos `pizza test` y seleccione **Done** (Listo).
 
-6. Haga clic en el botón **Ejecutar**. Después de que la prueba por lotes se ejecute, seleccione **Ver resultados**. 
+6. Haga clic en el botón **Ejecutar**. 
+
+7. Una vez completada la prueba por lotes, puede ver las columnas siguientes:
+
+    | Columna | Descripción |
+    | -------- | ------------- |
+    | State | Estado de la prueba. El elemento **Ver resultados** solo es visible una vez completada la prueba. |
+    | Nombre | Nombre que ha dado a la prueba. |
+    | Size | Número de pruebas de este archivo de pruebas por lotes. |
+    | Última ejecución | Fecha de la última ejecución de este archivo de pruebas por lotes. |
+    | Último resultado | Número de predicciones correctas en la prueba. |
+
+8. Para ver los resultados detallados de la prueba, seleccione **Ver resultados**. 
 
     > [!TIP]
     > * Al seleccionar **Descargar** se descargará el mismo archivo que ha cargado.

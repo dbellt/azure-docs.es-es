@@ -150,6 +150,8 @@
           href: cdn-troubleshoot-compression.md
         - name: Entidades de certificación permitidas
           href: cdn-troubleshoot-allowed-ca.md
+        - name: Ofertas de suscripción y límite de ancho de banda de red
+          href: subscription-offerings.md
 - name: Referencia
   items:
     - name: Referencia del motor de reglas estándar

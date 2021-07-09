@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: cognitive-services
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.openlocfilehash: db99fa5caff27a24aa04e4780b25ade3f7c25496
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d686ea40b08139b9d16ade16d6e401db8300db0f
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101699936"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081126"
 ---
 # <a name="plan-and-manage-costs-for-azure-cognitive-services"></a>Planeamiento y administración de los costos de Azure Cognitive Services
 
@@ -36,7 +36,30 @@ Para más información, consulte [Precios de Azure Cognitive Services](https://a
 
 ## <a name="understand-the-full-billing-model-for-cognitive-services"></a>Modelo de facturación completo de Cognitive Services
 
-Cognitive Services se ejecuta en la infraestructura de Azure que [genera los costos](https://azure.microsoft.com/pricing/details/cognitive-services/) al implementar el nuevo recurso. Es importante que comprenda que hay otras infraestructuras que pueden generar costos. Estos costos deben administrarse cuando se realizan cambios en los recursos implementados. 
+Cognitive Services se ejecuta en la infraestructura de Azure que [genera los costos](https://azure.microsoft.com/pricing/details/cognitive-services/) al implementar el nuevo recurso. Es importante que sepa que cuanto mayor sea la infraestructura más costos se pueden generar. Estos costos deben administrarse cuando se realizan cambios en los recursos implementados. 
+
+### <a name="how-youre-charged-for-cognitive-services"></a>¿Cómo se cobra Cognitive Services?
+
+Al crear o usar recursos de Cognitive Services, es posible que se le cobrarán los medidores siguientes en función de los servicios que use:
+
+| Servicio | Medidor(es) | Información de facturación | 
+|---------|-------|---------------------|
+| **Visión** | | |
+| [Computer Vision](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) | Gratis, Estándar (S1) | Facturado por el número de transacciones. El precio por transacción varía en función de la característica (Lectura, OCR, Análisis espacial). Para conocer todos los detalles al respecto, consulte [Precios](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/). |
+| [Custom Vision](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) | Gratis, Estándar | <li>Las predicciones se facturan en función del número de transacciones.</li><li>El entrenamiento se factura por horas de proceso.</li><li>El almacenamiento de imágenes se factura por número de imágenes (hasta 6 MB por imagen).</li>|
+| [Face](https://azure.microsoft.com/pricing/details/cognitive-services/face-api/) | Gratis, Estándar | Facturado por el número de transacciones. |
+| **Voz** | | |
+| [Servicio Voz](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) | Gratis, Estándar | La facturación varía según la característica (conversión de voz en texto, conversión de texto en voz, traducción de voz y reconocimiento del hablante). Principalmente, la facturación se hace por recuento de transacciones o recuento de caracteres. Para conocer todos los detalles al respecto, consulte [Precios](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). |
+| **Lenguaje** | | |
+| [Language Understanding (LUIS)](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) | Creación gratuita, Predicción gratuita, Estándar | Se factura por el número de transacciones. El precio por transacción varía en función de la característica (solicitudes de voz, solicitudes de texto). Para conocer todos los detalles al respecto, consulte [Precios](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). |
+| [QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/) | Gratis, Estándar | El precio de la suscripción se factura mensualmente. Para conocer todos los detalles al respecto, consulte [Precios](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/). | 
+| [Text Analytics](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) | Gratis, Estándar | Se factura por número de registros de texto. | 
+| [Traductor](https://azure.microsoft.com/pricing/details/cognitive-services/translator/) | Gratis, pago por uso (S1), descuento por volumen (S2, S3, S4, C2, C3, C4, D3) | Los precios varían según el medidor y la característica. Para conocer todos los detalles al respecto, consulte [Precios](https://azure.microsoft.com/pricing/details/cognitive-services/translator/). <li>La traducción de texto se factura por número de caracteres traducidos.</li><li>La traducción de documentos se factura por número de caracteres traducidos.</li><li>La traducción personalizada se factura por caracteres de datos de entrenamiento de origen y destino.</li> |  
+| **Decisión** | | |
+| [Anomaly Detector](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/) | Gratis, Estándar | Facturado por el número de transacciones. | 
+| [Content Moderator](https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator/) | Gratis, Estándar | Facturado por el número de transacciones. |
+| [Personalizer](https://azure.microsoft.com/pricing/details/cognitive-services/personalizer/) | Gratis, Estándar (S0) | Se factura por transacciones al mes. Hay cuotas de almacenamiento y transacciones. Para conocer todos los detalles al respecto, consulte [Precios](https://azure.microsoft.com/pricing/details/cognitive-services/personalizer/). | 
+
 
 ### <a name="costs-that-typically-accrue-with-cognitive-services"></a>Costos que normalmente se generan con Cognitive Services
 
@@ -62,7 +85,7 @@ Después de eliminar los recursos de QnA Maker, es posible que los siguientes re
 
 ### <a name="using-azure-prepayment-credit-with-cognitive-services"></a>Uso del crédito del pago por adelantado de Azure con Cognitive Services
 
-Puede pagar los cargos de Cognitive Services con el crédito del pago por adelantado de Azure (antes conocido como compromiso monetario). Sin embargo, no puede usar los créditos del pago por adelantado de Azure para pagar los gastos de productos y servicios de terceros, como los de Azure Marketplace.
+Puede pagar los cargos de Cognitive Services con el crédito del pago por adelantado de Azure (antes conocido como compromiso monetario). Sin embargo, no puede usar el crédito del pago por adelantado de Azure para pagar los gastos de productos y servicios de terceros, como los que proceden de Azure Marketplace.
 
 ## <a name="monitor-costs"></a>Supervisión de costos
 
@@ -94,11 +117,11 @@ En el ejemplo anterior, hemos visto el costo actual del servicio. También se mu
 
 Puede crear [presupuestos](../cost-management-billing/costs/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) para administrar los costos y crear [alertas](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) que envíen notificaciones automáticamente a las partes interesadas sobre anomalías en los gastos y riesgos de gastos adicionales. Las alertas se basan en el gasto comparado con los umbrales de presupuesto y costo. Los presupuestos y las alertas se crean para las suscripciones y los grupos de recursos de Azure, por lo que son útiles como parte de una estrategia general de supervisión de costos. 
 
-Los presupuestos se pueden crear con filtros para recursos o servicios específicos de Azure si quiere disponer de más granularidad en la supervisión. Los filtros ayudan a garantizar que no se crean accidentalmente recursos nuevos con un costo adicional. Para más información sobre las opciones de filtro al crear un presupuesto, consulte [Opciones de agrupación y filtrado](../cost-management-billing/costs/group-filter.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+Los presupuestos se pueden crear con filtros para recursos o servicios específicos de Azure si quiere disponer de más granularidad en la supervisión. Los filtros ayudan a garantizar que no se crean accidentalmente recursos, que suponen un mayor costo. Para más información sobre las opciones de filtro al crear un presupuesto, consulte [Opciones de agrupación y filtrado](../cost-management-billing/costs/group-filter.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
 ## <a name="export-cost-data"></a>Exportación de datos de costos
 
-También puede [exportar los datos de costos](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) a una cuenta de almacenamiento. Esto resulta útil cuando usted u otro usuario necesita hacer un análisis de datos adicional para los costos. Por ejemplo, los equipos de finanzas pueden analizar los datos con Excel o Power BI. Puede exportar los costos en una programación diaria, semanal o mensual y establecer un intervalo de fechas personalizado. La exportación de los datos de costos es la forma recomendada de recuperar conjuntos de datos de costos.
+También puede [exportar los datos de costos](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) a una cuenta de almacenamiento. Esto resulta útil cuando se necesita hacer análisis de datos adicionales para los costos. Por ejemplo, los equipos de finanzas pueden analizar los datos con Excel o Power BI. Puede exportar los costos en una programación diaria, semanal o mensual y establecer un intervalo de fechas personalizado. La exportación de los datos de costos es la forma recomendada de recuperar conjuntos de datos de costos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

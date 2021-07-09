@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: yluiu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d5fc09bd554bc61f38a3b208de808a621cbfda80
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: da05251dab17aeb086be53a8583110dd5f12d7b3
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108748032"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111541642"
 ---
 # <a name="specify-a-face-detection-model"></a>Especificación de un modelo de detección de caras
 
@@ -102,8 +102,8 @@ Los diferentes modelos de detección de caras están optimizados para llevar a c
 |---------|---------|---|
 |Opción predeterminada para todas las operaciones de detección de caras. | Publicado en mayo de 2019 y disponible de forma opcional en todas las operaciones de detección de caras. |  Publicado en febrero de 2021 y disponible de forma opcional en todas las operaciones de detección de caras.
 |No está optimizado para caras pequeñas, de perfil o borrosas.  | Precisión mejorada en caras pequeñas, de perfil o borrosas. | Mayor precisión, también en caras más pequeñas (64 x 64 píxeles) y orientaciones de caras giradas.
-|Devuelve los atributos principales de la cara (posición de la cabeza, edad, emociones, etc.) si se especifican en la llamada de detección. |  No devuelve atributos de la cara.     | Devuelve el atributo "mask" si se especifica en la llamada de detección.
-|Devuelve puntos de referencia de la cara si se especifican en la llamada de detección.   | No devuelve puntos de referencia de la cara.  | No devuelve puntos de referencia de la cara.
+|Devuelve los atributos principales de la cara (posición de la cabeza, edad, emociones, etc.) si se especifican en la llamada de detección. |  No devuelve atributos de la cara.     | Devuelve los atributos "mask" y "head pose" si se especifican en la llamada de detección.
+|Devuelve puntos de referencia de la cara si se especifican en la llamada de detección.   | No devuelve puntos de referencia de la cara.  | Devuelve puntos de referencia de la cara si se especifican en la llamada de detección.
 
 La mejor manera de comparar el rendimiento de los modelos de detección es usarlos en un conjunto de datos de ejemplo. Se recomienda llamar a la API [Face - Detect] con cada modelo de detección en varias imágenes diferentes, sobre todo en imágenes con muchas caras o con caras difíciles de ver. Preste atención al número de caras que devuelve cada modelo.
 

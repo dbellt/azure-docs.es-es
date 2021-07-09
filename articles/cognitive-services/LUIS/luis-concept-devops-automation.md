@@ -1,16 +1,19 @@
 ---
-title: Flujos de trabajo continuos para aplicaciones de LUIS
+title: Flujos de trabajo de integración continua y entrega continua para aplicaciones de LUIS
 description: Procedimiento para implementar flujos de trabajo de CI/CD de DevOps para Language Understanding (LUIS).
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/5/2020
-ms.openlocfilehash: 215399e4b131162097e54c15b84cb6fa7dac72e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/01/2021
+ms.author: aahi
+author: aahill
+ms.manager: nitinme
+ms.openlocfilehash: 550af8bda0768738dc2162a0dc0bf767d1c54741
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98932543"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110783036"
 ---
 # <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>Flujos de trabajo de integración continua y entrega continua de DevOps para LUIS
 
@@ -34,6 +37,9 @@ El **flujo de trabajo de CI/CD** combina dos procesos de desarrollo complementar
 El objetivo de la integración continua y entrega continua es garantizar que el "elemento principal siempre se pueda enviar". En el caso de una aplicación de LUIS, esto significa que podríamos tomar cualquier versión de la aplicación de LUIS de la rama principal y enviarla a producción si es necesario.
 
 ### <a name="tools-for-building-automation-workflows-for-luis"></a>Herramientas para crear flujos de trabajo de automatización para LUIS
+
+> [!TIP]
+> En el [repositorio de plantillas de LUIS DevOps](#apply-devops-to-luis-app-development-using-github-actions) puede encontrar una solución completa para implementar DevOps.
 
 Hay diferentes tecnologías de automatización de compilaciones disponibles para crear flujos de trabajo de automatización de compilaciones. Todas ellas requieren que se puedan crear scripts para los pasos mediante una interfaz de línea de comandos (CLI) o llamadas de REST para que puedan ejecutarse en un servidor de compilación.
 
@@ -96,7 +102,26 @@ Otras opciones para implementar una versión de la aplicación son las siguiente
 
 Por lo general, se recomienda realizar la entrega continua solo a los entornos que no sean de producción, como los de desarrollo y almacenamiento provisional. La mayoría de los equipos requieren un proceso de revisión y aprobación manual para implementarse un entorno de producción. En el caso de una implementación de producción, quizá quiera asegurarse de que se produce cuando las personas clave del equipo de desarrollo están disponibles para dar soporte técnico, o durante períodos de tráfico bajo.
 
+
+## <a name="apply-devops-to-luis-app-development-using-github-actions"></a>Aplicación de DevOps al desarrollo de aplicaciones de LUIS mediante Acciones de GitHub
+
+Vaya al [repositorio de plantillas de DevOps para LUIS](https://github.com/Azure-Samples/LUIS-DevOps-Template), donde obtendrá una solución completa que implementará los procedimientos recomendados de ingeniería de software y DevOps para LUIS. Este repositorio de plantillas se puede usar para crear un propio repositorio con compatibilidad integrada con los flujos de trabajo y procedimientos de CI/CD que habilitan el [control de código fuente](luis-concept-devops-sourcecontrol.md), las compilaciones automatizadas, las [pruebas](luis-concept-devops-testing.md) y la administración de versiones con LUIS para su propio proyecto.
+
+En el [repositorio de plantillas de DevOps para LUIS](https://github.com/Azure-Samples/LUIS-DevOps-Template) se explican los procedimientos para realizar lo siguiente:
+
+* **Clonar el repositorio de plantillas**: copie la plantilla en su propio repositorio de GitHub.
+* **Configurar los recursos de LUIS**: cree los [recursos de creación y predicción de LUIS en Azure](./luis-how-to-azure-subscription.md) que usarán los flujos de trabajo de integración continua.
+* **Configurar los flujos de trabajo de CI/CD**: configure los parámetros de los flujos de trabajo de CI/CD y almacénelos en [Secretos de GitHub](https://help.github.com/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets).
+* **Comprender el [bucle interno de desarrollo](/dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/docker-apps-inner-loop-workflow)** : el desarrollador realiza actualizaciones en una aplicación de LUIS de ejemplo mientras trabaja en una rama de desarrollo, prueba las actualizaciones y, a continuación, genera una solicitud de incorporación de cambios para proponer cambios y para buscar la aprobación de la revisión.
+* **Ejecutar flujos de trabajo de CI/CD**: ejecute [flujos de trabajo de integración continua para compilar y probar una aplicación de LUIS](#build-automation-workflows-for-luis) mediante Acciones de GitHub.
+* **Realizar pruebas automatizadas**: realice [pruebas por lotes automatizadas para una aplicación de LUIS](luis-concept-devops-testing.md) a fin de evaluar la calidad de esta.
+* **Implementar la aplicación de LUIS**: ejecute un [trabajo de entrega continua (CD)](#continuous-delivery-cd) para publicar la aplicación de LUIS.
+* **Usar el repositorio con su propio proyecto**: use el repositorio con su propia aplicación de LUIS.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información sobre cómo [implementar DevOps para LUIS con GitHub](luis-how-to-devops-with-github.md).
 * Obtenga información sobre cómo escribir un [flujo de trabajo de Acciones de GitHub con NLU.DevOps](https://github.com/Azure-Samples/LUIS-DevOps-Template/blob/master/docs/4-pipeline.md).
+
+* Use el [repositorio de plantillas de DevOps para LUIS](https://github.com/Azure-Samples/LUIS-DevOps-Template) con el fin de aplicar DevOps con su propio proyecto.
+* [Control de código fuente y estrategias de ramificación para LUIS](luis-concept-devops-sourcecontrol.md)
+* [Pruebas de DevOps para LUIS](luis-concept-devops-testing.md)

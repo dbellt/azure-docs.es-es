@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: b53afb530cc49ad72ebfcbe7659fab787cc51995
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3e7eb12cad8e16d8baa1713d1b6c815e12d4de53
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110069947"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475678"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problemas conocidos en Azure Digital Twins
 
@@ -24,7 +24,7 @@ En este artículo se proporciona información sobre los problemas conocidos asoc
 
 | ¿Cómo me afecta esto? | Causa | Solución |
 | --- | --- | --- |
-| In&nbsp;Azure&nbsp;Digital&nbsp;Twins, esto afecta a los siguientes grupos de comandos:<br><br>`az dt route`<br><br>`az dt model`<br><br>`az dt twin` | Este es el resultado de un problema conocido en Cloud Shell: [Error intermitente al obtener el token de Cloud Shell con 400 Error de cliente: Solicitud incorrecta](https://github.com/Azure/azure-cli/issues/11749).<br><br>Esto presenta un problema con los tokens de autenticación de la instancia de Azure Digital Twins y la autenticación basada en la [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) predeterminada del Cloud Shell. <br><br>Esto no afecta a los comandos de Azure Digital Twins de los grupos de comandos `az dt` o `az dt endpoint`, ya que usan otro tipo de token de autenticación (basado en Azure Resource Manager), que no tiene ningún problema con la autenticación de identidad administrada de Cloud Shell. | Una forma de resolver este problema consiste en volver a ejecutar el comando `az login` en Cloud Shell y completar los pasos de inicio de sesión siguientes. Esto cambiará la sesión de la autenticación de identidad administrada, lo que evita el problema raíz. Después de esto, debería poder ejecutar el comando nuevamente.<br><br>Como alternativa, puede abrir el panel de Cloud Shell en Azure Portal y completar desde allí el trabajo de Cloud Shell.<br>:::image type="content" source="media/troubleshoot-known-issues/portal-launch-icon.png" alt-text="Imagen del icono de Cloud Shell en la barra de iconos de Azure Portal" lightbox="media/troubleshoot-known-issues/portal-launch-icon.png":::<br><br>Otra alternativa consiste en [instalar la CLI de Azure](/cli/azure/install-azure-cli) en su máquina para poder ejecutar localmente comandos de la CLI de Azure. La CLI local no experimenta este problema. |
+| In&nbsp;Azure&nbsp;Digital&nbsp;Twins, esto afecta a los siguientes grupos de comandos:<br><br>`az dt route`<br><br>`az dt model`<br><br>`az dt twin` | Este es el resultado de un problema conocido en Cloud Shell: [Error intermitente al obtener el token de Cloud Shell con 400 Error de cliente: Solicitud incorrecta](https://github.com/Azure/azure-cli/issues/11749).<br><br>Esto presenta un problema con los tokens de autenticación de la instancia de Azure Digital Twins y la autenticación basada en la [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) predeterminada del Cloud Shell. <br><br>Esto no afecta a los comandos de Azure Digital Twins de los grupos de comandos `az dt` o `az dt endpoint`, ya que usan otro tipo de token de autenticación (basado en Azure Resource Manager), que no tiene ningún problema con la autenticación de identidad administrada de Cloud Shell. | Una forma de resolver este problema consiste en volver a ejecutar el comando `az login` en Cloud Shell y completar los pasos de inicio de sesión siguientes. Esto cambiará la sesión de la autenticación de identidad administrada, lo que evita el problema raíz. Después de esto, debería poder ejecutar el comando nuevamente.<br><br>Como alternativa, puede abrir el panel de Cloud Shell en Azure Portal y completar desde allí el trabajo de Cloud Shell.<br>:::image type="content" source="media/troubleshoot-known-issues/portal-launch-icon.png" alt-text="Captura de pantalla del icono de Cloud Shell en la barra de iconos de Azure Portal." lightbox="media/troubleshoot-known-issues/portal-launch-icon.png":::<br><br>Otra alternativa consiste en [instalar la CLI de Azure](/cli/azure/install-azure-cli) en su máquina para poder ejecutar localmente comandos de la CLI de Azure. La CLI local no experimenta este problema. |
 
 
 ## <a name="missing-role-assignment-after-scripted-setup"></a>Asignación de roles que faltan después de la instalación con script

@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: b49ded912037c8935b67e64d4e4bb09402576bc7
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 90f2a3c1fd5c065ec0d7285aa4b41744aa2d063f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108203638"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475746"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Error en la solicitud del servicio. Estado: 403 (Prohibido)
 
@@ -74,15 +74,15 @@ Cambie a la pestaña *Todas las aplicaciones* para ver todos los registros de ap
 
 Verá que aparece en la lista el registro de aplicaciones que acaba de crear. Selecciónelo para abrir sus detalles.
 
-:::image type="content" source="media/troubleshoot-error-403/app-registrations.png" alt-text="Página Registros de aplicaciones en Azure Portal":::
+:::image type="content" source="media/troubleshoot-error-403/app-registrations.png" alt-text="Captura de pantalla de la página de registros de aplicaciones en Azure Portal.":::
 
 En primer lugar, compruebe que la configuración de permisos de Azure Digital Twins se estableció correctamente en el registro. Para ello, seleccione *Manifiesto* en la barra de menús para ver el código del manifiesto del registro de la aplicación. Desplácese hasta la parte inferior de la ventana de código y busque estos campos en `requiredResourceAccess`. Los valores deben coincidir con los de la siguiente captura de pantalla:
 
-:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Vista del portal del manifiesto para el registro de aplicaciones de Azure AD":::
+:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Captura de pantalla del manifiesto del registro de la aplicación de Azure AD en Azure Portal.":::
 
 A continuación, seleccione *Permisos de API* en la barra de menús para comprobar que este registro de aplicaciones contiene permisos de lectura y escritura para Azure Digital Twins. Debería ver una entrada como la siguiente:
 
-:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Vista del portal de los permisos de API para el registro de la aplicación de Azure AD que muestra &quot;Acceso de lectura y escritura&quot; para Azure Digital Twins":::
+:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Captura de pantalla de los permisos de API para el registro de la aplicación de Azure AD en Azure Portal en la que se muestra &quot;Acceso de lectura y escritura&quot; para Azure Digital Twins.":::
 
 #### <a name="fix-issues"></a>Corrección de problemas
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: cf143af4bba7b26aa1fec5ed6e18ab41fbc65dd5
-ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
+ms.openlocfilehash: fc005e8d94a0c6ddb7f21de05872f12bdb7f2177
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109664841"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965125"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>Inicio rápido: Compilación e implementación de aplicaciones en Azure Spring Cloud
 
@@ -209,6 +209,13 @@ La creación del proyecto tarda aproximadamente de 5 a 10 minutos. Una vez compl
 
 ## <a name="create-and-deploy-apps-on-azure-spring-cloud"></a>Creación e implementación de aplicaciones en Azure Spring Cloud
 
+1. Si no ha ejecutado los siguientes comandos en los inicios rápidos anteriores, establezca los valores predeterminados de la CLI.
+
+    ```azurecli
+    az configure --defaults group=<resource group name> spring-cloud=<service name>  
+    az spring-cloud config-server git set -n <service instance name> --uri https://github.com/azure-samples/spring-petclinic-microservices-config
+    ```
+
 1. Cree los 2 microservicios principales para PetClinic: puerta de enlace de API y customers-service.
 
     ```azurecli
@@ -229,7 +236,7 @@ La creación del proyecto tarda aproximadamente de 5 a 10 minutos. Una vez compl
     az spring-cloud app list -o table
     ```
 
-    ```txt
+    ```azurecli
         Name               Location    ResourceGroup    Production Deployment    Public Url                                           Provisioning Status    CPU    Memory    Running Instance    Registered Instance    Persistent Storage
     -----------------  ----------  ---------------  -----------------------  ---------------------------------------------------  ---------------------  -----  --------  ------------------  ---------------------  --------------------
     api-gateway        eastus      xxxxxx-sp         default                  https://<service name>-api-gateway.azuremicroservices.io   Succeeded              1      2         1/1                 1/1                    -     
@@ -275,7 +282,7 @@ La creación del proyecto tarda aproximadamente de 5 a 10 minutos. Una vez compl
 1. Genere configuraciones mediante la ejecución del siguiente comando en la carpeta raíz de PetClinic que contiene el POM primario. Si ya ha iniciado sesión con la CLI de Azure, el comando tomará automáticamente las credenciales. Si no lo ha hecho, le proporcionará instrucciones para iniciar sesión. Para obtener más información, consulte nuestra [página wiki](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
     ```azurecli
-    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.3.0:config
+    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.5.0:config
     ```
     
     Se le pedirá que seleccione:
@@ -291,7 +298,7 @@ La creación del proyecto tarda aproximadamente de 5 a 10 minutos. Una vez compl
             <plugin>
                 <groupId>com.microsoft.azure</groupId>
                 <artifactId>azure-spring-cloud-maven-plugin</artifactId>
-                <version>1.3.0</version>
+                <version>1.5.0</version>
                 <configuration>
                     <subscriptionId>xxxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx</subscriptionId>
                     <clusterName>v-spr-cld</clusterName>
@@ -310,7 +317,7 @@ La creación del proyecto tarda aproximadamente de 5 a 10 minutos. Una vez compl
     
 ## <a name="verify-the-services"></a>Comprobación de los servicios
 
-Un comando de implementación correcto devolverá una dirección URL con el formato: "https://<service name>-spring-petclinic-api-gateway.azuremicroservices.io".  Úsela para ir al servicio en ejecución.
+Un comando de implementación correcto devolverá una dirección URL con el formato: "https://<service name>-spring-petclinic-api-gateway.azuremicroservices.io". Úsela para ir al servicio en ejecución.
 
 ![Acceso a PetClinic](media/build-and-deploy/access-customers-service.png)
 
@@ -342,7 +349,7 @@ Corrija los nombres de aplicación en cada archivo `pom.xml` de los módulos ant
     ![Importar proyecto](media/spring-cloud-intellij-howto/import-project-1-pet-clinic.png)
 
 ### <a name="deploy-api-gateway-app-to-azure-spring-cloud"></a>Implementación de la aplicación api-gateway en Azure Spring Cloud
-Para realizar la implementación en Azure, debe iniciar sesión con su cuenta de Azure con Azure Toolkit for IntelliJ y elegir su suscripción. Puede encontrar información sobre el inicio de sesión en [Instalación e inicio de sesión](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
+Para realizar la implementación en Azure, debe iniciar sesión con su cuenta de Azure con Azure Toolkit for IntelliJ y elegir su suscripción. Puede encontrar información sobre el inicio de sesión en [Instalación e inicio de sesión](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
 1. Vaya al explorador de proyectos de IntelliJ, haga clic con el botón derecho en el proyecto y seleccione **Azure** -> **Deploy to Azure Spring Cloud** (Implementar en Azure Spring Cloud).
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3e0bcef30d13403d8067c41568b7ee321fb46995
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 3ba2dad93778e9d4482fa00c854a73dbc616d290
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110377198"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111750414"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Mejora de la síntesis con el Lenguaje de marcado de síntesis de voz (SSML)
 
@@ -106,77 +106,6 @@ Dentro del elemento `speak`, puede especificar varias voces para la salida de te
 |-----------|-------------|---------------------|
 | `name` | Identifica la voz que se usa para la salida de texto a voz. Para ver una lista completa de voces compatibles, consulte [Compatibilidad con idiomas](language-support.md#text-to-speech). | Obligatorio |
 
-> [!IMPORTANT]
-> La característica de límite de palabra no admite varias voces. La característica de límite de palabra debe deshabilitarse para poder usar varias voces.
-
-### <a name="disable-word-boundary"></a>Deshabilitar el límite de palabra
-
-Dependiendo del lenguaje del SDK de Voz, establecerá la propiedad `"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"` en `false` en una instancia del objeto `SpeechConfig`.
-
-# <a name="c"></a>[C#](#tab/csharp)
-
-Para más información, consulte <a href="/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty" target="_blank"> `SetProperty` </a>.
-
-```csharp
-speechConfig.SetProperty(
-    "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
-```
-
-# <a name="c"></a>[C++](#tab/cpp)
-
-Para más información, consulte <a href="/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` </a>.
-
-```cpp
-speechConfig->SetProperty(
-    "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
-```
-
-# <a name="java"></a>[Java](#tab/java)
-
-Para más información, consulte <a href="/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` </a>.
-
-```java
-speechConfig.setProperty(
-    "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
-```
-
-# <a name="python"></a>[Python](#tab/python)
-
-Para más información, consulte <a href="/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` </a>.
-
-```python
-speech_config.set_property_by_name(
-    "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
-```
-
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-Para más información, consulte <a href="/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#setproperty-string--string-" target="_blank"> `setProperty`</a>.
-
-```javascript
-speechConfig.setProperty(
-    "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
-```
-
-# <a name="objective-c"></a>[Objective-C](#tab/objectivec)
-
-Para más información, consulte <a href="/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` </a>.
-
-```objectivec
-[speechConfig setPropertyTo:@"false" byName:@"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"];
-```
-
-# <a name="swift"></a>[Swift](#tab/swift)
-
-Para más información, consulte <a href="/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` </a>.
-
-```swift
-speechConfig!.setPropertyTo(
-    "false", byName: "SpeechServiceResponse_Synthesis_WordBoundaryEnabled")
-```
-
----
-
 **Ejemplo**
 
 ```xml
@@ -202,10 +131,10 @@ Actualmente, los ajustes del estilo de habla son compatibles con las siguientes 
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
 * `zh-CN-YunyeNeural`
-* `zh-CN-YunxiNeural` 
-* `zh-CN-XiaohanNeural` 
-* `zh-CN-XiaomoNeural` 
-* `zh-CN-XiaoxuanNeural` 
+* `zh-CN-YunxiNeural`
+* `zh-CN-XiaohanNeural`
+* `zh-CN-XiaomoNeural`
+* `zh-CN-XiaoxuanNeural`
 * `zh-CN-XiaoruiNeural`
 
 La intensidad del estilo de habla se puede cambiar aún más para ajustarse mejor a su caso de uso. Puede especificar un estilo más seguro o más suave con `styledegree` para que la voz sea más expresiva o moderada. Actualmente, se admiten ajustes del estilo de habla de las voces neuronales en chino (mandarín y simplificado).
@@ -228,7 +157,7 @@ Los cambios anteriores se aplican en el nivel de la oración y tanto los estilos
 <mstts:express-as role="string" style="string"></mstts:express-as>
 ```
 > [!NOTE]
-> En este momento, `styledegree` solo admite voces neuronales en chino (mandarín y simplificado). `role` solo admite zh-CN-XiaomoNeural y zh-CN-XiaoxuanNeural. 
+> En este momento, `styledegree` solo admite voces neuronales en chino (mandarín y simplificado). `role` solo admite zh-CN-XiaomoNeural y zh-CN-XiaoxuanNeural.
 
 **Atributos**
 
@@ -375,10 +304,12 @@ Este fragmento de código SSML muestra cómo se usa el atributo `role` para camb
 
 ## <a name="adjust-speaking-languages"></a>Ajuste de idiomas de habla
 
-> [!IMPORTANT]
->  Solo puede ajustar los idiomas de habla para las voces neuronales.
-> Habilite una voz para hablar idiomas diferentes con fluidez (como inglés, español y chino) mediante el elemento `<lang xml:lang>`. Se trata de un elemento opcional único para el servicio de voz. Sin este elemento, la voz hablará su idioma principal.
-> Actualmente, los ajustes de idioma de habla son compatibles con estas voces neuronales: `en-US-JennyMultilingualNeural`. Los cambios anteriores se aplican en el nivel de la oración y la palabra. Si un idioma no se admite, el servicio no devolverá ninguna secuencia de audio.
+Puede ajustar los idiomas de habla para las voces neuronales.
+Habilite una voz para hablar idiomas diferentes con fluidez (como inglés, español y chino) mediante el elemento `<lang xml:lang>`. Se trata de un elemento opcional único para el servicio de voz. Sin este elemento, la voz hablará su idioma principal.
+Actualmente, los ajustes de idioma de habla son compatibles con estas voces neuronales: `en-US-JennyMultilingualNeural`. Los cambios anteriores se aplican en el nivel de la oración y la palabra. Si un idioma no se admite, el servicio no devolverá ninguna secuencia de audio.
+
+> [!NOTE]
+> Actualmente, el elemento `<lang xml:lang>` es incompatible con los elementos `prosody` y `break`. No puede ajustar las pausas y la prosodia como hace con el tono, el contorno, la velocidad, la duración y el volumen de este elemento.
 
 **Sintaxis**
 
@@ -396,20 +327,20 @@ Utilice esta tabla para determinar qué idiomas de habla son compatibles para ca
 
 | Voz                            | Idioma de la configuración regional           | Descripción                                                 |
 |----------------------------------|---------------------------|-------------------------------------------------------------|
-| `en-US-JennyMultilingualNeural`  | `lang="en-us"`            | Configuración regional de habla en-US, que es la configuración regional principal de esta voz |
-|                                  | `lang="en-ca"`            | Idioma de la configuración regional de habla en-CA                                  |
-|                                  | `lang="en-au"`            | Idioma de la configuración regional de habla en-AU                                  |
-|                                  | `lang="en-gb"`            | Idioma de la configuración regional de habla en-GB                                  |
-|                                  | `lang="de-de"`            | Idioma de la configuración regional de habla de-DE                                  |
-|                                  | `lang="fr-fr"`            | Idioma de la configuración regional de habla fr-FR                                  |
-|                                  | `lang="fr-ca"`            | Idioma de la configuración regional de habla fr-CA                                  |
-|                                  | `lang="es-es"`            | Idioma de la configuración regional de habla es-ES                                  |
-|                                  | `lang="es-mx"`            | Idioma de la configuración regional de habla es-MX                                  |
-|                                  | `lang="zh-cn"`            | Idioma de la configuración regional de habla zh-CN                                  |
-|                                  | `lang="ko-kr"`            | Idioma de la configuración regional de habla ko-KR                                  |
-|                                  | `lang="ja-jp"`            | Idioma de la configuración regional de habla ja-JP                                  |
-|                                  | `lang="it-it"`            | Idioma de la configuración regional de habla it-IT                                  |
-|                                  | `lang="pt-br"`            | Idioma de la configuración regional de habla pt-BR                                  |
+| `en-US-JennyMultilingualNeural`  | `lang="en-US"`            | Configuración regional de habla en-US, que es la configuración regional principal de esta voz |
+|                                  | `lang="en-CA"`            | Idioma de la configuración regional de habla en-CA                                  |
+|                                  | `lang="en-AU"`            | Idioma de la configuración regional de habla en-AU                                  |
+|                                  | `lang="en-GB"`            | Idioma de la configuración regional de habla en-GB                                  |
+|                                  | `lang="de-DE"`            | Idioma de la configuración regional de habla de-DE                                  |
+|                                  | `lang="fr-FR"`            | Idioma de la configuración regional de habla fr-FR                                  |
+|                                  | `lang="fr-CA"`            | Idioma de la configuración regional de habla fr-CA                                  |
+|                                  | `lang="es-ES"`            | Idioma de la configuración regional de habla es-ES                                  |
+|                                  | `lang="es-MX"`            | Idioma de la configuración regional de habla es-MX                                  |
+|                                  | `lang="zh-CN"`            | Idioma de la configuración regional de habla zh-CN                                  |
+|                                  | `lang="ko-KR"`            | Idioma de la configuración regional de habla ko-KR                                  |
+|                                  | `lang="ja-JP"`            | Idioma de la configuración regional de habla ja-JP                                  |
+|                                  | `lang="it-IT"`            | Idioma de la configuración regional de habla it-IT                                  |
+|                                  | `lang="pt-BR"`            | Idioma de la configuración regional de habla pt-BR                                  |
 
 **Ejemplo**
 
@@ -420,10 +351,10 @@ Este fragmento de código SSML muestra cómo usar `<lang xml:lang>` para cambiar
        xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
     <voice name="en-US-JennyMultilingualNeural">
         I am looking forward to the exciting things.
-        <lang xml:lang="es-mx">
+        <lang xml:lang="es-MX">
             Estoy deseando que lleguen las cosas emocionantes.
         </lang>
-        <lang xml:lang="de-de">
+        <lang xml:lang="de-DE">
             Ich freue mich auf die spannenden Dinge.
         </lang>
     </voice>
@@ -625,8 +556,8 @@ Para definir el modo en que se leen varias entidades, puede crear un lexicón pe
     <phoneme> bɛˈniːnji</phoneme>
   </lexeme>
   <lexeme>
-    <grapheme>😀</grapheme> 
-    <alias>test emoji</alias> 
+    <grapheme>😀</grapheme>
+    <alias>test emoji</alias>
   </lexeme>
 </lexicon>
 ```

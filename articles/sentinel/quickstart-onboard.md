@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: a5a7af768875efd4733070b85bacd1916f897f27
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: b30fee5d269a633173b8524ed6c902517063b2a2
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063787"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111986001"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Inicio rápido: Incorporación de Azure Sentinel
 
@@ -43,9 +43,9 @@ Después de conectar los orígenes de datos, puede elegir de una galería de lib
 
 - Azure Sentinel se puede ejecutar en áreas de trabajo de las [regiones con disponibilidad general de Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor), excepto en China y Alemania (soberana). A veces, las regiones nuevas de Log Analytics pueden tardar algún tiempo en incorporarse al servicio Azure Sentinel. 
 
-- Los datos que genera Azure Sentinel, como incidentes, marcadores y reglas de análisis, pueden contener datos del cliente procedentes de las áreas de trabajo de Log Analytics del cliente. Estos datos generados por Azure Sentinel se guardan en la geografía que se muestra en la tabla siguiente, según la geografía en que se encuentra el área de trabajo:
+- Los datos que genera Azure Sentinel, como incidentes, marcadores y reglas de análisis, pueden contener datos del cliente procedentes de las áreas de trabajo de Log Analytics del cliente. Estos datos generados por Azure Sentinel se guardan en la geografía o región que se muestran en la tabla siguiente, según la geografía o región en que se encuentra el área de trabajo:
 
-    | Geografía del área de trabajo | Geografía de datos generados por Azure Sentinel |
+    | Geografía/región del área de trabajo | Geografía/región de datos generados por Azure Sentinel |
     | --- | --- |
     | Estados Unidos<br>India<br>Brasil<br>África<br>Corea<br>Emiratos Árabes Unidos | Estados Unidos |
     | Europa<br>Francia<br>Suiza | Europa |
@@ -53,7 +53,13 @@ Después de conectar los orígenes de datos, puede elegir de una galería de lib
     | Reino Unido | Reino Unido |
     | Canadá | Canadá |
     | Japón | Japón |
+    | Sudeste Asiático (Singapur) | Sudeste Asiático (Singapur)* |
     |
+    
+    \* No hay ninguna región emparejada para Sudeste Asiático.
+
+    > [!IMPORTANT]
+    > - Al habilitar ciertas reglas que usan el motor de aprendizaje automático (ML), **concede a Microsoft permiso para copiar los datos ingeridos pertinentes fuera de la geografía del área de trabajo de Azure Sentinel**, según sea necesario para que el motor de aprendizaje automático procese estas reglas.
 
 ## <a name="enable-azure-sentinel"></a>Habilitar Azure Sentinel <a name="enable"></a>
 

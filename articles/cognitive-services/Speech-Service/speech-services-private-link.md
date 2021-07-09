@@ -1,23 +1,24 @@
 ---
-title: Uso de puntos de conexión privados con los servicios de voz
+title: Cómo usar puntos de conexión privados con el servicio Voz
 titleSuffix: Azure Cognitive Services
-description: Aprenda a usar los servicios de voz con los puntos de conexión privados que proporciona Azure Private Link
+description: Aprenda a usar el servicio Voz con los puntos de conexión privados que proporciona Azure Private Link
 services: cognitive-services
 author: alexeyo26
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/04/2021
+ms.date: 04/07/2021
 ms.author: alexeyo
-ms.openlocfilehash: 6971c6f0959135c7de1f41bcd49adde514f87941
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d5de7ed4536ce7c83de4cc1e9a2d886015188e20
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105625490"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110695353"
 ---
-# <a name="use-speech-services-through-a-private-endpoint"></a>Uso de los servicios de voz mediante un punto de conexión privado
+# <a name="use-speech-service-through-a-private-endpoint"></a>Uso del servicio Voz mediante un punto de conexión privado
 
 [Azure Private Link](../../private-link/private-link-overview.md) le permite conectarse a los servicios de Azure mediante un [punto de conexión privado](../../private-link/private-endpoint-overview.md). Un punto de conexión privado es una dirección IP privada a la que solo se puede acceder desde una [red virtual](../../virtual-network/virtual-networks-overview.md) y una subred específicas.
 
@@ -29,14 +30,22 @@ También se describe cómo quitar los puntos de conexión privados más adelante
 
 
 
+Para configurar un recurso de Voz en escenarios de punto de conexión privado, debe realizar las tareas siguientes:
+1. [Creación de un nombre de dominio personalizado](#create-a-custom-domain-name)
+1. [Activación de puntos de conexión privados](#turn-on-private-endpoints)
+1. [Ajustar aplicaciones y soluciones existentes](#adjust-an-application-to-use-a-speech-resource-with-a-private-endpoint)
+
+[!INCLUDE [](includes/speech-vnet-service-enpoints-private-endpoints.md)]
+
+En este artículo se describe el uso de los puntos de conexión privados con el servicio de Voz. El uso de los puntos de conexión de servicio de red virtual se describe [aquí](speech-service-vnet-service-endpoint.md).
+
+
 ## <a name="create-a-custom-domain-name"></a>Creación de un nombre de dominio personalizado
 
 Los puntos de conexión privados requieren un [nombre de subdominio personalizado para Azure Cognitive Services](../cognitive-services-custom-subdomains.md). Use las siguientes instrucciones para crear uno para el recurso de voz.
 
 > [!WARNING]
-> Un recurso de voz que utiliza un nombre de dominio personalizado interactúa con los servicios de voz de una manera diferente.
-> Es posible que tenga que ajustar el código de aplicación para usar un recurso de voz con un punto de conexión privado y también utilizar un recurso de voz _sin_ punto de conexión privado.
-> Ambos escenarios pueden ser necesarios porque el cambio al nombre de dominio personalizado _no_ es reversible.
+> Un recurso de Voz con un nombre de dominio personalizado habilitado usa un método diferente para interactuar con el servicio de Voz. Puede que deba ajustar el código de la aplicación en estos dos escenarios: con un [punto de conexión privado](#adjust-an-application-to-use-a-speech-resource-with-a-private-endpoint) y [*sin*](#adjust-an-application-to-use-a-speech-resource-without-private-endpoints) un punto de conexión privado.
 >
 > Cuando se habilita un nombre de dominio personalizado, la operación [no es reversible](../cognitive-services-custom-subdomains.md#can-i-change-a-custom-domain-name). La única manera de volver a establecer el [nombre regional](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) es crear un recurso de voz nuevo.
 >
@@ -292,7 +301,7 @@ Un recurso de voz con un nombre de dominio personalizado y un punto de conexión
 
 En esta sección, se usará `my-private-link-speech.cognitiveservices.azure.com` como nombre DNS del recurso de voz de ejemplo (dominio personalizado).
 
-Los servicios de voz tienen las API REST [Speech-to-Text](rest-speech-to-text.md) y [Text-to-Speech](rest-text-to-speech.md). Tenga en cuenta la siguiente información para el escenario con puntos de conexión privados habilitados.
+El servicio de Voz tiene varias API REST para la [conversión de voz en texto](rest-speech-to-text.md) y la [conversión texto en voz](rest-text-to-speech.md). Tenga en cuenta la siguiente información para el escenario con puntos de conexión privados habilitados.
 
 Speech-to-Text tiene dos API REST. Cada API sirve para un propósito diferente, usa puntos de conexión distintos y requiere un enfoque diferente cuando se emplea en el escenario con puntos de conexión privados habilitados.
 
@@ -388,7 +397,7 @@ Un nombre DNS de ejemplo es:
 
 `westeurope.stt.speech.microsoft.com`
 
-Todos los valores posibles de la región (primer elemento del nombre DNS) se enumeran en [Regiones admitidas del servicio de voz](regions.md). (En lo relativo a los puntos de conexión de Azure Government y Azure China, consulte [este artículo](sovereign-clouds.md)). En la tabla siguiente se presentan los valores posibles de la oferta de servicios de voz (segundo elemento del nombre DNS):
+Todos los valores posibles de la región (primer elemento del nombre DNS) se enumeran en [Regiones admitidas del servicio de voz](regions.md) (en [este artículo](sovereign-clouds.md) encontrará más información sobre los puntos de conexión de Azure Government y Azure China). La siguiente tabla presenta los posibles valores del servicio de Voz (segundo elemento del nombre DNS):
 
 | Valor del nombre DNS | Oferta del servicio de voz                                    |
 |----------------|-------------------------------------------------------------|
@@ -401,7 +410,7 @@ Todos los valores posibles de la región (primer elemento del nombre DNS) se enu
 
 Por lo tanto, el ejemplo anterior (`westeurope.stt.speech.microsoft.com`) significa un punto de conexión de conversión de voz en texto en Oeste de Europa.
 
-Los puntos de conexión con puntos de conexión privados habilitados se comunican con los servicios de voz a través de un proxy especial. Por eso, *debe cambiar las direcciones URL de la conexión del punto de conexión*. 
+Los puntos de conexión privados habilitados se comunican con el servicio de Voz a través de un proxy especial. Por eso, *debe cambiar las direcciones URL de la conexión del punto de conexión*. 
 
 Una dirección URL estándar de punto de conexión tiene el siguiente aspecto: <p/>`{region}.{speech service offering}.speech.microsoft.com/{URL path}`
 
@@ -502,7 +511,7 @@ Después de realizar esta modificación, la aplicación debería funcionar con l
 
 ## <a name="adjust-an-application-to-use-a-speech-resource-without-private-endpoints"></a>Ajuste de una aplicación para usar un recurso de voz sin un punto de conexión privado
 
-En este artículo, hemos señalado varias veces que la habilitación de un dominio personalizado para un recurso de voz es *irreversible*. Un recurso así usará una forma diferente de comunicarse con los servicios de voz, en comparación con las que usan los [nombres de puntos de conexión regionales](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints).
+En este artículo, hemos señalado varias veces que la habilitación de un dominio personalizado para un recurso de voz es *irreversible*. Un recurso así usará otra forma diferente de comunicarse con el servicios de Voz, en comparación con los que usan los [nombres de puntos de conexión regionales](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints).
 
 En esta sección se explica cómo usar un recurso de voz con un nombre de dominio personalizado activado, pero *sin* ningún punto de conexión privado, con las API REST de servicios de voz y el [SDK de voz](speech-sdk.md). Este recurso puede ser uno que se haya usado una vez en un escenario de punto de conexión privado, pero del cual se hayan eliminado los puntos de conexión privados.
 
@@ -561,13 +570,17 @@ Debe revertir la aplicación a la creación de instancias estándar de `SpeechCo
 var config = SpeechConfig.FromSubscription(subscriptionKey, azureRegion);
 ```
 
+[!INCLUDE [](includes/speech-vnet-service-enpoints-private-endpoints-simultaneously.md)]
+
 ## <a name="pricing"></a>Precios
 
 Para más información sobre los precios, consulte [Precios de Azure Private Link](https://azure.microsoft.com/pricing/details/private-link).
 
 ## <a name="learn-more"></a>Más información
 
+* [Uso del servicio de Voz a través de un punto de conexión de Virtual Network](speech-service-vnet-service-endpoint.md)
 * [Azure Private Link](../../private-link/private-link-overview.md)
+* [Punto de conexión del servicio de una red virtual de Azure](../../virtual-network/virtual-network-service-endpoints-overview.md)
 * [Acerca del SDK de Voz](speech-sdk.md)
 * [Speech-to-text REST API](rest-speech-to-text.md)
 * [Text-to-speech REST API](rest-text-to-speech.md)

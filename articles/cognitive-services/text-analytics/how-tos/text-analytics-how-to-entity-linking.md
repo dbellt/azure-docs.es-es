@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 03/15/2021
+ms.date: 06/10/2021
 ms.author: aahi
-ms.openlocfilehash: 903147b6c9f102b83f65d67cf41d4df0c62c7b54
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 3fdd5db4abc2b16153f6758827e152337887a095
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280571"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111962806"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Uso del reconocimiento de entidades con nombre en Text Analytics
 
@@ -35,7 +35,7 @@ La característica PII forma parte de NER y puede identificar y suprimir entidad
 
 ## <a name="named-entity-recognition-features-and-versions"></a>Características y versiones del reconocimiento de entidades con nombre
 
-| Característica                                                         | NER v3.0 | NER v3.1-preview.4 |
+| Característica                                                         | NER v3.0 | NER v3.1-preview.5 |
 |-----------------------------------------------------------------|--------|----------|
 | Métodos para solicitudes individuales y por lotes                          | X      | X        |
 | Reconocimiento de entidades expandidas en varias categorías           | X      | X        |
@@ -47,8 +47,8 @@ Consulte [Compatibilidad de idioma](../language-support.md) para obtener más in
 
 El reconocimiento de entidades con nombre v3 proporciona detección expandida en varios tipos. Actualmente, NER v3.0 puede reconocer entidades en la [categoría de entidad general](../named-entity-types.md).
 
-La versión 3.1-preview.4 de Reconocimiento de entidades con nombre incluye las funcionalidades de detección de la versión 3.0 y además: 
-* La capacidad para detectar información personal (`PII`) mediante el punto de conexión `v3.1-preview.4/entities/recognition/pii`. 
+La versión 3.1-preview.5 de Reconocimiento de entidades con nombre incluye las funcionalidades de detección de la versión 3.0 y además: 
+* La capacidad para detectar información personal (`PII`) mediante el punto de conexión `v3.1-preview.5/entities/recognition/pii`. 
 * Un parámetro opcional `domain=phi` para detectar información de estado confidencial (`PHI`).
 * El [funcionamiento asincrónico](text-analytics-how-to-call-api.md) mediante el punto de conexión `/analyze`.
 
@@ -74,38 +74,38 @@ Cree una solicitud POST. Puede [usar Postman](text-analytics-how-to-call-api.md)
 
 #### <a name="version-31-preview"></a>[Versión 3.1: versión preliminar](#tab/version-3-preview)
 
-El reconocimiento de entidades con nombre `v3.1-preview.4` usa puntos de conexión independientes para las solicitudes de NER, de PII y de vinculación de entidad. Use un formato de dirección URL a continuación en función de la solicitud.
+El reconocimiento de entidades con nombre `v3.1-preview.5` usa puntos de conexión independientes para las solicitudes de NER, de PII y de vinculación de entidad. Use un formato de dirección URL a continuación en función de la solicitud.
 
 **Vinculación de entidad**
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/linking`
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/linking`
 
-[Referencia de la versión 3.1-versión preliminar para el reconocimiento de entidades con nombre para `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-4/operations/EntitiesLinking)
+[Referencia de la versión 3.1-versión preliminar para el reconocimiento de entidades con nombre para `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-5/operations/EntitiesLinking)
 
 **Reconocimiento de entidades con nombre**
-* Entidades generales: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/recognition/general`
+* Entidades generales: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/recognition/general`
 
-[Referencia de la versión 3.1-versión preliminar para el reconocimiento de entidades con nombre para `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-4/operations/EntitiesRecognitionGeneral)
+[Referencia de la versión 3.1-versión preliminar para el reconocimiento de entidades con nombre para `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-5/operations/EntitiesRecognitionGeneral)
 
 **Información de identificación personal**
-* Información personal (`PII`): `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/recognition/pii`
+* Información personal (`PII`): `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/recognition/pii`
 
 También se puede usar el parámetro opcional `domain=phi` para detectar información de estado (`PHI`) en el texto. 
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/recognition/pii?domain=phi`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/recognition/pii?domain=phi`
 
-A partir de `v3.1-preview.4`, la respuesta JSON incluye una propiedad `redactedText`, que contiene el texto de entrada modificado donde las entidades PII detectadas se reemplazan por `*` en cada carácter de las entidades.
+A partir de `v3.1-preview.5`, la respuesta JSON incluye una propiedad `redactedText`, que contiene el texto de entrada modificado donde las entidades PII detectadas se reemplazan por `*` en cada carácter de las entidades.
 
-[Referencia de la versión 3.1-versión preliminar para el reconocimiento de entidades con nombre para `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-4/operations/EntitiesRecognitionPii)
+[Referencia de la versión 3.1-versión preliminar para el reconocimiento de entidades con nombre para `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-5/operations/EntitiesRecognitionPii)
 
 La API intentará detectar las [categorías de entidad enumeradas](../named-entity-types.md?tabs=personal) para un idioma de documento determinado. Si desea especificar qué entidades se detectarán y devolverán, use el parámetro opcional pii-categories con las categorías de entidad adecuadas. Este parámetro también puede permitirle detectar entidades que no están habilitadas de forma predeterminada para el lenguaje del documento. Por ejemplo, un número de permiso de conducir francés que puede aparecer en texto en inglés.
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/recognition/pii?piiCategories=[FRDriversLicenseNumber]`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/recognition/pii?piiCategories=[FRDriversLicenseNumber]`
 
 **Operación asincrónica**
 
-A partir de `v3.1-preview.4`, puede enviar solicitudes NER y de vinculación de entidad de forma asincrónica mediante el punto de conexión `/analyze`.
+A partir de `v3.1-preview.5`, puede enviar solicitudes NER y de vinculación de entidad de forma asincrónica mediante el punto de conexión `/analyze`.
 
-* Operación asincrónica: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/analyze`
+* Operación asincrónica: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/analyze`
 
 Consulte [Cómo llamar a la API de Text Analytics](text-analytics-how-to-call-api.md) para obtener información sobre el envío de solicitudes asincrónicas.
 
@@ -489,4 +489,5 @@ En este artículo, ha aprendido los conceptos y el flujo de trabajo de vinculaci
 
 * [Información general de Text Analytics](../overview.md)
 * [Uso de la biblioteca cliente de Text Analytics](../quickstarts/client-libraries-rest-api.md)
+* [Versiones del modelo](../concepts/model-versioning.md)
 * [Novedades](../whats-new.md)

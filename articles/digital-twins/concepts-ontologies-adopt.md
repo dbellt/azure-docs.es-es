@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 589e7ea53f6f247d18d4a2b532af3c87a8b0230c
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 73b115ad6f49d943c423c7490df347afce7c5869
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787894"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110668428"
 ---
 # <a name="adopting-an-industry-ontology"></a>Adopción de una ontología del sector
 
@@ -20,7 +20,9 @@ Como es más fácil comenzar con una ontología de DTDL de código abierto que e
 
 El resultado es un conjunto de ontologías de código abierto basadas en DTDL que aprenden de las normas estándar del sector, están basadas en ellas o las utilizan directamente. Las ontologías están diseñadas para satisfacer las necesidades de los desarrolladores que se encuentran en un nivel inferior, con la posibilidad de que el sector las adopte o extienda posteriormente según sus necesidades.
 
-En este momento, Microsoft está trabajando con asociados para desarrollar una ontología para [edificios inteligentes](#realestatecore-smart-building-ontology) y otra para [ciudades inteligentes](#smart-cities-ontology) que proporciona una base común para el modelado basado en los estándares de estos sectores para evitar la reinvención. 
+En este momento, Microsoft ha trabajado con asociados para desarrollar ontologías para [edificios inteligentes](#realestatecore-smart-building-ontology), [ciudades inteligentes](#smart-cities-ontology) y [cuadrículas de energía](#energy-grid-ontology) que proporcionan una base común para la creación de modelos que se basa en los estándares de estos sectores para evitar la reinvención. 
+
+Cada ontología se centra en un conjunto inicial de modelos. Los autores de la ontología le agradecen que contribuyan a ampliar el conjunto inicial de casos de uso y a mejorar los modelos existentes. 
 
 ## <a name="realestatecore-smart-building-ontology"></a>Ontología RealEstateCore para edificios inteligentes
 
@@ -40,11 +42,19 @@ También puede leer más sobre la asociación con RealEstateCore y los objetivos
 
 Microsoft ha colaborado con [Open Agile Smart Cities (OASC)](https://oascities.org/) y [Sirus](https://sirus.be/) para proporcionar una ontología basada en el lenguaje de definición de Digital Twins para ciudades inteligentes que empieza por [ETSI CIM NGSI-LD](https://www.etsi.org/committee/cim). Además de ETSI NGSI-LD, también hemos evaluado Saref4City, CityGML, ISO y otras.
 
-La versión actual de la ontología se centra en un conjunto inicial de modelos. Los autores de la ontología le agradecen que contribuyan a ampliar el conjunto inicial de casos de uso y a mejorar los modelos existentes. 
-
 Para más información sobre la ontología, cómo usarla y colaborar, visite el repositorio de la ontología en GitHub: [Azure/opendigitaltwins-smartcities](https://github.com/Azure/opendigitaltwins-smartcities). 
 
 Para más información sobre las asociaciones y el enfoque para ciudades inteligentes, consulte esta entrada de blog y el vídeo que la acompaña: [Ontología de ciudades inteligentes para Digital Twins](https://techcommunity.microsoft.com/t5/internet-of-things/smart-cities-ontology-for-digital-twins/ba-p/2166585).
+
+## <a name="energy-grid-ontology"></a>Ontología de la cuadrícula de energía
+
+*Obtenga la ontología en el repositorio siguiente:* [Ontología del lenguaje de definición de Digital Twins (DTDL) para la cuadrícula de energía](https://github.com/Azure/opendigitaltwins-energygrid/).
+
+Esta ontología se creó para ayudar a los proveedores de soluciones a acelerar el desarrollo de soluciones de gemelos digitales para casos de uso de energía (supervisión de los recursos de la red, análisis de interrupciones e impacto, simulación y mantenimiento predictivo) y facilitar la transformación digital y la modernización de la cuadrícula de energía. Es una adaptación del [Modelo de información común (CIM)](https://cimug.ucaiug.org/), un estándar global para la cuadrícula de energía, modelado de operaciones del sistema de alimentación y mercado de productos energéticos físicos.
+
+Para más información sobre la ontología, sobre cómo usarla y colaborar, visite el repositorio de la ontología en GitHub: [Azure/opendigitaltwins-energygrid](https://github.com/Azure/opendigitaltwins-energygrid/). 
+
+También puede obtener más información sobre las asociaciones y el enfoque de las cuadrículas de energía en el blog sobre [ontología de la cuadrícula de energía para Digital Twins](https://techcommunity.microsoft.com/t5/internet-of-things/energy-grid-ontology-for-digital-twins-is-now-available/ba-p/2325134).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

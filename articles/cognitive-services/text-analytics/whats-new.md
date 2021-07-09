@@ -8,20 +8,40 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/17/2021
+ms.date: 06/03/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 21f072747c9184fa15fd7e3477c0b4009cd885fc
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 63063ef205b456c368cec2d5c1a8ce1f456aaa59
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110376244"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756480"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novedades de Text Analytics API
 
 Text Analytics API se actualiza constantemente. Para mantenerse al día con los avances recientes, en este artículo se proporciona información sobre las nuevas versiones y características.
 
+## <a name="june-2021"></a>Junio de 2021
+
+### <a name="general-api-updates"></a>Actualizaciones de API generales
+
+* Nueva versión del modelo `2021-06-01` para la extracción de frases clave, que agrega compatibilidad con chino simplificado.
+* La versión del modelo de `2021-06-01` para [Reconocimiento de entidades con nombre](how-tos/text-analytics-how-to-entity-linking.md) v3.x, que proporciona: 
+  * Se ha mejorado la calidad de la inteligencia artificial y se ha ampliado la compatibilidad con los idiomas en la categoría de entidad *Aptitud*. 
+  * Se ha agregado compatibilidad con los idiomas español, francés, alemán, italiano y portugués en la categoría de entidad *Aptitud*.
+* Tanto las operaciones asincrónicas como Text Analytics for Health están disponibles en todas las regiones. 
+
+### <a name="text-analytics-for-health-updates"></a>Actualizaciones de Text Analytics for Health
+
+* Ya no es necesario solicitar acceso para obtener una versión preliminar de Text Analytics for Health.
+* Nueva versión del modelo `2021-05-15` para el punto de conexión `/health` y el contenedor local que proporciona
+    * Cinco nuevos tipos de entidad: `ALLERGEN`, `CONDITION_SCALE`, `COURSE`, `EXPRESSION` y `MUTATION_TYPE`.
+    * Catorce nuevos tipos de relación.
+    * Detección de aserciones expandida para nuevos tipos de entidad.
+    * Compatibilidad de vinculación con el tipo de entidad ALLERGEN.
+
+ 
 ## <a name="may-2021"></a>Mayo de 2021
 
 * Ya se puede acceder a [Respuesta personalizada a preguntas](../qnamaker/custom-question-answering.md) la (anteriormente QnA Maker) mediante un recurso de Text Analytics. 

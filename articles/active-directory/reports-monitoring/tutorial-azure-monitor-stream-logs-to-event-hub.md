@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0443dcb2bf3bd58f2474c507c9f9594fb6d8a7f0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9f7a35faa75af5a6205609e7afd40225d960d132
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89469191"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964609"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Tutorial: Transmisión de registros de Azure Active Directory a un centro de eventos de Azure
 
@@ -77,7 +77,7 @@ Después de mostrar los datos del centro de eventos, puede acceder y leer los da
 
 * **Configurar una herramienta SIEM compatible**. Para leer los datos del centro de eventos, la mayoría de las herramientas requieren la cadena de conexión al centro de eventos y determinados permisos para la suscripción de Azure. Herramientas de terceros con la integración de Azure Monitor incluidas, entre otras:
     
-    * **ArcSight**: para más información sobre cómo integrar los registros de Azure AD con Splunk, consulte [Integración de los registros de Azure Active Directory con ArcSight mediante Azure Monitor](howto-integrate-activity-logs-with-arcsight.md).
+    * **ArcSight**: para más información sobre la integración de registros de Azure AD en ArcSight, consulte [Integración de los registros de Azure Active Directory con ArcSight mediante Azure Monitor](howto-integrate-activity-logs-with-arcsight.md).
     
     * **Splunk**: para más información sobre cómo integrar los registros de Azure AD con Splunk, consulte [Integración de registros de Azure AD con Splunk mediante Azure Monitor](./howto-integrate-activity-logs-with-splunk.md).
     
@@ -93,5 +93,5 @@ Después de mostrar los datos del centro de eventos, puede acceder y leer los da
 * [Integración de los registros de Azure Active Directory con ArcSight mediante Azure Monitor](howto-integrate-activity-logs-with-arcsight.md)
 * [Integración de registros de Azure AD con Splunk mediante Azure Monitor](./howto-integrate-activity-logs-with-splunk.md)
 * [Integración de registros de Azure AD con SumoLogic mediante Azure Monitor](howto-integrate-activity-logs-with-sumologic.md)
-* [Interpretación del esquema de registros de auditoría en Azure Monitor](reference-azure-monitor-audit-log-schema.md)
+* [Interpretación del esquema de registros de auditoría en Azure Monitor](./overview-reports.md)
 * [Interpretación del esquema de registros de inicio de sesión en Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
