@@ -10,12 +10,12 @@ ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a93e63207bbbe9a2ac65823b3c22773f6cd97cf8
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: ca738136984941b050c0ae3a7c2408273724b1cd
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110676862"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112379283"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Control del acceso a la cuenta de almacenamiento del grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -97,11 +97,9 @@ Puede usar las siguientes combinaciones de tipos de autorización y almacenamien
 
 | Tipo de autorización  | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
-| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Compatible\*      | No compatible   | Compatible\*     |
+| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Compatible      | No compatible   | Compatible     |
 | [Identidad administrada](?tabs=managed-identity#supported-storage-authorization-types) | Compatible      | Compatible        | Compatible     |
-| [Identidad de usuario](?tabs=user-identity#supported-storage-authorization-types)    | Compatible\*      | Compatible\*        | Compatible\*     |
-
-\* El token de SAS y la identidad de Azure AD se pueden usar para tener acceso a un almacenamiento que no esté protegido con el firewall.
+| [Identidad de usuario](?tabs=user-identity#supported-storage-authorization-types)    | Compatible      | Compatible        | Compatible     |
 
 ## <a name="firewall-protected-storage"></a>Almacenamiento protegido por firewall
 

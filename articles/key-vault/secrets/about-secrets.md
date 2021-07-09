@@ -9,12 +9,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: dc4368075e1cecb43887c9fab21e55b23208dbab
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 31ab388d01c9bd589a809bd1c71b455d6d8bf754
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107814935"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111984741"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Acerca de los secretos de Azure Key Vault
 
@@ -92,7 +92,7 @@ Key Vault puede administrar las claves de una [cuenta de almacenamiento Azure](.
 
 Para más información, consulte:
 - [Claves de acceso de cuenta de almacenamiento](../../storage/common/storage-account-keys-manage.md)
-- [Administración de claves de una cuenta de almacenamiento en Azure Key Vault](../secrets/overview-storage-keys.md))
+- [Administración de claves de cuenta de almacenamiento en Azure Key Vault](../secrets/overview-storage-keys.md)
 
 
 ## <a name="storage-account-access-control"></a>Control de acceso a la cuenta de almacenamiento

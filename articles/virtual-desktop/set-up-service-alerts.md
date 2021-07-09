@@ -1,24 +1,24 @@
 ---
-title: 'Configuración de las alertas de servicio para Windows Virtual Desktop: Azure'
-description: Configuración de Azure Service Health para recibir notificaciones del servicio de Windows Virtual Desktop.
+title: 'Configuración de las alertas de servicio para Azure Virtual Desktop: Azure'
+description: Configuración de Azure Service Health para recibir notificaciones del servicio de Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: tutorial
 ms.date: 06/11/2019
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: ca5f225265b42ffc67a41a5252b2e789f7bcf500
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: e867901fb90e4e6d6c3a6b8fa7ca6cd28a5e7178
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445642"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111755940"
 ---
 # <a name="tutorial-set-up-service-alerts"></a>Tutorial: Configuración de alertas de servicio
 
 >[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop con objetos de Windows Virtual Desktop de Azure Resource Manager. Si usa Windows Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/set-up-service-alerts-2019.md).
+>Este contenido se aplica a Azure Virtual Desktop con objetos de Azure Virtual Desktop de Azure Resource Manager. Si usa Azure Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/set-up-service-alerts-2019.md).
 
-Puede usar Azure Service Health para supervisar los problemas del servicio y los avisos de estado de Windows Virtual Desktop. Azure Service Health puede notificarlo con distintos tipos de alertas (por ejemplo, por correo electrónico o SMS), ayudarlo a entender el impacto de un problema y mantenerlo actualizado con respecto a la resolución del problema. Azure Service Health también puede ayudarle a mitigar el tiempo de inactividad y a preparar el mantenimiento planeado y los cambios que podrían afectar a la disponibilidad de los recursos.
+Puede usar Azure Service Health para supervisar los problemas del servicio y los avisos de estado de Azure Virtual Desktop. Azure Service Health puede notificarlo con distintos tipos de alertas (por ejemplo, por correo electrónico o SMS), ayudarlo a entender el impacto de un problema y mantenerlo actualizado con respecto a la resolución del problema. Azure Service Health también puede ayudarle a mitigar el tiempo de inactividad y a preparar el mantenimiento planeado y los cambios que podrían afectar a la disponibilidad de los recursos.
 
 En este tutorial, aprenderá a:
 
@@ -35,7 +35,7 @@ En esta sección se muestra cómo configurar Azure Service Health y cómo establ
 
 Se recomienda crear alertas de servicio para los tipos de eventos de estado siguientes:
 
-- **Problema de servicio:** reciba notificaciones sobre los problemas importantes que afectan la conectividad de los usuarios con el servicio o la capacidad de administrar el inquilino de Windows Virtual Desktop.
+- **Problema de servicio:** reciba notificaciones sobre los problemas importantes que afectan la conectividad de los usuarios con el servicio o la capacidad de administrar el inquilino de Azure Virtual Desktop.
 - **Aviso de estado:** reciba las notificaciones que requiere su atención. Estos son algunos ejemplos de este tipo de notificación:
     - Máquinas virtuales (VM) no configuradas de manera segura con el puerto 3389 abierto.
     - Funcionalidad en desuso.
@@ -50,7 +50,7 @@ Para configurar las alertas de servicio:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, aprendió a configurar y usar Azure Service Health para supervisar los problemas del servicio y los avisos de estado de Windows Virtual Desktop. Para información sobre el inicio de sesión en Windows Virtual Desktop, continúe con los procedimientos de conexión a Windows Virtual Desktop.
+En este tutorial, aprendió a configurar y usar Azure Service Health para supervisar los problemas del servicio y los avisos de estado de Azure Virtual Desktop. Para información sobre el inicio de sesión en Azure Virtual Desktop, continúe con los procedimientos de conexión a Azure Virtual Desktop.
 
 > [!div class="nextstepaction"]
 > [Conexión al cliente de Escritorio remoto en Windows 7 y Windows 10](./connect-windows-7-10.md)

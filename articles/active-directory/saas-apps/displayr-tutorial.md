@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 3cb6ee3162c70d2d07c4868ae90ecc54bd489966
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7d561f9c99641beba8a5092df447f3d18da050e9
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98622497"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110190085"
 ---
 # <a name="tutorial-integrate-displayr-with-azure-active-directory"></a>Tutorial: Integración de Displayr con Azure Active Directory
 
@@ -33,11 +33,11 @@ Para más información sobre la integración de aplicaciones SaaS con Azure AD,
 Para empezar, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
-* Una suscripción habilitada para el inicio de sesión único (SSO) en Displayr.
+* Una empresa con el inicio de sesión único (SSO) habilitado en Displayr.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
-En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba. Displayr admite el inicio de sesión único iniciado por **SP**.
+En este tutorial, aprenderá a configurar el inicio de sesión único de Azure AD en la empresa Displayr. Displayr admite el inicio de sesión único iniciado por **SP**.
 
 ## <a name="adding-displayr-from-the-gallery"></a>Adición de Displayr desde la galería
 
@@ -50,17 +50,13 @@ Para configurar la integración de Displayr en Azure AD, será preciso que agreg
 1. En la sección **Agregar desde la galería**, escriba **Displayr** en el cuadro de búsqueda.
 1. Seleccione **Displayr** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
+## <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-Configure y pruebe el inicio de sesión único de Azure AD con Displayr con un usuario de prueba llamado **Britta Simon**. Para que el SSO funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Displayr.
-
-Para configurar y probar el inicio de sesión único de Azure AD con Displayr, es preciso completar los siguientes bloques de creación:
+Para configurar el inicio de sesión único de Azure AD con Displayr, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
 2. **[Configuración de Displayr](#configure-displayr)** , para configurar las opciones del SSO en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba en Displayr](#create-displayr-test-user)** para tener un homólogo de Britta Simon en Displayr que esté vinculado a su representación en Azure AD.
+4. **[Restrinja el acceso a usuarios específicos](#restrict-access-to-specific-users)** para limitar cuáles de sus usuarios de Azure AD pueden iniciar sesión en Displayr.
 6. **[Comprobación del inicio de sesión único](#test-sso)** , para verificar que la configuración funciona correctamente.
 
 ### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
@@ -104,10 +100,6 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    c. Seleccione **Atributo de origen** de **Id. de grupo**.
 
-   d. Marque **Personalizar nombre de la notificación del grupo**.
-
-   e. Marque **Emitir grupos como notificaciones de roles**.
-
    f. Haga clic en **Save**(Guardar).
 
 1. En la sección **Configurar Displayr**, copie las direcciones URL adecuadas según sus necesidades.
@@ -126,11 +118,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 3. Si desea configurar Displayr manualmente, abra una nueva ventana del explorador web, inicie sesión en el sitio de empresa de Displayr como administrador y haga lo siguiente:
 
-4. Haga clic en **Settings** (Configuración) y, después, vaya a **Account** (Cuenta).
+4. Haga clic en el icono **Usuario** y, a continuación, vaya a **Configuración de la cuenta**.
 
     ![Captura de pantalla que muestra el icono "Settings" (Configuración) y "Account" (Cuenta) seleccionado.](./media/displayr-tutorial/config01.png)
 
-5. Cambie a **Settings** (Configuración) en el menú superior y desplácese hacia abajo en la página para hacer clic en **Configure Single Sign On (SAML)** [Configurar inicio de sesión único (SAML)].
+5. Cambie a **Configuración** en el menú superior y desplácese hacia abajo en la página para hacer clic en **Configurar inicio de sesión único (SAML)** .
 
     ![Captura de pantalla que muestra la pestaña "Settings" (Configuración) seleccionada y la acción "Configure Single Sign On (S A M L)" [Configurar inicio de sesión único (S A M L)] seleccionada.](./media/displayr-tutorial/config02.png)
 
@@ -152,67 +144,13 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     g. Haga clic en **Save**(Guardar).  
 
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="restrict-access-to-specific-users"></a>Restringir el acceso a usuarios específicos
 
-En esta sección, va a crear un usuario de prueba llamado Britta Simon en Azure Portal.
-
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
-1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario**, siga estos pasos:
-   1. En el campo **Nombre**, escriba `Britta Simon`.  
-   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `BrittaSimon@contoso.com`.
-   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Crear**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-
-En esta sección, se habilita a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Displayr.
-
-1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
-1. En la lista de aplicaciones, seleccione **Displayr**.
-1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
-   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
-1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-
-    ![Vínculo de Agregar usuario](common/add-assign-user.png)
-
-1. En la lista de usuarios del cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
-
-### <a name="create-displayr-test-user"></a>Creación de un usuario de prueba de Displayr
-
-Para permitir que los usuarios de Azure AD inicien sesión en Displayr, deben aprovisionarse en Displayr. En Displayr, el aprovisionamiento es una tarea manual.
-
-**Para aprovisionar una cuenta de usuario, realice estos pasos:**
-
-1. Inicie sesión como administrador en Displayr.
-
-2. Haga clic en **Settings** (Configuración) y, después, vaya a **Account** (Cuenta).
-
-    ![Captura de pantalla que muestra el icono de engranaje "Settings" (Configuración) con "Account" (Cuenta) seleccionado.](./media/displayr-tutorial/config01.png)
-
-3. Cambie a **Settings** (Configuración) en el menú superior y desplácese hacia abajo en la página hasta la sección **Users** (Usuarios) y después haga clic en **New User** (Nuevo usuario).
-
-    ![Captura de pantalla que muestra la pestaña "Settings" (Configuración) con "Users" (Usuarios) resaltado y el botón "New User" (Nuevo usuario) seleccionado.](./media/displayr-tutorial/config07.png)
-
-4. En la página **New User** (Nuevo usuario), realice estos pasos:
-
-    ![Configuración de Displayr](./media/displayr-tutorial/config06.png)
-
-    a. En el cuadro de texto **Name** (Nombre), escriba el nombre de usuario **Brittasimon**.
-
-    b. En el cuadro de texto **E-mail** (Correo electrónico), escriba el correo electrónico del usuario, por ejemplo, `Brittasimon@contoso.com`.
-
-    c. Seleccione la opción apropiada en **Group membership** (Pertenencia a grupos).
-
-    d. Haga clic en **Save**(Guardar).
+De forma predeterminada, todos los usuarios del inquilino en el que agregó la aplicación Displayr pueden iniciar sesión en Displayr mediante SSO. Si quiere restringir el acceso a usuarios o grupos específicos, consulte [Restringir la aplicación Azure AD a un conjunto de usuarios de un inquilino de Azure AD](../develop/howto-restrict-your-app-to-a-set-of-users.md).
 
 ### <a name="test-sso"></a>Prueba de SSO
 
-Al seleccionar el icono de Displayr en el panel de acceso, debería iniciar sesión automáticamente en la versión de Displayr para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+Al seleccionar el icono de Displayr en el panel de acceso, iniciará sesión automáticamente en la empresa de Displayr para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

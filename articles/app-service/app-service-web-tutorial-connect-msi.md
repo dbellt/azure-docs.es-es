@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: fb13e5015a589efc575d5a7bbb8b662fc23b72be
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 465e5c3c1f95004ec8fc3e46bd24274f18330e2a
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108076588"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110576509"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: Protección de la conexión con Azure SQL Database desde App Service mediante una identidad administrada
 
@@ -138,6 +138,9 @@ Escriba `Ctrl+F5` para ejecutar la aplicación de nuevo. Ahora, la misma aplicac
 
 ### <a name="modify-aspnet-core"></a>Modificación de ASP.NET Core
 
+> [!NOTE]
+> Ya no se recomienda usar **Microsoft.Azure.Services.AppAuthentication** con el nuevo SDK de Azure. Se reemplaza por la nueva **biblioteca de clientes de identidades de Azure** disponible para .NET, Java, TypeScript y Python, y debe usarse para todo el desarrollo nuevo. Aquí puede encontrar información sobre cómo migrar a `Azure Identity`: [Guía de migración de AppAuthentication a Azure.Identity](/dotnet/api/overview/azure/app-auth-migration).
+
 En Visual Studio, abra la consola del administrador de paquetes y agregue el paquete NuGet [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication):
 
 ```powershell
@@ -182,6 +185,9 @@ Para habilitar una identidad administrada para la aplicación de Azure, use el c
 az webapp identity assign --resource-group myResourceGroup --name <app-name>
 ```
 
+> [!NOTE]
+> Para habilitar la identidad administrada para una [ranura de implementación](deploy-staging-slots.md), agregue `--slot <slot-name>` y use el nombre de la ranura en *\<slot-name>* .
+
 Este es un ejemplo de la salida:
 
 <pre>
@@ -222,7 +228,7 @@ ALTER ROLE db_ddladmin ADD MEMBER [<identity-name>];
 GO
 ```
 
-*\<identity-name>* es el nombre de la identidad administrada en Azure AD. Si la identidad la ha asignado el sistema, el nombre siempre coincide con el nombre de la aplicación de App Service. Para conceder permisos para un grupo de Azure AD, utilice en su lugar el nombre para mostrar del grupo (por ejemplo, *myAzureSQLDBAccessGroup*).
+*\<identity-name>* es el nombre de la identidad administrada en Azure AD. Si la identidad la ha asignado el sistema, el nombre siempre coincide con el nombre de la aplicación de App Service. En el caso de una [ranura de implementación](deploy-staging-slots.md), el nombre de su identidad asignada por el sistema es *\<app-name>/slots/\<slot-name>* . Para conceder permisos para un grupo de Azure AD, utilice en su lugar el nombre para mostrar del grupo (por ejemplo, *myAzureSQLDBAccessGroup*).
 
 Escriba `EXIT` para volver al símbolo del sistema de Cloud Shell.
 

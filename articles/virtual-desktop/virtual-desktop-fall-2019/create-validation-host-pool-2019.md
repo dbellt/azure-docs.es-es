@@ -1,33 +1,33 @@
 ---
-title: 'Actualizaciones de servicio para los grupos de host de Windows Virtual Desktop (clásico): Azure'
-description: Aprenda a crear un grupo host de validación in Windows Virtual Desktop (Clásico) para supervisar las actualizaciones de servicio antes de implementar las actualizaciones en producción.
+title: 'Actualizaciones de servicio para los grupos de host de Azure Virtual Desktop (clásico): Azure'
+description: Aprenda a crear un grupo host de validación in Azure Virtual Desktop (clásico) para supervisar las actualizaciones de servicio antes de implementar las actualizaciones en producción.
 author: Heidilohr
 ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: ad79ad31678f698c0f034b39bab1e3a19a48d3f2
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: bca4d55d0c5abb4e133a8eef8b51a2a5ae57b5d5
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106444979"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111749838"
 ---
-# <a name="tutorial-create-a-host-pool-to-validate-service-updates-in-windows-virtual-desktop-classic"></a>Tutorial: Creación de un grupo de hosts para validar actualizaciones de servicio en Windows Virtual Desktop (clásico)
+# <a name="tutorial-create-a-host-pool-to-validate-service-updates-in-azure-virtual-desktop-classic"></a>Tutorial: Creación de un grupo de hosts para validar actualizaciones de servicio en Azure Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../create-validation-host-pool.md).
+>Este contenido se aplica a Azure Virtual Desktop (clásico), que no admite objetos de Azure Virtual Desktop para Azure Resource Manager. Si está intentando administrar objetos de Azure Virtual Desktop para Azure Resource Manager, consulte [este artículo](../create-validation-host-pool.md).
 
-Los grupos hosts son una colección de una o más máquinas virtuales idénticas en entornos de inquilino de Windows Virtual Desktop. Le recomendamos que cree un grupo de hosts de validación en el que se apliquen primero las actualizaciones del servicio. Esto permite supervisar las actualizaciones del servicio antes de que este las aplique a su entorno estándar o sin validación. Sin un grupo host de validación, es posible que no se detecten cambios que introducen errores, lo que podría dar lugar a tiempos de inactividad para los usuarios en el entorno de producción.
+Los grupos hosts son una colección de una o más máquinas virtuales idénticas en entornos de inquilino de Azure Virtual Desktop. Le recomendamos que cree un grupo de hosts de validación en el que se apliquen primero las actualizaciones del servicio. Esto permite supervisar las actualizaciones del servicio antes de que este las aplique a su entorno estándar o sin validación. Sin un grupo host de validación, es posible que no se detecten cambios que introducen errores, lo que podría dar lugar a tiempos de inactividad para los usuarios en el entorno de producción.
 
 Para garantizar que las aplicaciones funcionan con las actualizaciones más recientes, el grupo de hosts de validación debe ser lo más parecido posible a los grupos de hosts del entorno sin validación. Los usuarios deben conectarse al grupo de hosts de validación con la misma frecuencia que lo hacen al estándar. Si ha automatizado las pruebas en su grupo host, debe incluir las pruebas automatizadas en el grupo host de validación.
 
-Puede depurar incidencias en el grupo host de validación con [la característica de diagnóstico](diagnostics-role-service-2019.md) o con [artículos de solución de problemas de Windows Virtual Desktop](troubleshoot-set-up-overview-2019.md).
+Puede depurar incidencias en el grupo host de validación con [la característica de diagnóstico](diagnostics-role-service-2019.md) o con [artículos de solución de problemas de Azure Virtual Desktop](troubleshoot-set-up-overview-2019.md).
 
 >[!NOTE]
 > Se recomienda que mantenga el grupo host de validación para probar todas las actualizaciones futuras.
 
-Antes de empezar, y si aún no lo ha hecho, [descargue e importe el módulo de PowerShell para Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/). Después, ejecute el siguiente cmdlet para iniciar sesión en su cuenta:
+Antes de empezar, y si aún no lo ha hecho, [descargue e importe el módulo de PowerShell para Azure Virtual Desktop](/powershell/windows-virtual-desktop/overview/). Después, ejecute el siguiente cmdlet para iniciar sesión en su cuenta:
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
@@ -77,7 +77,7 @@ Las actualizaciones del servicio se realizan mensualmente. Si hay incidencias im
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha creado un grupo de hosts de validación, puede obtener información sobre cómo usar Azure Service Health para supervisar la implementación de Windows Virtual Desktop.
+Ahora que ha creado un grupo de hosts de validación, puede obtener información sobre cómo usar Azure Service Health para supervisar la implementación de Azure Virtual Desktop.
 
 > [!div class="nextstepaction"]
 > [Configuración de alertas de servicio](set-up-service-alerts-2019.md)

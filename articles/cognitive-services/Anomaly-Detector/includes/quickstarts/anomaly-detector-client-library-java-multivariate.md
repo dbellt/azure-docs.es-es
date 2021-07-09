@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2021
 ms.author: mbullwin
-ms.openlocfilehash: 871c93251f76313f66b10bdfabd0e97f6acff433
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 43ad5918f882a9496cfb9ee7ded13314cfdd87c1
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108333370"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110164628"
 ---
 Comience a usar la biblioteca cliente multivariante de Anomaly Detector para Java. Siga estos pasos para instalar el inicio del paquete con los algoritmos que proporciona el servicio. Las nuevas API de detección de anomalías multivariante permiten a los desarrolladores integrar fácilmente inteligencia artificial avanzada para detectar anomalías de grupos de métricas, sin necesidad de tener conocimientos de aprendizaje automático ni usar datos etiquetados. Las dependencias y correlaciones entre distintas señales se consideran automáticamente como factores clave. De este modo, podrá proteger de forma proactiva los sistemas complejos frente a errores.
 
@@ -104,6 +104,9 @@ import java.util.stream.Collectors;
 ```
 
 Cree variables para el punto de conexión y la clave de Azure del recurso. Cree otra variable para el archivo de datos de ejemplo.
+
+> [!NOTE]
+> Siempre tendrá la opción de usar una de estas dos claves. Esto es para permitir la rotación de claves segura. Para este inicio rápido, use la primera clave. 
 
 ```java
 String key = "YOUR_API_KEY";
@@ -241,6 +244,9 @@ while (true) {
 
 ## <a name="export-model"></a>Exportación de un modelo
 
+> [!NOTE]
+> El comando de exportación está diseñado para permitir la ejecución de modelos multivariados de Anomaly Detector en un entorno en contenedor. Actualmente, no se admite para el multivariado, pero se agregará una compatibilidad en el futuro.
+
 Para exportar el modelo entrenado, use la función `exportModelWithResponse`.
 
 ```java
@@ -275,6 +281,14 @@ Ejecute la aplicación con el objetivo `run`:
 gradle run
 ```
 
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede eliminar el recurso o grupo de recursos. Al eliminar el grupo de recursos, también se elimina cualquier otro recurso que esté asociado a dicho grupo.
+
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [CLI de Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Procedimientos recomendados multivariante de Anomaly Detector](../../concepts/best-practices-multivariate.md)
+* [¿Qué es Anomaly Detector API?](../../overview-multivariate.md)
+* [Procedimientos recomendados cuando se usa Anomaly Detector API.](../../concepts/best-practices-multivariate.md) 
