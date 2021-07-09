@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/05/2020
 ms.author: Zhchia
-ms.openlocfilehash: bbb9b47e42ce195a98801ee08d177efd409c597e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b4643efd197734ff7f12fb7806e474e0419843ed
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181673"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110078595"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>Tutorial: Configuración de PureCloud by Genesis para el aprovisionamiento automático de usuarios
 
@@ -100,27 +100,36 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 9. Revise los atributos de usuario que se sincronizan entre Azure AD y PureCloud by Genesys en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de PureCloud by Genesys para las operaciones de actualización. Si decide cambiar el [atributo de destino coincidente](../app-provisioning/customize-application-attributes.md), deberá asegurarse de que la API de PureCloud by Genesys admite el filtrado de usuarios basado en ese atributo. Seleccione el botón **Guardar** para confirmar los cambios.
 
-     |Atributo|Tipo|
-     |---|---|
-     |userName|String|
+     |Atributo|Tipo|Compatible con el filtrado|
+     |---|---|---|
+     |userName|String|&check;|
      |active|Boolean|
      |DisplayName|String|
      |emails[type eq "work"].value|String|
      |title|String|
      |phoneNumbers[type eq "mobile"].value|String|
      |phoneNumbers[type eq "work"].value|String|
+     |phoneNumbers[type eq "work2"].value|String|
+     |phoneNumberss[type eq "work3"].value|String|
+     |phoneNumbers[type eq "work4"].value|String|
+     |phoneNumbers[type eq "home"].value|String|
+     |phoneNumbers[type eq "microsoftteams"].value|String|
+     |roles|String|
      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referencia|
      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
-     
+     |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
+     |urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:externalIds[authority eq 'microsoftteams'].value|String|     
+     |urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:externalIds[authority eq 'ringcentral'].value|String|    
+     |urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:externalIds[authority eq 'zoomphone].value|String|
 
 10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to PureCloud by Genesys** (Sincronizar grupos de Azure Active Directory con PureCloud by Genesys).
 
 11. Revise los atributos de grupo que se sincronizan entre Azure AD y PureCloud by Genesys en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para establecer coincidencias con los grupos de PureCloud by Genesys con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios. PureCloud by Genesis no admite la creación o eliminación de grupos y solo admite la actualización de grupos.
 
-      |Atributo|Tipo|
-      |---|---|
-      |DisplayName|String|
+      |Atributo|Tipo|Compatible con el filtrado|
+      |---|---|---|
+      |DisplayName|String|&check;|
       |externalId|String|
       |members|Referencia|
 
@@ -149,9 +158,10 @@ Una vez configurado el aprovisionamiento, use los recursos siguientes para super
 
 ## <a name="change-log"></a>Registro de cambios
 
-09/10: se ha agregado compatibilidad con el atributo "employeeNumber" de la empresa.
+* 10/09/2020: se ha agregado compatibilidad con el atributo de empresa de extensión **employeeNumber**.
+* 18/05/2021: se ha agregado compatibilidad con los atributos principales **phoneNumbers[type eq "work2"]** , **phoneNumbers[type eq "work3"]** , **phoneNumbers[type eq "work4"]** , **phoneNumbers[type eq "home"]** , **phoneNumbers[type eq "microsoftteams"]** y roles. Y también se ha agregado compatibilidad con los atributos de extensión personalizados **urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:externalIds[authority eq 'microsoftteams']** , **urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:externalIds[authority eq 'zoomphone]** y **urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:externalIds[authority eq 'ringcentral']** .
 
-## <a name="additional-resources"></a>Recursos adicionales
+## <a name="more-resources"></a>Más recursos
 
 * [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

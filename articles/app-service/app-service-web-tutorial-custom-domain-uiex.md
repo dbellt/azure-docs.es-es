@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18, devx-track-azurepowershell
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1fcf8c681f4fad65209c27663045d4974be633f7
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: bfd3429531f1473e099e3296ebfebd50c6d4d864
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833261"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110787923"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Asignación de un nombre DNS personalizado existente a Azure App Service
 
@@ -314,7 +314,7 @@ Vaya a los nombres DNS que configuró anteriormente.
 <details>
 <summary>Recibo un error HTTP 404 (No encontrado).</summary>
 <ul>
-<li>En el dominio personalizado configurado falta un registro A o un registro CNAME.</li>
+<li>En el dominio personalizado configurado falta un registro A o un registro CNAME.  Compruebe si los registros DNS están expuestos mediante una herramienta de <a href="https://www.nslookup.io/">búsqueda de DNS en línea</a>.</li>
 <li>El cliente del explorador ha almacenado en caché la dirección IP antigua del dominio. Borre la memoria caché y pruebe la resolución DNS de nuevo. En un equipo Windows, borre la memoria caché con <code>ipconfig /flushdns</code>.</li>
 </ul>
 </details>

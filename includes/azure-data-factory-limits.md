@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/16/2020
 ms.author: chez
 ms.custom: include file
-ms.openlocfilehash: 5efc74ec150dcd18181404d93dc2142552a2c792
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 6c991188c266d2e169a7a1d50f4c2ea61f3a51f3
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108807449"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "111350684"
 ---
 Azure Data Factory es un servicio multiinquilino que tiene los siguientes límites predeterminados para asegurarse de que las suscripciones de cliente están protegidas frente a las cargas de trabajo de los demás. Para elevar los límites al máximo de la suscripción, póngase en contacto con el servicio de soporte técnico.
 
@@ -21,11 +21,10 @@ Azure Data Factory es un servicio multiinquilino que tiene los siguientes límit
 
 | Recurso | Límite predeterminado | Límite máximo |
 | -------- | ------------- | ------------- |
-| Factorías de datos por cada grupo de recursos | 800 | 800 |
 | Número total de entidades como canalizaciones, conjuntos de datos, desencadenadores, servicios vinculados, puntos de conexión privados y entornos de ejecución de integración de una factoría de datos | 5\.000 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Núcleos de CPU totales para Azure-SSIS Integration Runtime en una suscripción | 256 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Ejecuciones de canalizaciones simultáneas por factoría de datos compartida entre todas las canalizaciones de la factoría | 10 000  | 10 000 |
-| Ejecuciones de actividades externas simultáneas por suscripción por [región de Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)<br><small>Las actividades externas se administran en el entorno de ejecución de integración, pero se ejecutan en servicios vinculados, incluidos Databricks, procedimiento almacenado, HDInsights, Web, etc. Este límite no se aplica al entorno de ejecución de integración autohospedado.</small> | 3,000 | 3,000 |
+| Ejecuciones de actividades externas simultáneas por suscripción por [región de Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)<br><small>Las actividades externas se administran en el entorno de ejecución de integración, pero se ejecutan en servicios vinculados, incluidos Databricks, procedimiento almacenado, la web, etc. Este límite no se aplica al entorno de ejecución de integración autohospedado.</small> | 3,000 | 3,000 |
 | Ejecuciones de actividades de canalización simultáneas por suscripción por [región de Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location) <br><small>Las actividades de canalización se ejecutan en el entorno de ejecución de integración, lo que incluye Lookup, GetMetadata y Delete. Este límite no se aplica al entorno de ejecución de integración autohospedado.</small> | 1,000 | 1,000                                                        |
 | Operaciones de creación simultáneas por suscripción por [región de Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)<br><small>Se incluye la prueba de la conexión, el examen de las listas de carpetas y tablas y la vista previa de los datos. Este límite no se aplica al entorno de ejecución de integración autohospedado.</small> | 200 | 200                                                          |
 | Uso de unidades de integración de datos simultáneas<sup>1</sup> por suscripción por [región de Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Grupo de regiones 1<sup>2</sup>: 6,000<br>Grupo de regiones 2<sup>2</sup>: 3000<br>Grupo de regiones 3<sup>2</sup>: 1500 | Grupo de regiones 1<sup>2</sup>: 6,000<br/>Grupo de regiones 2<sup>2</sup>: 3000<br/>Grupo de regiones 3<sup>2</sup>: 1500 |

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: d1a730a20ef2ab0fe5e455ef86a428aa1d83fc19
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 55cd7c86ae4f0110618745459cea48abe5e144d0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109683936"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110084581"
 ---
 # <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definición de un nuevo tipo de dispositivo de puerta de enlace de IoT en la aplicación de Azure IoT Central
 
@@ -115,14 +115,14 @@ Para agregar propiedades de la nube a la plantilla **Dispositivo de puerta de en
 
 1. En la plantilla **Dispositivo de puerta de enlace de edificio inteligente** seleccione **Propiedades de la nube**.
 
-1.  Use la información de la tabla siguiente para agregar dos propiedades de la nube a la plantilla de dispositivo de puerta de enlace.
+1. Use la información de la tabla siguiente para agregar dos propiedades de la nube a la plantilla de dispositivo de puerta de enlace.
 
     | Nombre para mostrar      | Tipo semántico | Schema |
     | ----------------- | ------------- | ------ |
     | Fecha de la última revisión | None          | Date   |
     | Nombre del cliente     | None          | String |
 
-2. Seleccione **Guardar**.
+1. Seleccione **Guardar**.
 
 ### <a name="create-views"></a>Creación de vistas
 
@@ -151,7 +151,9 @@ Para publicar la plantilla de dispositivo de puerta de enlace:
 
 3. En el cuadro de diálogo **Publish a Device Template** (Publicar una plantilla de dispositivo), elija **Publicar**.
 
-Una vez publicada una plantilla de dispositivo, es visible en la página **Devices** (Dispositivos) y para el operador. En una plantilla de dispositivo publicada no se puede editar un modelo de dispositivo sin crear una versión. Sin embargo, puede hacer actualizaciones en las propiedades de la nube, las personalizaciones y las vistas en una plantilla de dispositivo publicada. Estas actualizaciones no hacen que se cree una nueva versión. Después de realizar los cambios, seleccione **Publish** (Publicar) para enviar esos cambios al operador.
+Una vez publicada una plantilla de dispositivo, es visible en la página **Devices** (Dispositivos) y para el operador. El operador puede usar la plantilla para crear instancias de dispositivo o establecer las reglas y la supervisión. La edición de una plantilla publicada podría afectar al comportamiento en toda la aplicación.
+
+Para más información sobre cómo modificar una plantilla de dispositivo después de publicarla, consulte [Edición de una plantilla de dispositivo existente](howto-edit-device-template.md).
 
 ## <a name="create-the-simulated-devices"></a>Creación de los dispositivos simulados
 

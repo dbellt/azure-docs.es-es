@@ -5,14 +5,14 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 06/09/2021
 ms.author: victorh
-ms.openlocfilehash: 0e3073c491b251a1dbb505d4656de9c6a1e0ac7f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d7e0cc01d15e33e86f7e9446537fff6d43652256
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048500"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111892861"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Firewall de aplicaciones web en Azure en Azure Front Door
 
@@ -71,11 +71,11 @@ Puede configurar reglas personalizadas de WAF de la siguiente forma:
 
 - **Control de acceso basado en los parámetros HTTP:** puede basar las reglas en coincidencias de cadenas en los parámetros de solicitud HTTP/HTTPS.  Por ejemplo, las cadenas de consulta, los argumentos POST, el URI de solicitud, el encabezado de solicitud y el cuerpo de la solicitud.
 
-- **Control de acceso basado en el método de solicitud:** puede basar las reglas en el método de solicitud HTTP de la solicitud. Por ejemplo, GET, PUT o HEAD.
+- **Control de acceso basado en el método de solicitud**: puede basar las reglas en el método de solicitud HTTP de la solicitud. Por ejemplo, GET, PUT o HEAD.
 
 - **Restricción del tamaño:** puede basar las reglas en las longitudes de determinadas partes de una solicitud, como la cadena de consulta, el URI o el cuerpo de la solicitud.
 
-- **Reglas de limitación de frecuencia:** Las reglas de control de frecuencia están diseñadas para limitar el tráfico anormalmente alto procedente de cualquier dirección IP de cliente. Puede configurar un umbral en función del número de solicitudes web que se permiten de una dirección IP de cliente durante un minuto. Esta regla es distinta de la regla personalizada de permiso o bloqueo basada en la lista de IP que permita o bloquee todas las solicitudes de una IP de cliente. La limitación de velocidad puede combinarse con condiciones de coincidencia adicionales, como la coincidencia de parámetros HTTP(S) para un control granular de la velocidad.
+- **Reglas de límite de frecuencia**: una regla de control de frecuencia limita el tráfico anormalmente alto procedente de cualquier dirección IP del cliente. Puede configurar un umbral en función del número de solicitudes web que se permiten de una dirección IP de cliente durante un minuto. Esta regla es distinta de la regla personalizada de permiso o bloqueo basada en la lista de IP que permita o bloquee todas las solicitudes de una IP de cliente. La limitación de velocidad puede combinarse con condiciones de coincidencia adicionales, como la coincidencia de parámetros HTTP(S) para un control granular de la velocidad.
 
 ### <a name="azure-managed-rule-sets"></a>Conjuntos de reglas administrados por Azure
 
@@ -91,14 +91,10 @@ Los conjuntos de reglas administrados por Azure proporcionan una forma fácil de
 - Protección contra la inyección de código SQL
 - Atacantes de protocolo
 
-El número de versión del conjunto de reglas predeterminado se incrementa cuando se agreguen nuevas firmas de ataque al conjunto de reglas.
-El conjunto de reglas predeterminado está habilitado de forma predeterminada en el modo de detección de las directivas de WAF. Puede deshabilitar o habilitar reglas individuales en el conjunto de reglas predeterminado para satisfacer los requisitos de su aplicación. También puede establecer acciones específicas (ALLOW/BLOCK/REDIRECT/LOG) por regla.
-
-A veces, es posible que tenga que omitir determinados atributos de una solicitud de una evaluación del WAF. Un ejemplo común son los tokens insertados de Active Directory que se usan para la autenticación. Puede configurar una lista de exclusión para una regla administrada, un grupo de reglas o para todo el conjunto de reglas.  
-
-La acción predeterminada es bloquear (BLOCK). Además, las reglas personalizadas pueden configurarse en la misma directiva de WAF si quiere omitir cualquiera de las reglas previamente configuradas en el conjunto de reglas predeterminado.
-
 Las reglas personalizadas se aplican siempre antes de que se evalúen las reglas del conjunto de reglas predeterminado. Si una solicitud coincide con una regla personalizada, se aplica la acción de la regla correspondiente. La solicitud se bloquea o se pasa por el back-end. No se procesa ninguna otra regla personalizada ni las reglas del conjunto de reglas predeterminado. También puede quitar el conjunto de reglas predeterminado de las directivas de WAF.
+
+Para más información, consulte [Reglas y grupos de reglas de DRS de firewall de aplicaciones web](waf-front-door-drs.md).
+
 
 ### <a name="bot-protection-rule-set-preview"></a>Conjunto de reglas de protección contra bots (versión preliminar)
 

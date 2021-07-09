@@ -6,13 +6,13 @@ ms.author: sunila
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 09/22/2020
-ms.openlocfilehash: 6d10298b016cbcf362af2d272f9fa822db6e569d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 06/02/2021
+ms.openlocfilehash: b4fed0e26043e645ece4f35af8b721d858426672
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604760"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111406988"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---flexible-server-in-the-azure-portal"></a>Inicio rápido: Creación de una instancia de Azure Database for PostgreSQL con la opción Servidor flexible mediante Azure Portal
 
@@ -51,7 +51,10 @@ Para crear un servidor de Azure Database for PostgreSQL, siga los pasos siguient
     ---|---|---
     Subscription|Nombre de la suscripción|La suscripción de Azure que desea usar para el servidor. Si tiene varias suscripciones, elija aquella en la que quiere que se le facture el recurso.
     Resource group|*myresourcegroup*| Un nuevo nombre de grupo de recursos o uno existente de la suscripción.
-    Nombre de servidor |*mydemoserver*|Un nombre único que identifique al servidor de Azure Database for PostgreSQL. El nombre de dominio *postgres.database.azure.com* se anexa al nombre del servidor proporcionado. El servidor solo puede contener letras minúsculas, números y el carácter de guion (-). Debe contener al menos entre tres y 63 caracteres.
+    Tipo de carga de trabajo|Selección de SKU predeterminada|Puede elegir entre Desarrollo (SKU ampliable), Producción pequeña/mediana (SKU de uso general) o Producción grande (SKU optimizada para memoria). Puede personalizar aún más la SKU y el almacenamiento al hacer clic en el vínculo *Configurar servidor*.
+    Zona de disponibilidad|Su zona de disponibilidad preferida|Puede elegir en qué zona de disponibilidad quiere que se implemente el servidor. Esto resulta útil para colocarlo en la misma ubicación que la aplicación. Si elige *Sin preferencias*, se selecciona automáticamente una zona de disponibilidad predeterminada.
+    Alta disponibilidad|Habilitar la implementación con redundancia de zona| Al seleccionar esta opción, un servidor en espera con la misma configuración que el servidor principal se aprovisionará automáticamente en una zona de disponibilidad diferente, pero en la misma región. Nota: También puede habilitar o deshabilitar la alta disponibilidad después de crear el servidor.
+    Nombre del servidor |*mydemoserver-pg*|Un nombre único que identifique al servidor de Azure Database for PostgreSQL. El nombre de dominio *postgres.database.azure.com* se anexa al nombre del servidor proporcionado. El servidor solo puede contener letras minúsculas, números y el carácter de guion (-). Debe contener al menos entre tres y 63 caracteres.
     Nombre de usuario administrador |*myadmin*| Su propia cuenta de inicio de sesión para usarla al conectarse al servidor. El nombre de inicio de sesión del administrador no puede ser **azure_superuser,** **azure_pg_admin,** **admin,** **administrator,** **root,** **guest,** ni **public**. No puede empezar por **pg_** .
     Contraseña |La contraseña| Una contraseña nueva para la cuenta de administrador del servidor. Debe tener entre 8 y 128 caracteres. La contraseña debe contener caracteres de tres de las siguientes categorías: Letras del alfabeto inglés mayúsculas y minúsculas, números (0 a 9) y caracteres no alfanuméricos (!, $, #, %, etc.).
     Location|Región más cercana a los usuarios| La ubicación más cercana a los usuarios.
@@ -70,6 +73,7 @@ Para crear un servidor de Azure Database for PostgreSQL, siga los pasos siguient
 
     :::image type="content" source="./media/quickstart-create-database-portal/6-add-client-ip.png" alt-text="Seleccione Agregar dirección IP del cliente actual":::.
 
+    Si elige el acceso privado 
 6. Seleccione **Review + create** (Revisar y crear) para revisar las selecciones. Seleccione **Crear** para realizar el aprovisionamiento del servidor. Esta operación puede tardar algunos minutos.
 
 7. En la barra de herramientas, seleccione el símbolo de **Notificaciones** (una campana) para supervisar el proceso de implementación. Una vez realizada la implementación, puede seleccionar **Anclar al panel** para crear un icono para este servidor en el panel de Azure Portal como un acceso directo a la página **Información general** del servidor. Al seleccionar **Ir al recurso**, se abre la página **Información general** del servidor.
@@ -103,7 +107,7 @@ Hay una serie de aplicaciones que se pueden usar para conectarse al servidor de 
    Por ejemplo, el siguiente comando se conecta a la base de datos predeterminada llamada **postgres** en el servidor PostgreSQL **mydemoserver.postgres.database.azure.com** con las credenciales de acceso. Escriba el valor de `<server_admin_password>` que eligió cuando se le solicitó una contraseña.
   
    ```bash
-   psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin --dbname=postgres
+   psql --host=mydemoserver-pg.postgres.database.azure.com --port=5432 --username=myadmin --dbname=postgres
    ```
 
    Tras conectarse, la utilidad psql muestra un símbolo del sistema de postgres donde escribir comandos sql. En la salida de la conexión inicial, puede aparecer una advertencia, ya que la versión de psql que usa puede diferir de la versión del servidor de Azure Database for PostgreSQL.
@@ -111,13 +115,14 @@ Hay una serie de aplicaciones que se pueden usar para conectarse al servidor de 
    Ejemplo de salida de psql:
 
    ```bash
-   psql (11.3, server 12.1)
-   WARNING: psql major version 11, server major version 12.
-            Some psql features might not work.
-   SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
+   psql (12.3 (Ubuntu 12.3-1.pgdg18.04+1), server 13.2)
+   WARNING: psql major version 12, server major version 13.
+         Some psql features might not work.
+   SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
    Type "help" for help.
 
    postgres=>
+
    ```
 
    > [!TIP]

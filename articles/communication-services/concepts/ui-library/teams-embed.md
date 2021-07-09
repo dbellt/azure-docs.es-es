@@ -4,15 +4,15 @@ titleSuffix: An Azure Communication Services quickstart
 description: En este documento, obtendrá información sobre cómo se puede usar la funcionalidad de inserción de Teams en la biblioteca de la interfaz de usuario de Azure Communication Services para crear experiencias de llamada llave en mano.
 author: tophpalmer
 ms.author: chpalm
-ms.date: 06/30/2021
+ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: c342d839cf794c490903a880bc7578d6cdbe50b1
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 9f56fc5138ce4a632d203976c9255e83e94d3fe0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113112552"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110105452"
 ---
 # <a name="teams-embed"></a>Inserción de Teams
 

@@ -2,17 +2,17 @@
 title: Administración de puntos de conexión y rutas (API y CLI)
 titleSuffix: Azure Digital Twins
 description: Vea cómo configurar y administrar puntos de conexión y rutas de eventos para datos de Azure Digital Twins.
-author: alexkarcher-msft
-ms.author: alkarche
+author: baanders
+ms.author: baanders
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 01511a1c857ff2b4daad2b5865872a717b60a9f1
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 6f7dc93f1e599883354efde888858a3e7e9a5ef8
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109789972"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110615872"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Administración de puntos de conexión y rutas en Azure Digital Twins (API y CLI)
 
@@ -20,13 +20,13 @@ ms.locfileid: "109789972"
 
 En Azure Digital Twins, se pueden enrutar [notificaciones de eventos](concepts-event-notifications.md) a los servicios de bajada o recursos de proceso conectados. Para ello, primero se configuran los **puntos de conexión** que pueden recibir los eventos. Después, puede crear [rutas de eventos](concepts-route-events.md) que especifican qué eventos generados por Azure Digital Twins se entregan a cada punto de conexión.
 
-Este artículo le guiará a través del proceso de creación de puntos de conexión y rutas con las [API REST](/rest/api/azure-digitaltwins/), el [SDK para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) y la [CLI de Azure Digital Twins](concepts-cli.md).
+Este artículo le guiará a través del proceso de creación de puntos de conexión y rutas con las [API REST](/rest/api/azure-digitaltwins/), el [SDK para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) y la [CLI de Azure Digital Twins](/cli/azure/dt?view=azure-cli-latest&preserve-view=true).
 
 También puede administrar los puntos de conexión y las rutas con [Azure Portal](https://portal.azure.com). Para obtener una versión de este artículo que usa el portal en su lugar, consulte [Procedimiento: Administración de puntos de conexión y rutas (portal)](how-to-manage-routes-portal.md) .
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Necesitará una **cuenta de Azure** (puede configurar una de forma gratuita [aquí](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
+- Necesitará una **cuenta de Azure** que puede [configurar de forma gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Necesitará una **instancia de Azure Digital Twins** en su suscripción de Azure. Si no dispone de una instancia, puede crear una con los pasos de [Procedimiento: Configuración de una instancia y autenticación](how-to-set-up-instance-cli.md). Tenga a mano los siguientes valores de configuración para usarlos más adelante en este artículo:
     - Nombre de instancia
     - Grupo de recursos
@@ -48,7 +48,7 @@ En esta sección se explica cómo crear estos puntos de conexión mediante la CL
 
 ### <a name="create-the-endpoint"></a>Creación del punto de conexión
 
-Una vez que haya creado los recursos de punto de conexión, puede usarlos para un punto de conexión de Azure Digital Twins. En los siguientes ejemplos se muestra cómo crear puntos de conexión con el comando [az dt endpoint create](/cli/azure/dt/endpoint/create) para la [CLI de Azure Digital Twins](concepts-cli.md). Reemplace los marcadores de posición de los comandos con los detalles de los recursos propios.
+Una vez que haya creado los recursos de punto de conexión, puede usarlos para un punto de conexión de Azure Digital Twins. En los siguientes ejemplos se muestra cómo crear puntos de conexión con el comando [az dt endpoint create](/cli/azure/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) para la [CLI de Azure Digital Twins](/cli/azure/dt?view=azure-cli-latest&preserve-view=true). Reemplace los marcadores de posición de los comandos con los detalles de los recursos propios.
 
 Para crear un punto de conexión de Event Grid:
 
@@ -88,7 +88,7 @@ az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoin
 
 Cuando un punto de conexión no puede entregar un evento en un período de tiempo determinado o después de haber intentado entregarlo un número determinado de veces, podrá enviar el evento sin entregar a una cuenta de almacenamiento. Este proceso se conoce como **colas de mensajes fallidos**.
 
-Los puntos de conexión con colas de mensajes fallidos habilitadas se pueden configurar con la [CLI](concepts-cli.md) de Azure Digital Twins o las [API de plano de control](concepts-apis-sdks.md#overview-control-plane-apis).
+Los puntos de conexión con colas de mensajes fallidos habilitadas se pueden configurar con la [CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true) de Azure Digital Twins o las [API de plano de control](concepts-apis-sdks.md#overview-control-plane-apis).
 
 Para obtener más información acerca de la opción para poner en cola los mensajes fallidos, consulte [Conceptos: rutas de eventos](concepts-route-events.md#dead-letter-events). Para obtener instrucciones sobre cómo configurar un punto de conexión con mensajes fallidos, continúe con el resto de esta sección.
 
@@ -105,21 +105,21 @@ Siga los pasos que se indican a continuación para configurar estos recursos de 
 3. A continuación, cree un **token de SAS** para la cuenta de almacenamiento que el punto de conexión pueda usar para acceder a ella. Para empezar, vaya a la cuenta de almacenamiento en [Azure Portal](https://ms.portal.azure.com/#home) (puede buscarla por su nombre en la barra de búsqueda del portal).
 4. En la página de la cuenta de almacenamiento, elija el vínculo _Firma de acceso compartido_ en la barra de navegación izquierda para empezar a configurar el token de SAS.
 
-    :::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token-1.png" alt-text="Página de la cuenta de almacenamiento en Azure Portal" lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token-1.png":::
+    :::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token-1.png" alt-text="Captura de pantalla de la página de la cuenta de almacenamiento en Azure Portal." lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token-1.png":::
 
 1. En la página *Firma de acceso compartido*, en *Servicios permitidos* y *Tipos de recursos permitidos*, seleccione la configuración que quiera. Es preciso que seleccione al menos una casilla en cada categoría. En *Permisos permitidos*, elija **Escritura** (también puede seleccionar otros permisos si lo desea).
 1. Establezca los valores que quiera para el resto de la configuración.
 1. Cuando finalice, seleccione el botón _Generar SAS y cadena de conexión_ para generar el token de SAS. 
 
-    :::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token-2.png" alt-text="Página de la cuenta de almacenamiento en Azure Portal que muestra la selección de todos los valores para generar un token de SAS y resalta el botón &quot;Generar SAS y cadena de conexión&quot;" lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token-2.png"::: 
+    :::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token-2.png" alt-text="Captura de pantalla de la página de la cuenta de almacenamiento en Azure Portal que muestra la selección de todos los valores para generar un token de SAS." lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token-2.png"::: 
 
 1. Se generarán varios valores de cadena de conexión y SAS en la parte inferior de la misma página, debajo de las selecciones de configuración. Desplácese hacia abajo para ver los valores y use el icono *Copiar al portapapeles* para copiar el valor del **token de SAS**. Guárdela para usarla más adelante.
 
-    :::image type="content" source="./media/how-to-manage-routes-apis-cli/copy-sas-token.png" alt-text="Copie el token de SAS que se va a usar en el secreto de mensajes fallidos." lightbox="./media/how-to-manage-routes-apis-cli/copy-sas-token.png":::
+    :::image type="content" source="./media/how-to-manage-routes-apis-cli/copy-sas-token.png" alt-text="Captura de pantalla de la página de la cuenta de almacenamiento de Azure Portal que destaca cómo copiar el token de SAS para usarlo en el secreto de mensajes fallidos." lightbox="./media/how-to-manage-routes-apis-cli/copy-sas-token.png":::
     
 #### <a name="create-the-dead-letter-endpoint"></a>Creación del punto de conexión de cola de mensajes fallidos
 
-Para crear un punto de conexión que tenga habilitada la cola de mensajes fallidos, agregue el siguiente parámetro de cola de mensajes fallidos al comando [az dt endpoint create](/cli/azure/dt/endpoint/create) para la [CLI de Azure Digital Twins](concepts-cli.md).
+Para crear un punto de conexión que tenga habilitada la cola de mensajes fallidos, agregue el siguiente parámetro de cola de mensajes fallidos al comando [az dt endpoint create](/cli/azure/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) para la [CLI de Azure Digital Twins](/cli/azure/dt?view=azure-cli-latest&preserve-view=true).
 
 El valor del parámetro es el **URI de SAS de cola de mensajes fallidos** formado por el nombre de la cuenta de almacenamiento, el nombre del contenedor y el token de SAS que ha recopilado en la [sección anterior](#set-up-storage-resources). Este parámetro crea el punto de conexión con la autenticación basada en claves.
 
@@ -154,7 +154,7 @@ az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoin
 
 Una vez configurado el punto de conexión con mensajes fallidos, los mensajes fallidos que están en cola se almacenarán con el formato siguiente en la cuenta de almacenamiento:
 
-`{container}/{endpoint-name}/{year}/{month}/{day}/{hour}/{event-ID}.json`
+`<container>/<endpoint-name>/<year>/<month>/<day>/<hour>/<event-ID>.json`
 
 Los mensajes fallidos en cola coinciden con el esquema del evento original que se diseñó para entregarse al punto de conexión original.
 
@@ -167,7 +167,7 @@ A continuación se muestra un ejemplo de un mensaje fallido en cola de una [noti
   "type": "Microsoft.DigitalTwins.Twin.Create",
   "source": "<your-instance>.api.<your-region>.da.azuredigitaltwins-test.net",
   "data": {
-    "$dtId": "<yourInstance>xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "$dtId": "<your-instance>xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "$etag": "W/\"xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
     "TwinData": "some sample",
     "$metadata": {
@@ -177,7 +177,7 @@ A continuación se muestra un ejemplo de un mensaje fallido en cola de una [noti
       }
     }
   },
-  "subject": "<yourInstance>xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "subject": "<your-instance>xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "time": "2020-10-14T01:11:49.3667224Z",
   "datacontenttype": "application/json",
   "traceparent": "00-889a9094ba22b9419dd9d8b3bfe1a301-f6564945cb20e94a-01"
@@ -204,11 +204,11 @@ Si no hay ningún nombre de ruta, no se enruta ningún mensaje fuera de Azure Di
 
 Una ruta debe permitir que se seleccionen varias notificaciones y tipos de evento. 
 
-Las rutas de eventos se pueden crear con las API de plano de datos [EventRoutes](/rest/api/digital-twins/dataplane/eventroutes) de Azure Digital Twins o los comandos [az dt route de la CLI](/cli/azure/dt/route). En el resto de esta sección se le guía a través del proceso de creación.
+Las rutas de eventos se pueden crear con las API de plano de datos [EventRoutes](/rest/api/digital-twins/dataplane/eventroutes) de Azure Digital Twins o los comandos [az dt route de la CLI](/cli/azure/dt/route?view=azure-cli-latest&preserve-view=true). En el resto de esta sección se le guía a través del proceso de creación.
 
 ### <a name="create-routes-with-the-apis-and-c-sdk"></a>Creación de rutas con las API y el SDK de C#
 
-Una manera de definir rutas de eventos consiste en usar las [API de plano de datos](concepts-apis-sdks.md#overview-data-plane-apis). Los ejemplos de esta sección usan el [SDK de .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client).
+Una manera de definir rutas de eventos consiste en usar las [API de plano de datos](concepts-apis-sdks.md#overview-data-plane-apis). Los ejemplos de esta sección usan el [SDK de .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
 
 `CreateOrReplaceEventRouteAsync` es la llamada de SDK que se usa para agregar una ruta de evento. A continuación se muestra un ejemplo del uso:
 
@@ -225,7 +225,7 @@ En el método de ejemplo siguiente se muestra cómo crear, enumerar y eliminar u
 
 ### <a name="create-routes-with-the-cli"></a>Creación de rutas con la CLI
 
-Las rutas también se pueden administrar mediante los comandos [az dt route](/cli/azure/dt/route) de la CLI de Azure Digital Twins. 
+Las rutas también se pueden administrar mediante los comandos [az dt route](/cli/azure/dt/route?view=azure-cli-latest&preserve-view=true) de la CLI de Azure Digital Twins. 
 
 Para obtener más información sobre el uso de la CLI y los comandos disponibles, vea [Conceptos: Conjunto de comandos de la CLI de Azure Digital Twins](concepts-cli.md).
 
@@ -243,7 +243,7 @@ Puede restringir los eventos que se envían mediante la incorporación de un **f
 >
 > Para los filtros de telemetría, esto significa que el uso de mayúsculas debe coincidir con el de la telemetría enviada por el dispositivo, y no necesariamente con el uso de mayúsculas definido en el modelo del gemelo. 
 
-Para agregar un filtro, puede usar una solicitud PUT a `https://{Your-azure-digital-twins-host-name}/eventRoutes/{event-route-name}?api-version=2020-10-31` con el siguiente cuerpo:
+Para agregar un filtro, puede usar una solicitud PUT a `https://<Your-Azure-Digital-Twins-host-name>/eventRoutes/<event-route-name>?api-version=2020-10-31` con el siguiente cuerpo:
 
 :::code language="json" source="~/digital-twins-docs-samples/api-requests/filter.json":::
 

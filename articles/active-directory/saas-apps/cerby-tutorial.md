@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/13/2021
+ms.date: 05/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 650df4d85d01b9617e094faf4cf7952da1f8eb9f
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: ac95a6eecba6311f81b4dc871775c99698be2244
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108134519"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467226"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cerby"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Cerby
 
@@ -96,13 +96,14 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con el identificador y las direcciones URL de inicio de sesión y de respuesta reales. Para obtener estos valores, póngase en contacto con el [equipo de soporte técnico para clientes de Cerby](mailto:help@cerby.com). También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
+1. La aplicación Cerby espera las aserciones de SAML en un formato específico, lo que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de pantalla le muestra un ejemplo de esto. El valor predeterminado de **Nombre** es **user.userprincipalname** pero Cerby espera que este valor se asigne al nombre de pila del usuario. Para ello, puede usar el atributo **user.givenname** de la lista, o bien el valor del atributo correspondiente en función de la configuración de su organización.
 
-    ![Vínculo de descarga del certificado](common/certificatebase64.png)
+    ![imagen](common/default-attributes.png)
 
-1. En la sección **Configurar Cerby**, copie las direcciones URL adecuadas según sus necesidades.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 
-    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+    ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
@@ -129,7 +130,7 @@ En esta sección, va a permitir que B. Simon acceda a Cerby mediante el inicio 
 
 ## <a name="configure-cerby-sso"></a>Configuración del inicio de sesión único de Cerby
 
-Para configurar el inicio de sesión único en **Cerby**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de Cerby](mailto:help@cerby.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en Cerby, debe enviar la **dirección URL de metadatos de federación de aplicación** al [equipo de soporte técnico de Cerby](mailto:help@cerby.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-cerby-test-user"></a>Creación de un usuario de prueba en Cerby
 

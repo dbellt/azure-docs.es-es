@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
 ms.custom: contperf-fy21q2; references_regions
-ms.openlocfilehash: a4b528a0a8abac2cad9b68ed145c5cc137efba26
-ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
+ms.openlocfilehash: 2eaf5a6a01b8ed0cb2a82f13c2d4d33ce88d5938
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109664355"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110100422"
 ---
 # <a name="what-is-custom-speech"></a>¿Qué es Custom Speech?
 
-[Habla personalizada](https://aka.ms/customspeech) es una herramienta basada en una interfaz de usuario que permite evaluar y mejorar la precisión de la conversión de voz en texto de Microsoft para las aplicaciones y productos. Para empezar a usarlo solo se necesita una serie de archivos de audio de prueba. Siga los vínculos de este artículo para empezar a crear una experiencia personalizada de conversión de voz a texto.
+Habla personalizada permite evaluar y mejorar la precisión de la conversión de voz en texto de Microsoft para las aplicaciones y productos. Siga los vínculos de este artículo para empezar a crear una experiencia personalizada de conversión de voz a texto.
 
 ## <a name="whats-in-custom-speech"></a>¿Qué incluye Custom Speech?
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/21/2018
 ms.author: yegu
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: e4c58d67668a67eee38a73d46a2a40ca29c1dfd8
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 311b6a603d0c68699155510797f1dd75e3cf915a
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102121259"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110655391"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-nodejs"></a>Inicio rápido: Uso de Azure Cache for Redis con Node.js
 
@@ -26,26 +26,31 @@ Si quiere pasar directamente al código, consulte [Inicio rápido: Uso de Azure 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
-- [node_redis](https://github.com/mranney/node_redis), que se puede instalar con el comando `npm install redis`. 
+- [node_redis](https://github.com/mranney/node_redis), que se puede instalar con el comando `npm install redis`.
 
 Para ver ejemplos del uso de otros clientes de Node.js, consulte la documentación individual de los clientes de Node.js, que encontrará en [clientes Redis de Node.js](https://redis.io/clients#nodejs).
 
 ## <a name="create-a-cache"></a>Creación de una caché
+
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
+Agregue variables de entorno para el **nombre de host** y la clave de acceso **Principal**. Use estas variables desde el código en lugar de incluir la información confidencial directamente en el código.
 
-Agregue variables de entorno para el **nombre de host** y la clave de acceso **Principal**. Utilizará estas variables desde el código en lugar de incluir la información confidencial directamente en el código.
-
+```powershell
+set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
+set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
+
+```powershell
 set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
 set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 ## <a name="connect-to-the-cache"></a>Conexión a la memoria caché
 
-Las compilaciones más recientes de [node_redis](https://github.com/mranney/node_redis) permiten conectarse a Azure Redis Cache mediante TLS. En el ejemplo siguiente se muestra cómo conectarse a Azure Redis Cache con el punto de conexión TLS de 6380. 
+Las compilaciones más recientes de [node_redis](https://github.com/mranney/node_redis) permiten conectarse a Azure Redis Cache mediante TLS. En el ejemplo siguiente se muestra cómo conectarse a Azure Redis Cache con el punto de conexión TLS de 6380.
 
 ```js
 var redis = require("redis");
@@ -55,7 +60,7 @@ var client = redis.createClient(6380, process.env.REDISCACHEHOSTNAME,
     {auth_pass: process.env.REDISCACHEKEY, tls: {servername: process.env.REDISCACHEHOSTNAME}});
 ```
 
-No cree una conexión nueva para cada operación en el código. En su lugar, reutilice las conexiones tanto como sea posible. 
+No cree una conexión nueva para cada operación en el código. En su lugar, reutilice las conexiones tanto como sea posible.
 
 ## <a name="create-a-new-nodejs-app"></a>Creación de una nueva aplicación Node.js
 
@@ -105,7 +110,7 @@ testCache();
 
 Ejecute el script con Node.js.
 
-```
+```powershell
 node redistest.js
 ```
 
@@ -115,9 +120,9 @@ En el ejemplo siguiente, puede ver que la clave `Message` tenía anteriormente u
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si va a seguir con el tutorial siguiente, puede mantener los recursos creados en esta guía de inicio rápido y volverlos a utilizar.
+Si continúa con el siguiente tutorial, puede mantener los recursos creados en este inicio rápido y volverlos a usar.
 
-En caso contrario, si ya ha terminado con la aplicación de ejemplo de la guía de inicio rápido, puede eliminar los recursos de Azure creados en este tutorial para evitar cargos. 
+En caso contrario, si ya ha terminado con la aplicación de ejemplo de la guía de inicio rápido, puede eliminar los recursos de Azure creados en este tutorial para evitar cargos.
 
 > [!IMPORTANT]
 > La eliminación de un grupo de recursos es irreversible y el grupo de recursos y todos los recursos que contiene se eliminarán de forma permanente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados. Si ha creado los recursos para hospedar este ejemplo dentro de un grupo de recursos existente que contiene recursos que desea mantener, puede eliminar cada recurso individualmente de sus hojas respectivas, en lugar de eliminar el grupo de recursos.

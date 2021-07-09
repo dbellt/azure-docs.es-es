@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Exploración de un escenario de ejemplo'
+title: 'Inicio rápido: introducción a Azure Digital Twins Explorer'
 titleSuffix: Azure Digital Twins
 description: 'Inicio rápido: Uso del ejemplo de Azure Digital Twins Explorer para visualizar y explorar un escenario precompilado.'
 author: baanders
@@ -7,109 +7,71 @@ ms.author: baanders
 ms.date: 4/27/2021
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 128bc90ec019927a34d258d3cc58286c5b5ab048
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d4315ff04235e4b555a201e9da7287339b0de125
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110092303"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110450815"
 ---
-# <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-azure-digital-twins-explorer"></a>Inicio rápido: Exploración de un escenario de Azure Digital Twins de ejemplo mediante Azure Digital Twins Explorer
+# <a name="quickstart---get-started-with-a-sample-scenario-in-azure-digital-twins-explorer"></a>Inicio rápido: introducción a un escenario de ejemplo de Azure Digital Twins Explorer
 
 Con Azure Digital Twins, puede crear modelos en directo de los entornos del mundo real e interactuar con ellos. En primer lugar, los elementos individuales se modelan como **gemelos digitales**. A continuación, se conectan en un **grafo** de conocimiento que puede dar respuesta a eventos en directo y en el que se puede consultar información.
 
-En este inicio rápido, explorará un grafo de Azure Digital Twins precompilado con la ayuda de una aplicación de ejemplo llamada [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Azure Digital Twins Explorer se usa para:
+En este inicio rápido, explorará un grafo de Azure Digital Twins precompilado con la ayuda de [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md). Se trata de una herramienta que permite visualizar e interactuar con los datos Azure Digital Twins en Azure Portal.
 
-- Cargar una representación digital de un entorno.
-- Ver las imágenes visuales de los gemelos y del grafo que se crean para representar el entorno en Azure Digital Twins.
-- Realizar otras actividades de administración mediante una experiencia visual basada en explorador.
+Deberá completar los pasos siguientes:
 
-La guía de inicio rápido contiene los siguientes pasos principales:
-
-1. Configuración de una instancia de Azure Digital Twins y de Azure Digital Twins Explorer.
+1. Creación de una instancia de Azure Digital Twins y conexión a esta en Azure Digital Twins Explorer.
 1. Carga de los modelos precompilados y los datos del grafo para construir el escenario de ejemplo.
 1. Exploración del grafo del escenario que se crea.
 1. Realización de cambios en el grafo.
+1. Revisión de los aprendizajes de la experiencia.
 
-El grafo de ejemplo con el que va a trabajar representa un edificio de dos plantas y dos salas. El grafo será como el de esta imagen:
+El grafo de ejemplo con el que va a trabajar representa un edificio de dos plantas y dos salas. Floor0 contiene Room0 y Floor1 contiene Room1. El grafo será como el de esta imagen:
 
-:::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-full.png" alt-text="Vista de un grafo compuesto por cuatro nodos circulares conectados por flechas. Un círculo &quot;Floor1&quot; está conectado mediante una flecha &quot;contains&quot; a un círculo &quot;Room1&quot;. Un círculo &quot;Floor0&quot; está conectado mediante una flecha &quot;contains&quot; a un círculo &quot;Room0&quot;. &quot;Floor1&quot; y &quot;Floor0&quot; no están conectados.":::
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-full.png" alt-text="Captura de pantalla de un grafo formado por cuatro nodos circulares conectados por flechas en Azure Digital Twins Explorer.":::
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Necesitará una suscripción de Azure para completar esta guía de inicio rápido. Si aún no tiene una, [cree una gratis](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
-También necesitará **Node.js** en su equipo. Para obtener la versión más reciente, consulte [Node.js](https://nodejs.org/).
+También deberá descargar los materiales del grafo de ejemplo usado en el inicio rápido. Use los vínculos y las instrucciones siguientes para descargar los tres archivos necesarios desde el repositorio [digital-twins-explorer de GitHub](https://github.com/Azure-Samples/digital-twins-explorer).
+* [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Room.json): vaya al vínculo, haga clic con el botón derecho en cualquier lugar de la pantalla y seleccione **Guardar como** en el menú contextual del explorador. Use la siguiente ventana Guardar como para guardar el archivo en algún lugar del equipo con el nombre **Room.json**.
+* [Floor.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Floor.json): vaya al vínculo, haga clic con el botón derecho en cualquier lugar de la pantalla y seleccione **Guardar como** en el menú contextual del explorador. Use la siguiente ventana Guardar como para guardar el archivo en la misma ubicación que el archivo **Room.json**, con el nombre **Floor.json**.
+* [buildingScenario.xlsx](https://github.com/Azure-Samples/digital-twins-explorer/blob/main/client/examples/buildingScenario.xlsx): vaya al vínculo y seleccione el botón **Descargar**. El archivo se descargará en la ubicación de descarga predeterminada.
 
-Por último, también deberá descargar el ejemplo que se usará durante el inicio rápido. La aplicación de ejemplo es **Azure Digital Twins Explorer**. Este ejemplo contiene la aplicación que se usa en el inicio rápido para cargar y explorar un escenario de Azure Digital Twins. También contiene los archivos del escenario de ejemplo. Para obtener el ejemplo, vaya a [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Seleccione el botón **Browse code** (Examinar código) debajo del título, que le llevará al repositorio de GitHub del ejemplo. Seleccione el botón **Código** y **Descargar archivo ZIP** para descargar el ejemplo en forma de archivo .zip. 
-
-:::image type="content" source="media/quickstart-azure-digital-twins-explorer/download-repo-zip.png" alt-text="Captura de pantalla del repositorio digital-twins-explorer en GitHub. El botón Código está seleccionado y se muestra un pequeño cuadro de diálogo en el que el botón Descargar archivo ZIP está resaltado." lightbox="media/quickstart-azure-digital-twins-explorer/download-repo-zip.png":::
-
-Descomprima la carpeta **digital-twins-explorer-main.zip** y extraiga los archivos.
+    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/download-building-scenario.png" alt-text="Captura de pantalla del archivo digital-twins-explorer/client/examples/buildingScenario.xlsx en GitHub. El botón Descargar está resaltado." lightbox="media/quickstart-azure-digital-twins-explorer/download-building-scenario.png":::
 
 ## <a name="set-up-azure-digital-twins-and-azure-digital-twins-explorer"></a>Configuración de Azure Digital Twins y Azure Digital Twins Explorer
 
-El primer paso para trabajar con Azure Digital Twins es configurar una instancia de Azure Digital Twins. Después de crear una instancia del servicio y configurar las credenciales para autenticarse con Azure Digital Twins Explorer, puede conectarse a la instancia de Azure Digital Twins Explorer y rellenarla con los datos de ejemplo más adelante en el inicio rápido.
+El primer paso para trabajar con Azure Digital Twins es configurar una instancia de Azure Digital Twins. Después de crear una instancia del servicio, puede conectarse a la instancia de Azure Digital Twins Explorer y rellenarla con los datos de ejemplo más adelante en el inicio rápido.
 
 El resto de esta sección le guía a través de estos pasos.
 
 ### <a name="set-up-an-azure-digital-twins-instance"></a>Configurará una instancia de Azure Digital Twins.
 
-[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+Para trabajar con Azure Digital Twins en este artículo, antes es preciso *configurar una instancia de Azure Digital Twins* y los permisos necesarios para usarla.
 
-### <a name="set-up-local-azure-credentials"></a>Configuración de credenciales locales de Azure
+Siga las instrucciones que se indican en [Configuración de una instancia y autenticación](how-to-set-up-instance-portal.md). Las instrucciones contienen información que le ayudará a comprobar que ha completado cada paso correctamente.
 
-La aplicación Azure Digital Twins Explorer usa [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet&preserve-view=true) (parte de la biblioteca `Azure.Identity`) para autenticar a los usuarios en la instancia de Azure Digital Twins cuando la ejecuta en la máquina local. Para más información sobre las distintas formas en que una aplicación cliente puede autenticarse con Azure Digital Twins, consulte [Escritura de código de autenticación de aplicación](how-to-authenticate-client.md).
+### <a name="open-instance-in-azure-digital-twins-explorer"></a>Abra la instancia en Azure Digital Twins Explorer.
 
-Con este tipo de autenticación, Azure Digital Twins Explorer buscará las credenciales en el entorno local, por ejemplo, un inicio de sesión de Azure en una [CLI de Azure](/cli/azure/install-azure-cli) local o en Visual Studio o Visual Studio Code. Por este motivo, debe **iniciar sesión en Azure localmente** mediante uno de estos mecanismos para configurar las credenciales de la aplicación Azure Digital Twins Explorer.
+A continuación, abra Azure Digital Twins Explorer para su instancia en [Azure Portal](https://portal.azure.com). 
 
-Si ya ha iniciado sesión en Azure mediante una de estas formas, puede pasar directamente a la [siguiente sección](#run-and-configure-azure-digital-twins-explorer).
+Para hacerlo, vaya a Azure Portal y escriba el nombre de su nueva instancia de Azure Digital Twins en la barra de búsqueda para encontrarla.
 
-De lo contrario, puede instalar la CLI de Azure local con estos pasos:
+A continuación, seleccione el botón **Azure Digital Twins Explorer (versión preliminar)** .
 
-1. Siga el proceso que se describe en [este vínculo de instalación](/cli/azure/install-azure-cli) para completar la instalación correspondiente a su sistema operativo.
-1. Abra una ventana de la consola en la máquina.
-1. Ejecute `az login` y siga los avisos de autenticación para iniciar sesión en su cuenta de Azure.
-1. Posible último paso: si usa varias suscripciones de Azure en esta cuenta, establezca el contexto de autenticación en la suscripción de Azure que contiene la instancia de Azure Digital Twins. Para eso, ejecute `az account set --subscription "<your-subscription-name-or-ID>"` (el nombre o el valor del identificador de la suscripción servirán).
+:::image type="content" source="media/includes/azure-digital-twins-explorer-portal-access.png" alt-text="Captura de pantalla de Azure Portal que muestra la página Información general de una instancia de Azure Digital Twins. Se ha resaltado el contorno del botón Abrir Azure Digital Twins Explorer (versión preliminar)." lightbox="media/includes/azure-digital-twins-explorer-portal-access.png":::
 
-Después de iniciar sesión, Azure Digital Twins Explorer debería seleccionar sus credenciales de Azure automáticamente al ejecutarlo en la sección siguiente.
+Se abrirá una ventana Azure Digital Twins Explorer conectada a la instancia.
 
-Si lo desea, puede cerrar la ventana de la consola de autenticación. O bien, puede mantenerla abierta para usarla en el paso siguiente.
-
-### <a name="run-and-configure-azure-digital-twins-explorer"></a>Ejecución y configuración de Azure Digital Twins Explorer
-
-A continuación, ejecute la aplicación Azure Digital Twins Explorer y configúrela para su instancia de Azure Digital Twins.
-
-1. Vaya a la carpeta **digital-twins-explorer-main** descargada y descomprimida.
-Abra una ventana de la consola en la ubicación de la carpeta **digital-twins-explorer-main/client/src**.
-
-1. Ejecute `npm install` para descargar todas las dependencias necesarias.
-
-1. Ejecute `npm run start` para iniciar la aplicación.
-
-   Al cabo de unos segundos, se abre una ventana del explorador y aparece ahí la aplicación.
-
-   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/explorer-blank.png" alt-text="Ventana del explorador que muestra una aplicación que se ejecuta en localhost:3000. La aplicación se llama Azure Digital Twins Explorer y contiene los paneles Query Explorer (Explorador de consultas), Models (Modelos), Graph View (Vista de grafo) y Properties (Propiedades). Todavía no hay datos en pantalla." lightbox="media/quickstart-azure-digital-twins-explorer/explorer-blank.png":::
-
-1. Seleccione el botón **Iniciar sesión** en la esquina superior derecha de la ventana, como se muestra en la siguiente imagen, para configurar Azure Digital Twins Explorer para que funcione con la instancia que ha configurado.
-
-   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/sign-in.png" alt-text="En Azure Digital Twins Explorer se resalta el icono Iniciar sesión cerca de la parte superior de la ventana. El icono muestra una silueta simple de una persona superpuesta con la silueta de una llave." lightbox="media/quickstart-azure-digital-twins-explorer/sign-in.png":::
-
-1. Escriba la dirección URL de la instancia de Azure Digital Twins que recopiló anteriormente en la sección [Configuración de una instancia de Azure Digital Twins](#set-up-an-azure-digital-twins-instance), con el formato *https://<instancia-host-nombre>* .
-
-> [!TIP]
-> Si aparece un mensaje de error de `SignalRService.subscribe` al conectarse, asegúrese de que la dirección URL de Azure Digital Twins comienza por *https://* .
->
-> Si aparece un error de autenticación, es posible que quiera comprobar las **variables de entorno** para asegurarse de que las credenciales incluidas allí son válidas para Azure Digital Twins. Los intentos de `DefaultAzureCredential` de autenticación con tipos de credenciales en un [orden específico](/dotnet/api/overview/azure/identity-readme#defaultazurecredential) y las variables de entorno se evalúan primero.
-
-Si ve la ventana emergente **Permisos solicitados** de Microsoft, conceda el consentimiento para esta aplicación y acepte para continuar.
-
->[!NOTE]
-> Puede revisar o editar esta información en cualquier momento; solo tiene que seleccionar el mismo icono para volver a abrir el cuadro **Sign In** (Iniciar sesión). Mantendrá los valores que ha especificado.
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/explorer-blank.png" alt-text="Captura de pantalla Azure Digital Twins Explorer en un explorador de Internet." lightbox="media/quickstart-azure-digital-twins-explorer/explorer-blank.png":::
 
 ## <a name="add-the-sample-data"></a>Adición de los datos de ejemplo
 
-A continuación, importará el escenario de ejemplo y el grafo en Azure Digital Twins Explorer. El escenario de ejemplo también se encuentra en la carpeta **digital-twins-explorer-main** que descargó anteriormente.
+A continuación, importará el escenario de ejemplo y el grafo en Azure Digital Twins Explorer. El escenario de ejemplo se encuentra en la carpeta **digital-twins-explorer-main** que descargó en la sección [Requisitos previos](#prerequisites).
 
 ### <a name="models"></a>Modelos
 
@@ -132,18 +94,18 @@ En este inicio rápido, los archivos del modelo ya se han escrito y validado. Es
 
 Siga estos pasos para cargar los modelos.
 
-1. En el panel **MODELS** (MODELOS), seleccione el icono **Upload a Model** (Cargar un modelo).
+1. En el panel **Modelos**, seleccione el icono **Upload a Model** (Cargar un modelo) que muestra una flecha que apunta a una nube.
 
-   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/upload-model.png" alt-text="En el panel Models (Modelos), el icono central está resaltado. Muestra una flecha que apunta a una nube." lightbox="media/quickstart-azure-digital-twins-explorer/upload-model.png":::
+   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/upload-model.png" alt-text="Captura de pantalla de Azure Digital Twins Explorer, con el panel Modelos resaltado y el icono &quot;Cargar un modelo&quot;." lightbox="media/quickstart-azure-digital-twins-explorer/upload-model.png":::
  
-1. En la ventana del selector de archivos que aparece, vaya a la carpeta **digital-twins-explorer-main/client/examples** en el repositorio descargado.
-1. Seleccione **Room.json** y **Floor.json** y, luego, **OK** (ACEPTAR). Aunque puede cargar otros modelos si así lo desea, no se usarán en este inicio rápido.
+1. En la ventana Abrir que aparece, vaya a la que contiene los archivos **Room.json** y **Floor.json** que descargó anteriormente.
+1. Seleccione **Room.json** y **Floor.json**, y seleccione **Abrir** para cargarlos. 
 
-Ahora, Azure Digital Twins Explorer carga estos archivos del modelo en la instancia de Azure Digital Twins. Deberían aparecer en el panel **MODELS** (MODELOS), que muestra los nombres descriptivos y los identificadores del modelo completos. Puede seleccionar los iconos de información **View Model** (Ver modelo) para ver el código DTDL subyacente.
+Azure Digital Twins Explorer cargará estos archivos del modelo en su instancia de Azure Digital Twins. Deberían aparecer en el panel **Modelos** con los nombres descriptivos y los identificadores del modelo completos. Puede seleccionar los iconos de información **View Model** (Ver modelo) para ver el código DTDL subyacente.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/model-info.png" alt-text="Panel Models (Modelos) con dos definiciones de modelo en su interior, Floor (dtmi:example:Floor;1) y Room (dtmi:example:Room;1). El icono de información &quot;View Model&quot; (Ver modelo) muestra una letra &quot;i&quot; en un círculo resaltada para cada modelo." lightbox="media/quickstart-azure-digital-twins-explorer/model-info.png":::
+        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/model-info.png" alt-text="Captura de pantalla de Azure Digital Twins Explorer que muestra el panel Modelos con dos definiciones de modelo, Floor y Room." lightbox="media/quickstart-azure-digital-twins-explorer/model-info.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -157,7 +119,7 @@ Ahora que se han cargado algunos modelos en la instancia de Azure Digital Twins,
 
 Los gemelos digitales representan las entidades reales dentro del entorno empresarial. Pueden ser cosas como sensores de una granja, luces de un coche o, en este inicio rápido, salas de la planta de un edificio. Puede crear muchos gemelos de un tipo de modelo determinado, como varias salas que usen todas el modelo Room. Estos gemelos se conectan mediante relaciones en un **grafo de gemelos** que representa todo el entorno.
 
-En esta sección, cargará los gemelos creados previamente que están conectados en un grafo ya creado. El grafo contiene dos plantas y dos salas, conectadas en el siguiente diseño:
+En esta sección, cargará los gemelos creados previamente que están conectados en un grafo creado previamente. El grafo contiene dos plantas y dos salas, conectadas en el siguiente diseño:
 
 * Floor0
     - Contains Room0
@@ -168,49 +130,49 @@ En esta sección, cargará los gemelos creados previamente que están conectados
 
 Siga estos pasos para importar el grafo.
 
-1. En el panel **TWIN GRAPH** (GRAFO DE GEMELOS), seleccione el icono **Import Graph** (Importar grafo).
+1. En el panel **Twin Graph** (Grafo gemelo), seleccione el icono **Import Graph** (Importar grafo) que muestra una flecha que apunta a una nube.
 
-   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/import-graph.png" alt-text="En el panel Graph View (Vista de grafo), hay un icono resaltado. Muestra una flecha que apunta a una nube." lightbox="media/quickstart-azure-digital-twins-explorer/import-graph.png":::
+   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/import-graph.png" alt-text="Captura de pantalla de Azure Digital Twins Explorer muestra el panel Vista gráfico, con el icono &quot;Importar gráfico&quot; resaltado." lightbox="media/quickstart-azure-digital-twins-explorer/import-graph.png":::
 
-2. En la ventana del selector de archivos, vaya a la carpeta **digital-twins-explorer-main/client/examples** y elija el archivo de hoja de cálculo **buildingScenario.xlsx**. Este archivo contiene una descripción del grafo de ejemplo. Seleccione **Aceptar**.
+2. En la ventana Abrir, vaya al archivo **buildingScenario.xlsx** que descargó anteriormente. Este archivo contiene una descripción del grafo de ejemplo. seleccione **Open**(Abrir).
 
    Al cabo de unos segundos, Azure Digital Twins Explorer abre una vista **Import** (Importar) que muestra una vista previa del grafo que se va a cargar.
 
-3. Para confirmar la carga del grafo, seleccione el icono **Save** (Guardar) situado en la esquina superior derecha del panel **TWIN GRAPH** (GRAFO DE GEMELOS).
+3. Para confirmar la carga del grafo, seleccione el icono **Guardar** situado en la esquina superior derecha del cuadro panel de vista previa del grafo.
 
    :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png" alt-text="Resaltado del icono Save (Guardar) en el panel de vista previa del grafo." lightbox="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png":::
+        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png" alt-text="Captura de pantalla de Azure Digital Twins Explorer con el icono Guardar del panel de vista previa del grafo resaltado." lightbox="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
    :::row-end:::
 
-4. Ahora, Azure Digital Twins Explorer usa ahora el archivo cargado para crear los gemelos solicitados y las relaciones entre ellos. Al terminar, aparecerá un cuadro de diálogo. Seleccione **Close** (Cerrar).
+4. Azure Digital Twins Explorer usará el archivo cargado para crear los gemelos solicitados y las relaciones entre ellos. Al terminar, aparecerá un cuadro de diálogo. Seleccione **Close** (Cerrar).
 
    :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/import-success.png" alt-text="Cuadro de diálogo que indica que el grafo se ha importado correctamente. Indica &quot;Importación correcta. 4 gemelos importados. 2 relaciones importadas.&quot;" lightbox="media/quickstart-azure-digital-twins-explorer/import-success.png":::
+        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/import-success.png" alt-text="Captura de pantalla de Azure Digital Twins Explorer que muestra un cuadro de diálogo que indica que la importación del grafo se ha realizado correctamente." lightbox="media/quickstart-azure-digital-twins-explorer/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
    :::row-end:::
 
-5. El grafo ya se ha cargado en Azure Digital Twins Explorer. Vuelva al panel **TWIN GRAPH** (GRAFO DE GEMELOS).
+5. El grafo ya se ha cargado en Azure Digital Twins Explorer. Vuelva al panel **Twin Graph** (Grafo gemelo).
  
-   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/twin-graph-tab.png" alt-text="La pestaña Twin Graph (Grafo de gemelos) está resaltada." lightbox="media/quickstart-azure-digital-twins-explorer/twin-graph-tab.png":::
+   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/twin-graph-tab.png" alt-text="Captura de pantalla de Azure Digital Twins Explorer con la pestaña Grafo gemelo resaltada." lightbox="media/quickstart-azure-digital-twins-explorer/twin-graph-tab.png"::: 
+ 
+6. Para ver el grafo, seleccione el botón **Ejecutar consulta** en el panel **Explorador de consultas**, cerca de la parte superior de la ventana de Azure Digital Twins Explorer.
 
-6. Para verlo, seleccione el botón **Ejecutar consulta** en el panel **QUERY EXPLORER** (EXPLORADOR DE CONSULTAS), cerca de la parte superior de la ventana de Azure Digital Twins Explorer.
+   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/run-query.png" alt-text="Captura de pantalla de Azure Digital Twins Explorer con el botón &quot;Ejecutar consulta&quot; resaltado en la esquina superior derecha de la ventana." lightbox="media/quickstart-azure-digital-twins-explorer/run-query.png":::
 
-   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/run-query.png" alt-text="Se resalta el botón Run Query (Ejecutar consulta) situado en la esquina superior derecha de la ventana." lightbox="media/quickstart-azure-digital-twins-explorer/run-query.png":::
-
-Esta acción ejecuta la consulta predeterminada para seleccionar y mostrar todos los gemelos digitales. Azure Digital Twins Explorer recupera todos los gemelos y relaciones del servicio, y dibuja el grafo definido por ellos en el panel **TWIN GRAPH** (GRAFO DE GEMELOS).
+Esta acción ejecuta la consulta predeterminada para seleccionar y mostrar todos los gemelos digitales. Azure Digital Twins Explorer recupera todos los gemelos y relaciones del servicio, y dibuja el grafo definido por ellos en el panel **Twin Graph** (Grafo gemelo).
 
 ## <a name="explore-the-graph"></a>Exploración del grafo
 
 Ahora puede ver el grafo cargado del escenario de ejemplo.
 
-:::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-full.png" alt-text="Vista del panel Graph View (Vista de grafo) con un grafo de gemelos dentro. Un círculo &quot;floor1&quot; está conectado mediante una flecha &quot;contains&quot; a un círculo &quot;room1&quot;. Un círculo &quot;floor0&quot; está conectado mediante una flecha &quot;contains&quot; a un círculo &quot;room0&quot;.":::
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-full.png" alt-text="Captura de pantalla de Azure Digital Twins Explorer que muestra el panel Vista de gráfico con un grafo gemelo.":::
 
 Los círculos ("nodos" del grafo) representan los gemelos digitales. Las líneas representan las relaciones. El gemelo Floor0 contiene Room0, y el gemelo Floor1 contiene Room1.
 
@@ -218,13 +180,13 @@ Si usa un mouse, puede arrastrar trozos del grafo para moverlos.
 
 ### <a name="view-twin-properties"></a>Visualización de las propiedades de un gemelo
 
-Puede seleccionar un gemelo para ver una lista de sus propiedades y sus valores en el panel **PROPERTIES** (PROPIEDADES).
+Puede seleccionar un gemelo para ver una lista de sus propiedades y valores en el panel **Propiedades**.
 
 Estas son las propiedades de Room0:
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/properties-room0.png" alt-text="Resaltado del panel Properties (Propiedades) que muestra las propiedades de Room0, incluidos (entre otros) el campo $dtId con &quot;Room0&quot;, el campo Temperature con el valor 70 y el campo Humidity con el valor 30." lightbox="media/quickstart-azure-digital-twins-explorer/properties-room0.png":::
+        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/properties-room0.png" alt-text="Captura de pantalla de Azure Digital Twins Explorer con el panel Propiedades resaltado, que muestra las propiedades $dtId, Temperatura y Humedad para Room0." lightbox="media/quickstart-azure-digital-twins-explorer/properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -236,7 +198,7 @@ Estas son las propiedades de Room1:
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/properties-room1.png" alt-text="Resaltado del panel Properties (Propiedades) que muestra las propiedades de Room1, incluidos (entre otros) el campo $dtId con &quot;Room1&quot;, el campo Temperature con el valor 80 y el campo Humidity con el valor 60." lightbox="media/quickstart-azure-digital-twins-explorer/properties-room1.png":::
+        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/properties-room1.png" alt-text="Captura de pantalla de Azure Digital Twins Explorer con el panel Propiedades resaltado, que muestra las propiedades $dtId, Temperatura y Humedad para Room1." lightbox="media/quickstart-azure-digital-twins-explorer/properties-room1.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -252,13 +214,13 @@ Una forma de consultar los gemelos en el grafo es mediante sus **propiedades**. 
 
 En esta sección, ejecutará una consulta que responda a la pregunta de cuántos gemelos de su entorno tienen una temperatura superior a 75.
 
-Para ver la respuesta, ejecute la siguiente consulta en el panel **QUERY EXPLORER** (EXPLORADOR DE CONSULTAS).
+Para ver la respuesta, ejecute la siguiente consulta en el panel **Explorador de consultas**.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="TemperatureQuery":::
 
 Recuerde que, al ver las propiedades de los gemelos anteriores, Room0 tiene una temperatura de 70 y Room1 tiene una temperatura de 80. Por lo tanto, aquí solo aparece Room1 en los resultados.
     
-:::image type="content" source="media/quickstart-azure-digital-twins-explorer/result-query-property-before.png" alt-text="Resultados de la consulta de propiedades, con solo Room1." lightbox="media/quickstart-azure-digital-twins-explorer/result-query-property-before.png":::
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/result-query-property-before.png" alt-text="Captura de pantalla de Azure Digital Twins Explorer con los resultados de la consulta de propiedades, que muestra solo Room1." lightbox="media/quickstart-azure-digital-twins-explorer/result-query-property-before.png":::
 
 >[!TIP]
 > También se admiten otros operadores de comparación (<,>, = o !=) en la consulta anterior. Puede intentar conectar estos operadores, otros valores u otras propiedades de los gemelos a la consulta para tratar de responder a sus propias preguntas.
@@ -267,17 +229,17 @@ Recuerde que, al ver las propiedades de los gemelos anteriores, Room0 tiene una 
 
 Azure Digital Twins Explorer se puede usar para editar las propiedades de los gemelos representados en el grafo. En esta sección, se va a elevar la temperatura de Room0 a 76.
 
-Para empezar, vuelva a ejecutar la consulta siguiente para seleccionar todos los gemelos digitales. Esto mostrará el grafo completo una vez más en el panel **TWIN GRAPH** (GRAFO DE GEMELOS).
+Para empezar, vuelva a ejecutar la consulta siguiente para seleccionar todos los gemelos digitales. Se mostrará el grafo completo una vez más en el panel **Twin Graph** (Grafo gemelo).
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="GetAllTwins":::
 
-Seleccione **Room0** para mostrar su lista de propiedades en el panel **PROPERTIES** (PROPIEDADES).
+Seleccione **Room0** para mostrar su lista de propiedades en el panel **Propiedades**.
 
 Las propiedades de esta lista son editables. Seleccione el valor de temperatura **70** para habilitar la entrada de un nuevo valor. Escriba **76** y seleccione el icono **Save** (Guardar) para actualizar la temperatura a **76**.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/new-properties-room0.png" alt-text="Panel Properties (Propiedades) que muestra las propiedades de Room0. El valor de temperatura es un cuadro editable que muestra 76 y hay un resaltado alrededor del icono de guardar." lightbox="media/quickstart-azure-digital-twins-explorer/new-properties-room0.png":::
+        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/new-properties-room0.png" alt-text="Captura de pantalla de Azure Digital Twins Explorer con el panel Propiedades resaltado, que muestra las propiedades que se pueden editar para Room0." lightbox="media/quickstart-azure-digital-twins-explorer/new-properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -293,11 +255,11 @@ Para comprobar que el grafo ha registrado correctamente la actualización de la 
 
 Ahora que se ha cambiado la temperatura de Room0 de 70 a 76, ambos gemelos deberían aparecer en el resultado.
 
-:::image type="content" source="media/quickstart-azure-digital-twins-explorer/result-query-property-after.png" alt-text="Resultados de la consulta de propiedades, con Room0 y Room1." lightbox="media/quickstart-azure-digital-twins-explorer/result-query-property-after.png":::
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/result-query-property-after.png" alt-text="Captura de pantalla de Azure Digital Twins Explorer con los resultados de la consulta de propiedades, que muestra Room0 y Room1." lightbox="media/quickstart-azure-digital-twins-explorer/result-query-property-after.png":::
 
 ## <a name="review-and-contextualize-learnings"></a>Revisión y contextualización del aprendizaje
 
-En este inicio rápido, ha creado una instancia de Azure Digital Twins, la ha conectado a Azure Digital Twins Explorer y la ha rellenado con un escenario de ejemplo.
+En este inicio rápido, ha creado una instancia de Azure Digital Twins y utilizado Azure Digital Twins Explorer para rellenarla con un escenario de ejemplo.
 
 Después, ha explorado el grafo mediante:
 
@@ -311,9 +273,7 @@ En este inicio rápido, realizó la actualización de la temperatura manualmente
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Para finalizar el trabajo de esta guía de inicio rápido, primero finalice la aplicación de consola en ejecución. Esta acción cierra la conexión a la aplicación Azure Digital Twins Explorer en el explorador. Ya no podrá ver allí los datos en directo. Puede cerrar la pestaña del explorador.
-
-Después, puede elegir los recursos que desea quitar en función de lo que desee hacer a continuación.
+Para la limpieza después de este inicio rápido, elija los recursos que desea quitar en función de lo que quiera hacer a continuación.
 
 * **Si tiene previsto seguir con los tutoriales de Azure Digital Twins**, puede reutilizar la instancia de este inicio rápido en esos artículos, no es necesario eliminarla.
 
@@ -321,7 +281,7 @@ Después, puede elegir los recursos que desea quitar en función de lo que desee
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-También puede que desee eliminar la carpeta del proyecto de la máquina local.
+También puede que desee eliminar la carpeta del proyecto de ejemplo de la máquina local.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

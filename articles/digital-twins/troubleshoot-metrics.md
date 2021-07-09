@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ffae474f6de5de7715585f0606a9630b136a2c37
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: ae3c214cb1e1d58098dddd29a31d6403aa2e42c6
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110092141"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475627"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Solución de problemas de Azure Digital Twins: Métricas
 
@@ -28,18 +28,18 @@ Las métricas están habilitadas de forma predeterminada. Puede ver las métrica
 
     En el menú de la instancia, seleccione **Métricas**.
    
-    :::image type="content" source="media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Captura de pantalla que muestra la página de métricas de Azure Digital Twins":::
+    :::image type="content" source="media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Captura de pantalla que muestra la página Métricas de Azure Digital Twins en Azure Portal.":::
 
     En esta página se muestran las métricas de la instancia de Azure Digital Twins. También puede crear vistas personalizadas de las métricas seleccionando las que quiera ver en la lista.
     
 3. Para elegir entre enviar los datos de las métricas a un punto de conexión de Event Hubs o a una cuenta de Azure Storage, seleccione **Configuración de diagnóstico** en el menú y, luego, **Agregar configuración de diagnóstico**.
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Captura de pantalla que muestra la página de configuración de diagnóstico y el botón para agregarla":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Captura de pantalla que muestra la página Configuración de diagnóstico y el botón para agregar en Azure Portal.":::
 
     Para más información sobre este proceso, consulte [Solución de problemas: Configuración de diagnósticos](troubleshoot-diagnostics.md).
 
 4. Para optar por configurar alertas para los datos de métricas, seleccione **Alertas** en el menú y, a continuación, **+ Nueva regla de alerta**.
-    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Captura de pantalla que muestra la página Alertas y el botón para agregar":::
+    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Captura de pantalla que muestra la página Alertas y el botón para agregar en Azure Portal.":::
 
     Para más información sobre este proceso, consulte [Solución de problemas: Configuración de alertas](troubleshoot-alerts.md).
 

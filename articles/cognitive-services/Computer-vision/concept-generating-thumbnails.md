@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4874910f37b49990a659b48af0cf27921c3fcd5e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bcfaf250aa5ebf29f51fae22f87c14c29416107e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "68945226"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110465337"
 ---
 # <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Generación de miniaturas de recorte inteligente con Computer Vision
 
@@ -48,6 +48,8 @@ En la tabla siguiente se muestran las típicas miniaturas que se pueden generar 
 |![Una flor blanca con un fondo verde](./Images/flower.png) | ![Miniatura Vision Analyze Flower](./Images/flower_thumbnail.png) |
 |![Una mujer en el tejado de un edificio](./Images/woman_roof.png) | ![miniatura de una mujer en el tejado de un edificio de apartamentos](./Images/woman_roof_thumbnail.png) |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="use-the-api"></a>Uso de la API
 
-Mas información sobre el [etiquetado de imágenes](concept-tagging-images.md) y la [categorización de imágenes](concept-categorizing-images.md).
+La característica Generar miniatura está disponible mediante las API [Obtener miniatura](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f20c) y [Obtener área de interés](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/b156d0f5e11e492d9f64418d). Puede llamar a esta API mediante una SDK nativa o con llamadas a REST. 
+
+* [Inicio rápido: API REST Computer Vision o bibliotecas cliente](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)

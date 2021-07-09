@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 05/06/2021
+ms.date: 05/13/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celested
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 3214069f68233fb3cb4facc08a409f4b1e05222a
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 248aa55a05267f7cbabae0c0c4b7a69b6a3837b4
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109654875"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110060867"
 ---
 # <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Adición del acceso condicional a los flujos de usuario en Azure AD B2C
 
@@ -27,8 +27,6 @@ Se puede agregar el acceso condicional a los flujos de usuario y directivas pers
 ![Flujo de acceso condicional](media/conditional-access-user-flow/conditional-access-flow.png)
 
 La automatización de la evaluación de riesgos con condiciones de directivas significa que se identifican inmediatamente los inicios de sesión de riesgo y, a continuación, se corrigen o bloquean.
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="service-overview"></a>Introducción al servicio
 
@@ -56,12 +54,12 @@ En la fase de *corrección* que se muestra a continuación, se dirige al usuario
 
 La corrección también puede producirse a través de otros canales. Por ejemplo, cuando el administrador o el usuario restablecen la contraseña de la cuenta. Puede comprobar el *estado de riesgo* del usuario en el [informe de usuarios de riesgo](identity-protection-investigate-risk.md#navigating-the-risky-users-report).
 
+::: zone pivot="b2c-custom-policy"
+
 > [!IMPORTANT]
 > Para corregir el riesgo dentro del recorrido correctamente, asegúrese de que se llama al perfil técnico de *corrección* después de ejecutar el perfil técnico de *evaluación*. Si la *evaluación* se invoca sin *corrección*, el estado de riesgo estará *En riesgo*.
 
 Cuando la recomendación del perfil técnico de *evaluación* devuelve `Block`, no se requiere la llamada al perfil técnico de *evaluación*. El estado de riesgo se establece en *En riesgo*.
-
-::: zone pivot="b2c-custom-policy"
 
 En el ejemplo siguiente se muestra un perfil técnico de acceso condicional que se usa para corregir la amenaza identificada:
 
@@ -127,7 +125,7 @@ Una directiva de acceso condicional es una instrucción if-then de asignaciones 
 Para agregar una directiva de acceso condicional:
 
 1. En Azure Portal, busque y seleccione **Azure AD B2C**.
-1. En **Seguridad**, seleccione **Acceso condicional (versión preliminar)** . Se abre la página **Directivas de acceso condicional**.
+1. En **Seguridad**, seleccione **Acceso condicional**. Se abre la página **Directivas de acceso condicional**.
 1. Seleccione **+ Nueva directiva**.
 1. Escriba un nombre para la directiva, como *Bloquear inicio de sesión de riesgo*.
 1. En **Asignaciones**, elija **Usuarios y grupos** y, a continuación, seleccione una de las siguientes configuraciones admitidas:
@@ -237,11 +235,17 @@ Se pueden aplicar varias directivas de acceso condicional a un usuario individua
 
 ## <a name="enable-multi-factor-authentication-optional"></a>Habilitación de la autenticación multifactor (opcional)
 
-Al agregar acceso condicional a un flujo de usuario, tenga en cuenta el uso de la **autenticación multifactor (MFA)** . Los usuarios pueden usar un código de un solo uso mediante SMS o voz, o una contraseña de un solo uso por correo electrónico para la autenticación multifactor. La configuración de MFA es independiente de la configuración del acceso condicional. Puede elegir entre estas opciones de MFA:
+Al agregar acceso condicional a un flujo de usuario, considere la posibilidad de usar la **autenticación multifactor (MFA)** . Los usuarios pueden usar un código de un solo uso mediante SMS o voz, o una contraseña de un solo uso por correo electrónico para la autenticación multifactor. Los valores de MFA se configuran por separado de la configuración del acceso condicional. Puede elegir entre estas opciones de MFA:
 
-   - **Desactivado**: MFA nunca se aplica durante el inicio de sesión y no se pide a los usuarios que se inscriban en MFA durante el registro o el inicio de sesión.
-   - **Siempre activa**: se requiere siempre MFA, independientemente de cualquier configuración de acceso condicional. Si los usuarios aún no están inscritos en MFA, se les pedirá que se inscriban durante el inicio de sesión. Durante el registro, se pide a los usuarios que se inscriban en MFA.
-   - **Condicional (versión preliminar)** : MFA solo se aplica cuando una directiva de acceso condicional lo requiere. Si el resultado de la evaluación de acceso condicional es un desafío de MFA sin riesgo, se aplica MFA durante el inicio de sesión. Si el resultado es un desafío de MFA debido al riesgo *y* el usuario no está inscrito en MFA, el inicio de sesión se bloquea. Durante el registro, no se pide a los usuarios que se inscriban en MFA.
+- **Desactivado**: MFA nunca se aplica durante el inicio de sesión y no se pide a los usuarios que se inscriban en MFA durante el registro o el inicio de sesión.
+- **Siempre activa**: se requiere siempre MFA, independientemente de cualquier configuración de acceso condicional. Durante el registro, se pide a los usuarios que se inscriban en MFA. Durante el inicio de sesión, si los usuarios aún no están inscritos en MFA, se les pedirá que se inscriban.
+- **Condicional**: durante el registro y el inicio de sesión, se pide a los usuarios que se inscriban en MFA (tanto los nuevos usuarios como los usuarios existentes que no están inscritos en MFA). Durante el inicio de sesión, MFA solo se aplica cuando una evaluación de directiva de acceso condicional activa lo requiere:
+
+   - Si el resultado es un desafío de MFA sin riesgo, se aplica MFA. Si el usuario aún no está inscrito en MFA, se le pedirá que se inscriba.
+   - Si el resultado es un desafío de MFA debido al riesgo *y* el usuario no está inscrito en MFA, el inicio de sesión se bloquea.
+
+   > [!NOTE]
+   > Con la disponibilidad general del acceso condicional en Azure AD B2C, ahora se pide a los usuarios que se inscriban en un método MFA durante el registro. Los flujos de usuario de registro que creó antes de la disponibilidad general no reflejarán automáticamente este nuevo comportamiento, pero puede incluirlo mediante la creación de nuevos flujos de usuario.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -259,9 +263,9 @@ Para habilitar el acceso condicional para un flujo de usuario, asegúrese de que
  
    ![Configuración de MFA y el acceso condicional en las propiedades](media/conditional-access-user-flow/add-conditional-access.png)
 
-1. En la sección **Autenticación multifactor**, seleccione el **Tipo de método** deseado y, a continuación, en **Aplicación de MFA**, seleccione **Condicional (versión preliminar)** .
+1. En la sección **Autenticación multifactor**, seleccione el **Tipo de método** deseado y, a continuación, en **MFA enforcement** (Aplicación de MFA), seleccione **Condicional**.
  
-1. En la sección **Acceso condicional (versión preliminar)** , seleccione la casilla **Aplicar directivas de acceso condicional**.
+1. En la sección **Acceso condicional**, seleccione la casilla **Enforce conditional access policies** (Aplicar directivas de acceso condicional).
 
 1. Seleccione **Guardar**.
 

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/13/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 11cd17041ce110cca4f3cd5bce5cc98ccc0ed7af
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: c087533958665eb71e046d3bab1f03265adbd3ba
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373058"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111853575"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Incorporación de un certificado TLS/SSL en Azure App Service
 
@@ -20,7 +20,7 @@ ms.locfileid: "110373058"
 Una vez que el certificado se agrega a la aplicación de App Service o la [aplicación de funciones](../azure-functions/index.yml), se puede [proteger un nombre DNS personalizado con él](configure-ssl-bindings.md) o [usarlo en el código de la aplicación](configure-ssl-certificate-in-code.md).
 
 > [!NOTE]
-> Los certificado cargados en una aplicación se almacenan en una unidad de implementación enlazada a la combinación de la región y el grupo de recursos de la aplicación (que internamente se denomina *espacio web*). De esta manera, los certificados son accesible para otras aplicaciones de la misma combinación de región y grupo de recursos. 
+> Los certificados cargados en una aplicación se almacenan en una unidad de implementación enlazada a la combinación de región y grupo de recursos del plan de App Service (que internamente se denomina *espacio web*). De esta manera, los certificados son accesible para otras aplicaciones de la misma combinación de región y grupo de recursos. 
 
 En la tabla siguiente se enumeran las opciones que tiene para agregar certificados en App Service:
 
@@ -63,7 +63,9 @@ Para proteger un dominio personalizado en un enlace TLS, el certificado debe cum
 > [!NOTE]
 > Antes de crear un certificado administrado gratuito, compruebe que [cumple los requisitos previos](#prerequisites) de la aplicación.
 
-El certificado administrado de App Service gratuito es una solución inmediata para proteger el nombre DNS personalizado en App Service. Se trata de un certificado TLS/SSL totalmente funcional administrado por App Service que se renueva automáticamente. El certificado gratuito presenta las siguientes limitaciones:
+El certificado administrado de App Service gratuito es una solución inmediata para proteger el nombre DNS personalizado en App Service. Se trata de un certificado de servidor TLS/SSL totalmente administrado por App Service y que se renueva de manera continua y automática en incrementos de seis meses, 45 días antes de la expiración. Usted crea el certificado y lo enlaza a un dominio personalizado, y deja que App Service se encargue del resto.
+
+El certificado gratuito presenta las siguientes limitaciones:
 
 - No admite certificados comodín.
 - No se puede usar como certificado de cliente mediante la huella digital del certificado (está planeada la eliminación de la huella digital del certificado).
@@ -123,7 +125,7 @@ Use la tabla siguiente para obtener ayuda para configurar el certificado. Cuando
 |-|-|
 | Nombre | Nombre descriptivo para el certificado de App Service. |
 | Nombre de host de dominio desnudo | Especifique aquí el dominio raíz. El certificado emitido protege *al mismo tiempo* el dominio raíz y el subdominio `www`. En el certificado emitido, el campo Nombre común contiene el dominio raíz, mientras que el campo Nombre alternativo del firmante contiene el dominio `www`. Para proteger cualquier subdominio solamente, especifique el nombre de dominio completo del subdominio aquí (por ejemplo, `mysubdomain.contoso.com`).|
-| Suscripción | La suscripción que contendrá el certificado. |
+| Subscription | La suscripción que contendrá el certificado. |
 | Resource group | El grupo de recursos que contendrá el certificado. Puede usar un nuevo grupo de recursos o seleccionar el mismo grupo de recursos que la aplicación de App Service, por ejemplo. |
 | SKU de certificado | Determine el tipo de certificado a crear, ya sea un certificado estándar o un [certificado comodín](https://wikipedia.org/wiki/Wildcard_certificate). |
 | Términos legales | Haga clic para confirmar que está de acuerdo con los términos legales. Los certificados se obtienen de GoDaddy. |
@@ -154,6 +156,10 @@ En la página **Estado de Key Vault**, haga clic en **Repositorio de Key Vault**
 | Acceso de redes virtuales | Restringe el acceso de almacén a determinadas redes virtuales de Azure. Puede configurarlo más adelante si sigue los pasos descritos en [Configurar firewalls y redes virtuales de Azure Key Vault](../key-vault/general/network-security.md) |
 
 Una vez que haya seleccionado el almacén, cierre la página del **repositorio de Key Vault**. La opción **Paso 1: Almacenamiento** debería mostrar una marca de verificación verde si se completó correctamente. Mantenga la página abierta para el siguiente paso.
+
+> [!NOTE]
+> Actualmente, App Service Certificate solo admite la directiva de acceso de Key Vault, pero no el modelo de RBAC.
+>
 
 ### <a name="verify-domain-ownership"></a>Comprobar la propiedad del dominio
 
@@ -198,6 +204,10 @@ De forma predeterminada, el proveedor de recursos de App Service no tiene acceso
 
 `abfa0a7c-a6b6-4736-8310-5855508787cd` es el nombre de la entidad de seguridad de servicio del proveedor de recursos para App Service y es el mismo para todas las suscripciones de Azure. Para un entorno en la nube de Azure Government, use `6a02c803-dafd-4136-b4c3-5a6f318b4714` en lugar del nombre de la entidad de seguridad de servicio del proveedor de recursos.
 
+> [!NOTE]
+> Actualmente, Key Vault Certificate solo admite la directiva de acceso de Key Vault, pero no el modelo de RBAC.
+> 
+
 ### <a name="import-a-certificate-from-your-vault-to-your-app"></a>Importación de un certificado desde el almacén a la aplicación
 
 En <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, en el menú de la izquierda, seleccione **App Services** >  **\<app-name>** .
@@ -210,7 +220,7 @@ Use la tabla siguiente como ayuda para seleccionar el certificado.
 
 | Configuración | Descripción |
 |-|-|
-| Suscripción | Suscripción a la que pertenece la instancia de Key Vault. |
+| Subscription | Suscripción a la que pertenece la instancia de Key Vault. |
 | Key Vault | Almacén que incluye el certificado que desea importar. |
 | Certificado | Seleccione en la lista de certificados PKCS12 del almacén. Se enumeran todos los certificados PKCS12 del almacén con sus huellas digitales, pero no todos se admiten en App Service. |
 
@@ -379,11 +389,11 @@ Busque el bloqueo en el certificado con el tipo de bloqueo **Eliminar**. A la de
 
 Ahora puede eliminar el certificado de App Service. En el panel de navegación izquierdo, seleccione **Información general** > **Eliminar**. En el cuadro de diálogo de confirmación, escriba el nombre del certificado y seleccione **Aceptar**.
 
-## <a name="automate-with-scripts&quot;></a>Automatizar con scripts
+## <a name="automate-with-scripts"></a>Automatizar con scripts
 
-### <a name=&quot;azure-cli&quot;></a>Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 &quot;Bind a custom TLS/SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 

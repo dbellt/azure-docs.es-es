@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: c654153340586004415b9d2fd8744fb539726960
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 0d9e3d4c9ec9eab75ce5917e9ea20011653ff133
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110369413"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110790200"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Límites de la base de conocimiento de QnA Maker
 
@@ -60,15 +60,31 @@ El número máximo de vínculos profundos que se pueden rastrear para la extracc
 
 ## <a name="metadata-limits"></a>Límites de metadatos
 
-Los metadatos se presentan como un par clave-valor basado en texto, como `product:windows 10`. Se almacenan y se comparan en minúsculas.
+Los metadatos se presentan como un par clave-valor basado en texto, como `product:windows 10`. Se almacenan y se comparan en minúsculas. El número máximo de campos de metadatos se basa en los **[límites de los niveles de Azure Cognitive Search](../../search/search-limits-quotas-capacity.md)** .
 
-### <a name="by-azure-cognitive-search-pricing-tier"></a>Por plan de tarifa de Azure Cognitive Search
+# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
 
-El número máximo de campos de metadatos por base de conocimiento se basa en los **[límites de plan de Azure Cognitive Search](../../search/search-limits-quotas-capacity.md)** .
+En el caso de la versión GA, puesto que el índice de prueba se comparte entre todos los KB, el límite se aplica a todos los KB del servicio QnA Maker.
 
 |**Nivel de Azure Cognitive Search** | **Gratis** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |Número máximo de metadatos por servicio QnA Maker (en todas las KB)|1,000|100*|1,000|1,000|1,000|1,000|
+
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
+
+Si elige tener KB de varios idiomas en un servicio, hay un índice de prueba dedicado por knowledge base. Por consiguiente, el límite se aplica por KB en el servicio QnA Maker.
+
+|**Nivel de Azure Cognitive Search** | **Gratis** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
+|---|---|---|---|---|---|----|
+|Número máximo de metadatos por servicio QnA Maker (por knowledge base)|1,000|100*|1,000|1,000|1,000|1,000|
+
+Si no elige la opción de tener KB en varios idiomas, los límites se aplican a todos los KB del servicio QnA Maker.
+
+|**Nivel de Azure Cognitive Search** | **Gratis** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
+|---|---|---|---|---|---|----|
+|Número máximo de metadatos por servicio QnA Maker (en todas las KB)|1,000|100*|1,000|1,000|1,000|1,000|
+
+---
 
 ### <a name="by-name-and-value"></a>Por nombre y valor
 

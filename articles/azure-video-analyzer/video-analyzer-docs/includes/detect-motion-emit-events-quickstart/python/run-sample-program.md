@@ -4,12 +4,12 @@ ms.service: azure-video-analyzer
 ms.topic: include
 ms.date: 05/05/2021
 ms.author: faneerde
-ms.openlocfilehash: edf0e4b8ddb3ca4361296856672fd92c92c40254
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: b66de47b5429f869b798092475ce93e1c1f740a2
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388570"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110486447"
 ---
 Para ejecutar el código de ejemplo, siga estos pasos:
 
@@ -25,10 +25,10 @@ Para ejecutar el código de ejemplo, siga estos pasos:
    > :::image type="content" source="../../../media/vscode-common-screenshots/verbose-message.png" alt-text="Show Verbose Message"::: (Mostrar mensaje detallado)
 
 1. En Visual Studio Code, vaya a _src/cloud-to-device-console-app/operations.json_.
-1. En el nodo `pipelineTopologySet`, asegúrese de que vea el siguiente valor:
+1. En el nodo `pipelineTopologySet`, asegúrese de que se muestra el valor siguiente:
 
    ```
-   "topologyUrl" : "https://raw.githubusercontent.com/azure/azure-video-analyzer/main/pipelines/live/topologies/motion-detection/topology.json"
+   "topologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/motion-detection/topology.json"
    ```
 
 1. En los nodos `livePipelineSet` y `livePipelineDelete`, asegúrese de que el valor de **topologyName** coincida con el valor de la propiedad **name** en la topología de la canalización:
@@ -36,7 +36,7 @@ Para ejecutar el código de ejemplo, siga estos pasos:
    `"topologyName" : "MotionDetection"`
 
 1. Para iniciar una sesión de depuración, seleccione la tecla F5. La ventana **TERMINAL** mostrará algunos mensajes.
-1. El archivo _operations.json_ se inicia con llamadas a `pipelineTopologyList` y `livePipelineList`. Si ha limpiado los recursos tras haber finalizado los inicios rápidos anteriores, este proceso devolverá listas vacías.
+1. El archivo _operations.json_ se inicia con llamadas a `pipelineTopologyList` y `livePipelineList`. Si limpió los recursos al finalizar los inicios rápidos anteriores, este proceso devolverá listas vacías.
 
    ```
    -----------------------  Request: pipelineTopologyList  --------------------------------------------------
@@ -57,7 +57,7 @@ Para ejecutar el código de ejemplo, siga estos pasos:
 
    La ventana **TERMINAL** muestra el siguiente conjunto de llamadas al método directo:
 
-   - Una llamada a `pipelineTopologySet` que utiliza la instancia anterior de pipelineTopologyUrl.
+   - Una llamada a `pipelineTopologySet` que utiliza el nodo pipelineTopologyUrl anterior.
    - Una llamada a `livePipelineSet` que usa el cuerpo siguiente:
 
    ```json
@@ -90,7 +90,7 @@ Para ejecutar el código de ejemplo, siga estos pasos:
 
 1. La salida de la ventana **TERMINAL** se pone en pausa en `Press Enter to continue`. No seleccione Entrar todavía. Desplácese hacia arriba para ver las cargas de la respuesta JSON para los métodos directos que ha invocado.
 1. Cambie a la ventana **SALIDA** de Visual Studio Code. Verá los mensajes que el módulo de Azure Video Analyzer está enviando al centro de IoT. En la siguiente sección de este inicio rápido se analizan estos mensajes.
-1. La canalización en directo continúa ejecutándose y se imprimen los resultados. El simulador RTSP sigue recorriendo el vídeo de origen. Para detener la canalización en directo, vuelva a la ventana **TERMINAL** y seleccione Entrar.
+1. Prosigue la canalización en directo y se imprimen los resultados. El simulador RTSP sigue recorriendo el vídeo de origen. Para detener la canalización en directo, vuelva a la ventana **TERMINAL** y seleccione Entrar.
 
    La siguiente serie de llamadas limpia los recursos:
 

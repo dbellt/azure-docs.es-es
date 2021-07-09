@@ -10,12 +10,12 @@ author: wenxwei
 ms.author: wenxwei
 ms.date: 05/25/2021
 ms.reviewer: peterlu
-ms.openlocfilehash: fadcb4c8b24e9c0dcc1cfe39529af4a1c75cc36c
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 65b7446602c8b7202ba7ccf56115edfc5de333db
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110383027"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111750738"
 ---
 # <a name="train-models-with-rest-preview"></a>Entrenamiento de modelos con REST (versión preliminar)
 
@@ -72,7 +72,7 @@ API_VERSION="2021-03-01-preview"
 La ejecución de trabajos de aprendizaje automático requiere recursos de proceso. Puede enumerar los recursos de proceso del área de trabajo:
 
 ```bash
-curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/computes?api-version=$API_VERSION \
+curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/computes?api-version=$API_VERSION" \
 --header "Authorization: Bearer $TOKEN"
 ```
 
@@ -91,7 +91,7 @@ El ejemplo de LightGBM debe ejecutarse en un entorno de LightGBM. Cree el entorn
 
 La imagen de Docker se puede configurar con `Docker` y agregar dependencias de Conda con `condaFile`: 
 
-:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_environment":::
+:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_environment":::
 
 ### <a name="datastore"></a>Almacén de datos
 
@@ -113,7 +113,7 @@ AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_A
 
 Ahora que tiene el almacén de datos, puede crear un conjunto de datos. En este ejemplo, use el conjunto de datos `iris.csv` común y apunte a él en `path`. 
 
-:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_data":::
+:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_data":::
 
 ### <a name="code"></a>Código
 
@@ -127,7 +127,7 @@ az storage blob upload-batch -d $AZUREML_DEFAULT_CONTAINER/src \
 
 Una vez que cargue el código, puede especificarlo con una solicitud PUT y hacer referencia al almacén de datos con `datastoreId`. 
 
-:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_code":::
+:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_code":::
 
 ## <a name="submit-a-training-job"></a>Envío de un trabajo de entrenamiento
 
@@ -144,11 +144,11 @@ Ahora que los recursos están colocados, puede ejecutar el trabajo LightGBM, que
 
 Use los siguientes comandos para enviar el trabajo de entrenamiento:
 
-:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_job":::
+:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_job":::
 
 ## <a name="submit-a-hyperparameter-sweep-job"></a>Envío de un trabajo de barrido de hiperparámetros
 
-Azure Machine Learning también permite ajustar eficazmente hiperparámetros de entrenamiento. Puede crear un barrido de ajuste de hiperparámetros con las API REST. Para más información sobre las opciones de ajuste de hiperparámetros de Azure Machine Learning, consulte [Hiperparámetros que ajustan un modelo](how-to-tune-hyperparameters.md). Especifique los parámetros de ajuste de hiperparámetros para configurar el barrido:
+Azure Machine Learning también permite ajustar eficazmente hiperparámetros de entrenamiento. Puede crear un conjunto de ajuste de hiperparámetros con las API REST. Para más información sobre las opciones de ajuste de hiperparámetros de Azure Machine Learning, consulte [Hiperparámetros que ajustan un modelo](how-to-tune-hyperparameters.md). Especifique los parámetros de ajuste de hiperparámetros para configurar el barrido:
 
 - **jobType**: el tipo de trabajo. En el caso de un trabajo de barrido, será `Sweep`. 
 - **algorithm:** el algoritmo de muestreo "aleatorio" suele ser un buen punto de partida. Vea el [esquema](https://azuremlschemas.azureedge.net/latest/sweepJob.schema.json) del trabajo de barrido para conocer la enumeración de las opciones. 
@@ -161,7 +161,7 @@ Azure Machine Learning también permite ajustar eficazmente hiperparámetros de 
 
 Para crear un trabajo de barrido con el mismo ejemplo de LightGBM, use los siguientes comandos: 
 
-:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_a_sweep_job":::
+:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_a_sweep_job":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -12,12 +12,12 @@ ms.date: 11/03/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 zone_pivot_groups: keyword-quickstart
-ms.openlocfilehash: 49ac70b6881085f48c8bc3a12e31e4a1aa220c6a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a1ec49ca9ee9d0adcbae97eae2e4093274a524c6
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95021956"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110099647"
 ---
 # <a name="get-started-with-custom-keyword"></a>Introducción a Palabra clave personalizada
 
@@ -39,7 +39,7 @@ Antes de que pueda usar una palabra clave personalizada, deberá crear una palab
 
 1. En la página [Custom Keyword](https://aka.ms/sdsdk-wakewordportal) (Palabra clave personalizada), cree un **Nuevo proyecto**. 
 
-1. Escriba un **Nombre**, una **Descripción** opcional y seleccione el idioma. Necesita un proyecto por idioma, y la compatibilidad está limitada actualmente al idioma `en-US`.
+1. Escriba un **Nombre**, una **Descripción** opcional y seleccione el idioma. Necesita un proyecto por idioma. La compatibilidad está limitada actualmente a inglés (Estados Unidos) y chino (mandarín, simplificado).
 
     ![Descripción del proyecto de palabra clave](media/custom-keyword/custom-kws-portal-new-project.png)
 
@@ -49,7 +49,7 @@ Antes de que pueda usar una palabra clave personalizada, deberá crear una palab
 
 1. Para crear un nuevo modelo de palabra clave, haga clic en **Entrenar modelo**.
 
-1. Escriba un **Nombre** para el modelo, una **Descripción** opcional y la **Palabra clave** de su elección y después haga clic en **Siguiente**. Consulte las [directrices](./custom-keyword-overview.md#choose-an-effective-keyword) sobre cómo elegir una palabra clave eficaz.
+1. Escriba un **Nombre** para el modelo, una **Descripción** opcional y la **Palabra clave** de su elección y después haga clic en **Siguiente**. Consulte las [directrices](keyword-recognition-guidelines.md#choosing-an-effective-keyword) sobre cómo elegir una palabra clave eficaz.
 
     ![Escriba su palabra clave](media/custom-keyword/custom-kws-portal-new-model.png)
 
@@ -63,7 +63,7 @@ Antes de que pueda usar una palabra clave personalizada, deberá crear una palab
 
 1. El archivo descargado es un archivo `.zip`. Extraiga el archivo y verá un archivo con la extensión `.table`. Este es el archivo que usará con el SDK en la sección siguiente, por lo que debe asegurarse de anotar la ruta de acceso. El nombre del archivo refleja el nombre de la palabra clave; por ejemplo, la palabra clave **Activate device** (activa el dispositivo) tiene el nombre de archivo `Activate_device.table`.
 
-## <a name="use-a-keyword-model-with-the-sdk"></a>Uso de un modelo de palabras clave con el SDK
+## <a name="use-a-keyword-model-with-the-speech-sdk"></a>Uso de un modelo de palabras clave con el SDK de Voz
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# Basics include](includes/how-to/keyword-recognition/keyword-basics-csharp.md)]
@@ -79,4 +79,5 @@ Antes de que pueda usar una palabra clave personalizada, deberá crear una palab
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Pruebe la palabra clave personalizada con la [guía de inicio rápido del SDK de dispositivos de Voz](./speech-devices-sdk-quickstart.md?pivots=platform-android).
+> [!div class="nextstepaction"]
+> [Obtención del SDK de voz](speech-sdk.md)

@@ -8,12 +8,12 @@ ms.date: 12/16/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fc7d1ca00f77ca5056c1ffd263c7bc810cd564bc
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: c52cd013d1a5d2cbde0ab88eac24d2fd3ef77d46
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783772"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110613533"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-powershell"></a>Configuración de una instancia de Azure Digital Twins y autenticación (PowerShell)
 
@@ -37,10 +37,10 @@ En esta versión de este artículo se realizan los pasos manualmente, uno por un
        1. Conéctese a su cuenta de Azure mediante el cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
     * Si decide usar Azure Cloud Shell:
         1. Consulte [Introducción a Azure Cloud Shell](../cloud-shell/overview.md) para más información acerca de Cloud Shell.
-        1. Abra una ventana de Cloud Shell siguiendo [este vínculo](https://shell.azure.com) en el explorador.
+        1. [Abra una ventana de Cloud Shell en el explorador](https://shell.azure.com).
         1. En la barra de iconos de Cloud Shell, asegúrese de que Cloud Shell está establecido para ejecutar la versión de PowerShell.
     
-            :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Ventana de Cloud Shell que muestra la selección de la versión de PowerShell":::
+            :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Captura de pantalla de la ventana de Cloud Shell en Azure Portal que muestra la selección de la versión de PowerShell.":::
     
 1. Si tiene varias suscripciones a Azure, elija la suscripción adecuada en la que se debe facturar el recurso. Seleccione una suscripción específica con el cmdlet [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
@@ -127,9 +127,9 @@ A continuación, use el valor **ObjectId** en el siguiente comando para asignar 
 
 ```azurepowershell-interactive
 $Params = @{
-  ObjectId = '<Azure-AD-user-object-id-of-user-to-assign>'
+  ObjectId = '<Azure-AD-user-object-ID-of-user-to-assign>'
   RoleDefinitionName = 'Azure Digital Twins Data Owner'
-  Scope = '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DigitalTwins/digitalTwinsInstances/<name-for-your-Azure-Digital-Twins-instance>'
+  Scope = '/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.DigitalTwins/digitalTwinsInstances/<name-for-your-Azure-Digital-Twins-instance>'
 }
 New-AzRoleAssignment @Params
 ```

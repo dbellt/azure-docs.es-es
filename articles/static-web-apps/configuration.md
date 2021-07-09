@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: 9494bcc9941491bbb82c6a948dce720cb9e51424
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 693a102c988d87dc4ed6ac9f0f4cb2176ec78ca5
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502290"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060001"
 ---
 # <a name="configure-azure-static-web-apps"></a>Configuración de Azure Static Web Apps
 
@@ -26,6 +26,9 @@ La configuración de Azure Static Web Apps se define en el archivo _staticwebapp
 - Definiciones de encabezados HTTP globales
 - Tipos MIME personalizados
 
+> [!NOTE]
+> El archivo [_routes.json_](https://github.com/Azure/static-web-apps/wiki/routes.json-reference-(deprecated)) que se usó anteriormente para configurar el enrutamiento está en desuso. Use _staticwebapp.config.json_ como se describe en este artículo para configurar el enrutamiento y otras opciones para la aplicación web estática.
+
 ## <a name="file-location"></a>Ubicación del archivo
 
 La ubicación recomendada del archivo _staticwebapp.config.jsen_ es la carpeta establecida como `app_location` en el [archivo de flujo de trabajo](./github-actions-workflow.md). Sin embargo, el archivo puede colocarse en cualquier ubicación dentro de la carpeta de código fuente de la aplicación.
@@ -33,7 +36,7 @@ La ubicación recomendada del archivo _staticwebapp.config.jsen_ es la carpeta e
 Consulte el [archivo de configuración de ejemplo](#example-configuration-file) para ver los detalles.
 
 > [!IMPORTANT]
-> El archivo [_routes.json_](./routes.md) se omite si existe un archivo _staticwebapp.config.json_.
+> El archivo [_routes.json_ en desuso](https://github.com/Azure/static-web-apps/wiki/routes.json-reference-(deprecated)) se omite si existe un archivo _staticwebapp.config.json_.
 
 ## <a name="routes"></a>Rutas
 

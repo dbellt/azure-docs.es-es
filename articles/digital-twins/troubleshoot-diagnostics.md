@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/24/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4ca6989a6c446c543c35d8e35e5e27aefef118c2
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: ced6f28bb7174bc3510de9025569646210e87782
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205690"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475712"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Solución de problemas de Azure Digital Twins: Registro de diagnóstico
 
@@ -32,7 +32,7 @@ Active la configuración de diagnóstico para empezar a recopilar registros en u
 
 2. En el menú, seleccione **Configuración de diagnóstico** y **Agregar configuración de diagnóstico**.
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Captura de pantalla que muestra la página de configuración de diagnóstico y el botón para agregarla" lightbox="media/troubleshoot-diagnostics/diagnostic-settings.png":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Captura de pantalla que muestra la página de configuración de diagnóstico en Azure Portal y el botón para agregar." lightbox="media/troubleshoot-diagnostics/diagnostic-settings.png":::
 
 3. En la página siguiente, rellene los valores a continuación:
      * **Diagnostic setting name** (Nombre de la configuración de diagnóstico): Asigne un nombre a la configuración de diagnóstico.
@@ -53,7 +53,7 @@ Active la configuración de diagnóstico para empezar a recopilar registros en u
     
 4. Guarde la configuración nueva. 
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Captura de pantalla que muestra la página de configuración de diagnóstico en la que el usuario ha rellenado un nombre de configuración de diagnóstico y ha realizado algunas selecciones para los detalles de la categoría y los detalles del destino. El botón Guardar está resaltado." lightbox="media/troubleshoot-diagnostics/diagnostic-settings-details.png":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Captura de pantalla que muestra la página de configuración de diagnóstico en Azure Portal en la que el usuario ha rellenado información de configuración de diagnóstico." lightbox="media/troubleshoot-diagnostics/diagnostic-settings-details.png":::
 
 La nueva configuración surte efecto en unos 10 minutos. Después, los registros aparecen en el destino configurado en la página **Configuración de diagnóstico** de la instancia. 
 
@@ -351,14 +351,14 @@ Así es como se realizan consultas en los registros de una instancia.
 
 2. Seleccione **Registros** en el menú para abrir la página de consulta del registro. La página se abre en una ventana llamada *Consultas*.
 
-    :::image type="content" source="media/troubleshoot-diagnostics/logs.png" alt-text="Captura de pantalla que muestra la página Registros de una instancia de Azure Digital Twins. Se superpone con una ventana Consultas que muestra las consultas precompiladas con el nombre de las distintas opciones de registro, como la latencia de DigitalTwin API y la latencia de Model API." lightbox="media/troubleshoot-diagnostics/logs.png":::
+    :::image type="content" source="media/troubleshoot-diagnostics/logs.png" alt-text="Captura de pantalla que muestra la página Registros de una instancia de Azure Digital Twins en Azure Portal con la ventana Consultas superpuesta, en la que se muestran las consultas creadas previamente." lightbox="media/troubleshoot-diagnostics/logs.png":::
 
     Se trata de consultas de ejemplo creadas previamente escritas para varios registros. Puede seleccionar una de las consultas para cargarla en el editor de consultas y ejecutarla para ver estos registros de su instancia.
 
     También puede cerrar la ventana *Consultas* sin ejecutar nada para ir directamente a la página del editor de consultas, donde puede escribir o editar el código de consulta personalizado.
 
 3. Después de salir de la ventana *Consultas* verá la página principal del editor de consultas. Aquí puede ver y editar el texto de las consultas de ejemplo, o escribir sus propias consultas desde cero.
-    :::image type="content" source="media/troubleshoot-diagnostics/logs-query.png" alt-text="Captura de pantalla que muestra la página Registros de una instancia de Azure Digital Twins. La ventana Consultas ha desaparecido y, en su lugar, hay una lista de registros diferentes, un panel de edición que muestra el código de consulta que se puede editar y un panel que muestra el historial de consultas." lightbox="media/troubleshoot-diagnostics/logs-query.png":::
+    :::image type="content" source="media/troubleshoot-diagnostics/logs-query.png" alt-text="Captura de pantalla que muestra la página Registros de una instancia de Azure Digital Twins en Azure Portal. Incluye una lista de registros, código de consulta e historial de consultas." lightbox="media/troubleshoot-diagnostics/logs-query.png":::
 
     En el panel izquierdo: 
     - La pestaña *Tables* (Tablas) muestran las distintas [categorías de registro](#log-categories) de Azure Digital Twins que están disponibles para su uso en las consultas. 
