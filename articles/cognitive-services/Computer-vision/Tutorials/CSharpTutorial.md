@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 82e21f57a22da43f904ac9a12afb016c257e5055
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: dd2ceaa97a456d72227d6180596aeccc9e00a614
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108289703"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110453905"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Sample: Exploración de una aplicación de procesamiento de imágenes con C#
 
@@ -40,7 +40,7 @@ Antes de explorar la aplicación de ejemplo, asegúrese de haber cumplido los re
 
 ## <a name="get-the-sample-app"></a>Obtención de la aplicación de ejemplo
 
-La aplicación de ejemplo de Computer Vision está disponible en GitHub desde el repositorio `Microsoft/Cognitive-Vision-Windows`. Este repositorio también incluye el repositorio `Microsoft/Cognitive-Common-Windows` como submódulo de GIT. También puede clonar de forma recursiva este repositorio, incluido el submódulo, ya sea mediante el comando `git clone --recurse-submodules` desde la línea de comandos, o mediante el escritorio de GitHub.
+La aplicación de ejemplo Computer Vision está disponible en GitHub desde el [repositorio Microsoft/Cognitive-Vision-Windows](https://github.com/microsoft/Cognitive-Vision-Windows). Este repositorio también incluye el repositorio `Microsoft/Cognitive-Common-Windows` como submódulo de GIT. También puede clonar de forma recursiva este repositorio, incluido el submódulo, ya sea mediante el comando `git clone --recurse-submodules` desde la línea de comandos, o mediante el escritorio de GitHub.
 
 Por ejemplo, para clonar de forma recursiva el repositorio para la aplicación de ejemplo de Computer Vision desde un símbolo del sistema, ejecute el siguiente comando:
 

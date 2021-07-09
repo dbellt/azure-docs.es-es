@@ -5,13 +5,13 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 05/04/2021
-ms.openlocfilehash: bc1297790322202713d06c4d1f7a474c1b9dcda8
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 05/18/2021
+ms.openlocfilehash: 6f101d31e7268eb8f58d236bc214f322c71336df
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108774086"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110075023"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Tutoriales en vídeo del flujo de datos de asignación
 
@@ -94,6 +94,8 @@ Como se realizan actualizaciones constantemente en el producto, se han agregado 
 [Transformación Parse](https://www.youtube.com/watch?v=r7O7AJcuqoY)
 
 [Transformación de tipos de datos complejos](https://youtu.be/Wk0C76wnSDE)
+
+[Salida a la siguiente actividad](http://youtu.be/r1m3Ya14qpE?hd=1)
 
 ## <a name="source-and-sink"></a>Origen y receptor
 

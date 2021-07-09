@@ -3,14 +3,14 @@ title: 'Tutorial de Kubernetes en Azure: Actualización de una aplicación'
 description: En este tutorial de Azure Kubernetes Service (AKS), aprenderá a actualizar la implementación de una aplicación existente a AKS con una nueva versión del código de la aplicación.
 services: container-service
 ms.topic: tutorial
-ms.date: 01/12/2021
-ms.custom: mvc
-ms.openlocfilehash: b969e3ec1c670c0a12129289c8ff7eb81df51ff9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/24/2021
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: eaa7f6b0f99a856ea9210be3fdb6d2de1dd87d2a
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98250662"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110697955"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Tutorial: Actualización de una aplicación en Azure Kubernetes Service (AKS)
 
@@ -30,7 +30,15 @@ En los tutoriales anteriores se empaquetó una aplicación en una imagen de cont
 
 También se clonó un repositorio de aplicaciones que incluye el código fuente de la aplicación y un archivo de Docker Compose creado previamente que se usa en este tutorial. Confirme que ha creado un clon del repositorio y que ha cambiado los directorios en el repositorio clonado. Si no ha finalizado estos pasos y desea continuar, comience con el [Tutorial 1: Creación de imágenes de contenedor][aks-tutorial-prepare-app].
 
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
 Para realizar este tutorial es necesario ejecutar la versión 2.0.53, o superior, de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Para realizar este tutorial es preciso ejecutar la versión 5.9.0 de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-InstalledModule -Name Az` para encontrar la versión. Si necesita instalarla o actualizarla, consulte el artículo sobre la [instalación de Azure PowerShell][azure-powershell-install].
+
+---
 
 ## <a name="update-an-application"></a>Actualización de una aplicación
 
@@ -70,11 +78,24 @@ Los valores actualizados que se proporcionan en el archivo *config_file.cfg* se 
 
 ## <a name="tag-and-push-the-image"></a>Etiquetado e inserción de la imagen
 
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
 Para usar correctamente la imagen actualizada, etiquete la imagen *azure-vote-front* con el nombre del servidor de inicio de sesión de seguridad del registro de ACR. Para obtener el nombre del servidor de inicio de sesión, use el comando [az acr list](/cli/azure/acr):
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Para usar correctamente la imagen actualizada, etiquete la imagen *azure-vote-front* con el nombre del servidor de inicio de sesión de seguridad del registro de ACR. Obtenga el nombre del servidor de inicio de sesión con el cmdlet [Get-AzContainerRegistry][get-azcontainerregistry]:
+
+```azurepowershell
+(Get-AzContainerRegistry -ResourceGroupName myResourceGroup -Name <acrName>).LoginServer
+```
+
+---
+
 
 Use la [docker tag][docker-tag] para etiquetar la imagen. Reemplace `<acrLoginServer>` por el nombre del servidor de inicio de sesión de ACR o el nombre de host del registro público y actualice la versión de la imagen a *: v2* como se muestra a continuación:
 
@@ -84,8 +105,17 @@ docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 <acrLoginServer>/azur
 
 Ahora use [docker push][docker-push] para cargar la imagen en el registro. Reemplace `<acrLoginServer>` por el nombre del servidor de inicio de sesión de ACR.
 
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
 > [!NOTE]
 > Si surgen problemas al realizar inserciones en el registro de ACR, asegúrese de que no se ha cerrado la sesión. Ejecute el comando [az acr login][az-acr-login] y use el nombre de la instancia de Azure Container Registry que creó en el paso [Creación de una instancia de Azure Container Registry](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry). Por ejemplo, `az acr login --name <azure container registry name>`.
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+> [!NOTE]
+> Si surgen problemas al realizar inserciones en el registro de ACR, asegúrese de que no se ha cerrado la sesión. Ejecute el comando [Connect-AzContainerRegistry][connect-azcontainerregistry] y use el nombre de la instancia de Azure Container Registry que creó en el paso [Creación de una instancia de Azure Container Registry](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry). Por ejemplo, `Connect-AzContainerRegistry -Name <azure container registry name>`.
+
+---
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2
@@ -174,3 +204,6 @@ Pase al siguiente tutorial para aprender a actualizar un clúster de AKS a una n
 [aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
 [az-acr-login]: /cli/azure/acr
 [azure-cli-install]: /cli/azure/install-azure-cli
+[azure-powershell-install]: /powershell/azure/install-az-ps
+[get-azcontainerregistry]: /powershell/module/az.containerregistry/get-azcontainerregistry
+[connect-azcontainerregistry]: /powershell/module/az.containerregistry/connect-azcontainerregistry

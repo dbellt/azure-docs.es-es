@@ -6,18 +6,28 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 05/07/2021
+ms.date: 05/28/2021
 ms.custom: references_regions
-ms.openlocfilehash: f636089ff37bd87802ac0335b65d20dc446290d3
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 57776654087e6e07b8515d76c955cb82ce1e07bf
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517935"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110787773"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novedades de Azure Cognitive Search
 
 Conozca las novedades del servicio. Marque esta página para mantenerse actualizado con el servicio. Consulte la [lista de características en versión preliminar](search-api-preview.md) para ver todas las características que aún no están disponibles con carácter general.
+
+## <a name="may-2021"></a>Mayo de 2021
+
+|Característica&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Descripción | Disponibilidad  |
+|------------------------------------|--------------|---------------|
+| [Compatibilidad con el conector de Power Query (versión preliminar)](search-how-to-index-power-query-data-sources.md) | Los indexadores ahora pueden realizar la indexación desde otras plataformas de nube. Si usa un indexador para rastrear orígenes de datos externos para la indexación, ahora puede usar conectores de Power Query para conectarse a Amazon Redshift, Elasticsearch, PostgreSQL, Salesforce Objects, Salesforce Reports, Smartsheet y Snowflake. </br></br>[Anuncio (blog Tech Community)](https://techcommunity.microsoft.com/t5/azure-ai/azure-cognitive-search-indexers-allow-you-to-ingest-data-from/ba-p/2381988)  | Versión preliminar pública ([por solicitud](https://aka.ms/azure-cognitive-search/indexer-preview)), mediante REST api-version=2020-06-30-Preview y Azure Portal. |
+|[Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) | El origen de datos de ADLS Gen2 usado por los indexadores ahora está disponible con carácter general. | Disponible con carácter general, mediante REST api-version=2020-06-30 y Azure Portal. |
+|[Compatibilidad con MySQL (versión preliminar)](search-howto-index-mysql.md) | Para la indexación basada en indexador, se anuncia la compatibilidad en versión preliminar del origen de datos con Azure MySQL. | Versión preliminar pública, REST api-version=2020-06-30-Preview, [SDK de .NET 11.2.1](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype.mysql) y Azure Portal. |
+| [Más lenguajes de consulta para la revisión ortográfica y los resultados semánticos](/rest/api/searchservice/preview-api/search-documents#queryLanguage) | En el caso de las solicitudes de consulta que invocan la revisión ortográfica o queryType=semantic, ahora puede establecer el lenguaje de consulta en un idioma distinto del inglés (se admiten [38 idiomas](/rest/api/searchservice/preview-api/search-documents#queryLanguage)). </br></br>[Anuncio (blog Tech Community)](https://techcommunity.microsoft.com/t5/azure-ai/introducing-multilingual-support-for-semantic-search-on-azure/ba-p/2385110) | Versión preliminar pública ([bajo solicitud](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Use [Search Documents (REST)](/rest/api/searchservice/preview-api/search-documents) api-version=2020-06-30-Preview, [Azure.Search.Documents 11.3.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.3.0-beta.2) o el [Explorador de búsqueda](search-explorer.md) en Azure Portal. </br></br>Se aplican restricciones de [región y nivel](semantic-search-overview.md#availability-and-pricing). |
+| [Disponibilidad de cifrado doble](search-security-manage-encryption-keys.md#double-encryption) | En el caso de los índices de búsqueda y los objetos que se cifran mediante claves administradas por el cliente, ahora se implementa el cifrado doble (cifrado de discos estáticos y temporales) en todas las regiones admitidas. | En todas las regiones, sujeto a las [fechas de creación del servicio](search-security-manage-encryption-keys.md#double-encryption). |
 
 ## <a name="april-2021"></a>Abril de 2021
 

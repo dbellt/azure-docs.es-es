@@ -4,12 +4,12 @@ description: Application Performance Management y seguimiento del uso de la apli
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: a3f8ef90dc7c62bd710a918e16af17e8309a9f6e
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 1da89ea574c34e457b18c39cdad32061c85f1a14
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110082673"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112289412"
 ---
 # <a name="what-is-application-insights"></a>¿Qué es Application Insights?
 Application Insights es una característica de [Azure Monitor](../overview.md) que es un servicio de Application Performance Management (APM) extensible para desarrolladores y profesionales de DevOps. Úselo para supervisar las aplicaciones en directo. Detectará automáticamente anomalías en el rendimiento e incluye eficaces herramientas de análisis que le ayudan a diagnosticar problemas y a saber lo que hacen realmente los usuarios con la aplicación.  Está diseñado para ayudarle a mejorar continuamente el rendimiento y la facilidad de uso. Funciona con diversas aplicaciones y en una amplia variedad de plataformas, como .NET, Node.js, Java y Python, hospedadas en el entorno local, de forma híbrida o en cualquier nube pública. Se integra con el proceso de DevOps y tiene puntos de conexión a numerosas herramientas de desarrollo. Puede supervisar y analizar la telemetría de aplicaciones móviles mediante la integración con Visual Studio App Center.
@@ -147,6 +147,6 @@ Comience en el tiempo de desarrollo con:
 [knowUsers]: app-insights-web-track-usage.md
 [platforms]: ./platforms.md
 [portal]: https://portal.azure.com/
-[qna]: ../faq.md
+[qna]: ../faq.yml
 [redfield]: ./monitor-performance-live-website-now.md
 

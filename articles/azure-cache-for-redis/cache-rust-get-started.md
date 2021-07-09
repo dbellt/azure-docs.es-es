@@ -7,16 +7,22 @@ ms.service: cache
 ms.devlang: rust
 ms.topic: quickstart
 ms.date: 01/08/2021
-ms.openlocfilehash: 17f38d79b75179d7a54ca5ed1d20dff18d0a0363
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: acbf5933f01a465ad1855c049796901da5d1ff90
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102121106"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110059741"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-rust"></a>Inicio rápido: Uso de Azure Cache for Redis con Rust
 
-En este artículo, aprenderá a usar el [lenguaje de programación Rust](https://www.rust-lang.org/) para interactuar con [Azure Cache for Redis](./cache-overview.md). Se muestran ejemplos de estructuras de datos de Redis que se usan habitualmente, como [cadena](https://redis.io/topics/data-types-intro#redis-strings), [hash](https://redis.io/topics/data-types-intro#redis-hashes) o [lista](https://redis.io/topics/data-types-intro#redis-lists) mediante la biblioteca [redis-rs](https://github.com/mitsuhiko/redis-rs) para Redis. Este cliente expone las API de nivel alto y bajo, y verá ambos estilos en acción con la ayuda del código de ejemplo que se presenta en este artículo.
+En este artículo, aprenderá a usar el [lenguaje de programación Rust](https://www.rust-lang.org/) para interactuar con [Azure Cache for Redis](./cache-overview.md). También obtendrá información sobre las estructuras de datos de Redis más usadas: 
+
+* [String](https://redis.io/topics/data-types-intro#redis-strings) 
+* [Hash](https://redis.io/topics/data-types-intro#redis-hashes) 
+* [Lista](https://redis.io/topics/data-types-intro#redis-lists) 
+
+En este ejemplo, usará la biblioteca [redis-rs](https://github.com/mitsuhiko/redis-rs) para Redis. Este cliente expone las API de alto y bajo nivel, y verá ambos estilos en acción.
 
 ## <a name="skip-to-the-code-on-github"></a>Ir al código en GitHub
 
@@ -39,7 +45,7 @@ Si le interesa saber cómo funciona el código, puede revisar los siguientes fra
 
 La función `connect` se usa para establecer una conexión con Azure Cache for Redis. Espera que el nombre de host y la contraseña (clave de acceso) se pasen a través de variables de entorno `REDIS_HOSTNAME` y `REDIS_PASSWORD` respectivamente. El formato de la dirección URL de conexión es `rediss://<username>:<password>@<hostname>`: Azure Cache for Redis solo acepta conexiones seguras con [TLS 1.2 como la versión mínima exigida](cache-remove-tls-10-11.md).
 
-La llamada a [redis::Client::open](https://docs.rs/redis/0.19.0/redis/struct.Client.html#method.open) realiza la validación básica mientras [get_connection()](https://docs.rs/redis/0.19.0/redis/struct.Client.html#method.get_connection) inicia realmente la conexión: el programa se detiene si se produce un error en la conectividad debido a cualquier motivo, como una contraseña incorrecta.
+La llamada a [redis::Client::open](https://docs.rs/redis/0.19.0/redis/struct.Client.html#method.open) realiza una validación básica mientras [get_connection()](https://docs.rs/redis/0.19.0/redis/struct.Client.html#method.get_connection) inicia realmente la conexión. El programa se detiene si se produce un error en la conectividad por cualquier motivo. Por ejemplo, un motivo podría ser una contraseña incorrecta.
 
 ```rust
 fn connect() -> redis::Connection {
@@ -56,7 +62,11 @@ fn connect() -> redis::Connection {
 }
 ```
 
-La función `basics` abarca los comandos [SET](https://redis.io/commands/set), [GET](https://redis.io/commands/get) e [INCR](https://redis.io/commands/incr). La API de bajo nivel se usa para `SET` y `GET`, que establece y recupera el valor de una clave denominada `foo`. El comando `INCRBY` se ejecuta mediante una API de alto nivel, es decir, [incr](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.incr) incrementa el valor de una clave (denominada `counter`) mediante `2` seguido de una llamada a [get](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.get) para recuperarlo.
+La función `basics` abarca los comandos [SET](https://redis.io/commands/set), [GET](https://redis.io/commands/get) e [INCR](https://redis.io/commands/incr). 
+
+La API de bajo nivel se usa para `SET` y `GET`, que establece y recupera el valor de una clave denominada `foo`. 
+
+El comando `INCRBY` se ejecuta mediante una API de alto nivel, es decir, [incr](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.incr) incrementa el valor de una clave (denominada `counter`) mediante `2` seguido de una llamada a [get](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.get) para recuperarlo.
 
 ```rust
 fn basics() {
@@ -130,7 +140,7 @@ fn hash() {
 }
 ```
 
-En la función siguiente, puede ver cómo usar una estructura de datos `LIST`. [LPUSH](https://redis.io/commands/lpush) se ejecuta (con la API de bajo nivel) para agregar una entrada a la lista y se usa el método de alto nivel [lpop](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.lpop) para recuperarlo de la lista. A continuación, se usa el método [rpush](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.rpush) para agregar un par de entradas a la lista que se capturan mediante el método [lrange](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.lrange) de bajo nivel.
+En la función siguiente, puede ver cómo usar una estructura de datos `LIST`. [LPUSH](https://redis.io/commands/lpush) se ejecuta (con la API de bajo nivel) para agregar una entrada a la lista y se usa el método de alto nivel [lpop](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.lpop) para recuperarlo de la lista. A continuación, se usa el método [rpush](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.rpush) para agregar un par de entradas a la lista, que luego se capturan mediante el método [lrange](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.lrange) de bajo nivel.
 
 ```rust
 fn list() {
@@ -197,7 +207,7 @@ fn set() {
 }
 ```
 
-La función `sorted_set` siguiente muestra la estructura de datos del conjunto ordenado. Se llama al comando [ZADD](https://redis.io/commands/zadd) (con la API de bajo nivel) para agregar una puntuación de números enteros aleatorios para un reproductor (`player-1`). A continuación, se usa el método [zadd](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.zadd) (API de alto nivel) para agregar más reproductores (`player-2` a `player-5`) y sus puntuaciones respectivas (generadas de forma aleatoria). Se ha detectado el número de entradas en el conjunto ordenado mediante [ZCARD](https://redis.io/commands/zcard) y se usa como límite para el comando [ZRANGE](https://redis.io/commands/zrange) (invocado con la API de bajo nivel) para enumerar los reproductores con sus puntuaciones en orden ascendente.
+La función `sorted_set` siguiente muestra la estructura de datos del conjunto ordenado. Se llama al comando [ZADD](https://redis.io/commands/zadd) con la API de bajo nivel para agregar una puntuación de números enteros aleatorios para un reproductor (`player-1`). A continuación, se usa el método [zadd](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.zadd) (API de alto nivel) para agregar más reproductores (`player-2` a `player-5`) y sus puntuaciones respectivas (generadas de forma aleatoria). El número de entradas del conjunto ordenado se determina mediante [ZCARD](https://redis.io/commands/zcard). Se usa como límite para el comando [ZRANGE](https://redis.io/commands/zrange) (invocado con la API de bajo nivel) para enumerar los reproductores con sus puntuaciones en orden ascendente.
 
 ```rust
 fn sorted_set() {
@@ -247,7 +257,7 @@ Comience por clonar la aplicación desde GitHub.
     md "C:\git-samples"
     ```
 
-1. Abra una ventana de terminal de Git, como Git Bash. Use el comando `cd` para cambiar a la nueva carpeta en la que va a clonar la aplicación de ejemplo.
+1. Abra una ventana de terminal de Git, como Git Bash. Use `cd` para cambiar a la nueva carpeta en la que va a clonar la aplicación de ejemplo.
 
     ```bash
     cd "C:\git-samples"
@@ -284,7 +294,7 @@ La aplicación acepta la conectividad y las credenciales en forma de variables d
     cargo run
     ```
     
-    Verá una salida similar a esta:
+    Verá este resultado:
     
     ```bash
     ******* Running SET, GET, INCR commands *******
@@ -328,7 +338,7 @@ La aplicación acepta la conectividad y las credenciales en forma de variables d
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si ya ha terminado con el grupo de recursos y los recursos de Azure que creó en esta guía de inicio rápido, puede eliminarlos para evitar cargos.
+Puede eliminar el grupo de recursos y los recursos cuando haya terminado con ellos. Al eliminar los que creó en esta guía de inicio rápido, evitará que se le cobre por ellos.
 
 > [!IMPORTANT]
 > La eliminación de un grupo de recursos es irreversible, y el grupo de recursos y todos los recursos que contiene se eliminarán de forma permanente. Si ha creado la instancia de Azure Cache for Redis en un grupo de recursos existente que desea conservar, puede eliminar solo la memoria caché si selecciona **Eliminar** en la página **Introducción** de la memoria caché. 
@@ -336,7 +346,7 @@ Si ya ha terminado con el grupo de recursos y los recursos de Azure que creó en
 Para eliminar el grupo de recursos y su instancia de Azure Cache for Redis:
 
 1. En [Azure Portal](https://portal.azure.com), busque y seleccione **Grupos de recursos**.
-1. En el cuadro de texto **Filtrar por nombre**, escriba el nombre del grupo de recursos que contiene la instancia de caché y, a continuación, selecciónela en los resultados de la búsqueda. 
+1. En el cuadro de texto **Filtrar por nombre**, escriba el nombre del grupo de recursos que contiene la instancia de caché. A continuación, selecciónelo en los resultados de la búsqueda. 
 1. En la página del grupo de recursos, seleccione **Eliminar grupo de recursos**.
 1. Escriba el nombre del grupo de recursos y, a continuación, seleccione **Eliminar**.
    

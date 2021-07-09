@@ -6,21 +6,22 @@ documentationcenter: ''
 author: barclayn
 manager: daveba
 editor: daveba
+ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 05/24/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3edc63a1532bb6889fc490e400dbb57e7bce10d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 25426605b0fe5ced21d373f255e3872d2d0d280e
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93360418"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079146"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutorial: Uso de una identidad asignada por el sistema de una máquina virtual Linux para acceder a Azure Storage con las credenciales de SAS
 
@@ -70,17 +71,13 @@ Más adelante se cargará y descargará un archivo a la nueva cuenta de almacena
 
 ## <a name="grant-your-vms-system-assigned-managed-identity-access-to-use-a-storage-sas"></a>Concesión de acceso a la identidad administrada asignada por el sistema de la máquina virtual para usar una SAS de almacenamiento
 
-Azure Storage no admite la autenticación de Azure AD de forma nativa.  No obstante, puede usar una identidad administrada asignada por el sistema de la máquina virtual para recuperar una SAS de almacenamiento de Resource Manager y usarla para acceder al almacenamiento.  En este paso, va a conceder a la identidad administrada asignada por el sistema de la máquina virtual acceso a la SAS de la cuenta de almacenamiento.   
+Azure Storage no admite la autenticación de Azure AD de forma nativa.  No obstante, puede usar una identidad administrada asignada por el sistema de la VM para recuperar una SAS de almacenamiento de Resource Manager y usarla para acceder al almacenamiento.  En este paso, va a conceder a la identidad administrada asignada por el sistema de la máquina virtual acceso a la SAS de la cuenta de almacenamiento. Conceda acceso mediante la asignación del rol [Colaborador de la cuenta de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-account-contributor) a la identidad administrada en el ámbito del grupo de recursos que contiene la cuenta de almacenamiento.
+ 
+Para obtener los pasos detallados, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
-1. Vuelva a la cuenta de almacenamiento recién creada.
-2. Haga clic en el vínculo **Control de acceso (IAM)** en el panel izquierdo.  
-3. Haga clic en **+ Agregar asignación de rol** en la parte superior de la página para agregar una asignación de roles nueva para la máquina virtual.
-4. Establezca **Rol** en "Colaborador de la cuenta de almacenamiento", en el lado derecho de la página. 
-5. En el menú desplegable siguiente, establezca **Asignar acceso a** en el recurso "Máquina virtual".  
-6. A continuación, asegúrese de que la suscripción adecuada aparece en el menú desplegable **Suscripción** y después, establezca **Grupo de recursos** en "Todos los grupos de recursos".  
-7. Por último, en **Seleccionar**, elija la máquina virtual Linux en el menú desplegable y haga clic en **Guardar**.  
+>[!NOTE]
+> Para obtener más información sobre los distintos roles que puede usar para conceder permisos de almacenamiento, consulte [Autorización del acceso a blobs y colas con Azure Active Directory](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights)
 
-    ![Texto alternativo de imagen](./media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
 
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Obtención de un token de acceso utilizando la identidad de la máquina virtual y su uso para llamar a Azure Resource Manager
 

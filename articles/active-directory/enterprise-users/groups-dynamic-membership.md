@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41bdf5251881fa9307a3cd4d214081845e967900
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: 4d93acbfa8ae89b459fafb69411d35706b18fcbb
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107209526"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982995"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Reglas de pertenencia dinámica a grupos de Azure Active Directory
 
@@ -366,7 +366,9 @@ Un ejemplo de una regla que utiliza una propiedad de extensión personalizada es
 user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
 ```
 
-El nombre de la propiedad personalizada se puede encontrar en el directorio mediante la consulta de una propiedad de usuario a través del explorador de Graph y la búsqueda del nombre en cuestión. También, ahora puede seleccionar el vínculo **Get custom extension properties** (Obtener propiedades de extensión personalizadas) en el generador de reglas dinámicas de grupos de usuarios para escribir un identificador de aplicación único y recibir la lista completa de propiedades de extensión personalizadas para usar al crear una regla de pertenencia dinámica. Esta lista también se puede actualizar esta lista para obtener nuevas propiedades de extensión personalizada para la aplicación.
+El nombre de la propiedad personalizada se puede encontrar en el directorio mediante la consulta de una propiedad de usuario a través del explorador de Graph y la búsqueda del nombre en cuestión. También, ahora puede seleccionar el vínculo **Get custom extension properties** (Obtener propiedades de extensión personalizadas) en el generador de reglas dinámicas de grupos de usuarios para escribir un identificador de aplicación único y recibir la lista completa de propiedades de extensión personalizadas para usar al crear una regla de pertenencia dinámica. Esta lista también se puede actualizar esta lista para obtener nuevas propiedades de extensión personalizada para la aplicación. 
+
+Para más información, consulte [Uso de los atributos en grupos dinámicos](../hybrid/how-to-connect-sync-feature-directory-extensions.md#use-the-attributes-in-dynamic-groups) en el artículo [Sincronización de Azure AD Connect: extensiones de directorio](../hybrid/how-to-connect-sync-feature-directory-extensions.md).
 
 ## <a name="rules-for-devices"></a>Reglas de dispositivos
 

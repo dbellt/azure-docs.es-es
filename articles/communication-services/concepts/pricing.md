@@ -2,19 +2,19 @@
 title: Escenarios de precios para llamadas (voz o vídeo) y chat
 titleSuffix: An Azure Communication Services concept document
 description: Obtenga información sobre el modelo de precios de Communication Services.
-author: mikben
-manager: jken
+author: nmurav
+manager: nmurav
 services: azure-communication-services
-ms.author: mikben
+ms.author: nmurav
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 0615d95c922ef3f04618d9f2339e82b53bd359df
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 038b4df78ca7f10b0ec0e9dfe224f6aca2430e82
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108763692"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111986307"
 ---
 # <a name="pricing-scenarios"></a>Escenarios de precios
 
@@ -51,16 +51,16 @@ Alice realizó una llamada grupal con sus compañeros de trabajo, Bob y Charlie.
 Alice hace una llamada RTC desde una aplicación a Bob en su número de teléfono de EE. UU. que comienza por `+1-425`.
 
 - Alice usó el SDK para JS para compilar la aplicación.
-- La llamada dura un total de 5 minutos.
+- La llamada dura un total de 10 minutos.
 
 **Cálculos de costos**
 
 - Un participante en el tramo VoIP (Alice) de la aplicación a los servidores de Communication Services x 10 minutos x 0,004 USD por tramo de participante por minuto = 0,04 USD
-- Un participante en el tramo saliente PSTN (Charlie) de los servidores de Communication Services a un número de teléfono de EE. UU. x 10 minutos x 0,013 USD por tramo de participante por minuto = 0,13 USD.
+- Un participante en el tramo saliente PSTN (Bob) de los servidores de Communication Services a un número de teléfono de EE. UU. x 10 minutos x 0,013 USD por tramo de participante por minuto = 0,13 USD.
 
 Nota: las tarifas mixtas de Estados Unidos a `+1-425` es 0,013 USD. Consulte el vínculo siguiente para más detalles: https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
-**Costo total de la llamada grupal**: 0,04 USD + 0,13 USD = 0,17 USD
+**Costo total de la llamada**: 0,04 USD + 0,13 USD = 0,17 USD
 
 
 ### <a name="pricing-example-group-audio-call-using-js-sdk-and-1-pstn-leg"></a>Ejemplo de precios: llamada de audio de grupo mediante el SDK para JS y un tramo de PSTN
@@ -154,7 +154,7 @@ Las llamadas telefónicas tradicionales (llamadas que se producen a través de l
 
 #### <a name="united-states-calling-prices"></a>Precios de llamadas en Estados Unidos
 
-Los precios siguientes incluyen los impuestos y cuotas de comunicaciones necesarias hasta el 30 de junio de 2021:
+Los precios siguientes incluyen los impuestos y cuotas de comunicaciones necesarios:
 
 |Tipo de número   |Para realizar llamadas   |Para recibir llamadas|
 |--------------|-----------|------------|
@@ -163,7 +163,7 @@ Los precios siguientes incluyen los impuestos y cuotas de comunicaciones necesar
 
 #### <a name="other-calling-destinations"></a>Otros destinos de llamada
 
-Los precios siguientes incluyen los impuestos y cuotas de comunicaciones necesarias hasta el 30 de junio de 2021:
+Los precios siguientes incluyen los impuestos y cuotas de comunicaciones necesarios:
 
 |Realizar llamadas a   |Precio por minuto|
 |-----------|------------|
@@ -177,7 +177,7 @@ Los precios siguientes incluyen los impuestos y cuotas de comunicaciones necesar
 
 SMS ofrece precios de pago por uso. El precio es un cargo por mensaje en función del destino del mensaje. Los mensajes se pueden enviar mediante números de teléfono gratuitos a números de teléfono ubicados en Estados Unidos. Tenga en cuenta que los números de teléfono locales (geográficos) no se pueden usar para enviar mensajes SMS.
 
-Los precios siguientes incluyen los impuestos y cuotas de comunicaciones necesarias hasta el 30 de junio de 2021:
+Los precios siguientes incluyen los impuestos y cuotas de comunicaciones necesarios:
 
 |País   |Envío de mensajes|Recepción de mensajes|
 |-----------|------------|------------|
