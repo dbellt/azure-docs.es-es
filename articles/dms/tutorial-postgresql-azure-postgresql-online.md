@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 04/11/2020
-ms.openlocfilehash: 37f33a217467619240d3339363c6a2fcd8800a12
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 6384962e0591c4bc3245d0f204f9ad0cec0d1177
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107505554"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110069911"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>Tutorial: Migración de PostgreSQL a Azure DB for PostgreSQL en línea mediante DMS a través de la CLI de Azure
 
@@ -114,46 +114,8 @@ Para completar todos los objetos de base de datos como esquemas de tabla, índic
     psql -h mypgserver-20170401.postgres.database.azure.com  -U postgres -d dvdrental < dvdrentalSchema.sql
     ```
 
-4. Si tiene claves externas en el esquema, se producirá un error en la carga inicial y la sincronización continua de la migración. Ejecute el siguiente script en PgAdmin o en psql para extraer el script de clave externa que desea eliminar y agregue el script de clave externa en el destino (Azure Database for PostgreSQL).
-  
-    ```
-    SELECT Queries.tablename
-           ,concat('alter table ', Queries.tablename, ' ', STRING_AGG(concat('DROP CONSTRAINT ', Queries.foreignkey), ',')) as DropQuery
-                ,concat('alter table ', Queries.tablename, ' ',
-                                                STRING_AGG(concat('ADD CONSTRAINT ', Queries.foreignkey, ' FOREIGN KEY (', column_name, ')', 'REFERENCES ', foreign_table_name, '(', foreign_column_name, ')' ), ',')) as AddQuery
-        FROM
-        (SELECT
-        tc.table_schema,
-        tc.constraint_name as foreignkey,
-        tc.table_name as tableName,
-        kcu.column_name,
-        ccu.table_schema AS foreign_table_schema,
-        ccu.table_name AS foreign_table_name,
-        ccu.column_name AS foreign_column_name
-    FROM
-        information_schema.table_constraints AS tc
-        JOIN information_schema.key_column_usage AS kcu
-          ON tc.constraint_name = kcu.constraint_name
-          AND tc.table_schema = kcu.table_schema
-        JOIN information_schema.constraint_column_usage AS ccu
-          ON ccu.constraint_name = tc.constraint_name
-          AND ccu.table_schema = tc.table_schema
-    WHERE constraint_type = 'FOREIGN KEY') Queries
-      GROUP BY Queries.tablename;
-    ```
-
-    Ejecute la clave externa que desea eliminar (que es la segunda columna) en el resultado de la consulta.
-
-5. Los desencadenadores de los datos (desencadenadores de inserción o de actualización), aplicarán la integridad de datos en el destino antes que en los datos replicados desde el origen. Se recomienda deshabilitar los desencadenadores en todas las tablas **del destino** durante la migración y, cuando haya terminado esta, volver a habilitar los desencadenadores.
-
-    Para deshabilitar los desencadenadores en la base de datos de destino, use el siguiente comando:
-
-    ```
-    select concat ('alter table ', event_object_table, ' disable trigger ', trigger_name)
-    from information_schema.triggers;
-    ```
-
-6. Si hay un tipo de datos ENUM en todas las tablas, se recomienda actualizar temporalmente a un tipo de datos "character varying" en la tabla de destino. Una vez realizada la replicación de datos, revierta el tipo de datos a ENUM.
+  > [!NOTE]
+   > El servicio de migración controla internamente la habilitación o deshabilitación de claves externas y desencadenadores para garantizar una migración de datos confiable y sólida. Como resultado, no tiene que preocuparse por realizar modificaciones en el esquema de la base de datos de destino.
 
 ## <a name="provisioning-an-instance-of-dms-using-the-azure-cli"></a>Aprovisionamiento de una instancia de DMS mediante la CLI de Azure
 

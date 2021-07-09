@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/25/2020
+ms.date: 05/07/2021
 ms.author: jeedes
-ms.openlocfilehash: 34365a8bd7a15f502aa89a966adb14807e802cc4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77e98560ee483f55fc4a808a8c888f20af983a90
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98737005"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110478588"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>Tutorial: Integración del inicio de sesión único de Azure Active Directory con Confluence SAML SSO by Microsoft
 
@@ -62,7 +62,7 @@ En la actualidad se admiten las siguientes versiones de Confluence:
 
 - Confluence: 5.0 a 5.10
 - Confluence: 6.0.1 a 6.15.9
-- Confluence: 7.0.1 a 7.9.3
+- Confluence: 7.0.1 a 7.10.0
 
 > [!NOTE]
 > Tenga en cuenta que nuestro complemento de Confluence también funciona con Ubuntu 16.04.
@@ -109,11 +109,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<domain:port>/plugins/servlet/saml/auth`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<DOMAIN:PORT>/`
 
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<domain:port>/`
-
-    c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<domain:port>/plugins/servlet/saml/auth`
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<DOMAIN:PORT>/plugins/servlet/saml/auth`
+    
+    c. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<DOMAIN:PORT>/plugins/servlet/saml/auth`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. En caso de que sea una dirección URL con nombre, el puerto es opcional. Estos valores se reciben durante la configuración del complemento de Confluence, que se explica más adelante en el tutorial.
@@ -152,11 +152,11 @@ En esta sección va a permitir que B. Simon acceda a SAML SSO by Microsoft medi
 
 1. Mantenga el mouse encima del icono de engranaje y haga clic en **Complementos**.
 
-    ![Captura de pantalla que muestra el icono de engranaje seleccionado y la opción "Complementos" resaltada en el menú desplegable.](./media/confluencemicrosoft-tutorial/addon1.png)
+    ![Captura de pantalla que muestra el icono de engranaje seleccionado y la opción "Complementos" resaltada en el menú desplegable.](./media/confluencemicrosoft-tutorial/add-on-1.png)
 
 1. Descargue el complemento del [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=56503). Cargue manualmente el complemento proporcionado por Microsoft mediante el menú **Cargar complemento**. La descarga del complemento está contemplada en el [Acuerdo de servicio de Microsoft](https://www.microsoft.com/servicesagreement/).
 
-    ![Captura de pantalla que muestra la página "Administrar complementos" con la acción "Cargar complemento" seleccionada.](./media/confluencemicrosoft-tutorial/addon12.png)
+    ![Captura de pantalla que muestra la página "Administrar complementos" con la acción "Cargar complemento" seleccionada.](./media/confluencemicrosoft-tutorial/add-on-12.png)
 
 1. Para ejecutar el escenario de proxy inverso de Confluence o el escenario del equilibrador de carga, realice los pasos siguientes:
 
@@ -167,19 +167,19 @@ En esta sección va a permitir que B. Simon acceda a SAML SSO by Microsoft medi
 
     `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
 
-    ![Captura de pantalla que muestra el archivo "server.xml" con el atributo agregado al puerto del conector.](./media/confluencemicrosoft-tutorial/reverseproxy1.png)
+    ![Captura de pantalla que muestra el archivo "server.xml" con el atributo agregado al puerto del conector.](./media/confluencemicrosoft-tutorial/reverse-proxy-1.png)
 
     b. Cambie la **URL base** en **Configuración del sistema** en función del proxy o equilibrador de carga.
 
-    ![Captura de pantalla que muestra la página "Administración - Configuración" con la opción "URL base" resaltada.](./media/confluencemicrosoft-tutorial/reverseproxy2.png)
+    ![Captura de pantalla que muestra la página "Administración - Configuración" con la opción "URL base" resaltada.](./media/confluencemicrosoft-tutorial/reverse-proxy-2.png)
 
 1. Una vez instalado el complemento, aparece en la sección de complementos **Instalados por el usuario** de **Administrar complemento**. Haga clic en **Configurar** para configurar el nuevo complemento.
 
-    ![Captura de pantalla que muestra la sección "Instalados por el usuario" con el botón "Configurar" resaltado.](./media/confluencemicrosoft-tutorial/addon15.png)
+    ![Captura de pantalla que muestra la sección "Instalados por el usuario" con el botón "Configurar" resaltado.](./media/confluencemicrosoft-tutorial/add-on-15.png)
 
 1. Siga estos pasos en la página de configuración:
 
-    ![Captura de pantalla que muestra la página de configuración de inicio de sesión único.](./media/confluencemicrosoft-tutorial/addon54.png)
+    ![Captura de pantalla que muestra la página de configuración de inicio de sesión único.](./media/confluencemicrosoft-tutorial/add-on-53.png)
 
     > [!TIP]
     > Asegúrese de que hay un solo certificado asignado a la aplicación, de forma que no se produzca ningún error en la resolución de los metadatos. Si hay varios certificados, el administrador recibe un error después de resolver los metadatos.
@@ -209,7 +209,7 @@ En esta sección va a permitir que B. Simon acceda a SAML SSO by Microsoft medi
 
        > [!Note]
        > Para habilitar el formulario de inicio de sesión predeterminado para el inicio de sesión de administrador en la página de inicio de sesión esté habilitada la opción de forzar inicio de sesión en Azure, agregue el parámetro de consulta a la dirección URL del explorador.
-       > `https://<domain:port>/login.action?force_azure_login=false`
+       > `https://<DOMAIN:PORT>/login.action?force_azure_login=false`
 
     1. Haga clic en el botón **Save** (Guardar) para guardar la configuración.
 
@@ -226,11 +226,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en el servidor local 
 
 1. Mantenga el mouse encima del icono de engranaje y haga clic en **Administración de usuarios**.
 
-    ![Agregar empleado](./media/confluencemicrosoft-tutorial/user1.png)
+    ![Agregar empleado](./media/confluencemicrosoft-tutorial/user-1.png)
 
 1. En la sección Usuarios, haga clic en la pestaña **Agregar usuarios**. En la página del cuadro de diálogo **Agregar un usuario**, realice los siguientes pasos:
 
-    ![Captura de pantalla que muestra la página de administración de Confluence con la pestaña "Agregar usuarios" seleccionada e información escrita en "Agregar un usuario".](./media/confluencemicrosoft-tutorial/user2.png)
+    ![Captura de pantalla que muestra la página de administración de Confluence con la pestaña "Agregar usuarios" seleccionada e información escrita en "Agregar un usuario".](./media/confluencemicrosoft-tutorial/user-2.png)
 
     a. En el cuadro de texto **Nombre de usuario**, escriba el correo electrónico de un usuario, por ejemplo, B. Simon.
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/21/2020
+ms.date: 06/09/2021
 ms.author: jeedes
-ms.openlocfilehash: 359511e653231ee25f0cd09f32448a0b66b40d3d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cb7bef1b2c197268e7810001f845c89788579e5b
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97586744"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111891147"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-abbyy-flexicapture-cloud"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ABBYY FlexiCapture Cloud
 
@@ -40,7 +40,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 * ABBYY FlexiCapture Cloud admite el inicio de sesión único iniciado por **SP e IDP**.
 * ABBYY FlexiCapture Cloud admite el aprovisionamiento de usuarios **Just-In-Time**.
 
-## <a name="adding-abbyy-flexicapture-cloud-from-the-gallery"></a>Adición de ABBYY FlexiCapture Cloud desde la galería
+## <a name="add-abbyy-flexicapture-cloud-from-the-gallery"></a>Adición de ABBYY FlexiCapture Cloud desde la galería
 
 Para configurar la integración de ABBYY FlexiCapture Cloud en Azure AD, necesita agregar ABBYY FlexiCapture Cloud desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -50,7 +50,6 @@ Para configurar la integración de ABBYY FlexiCapture Cloud en Azure AD, necesi
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **ABBYY FlexiCapture Cloud** en el cuadro de búsqueda.
 1. Seleccione **ABBYY FlexiCapture Cloud** en el panel de resultados y, a continuación, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-abbyy-flexicapture-cloud"></a>Configuración y prueba del inicio de sesión único de Azure AD para la nube de ABBYY FlexiCapture Cloud
 
@@ -71,11 +70,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En Azure Portal, en la página de integración de la aplicación **ABBYY FlexiCapture Cloud**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<SUBDOMAIN>.flexicapture.com/FlexiCapture12/Login/<TENANT_NAME>/AccessToken/Saml`
 
@@ -95,6 +94,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 1. En la sección **Set up ABBYY FlexiCapture Cloud** (Configurar ABBYY FlexiCapture Cloud), copie las direcciones URL que necesite.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
@@ -141,7 +141,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Haga clic en **Probar esta aplicación** en Azure Portal. De este modo, se debería iniciarse sesión automáticamente en la instancia de ABBYY FlexiCapture Cloud para la que configuró el inicio de sesión único. 
 
-También puede usar el Panel de acceso de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de ABBYY FlexiCapture Cloud en el Panel de acceso, si se ha configurado en el modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para iniciar el flujo de inicio de sesión. Si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de ABBYY FlexiCapture Cloud para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de ABBYY FlexiCapture Cloud en Aplicaciones, si se ha configurado en el modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para iniciar el flujo de inicio de sesión. Si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de ABBYY FlexiCapture Cloud para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

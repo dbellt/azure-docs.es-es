@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/04/2021
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
-ms.openlocfilehash: 70fc2edbf9ae342f91913f0345db3bb1ac0332a3
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: dc59905351da364ed23b5cbc59b972feb0497a9e
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111592644"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112294938"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-azure-iot-hub"></a>Inicio rápido: Envío de datos de telemetría de un dispositivo a IoT Hub
 
@@ -85,9 +85,11 @@ Para eliminar un grupo de recursos por el nombre:
 
 En este inicio rápido ha aprendido un flujo de trabajo básico de una aplicación de Azure IoT para conectar un dispositivo a la nube de forma segura y enviar datos de telemetría del dispositivo a la nube. Ha utilizado la CLI de Azure para crear un centro de Azure IoT y una instancia de un dispositivo. Después utilizó un SDK de dispositivo IoT de Azure para crear un dispositivo simulado, conectarlo al centro y enviar datos de telemetría. También ha usado Azure Portal para supervisar los datos telemetría.
 
-A continuación, puede explorar los siguientes artículos de inicio rápido para más información sobre la creación de soluciones de dispositivo con Azure IoT.
+A continuación, puede explorar los siguientes artículos para más información sobre la creación de soluciones de dispositivo con Azure IoT. 
 
+> [!div class="nextstepaction"]
+> [Control de un dispositivo conectado a IoT Hub](../iot-hub/quickstart-control-device-dotnet.md)
 > [!div class="nextstepaction"]
 > [Envío de datos de telemetría a IoT Central](quickstart-send-telemetry-central.md)
 > [!div class="nextstepaction"]
-> [Inicio rápido: Conexión de un kit de desarrollo MXCHIP AZ3166 a IoT Central](quickstart-devkit-mxchip-az3166.md)
+> [Conexión de un kit de desarrollo de MXCHIP AZ3166 a IoT Central](quickstart-devkit-mxchip-az3166.md)

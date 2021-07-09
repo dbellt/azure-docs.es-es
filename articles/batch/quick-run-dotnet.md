@@ -2,20 +2,20 @@
 title: 'Inicio rápido: Ejecución del primer trabajo de Azure Batch con .NET API'
 description: En este inicio rápido, se ejecuta las tareas y un trabajo de ejemplo de Azure Batch desde una aplicación en C# con la biblioteca cliente .NET de Batch.
 ms.topic: quickstart
-ms.date: 08/17/2020
+ms.date: 05/25/2021
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 1c2328db520042ceff1861b740313befbed0e20d
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 3f6bca64e3241c5ee3aa5940a7556bc545932e87
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107876731"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467733"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Inicio rápido: Ejecute su primer trabajo de Azure Batch con la API de .NET
 
 Para comenzar a trabajar con Azure Batch, ejecute un trabajo desde una aplicación en C# compilada en .NET API de Azure Batch. La aplicación carga varios archivos de datos de entrada en Azure Storage y, después, crea un grupo de nodos de proceso de Batch (máquinas virtuales). A continuación, crea un trabajo de ejemplo que ejecuta tareas para procesar todos los archivo de entrada del grupo mediante un comando básico.
 
-Tras completar esta guía de inicio rápido, entenderá los conceptos clave del servicio Batch y estará listo para probar dicho servicio con cargas de trabajo más realistas y a mayor escala.
+Tras completar este inicio rápido, conocerá los conceptos clave del servicio Batch y estará listo para probar dicho servicio con cargas de trabajo más realistas y a mayor escala.
 
 ![Diagrama que muestra información general del flujo de trabajo de la aplicación de Azure Batch.](./media/quick-run-dotnet/sampleapp.png)
 
@@ -25,7 +25,7 @@ Tras completar esta guía de inicio rápido, entenderá los conceptos clave del 
 
 - Una cuenta de Batch y una cuenta de Azure Storage vinculada. Para crear estas cuentas, consulte las guías de inicio rápido de Batch con [Azure Portal](quick-create-portal.md) o la [CLI de Azure](quick-create-cli.md).
 
-- [Visual Studio 2017 o superior](https://www.visualstudio.com/vs) o el [SDK de .NET Core 2.1](https://dotnet.microsoft.com/download/dotnet/2.1) para Linux, macOS o Windows. 
+- [Visual Studio 2017 o superior](https://www.visualstudio.com/vs) o el [SDK de .NET Core 2.1](https://dotnet.microsoft.com/download/dotnet/2.1) para Linux, macOS o Windows.
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -145,7 +145,7 @@ using (BatchClient batchClient = BatchClient.Open(cred))
 
 Para crear un grupo de Batch, la aplicación usa el método [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) para establecer el número de nodos, el tamaño de la máquina virtual y la configuración del grupo. En este caso, un objeto [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) especifica un valor de [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) en una imagen de Windows Server publicada en Azure Marketplace. Batch es compatible con una amplia gama de imágenes de Linux y Windows Server de Azure Marketplace, así como con las imágenes de máquina virtual personalizadas.
 
-El número de nodos (`PoolNodeCount`) y el tamaño de la máquina virtual (`PoolVMSize`) son constantes definidas. De forma predeterminada el ejemplo crea un grupo de dos nodos de tamaño *Standard_A1_v2*. El tamaño que se sugiere ofrece un buen equilibrio entre rendimiento y costo para este ejemplo rápido.
+El número de nodos (`PoolNodeCount`) y el tamaño de la máquina virtual (`PoolVMSize`) son constantes definidas. De forma predeterminada el ejemplo crea un grupo de dos nodos *Standard_A1_v2*. El tamaño que se sugiere ofrece un buen equilibrio entre rendimiento y costo para este ejemplo rápido.
 
 El método [Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) envía el grupo al servicio Batch.
 
@@ -239,7 +239,7 @@ foreach (CloudTask task in completedtasks)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-La aplicación elimina automáticamente el contenedor de almacenamiento que crea y ofrece la opción de eliminar el grupo y el trabajo de Batch. Se cobran el grupo mientras que los nodos estén en ejecución, aunque no haya trabajos programados. Cuando no necesite el grupo, elimínelo. Al eliminar el grupo, las salidas de tarea de los nodos también se eliminan.
+La aplicación elimina automáticamente el contenedor de almacenamiento que crea y ofrece la opción de eliminar el grupo y el trabajo de Batch. Se cobran el grupo mientras que los nodos estén en ejecución, aunque no haya trabajos programados. Cuando no necesite el grupo, elimínelo. Después de eliminar el grupo, la salida de la tarea de los nodos también se elimina.
 
 Cuando ya no los necesite, elimine el grupo de recursos, la cuenta de Batch y la de Storage. Para hacerlo desde Azure Portal, seleccione el grupo de recursos de la cuenta de Batch y haga clic en **Eliminar grupo de recursos**.
 

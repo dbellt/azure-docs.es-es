@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 03/29/2021
 ms.author: chrande
 ms.custom: devx-track-python
-ms.openlocfilehash: cef397789d5ebcfa95c01e42dac9a80b9e1564e0
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 479b65deec8ef7a7c313be2844495e4ed29d4d7d
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106106949"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "113225505"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Inicio rápido: Creación de una base de datos de grafos en Azure Cosmos DB mediante Python y Azure Portal
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "106106949"
 
 En este inicio rápido, se crea y administra una cuenta de Azure Cosmos DB para Gremlin (Graph) API desde Azure Portal y se agregan datos mediante una aplicación en Python clonada desde GitHub. Azure Cosmos DB es un servicio de base de datos multimodelo que permite crear y consultar rápidamente bases de datos de documentos, tablas, claves-valores y grafos con funcionalidades de distribución global y escala horizontal.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 - Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). O bien, [pruebe gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sin una suscripción de Azure.
 - [Python 3.6 y posteriores](https://www.python.org/downloads/), incluido el instalador del paquete [pip](https://pip.pypa.io/en/stable/installing/).
 - [Controlador de Python para Gremlin](https://github.com/apache/tinkerpop/tree/master/gremlin-python).
@@ -43,11 +43,11 @@ En este inicio rápido, se crea y administra una cuenta de Azure Cosmos DB para 
 
 Para poder crear una base de datos de grafos, debe crear una cuenta de base de datos de Gremlin (Graph) con Azure Cosmos DB.
 
-[!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-graph](includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## <a name="add-a-graph"></a>Agregar un grafo
 
-[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
+[!INCLUDE [cosmos-db-create-graph](includes/cosmos-db-create-graph.md)]
 
 ## <a name="clone-the-sample-application"></a>Clonación de la aplicación de ejemplo
 
@@ -234,11 +234,11 @@ Esto completa la parte de la creación de recursos de este tutorial. Puede segui
 
 ## <a name="review-slas-in-the-azure-portal"></a>Revisión de los SLA en Azure Portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,12 +8,13 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: 5aa15204d646278abfb669466a34f11543e338f2
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8a0294e205dd8a22f9847140511cbce634322c4a
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110091223"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112285236"
 ---
 # <a name="backend-pool-management"></a>Administración de grupos de back-end
 El grupo de back-end es un componente esencial del equilibrador de carga. Define el grupo de recursos que atenderán el tráfico de una regla de equilibrio de carga determinada.
@@ -160,7 +161,7 @@ az vm create \
 
 Siga la [plantilla de Resource Manager de este inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/load-balancer-standard-create/) para implementar un equilibrador de carga y máquinas virtuales, y para agregar las máquinas virtuales al grupo de back-end a través de la interfaz de red.
 
-Siga la [plantilla de Resource Manager de este inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-ip-configured-backend-pool) para implementar un equilibrador de carga y máquinas virtuales, y para agregar las máquinas virtuales al grupo de back-end a través de la dirección IP.
+Siga la [plantilla de Resource Manager de este inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/load-balancer-ip-configured-backend-pool) para implementar un equilibrador de carga y máquinas virtuales, y para agregar las máquinas virtuales al grupo de back-end a través de la dirección IP.
 
 
 ## <a name="configure-backend-pool-by-ip-address-and-virtual-network"></a>Configuración del grupo de back-end por dirección IP y red virtual
@@ -314,10 +315,12 @@ Un grupo de back-end configurado por la dirección IP tiene las siguientes limit
   * Límite de 100 direcciones IP en el grupo de back-end
   * Los recursos de back-end deben estar en la misma red virtual que el equilibrador de carga.
   * Un equilibrador de carga con un grupo de back-end basado en IP no puede funcionar como servicio de Private Link.
-  * Esta característica no se admite actualmente en Azure Portal.
   * Los contenedores ACI no admiten esta característica actualmente
   * Los equilibradores de carga o servicios como Application Gateway no se pueden colocar en el grupo de back-end del equilibrador de carga.
   * No se pueden especificar reglas NAT de entrada mediante la dirección IP
+
+>[!Important]
+> Cuando un grupo de back-end se configure mediante una dirección IP, se comportará como un equilibrador de carga básico con la salida predeterminada habilitada. Para proteger de forma predeterminada la configuración y las aplicaciones con necesidades de salida exigentes, configure el grupo de back-end mediante NIC.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha conocido la administración de grupos de back-end de Azure Load Balancer y ha aprendido a configurar un grupo de back-end mediante una combinación de dirección IP y red virtual.

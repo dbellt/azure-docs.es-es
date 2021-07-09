@@ -9,12 +9,12 @@ ms.author: mlearned
 description: En este artículo se proporciona información general de Kubernetes habilitado para Azure Arc.
 keywords: Kubernetes, Arc, Azure, containers
 ms.custom: references_regions
-ms.openlocfilehash: 74db1dda9ffdf40ec7e6a571a63986d4ab75c193
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: d2e71b61210baf93950cb9e8fb2270320f882404
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375361"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967161"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes"></a>¿Qué es Kubernetes habilitado para Azure Arc?
 
@@ -29,7 +29,7 @@ Para conectar un clúster de Kubernetes a Azure, es preciso que el administrador
 * Recopilan registros y métricas de Azure Arc.
 * Inspeccionan las solicitudes de configuración. 
 
-Kubernetes habilitado para Azure Arc admite SSL estándar del sector para proteger los datos en tránsito. Además, los datos se almacenan cifrados en reposo en una base de datos de Azure Cosmos DB para garantizar la confidencialidad de los datos.
+Kubernetes habilitado para Azure Arc admite SSL estándar del sector para proteger los datos en tránsito. Además, los datos en reposo se almacenan cifrados en una base de datos de Azure Cosmos DB para garantizar la confidencialidad de los datos.
 
 ## <a name="supported-kubernetes-distributions"></a>Distribuciones de Kubernetes admitidas
 
@@ -49,7 +49,7 @@ Kubernetes habilitado para Azure Arc admite los siguientes escenarios:
 
 * Aplicación de directivas mediante Azure Policy para Kubernetes.
 
-* Cree [ubicaciones personalizadas](./custom-locations.md) como ubicaciones de destino para implementar Data Services habilitado para Azure Arc, [App Services en Azure Arc](../../app-service/overview-arc-integration.md) (incluido web, funciones y aplicaciones lógicas) y [Event Grid en Kubernetes](/azure/event-grid/kubernetes/overview).
+* Cree [ubicaciones personalizadas](./custom-locations.md) como ubicaciones de destino para implementar Data Services habilitado para Azure Arc, [App Services en Azure Arc](../../app-service/overview-arc-integration.md) (incluido web, funciones y aplicaciones lógicas) y [Event Grid en Kubernetes](../../event-grid/kubernetes/overview.md).
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 

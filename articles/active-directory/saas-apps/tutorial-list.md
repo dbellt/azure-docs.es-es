@@ -12,12 +12,12 @@ ms.date: 03/09/2021
 ms.author: jeedes
 ms.custom: contperf-fy21q3-portal
 ms.reviewer: celested
-ms.openlocfilehash: eda1ad058bf969351122cb9df1b528341067a186
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0ab3655ee1802b48b6c06e23d07a4831b31bc69e
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640907"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111895457"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>Tutoriales para integrar aplicaciones SaaS con Azure Active Directory
 
@@ -86,6 +86,7 @@ Si desea buscar otros tutoriales, utilice la tabla de contenido de la izquierda.
 | ![logo-Evernote](./media/tutorial-list/active-directory-saas-evernote-tutorial.png)| [Evernote](evernote-tutorial.md)|
 | ![logo-ExpenseIn](./media/tutorial-list/active-directory-saas-expensein-tutorial.png)| [ExpenseIn](expensein-tutorial.md)|
 | ![logo-EZOfficeInventory](./media/tutorial-list/active-directory-saas-ezofficeinventory-tutorial.png)| [EZOfficeInventory](ezofficeinventory-tutorial.md)|
+| ![logo-FAX.PLUS](./media/tutorial-list/active-directory-saas-fax-plus-tutorial.png)| [FAX.PLUS](fax-plus-tutorial.md)|
 | ![logo-Foodee](./media/tutorial-list/active-directory-saas-foodee-tutorial.png)| [Foodee](foodee-tutorial.md)|
 | ![logo-Freedcamp](./media/tutorial-list/active-directory-saas-freedcamp-tutorial.png)| [Freedcamp](freedcamp-tutorial.md)|
 | ![logo-Freshservice](./media/tutorial-list/active-directory-saas-freshservice-tutorial.png)| [FreshService](freshservice-tutorial.md)|
@@ -132,6 +133,7 @@ Si desea buscar otros tutoriales, utilice la tabla de contenido de la izquierda.
 | ![logo-Way We Do](./media/tutorial-list/active-directory-saas-waywedo-tutorial.png)| [Way We Do](waywedo-tutorial.md)|
 | ![logo-Whimsical](./media/tutorial-list/active-directory-saas-whimsical-tutorial.png)| [Whimsical](whimsical-tutorial.md)|
 | ![logo-WhosOffice](./media/tutorial-list/active-directory-saas-whosoffice-tutorial.png)| [WhosOffice](whosoffice-tutorial.md)|
+| ![logo-Wootric](./media/tutorial-list/active-directory-saas-wootric-tutorial.png)| [Wootric](wootric-tutorial.md)|
 | ![logo-Workplace by Facebook](./media/tutorial-list/active-directory-saas-workplacebyfacebook-tutorial.png)| [Workplace by Facebook](workplacebyfacebook-tutorial.md)|
 | ![logo-Workteam](./media/tutorial-list/active-directory-saas-workteam-tutorial.png)| [Workteam](workteam-tutorial.md)|
 | ![logo-XaitPorter](./media/tutorial-list/active-directory-saas-xaitporter-tutorial.png)| [XaitPorter](xaitporter-tutorial.md)|

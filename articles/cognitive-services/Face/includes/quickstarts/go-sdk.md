@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: ab3fdd24446448e9c21a1e4867c26c960f814c7a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 57c152546bfdbcdfbeba45536990c6c204106e7a
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105958354"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109857998"
 ---
 Comience a usar el reconocimiento facial con la biblioteca cliente de Face para Go. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas. El servicio Face le proporciona acceso a algoritmos avanzados para detectar y reconocer rostros humanas en imágenes.
 
@@ -272,10 +272,10 @@ Si ha creado un objeto **PersonGroup** en este inicio rápido y desea eliminarlo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha aprendido a usar la biblioteca cliente de Face para Go para realizar tareas básicas de reconocimiento facial. A continuación, consulte la documentación de referencia para más información sobre la biblioteca.
+En este inicio rápido, ha aprendido a usar la biblioteca cliente de Face para Go para realizar tareas básicas de reconocimiento facial. A continuación, obtenga información sobre los diferentes modelos de detección de caras y cómo especificar el modelo adecuado para su caso de uso.
 
 > [!div class="nextstepaction"]
-> [Referencia de Face API (Go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face)
+> [Especificación de una versión del modelo de detección de caras](../../Face-API-How-to-Topics/specify-detection-model.md)
 
 * [¿Qué es el servicio Face?](../../overview.md)
 * El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/Face/FaceQuickstart.go).

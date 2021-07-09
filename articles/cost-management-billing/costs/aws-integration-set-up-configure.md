@@ -3,17 +3,17 @@ title: Configuración de la integración de AWS con Azure Cost Management
 description: En este artículo se le guiará a través de la instalación y configuración de la integración de informes de uso y costo de AWS con Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/10/2021
+ms.date: 06/08/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: e1d332ba3ff2da50db9f59ce844844ac4c87cc0b
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 098766674e3bd665bb533fbf4d78fe1b0b1aebda
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738453"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756048"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Instalar y configurar la integración de informes de uso y costo de AWS
 
@@ -27,7 +27,7 @@ Vea el vídeo [Configuración de conectores para AWS en Cost Management](https:/
 
 ## <a name="create-a-cost-and-usage-report-in-aws"></a>Crear un informe de uso y costo en AWS
 
-Usar un informe de uso y costo es la manera recomendada de AWS para recopilar y procesar los costos de AWS. Para obtener más información, consulte la documentación de [AWS Cost and Usage Report](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-reports-costusage.html) (Informe de uso y costo de AWS).
+Usar un informe de uso y costo es la manera recomendada de AWS para recopilar y procesar los costos de AWS. El conector de Cost Management Cross Cloud admite informes de costes y uso configurados a nivel de cuenta de gestión (consolidada). Para obtener más información, consulte la documentación de [AWS Cost and Usage Report](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-reports-costusage.html) (Informe de uso y costo de AWS).
 
 Use la página **Informes de uso y costo** de la consola de Administración de costos y facturación de AWS para crear un informe de uso y costo con los pasos siguientes:
 
@@ -53,6 +53,9 @@ Si no especifica un prefijo, el prefijo predeterminado es el nombre que especifi
     Anote el nombre del informe. Lo usará en pasos posteriores.
 
 Pueden transcurrir hasta 24 horas para que AWS empiece a entregar informes en el bucket de Amazon S3. Cuando se inicia la entrega, AWS actualiza los archivos de informe de uso y costo de AWS al menos una vez al día. Puede seguir configurando un entorno de AWS sin tener que esperar la entrega para empezar.
+
+> [!NOTE]
+> Actualmente no se admiten los informes de costo y uso configurados en el nivel de cuenta de miembro (vinculado).
 
 ## <a name="create-a-role-and-policy-in-aws"></a>Crear un rol y una directiva en AWS
 

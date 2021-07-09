@@ -6,14 +6,14 @@ ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 05/20/2021
 ms.author: banders
-ms.openlocfilehash: 4f7179a5ad35b4d3ca9a92119fb7b492e2aff779
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: b4a4bd73672b36e8301d33618701a5d6b43926a5
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106122533"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110474880"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>Introducción a la cuenta de facturación de Azure actualizada
 
@@ -115,7 +115,7 @@ En la nueva experiencia, la factura se generará en torno al noveno día de cada
 
 **Facturas del primer mes después de la migración**
 
-El día en que se actualice la cuenta, se finalizarán los cargos no facturados existentes y recibirá las facturas de estos cargos el día que normalmente reciba las facturas. Por ejemplo, John tiene dos suscripciones de Azure: Azure sub 01, con un ciclo de facturación del día 5 del mes al día 4 del mes siguiente, y Azure sub 02, con un ciclo de facturación del día 10 del mes al día 9 del mes siguiente. John obtiene facturas de ambas suscripciones de Azure normalmente el día 5 del mes. Ahora, si la cuenta de John se actualiza el 4 de abril, los cargos de Azure sub 01 del 5 de marzo al 4 de abril y los cargos de Azure sub 02 del 10 de marzo al 4 de abril se finalizarán. John recibirá dos facturas, una para cada subscripción, el 5 de abril. Una vez actualizada la cuenta, el ciclo de facturación de John se basará en el mes natural y cubrirá todos los cargos incurridos desde el principio del mes natural hasta el final de este.  La factura de los cargos del mes natural anterior está disponible el día 9 de cada mes. Por lo tanto, en el ejemplo anterior, John recibirá otra factura el 5 de mayo para el período de facturación del 5 de abril al 30 de abril. 
+El día en que se actualice la cuenta, se finalizarán los cargos no facturados existentes y recibirá las facturas de estos cargos el día que normalmente reciba las facturas. Por ejemplo, John tiene dos suscripciones de Azure: Azure sub 01, con un ciclo de facturación del día 5 del mes al día 4 del mes siguiente, y Azure sub 02, con un ciclo de facturación del día 10 del mes al día 9 del mes siguiente. John obtiene facturas de ambas suscripciones de Azure normalmente el día 5 del mes. Ahora, si la cuenta de John se actualiza el 4 de abril, los cargos de Azure sub 01 del 5 de marzo al 4 de abril y los cargos de Azure sub 02 del 10 de marzo al 4 de abril se finalizarán. John recibirá dos facturas, una para cada subscripción, el 5 de abril. Una vez actualizada la cuenta, el ciclo de facturación de John se basará en el mes natural y cubrirá todos los cargos incurridos desde el principio del mes natural hasta el final de este. La factura de los cargos del mes natural anterior está disponible los primeros días de cada mes. Por lo tanto, en el ejemplo anterior, John recibirá otra factura el a comienzos de mayo para el período de facturación del 5 de abril al 30 de abril.
 
 
 **Nuevas API de administración de costos y facturación**

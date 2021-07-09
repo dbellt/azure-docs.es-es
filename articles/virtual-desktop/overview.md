@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 7dcfc5d990d1ea75da20aa324f8361a7fc930c14
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 76d6574be61b7d1cd92733496d335c64d64bf7a1
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967258"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113031398"
 ---
 # <a name="what-is-azure-virtual-desktop"></a>¿Qué es Azure Virtual Desktop?
 
@@ -107,11 +107,11 @@ En nuestra [documentación de la arquitectura](/azure/architecture/example-scena
 
 Los clientes de Escritorio remoto siguientes admiten Azure Virtual Desktop:
 
-* [Escritorio de Windows](connect-windows-7-10.md)
-* [Web](connect-web.md)
-* [macOS](connect-macos.md)
-* [iOS](connect-ios.md)
-* [Android](connect-android.md)
+* [Escritorio de Windows](./user-documentation/connect-windows-7-10.md)
+* [Web](./user-documentation/connect-web.md)
+* [macOS](./user-documentation/connect-macos.md)
+* [iOS](./user-documentation/connect-ios.md)
+* [Android](./user-documentation/connect-android.md)
 * Cliente de Microsoft Store
 
 > [!IMPORTANT]

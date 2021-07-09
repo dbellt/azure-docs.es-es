@@ -1,24 +1,24 @@
 ---
-title: 'Administración de grupos de aplicaciones para Windows Virtual Desktop (clásico): Azure'
-description: Aprenda a configurar los inquilinos de Windows Virtual Desktop (clásico) en Azure Active Directory (AD).
+title: 'Administración de grupos de aplicaciones en Azure Virtual Desktop (clásico): Azure'
+description: Aprenda a configurar inquilinos de Azure Virtual Desktop (clásico) en Azure Active Directory (AD).
 author: Heidilohr
 ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 0b95c87ad447b92532bc6c456c06eb85162c7247
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: b4c0f4733ec1d80db4b2181ed292f702926e0e75
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106444418"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111754014"
 ---
-# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-classic"></a>Tutorial: Administración de grupos de aplicaciones para Windows Virtual Desktop (clásico)
+# <a name="tutorial-manage-app-groups-for-azure-virtual-desktop-classic"></a>Tutorial: Administración de grupos de aplicaciones en Azure Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../manage-app-groups.md).
+>Este contenido se aplica a Azure Virtual Desktop (clásico), que no admite objetos de Azure Resource Manager. Si está intentando administrar objetos de Azure Virtual Desktop para Azure Resource Manager, consulte [este artículo](../manage-app-groups.md).
 
-El grupo de aplicaciones predeterminado creado para un nuevo grupo host de Windows Virtual Desktop también publica el escritorio completo. Además, puede crear uno o varios grupos de aplicaciones de RemoteApp para el grupo host. Siga este tutorial para crear un grupo de aplicaciones de RemoteApp y publicar aplicaciones individualesl de menú **Inicio**.
+El grupo de aplicaciones predeterminado creado para un nuevo grupo de hosts de Azure Virtual Desktop también publica el escritorio completo. Además, puede crear uno o varios grupos de aplicaciones de RemoteApp para el grupo host. Siga este tutorial para crear un grupo de aplicaciones de RemoteApp y publicar aplicaciones individualesl de menú **Inicio**.
 
 En este tutorial, aprenderá a:
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a:
 > * Crear un grupo de RemoteApp
 > * Conceder acceso a programas de RemoteApp.
 
-Antes de empezar, y si aún no lo ha hecho, [descargue e importe el módulo de PowerShell para Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/) que se usará en la sesión de PowerShell. Después, ejecute el siguiente cmdlet para iniciar sesión en su cuenta:
+Antes de empezar y, si aún no lo ha hecho, [descargue e importe el módulo de PowerShell de Azure Virtual Desktop](/powershell/windows-virtual-desktop/overview/), ya que lo usará en la sesión de PowerShell. Después, ejecute el siguiente cmdlet para iniciar sesión en su cuenta:
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"

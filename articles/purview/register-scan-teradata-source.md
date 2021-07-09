@@ -1,5 +1,5 @@
 ---
-title: Registro de un origen de Teradata y configuración de los exámenes (versión preliminar) en Azure Purview
+title: Registro de un origen de Teradata y configuración de los exámenes en Azure Purview
 description: En este artículo se describe cómo registrar un origen de Teradata en Azure Purview y cómo configurar un examen.
 author: chandrakavya
 ms.author: kchandra
@@ -7,14 +7,14 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 8f300f214ed36b7a5257b7276364027b91edc746
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ce5f1e9a7ab493bf7989a55fccb5ef696433d771
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048109"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110066977"
 ---
-# <a name="register-and-scan-teradata-source-preview"></a>Registro y examen de un origen de Teradata (versión preliminar)
+# <a name="register-and-scan-teradata-source"></a>Registro y examen de un origen de Teradata
 
 En este artículo se describe cómo registrar un origen de Teradata en Purview y cómo configurar un examen.
 

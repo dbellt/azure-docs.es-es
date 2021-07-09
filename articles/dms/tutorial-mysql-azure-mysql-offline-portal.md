@@ -12,24 +12,24 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 04/11/2021
-ms.openlocfilehash: d1a8cc9a615474685222d0339ec948401fb8cdff
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 45d9104c5669b3b0adef2c32757076097656ae87
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128017"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967887"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-offline-using-dms"></a>Tutorial: Migración de MySQL a Azure Database for MySQL sin conexión mediante DMS
 
 Azure Database Migration Service se puede usar para hacer una única migración de base de datos completa de una instancia local de MySQL a [Azure Database for MySQL](../mysql/index.yml) con ayuda de funcionalidad de migración de datos de alta velocidad. En este tutorial, migrará una base de datos de ejemplo a partir de una instancia local de MySQL 5.7 a Azure Database for MySQL (v5.7) mediante una actividad de migración sin conexión en Azure Database Migration Service. Aunque en los artículos se da por supuesto que el origen es una instancia de base de datos MySQL y el destino es Azure Database for MySQL, se puede usar para migrar de una instancia de Azure Database for MySQL a otra simplemente cambiando el nombre y las credenciales del servidor de origen. También se admite la migración desde servidores MySQL de una versión inferior (v5.6 y versiones por encima) a versiones posteriores.
 
 > [!IMPORTANT]
-> Para las migraciones en línea, puede usar herramientas de código abierto, como [MyDumper/MyLoader](https://centminmod.com/mydumper.html), con [replicación de datos de entrada](/azure/mysql/concepts-data-in-replication). 
+> Para las migraciones en línea, puede usar herramientas de código abierto, como [MyDumper/MyLoader](https://centminmod.com/mydumper.html), con [replicación de datos de entrada](../mysql/concepts-data-in-replication.md). 
 
 [!INCLUDE [preview features callout](../../includes/dms-boilerplate-preview.md)]
 
 > [!NOTE]
-> Para obtener una versión que admite scripts basada en PowerShell de esta experiencia de migración, consulte la [migración sin conexión mediante scripts a Azure Database for MySQL](https://docs.microsoft.com/azure/dms/migrate-mysql-to-azure-mysql-powershell).
+> Para obtener una versión que admite scripts basada en PowerShell de esta experiencia de migración, consulte la [migración sin conexión mediante scripts a Azure Database for MySQL](./migrate-mysql-to-azure-mysql-powershell.md).
 
 > [!NOTE]
 > Los servicios Amazon Relational Database Service (RDS) para MySQL y Amazon Aurora (basado en MySQL) también se admiten como orígenes de la migración.
@@ -50,6 +50,7 @@ Para completar este tutorial, necesita:
 
 * Disponga de una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free).
 * Disponer de una base de datos MySQL local con la versión 5.7. Si no la tiene, descargue e instale [MySQL Community edition](https://dev.mysql.com/downloads/mysql/) 5.7.
+* La migración sin conexión de MySQL solo se admite en la SKU de DMS Premium.
 * [Creación de una instancia en Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-portal.md). Consulte el artículo [Uso de MySQL Workbench para conectarse y consultar datos en Azure Database for MySQL](../mysql/connect-workbench.md) y obtenga más información sobre cómo conectarse y crear una base de datos mediante la aplicación Workbench. La versión de Azure Database for MySQL debe ser igual o superior a la versión local de MySQL. Por ejemplo, MySQL 5.7 admite la migración a Azure Database for MySQL 5.7 o la actualización a la versión 8. 
 * Cree una instancia de Microsoft Azure Virtual Network para Azure Database Migration Service con el modelo de implementación de Azure Resource Manager, que proporciona conectividad de sitio a sitio a los servidores de origen local mediante [ExpressRoute](../expressroute/expressroute-introduction.md) o [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). Para más información sobre la creación de una red virtual, consulte la documentación de [Virtual Network](../virtual-network/index.yml)y, especialmente, los artículos de inicio rápido con detalles paso a paso.
 
@@ -63,9 +64,9 @@ Para completar este tutorial, necesita:
     > Esta configuración es necesaria porque Azure Database Migration Service no tiene conexión a Internet.
 
 * Asegúrese de que las reglas del grupo de seguridad de red de la red virtual no bloquean el puerto de salida 443 de ServiceTag para ServiceBus, Storage y AzureMonitor. Para más información sobre el filtrado del tráfico con grupos de seguridad de red para redes virtuales, vea el artículo [Filtrado del tráfico de red con grupos de seguridad de red](../virtual-network/virtual-network-vnet-plan-design-arm.md).
-* Abra Firewall de Windows para que las conexiones de Virtual Network para Azure Database Migration Service accedan a la instancia de origen de MySQL Server, que utiliza el puerto TCP 3306 de manera predeterminada.
-* Si usa un firewall delante de las bases de datos de origen, es posible que tenga que usar reglas de firewall para permitir que las conexiones de Virtual Network para Azure Database Migration Service accedan a las bases de datos de origen con fines de migración.
-* Cree una [regla de firewall](../azure-sql/database/firewall-configure.md) a nivel de servidor o [configure puntos de conexión de servicio de red virtual](../mysql/howto-manage-vnet-using-portal.md) para que la instancia de destino de Azure Database for MySQL facilite el acceso de Virtual Network para Azure Database Migration Service a las bases de datos de destino.
+* Abra el firewall de Windows para permitir conexiones de la red virtual para que Azure Database Migration Service puede acceder al servidor MySQL de origen que, de manera predeterminada, usa el puerto TCP 3306.
+* Cuando se usa un dispositivo de firewall frente a las bases de datos de origen, puede que sea necesario agregar reglas de firewall para permitir conexiones desde la red virtual para que Azure Database Migration Service acceda a las bases de datos de origen para realizar la migración.
+* Cree una [regla de firewall](../azure-sql/database/firewall-configure.md) de nivel de servidor o [configure puntos de conexión de servicio de red virtual](../mysql/howto-manage-vnet-using-portal.md) para que la instancia de Azure Database for MySQL de destino permita la red virtual para que Azure Database Migration Service acceda a las bases de datos de destino.
 * La versión de la instancia de MySQL de origen debe ser compatible con MySQL community edition. Para determinar la versión de la instancia de MySQL, en la utilidad de MySQL o en MySQL Workbench, ejecute el siguiente comando:
 
     ```
@@ -77,7 +78,7 @@ Para completar este tutorial, necesita:
 
 ## <a name="migrate-database-schema"></a>Migración del esquema de base de datos
 
-Para transferir todos los objetos de base de datos, como esquemas de tabla, índices y procedimientos almacenados, es necesario extraer el esquema de la base de datos de origen y aplicarlo a la base de datos de destino. Para extraer el esquema, puede usar mysqldump con el parámetro `--no-data`. Para ello, necesita una máquina que pueda conectarse a la base de datos MySQL de origen y a la instancia de destino de Azure Database for MySQL.
+Para transferir todos los objetos de base de datos, como esquemas de tablas, índices y procedimientos almacenados, es necesario extraer el esquema de la base de datos de origen y aplicarlo a la base de datos de destino. Para extraer el esquema, puede usar mysqldump con el parámetro `--no-data`. Para ello, necesita una máquina que pueda conectarse a la base de datos de MySQL de origen y a la instancia de Azure Database for MySQL de destino.
 
 Para exportar el esquema mediante mysqldump, ejecute el siguiente comando:
 
@@ -91,7 +92,7 @@ Por ejemplo:
 mysqldump -h 10.10.123.123 -u root -p --databases migtestdb --no-data > d:\migtestdb.sql
 ```
 
-Para importar el esquema a la instancia de destino de Azure Database for MySQL, ejecute el siguiente comando:
+Para importar el esquema a la instancia de Azure Database for MySQL de destino, ejecute el siguiente comando:
 
 ```
 mysql.exe -h [servername] -u [username] -p[password] [database]< [schema file path]
@@ -103,11 +104,11 @@ Por ejemplo:
 mysql.exe -h mysqlsstrgt.mysql.database.azure.com -u docadmin@mysqlsstrgt -p migtestdb < d:\migtestdb.sql
  ```
 
-Si su esquema utiliza claves externas, la tarea de migración regulará la carga de datos simultánea durante el proceso. No es necesario descartar las claves externas durante la migración del esquema.
+Si su esquema utiliza claves externas, la tarea de migración regulará la carga de datos en paralelo durante el proceso. No es necesario descartar las claves externas durante la migración del esquema.
 
 Si la base de datos utiliza desencadenadores, se aplicará la integridad de datos en el destino antes de llevar a cabo la migración completa de los datos desde el origen. Es recomendable deshabilitar los desencadenadores en todas las tablas del destino durante la migración y, a continuación, habilitar los desencadenadores una vez finalizada esta.
 
-Ejecute el siguiente script en MySQL Workbench en la base de datos de destino con el fin de obtener el script para descartar desencadenadores y el script para agregar desencadenadores.
+Ejecute el siguiente script en MySQL Workbench en la base de datos de destino para extraer el script del desencadenador de anulación y el script del desencadenador de adición.
 
 ```sql
 SELECT
@@ -129,7 +130,7 @@ ORDER BY EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, ACTION_TIMING, EVENT_MANIPULAT
 GROUP BY SchemaName
 ```
 
-Ejecute la consulta generada para descartar desencadenadores (columna DropQuery) en el resultado con el fin de poder descartar desencadenadores en la base de datos de destino. La consulta para agregar desencadenadores se puede guardar y usar una vez finalizada la migración de datos.
+Ejecute la consulta del desencadenador de anulación generada (columna DropQuery) en el resultado para quitar los desencadenadores de la base de datos de destino. La consulta para agregar desencadenadores se puede guardar y usar una vez finalizada la migración de datos.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registro del proveedor de recursos Microsoft.DataMigration
 
@@ -157,7 +158,7 @@ El registro del proveedor de recursos debe efectuarse en cada suscripción de Az
   
 3. En la pantalla **Crear el servicio de migración**, especifique un nombre para el servicio, la suscripción y un grupo de recursos nuevo o existente.
 
-4. Seleccione un plan de tarifa y pase a la pantalla de redes. La funcionalidad de migración sin conexión está disponible en los planes de tarifa Estándar y Premium.
+4. Seleccione un plan de tarifa y pase a la pantalla de redes. La funcionalidad de migración sin conexión solo está disponible en el plan de tarifa Premium.
 
     Para más información sobre los costos y planes de tarifa, vea la [página de precios](https://aka.ms/dms-pricing).
 
@@ -265,8 +266,8 @@ Si no va a seguir usando Database Migration Service, puede eliminar el servicio 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener información sobre los problemas conocidos y las limitaciones al hacer migraciones mediante DMS, consulte el artículo [Problemas comunes: Azure Database Migration Service](./known-issues-troubleshooting-dms.md).
-* Para solucionar problemas de conectividad de la base de datos de origen al usar DMS, consulte el artículo [Problemas de conexión de bases de datos de origen](./known-issues-troubleshooting-dms-source-connectivity.md).
+* Para obtener información sobre los problemas conocidos y las limitaciones al llevar a cabo migraciones mediante DMS, consulte el artículo [Solucionar problemas y errores comunes de Azure Database Migration Service](./known-issues-troubleshooting-dms.md).
+* Para solucionar problemas de conectividad de la base de datos de origen al usar DMS, consulte el artículo [Solución de errores de DMS al conectarse a las bases de datos de origen](./known-issues-troubleshooting-dms-source-connectivity.md).
 * Para más información acerca de Azure Database Migration Service, consulte el artículo [¿Qué es Azure Database Migration Service?](./dms-overview.md)
 * Para información sobre Azure Database for MySQL, consulte el artículo [¿Qué es Azure Database for MySQL?](../mysql/overview.md)
 * Para obtener directrices sobre el uso de DMS a través de PowerShell, consulte el artículo sobre [PowerShell: Ejecución de una migración sin conexión desde la base de datos MySQL a Azure Database for MySQL mediante DMS](./migrate-mysql-to-azure-mysql-powershell.md).

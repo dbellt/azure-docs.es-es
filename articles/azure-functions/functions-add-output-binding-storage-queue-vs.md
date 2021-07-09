@@ -1,15 +1,15 @@
 ---
 title: Conexión de las funciones a Azure Storage mediante Visual Studio
 description: Aprenda a agregar un enlace de salida para conectar las funciones de la biblioteca de clases de C# a una cola de Azure Storage mediante Visual Studio.
-ms.date: 07/22/2019
+ms.date: 05/30/2021
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 635392212027c73e5aa954eb671be31228796a0d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28748b7b9d0622d62baeb0de144adcd89c061a72
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96185137"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110790926"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Conexión de las funciones a Azure Storage mediante Visual Studio
 
@@ -33,7 +33,7 @@ En el [artículo de inicio rápido anterior](./create-first-function-vs-code-csh
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Publicar**. 
 
-1. En **Acciones**,seleccione **Editar configuración de Azure App Service**. 
+1. En la pestaña **Publicar** en **Hospedaje**, expanda los puntos suspensivos ( **...** ) y seleccione **Administrar la configuración de Azure App Service**. 
 
     ![Edición de la configuración de la aplicación](media/functions-add-output-binding-storage-queue-vs/edit-app-settings.png)
 

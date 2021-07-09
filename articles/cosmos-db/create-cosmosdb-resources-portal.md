@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/19/2021
-ms.openlocfilehash: c73701ae5ada23ed20aaaaa7554a6c714f5dab26
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: df434c54bed103bd17d1a0009478e624da762ecc
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110457057"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112235678"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Inicio rápido: Creación de una base de datos, un contenedor y elementos de Azure Cosmos desde Azure Portal
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -36,12 +36,12 @@ En este inicio rápido se muestra cómo usar Azure Portal para crear una cuenta 
 Una suscripción a Azure o una cuenta de evaluación gratuita de Azure Cosmos DB
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
-- [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
+- [!INCLUDE [cosmos-db-emulator-docdb-api](includes/cosmos-db-emulator-docdb-api.md)]  
 
 <a id="create-account"></a>
 ## <a name="create-an-azure-cosmos-db-account"></a>Creación de una cuenta de Azure Cosmos DB
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](includes/cosmos-db-create-dbaccount.md)]
 
 <a id="create-container-database"></a>
 ## <a name="add-a-database-and-a-container"></a>Adición de una base de datos y un contenedor 
@@ -95,11 +95,11 @@ Agregue datos a una base de datos nueva mediante Data Explorer.
 
 ## <a name="query-your-data"></a>Consulta de los datos
 
-[!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)] 
+[!INCLUDE [cosmos-db-create-sql-api-query-data](includes/cosmos-db-create-sql-api-query-data.md)] 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 Si desea eliminar solo la base de datos y usar la cuenta de Azure Cosmos en el futuro, puede eliminar la base de datos con los pasos siguientes:
 
