@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/28/2021
 ms.author: v-demjoh
-ms.openlocfilehash: 3221712fcf74022f2899380b4573ab3a821dce4d
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 32f28a6fa056819081804a3ccb919436c3f50bae
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109627276"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112039740"
 ---
 ## <a name="download-and-install"></a>Descargar e instalar
 
@@ -55,6 +55,9 @@ Siga estos pasos para instalar la CLI de Voz en Linux en una CPU x64:
 2. Para instalar la CLI de Voz para que use NuGet, escriba este comando:
 
     `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI`
+
+3. En Red Hat Enterprise Linux/CentOS Linux, [configure OpenSSL para Linux](../how-to-configure-openssl-linux.md).
+4. En Ubuntu 20.04 Linux, [instale GStreamer](../how-to-use-codec-compressed-audio-input-streams.md).
 
 Escriba `spx` para ver la ayuda de la CLI de Voz.
 

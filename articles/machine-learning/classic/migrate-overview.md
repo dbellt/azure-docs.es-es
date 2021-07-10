@@ -8,12 +8,12 @@ ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 03/08/2021
-ms.openlocfilehash: fafb9f7e84263c33cf1b15a52742ec9cd0380a40
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 7bb7c3a2d19b4dbb84d09829e2ed181a62ef7fbe
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311862"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111901302"
 ---
 # <a name="migrate-to-azure-machine-learning"></a>Migración a Azure Machine Learning
 
@@ -134,7 +134,6 @@ En Azure Machine Learning, los **conjuntos de datos** se registran en el área d
 
 En Studio (clásico), los **experimentos** contenían la lógica de procesamiento del trabajo. Creaba experimentos con módulos de arrastrar y colocar.
 
-
 ![automobile-price-classic-experiment](./media/migrate-overview/studio-classic-experiment.png)
 
 En Azure Machine Learning, las **canalizaciones** contienen la lógica de procesamiento del trabajo. Puede crear canalizaciones con módulos de arrastrar y colocar, o bien escribiendo código.
@@ -143,14 +142,13 @@ En Azure Machine Learning, las **canalizaciones** contienen la lógica de proces
 
 ### <a name="web-service-endpoint"></a>Punto de conexión de servicio web
 
-En Studio (clásico), se usaba **REQUEST/RESPOND API** para la predicción en tiempo real. Se usaba **BATCH EXECUTION API** para la predicción por lotes o el nuevo entrenamiento.
+Studio (clásico) usaba **REQUEST/RESPOND API** para la predicción en tiempo real y **BATCH EXECUTION API** para la predicción por lotes o el reentrenamiento.
 
 ![automobile-price-classic-webservice](./media/migrate-overview/studio-classic-web-service.png)
 
-En Azure Machine Learning, se usan los **puntos de conexión en tiempo real** para la predicción en tiempo real. Se usan **puntos de conexión de canalización** para la predicción por lotes o el nuevo entrenamiento.
+Azure Machine Learning usa **puntos de conexión en tiempo real** para la predicción en tiempo real y **puntos de conexión de canalización** para la predicción por lotes o el reentrenamiento.
 
 ![automobile-price-aml-endpoint](./media/migrate-overview/aml-endpoint.png)
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

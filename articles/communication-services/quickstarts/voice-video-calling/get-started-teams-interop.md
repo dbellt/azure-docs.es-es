@@ -7,13 +7,13 @@ ms.author: chpalm
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: 0e75d2b480a9cbfd2977d9d449c1ea12bdfe4920
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+zone_pivot_groups: acs-plat-web-ios-android-windows
+ms.openlocfilehash: 8f5ba479d96953bf5bc5f56b20eb719c18863ab3
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106095618"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111560643"
 ---
 # <a name="quickstart-join-your-calling-app-to-a-teams-meeting"></a>Inicio rápido: Incorporación de una aplicación de llamadas a una reunión de Teams
 
@@ -25,15 +25,19 @@ ms.locfileid: "106095618"
 Comience a usar Azure Communication Services mediante la conexión de la solución de llamada a Microsoft Teams con el SDK para JavaScript.
 
 ::: zone pivot="platform-web"
-[!INCLUDE [Calling with JavaScript](./includes/teams-interop-javascript.md)]
+[!INCLUDE [Calling with JavaScript](./includes/teams-interop/teams-interop-javascript.md)]
+::: zone-end
+
+::: zone pivot="platform-windows"
+[!INCLUDE [Calling with Windows](./includes/teams-interop/teams-interop-windows.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Calling with Android](./includes/teams-interop-android.md)]
+[!INCLUDE [Calling with Android](./includes/teams-interop/teams-interop-android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Calling with iOS](./includes/teams-interop-ios.md)]
+[!INCLUDE [Calling with iOS](./includes/teams-interop/teams-interop-ios.md)]
 ::: zone-end
 
 La funcionalidad descrita en este documento usa la versión de disponibilidad general de los SDK de Communication Services. La interoperabilidad de Teams requiere la versión beta de los SDK de Communication Services. Se pueden explorar los SDK de la versión beta en la [página de notas de la versión](https://github.com/Azure/Communication/tree/master/releasenotes).

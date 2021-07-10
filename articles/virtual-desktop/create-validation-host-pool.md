@@ -1,38 +1,39 @@
 ---
-title: 'Actualizaciones de servicio para los grupos de host de Windows Virtual Desktop: Azure'
+title: 'Actualizaciones de servicio para los grupos de host de Azure Virtual Desktop: Azure'
 description: Cómo crear un grupo host de validación para supervisar actualizaciones de servicio antes de implementar las actualizaciones en producción.
 author: Heidilohr
 ms.topic: tutorial
 ms.date: 12/15/2020
 ms.author: helohr
+ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 66279c2ea798a7edb21795f368011b00bdf6297e
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 2c944d1068ae74a97c8a6315e98a1348f9378b8c
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447818"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111749136"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutorial: Creación de un grupo host para validar las actualizaciones del servicio
 
 >[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop con objetos de Windows Virtual Desktop de Azure Resource Manager. Si usa Windows Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/create-validation-host-pool-2019.md).
+>Este contenido se aplica a Azure Virtual Desktop con objetos de Azure Resource Manager. Si usa Azure Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/create-validation-host-pool-2019.md).
 
-Los grupos de hosts son una colección de una o varias máquinas virtuales idénticas en entornos de Windows Virtual Desktop. Le recomendamos encarecidamente que cree un grupo de hosts de validación en el que se apliquen primero las actualizaciones del servicio. Esto permite supervisar las actualizaciones del servicio antes de que este las aplique a su entorno estándar o sin validación. Sin un grupo de hosts de validación, es posible que no se detecten cambios que introduzcan errores, lo que podría dar lugar a tiempos de inactividad para los usuarios en el entorno estándar.
+Los grupos de hosts son una colección de una o varias máquinas virtuales idénticas en un entorno de Azure Virtual Desktop. Le recomendamos encarecidamente que cree un grupo de hosts de validación en el que se apliquen primero las actualizaciones del servicio. Esto permite supervisar las actualizaciones del servicio antes de que este las aplique a su entorno estándar o sin validación. Sin un grupo de hosts de validación, es posible que no se detecten cambios que introduzcan errores, lo que podría dar lugar a tiempos de inactividad para los usuarios en el entorno estándar.
 
 Para garantizar que las aplicaciones funcionan con las actualizaciones más recientes, el grupo de hosts de validación debe ser lo más parecido posible a los grupos de hosts del entorno sin validación. Los usuarios deben conectarse al grupo de hosts de validación con la misma frecuencia que lo hacen al estándar. Si ha automatizado las pruebas en su grupo host, debe incluir las pruebas automatizadas en el grupo host de validación.
 
-Puede depurar incidencias en el grupo host de validación con [la característica de diagnóstico](diagnostics-role-service.md) o con [artículos de solución de problemas de Windows Virtual Desktop](troubleshoot-set-up-overview.md).
+Puede depurar incidencias en el grupo host de validación con [la característica de diagnóstico](diagnostics-role-service.md) o con [artículos de solución de problemas de Azure Virtual Desktop](troubleshoot-set-up-overview.md).
 
 >[!NOTE]
 > Se recomienda que mantenga el grupo host de validación para probar todas las actualizaciones futuras.
 
 >[!IMPORTANT]
->Windows Virtual Desktop con la integración de Administración de recursos de Azure actualmente tiene problemas para habilitar y deshabilitar los entornos de validación. Este artículo se actualizará cuando se haya resuelto el problema.
+>Azure Virtual Desktop con la integración de Administración de recursos de Azure actualmente tiene problemas para habilitar y deshabilitar los entornos de validación. Este artículo se actualizará cuando se haya resuelto el problema.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Antes de comenzar, siga las instrucciones que se indican en [Configuración del módulo de PowerShell para Windows Virtual Desktop](powershell-module.md) para configurar el módulo de PowerShell e iniciar sesión en Azure.
+Antes de comenzar, siga las instrucciones que se indican en [Configuración del módulo de PowerShell para Azure Virtual Desktop](powershell-module.md) para configurar el módulo de PowerShell e iniciar sesión en Azure.
 
 ## <a name="create-your-host-pool"></a>Creación del grupo host
 
@@ -74,8 +75,8 @@ Para habilitar un entorno de validación también se puede usar Azure Portal.
 Para usar Azure Portal para configurar un grupo de hosts de validación:
 
 1. Inicie sesión en Azure Portal en <https://portal.azure.com>.
-2. Busque y seleccione **Windows Virtual Desktop**.
-3. En la página de Windows Virtual Desktop, seleccione **Grupos de hosts**.
+2. Busque y seleccione **Azure Virtual Desktop**.
+3. En la página de Azure Virtual Desktop, seleccione **Grupos de hosts**.
 4. Seleccione el nombre del grupo de hosts que quiera editar.
 5. Seleccione **Propiedades**.
 6. En el campo del entorno de validación, seleccione **Sí** para habilitar el entorno de validación.
@@ -89,7 +90,7 @@ Si hay alguna actualización del servicio, asegúrese de que tenga al menos un p
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha creado un grupo de hosts de validación, puede obtener información sobre cómo usar Azure Service Health para supervisar la implementación de Windows Virtual Desktop.
+Ahora que ha creado un grupo de hosts de validación, puede obtener información sobre cómo usar Azure Service Health para supervisar la implementación de Azure Virtual Desktop.
 
 > [!div class="nextstepaction"]
 > [Configuración de alertas de servicio](./set-up-service-alerts.md)

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 050512da539e08d029786983fbda46da0fea27ce
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 8213bd8e819e3a6c4a84a95f7c996912ac28ec2b
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109789630"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111539450"
 ---
 # <a name="what-is-azure-digital-twins"></a>¿Qué es Azure Digital Twins?
 
@@ -46,11 +46,9 @@ DTDL se utiliza para los modelos de datos en otros servicios de Azure IoT, como 
 
 Los modelos digitales de Azure Digital Twins son representaciones dinámicas actualizadas del mundo real. Mediante el uso de las relaciones de los modelos de DTDL personalizados, conectará gemelos a un **gráfico dinámico** que representa el entorno.
 
-Puede tener una visualización del gráfico de Azure Digital Twins con la ayuda de una aplicación de ejemplo, el [explorador de Azure Digital Twins](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
+Puede visualizar el gráfico de Azure Digital Twins en [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md), que ofrece la siguiente interfaz para interactuar con el gráfico:
 
-Así es la visualización de ejemplo:
-
-:::image type="content" source="media/includes/azure-digital-twins-explorer.png" alt-text="Captura de pantalla de la aplicación de ejemplo Explorador de Azure Digital Twins, que muestra un gráfico de nodos que representan gemelos digitales" lightbox="media/includes/azure-digital-twins-explorer.png":::
+:::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="Captura de pantalla de Azure Digital Twins Explorer que muestra un gráfico de nodos que representan gemelos digitales." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
 
 Azure Digital Twins proporciona un **sistema de eventos** completo para mantener ese gráfico actualizado con la lógica de negocios y el procesamiento de datos. Puede conectar recursos de proceso externos, como [Azure Functions](../azure-functions/functions-overview.md), para impulsar este procesamiento de datos de maneras flexibles y personalizadas.
 
@@ -64,16 +62,17 @@ Puede crear una nueva instancia de IoT Hub para este propósito con Azure Digita
 
 También puede impulsar Azure Digital Twins desde otros orígenes de datos mediante las API de REST o conectores a otros servicios como [Logic Apps](../logic-apps/logic-apps-overview.md).
 
-### <a name="output-to-tsi-storage-and-analytics"></a>Salida a TSI, almacenamiento y análisis
+### <a name="output-to-adx-tsi-storage-and-analytics"></a>Salida a ADX, TSI, almacenamiento y análisis
 
 Los datos del modelo de Azure Digital Twins se pueden enrutar a servicios de Azure de nivel inferior para operaciones de análisis o almacenamiento adicionales. Esto se proporciona a través de **rutas de evento**, que usan el [centro de eventos](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md) o [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) para impulsar los flujos de datos deseados.
 
 Algunas de las cosas que puede hacer con las rutas de eventos son:
+* Enviar datos de gemelos digitales a ADX para realizar consultas con el [complemento de consulta de Azure Digital Twins para Azure Data Explorer (ADX)](concepts-data-explorer-plugin.md).
+* [Conectar Azure Digital Twins a Time Series Insights (TSI)](how-to-integrate-time-series-insights.md) para realizar un seguimiento del historial de series temporales de cada gemelo.
+* Alinear un modelo de serie temporal en Time Series Insights con un origen en Azure Digital Twins.
 * Almacenar datos de Azure Digital Twins en [Azure Data Lake](../storage/blobs/data-lake-storage-introduction.md).
 * Analizar datos de Azure Digital Twins con [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) u otras herramientas de análisis de datos de Microsoft.
 * Integrar flujos de trabajo más grandes con Logic Apps.
-* Conectar Azure Digital Twins a Time Series Insights para realizar un seguimiento del historial de series temporales de cada gemelo.
-* Alinear un modelo de serie temporal en Time Series Insights con un origen en Azure Digital Twins.
 
 Esta es otra manera de que Azure Digital Twins pueda conectarse a una solución más grande y respaldar sus necesidades personalizadas de continuar trabajando con esta información.
 
@@ -86,7 +85,7 @@ Una solución completa con Azure Digital Twins puede contener las siguientes par
 * Una o varias aplicaciones cliente que controlan la instancia de Azure Digital Twins mediante la configuración de modelos, la creación de topologías y la extracción de información del grafo de gemelos.
 * Uno o más recursos de proceso externos para procesar eventos generados por Azure Digital Twins u orígenes de datos conectados, como dispositivos. Una forma común de proporcionar recursos de proceso es a través de [Azure Functions](../azure-functions/functions-overview.md).
 * Una instancia de IoT Hub para proporcionar funcionalidades de administración de dispositivos y de flujo de datos de IoT.
-* Servicios de nivel inferior para controlar tareas como la integración de flujos de trabajo (como [Logic Apps](../logic-apps/logic-apps-overview.md), almacenamiento en frío, integración de series temporales o análisis).
+* Servicios de nivel inferior para controlar tareas como la integración de flujos de trabajo (como [Logic Apps](../logic-apps/logic-apps-overview.md), almacenamiento en frío, Azure Data Explorer, integración de series temporales o análisis).
 
 En el diagrama siguiente se muestra dónde se encuentra Azure Digital Twins en el contexto de una solución de Azure IoT más grande.
 
@@ -102,6 +101,6 @@ Puede ver una lista de **términos de IoT comunes** y sus usos en los servicios 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Profundice en el uso de Azure Digital Twins en el inicio rápido: [Guía de inicio rápido: Exploración de un escenario de ejemplo](quickstart-azure-digital-twins-explorer.md).
+* Profundice en el tema de Azure Digital Twins con: [Inicio rápido: Introducción a Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md).
 
 * O bien, empiece a obtener información sobre los conceptos de Azure Digital Twins con [Conceptos: Modelos personalizados](concepts-models.md).

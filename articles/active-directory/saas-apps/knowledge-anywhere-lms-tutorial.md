@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/22/2019
+ms.date: 06/09/2021
 ms.author: jeedes
-ms.openlocfilehash: eab1304408f896f5c9d736488997c1246ae167f2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 69c6ebe3c1b9b034b2f682f64a55f22e0489b3f5
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92458991"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111892388"
 ---
 # <a name="tutorial-integrate-knowledge-anywhere-lms-with-azure-active-directory"></a>Tutorial: Integración de Knowledge Anywhere LMS con Azure Active Directory
 
@@ -26,9 +26,7 @@ En este tutorial, aprenderá a integrar Knowledge Anywhere LMS.con Azure Active
 * Permitir que los usuarios inicien sesión automáticamente en Knowledge Anywhere LMS con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -37,47 +35,49 @@ Para empezar, necesita los siguientes elementos:
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
-En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba. Knowledge Anywhere LMS admite el SSO iniciado por **SP**, así como el aprovisionamiento de usuarios **Just In Time**.
+En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba. 
+* Knowledge Anywhere LMS admite el inicio de sesión único iniciado por **SP**.
+* Knowledge Anywhere LMS admite el aprovisionamiento de usuarios **Just-In-Time**.
 
-## <a name="adding-knowledge-anywhere-lms-from-the-gallery"></a>Adición de Knowledge Anywhere LMS desde la galería
+## <a name="add-knowledge-anywhere-lms-from-the-gallery"></a>Adición de Knowledge Anywhere LMS desde la galería
 
 Para configurar la integración de Knowledge Anywhere LMS en Azure AD, será preciso que lo agregue desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **Knowledge Anywhere LMS** en el cuadro de búsqueda.
 1. Seleccione **Knowledge Anywhere LMS** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
+## <a name="configure-and-test-azure-ad-sso-for-knowledge-anywhere-lms"></a>Configuración y prueba del inicio de sesión único de Azure AD para Knowledge Anywhere LMS
 
-Configure y pruebe el inicio de sesión único de Azure AD con Knowledge Anywhere LMS utilizando un usuario de prueba llamado **B. Simon**. Para que el SSO funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Knowledge Anywhere LMS.
+Configure y pruebe el inicio de sesión único de Azure AD con Knowledge Anywhere LMS utilizando un usuario de prueba llamado **B.Simon**. Para que el SSO funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Knowledge Anywhere LMS.
 
-Para configurar y probar el inicio de sesión único de Azure AD con Knowledge Anywhere LMS, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con Knowledge Anywhere LMS, haga lo siguiente:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-2. **[Configuración de Knowledge Anywhere LMS](#configure-knowledge-anywhere-lms)** , para configurar las opciones del SSO en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B. Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B. Simon para que use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Knowledge Anywhere LMS](#create-knowledge-anywhere-lms-test-user)** , para tener un homólogo de B. Simon en Knowledge Anywhere LMS que esté vinculado a la representación del usuario en Azure AD.
-6. **[Comprobación del inicio de sesión único](#test-sso)** , para verificar que la configuración funciona correctamente.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+1. **[Configuración del inicio de sesión único en Knowledge Anywhere LMS](#configure-knowledge-anywhere-lms-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
+    1. **[Creación de un usuario de prueba de Knowledge Anywhere LMS](#create-knowledge-anywhere-lms-test-user)** : para tener un homólogo de B.Simon en Knowledge Anywhere LMS que esté vinculado a la representación del usuario en Azure AD.
+1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Knowledge Anywhere LMS**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de aplicaciones de **Knowledge Anywhere LMS**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, seleccione **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
 1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
-    1. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<CLIENTNAME>.knowledgeanywhere.com/`
+    1. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<CLIENT_NAME>.knowledgeanywhere.com/`
 
-    1. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<CLIENTNAME>.knowledgeanywhere.com/SSO/SAML/Response.aspx?<IDPNAME>`
+    1. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<CLIENT_NAME>.knowledgeanywhere.com/SSO/SAML/Response.aspx?<IDP_NAME>`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con la dirección URL de respuesta y el identificador reales, que se explican más adelante en el tutorial.
@@ -97,7 +97,31 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-### <a name="configure-knowledge-anywhere-lms"></a>Configuración de Knowledge Anywhere LMS
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+
+En esta sección, va a crear un usuario de prueba llamado B. Simon en Azure Portal.
+
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En el campo **Nombre**, escriba `B. Simon`.  
+   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `BrittaSimon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+   1. Haga clic en **Crear**.
+
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+
+En esta sección, va a permitir que B.Simon acceda a Knowledge Anywhere LMS mediante el inicio de sesión único de Azure.
+
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **Knowledge Anywhere LMS**.
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
+1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+
+## <a name="configure-knowledge-anywhere-lms-sso"></a>Configuración del inicio de sesión único de Knowledge Anywhere LMS
 
 1. Para automatizar la configuración en Knowledge Anywhere LMS, debe instalar la **extensión del explorador de inicio de sesión seguro de Mis aplicaciones**. Para ello, haga clic en **Instalar la extensión**.
 
@@ -111,19 +135,19 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 4. Seleccione en la pestaña **Sitio**.
 
-    ![Captura de pantalla que muestra la pestaña Site (Sitio).](./media/knowledge-anywhere-lms-tutorial/configure1.png)
+    ![Captura de pantalla que muestra la pestaña Site (Sitio).](./media/knowledge-anywhere-lms-tutorial/site.png)
 
 5. Seleccione en la pestaña **Configuración de SAML**.
 
-    ![Captura de pantalla que muestra la página de Knowledge Anywhere con la configuración de SAML seleccionada.](./media/knowledge-anywhere-lms-tutorial/configure2.png)
+    ![Captura de pantalla que muestra la página de Knowledge Anywhere con la configuración de SAML seleccionada.](./media/knowledge-anywhere-lms-tutorial/settings.png)
 
 6. Haga clic en **Agregar nuevo**.
 
-    ![Captura de pantalla que muestra el botón Add New (Agregar nuevo) en la configuración del proveedor de servicios.](./media/knowledge-anywhere-lms-tutorial/configure3.png)
+    ![Captura de pantalla que muestra el botón Add New (Agregar nuevo) en la configuración del proveedor de servicios.](./media/knowledge-anywhere-lms-tutorial/add-settings.png)
 
 7. En la página **Add/Update SAML Settings** (Agregar o actualizar la configuración de SAML), realice los pasos siguientes:
 
-    ![Captura de pantalla que muestra la página Add/Update SAML Settings (Agregar o actualizar la configuración de SAML), donde puede realizar los cambios que se describen aquí.](./media/knowledge-anywhere-lms-tutorial/configure4.png)
+    ![Captura de pantalla que muestra la página Add/Update SAML Settings (Agregar o actualizar la configuración de SAML), donde puede realizar los cambios que se describen aquí.](./media/knowledge-anywhere-lms-tutorial/update-settings.png)
 
     a. Escriba el nombre de IDP según su organización. Por ejemplo, `Azure`.
 
@@ -143,48 +167,20 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     i. Haga clic en **Save**(Guardar).
 
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
-
-En esta sección, va a crear un usuario de prueba llamado B. Simon en Azure Portal.
-
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
-1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario**, siga estos pasos:
-   1. En el campo **Nombre**, escriba `B. Simon`.  
-   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `BrittaSimon@contoso.com`.
-   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Crear**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-
-En esta sección, habilitará a B. Simon para que use el inicio de sesión único de Azure concediéndole acceso a Knowledge Anywhere LMS.
-
-1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
-1. En la lista de aplicaciones, seleccione **Knowledge Anywhere LMS**.
-1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
-   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
-1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-
-    ![Vínculo de Agregar usuario](common/add-assign-user.png)
-
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B. Simon** en la lista de usuarios y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
-
 ### <a name="create-knowledge-anywhere-lms-test-user"></a>Creación de un usuario de prueba de Knowledge Anywhere LMS
 
 En esta sección, se crea un usuario llamado B. Simon en Knowledge Anywhere LMS. Knowledge Anywhere LMS admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario deja de existir en Knowledge Anywhere LMS, se crea uno nuevo después de la autenticación.
 
-### <a name="test-sso"></a>Prueba de SSO
+## <a name="test-sso"></a>Prueba de SSO
 
-Al seleccionar el icono de Knowledge Anywhere LMS en el Panel de acceso, debería iniciar sesión automáticamente en la versión de Knowledge Anywhere LMS para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de Knowledge Anywhere LMS, donde puede poner en marcha el flujo de inicio de sesión. 
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+* Vaya directamente a la dirección URL de inicio de sesión de Knowledge Anywhere y ponga en marcha el flujo de inicio de sesión desde allí.
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Knowledge Anywhere LMS en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de esta aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
+## <a name="next-steps"></a>Pasos siguientes
+
+Una vez que ha configurado Knowledge Anywhere LMS, puede aplicar el control de sesión, que protege la información confidencial de la organización en tiempo real de posibles filtraciones e infiltraciones. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

@@ -3,12 +3,12 @@ title: 'Inicio rápido: Uso de cURL y REST para administrar la base de conocimie
 description: En este inicio rápido se muestra cómo crear, publicar y consultar la base de conocimiento mediante las API REST.
 ms.date: 1/22/2021
 ms.topic: quickstart
-ms.openlocfilehash: d4c832c4a96ee1419b9e2f0accc1b86e9394ee02
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 0467004b8188f0187fa4e565e3637f5e765a510d
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98701305"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111993696"
 ---
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -17,19 +17,19 @@ ms.locfileid: "98701305"
 # <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
 
 * La versión actual de [cURL](https://curl.haxx.se/). En las guías de inicio rápido se usan varios modificadores de línea de comandos, que se indican en la [documentación de cURL](https://curl.haxx.se/docs/manpage.html).
-* Para usar la clave y el nombre del recurso, debe tener un [recurso de QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Ha especificado el **nombre** del recurso durante su creación; la clave se creó automáticamente. El nombre del recurso se usa como subdominio personalizado para el punto de conexión. Para recuperar la clave y el nombre del recurso, seleccione **Inicio rápido** para el recurso en Azure Portal. El nombre del recurso es el primer subdominio de la dirección URL del punto de conexión:
+* Para usar la clave y el nombre del recurso, debe tener un [recurso de QnA Maker](../how-to/set-up-qnamaker-service-azure.md?tabs=v1#create-a-new-qna-maker-service). Ha especificado el **nombre** del recurso durante su creación; la clave se creó automáticamente. El nombre del recurso se usa como subdominio personalizado para el punto de conexión. Para recuperar la clave y el nombre del recurso, seleccione **Inicio rápido** para el recurso en Azure Portal. El nombre del recurso es el primer subdominio de la dirección URL del punto de conexión:
 
     `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0`
 
 > [!CAUTION]
 > En los siguientes ejemplos de BASH se usa el carácter de continuación de línea `\`. Si la consola o el terminal usan un carácter de continuación de línea diferente, use este carácter.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
 * La versión actual de [cURL](https://curl.haxx.se/). En las guías de inicio rápido se usan varios modificadores de línea de comandos, que se indican en la [documentación de cURL](https://curl.haxx.se/docs/manpage.html).
-* Para usar la clave y el nombre del recurso, debe tener un [recurso de QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Ha especificado el **nombre** del recurso durante su creación; la clave se creó automáticamente. El nombre del recurso se usa como subdominio personalizado para el punto de conexión. Para recuperar la clave y el nombre del recurso, seleccione **Inicio rápido** para el recurso en Azure Portal. El nombre del recurso es el primer subdominio de la dirección URL del punto de conexión:
+* Las preguntas y respuestas personalizadas requieren un [recurso de Text Analytics](../how-to/set-up-qnamaker-service-azure.md?tabs=v2#create-a-new-qna-maker-service) con la característica de respuesta a preguntas personalizada habilitada para generar una clave y un punto de conexión de API. El **Nombre** que eligió al crear el recurso se usa como subdominio para el punto de conexión. Para recuperar la clave y el nombre del recurso, seleccione **Inicio rápido** para el recurso en Azure Portal. El nombre del recurso es el primer subdominio de la dirección URL del punto de conexión:
 
-    `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.1`
+    `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2`
 
 > [!CAUTION]
 > En los siguientes ejemplos de BASH se usa el carácter de continuación de línea `\`. Si la consola o el terminal usan un carácter de continuación de línea diferente, use este carácter.
@@ -72,22 +72,22 @@ La respuesta de cURL desde QnA Maker incluye el `operationId`, que es necesario 
 }
 ```
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
 
 Para crear una base de conocimiento con las API REST y cURL, debe tener la siguiente información:
 
 |Information|Configuración de cURL|Propósito|
 |--|--|--|
-|Nombre del recurso de QnA Maker|URL|Se usa para construir la dirección URL|
-|Clave del recurso de QnA Maker|Parámetro `-h` para el encabezado `Ocp-Apim-Subscription-Key`|Autenticación en el servicio QnA Maker|
+|Nombre del recurso de Text Analytics (característica Respuesta a preguntas personalizada habilitada)|URL|Se usa para construir la dirección URL|
+|Clave del recurso de Text Analytics|Parámetro `-h` para el encabezado `Ocp-Apim-Subscription-Key`|Autenticación en el servicio de Text Analytics|
 |JSON que describe la base de conocimiento|Parámetro `-d`|[Ejemplos](/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) de JSON|
 |Tamaño del archivo JSON en bytes|Parámetro `-h` para el encabezado `Content-Size`||
 
 El comando de cURL se ejecuta desde un shell de BASH. Edite este comando con su propio nombre de recurso, clave de recurso y valores y tamaño de JSON.
 
 ```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.1/knowledgebases/create \
+curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/create \
 -X POST \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
 -H "Content-Type:application/json" \
@@ -140,21 +140,21 @@ La respuesta de cURL incluye el estado. Si el estado de la operación es correct
    "operationId": "f293f218-d080-48f0-a766-47993e9b26a8"
 }
 ```
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
 
 Al crear una base de conocimiento, dado que la operación es asincrónica, la respuesta incluye información para determinar el estado.
 
 |Information|Configuración de cURL|Propósito|
 |--|--|--|
-|Nombre del recurso de QnA Maker|URL|Se usa para construir la dirección URL|
+|Nombre del recurso de Text Analytics (característica Respuesta a preguntas personalizada habilitada)|URL|Se usa para construir la dirección URL|
 |Identificador de la operación|Ruta de dirección URL|`/operations/REPLACE-WITH-YOUR-OPERATION-ID`|
-|Clave del recurso de QnA Maker|Parámetro `-h` para el encabezado `Ocp-Apim-Subscription-Key`|Autenticación en el servicio QnA Maker|
+|Clave del recurso de Text Analytics|Parámetro `-h` para el encabezado `Ocp-Apim-Subscription-Key`|Autenticación en el servicio de Text Analytics|
 
 El comando de cURL se ejecuta desde un shell de BASH. Edite este comando con su propio nombre de recurso, clave de recurso e identificador de operación.
 
 ```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.1/operations/REPLACE-WITH-YOUR-OPERATION-ID \
+curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/operations/REPLACE-WITH-YOUR-OPERATION-ID \
 -X GET \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY"
 ```
@@ -202,24 +202,20 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 
 El estado de la respuesta es 204 sin resultados. Use el parámetro de línea de comandos `-v` para ver resultados detallados del comando de cURL. Esto incluirá el estado de HTTP.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
-Antes de consultar la base de conocimiento, debe hacer lo siguiente:
-* Publicación de una base de conocimiento
-* Obtención de la clave de punto de conexión en tiempo de ejecución
-
-Esta tarea publica la base de conocimiento. La obtención de la clave de punto de conexión en tiempo de ejecución es una [tarea independiente](#get-published-knowledge-bases-runtime-endpoint-key).
+Antes de consultar la knowledge base, tiene que publicarla.
 
 |Information|Configuración de cURL|Propósito|
 |--|--|--|
-|Nombre del recurso de QnA Maker|URL|Se usa para construir la dirección URL|
-|Clave del recurso de QnA Maker|Parámetro `-h` para el encabezado `Ocp-Apim-Subscription-Key`|Autenticación en el servicio QnA Maker|
+|Nombre del recurso de Text Analytics (característica Respuesta a preguntas personalizada habilitada)|URL|Se usa para construir la dirección URL|
+|Clave del recurso de Text Analytics|Parámetro `-h` para el encabezado `Ocp-Apim-Subscription-Key`|Autenticación en el servicio de Text Analytics|
 |Identificador de base de conocimiento|Ruta de dirección URL|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
 
 El comando de cURL se ejecuta desde un shell de BASH. Edite este comando con su propio nombre de recurso, clave de recurso e identificador de base de conocimiento.
 
 ```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.1/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID \
+curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID \
 -v \
 -X POST \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
@@ -266,40 +262,9 @@ La respuesta de cURL incluye las claves de punto de conexión en tiempo de ejecu
   "lastStableVersion": "4.0.6"
 }
 ```
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
-Antes de consultar la base de conocimiento, debe hacer lo siguiente:
-* Publicación de una base de conocimiento
-* Obtención de la clave de punto de conexión en tiempo de ejecución
-
-Esta tarea obtiene la clave de punto de conexión en tiempo de ejecución. La publicación de la base de conocimiento es una [tarea independiente](#publish-knowledge-base).
-
-La clave de punto de conexión en tiempo de ejecución es la misma clave para todas las bases de conocimiento que utilizan el recurso de QnA Maker.
-
-|Information|Configuración de cURL|Propósito|
-|--|--|--|
-|Nombre del recurso de QnA Maker|URL|Se usa para construir la dirección URL|
-|Clave del recurso de QnA Maker|Parámetro `-h` para el encabezado `Ocp-Apim-Subscription-Key`|Autenticación en el servicio QnA Maker|
-
-El comando de cURL se ejecuta desde un shell de BASH. Edite este comando con su propio nombre de recurso y clave de recurso.
-
-```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.1/endpointkeys \
--X GET \
--H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY"
-```
-
-
-La respuesta de cURL incluye las claves de punto de conexión en tiempo de ejecución. Use solo una de las claves al consultar para obtener una respuesta de la base de conocimiento.
-
-```json
-{
-  "primaryEndpointKey": "93e88a14-694a-44d5-883b-184a68aa8530",
-  "secondaryEndpointKey": "92c98c16-ca31-4294-8626-6c57454a5063",
-  "installedVersion": "4.0.5",
-  "lastStableVersion": "4.0.6"
-}
-```
+Esto no se aplica a las respuestas a preguntas del cliente.
 
 ---
 
@@ -330,14 +295,12 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.azurewebsites.net/qnamaker/knowledg
 
 Una respuesta correcta incluye la respuesta principal junto con otra información que una aplicación cliente, como un bot de chat, necesita para mostrar una respuesta al usuario.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
-
-La obtención de una respuesta de la base de conocimiento se realiza desde un tiempo de ejecución independiente de la administración de la base de conocimiento. Dado que se trata de un entorno de ejecución independiente, debe autenticarse con una clave de tiempo de ejecución.
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
 |Information|Configuración de cURL|Propósito|
 |--|--|--|
-|Nombre del recurso de QnA Maker|URL|Se usa para construir la dirección URL|
-|Clave del recurso de QnA Maker|Parámetro `-h` para el encabezado `Ocp-Apim-Subscription-Key`|Autenticación en el servicio QnA Maker|
+|Nombre del recurso de Text Analytics (característica Respuesta a preguntas personalizada habilitada)|URL|Se usa para construir la dirección URL|
+|Clave del recurso de Text Analytics|Parámetro `-h` para el encabezado `Ocp-Apim-Subscription-Key`|Autenticación en el servicio de Text Analytics|
 |Identificador de base de conocimiento|Ruta de dirección URL|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
 |JSON que describe la consulta|Parámetro `-d`|[Parámetros del cuerpo de la solicitud](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) y [ejemplos](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples) de JSON|
 |Tamaño del archivo JSON en bytes|Parámetro `-h` para el encabezado `Content-Size`||
@@ -345,7 +308,7 @@ La obtención de una respuesta de la base de conocimiento se realiza desde un ti
 El comando de cURL se ejecuta desde un shell de BASH. Edite este comando con su propio nombre de recurso, clave de recurso e identificador de base de conocimiento.
 
 ```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.1/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID/generateAnswer \
+curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID/generateAnswer \
 -X POST \
 -H "Content-Type:application/json" \
 -H "Content-Size:159" \
@@ -381,20 +344,20 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 
 El estado de la respuesta es 204 sin resultados. Use el parámetro de línea de comandos `-v` para ver resultados detallados del comando de cURL. Esto incluirá el estado de HTTP.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[Respuesta a preguntas personalizada (versión preliminar)](#tab/v2)
 
 Cuando haya terminado de usar la base de conocimiento, elimínela.
 
 |Information|Configuración de cURL|Propósito|
 |--|--|--|
-|Nombre del recurso de QnA Maker|URL|Se usa para construir la dirección URL|
-|Clave del recurso de QnA Maker|Parámetro `-h` para el encabezado `Ocp-Apim-Subscription-Key`|Autenticación en el servicio QnA Maker|
+|Nombre del recurso de Text Analytics (característica Respuesta a preguntas personalizada habilitada)|URL|Se usa para construir la dirección URL|
+|Clave del recurso de Text Analytics|Parámetro `-h` para el encabezado `Ocp-Apim-Subscription-Key`|Autenticación en el servicio de Text Analytics|
 |Identificador de base de conocimiento|Ruta de dirección URL|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
 
 El comando de cURL se ejecuta desde un shell de BASH. Edite este comando con su propio nombre de recurso, clave de recurso e identificador de base de conocimiento.
 
 ```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.1/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID \
+curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID \
 -X DELETE \
 -v \
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY"

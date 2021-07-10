@@ -1,18 +1,18 @@
 ---
 title: 'Inicio rápido: Creación de una caché en Redis de código abierto'
-description: En este inicio rápido, aprenderá a crear una instancia de Azure Cache for Redis en los niveles Básico, Estándar o Prémium.
+description: En este inicio rápido, aprenderá a crear una instancia de Azure Cache for Redis en los niveles Básico, Estándar o Premium.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/08/2021
-ms.openlocfilehash: 24de9e4eabfbc03e942868cce7560b5df093e1ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5559f3bdd749ba7913db3f37d47d2d158700facb
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100365130"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746663"
 ---
 # <a name="quickstart-create-an-open-source-redis-cache"></a>Inicio rápido: Creación de una caché en Redis de código abierto
 
@@ -23,6 +23,7 @@ Azure Cache for Redis proporciona [Redis de código abierto](https://redis.io/) 
 Necesitará una suscripción a Azure antes de empezar. En caso de no tener ninguna, [cree una cuenta gratuita](https://azure.microsoft.com/free/) primero.
 
 ## <a name="create-a-cache"></a>Creación de una caché
+
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes

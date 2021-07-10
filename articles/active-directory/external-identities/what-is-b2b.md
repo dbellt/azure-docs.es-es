@@ -5,27 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 03/19/2021
+ms.date: 05/27/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3b5d12012d69451044ac64f3d52a428aa161bc4
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 6382f7ab801b649982d289a34e083a7897fc40e6
+ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108317314"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110584989"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>¿Qué es el acceso de usuarios invitados en Azure Active Directory B2B?
 
 La colaboración de negocio a negocio (B2B) de Azure Active Directory (Azure AD) es una característica de External Identities que le permite invitar a los usuarios invitados a colaborar con una organización. La colaboración B2B le permite compartir de forma segura las aplicaciones y los servicios de una empresa con los usuarios invitados de cualquier otra organización, al tiempo que mantiene el control sobre sus propios datos corporativos. Trabaje de forma segura con asociados externos, grandes o pequeños, incluso si no tienen Azure AD o un departamento de TI. Un proceso de invitación y canje sencillo permite a los asociados usar sus propias credenciales para acceder a los recursos de su empresa. Los desarrolladores pueden usar las API de negocio a negocio de Azure AD para personalizar el proceso de invitación o escribir aplicaciones como los portales de suscripción de autoservicio. Para obtener información sobre las licencias y los precios relacionados con los usuarios invitados, consulte [Precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).  
 
 > [!IMPORTANT]
-> - **A partir del segundo semestre de 2021,** Google empezará a [retirar la compatibilidad con el inicio de sesión en vista web](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si usa la federación de Google para las invitaciones de B2B o [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), o si usa el registro de autoservicio con Gmail, los usuarios de Google Gmail no podrán iniciar sesión si las aplicaciones autentican a los usuarios con una vista web insertada. [Más información](google-federation.md#deprecation-of-web-view-sign-in-support).
-> - **A partir de octubre de 2021**, Microsoft dejará de admitir el canje de invitaciones mediante la creación de cuentas de Azure AD no administradas e inquilinos para escenarios de colaboración B2B. Como preparación, se recomienda a los clientes que opten por la [autenticación de código de acceso de un solo uso por correo electrónico](one-time-passcode.md). Agradecemos sus comentarios sobre esta característica en vista previa pública. Nos alegra poder crear más formas de colaborar.
+> - **A partir del segundo semestre de 2021,** Google empezará a [retirar la compatibilidad con el inicio de sesión en vista web](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si usa la federación de Google para las invitaciones B2B o [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), o si usa el registro de autoservicio con Gmail, los usuarios de Gmail de Google no podrán iniciar sesión si las aplicaciones autentican a los usuarios con una vista web insertada. [Más información](google-federation.md#deprecation-of-web-view-sign-in-support).
+> - **A partir de octubre de 2021**, Microsoft dejará de admitir el canje de invitaciones mediante la creación de cuentas de Azure AD no administradas e inquilinos para escenarios de colaboración B2B. Como preparación, animamos a los clientes a participar en la [autenticación de código de acceso de un solo uso por correo electrónico](one-time-passcode.md), que ahora está disponible con carácter general.
 
 ## <a name="collaborate-with-any-partner-using-their-identities"></a>Colaboración con cualquier asociado mediante sus identidades
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 19e679b3bc899053ddcf75ff058ec19165b785cc
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 2c83ac769cc4a8aec6148e1a45ec6435f117d73a
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790476"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111812057"
 ---
 # <a name="manage-digital-twins"></a>Administración de Digital Twins
 
@@ -28,6 +28,10 @@ Este artículo se centra en la administración de gemelos digitales; para trabaj
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
 [!INCLUDE [digital-twins-developer-interfaces.md](../../includes/digital-twins-developer-interfaces.md)]
+
+[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
+
+:::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="Captura de pantalla de Azure Digital Twins Explorer que muestra modelos de ejemplo y gemelos." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
 
 ## <a name="create-a-digital-twin"></a>Creación de un gemelo digital
 
@@ -130,14 +134,14 @@ Las propiedades definidas del gemelo digital se devuelven como propiedades de ni
 * `$etag`: un campo HTTP estándar asignado por el servidor web. Esto se actualiza a un nuevo valor cada vez que se actualiza el gemelo, lo que puede resultar útil para determinar si los datos del gemelo se han actualizado en el servidor desde una comprobación anterior. Puede usar `If-Match` para realizar las actualizaciones y eliminaciones que solo se completan si el valor ETag de la entidad coincide con el valor ETag proporcionado. Para obtener más información sobre estas operaciones, consulte la documentación de [DigitalTwins Update](/rest/api/digital-twins/dataplane/twins/digitaltwins_update) y [DigitalTwins Delete](/rest/api/digital-twins/dataplane/twins/digitaltwins_delete).
 * `$metadata`: un conjunto de otras propiedades, entre las que se incluyen:
   - DTMI del modelo del gemelo digital.
-  - Estado de sincronización de cada propiedad grabable. Esto es útil principalmente para los dispositivos, donde es posible que el servicio y el dispositivo tengan estados divergentes (por ejemplo, cuando un dispositivo está sin conexión). Actualmente, esta propiedad solo se aplica a dispositivos físicos conectados a IoT Hub. Los datos de la sección de metadatos permiten comprender el estado completo de una propiedad, así como las últimas marcas de tiempo modificadas. Para obtener más información sobre el estado de sincronización, consulte [este tutorial de IoT Hub](../iot-hub/tutorial-device-twins.md) sobre la sincronización del estado del dispositivo.
+  - Estado de sincronización de cada propiedad de escritura. Esto es útil principalmente para los dispositivos, donde es posible que el servicio y el dispositivo tengan estados divergentes (por ejemplo, cuando un dispositivo está sin conexión). Actualmente, esta propiedad solo se aplica a dispositivos físicos conectados a IoT Hub. Los datos de la sección de metadatos permiten comprender el estado completo de una propiedad, así como las últimas marcas de tiempo modificadas. Para más información sobre el estado de sincronización, consulte este [tutorial de IoT Hub](../iot-hub/tutorial-device-twins.md) sobre el estado de sincronización del dispositivo.
   - Metadatos específicos del servicio, como de IoT Hub o Azure Digital Twins. 
 
 Puede obtener más información sobre las clases auxiliares de serialización como `BasicDigitalTwin` en [Conceptos: API y SDK de Azure Digital Twins](concepts-apis-sdks.md).
 
 ## <a name="view-all-digital-twins"></a>Visualización de todos los gemelos digitales
 
-Para ver todos los gemelos digitales de la instancia, use una [consulta](how-to-query-graph.md). Puede ejecutar una consulta con las [API de consulta](/rest/api/digital-twins/dataplane/query) o los [comandos de la CLI](concepts-cli.md).
+Para ver todos los gemelos digitales de la instancia, use una [consulta](how-to-query-graph.md). Puede ejecutar una consulta con las [API de consulta](/rest/api/digital-twins/dataplane/query) o los [comandos de la CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true).
 
 Este es el cuerpo de la consulta básica que devolverá una lista de todos los gemelos digitales en la instancia:
 
@@ -158,17 +162,58 @@ Este es un ejemplo de código de revisión de JSON. En este documento se reempla
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch.json":::
 
-Puede crear revisiones mediante [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument) del SDK para .NET de Azure. A continuación se muestra un ejemplo:
+Puede crear revisiones mediante [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true) del SDK para .NET de Azure. A continuación se muestra un ejemplo:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="UpdateTwin":::
 
-### <a name="update-properties-in-digital-twin-components"></a>Actualización de propiedades en componentes de gemelos digitales
+### <a name="update-sub-properties-in-digital-twin-components"></a>Actualización de las subpropiedades en los componentes de gemelos digitales
 
 Recuerde que un modelo puede contener componentes, lo que permite que esté formado por otros modelos. 
 
 Para revisar las propiedades de los componentes de un gemelo digital, puede usar la sintaxis de ruta de acceso en la revisión de JSON:
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch-component.json":::
+
+### <a name="update-sub-properties-in-object-type-properties"></a>Actualización de las subpropiedades en las propiedades de tipo objeto
+
+Los modelos pueden contener propiedades de tipo objeto. Esos objetos pueden tener sus propias propiedades, de las cuales podría querer actualizar alguna que pertenezca a la propiedad de tipo objeto. Este proceso es similar al proceso de [actualización de subpropiedades en los componentes](#update-sub-properties-in-digital-twin-components), pero puede requerir algunos pasos adicionales. 
+
+Considere un modelo con una propiedad de tipo objeto, `ObjectProperty`. `ObjectProperty` tiene una propiedad de cadena denominada `StringSubProperty`.
+
+Cuando se crea un gemelo con este modelo, no es necesario crear una instancia de `ObjectProperty` en ese momento. Si no se crea una instancia de la propiedad de objeto al crearse el gemelo, tampoco se crea una ruta de acceso predeterminada para acceder a `ObjectProperty` y su `StringSubProperty` para una operación de revisión. Deberá agregar la ruta de acceso a `ObjectProperty` manualmente para poder actualizar sus propiedades.
+
+Esto se puede hacer con una operación de revisión `add` de JSON, como la siguiente:
+
+```json
+[
+  {
+    "op": "add", 
+    "path": "/ObjectProperty", 
+    "value": {"StringSubProperty":"<string-value>"}
+  }
+]
+```
+
+>[!NOTE]
+> Si `ObjectProperty` tiene más de una propiedad, debe incluirlas todas en el campo `value` de esta operación, aunque solo vaya a actualizar una:
+> ```json
+>... "value": {"StringSubProperty":"<string-value>", "Property2":"<property2-value>", ...}
+>```
+
+
+Una vez hecho esto, existe una ruta de acceso a `StringSubProperty`, que a partir de ahora se podrá actualizar directamente con una operación `replace` típica:
+
+```json
+[
+  {
+    "op": "replace",
+    "path": "/ObjectProperty/StringSubProperty",
+    "value": "<string-value>"
+  }
+]
+```
+
+Aunque el primer paso no es necesario en los casos en los que se creara una instancia de `ObjectProperty` al crease el gemelo, se recomienda usarlo cada vez que actualice una subpropiedad por primera vez, ya que es posible que no siempre sepa con seguridad si se creó una instancia inicial de la propiedad de objeto o no.
 
 ### <a name="update-a-digital-twins-model"></a>Actualización de un modelo de gemelo digital
 
@@ -233,7 +278,7 @@ Luego **copie el código siguiente** del ejemplo ejecutable en el proyecto:
 Luego siga estos pasos para configurar el código del proyecto:
 1. Agregue el archivo **Room.json** descargado anteriormente al proyecto y reemplace el marcador de posición `<path-to>` en el código para indicar al programa dónde encontrarlo.
 2. Reemplace el marcador de posición `<your-instance-hostname>` por el nombre de host de la instancia de Azure Digital Twins.
-3. Agregue dos dependencias al proyecto ya que las necesitará para trabajar con Azure Digital Twins. La primera es el paquete del [SDK de Azure Digital Twins para .NET](/dotnet/api/overview/azure/digitaltwins/client) y la segunda proporciona herramientas para ayudar con la autenticación en Azure.
+3. Agregue dos dependencias al proyecto ya que las necesitará para trabajar con Azure Digital Twins. La primera es el paquete del [SDK de Azure Digital Twins para .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) y la segunda proporciona herramientas para ayudar con la autenticación en Azure.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core
@@ -249,7 +294,7 @@ Ahora que ha completado la configuración, puede ejecutar el proyecto de código
 
 Esta es la salida de consola del programa anterior: 
 
-:::image type="content" source="./media/how-to-manage-twin/console-output-manage-twins.png" alt-text="Salida de consola que muestra que el gemelo se crea, se actualiza y se elimina" lightbox="./media/how-to-manage-twin/console-output-manage-twins.png":::
+:::image type="content" source="./media/how-to-manage-twin/console-output-manage-twins.png" alt-text="Captura de pantalla de la salida de consola que muestra la creación, actualización y eliminación del gemelo." lightbox="./media/how-to-manage-twin/console-output-manage-twins.png":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

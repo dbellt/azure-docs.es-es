@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: afa2811fe6e0dab3bc5c114febeec8aae25bd891
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 67d8ef5bf6960ca03d8d2d36efbe4461e1124190
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108765582"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110695242"
 ---
 # <a name="understand-and-work-with-scopes"></a>Descripción y uso de ámbitos
 
@@ -73,7 +73,7 @@ Colaborador de Cost Management es el rol con menos privilegios que se recomienda
 - **Programación de exportación de datos de costo**: los colaboradores de Cost Management también necesitan acceso para administrar las cuentas de almacenamiento y programar una exportación para copiar datos en una de ellas. Considere la posibilidad de conceder el rol [Colaborador de la cuenta de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-account-contributor) a un grupo de recursos que contenga la cuenta de almacenamiento donde se exportan los datos de costos.
 - **Visualización de las recomendaciones de ahorro de costos**: los lectores y los colaboradores de Cost Management tienen permiso para *ver* las recomendaciones sobre costos de forma predeterminada. No obstante, el acceso para actuar sobre las recomendaciones de costos requiere acceso a los recursos individuales. Considere la posibilidad de conceder un [rol específico de servicio](../../role-based-access-control/built-in-roles.md#all) si desea actuar en una recomendación basada en costos.
 
-Los grupos de administración solo se admiten si contienen suscripciones de Contrato Enterprise (EA), pago por uso (PAYG) o internas de Microsoft. Los grupos de administración con otros tipos de suscripción, como Contrato de cliente de Microsoft o Azure Active Directory, no pueden ver los costos. Si tiene una combinación de suscripciones, mueva las suscripciones que no se admitan a un lugar independiente de la jerarquía del grupo de administración para habilitar Cost Management para las suscripciones admitidas. Por ejemplo, cree dos grupos de administración en el grupo de administración raíz: **Azure AD** y **My Org**. Mueva la suscripción de Azure AD grupo de administración **Azure AD** y, después, vea y administre los costos mediante el grupo de administración **My Org**.
+Los grupos de administración solo se admiten si contienen hasta 3000 suscripciones de Contrato Enterprise (EA), pago por uso (PAYG) o internas de Microsoft. Los grupos de administración con más de 3000 suscripciones o suscripciones con otros tipos de ofertas, como Contrato de cliente de Microsoft o Azure Active Directory, no pueden ver los costos. Si tiene una combinación de suscripciones, mueva las suscripciones que no se admitan a un lugar independiente de la jerarquía del grupo de administración para habilitar Cost Management para las suscripciones admitidas. Por ejemplo, cree dos grupos de administración en el grupo de administración raíz: **Azure AD** y **My Org**. Mueva la suscripción de Azure AD grupo de administración **Azure AD** y, después, vea y administre los costos mediante el grupo de administración **My Org**.
 
 ### <a name="feature-behavior-for-each-role"></a>Comportamiento de las características en cada rol
 
@@ -331,7 +331,7 @@ Cuando trabaja con las API de Cost Management, conocer el ámbito es fundamental
 3. Copie el identificador del grupo de administración de la tabla.
 4. El ámbito es: `"/providers/Microsoft.Management/managementGroups/{id}"`
 
-### <a name="subscription"></a>Suscripción
+### <a name="subscription"></a>Subscription
 
 1. Abra Azure Portal y vaya a **Suscripciones** en la lista de servicios.
 2. Copie el identificador de suscripción de la tabla.

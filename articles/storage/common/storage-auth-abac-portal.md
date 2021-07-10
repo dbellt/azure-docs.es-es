@@ -10,12 +10,12 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.subservice: common
 ms.date: 05/06/2021
-ms.openlocfilehash: 2099d190ca896a5c8124cdd6b605037256a5ab48
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: ce0fab219f49427892f5ffe47c595edb26fea010
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109489442"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110796019"
 ---
 # <a name="tutorial-add-a-role-assignment-condition-to-restrict-access-to-blobs-using-the-azure-portal-preview"></a>Tutorial: Adición de una condición de asignación de roles para restringir el acceso a blobs mediante Azure Portal (versión preliminar)
 
@@ -24,7 +24,7 @@ ms.locfileid: "109489442"
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-En la mayoría de los casos, una asignación de roles concederá los permisos necesarios para los recursos de Azure. Sin embargo, en algunos casos es posible que desee proporcionar un control de acceso más preciso, para lo que puede agregar una condición de asignación de roles.
+En la mayoría de los casos, una asignación de roles concederá los permisos necesarios para los recursos de Azure. Sin embargo, en algunos casos es posible que desee proporcionar un control de acceso más preciso mediante la adición de una condición de asignación de roles.
 
 En este tutorial, aprenderá a:
 
@@ -38,7 +38,7 @@ Para obtener información sobre los requisitos previos para agregar o editar con
 
 ## <a name="condition"></a>Condición
 
-En este tutorial, restringirá el acceso a blobs con una etiqueta específica. Por ejemplo, agregue una condición a una asignación de roles para que Chandra solo pueda leer archivos con la etiqueta Project=Cascade.
+En este tutorial, restringirá el acceso a blobs con una etiqueta específica. Por ejemplo, agrega una condición a una asignación de roles para que Chandra solo pueda leer archivos con la etiqueta Project=Cascade.
 
 ![Diagrama de asignación de roles con una condición.](./media/shared/condition-role-assignment-rg.png)
 
@@ -153,17 +153,15 @@ Este es el aspecto de la condición en el código:
 
     Se expande la sección Expresión.
 
-1. En la lista Attribute source (Origen del atributo), seleccione **Resource** (Recurso).
+1. Especificar los siguientes valores de la expresión:
 
-1. En la lista Atributo, seleccione **Blob index tags [Values in key]** (Etiquetas de índice de blobs [Valores en clave]).
-
-    Al seleccionar este atributo se agrega un cuadro Clave, donde se puede especificar la clave de etiqueta que la condición debe comprobar.
-
-1. En el cuadro Clave, escriba **Project**.
-
-1. En la lista Operador, seleccione **StringEqualsIgnoreCase**.
-
-1. En el cuadro Valor, escriba **Cascade**.
+    | Configuración | Valor |
+    | --- | --- |
+    | Origen del atributo | Resource |
+    | Atributo | Etiquetas de índice de blobs [Valores en clave] |
+    | Clave | Project |
+    | Operador | StringEqualsIgnoreCase |
+    | Valor | Cascade |
 
     ![Captura de pantalla de la sección Build expression (Generar expresión) para etiquetas de índice de blob.](./media/storage-auth-abac-portal/condition-expressions.png)
 

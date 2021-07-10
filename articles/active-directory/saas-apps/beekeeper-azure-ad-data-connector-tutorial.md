@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/14/2020
+ms.date: 06/10/2021
 ms.author: jeedes
-ms.openlocfilehash: 9f8ff45869c636aead6f76d4e461b96facefe2fa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c64ad8ae00a64874c6e65ed7938b3d53ea3c2366
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92457357"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111983553"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-beekeeper-azure-ad-sso"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Beekeeper Azure AD SSO
 
@@ -26,9 +26,7 @@ En este tutorial aprenderá a integrar Beekeeper Azure AD SSO con Azure Active
 * Permitir que los usuarios inicien sesión automáticamente en Beekeeper Azure AD SSO con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -39,41 +37,43 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Beekeeper Azure AD SSO admite el inicio de sesión único iniciado por **SP e IDP**
-* Beekeeper Azure AD SSO admite el aprovisionamiento de usuarios **Just-in-Time**
-* Una vez configurado Beekeeper Azure AD SSO puede aplicar controles de sesión que protejan el filtrado externo e interno de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Beekeeper Azure AD SSO admite el inicio de sesión único iniciado por **SP e IDP**.
+* Beekeeper Azure AD SSO admite el aprovisionamiento de usuarios **Just-in-Time**.
 
-## <a name="adding-beekeeper-azure-ad-sso-from-the-gallery"></a>Incorporación de Beekeeper Azure AD SSO desde la galería
+> [!NOTE]
+> El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
+
+## <a name="add-beekeeper-azure-ad-sso-from-the-gallery"></a>Incorporación de Beekeeper Azure AD SSO desde la galería
 
 Para configurar la integración de Beekeeper Azure AD SSO en Azure AD, es preciso agregarlo desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **Beekeeper Azure AD SSO** en el cuadro de búsqueda.
 1. Seleccione **Beekeeper Azure AD SSO** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-beekeeper-azure-ad-sso"></a>Configuración y prueba del inicio de sesión único de Azure AD para Beekeeper Azure AD SSO
+## <a name="configure-and-test-azure-ad-sso-for-beekeeper-azure-ad-sso"></a>Configuración y prueba del inicio de sesión único de Azure AD para Beekeeper Azure AD SSO
 
 Configure y pruebe el inicio de sesión único de Azure AD con Beekeeper Azure AD SSO mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Beekeeper Azure AD SSO.
 
-Para configurar y probar el inicio de sesión único de Azure AD con Beekeeper Azure AD SSO, complete los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con Beekeeper Azure AD SSO, lleve a cabo los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
-    * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Beekeeper Azure AD SSO](#configure-beekeeper-azure-ad-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
-    * **[Creación de un usuario de prueba en Beekeeper Azure AD SSO](#create-beekeeper-azure-ad-sso-test-user)** : para tener un homólogo de B.Simon en Beekeeper Azure AD SSO vinculado a la representación del usuario en Azure AD.
+    1. **[Creación de un usuario de prueba en Beekeeper Azure AD SSO](#create-beekeeper-azure-ad-sso-test-user)** : para tener un homólogo de B.Simon en Beekeeper Azure AD SSO vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Beekeeper Azure AD SSO**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de la aplicación **Beekeeper Azure AD SSO**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
@@ -89,14 +89,12 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     c. Una vez que se haya cargado correctamente el archivo de metadatos, el valor de **Identificador** y **URL de respuesta** se rellena automáticamente en la sección Configuración básica de SAML.
 
-    ![Captura de pantalla que muestra la configuración básica de SAML, donde se puede escribir el identificador y la dirección U R L de respuesta y seleccionar Guardar.](common/idp-intiated.png)
-
     > [!Note]
-    > Si los valores **Identificador** y **URL de respuesta** no se rellenan automáticamente, hágalo manualmente según sus necesidades.
+    > Si los valores **Identificador** y **Dirección URL de respuesta** no se rellenan automáticamente, hágalo manualmente según sus necesidades.
 
 1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<your_company>.beekeeper.io/login`
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<YOUR_COMPANY>.beekeeper.io/login`
 
     > [!NOTE]
     > El valor de la dirección URL de inicio de sesión no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico para clientes de Beekeeper Azure AD SSO](mailto:support@beekeeper.io) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -142,15 +140,9 @@ En esta sección va a conceder a B.Simon acceso a Beekeeper Azure AD SSO median
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **Beekeeper Azure AD SSO**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
-   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
 1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-
-    ![Vínculo de Agregar usuario](common/add-assign-user.png)
-
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ## <a name="configure-beekeeper-azure-ad-sso"></a>Configuración del inicio de sesión único en Beekeeper Azure AD SSO
@@ -163,18 +155,20 @@ En esta sección se crea un usuario llamado B.Simon en Beekeeper Azure AD SSO. 
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-Al hacer clic en el icono de Beekeeper Azure AD SSO en el panel de acceso, debería iniciar sesión automáticamente en la versión de Beekeeper Azure AD SSO para la que configurara el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Iniciado por SP:
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de Beekeeper Azure AD SSO, donde puede comenzar el flujo de inicio de sesión.  
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+* Vaya directamente a la dirección URL de inicio de sesión de Beekeeper Azure AD SSO y comience el flujo de inicio de sesión desde allí.
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Iniciado por IDP:
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
+* Haga clic en **Probar esta aplicación** en Azure Portal. Se debería iniciar sesión automáticamente en la instancia de Beekeeper Azure AD SSO para la que configurara el inicio de sesión único. 
 
-- [Prueba de Beekeeper Azure AD SSO con Azure AD](https://aad.portal.azure.com/)
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Beekeeper Azure AD SSO en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de Beekeeper Azure AD SSO para la que se configurara el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+## <a name="next-steps"></a>Pasos siguientes
+
+Una vez configurado Beekeeper Azure AD SSO puede aplicar controles de sesión que protejan frente a la filtración e infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

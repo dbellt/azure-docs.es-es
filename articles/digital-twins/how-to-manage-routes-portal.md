@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a7159b6528c07a2cb2734c06d644a4db3753d48a
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 6dd307c53985e9877d6d627000933234d3731775
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790890"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110615867"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Administración de puntos de conexión y rutas en Azure Digital Twins (portal)
 
@@ -22,7 +22,7 @@ En Azure Digital Twins, se pueden enrutar [notificaciones de eventos](concepts-e
 
 Este artículo le guía por el proceso de creación de puntos de conexión y rutas mediante [Azure Portal](https://portal.azure.com).
 
-También puede administrar los puntos de conexión y las rutas con las [API de Event Routes](/rest/api/digital-twins/dataplane/eventroutes), los [SDK](concepts-apis-sdks.md#overview-data-plane-apis) o la [CLI de Azure Digital Twins](concepts-cli.md). Se puede encontrar una versión de este artículo donde se usan estos mecanismos en lugar del portal en [Procedimiento: Administración de puntos de conexión y rutas (API y CLI)](how-to-manage-routes-apis-cli.md) .
+También puede administrar los puntos de conexión y las rutas con las [API de Event Routes](/rest/api/digital-twins/dataplane/eventroutes), los [SDK](concepts-apis-sdks.md#overview-data-plane-apis) o la [CLI de Azure Digital Twins](/cli/azure/dt?view=azure-cli-latest&preserve-view=true). Se puede encontrar una versión de este artículo donde se usan estos mecanismos en lugar del portal en [Procedimiento: Administración de puntos de conexión y rutas (API y CLI)](how-to-manage-routes-apis-cli.md) .
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -37,7 +37,7 @@ Estos detalles se pueden encontrar en [Azure Portal](https://portal.azure.com) d
 
 En los resultados, seleccione la instancia para ver su página Información general:
 
-:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Captura de pantalla de la página Información general de una instancia de Azure Digital Twins. Se resaltan el nombre y el grupo de recursos.":::
+:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Captura de pantalla de la página Información general de una instancia de Azure Digital Twins en Azure Portal. El nombre y el grupo de recursos están resaltados.":::
 
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Creación de un punto de conexión para Azure Digital Twins
 
@@ -58,7 +58,7 @@ Una vez que haya creado los recursos de punto de conexión, puede usarlos para u
 
 1. En el menú de la instancia, seleccione _Endpoints_ (Puntos de conexión). Luego, en la página *Endpoints* (Puntos de conexión) que le sigue, seleccione *+ Create an endpoint* (+ Crear un punto de conexión). Se abrirá la página *Crear un punto de conexión*, donde rellenará los campos en los pasos siguientes.
 
-    :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Captura de pantalla de la creación de un punto de conexión de tipo Event Grid." lightbox="media/how-to-manage-routes-portal/create-endpoint-event-grid.png":::
+    :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Captura de pantalla de la creación de un punto de conexión de tipo Event Grid en Azure Portal." lightbox="media/how-to-manage-routes-portal/create-endpoint-event-grid.png":::
 
 1. Escriba un **Nombre** para el punto de conexión y elija el **Tipo de punto de conexión**.
 
@@ -67,7 +67,7 @@ Una vez que haya creado los recursos de punto de conexión, puede usarlos para u
 
     :::row:::
         :::column:::
-            :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub-authentication.png" alt-text="Captura de pantalla de la creación de un punto de conexión de tipo de centro de eventos." lightbox="media/how-to-manage-routes-portal/create-endpoint-event-hub-authentication.png":::
+            :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub-authentication.png" alt-text="Captura de pantalla de la creación de un punto de conexión de tipo Event Hubs en Azure Portal." lightbox="media/how-to-manage-routes-portal/create-endpoint-event-hub-authentication.png":::
         :::column-end:::
         :::column:::
         :::column-end:::
@@ -82,7 +82,7 @@ Después de crear el punto de conexión, puede comprobar que se ha creado correc
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Captura de pantalla de la notificación para comprobar la creación del punto de conexión. El icono en forma de campana de la barra superior del portal está seleccionado y aparece una notificación en la que se indica &quot;El punto de conexión ADT-eh-endpoint se ha creado correctamente&quot;.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Captura de pantalla de la notificación para comprobar la creación de un punto de conexión en Azure Portal.":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -98,7 +98,7 @@ Ahora, Event Grid, el centro de eventos o el tema de Service Bus está disponibl
 
 Cuando un punto de conexión no puede entregar un evento en un período de tiempo determinado o después de haber intentado entregarlo un número determinado de veces, podrá enviar el evento sin entregar a una cuenta de almacenamiento. Este proceso se conoce como **colas de mensajes fallidos**.
 
-Para crear un punto de conexión con las colas de mensajes fallidos habilitadas, debe usar los [comandos de la CLI](concepts-cli.md) o las [API del plano de control](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) en lugar de Azure Portal para crear el punto de conexión.
+Para crear un punto de conexión con las colas de mensajes fallidos habilitadas, debe usar los [comandos de la CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true) o las [API del plano de control](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) en lugar de Azure Portal para crear el punto de conexión.
 
 Para obtener instrucciones sobre cómo hacerlo con estas herramientas, vea la versión para [API y CLI](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) de este artículo.
 
@@ -133,7 +133,7 @@ En la página *Create an event route* (Crear una ruta de evento) que se abre, el
 
 Para que la ruta esté habilitada, también se debe **agregar un filtro de ruta de evento** de al menos `true`. (Si se deja el valor predeterminado de `false`, se creará la ruta, pero no se le enviarán eventos). Para ello, cambie el botón de conmutación de _Advanced editor_ (Editor avanzado) para habilitarlo y escriba `true` en el cuadro *Filter* (Filtro).
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Captura de pantalla de la creación de una ruta de evento para la instancia." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Captura de pantalla de la creación de una ruta de eventos para una instancia en Azure Portal." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
 
 Cuando termine, seleccione el botón _Save_ (Guardar) para crear la ruta de eventos.
 
@@ -163,7 +163,7 @@ Para usar los filtros básicos, expanda la opción _Event types_ (Tipos de event
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Captura de pantalla de la creación de una ruta de evento con un filtro básico. Activación de las casillas de los eventos.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Captura de pantalla de la creación de una ruta de eventos con un filtro básico en Azure Portal, se resaltan las casillas de los eventos.":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -173,7 +173,7 @@ El cuadro de texto de filtro se rellena automáticamente con el texto del filtro
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Captura de pantalla de la creación de una ruta de evento con un filtro básico. Se muestra el texto del filtro rellenado automáticamente después de seleccionar los eventos.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Captura de pantalla de la creación de una ruta de eventos con un filtro básico en Azure Portal, se resalta el texto del filtro rellenado automáticamente después de seleccionar los eventos.":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -187,7 +187,7 @@ Para crear una ruta de evento con opciones avanzadas de filtro, cambie el botón
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Captura de pantalla de la creación de una ruta de evento con un filtro avanzado.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Captura de pantalla de la creación de una ruta de evento con un filtro avanzado en Azure Portal.":::
     :::column-end:::
     :::column:::
     :::column-end:::

@@ -8,26 +8,39 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 01/13/2021
+ms.date: 05/24/2021
 ms.author: pafarley
-ms.openlocfilehash: 2e0a04cef7952822931887f038410ff867cc2afe
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: ce04187cb513712998b6c4ba26d5210bb56ca5df
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108286733"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110453763"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novedades de Computer Vision
 
 Conozca las novedades del servicio. Estos elementos pueden ser notas de la versión, vídeos, entradas de blogs y otros tipos de información. Agregue esta página a sus marcadores para mantenerse actualizado con el servicio.
+
+## <a name="may-2021"></a>Mayo de 2021
+
+### <a name="spatial-analysis-container-update"></a>Actualización del contenedor Spatial Analysis
+
+Se ha lanzado una nueva versión del [contenedor Spatial Analysis](spatial-analysis-container.md) con un nuevo conjunto de características. Este contenedor de Docker permite analizar vídeo de streaming en tiempo real para comprender las relaciones espaciales entre las personas y su movimiento en entornos físicos. 
+
+* Las [operaciones de Spatial Analysis](spatial-analysis-operations.md) ahora se pueden configurar para detectar la orientación de una persona. 
+    * Se puede habilitar un clasificador de orientación para las operaciones `personcrossingline` y `personcrossingpolygon` mediante la configuración del parámetro `enable_orientation`. De forma predeterminada, está desactivado.
+
+* Las [operaciones de Spatial Analysis](spatial-analysis-operations.md) ahora también ofrecen configuración para detectar la velocidad de una persona mientras anda o corre.
+     * La velocidad se puede detectar para las operaciones `personcrossingline` y `personcrossingpolygon` mediante la activación del clasificador `enable_speed`, que está desactivado de forma predeterminada. La salida se refleja en las salidas `speed`, `avgSpeed` y `minSpeed`.
+
 
 ## <a name="april-2021"></a>Abril de 2021
 
 ### <a name="computer-vision-v32-ga"></a>Disponibilidad general de Computer Vision v3.2
 
 Computer Vision API v3.2 ahora está disponible con carácter general con las siguientes actualizaciones:
-* Modelo de etiquetado de imágenes mejorado: analiza el contenido visual y genera etiquetas pertinentes basadas en los objetos, las acciones y el contenido que se muestran en la imagen. Está disponible mediante la [API de etiquetado de imágenes](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f200). Consulte la [guía paso a paso](./vision-api-how-to-topics/howtocallvisionapi.md) de análisis de imágenes y la [información general](./overview-image-analysis.md) para más información.
-* Modelo de moderación de contenido actualizado: detecta la presencia de contenido para adultos y proporciona marcas para filtrar imágenes que contienen contenido visual para adultos, subido de tono y violento. Está disponible mediante la [API de análisis](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b). Consulte la [guía paso a paso](./vision-api-how-to-topics/howtocallvisionapi.md) de análisis de imágenes y la [información general](./overview-image-analysis.md) para más información.
+* Modelo de etiquetado de imágenes mejorado: analiza el contenido visual y genera etiquetas pertinentes basadas en los objetos, las acciones y el contenido que se muestran en la imagen. Este modelo está disponible mediante la [API de etiquetado de imágenes](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f200). Consulte la [guía paso a paso](./vision-api-how-to-topics/howtocallvisionapi.md) de análisis de imágenes y la [información general](./overview-image-analysis.md) para más información.
+* Modelo de moderación de contenido actualizado: detecta la presencia de contenido para adultos y proporciona marcas para filtrar imágenes que contienen contenido visual para adultos, subido de tono y violento. Este modelo está disponible mediante la [API de análisis](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b). Consulte la [guía paso a paso](./vision-api-how-to-topics/howtocallvisionapi.md) de análisis de imágenes y la [información general](./overview-image-analysis.md) para más información.
 * [OCR (Read) disponible para 73 idiomas](./language-support.md#optical-character-recognition-ocr), entre los que se incluyen chino simplificado y tradicional, japonés, coreano y los idiomas procedentes del latín.
 * [OCR (Read)](./overview-ocr.md) también está disponible como [contenedor sin distribución](./computer-vision-how-to-install-containers.md?tabs=version-3-2) para la implementación local.
 
@@ -131,11 +144,11 @@ Para más información, consulte la [introducción al OCR](overview-ocr.md).
 
 ### <a name="read-api-30-public-preview"></a>Read API 3.0 versión preliminar pública
 
-Ahora tiene la opción de usar la versión 3.0 de Read API para extraer texto impreso o manuscrito de imágenes. En comparación con las versiones anteriores, la versión 3.0 proporciona lo siguiente:
+Ahora puede usar la versión 3.0 de Read API para extraer texto impreso o manuscrito de las imágenes. En comparación con las versiones anteriores, la versión 3.0 proporciona lo siguiente:
 * Precisión mejorada
 * Nuevo formato de salida
 * Puntuación de confianza para cada palabra extraída
-* Compatibilidad con español e inglés con el parámetro de idioma adicional.
+* Compatibilidad de español e inglés con el parámetro de idioma.
 
 Siga las indicaciones de una de las guías de [inicio rápido de extracción de texto](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-hand-text.md?tabs=version-3) para empezar a usar la API 3.0.
 

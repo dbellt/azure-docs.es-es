@@ -1,37 +1,32 @@
 ---
-title: Cuotas en la versión preliminar de Azure Static Web Apps
-description: Más información sobre las cuotas asociadas a la versión preliminar de Azure Static Web Apps
+title: Cuotas en Azure Static Web Apps
+description: Más información sobre las cuotas asociadas a Azure Static Web Apps
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: e3538e90a6dea69c703f56871fde86a18557a022
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 12666d69f6dcab043e909dbb2b49276644a70d76
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106095176"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110069569"
 ---
-# <a name="quotas-in-azure-static-web-apps-preview"></a>Cuotas en la versión preliminar de Azure Static Web Apps
+# <a name="quotas-in-azure-static-web-apps"></a>Cuotas en Azure Static Web Apps
 
-Existen las siguientes cuotas para la versión preliminar de Azure Static Web Apps.
+Existen las siguientes cuotas para Azure Static Web Apps.
 
-> [!IMPORTANT]
-> Azure Static Web Apps se encuentra en versión preliminar pública y no está diseñado para su uso en producción.
-
-| Característica                     | Plan gratuito        |
-|-----------------------------|------------------|
-| Ancho de banda incluido          | 100 GB al mes |
-| Ancho de banda de uso por encima del límite           | No disponible      |
-| Aplicaciones por suscripción a Azure | 10               |
-| Tamaño de la aplicación                    | 250 MB           |
-| Entornos de preproducción | 3                |
-| Dominios personalizados              | 1                |
-| Autorización (con roles personalizados y reglas de enrutamiento) | Máximo de 25 usuarios finales que pueden pertenecer a roles personalizados |
-| Azure Functions             | Disponible        |
-| Contrato de nivel de servicio                         | None             |
+| Característica                     | Plan gratuito        | Plan Estándar |
+|-----------------------------|------------------|---------------|
+| Ancho de banda incluido          | 100 GB al mes, por suscripción | 100 GB al mes, por suscripción |
+| Ancho de banda de uso por encima del límite           | No disponible      | 0,20 USD por GB |
+| Aplicaciones por suscripción a Azure | 10               | Sin límite |
+| Tamaño de la aplicación                    | 250 MB           | 500 MB |
+| Entornos de preproducción | 3                | 10 |
+| Dominios personalizados              | 2 por aplicación        | 5 por aplicación |
+| Autorización (con roles personalizados y reglas de enrutamiento) | Máximo de 25 usuarios finales que pueden pertenecer a roles personalizados | Máximo de 25 usuarios finales que pueden pertenecer a roles personalizados |
 
 ## <a name="github-storage"></a>Almacenamiento de GitHub
 

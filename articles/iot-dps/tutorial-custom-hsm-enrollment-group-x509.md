@@ -3,17 +3,17 @@ title: 'Tutorial: Aprovisionamiento de dispositivos X.509 para Azure IoT Hub con
 description: En este tutorial se usan grupos de inscripción. En este tutorial, aprenderá a aprovisionar dispositivos X.509 con un módulo de seguridad de hardware (HSM) personalizado y el SDK de dispositivos para C para Azure IoT Hub Device Provisioning Service (DPS).
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/28/2021
+ms.date: 05/24/2021
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: b178aa4a524cb7fcc85c7fc68ac5f772747787a3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e7d024d4d5b1e058e7a0b895faae5d2e7425f44
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99052370"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110472134"
 ---
 # <a name="tutorial-provision-multiple-x509-devices-using-enrollment-groups"></a>Tutorial: Aprovisionamiento de varios dispositivos X.509 mediante grupos de inscripción
 
@@ -121,6 +121,10 @@ En esta sección, generará una cadena de certificados X.509 de tres certificado
 #### <a name="create-root-and-intermediate-certificates"></a>Creación de certificados raíz e intermedios
 
 Para crear las partes raíz e intermedia de la cadena de certificados:
+
+> [!IMPORTANT]
+> Use solo el enfoque del shell de Bash con este artículo. El uso de PowerShell es posible, pero no se trata en este artículo.
+
 
 1. Abra un símbolo del sistema de Bash de Git. Complete los pasos 1 y 2 con las instrucciones del shell de bash que se encuentran en [Administración de certificados de entidad de certificación de prueba para ejemplos y tutoriales](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md#managing-test-ca-certificates-for-samples-and-tutorials).
 
@@ -233,7 +237,7 @@ Para crear certificados de dispositivo firmados por el certificado intermedio en
     >
     > Sin embargo, el dispositivo también debe tener acceso a la clave privada del certificado de dispositivo. Esto es necesario porque el dispositivo debe realizar la comprobación con esa clave en tiempo de ejecución al intentar el aprovisionamiento. La confidencialidad de esta clave es una de las principales razones por las que se recomienda usar el almacenamiento basado en hardware en un HSM real para ayudar a proteger las claves privadas.
 
-4. Repita los pasos 1 a 3 para un segundo dispositivo con id. de dispositivo `custom-hsm-device-02`. Utilice los siguientes valores para ese dispositivo:
+4. Elimine el archivo *./certs/new-device.cert.pem* y repita los pasos del 1 al 3 para un segundo dispositivo con el id. de dispositivo `custom-hsm-device-02`. Debe eliminar el archivo *./certs/new-device.cert.pem* o se producirá un error en la generación del certificado para el segundo dispositivo. En este artículo, solo se usarán archivos de certificado de cadena completos. Utilice los siguientes valores para el segundo dispositivo:
 
     |   Descripción                 |  Value  |
     | :---------------------------- | :--------- |
@@ -290,7 +294,7 @@ Para agregar los certificados de firma al almacén de certificados en dispositiv
     winpty openssl pkcs12 -inkey ../private/azure-iot-test-only.intermediate.key.pem -in ./azure-iot-test-only.intermediate.cert.pem -export -out ./intermediate.pfx
     ```
 
-2. Haga clic con el botón derecho en el botón **Inicio** de Windows. A continuación, haga clic con el botón izquierdo en **Ejecutar**. Escriba *certmgr.mcs* y haga clic en **Aceptar** para iniciar el complemento MMC del administrador de certificados.
+2. Haga clic con el botón derecho en el botón **Inicio** de Windows. A continuación, haga clic con el botón izquierdo en **Ejecutar**. Escriba *certmgr.msc* y haga clic en **Aceptar** para iniciar el complemento MMC del administrador de certificados.
 
 3. En el administrador de certificados, en **Certificados: usuario actual**, haga clic en **Entidades de certificación raíz de confianza**. A continuación, en el menú, haga clic en **Acción** > **Todas las tareas** > **Importar** para importar el archivo `root.pfx`.
 

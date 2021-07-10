@@ -1,7 +1,7 @@
 ---
-title: Creación de modelos de clasificación de aprendizaje automático automatizado
+title: 'Tutorial: Aprendizaje automático automatizado y entrenamiento de modelos de clasificación sin código'
 titleSuffix: Azure Machine Learning
-description: Entrene e implemente modelos de clasificación sin escribir código, mediante la interfaz de aprendizaje automático automatizado de Azure Machine Learning.
+description: Entrene un modelo de clasificación sin necesidad de escribir ninguna línea de código mediante el aprendizaje automático automatizado de Azure Machine Learning en la interfaz de usuario de Studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,18 @@ ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 12/21/2020
+ms.date: 06/11/2021
 ms.custom: automl
-ms.openlocfilehash: d0e236891e48a20adf1901d2f95a90ae25969c49
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: e088184cadea64b769faf75c6455b720f45d91cc
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210853"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112028728"
 ---
-# <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Creación de un modelo de clasificación con aprendizaje automático automatizado en Azure Machine Learning
+# <a name="tutorial-train-a-classification-model-with-no-code-automl-in-the-azure-machine-learning-studio"></a>Tutorial: Entrenamiento de un modelo de clasificación con aprendizaje automático automatizado sin código en el Estudio de Azure Machine Learning
 
-Aprenda a crear un [modelo de clasificación simple](concept-automated-ml.md#classification) sin escribir ninguna línea de código mediante el aprendizaje automático automatizado de Estudio de Azure Machine Learning. Este modelo de clasificación predice si un cliente suscribirá un depósito a plazo fijo con una institución financiera.
+Aprenda a entrenar un modelo de clasificación con aprendizaje automático automatizado sin código en el Estudio de Azure Machine Learning. Este modelo de clasificación predice si un cliente suscribirá un depósito a plazo fijo con una institución financiera.
 
 Con el aprendizaje automático, puede automatizar las tareas que requieren mucho tiempo. El aprendizaje automático recorre en iteración rápidamente muchas combinaciones de algoritmos e hiperparámetros para ayudarle a encontrar el mejor modelo según una métrica de éxito de su elección.
 
@@ -35,7 +35,7 @@ En este tutorial no escribirá absolutamente nada de código, usará la interfaz
 Pruebe también el aprendizaje automático automatizado para estos otros tipos de modelos:
 
 * Para ver un ejemplo sin código de previsión, consulte [Tutorial: Previsión de la demanda con aprendizaje automático automatizado](tutorial-automated-ml-forecast.md).
-* Para obtener un primer ejemplo de código de un modelo de regresión, consulte [Tutorial: Uso del aprendizaje automático automatizado para predecir tarifas de taxi](tutorial-auto-train-models.md).
+* Para obtener un ejemplo de código de un modelo de regresión, consulte [Tutorial: Modelo de regresión con aprendizaje automático automatizado](tutorial-auto-train-models.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

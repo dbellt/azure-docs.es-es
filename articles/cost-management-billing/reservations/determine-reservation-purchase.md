@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 05/25/2021
 ms.author: banders
-ms.openlocfilehash: d89f890d3e2bb8238a00b4a529b8804a8c38fa6f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 80c0627cdc2169ce3301ee56a449442387d8f6e1
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684752"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110481109"
 ---
 # <a name="determine-what-reservation-to-purchase"></a>Determinación de qué reserva comprar
 
@@ -97,7 +97,7 @@ Más información sobre las [recomendaciones](reserved-instance-purchase-recomme
 
 ## <a name="recommendations-in-the-cost-management-power-bi-app"></a>Recomendaciones en la aplicación de Power BI de Cost Management
 
-Los clientes de Contrato Enterprise y de Contrato de cliente de Microsoft pueden usar los informes de cobertura de instancia reservada de máquina virtual y las recomendaciones de compra. Los informes de cobertura muestran el uso total y el uso que está cubierto por las instancias reservadas.
+Los clientes de Contrato Enterprise pueden usar los informes de cobertura de instancia reservada de máquina virtual y las recomendaciones de compra. Los informes de cobertura muestran el uso total y el uso que está cubierto por las instancias reservadas.
 
 1. Obtenga la [aplicación Cost Management](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp).
 2. Vaya al informe de cobertura de instancia reservada de máquina virtual, ámbito único o compartido, en función del ámbito en el que desee comprar.

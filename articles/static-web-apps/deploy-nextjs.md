@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
-ms.openlocfilehash: a22d06137c3ec17851280605ac85c94ef8b342cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 940ea0b96d4e369ceb4ba21c0d31fad36501c24f
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97563082"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109814035"
 ---
-# <a name="deploy-static-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Implementación de sitios web de Next.js representados de forma estática en la versión preliminar de Azure Static Web Apps
+# <a name="deploy-static-rendered-nextjs-websites-on-azure-static-web-apps"></a>Implementación de sitios web de Next.js representados de forma estática en Azure Static Web Apps
 
 En este tutorial, aprenderá a implementar un sitio web estático generado por [Next.js](https://nextjs.org) en [Azure Static Web Apps](overview.md). Para empezar, aprenderá a instalar, configurar e implementar una aplicación de Next.js. Durante este proceso, también aprenderá a abordar los desafíos comunes a los que debe enfrentarse a menudo al generar páginas estáticas con Next.js.
 
@@ -81,7 +81,7 @@ Al compilar un sitio de Next.js mediante `npm run build`, la aplicación se crea
       }
     };
     ```
-    
+
       Esta configuración asigna `/` a la página de Next.js que se envía para la ruta `/`, y que es el archivo de paginación _pages/index.js_.
 
 1. Actualice el script de compilación de _package.json_ para generar también un sitio estático después de la compilación, con el comando `next export`. El comando `export` genera un sitio estático.
@@ -134,47 +134,47 @@ En los pasos siguientes se muestra cómo vincular la aplicación que acaba de in
 
 ### <a name="create-a-static-app"></a>Creación de una aplicación estática
 
-1. Vaya a [Azure Portal](https://portal.azure.com).
-1. Haga clic en **Crear un recurso**.
-1. Busque **Static Web Apps**.
-1. Haga clic en **Static Web Apps (Preview)** (Static Web Apps [versión preliminar]).
-1. Haga clic en **Crear**
+1. Acceda a [Azure Portal](https://portal.azure.com).
+1. Seleccione **Crear un recurso**.
+1. Busque **Static Web Apps**.
+1. Seleccione **Static Web Apps**.
+1. Seleccione **Crear**.
+1. En la pestaña _Datos básicos_, especifique los valores siguientes.
 
-1. Seleccione una suscripción en la lista desplegable *Suscripción* o use el valor predeterminado.
-1. Haga clic en el vínculo **Nuevo** debajo de la lista desplegable *Grupo de recursos*. En *Nombre del nuevo grupo de recursos*, escriba **mystaticsite** y haga clic en **Aceptar**.
-1. Escriba un nombre único global para la aplicación en el cuadro de texto **Nombre**. Los caracteres válidos incluyen `a-z`, `A-Z`, `0-9` y `-`. Este valor se usa como prefijo de dirección URL para la aplicación estática con el formato `https://<APP_NAME>.azurestaticapps.net`.
-1. En la lista desplegable *Región*, elija la región más cercana a usted.
-1. Seleccione **Gratis** en el menú desplegable de SKU.
+    | Propiedad | Valor |
+    | --- | --- |
+    | _Suscripción_ | El nombre de la suscripción de Azure. |
+    | _Grupos de recursos_ | **my-nextjs-group**  |
+    | _Nombre_ | **my-nextjs-app** |
+    | _Tipo de plan_ | **Gratis** |
+    | _Región para la API y los entornos de ensayo de Azure Functions_ | Seleccione la región más cercana a la suya. |
+    | _Origen_ | **GitHub** |
 
-   :::image type="content" source="media/deploy-nextjs/create-static-web-app.png" alt-text="Creación de la aplicación web estática":::
+1. Seleccione **Iniciar sesión con GitHub** y autentíquese con GitHub.
 
-### <a name="add-a-github-repository"></a>Adición de un repositorio de GitHub
+1. Escriba los siguientes valores de GitHub.
 
-La nueva cuenta de Static Web Apps debe tener acceso al repositorio con la aplicación de Next.js para que pueda implementar automáticamente las confirmaciones.
+    | Propiedad | Valor |
+    | --- | --- |
+    | _Organización_ | Seleccione la organización de GitHub que quiera. |
+    | _Repositorio_ | Seleccione **nextjs-starter**. |
+    | _Rama_ | Seleccione **main** (principal). |
 
-1. Haga clic en el botón **Iniciar sesión con GitHub**.
-1. Seleccione la **Organización** en la que creó el repositorio para el proyecto de Next.js, que puede ser su nombre de usuario de GitHub.
-1. Busque el nombre del repositorio que creó anteriormente y selecciónelo.
-1. Elija **principal** como rama en el menú desplegable *Rama*.
+1. En la sección _Detalles de la compilación_, seleccione **Personalizado** en la lista desplegable _Valores preestablecidos de compilación_ y conserve los valores predeterminados.
 
-   :::image type="content" source="media/deploy-nextjs/connect-github.png" alt-text="Conexión a GitHub":::
-
-### <a name="configure-the-build-process"></a>Configuración del proceso de compilación
-
-Azure Static Web Apps se ha creado para realizar de forma automática tareas comunes, como la instalación de módulos npm y la ejecución de `npm run build` durante cada implementación. Sin embargo, hay algunas opciones, como la carpeta de origen de la aplicación y la carpeta de destino de la compilación, que tiene que configurar manualmente.
-
-1. Haga clic en la pestaña **Compilación** para configurar la carpeta de salida estática.
-
-   :::image type="content" source="media/deploy-nextjs/build-tab.png" alt-text="Pestaña Compilación":::
-
-2. Escriba **out** en el cuadro de texto *Ubicación del artefacto de la aplicación*.
+1. En _Ubicación de la aplicación_, escriba **/** en el cuadro.
+1. Deje en blanco el cuadro _Ubicación de la aplicación_.
+1. En el cuadro _Ubicación del resultado_, escriba **fuera**.
 
 ### <a name="review-and-create"></a>Revisar y crear
 
-1. Haga clic en el botón **Revisar y crear** para comprobar que todos los detalles sean correctos.
-1. Haga clic en **Crear** para comenzar la creación del recurso y también para aprovisionar una Acción de GitHub para la implementación.
+1. Seleccione el botón **Revisar y crear** para comprobar que todos los detalles sean correctos.
+
+1. Seleccione **Crear** para comenzar la creación de la aplicación web estática de App Service y aprovisionar una Acción de GitHub para la implementación.
+
 1. Cuando se complete la implementación, haga clic en **Ir al recurso**.
-1. En la ventana _Información general_, haga clic en el vínculo *Dirección URL* para abrir la aplicación implementada. 
+
+1. En la ventana _Información general_, haga clic en el vínculo *Dirección URL* para abrir la aplicación implementada.
 
 Si el sitio web no se carga de inmediato, el flujo de trabajo de Acciones de GitHub en segundo plano sigue en ejecución. Una vez que se complete el flujo de trabajo, puede actualizar el explorador para ver la aplicación web.
 Si el sitio web no se carga de inmediato, el flujo de trabajo de Acciones de GitHub en segundo plano sigue en ejecución. Una vez que se complete el flujo de trabajo, puede actualizar el explorador para ver la aplicación web.

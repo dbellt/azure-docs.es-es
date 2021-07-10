@@ -6,15 +6,15 @@ author: nmurav
 manager: jken
 services: azure-communication-services
 ms.author: nmurav
-ms.date: 06/30/2021
+ms.date: 3/23/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 377d6783fb73c2d03f7e4dde7b352abe1eaef993
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 2fa9cbba571fa5603607c5efea7f49a5822726e9
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113110806"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110089423"
 ---
 # <a name="ensure-high-quality-media-in-azure-communication-services"></a>Garantía de multimedia de alta calidad en Azure Communication Services
 
@@ -63,7 +63,7 @@ A continuación, se muestran los requisitos de ancho de banda para los SDK de Wi
 
 Las conexiones de Azure Communication Services requieren conectividad a Internet en puertos y direcciones IP específicos, con el fin de ofrecer experiencias multimedia de alta calidad. Azure Communication Services también funciona aunque no haya acceso a estos puertos y direcciones IP. Sin embargo, la experiencia óptima se obtiene cuando los puertos e intervalos IP recomendados están abiertos.
 
-| Category | Intervalos IP o nombre de dominio completo | Puertos | 
+| Categoría | Intervalos IP o nombre de dominio completo | Puertos | 
 | :-- | :-- | :-- |
 | Tráfico multimedia | [Intervalo de direcciones IP de la nube pública de Azure](https://www.microsoft.com/download/confirmation.aspx?id=56519) | UDP 3478 a 3481, puertos TCP 443 |
 | Señalización, telemetría, registro| *.skype.com, *.microsoft.com, *.azure.net, *.azureedge.net, *.office.com y *.trouter.io | TCP 443, 80 |

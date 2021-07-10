@@ -8,16 +8,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/22/2020
 ms.author: mbullwin
-ms.openlocfilehash: 50c22bdda667e8b5762f660fae673628323ee143
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: f526038a37e6f4e4a5d03c516446653a95c08be4
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102445233"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110163371"
 ---
-Comience a usar la biblioteca cliente de Anomaly Detector para .NET. Siga estos pasos para instalar el inicio del paquete con los algoritmos que proporciona el servicio. El servicio de Anomaly Detector le permite detectar anomalías en los datos de serie temporal mediante el uso automático de los mejores modelos, independientemente del sector, el escenario o el volumen de datos.
+Comience a usar la biblioteca cliente de Anomaly Detector para C#. Siga estos pasos para instalar el inicio del paquete con los algoritmos que proporciona el servicio. El servicio de Anomaly Detector le permite detectar anomalías en los datos de serie temporal mediante el uso automático de los mejores modelos, independientemente del sector, el escenario o el volumen de datos.
 
-Use la biblioteca cliente de Anomaly Detector para .NET para las siguientes acciones:
+Use la biblioteca cliente de Anomaly Detector para C# para realizar las siguientes acciones:
 
 * Detectar anomalías en el conjunto de datos de serie temporal como una solicitud por lotes
 * Detectar el estado de anomalía del punto de datos más reciente en la serie temporal

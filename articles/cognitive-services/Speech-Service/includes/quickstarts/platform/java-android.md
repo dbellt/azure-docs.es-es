@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Configuración de la plataforma para usar Java en Android con el SDK de Voz: servicio de voz'
+title: 'Inicio rápido: configuración de la plataforma para usar Java en Android con el SDK de Voz: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Use esta guía para configurar la plataforma para usar Java en Android con el SDK del servicio de voz.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.custom: devx-track-java
 ms.author: erhopf
-ms.openlocfilehash: 00fa8c27d9f324da0cc5704ee1e2a743907345fe
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 530e33b7b8932ccf1968304140dfc773aa750e82
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188392"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110163806"
 ---
 En esta guía se muestra cómo instalar el [SDK de Voz](~/articles/cognitive-services/speech-service/speech-sdk.md) para Java en Android. La configuración se basa en el paquete Maven del SDK de Voz y en Android Studio 3.3.
 
@@ -32,8 +32,6 @@ El SDK de Voz admite dispositivos Android que tienen procesadores compatibles co
 ## <a name="install-the-speech-sdk-using-android-studio"></a>Instalación del SDK de Voz mediante Android Studio
 
 [!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-java-android-create-proj.md)]
-
-Ahora puede continuar con la sección [Pasos siguientes](#next-steps).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

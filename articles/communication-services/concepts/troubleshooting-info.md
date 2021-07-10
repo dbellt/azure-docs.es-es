@@ -8,12 +8,12 @@ ms.author: manoskow
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: db6aafc8c9db7a67c9ee70d524d17a642d03dfd8
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: b1fcf708a7275c60e3f6e7fc15f2247fb088bc47
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259071"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077309"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Solución de problemas en Azure Communication Services
 
@@ -160,8 +160,20 @@ Al desarrollar para Android, los registros se almacenan en archivos `.blog`. Ten
 
 En Android Studio, vaya al explorador de archivos de dispositivo; para ello, seleccione View > Tool Windows > Device File Explorer (Ver > Herramienta Windows > Explorador de archivos de dispositivo) desde el simulador y el dispositivo. El archivo `.blog` se ubicará en el directorio de la aplicación, que debe ser similar a `/data/data/[app_name_space:com.contoso.com.acsquickstartapp]/files/acs_sdk.blog`. Puede adjuntar este archivo a la solicitud de soporte técnico.
 
-
 ---
+
+## <a name="enable-and-access-call-logs-windows"></a>Habilitación y acceso a los registros de llamadas (Windows)
+
+Al desarrollar para Windows, los registros se almacenan en archivos `.blog`. Tenga en cuenta que no puede ver los registros directamente porque están cifrados.
+
+Para acceder a estos, observe dónde mantiene la aplicación sus datos locales. Hay muchas maneras de averiguar dónde mantiene una aplicación para UWP sus datos locales; los pasos siguientes son solo una de estas maneras:
+1. Abra un símbolo del sistema de Windows (tecla Windows + R).
+2. Escriba `cmd.exe`
+3. Escriba `where /r %USERPROFILE%\AppData acs*.blog`
+4. Compruebe si el Id. de la aplicación coincide con el devuelto por el comando anterior.
+5. Abra la carpeta con los registros. Para ello, escriba `start ` seguido de la ruta de acceso devuelta en el paso 3. Por ejemplo: `start C:\Users\myuser\AppData\Local\Packages\e84000dd-df04-4bbc-bf22-64b8351a9cd9_k2q8b5fxpmbf6`
+6. Adjunte todos los archivos `*.blog` y `*.etl` a la solicitud de soporte técnico de Azure.
+
 
 ## <a name="calling-sdk-error-codes"></a>Códigos de error del SDK de llamadas
 
@@ -169,7 +181,7 @@ El SDK de llamadas de Azure Communication Services usa los siguientes códigos d
 
 | Código de error | Descripción | Acción que realizar |
 | -------- | ---------------| ---------------|
-| 403 | Prohibido o error de autenticación. | Asegúrese de que el token de Communication Services es válido y no ha expirado. |
+| 403 | Prohibido o error de autenticación. | Asegúrese de que el token de Communication Services es válido y no ha expirado. Si usa la interoperabilidad de Teams, asegúrese de que el inquilino de Teams se ha agregado a la lista de permitidos de acceso de versión preliminar. Para habilitar o deshabilitar la [interoperabilidad de los inquilinos de equipos](https://docs.microsoft.com/azure/communication-services/concepts/teams-interop), complete [este formulario](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).|
 | 404 | Llamada no encontrada. | Asegúrese de que el número al que llama (o la llamada a la que se une) existe. |
 | 408 | Se agotó el tiempo de espera del controlador de llamadas. | Se agotó el tiempo de espera del controlador de llamadas mientras esperaba los mensajes de protocolo de los puntos de conexión de usuario. Asegúrese de que los clientes están conectados y disponibles. |
 | 410 | Error de infraestructura de medios o de pila de medios locales. | Asegúrese de que usa el SDK más reciente en un entorno compatible. |
@@ -180,6 +192,17 @@ El SDK de llamadas de Azure Communication Services usa los siguientes códigos d
 | 490, 491, 496, 487, 498 | Problemas de red en el punto de conexión local. | Compruebe la red. |
 | 500, 503, 504 | Error de infraestructura de Communication Services. | Envíe una solicitud de soporte técnico mediante Azure Portal. |
 | 603 | Un participante remoto de Communication Services ha rechazado globalmente la llamada | Comportamiento esperado. |
+
+## <a name="chat-sdk-error-codes"></a>Códigos de error del SDK de chat
+
+El SDK de chat de Azure Communication Services usa los siguientes códigos de error para ayudarle a solucionar los problemas del chat. Los códigos de error se exponen a través de la propiedad `error.code` en la respuesta del error.
+
+| Código de error | Descripción | Acción que realizar |
+| -------- | ---------------| ---------------|
+| 401 | No autorizado | Asegúrese de que el token de Communication Services es válido y no ha expirado. |
+| 403 | Prohibido | Asegúrese de que el iniciador de la solicitud tiene acceso al recurso. |
+| 429 | Demasiadas solicitudes | Asegúrese de que la aplicación del lado cliente controla este escenario de forma sencilla. Si el problema continúa, abra una solicitud de soporte técnico. |
+| 503 | Servicio no disponible | Envíe una solicitud de soporte técnico mediante Azure Portal. |
 
 ## <a name="related-information"></a>Información relacionada
 - [Registros y diagnósticos](logging-and-diagnostics.md)
