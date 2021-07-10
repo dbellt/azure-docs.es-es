@@ -5,13 +5,29 @@ ms.author: askaur
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 8efdb20b463e9021f298597cd94dabbdbf9e62c0
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 2fb04acd75d607772b6582882b98f9ed222f070c
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109663914"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111430854"
 ---
+En este inicio rápido aprenderá a chatear en una reunión de Teams mediante el SDK de chat de Azure Communication Services para JavaScript.
+
+> [!NOTE]
+> Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-chat-to-teams-meeting)
+
+## <a name="prerequisites"></a>Requisitos previos 
+
+* Una  [implementación de Teams](/deployoffice/teams-install). 
+* Una [aplicación de chat](../get-started.md) activa. 
+
+## <a name="enable-teams-interoperability"></a>Habilitación de la interoperabilidad de Teams 
+
+Cualquier usuario de Communication Services que se una a una reunión de Teams como invitado solo puede acceder al chat cuando se haya unido a la llamada de la reunión de Teams. Consulte la documentación de la [interoperabilidad de Teams](../../voice-video-calling/get-started-teams-interop.md) para aprender a agregar un usuario de Communication Services a una llamada de reunión de Teams.
+
+Para usar esta característica debe ser miembro de la organización propietaria de ambas entidades.
+
 ## <a name="joining-the-meeting-chat"></a>Unión al chat de la reunión 
 
 Una vez que la interoperabilidad de Teams se habilita, cualquier usuario de Communication Services puede unirse a la llamada de Teams como usuario externo mediante el SDK de llamadas. Al unirse a la llamada se le agregará también como participante en el chat de la reunión, donde podrán enviar mensajes a otros usuarios durante la llamada, y recibirlos de ellos. El usuario no tendrá acceso a los mensajes del chat enviados antes de que se haya unido a la llamada. Para unirse a la reunión e iniciar el chat, puede seguir los pasos siguientes.
@@ -62,7 +78,7 @@ Cree un archivo **index.html** en el directorio raíz del proyecto. Este archivo
 
 Reemplace el código de index.html por el siguiente fragmento de código.
 Los cuadros de texto de la parte superior de la página se usarán para especificar el contexto de la reunión de Teams y el identificador de la conversación de la reunión. El botón "Unirse a una reunión de Teams" se usará para unirse a la reunión especificada.
-Aparecerá una ventana emergente de chat en la parte inferior de la página. Se puede usar para enviar mensajes en la conversación de la reunión, y los mensajes enviados se mostrarán en tiempo real en dicha conversación mientras el usuario de ACS sea miembro de esta.
+Aparecerá una ventana emergente de chat en la parte inferior de la página. Se puede usar para enviar mensajes en la conversación de la reunión, y los mensajes enviados se mostrarán en tiempo real en dicha conversación mientras el usuario de Communication Services sea miembro de esta.
 
 ```html
 <!DOCTYPE html>
@@ -327,9 +343,9 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 
 Abra el explorador web y vaya a http://localhost:8080/. Verá lo siguiente:
 
-:::image type="content" source="../acs-join-teams-meeting-chat-quickstart.png" alt-text="Captura de pantalla de la aplicación JavaScript completada.":::
+:::image type="content" source="../join-teams-meeting-chat-quickstart.png" alt-text="Captura de pantalla de la aplicación JavaScript completada.":::
 
-Inserte el vínculo de la reunión de Teams y el identificador de la conversación en los cuadros de texto. Presione *Unirse a una reunión de Teams* para unirse a dicha reunión. Una vez que el usuario de ACS se haya admitido en la reunión, puede chatear desde dentro de la aplicación de Communication Services. Navegue hasta el cuadro que hay en la parte inferior de la página para iniciar el chat.
+Inserte el vínculo de la reunión de Teams y el identificador de la conversación en los cuadros de texto. Presione *Unirse a una reunión de Teams* para unirse a dicha reunión. Una vez que el usuario de Communication Services se haya admitido en la reunión, puede chatear desde dentro de la aplicación de Communication Services. Navegue hasta el cuadro que hay en la parte inferior de la página para iniciar el chat.
 
 > [!NOTE] 
-> Actualmente, solo se admite el envío, la recepción y la edición de mensajes para los escenarios de interoperabilidad con Teams. Otras características, como los indicadores de escritura y que los usuarios de Communication Services agreguen o quiten otros usuarios de la reunión de Teams aún no se admiten.  
+> Actualmente, solo se admite el envío, la recepción y la edición de mensajes para los escenarios de interoperabilidad con Teams. Otras características, como los indicadores de escritura y que los usuarios de Communication Services agreguen o quiten otros usuarios de la reunión de Teams aún no se admiten.

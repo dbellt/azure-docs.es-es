@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/05/2020
+ms.date: 05/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 7931bc58b1035a425b30b01b802345b7aa7b8d14
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d80b83caa4ba17f1d3f1f327076453d31021e1e3
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92456507"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467710"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarity"></a>Tutorial: Integración de Azure Active Directory con Clarity
 
@@ -25,8 +25,6 @@ En este tutorial, obtendrá información sobre cómo integrar Clarity con Azure�
 * Controlar en Azure AD quién tiene acceso a Clarity.
 * Permitir a los usuarios iniciar sesión automáticamente en Clarity con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
-
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -39,48 +37,47 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Clarity admite el inicio de sesión único iniciado por **IDP**.
-* Una vez configurado Clarity, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Clarity admite el SSO iniciado por **IDP**.
 
-## <a name="adding-clarity-from-the-gallery"></a>Incorporación de Clarity desde la galería
+## <a name="add-clarity-from-the-gallery"></a>Incorporación de Clarity desde la galería
 
 Para configurar la integración de Clarity en Azure AD, tendrá que agregar Clarity desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **Clarity** en el cuadro de búsqueda.
 1. Seleccione **Clarity** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-clarity"></a>Configuración y prueba del inicio de sesión único de Azure AD para Clarity
+## <a name="configure-and-test-azure-ad-sso-for-clarity"></a>Configuración y prueba del SSO de Azure AD para Clarity
 
 Configure y pruebe el inicio de sesión único de Azure AD con Clarity mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario correspondiente de Clarity.
 
-Para configurar y probar el inicio de sesión único de Azure AD con Clarity, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el SSO de Azure AD con Clarity, siga estos pasos:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
-2. **[Configuración del inicio de sesión único de Clarity](#configure-clarity-single-sign-on)** : para configurar el inicio de sesión único en la aplicación.
+2. **[Configuración del SSO en Clarity](#configure-clarity-sso)** : para configurar los valores de Inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Clarity](#create-clarity-test-user)** , para tener un homólogo de B.Simon en Clarity que esté vinculado a la representación de este en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
+6. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-## <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Clarity**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de aplicaciones de **Clarity**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 2. En el cuadro de diálogo **Seleccione un método de inicio de sesión único**, seleccione **SAML**.
-3.  En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+3.  En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
 4. En la página **Configurar inicio de sesión único con SAML** realice los siguientes pasos:
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://ca.ondemand.saml.20.post.<companyname>`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://ca.ondemand.saml.20.post.<COMPANY_NAME>`
 
-    b. En el cuadro de texto **URL de respuesta**, escriba como: `https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer`
+    b. En el cuadro de texto **URL de respuesta**, escriba la dirección URL: `https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer`
 
     > [!NOTE]
     > Este valor no es real. Actualícelo con el identificador real. Póngase en contacto con el [equipo de soporte técnico de Clarity](mailto:catechnicalsupport@ca.com) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -112,18 +109,12 @@ En esta sección, va a permitir que B.Simon acceda a Clarity mediante el inicio 
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **Clarity**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
-   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
 1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-
-    ![Vínculo de Agregar usuario](common/add-assign-user.png)
-
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-## <a name="configure-clarity-single-sign-on"></a>Configuración del inicio de sesión único de Clarity
+## <a name="configure-clarity-sso"></a>Configuración del SSO en Clarity
 
 Para configurar el inicio de sesión único en **Clarity**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de Clarity](mailto:catechnicalsupport@ca.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
@@ -131,20 +122,14 @@ Para configurar el inicio de sesión único en **Clarity**, es preciso enviar el
 
 En esta sección, va a crear un usuario llamado B.Simon en Clarity. Trabaje con el [equipo de soporte técnico de Clarity](mailto:catechnicalsupport@ca.com) para agregar los usuarios a la plataforma de Clarity. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
-## <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
+## <a name="test-sso"></a>Prueba de SSO
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
 
-Al hacer clic en el icono de Clarity en el Panel de acceso, debería iniciar sesión automáticamente en la versión de Clarity para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+* Haga clic en Probar esta aplicación en Azure Portal; debería iniciar sesión automáticamente en la instancia de Clarity para la que configuró el SSO.
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Clarity en Aplicaciones, debería iniciar sesión automáticamente en la versión de Clarity para la que configuró el SSO. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+## <a name="next-steps"></a>Pasos siguientes
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
-
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
-
-- [Cómo proteger Clarity con controles y visibilidad avanzados](/cloud-app-security/proxy-intro-aad)
+Una vez configurado Clarity, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

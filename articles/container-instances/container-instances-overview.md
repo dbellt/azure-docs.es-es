@@ -4,12 +4,12 @@ description: El servicio Azure Container Instances ofrece la forma más rápida 
 ms.topic: overview
 ms.date: 03/22/2021
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c445687db7a154b6fc86e962d2c2340ad6297431
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a93bb81fc2d9f3abc9994921ad3ec689737d4588
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104799078"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113214504"
 ---
 # <a name="what-is-azure-container-instances"></a>¿Qué es Azure Container Instances?
 
@@ -21,7 +21,7 @@ Azure Container Instances es una excelente solución para cualquier escenario qu
 
 Los contenedores ofrecen importantes ventajas de inicio sobre las máquinas virtuales (VM). Azure Container Instances puede iniciar un contenedor en Azure en segundos sin que sea necesario aprovisionar y administrar máquinas virtuales.
 
-Traiga imágenes de contenedores Linux o Windows de Docker Hub, un [registro de contenedor de Azure](../container-registry/index.yml) privado, o cualquier otro registro de Docker basado en la nube. Visite las [preguntas más frecuentes](container-instances-faq.md) para obtener información sobre qué registros son compatibles con ACI. Azure Container Instances almacena en la caché varias imágenes del sistema operativo base comunes, lo que ayuda a acelerar la implementación de las imágenes de aplicación personalizadas.
+Traiga imágenes de contenedores Linux o Windows de Docker Hub, un [registro de contenedor de Azure](../container-registry/index.yml) privado, o cualquier otro registro de Docker basado en la nube. Visite las [preguntas más frecuentes](container-instances-faq.yml) para obtener información sobre qué registros son compatibles con ACI. Azure Container Instances almacena en la caché varias imágenes del sistema operativo base comunes, lo que ayuda a acelerar la implementación de las imágenes de aplicación personalizadas.
 
 ## <a name="container-access"></a>Acceso a contenedores
 
@@ -64,7 +64,7 @@ Algunas características están restringidas actualmente a los contenedores Linu
 * [Implementación de Virtual Network](container-instances-vnet.md)
 * [Recursos de GPU](container-instances-gpu.md) (versión preliminar)
 
-En el caso de las implementaciones de contenedores de Windows, use imágenes basadas en [imágenes base de Windows](container-instances-faq.md#what-windows-base-os-images-are-supported) comunes.
+En el caso de las implementaciones de contenedores de Windows, use imágenes basadas en [imágenes base de Windows](/azure/container-instances/container-instances-faq#what-windows-base-os-images-are-supported) comunes.
 
 ## <a name="co-scheduled-groups"></a>Grupos con programación compartida
 

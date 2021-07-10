@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 04/06/2020
-ms.openlocfilehash: 40b9d9e665aacf3024e409ef6bf1b5596ad28ca9
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 53baa580d2f2c68fa32f38bddb07b5d9e362d190
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110372538"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110787755"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>Instrucciones de formato para las direcciones URL y los documentos importados
 
@@ -92,7 +92,7 @@ A continuación se muestra un ejemplo de un documento de Word de preguntas y res
 
 ### <a name="structured-txt-tsv-and-xls-files"></a>Archivos *TXT*, *TSV* y *XLS* estructurados
 
-Las preguntas y respuestas en forma de archivos *.txt*, *.tsv* o *.xls* estructurados también se pueden cargar en QnA Maker para crear o ampliar una base de conocimiento.  Pueden ser texto sin formato o pueden tener contenido en formato RTF o HTML.
+Las preguntas y respuestas en forma de archivos *.txt*, *.tsv* o *.xls* estructurados también se pueden cargar en QnA Maker para crear o ampliar una base de conocimiento.  Pueden ser texto sin formato o pueden tener contenido en formato RTF o HTML. Los [pares de preguntas y respuestas](./How-To/edit-knowledge-base.md#question-and-answer-pairs) tienen un campo de metadatos opcional que se puede usar para agruparlos en categorías.
 
 | Pregunta  | Respuesta  | Metadatos (1 clave: 1 valor) |
 |-----------|---------|-------------------------|
@@ -122,7 +122,7 @@ Una vez importado el archivo, el par pregunta-respuesta se encuentra en la base 
 
 ### <a name="structured-data-format-through-import"></a>Formato de datos estructurado mediante importación
 
-Al importar una base de conocimiento, se reemplaza el contenido de la base de conocimiento existente. La importación requiere un archivo .tsv estructurado que contiene información del origen de datos. Esta información ayuda a QnA Maker a agrupar los pares pregunta-respuesta y a atribuirlos a un origen de datos particular.
+Al importar una base de conocimiento, se reemplaza el contenido de la base de conocimiento existente. La importación requiere un archivo .tsv estructurado que contiene información del origen de datos. Esta información ayuda a QnA Maker a agrupar los pares pregunta-respuesta y a atribuirlos a un origen de datos particular. Los [pares de preguntas y respuestas](./How-To/edit-knowledge-base.md#question-and-answer-pairs) tienen un campo de metadatos opcional que se puede usar para agruparlos en categorías.
 
 | Pregunta  | Respuesta  | Source| Metadatos (1 clave: 1 valor) |
 |-----------|---------|----|---------------------|

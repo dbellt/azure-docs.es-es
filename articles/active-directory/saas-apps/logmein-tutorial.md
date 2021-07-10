@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2021
 ms.author: jeedes
-ms.openlocfilehash: e5b28c70f19d651212cc7af54968ce60c6daeb38
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 09c46efab8eea797b10b2724c3c19c7b1b34c87f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125416"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467715"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-logmein"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con LogMeIn
 
@@ -80,6 +80,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL: `https://authentication.logmeininc.com/login?service=https%3A%2F%2Fmyaccount.logmeininc.com`
 
+1. La aplicación LogMeIn espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. En la siguiente captura de pantalla se muestra la lista de atributos predeterminados, donde a **Unique User Identifier** (Identificador de usuario único) se le ha asignado **user.userprincipalname**. La aplicación LogMeIn espera que a **Unique User Identifier** (Identificador de usuario único) se le haya asignado **user.mail**, por lo que se debe editar la asignación de atributos. Para ello, haga clic en el icono **Edit** (Editar) y modifíquela.
+
+    ![imagen](common/default-attributes.png)
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 
