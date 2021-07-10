@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7f8448b7abcc16d2151ec10dbab9028eb8c4e984
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: f37699e9710acc9e4098fd38f0d9da0f50e65a58
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110099288"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953982"
 ---
 # <a name="write-client-app-authentication-code"></a>Escritura de código de autenticación de aplicación cliente
 
@@ -87,10 +87,10 @@ En una función de Azure, puede usar las credenciales de identidad administrada 
 
 El método [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) está pensado para aplicaciones interactivas y abrirá un explorador web para la autenticación. Puede utilizarlo en lugar de `DefaultAzureCredential` en los casos en los que necesite una autenticación interactiva.
 
-Para usar las credenciales interactivas del explorador, necesitará un **registro de la aplicación** que tenga permisos para las API de Azure Digital Twins. Para conocer los pasos para configurar el registro de esta aplicación, consulte [Guía paso a paso: creación de un registro de aplicación](how-to-create-app-registration.md). Una vez configurado el registro de la aplicación, necesitará...
-* El *id. de la aplicación (cliente)* del registro de la aplicación ([instrucciones para buscarlo](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
-* El *id. del directorio (inquilino)* del registro de la aplicación ([instrucciones para buscarlo](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
-* la dirección URL de la instancia de Azure Digital Twins ([instrucciones para encontrarla](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
+Para usar las credenciales interactivas del explorador, necesitará un **registro de la aplicación** que tenga permisos para las API de Azure Digital Twins. Para conocer los pasos para configurar el registro de esta aplicación, consulte [Guía paso a paso: creación de un registro de aplicación](./how-to-create-app-registration-portal.md). Una vez configurado el registro de la aplicación, necesitará...
+* el [id. de la aplicación (cliente) del registro de la aplicación;](./how-to-create-app-registration-portal.md#collect-client-id-and-tenant-id)
+* el [id. del directorio (inquilino) del registro de la aplicación;](./how-to-create-app-registration-portal.md#collect-client-id-and-tenant-id)
+* [la dirección URL de la instancia de Azure Digital Twins](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)
 
 Este es un ejemplo del código para crear un cliente de SDK autenticado mediante `InteractiveBrowserCredential`.
 

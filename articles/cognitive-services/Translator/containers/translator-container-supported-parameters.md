@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/12/2021
 ms.author: lajanuar
-ms.openlocfilehash: 97c24959328a151df133c1e9a18003cdf1901d9f
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 25fefcdbf5fc7b8bd9ad8bc81a9a1bd6bd7d3e11
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382973"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957438"
 ---
 # <a name="container-translator-translate-method"></a>Contenedor: método translate de Translator
 
@@ -26,8 +26,10 @@ Traduce texto.
 Envíe una solicitud `POST` a:
 
 ```HTTP
-https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
+http://localhost:{port}/translate?api-version=3.0
 ```
+
+Ejemplo: http://<span></span>localhost:5000/translate?api-version=3.0
 
 ## <a name="request-parameters"></a>Parámetros de solicitud
 
@@ -38,22 +40,21 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
 | Parámetro de consulta | Descripción |
 | --- | --- |
 | api-version | _Parámetro obligatorio_.  <br>Versión de la API que el cliente solicitó. El valor debe ser `3.0`. |
-| to  | _Parámetro obligatorio_.  <br>Especifica el idioma del texto de salida. El idioma de destino debe ser uno de los [idiomas admitidos](../reference/v3-0-languages.md) que están incluidos en el ámbito `translation`. Por ejemplo, utilice `to=de` para traducir al alemán.  <br>Es posible traducir a varios idiomas simultáneamente mediante la repetición del parámetro en la cadena de consulta. Por ejemplo, utilice `to=de&to=it` para traducir al alemán e italiano. |
 | desde | _Parámetro obligatorio_.  <br>Especifica el idioma del texto de entrada. Busque los idiomas que están disponibles desde los que realizar la traducción mediante la busca de [idiomas admitidos](../reference/v3-0-languages.md) con el ámbito `translation`.|
+| to  | _Parámetro obligatorio_.  <br>Especifica el idioma del texto de salida. El idioma de destino debe ser uno de los [idiomas admitidos](../reference/v3-0-languages.md) que están incluidos en el ámbito `translation`. Por ejemplo, utilice `to=de` para traducir al alemán.  <br>Es posible traducir a varios idiomas simultáneamente mediante la repetición del parámetro en la cadena de consulta. Por ejemplo, utilice `to=de&to=it` para traducir al alemán e italiano. |
 
 ### <a name="optional-parameters"></a>Parámetros opcionales
 
 | Parámetro de consulta | Descripción |
 | --- | --- |
 | textType | _Parámetro opcional_.  <br>Define si el texto que se está traduciendo es texto sin formato o texto HTML. El código HTML debe ser un elemento completo y bien formado. Los valores posibles son `plain` (valor predeterminado) o `html`. |
-| includeAlignment | _Parámetro opcional_.  <br>Especifica si se debe incluir la proyección de la alineación del texto de origen en el texto traducido. Los valores posibles son `true` o `false` (valor predeterminado). |
 | includeSentenceLength | _Parámetro opcional_.  <br>Especifica si se deben incluir los límites de oraciones del texto de entrada y el texto traducido. Los valores posibles son `true` o `false` (valor predeterminado). |
 
 Los encabezados de solicitud incluyen lo siguiente:
 
 | encabezados | Descripción |
 | --- | --- |
-| Encabezados de autenticación | _Encabezado de solicitud obligatorio_.  <br>Consulte las [opciones disponibles para la autenticación](/azure/cognitive-services/translator/reference/v3-0-reference#authentication). |
+| Encabezados de autenticación | _Encabezado de solicitud obligatorio_.  <br>Consulte las [opciones disponibles para la autenticación](../reference/v3-0-reference.md#authentication). |
 | Content-Type | _Encabezado de solicitud obligatorio_.  <br>Especifica el tipo de contenido de la carga.  <br>El valor aceptado es `application/json; charset=UTF-8`. |
 | Content-Length | _Encabezado de solicitud obligatorio_.  <br>Longitud del cuerpo de la solicitud. |
 | X-ClientTraceId | _Opcional_.  <br>GUID generado por el cliente para identificar de forma única la solicitud. Puede omitir este encabezado si incluye el id. de seguimiento en la cadena de la consulta mediante un parámetro de consulta denominado `ClientTraceId`. |
@@ -113,7 +114,7 @@ Si se produce un error, la solicitud también devolverá una respuesta de error 
 En este ejemplo se muestra cómo traducir una única oración del inglés al chino simplificado.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "http://localhost:{port}/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 El cuerpo de la respuesta es:
@@ -135,7 +136,7 @@ La matriz `translations` incluye un elemento, que proporciona la traducción de 
 Traducir varias cadenas a la vez es simplemente cuestión de especificar una matriz de cadenas en el cuerpo de la solicitud.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
+curl -X POST "http://localhost:{port}/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
 ```
 
 La respuesta contiene la traducción de todos los fragmentos de texto exactamente en el mismo orden que en la solicitud.
@@ -161,7 +162,7 @@ El cuerpo de la respuesta es:
 En este ejemplo se muestra cómo traducir la misma entrada a diferentes idiomas en una sola solicitud.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "http://localhost:{port}/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 El cuerpo de la respuesta es:
@@ -189,7 +190,7 @@ Es común traducir el contenido que incluye marcado como contenido de una págin
 A continuación, se muestra una solicitud de ejemplo para ilustrar.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
+curl -X POST "http://localhost:{port}/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
 ```
 
 La respuesta es:
@@ -217,7 +218,7 @@ El marcado que se va a proporcionar utiliza la sintaxis siguiente.
 Por ejemplo, considere la frase en inglés "The word wordomatic is a dictionary entry" (La palabra "wordomatic" es una entrada del diccionario). Para conservar la palabra _wordomatic_ en la traducción, envíe la solicitud:
 
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.'}]"
+curl -X POST "http://localhost:{port}/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.'}]"
 ```
 
 El resultado es el siguiente:
@@ -243,4 +244,3 @@ En la siguiente tabla se muestran los límites de caracteres y elementos de matr
 | Operación | Tamaño máximo del elemento de matriz | Número máximo de elementos de matriz | Tamaño máximo de la solicitud (caracteres) |
 |:----|:----|:----|:----|
 | translate | 10 000 | 100 | 10 000 |
-

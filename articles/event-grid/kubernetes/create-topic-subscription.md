@@ -6,12 +6,12 @@ ms.subservice: kubernetes
 ms.author: jafernan
 ms.date: 05/25/2021
 ms.topic: quickstart
-ms.openlocfilehash: c0e2a4422cea681a3bccee0739b8c26350803eb8
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: d29583cecb1498c10320a844923067a48693480a
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386979"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112030312"
 ---
 # <a name="route-cloud-events-to-webhooks-with-azure-event-grid-on-kubernetes"></a>Enrutar eventos en la nube a webhooks con Azure Event Grid en Kubernetes
 En este inicio rápido, creará un tema en Event Grid en Kubernetes, creará una suscripción para el tema y, a continuación, enviará un evento de ejemplo al tema para probar el escenario. 
@@ -99,11 +99,12 @@ Para obtener más información sobre el comando de la CLI, consulte [`az eventgr
     ```azurecli
     az eventgrid topic key list --name <topic name> -g <resource group name> --query "key1" --output tsv
     ```
-3. Cree un archivo llamado **evt.json** con el contenido siguiente: 
+1. Ejecute el comando de **CURL** siguiente para publicar el evento. Especifique la dirección URL y la clave del punto de conexión de los pasos 1 y 2 antes de ejecutar el comando. 
 
-    ```json
-    [{
-          "specVersion": "1.0",
+    ```bash
+    curl  -k -X POST -H "Content-Type: application/cloudevents-batch+json" -H "aeg-sas-key: <KEY_FROM_STEP_2>" -g <ENDPOINT_URL_FROM_STEP_1> \
+    -d  '[{ 
+          "specversion": "1.0",
           "type" : "orderCreated",
           "source": "myCompanyName/us/webCommerceChannel/myOnlineCommerceSiteBrandName",
           "id" : "eventId-n",
@@ -115,13 +116,48 @@ Para obtener más información sobre el comando de la CLI, consulte [`az eventgr
              "orderType" : "PO",
              "reference" : "https://www.myCompanyName.com/orders/123"
           }
-    }]
+    }]'
     ```
-4. Ejecute el comando de **CURL** siguiente para publicar el evento. Especifique la dirección URL y la clave del punto de conexión de los pasos 1 y 2 antes de ejecutar el comando. 
+    
+    Si la dirección URL del punto de conexión del tema del paso 1 es una dirección IP privada, como cuando el tipo de servicio del agente de Event Grid es ClusterIP, puede ejecutar **Curl** desde otro pod del clúster para tener acceso a esa dirección IP. Por ejemplo, puede realizar los pasos siguientes:
 
-    ```
-    curl -k -X POST -H "Content-Type: application/cloudevents-batch+json" -H "aeg-sas-key: <KEY FROM STEP 2>" -g -d @evt.json <ENDPOINT URL from STEP 1>
-    ```
+    1. Cree un archivo de manifiesto con la configuración siguiente. Es posible que desee ajustar ``dnsPolicy`` de acuerdo con sus necesidades. Para más información, consulte [DNS para servicios y pods](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/).
+    
+        ```yml
+        apiVersion: v1
+        dnsPolicy: ClusterFirstWithHostNet
+        hostNetwork: true
+        kind: Pod
+        metadata: 
+          name: test-pod
+        spec: 
+          containers: 
+            - 
+              name: nginx
+          emptyDir: {}
+          image: nginx
+          volumeMounts: 
+            - 
+              mountPath: /usr/share/nginx/html
+              name: shared-data
+          volumes: 
+            - 
+              name: shared-data  
+        ```
+    1. Cree el pod.
+        ```bash
+            kubectl apply -f <name_of_your_yaml_manifest_file>
+        ```
+    1. Compruebe que el pod se está ejecutando.
+        ```bash
+            kubectl get pod test-pod
+        ```
+    1. Inicio de una sesión de shell desde el contenedor
+        ```bash
+            kubectl exec --stdin --tty test-pod -- /bin/bash
+        ```
+
+    En este momento, tiene una sesión de shell desde un contenedor en ejecución en el clúster desde el que puede ejecutar el comando **Curl** descrito en un paso anterior.
 
     > [!NOTE]
     > Para obtener información sobre cómo enviar eventos en la nube mediante lenguajes de programación, consulte los ejemplos siguientes: 

@@ -5,20 +5,20 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/29/2021
+ms.date: 05/25/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 9f07a4f9c42923ac42735155fb0da21dee3a2353
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 6811b899aa87a5b0c1987f2e86c07d8646a86ef4
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109632374"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111901284"
 ---
 # <a name="programmatically-create-azure-enterprise-agreement-subscriptions-with-the-latest-apis"></a>Creación de suscripciones de Contrato Enterprise de Azure mediante programación con las API más recientes
 
-Este artículo le ayuda a crear mediante programación suscripciones de Contrato Enterprise de Azure para una cuenta de facturación de EA mediante las versiones más recientes de las API. Si todavía usa la versión preliminar anterior, consulte [Creación de suscripciones de Azure mediante programación con las API de versión preliminar](programmatically-create-subscription-preview.md). 
+Este artículo le ayuda a crear mediante programación suscripciones de Contrato Enterprise de Azure para una cuenta de facturación de EA mediante las versiones más recientes de las API. Si todavía usa la versión preliminar anterior, consulte [Creación de suscripciones de Azure mediante programación con las versiones preliminares de las API](programmatically-create-subscription-preview.md). 
 
 En este artículo, se ofrece información sobre cómo crear suscripciones mediante programación con Azure Resource Manager.
 
@@ -28,13 +28,16 @@ Al crear una suscripción a Azure mediante programación, dicha suscripción se 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Debe tener un rol Propietario en una cuenta de inscripción para crear una suscripción. Existen dos formas de obtener el rol:
+Un usuario debe tener un rol Propietario en una cuenta de inscripción para crear una suscripción. Existen dos formas de obtener el rol:
 
 * El administrador de empresa de la inscripción puede [convertirle en propietario de una cuenta](https://ea.azure.com/helpdocs/addNewAccount) (inicio de sesión requerido), lo que le hace propietario de la cuenta de inscripción.
-* Un propietario existente de la cuenta de inscripción puede [concederle acceso](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). De forma similar, para usar una entidad de servicio con el fin de crear una suscripción a Contrato Enterprise, debe [conceder a la entidad de servicio la capacidad de crear suscripciones](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put).  
-    Si usa un nombre de entidad de seguridad de servicio para crear suscripciones, use el ObjectId del registro de aplicación de Azure AD como objectId de la entidad de servicio mediante [Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0&preserve-view=true ) o la [CLI de Azure](/cli/azure/ad/sp?view=azure-cli-latest&preserve-view=true#az_ad_sp_list). Para más información sobre la solicitud de API de asignación de roles de EA, consulte [Asignación de roles a nombres de entidad de seguridad de servicio de Contrato Enterprise de Azure](assign-roles-azure-service-principals.md). Esta página incluye una lista de roles (e identificadores de definición de roles) que se pueden asignar a un SPN.
+* Un propietario existente de la cuenta de inscripción puede [concederle acceso](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). 
+
+Para usar una entidad de servicio (SPN) para crear una suscripción de cuenta de inscripción, un propietario de la cuenta de inscripción debe [conceder a esa entidad de servicio la capacidad de crear suscripciones](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). Cuando use un SPN para crear suscripciones, use el ObjectId del registro de aplicación de Azure AD como objectId de la entidad de servicio [mediante Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0&preserve-view=true ) o [CLI de Azure](/cli/azure/ad/sp?view=azure-cli-latest&preserve-view=true#az_ad_sp_list). Para más información sobre la solicitud de API de asignación de roles de EA, consulte [Asignación de roles a nombres de entidad de seguridad de servicio de Contrato Enterprise de Azure](assign-roles-azure-service-principals.md). Este artículo incluye una lista de roles (e identificadores de definición de roles) que se pueden asignar a un SPN.
+
   > [!NOTE]
-  > Asegúrese de usar la versión correcta de API para conceder permisos de propietario a la cuenta de inscripción. A los efectos de este artículo y de las API que se documentan en él, use la API [2019-10-01-Preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). Si va a efectuar una migración para usar las API más recientes, tendrá que conceder nuevamente permiso de propietario mediante la API [2019-10-01-Preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). La configuración anterior realizada con la versión [2015-07-01](grant-access-to-create-subscription.md) no se puede usar automáticamente con las API más recientes.
+  > - Asegúrese de usar la versión correcta de API para conceder permisos de propietario a la cuenta de inscripción. A los efectos de este artículo y de las API que se documentan en él, use la API [2019-10-01-Preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). 
+  > - Si va a migrar para usar las API más recientes, la configuración anterior realizada con la [versión 2015-07-01](grant-access-to-create-subscription.md) no se convierte automáticamente para su uso con las API más recientes.
 
 ## <a name="find-accounts-you-have-access-to"></a>Búsqueda de cuentas a las que tiene acceso
 

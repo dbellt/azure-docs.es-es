@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 03/29/2021
 ms.author: aahi
-ms.openlocfilehash: fdf24fdc56d39d93fed0009e2fadbafd7f97db6c
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: e25851bc9d3cba6e71056a6fb6a24ff9a0cee6ce
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280503"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968058"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Ejemplo: Extracción de frases clave con Text Analytics
 
@@ -131,7 +131,7 @@ Todas las solicitudes POST devolverán una respuesta con formato JSON con los id
 
 La salida se devuelve inmediatamente. Puede transmitir los resultados a una aplicación que acepte JSON o guardar la salida en un archivo en el sistema local y, a continuación, importarlo en una aplicación que permita ordenar, buscar y manipular los datos.
 
-Aquí se muestra un ejemplo de la salida de la extracción de frases clave del punto de conexión de v3.1-preview.2:
+Aquí se muestra un ejemplo de la salida de la extracción de frases clave del punto de conexión de v3.1-preview:
 
 ### <a name="synchronous-result"></a>Resultado sincrónico
 
@@ -269,3 +269,4 @@ En este artículo, ha aprendido los conceptos y el flujo de trabajo de la extrac
 * [Información general de Text Analytics](../overview.md)
 * [Uso de la biblioteca cliente de Text Analytics](../quickstarts/client-libraries-rest-api.md)
 * [Novedades](../whats-new.md)
+* [Versiones del modelo](../concepts/model-versioning.md)

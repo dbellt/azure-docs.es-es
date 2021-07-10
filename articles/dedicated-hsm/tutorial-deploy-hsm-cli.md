@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: b845ecabe74040e154886476a8ba28efecc99325
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 2ffb38d334aa5b0abefa3398a5c2a7608f448025
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107868868"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965306"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-the-azure-cli"></a>Tutorial: Implementación de HSM en una red virtual existente con la CLI de Azure
 
@@ -34,7 +34,7 @@ Una arquitectura de implementación típica, con alta disponibilidad y para vari
 
 ![implementación de varias regiones](media/tutorial-deploy-hsm-cli/high-availability-architecture.png)
 
-Este tutorial se centra en dos HSM y en la puerta de enlace de ExpressRoute necesaria (consulte la Subred 1 anterior) que se integra en una red virtual ya existente (consulte la red virtual 1 anterior).  Todos los demás recursos son recursos estándar de Azure. Se puede utilizar el mismo proceso de integración para HSM en la subred 4 de la red virtual 3 anterior.
+Este tutorial se centra en dos HSM y en la [puerta de enlace de ExpressRoute](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) necesaria (consulte la subred 1 anterior) que se integra en una red virtual existente (consulte la red virtual 1 anterior).  Todos los demás recursos son recursos estándar de Azure. Se puede utilizar el mismo proceso de integración para HSM en la subred 4 de la red virtual 3 anterior.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -51,7 +51,7 @@ Todas las instrucciones que aparecen a continuación presuponen que ya ha ido a 
 
 ## <a name="provisioning-a-dedicated-hsm"></a>Aprovisionamiento de un HSM dedicado
 
-El aprovisionamiento de HSM y su integración en una red virtual existente a través de la puerta de enlace de ExpressRoute se validará mediante SSH. Esta validación ayuda a garantizar la accesibilidad y disponibilidad básicas del dispositivo HSM para cualquier actividad de configuración adicional.
+El aprovisionamiento de HSM y su integración en una red virtual existente a través de una [puerta de enlace de ExpressRoute](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) se validará mediante SSH. Esta validación ayuda a garantizar la accesibilidad y disponibilidad básicas del dispositivo HSM para cualquier actividad de configuración adicional.
 
 ### <a name="validating-feature-registration"></a>Validación del registro de características
 

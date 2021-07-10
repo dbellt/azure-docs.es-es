@@ -5,21 +5,40 @@ description: 'Conozca los conceptos relacionados con el análisis de tarjetas de
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: lajanuar
-ms.openlocfilehash: eea2ec77a22a430ac5202a2fda446bc70a69138c
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 92817318108370f1edf9ca2b38bf01226612b53a
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110374927"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111890787"
 ---
 # <a name="form-recognizer-prebuilt-business-cards-model"></a>Modelo de tarjetas de presentación pregenerado de Form Recognizer
 
 Azure Form Recognizer puede analizar y extraer información de contacto de tarjetas de presentación mediante alguno de los modelos pregenerados. Combina funcionalidades eficaces de reconocimiento óptico de caracteres (OCR) con nuestro modelo de comprensión de tarjetas de presentación para extraer información clave de las tarjetas de presentación en inglés. Extrae información de contacto personal, el nombre de la empresa, el puesto y mucho más. La API de tarjeta de visita compilada previamente está disponible públicamente en la versión Form Recognizer v2.1.
+
+## <a name="customer-scenarios"></a>Escenarios de cliente
+
+Los datos extraídos con Business Card API se pueden usar para realizar varias tareas. La extracción de esta información de contacto supone automáticamente un ahorro de tiempo para los usuarios en el caso de los roles orientados al cliente. A continuación se muestran algunos ejemplos de lo que nuestros clientes han realizado con la API de tarjeta de presentación:
+
+* Extraer información de contacto de tarjetas de presentación y crear contactos de teléfono rápidamente.
+* Integrarse con CRM para crear automáticamente el contacto mediante las imágenes de la tarjeta de presentación.
+* Realizar un seguimiento de los clientes potenciales.
+* Extraer información de contacto en masa de imágenes de tarjetas de presentación existentes.
+
+Business Card API también contribuye a la [característica de procesamiento de tarjetas de presentación de AI Builder](/ai-builder/prebuilt-business-card).
+
+
+## <a name="try-it-out"></a>Prueba
+
+Para probar el servicio de recibos de Form Recognizer, vaya a la herramienta de interfaz de usuario de ejemplo en línea:
+
+> [!div class="nextstepaction"]
+> [Uso de modelos precompilados](https://aka.ms/fott-2.1-ga)
 
 ## <a name="what-does-the-business-card-service-do"></a>¿Qué hace el servicio de tarjetas de presentación?
 
@@ -29,21 +48,21 @@ La API de tarjeta de presentación pregenerada extrae campos clave de las tarjet
 
 ### <a name="fields-extracted"></a>Campos extraídos:
 
-|Nombre| Tipo | Descripción | Texto |
-|:-----|:----|:----|:----|
-| ContactNames | matriz de objetos | Nombre de contacto extraído de la tarjeta de presentación | [{ "FirstName": "John", "LastName": "Doe" }] |
-| FirstName | string | Nombre (de nacimiento) del contacto | "John" |
-| LastName | string | Apellidos del contacto |     "Doe" |
-| CompanyNames | Matriz de cadenas | Nombre de la empresa extraído de la tarjeta de presentación | ["Contoso"] |
-| Departments | Matriz de cadenas | Departamento u organización del contacto | ["R&D"] |
-| JobTitles | Matriz de cadenas | Puesto mostrado del contacto | ["Software Engineer"] |
-| Correos electrónicos | Matriz de cadenas | Dirección de correo electrónico de contacto extraída de la tarjeta de presentación | ["johndoe@contoso.com"] |
-| Websites | Matriz de cadenas | Sitio web extraído de la tarjeta de presentación | ["https://www.contoso.com"] |
-| Direcciones | Matriz de cadenas | Dirección extraída de la tarjeta de presentación | ["123 Main Street, Redmond, WA 98052"] |
-| MobilePhones | matriz de números de teléfono | Número de teléfono móvil extraído de la tarjeta de presentación | ["+19876543210"] |
-| Faxes | matriz de números de teléfono | Número de fax extraído de la tarjeta de presentación | ["+19876543211"] |
-| WorkPhones | matriz de números de teléfono | Número de teléfono en el trabajo extraído de la tarjeta de presentación | ["+19876543231"] |
-| OtherPhones     | matriz de números de teléfono | Otros números de teléfono extraídos de la tarjeta de presentación | ["+19876543233"] |
+|Nombre| Tipo | Descripción | Texto | Valor (salida estándar) |
+|:-----|:----|:----|:----|:----|
+| ContactNames | matriz de objetos | Nombre de contacto extraído de la tarjeta de presentación | [{ "FirstName": "Chris", "LastName": "Smith" }] | |
+| FirstName | string | Nombre (de nacimiento) del contacto | "Chris" | "Chris" |
+| LastName | string | Apellidos del contacto |     "Smith" | "Smith" |
+| CompanyNames | Matriz de cadenas | Nombre de la empresa extraído de la tarjeta de presentación | ["CONTOSO"] | CONTOSO |
+| Departments | Matriz de cadenas | Departamento u organización del contacto | ["Cloud & Al Department"] | Departamento de la nube e inteligencia artificial |
+| JobTitles | Matriz de cadenas | Puesto mostrado del contacto | ["Senior Researcher"] | Investigador sénior |
+| Correos electrónicos | Matriz de cadenas | Dirección de correo electrónico de contacto extraída de la tarjeta de presentación | ["chris.smith@contoso.com"] | chris.smith@contoso.com |
+| Websites | Matriz de cadenas | Sitio web extraído de la tarjeta de presentación | ["https://www.contoso.com"] | https://www.contoso.com |
+| Direcciones | Matriz de cadenas | Dirección extraída de la tarjeta de presentación | ["4001 1st Ave NE Redmond, WA 98052"] | 4001 1st Ave NE Redmond, WA 98052 |
+| MobilePhones | matriz de números de teléfono | Número de teléfono móvil extraído de la tarjeta de presentación | ["+1 (987) 123-4567"] | +19871234567 |
+| Faxes | matriz de números de teléfono | Número de fax extraído de la tarjeta de presentación | ["+1 (987) 312-6745"] | +19873126745 |
+| WorkPhones | matriz de números de teléfono | Número de teléfono en el trabajo extraído de la tarjeta de presentación | ["+1 (987) 213-5674"] | +19872135674 | 
+| OtherPhones     | matriz de números de teléfono | Otros números de teléfono extraídos de la tarjeta de presentación | ["+1 (987) 213-5673"] | +19872135673 |
 
 
 La API de tarjeta de presentación también puede devolver todo el texto reconocido de la tarjeta de presentación. Esta salida de OCR se incluye en la respuesta JSON.
@@ -54,13 +73,7 @@ La API de tarjeta de presentación también puede devolver todo el texto reconoc
 
 ## <a name="supported-locales"></a>Configuraciones regionales admitidas
 
-**Las tarjetas de visita compiladas previamente v2.1** admiten las siguientes configuraciones regionales:
-
-* **es-es**
-* **en-au**
-* **en-ca**
-* **en-gb**
-* **en-in**
+**La versión 2.1 de Pre-built business cards** admite las siguientes configuraciones regionales: **en-us**, **en-au**, **en-ca**, **en-gb** y **en-in**
 
 ## <a name="the-analyze-business-card-operation"></a>Operación Analyze Business Card
 
@@ -86,46 +99,64 @@ Cuando el campo **status** tenga el valor **succeeded**, la respuesta JSON inclu
 
 La respuesta a la operación Get Analyze Business Card Result será la representación estructurada de la tarjeta de presentación con toda la información extraída.  Aquí encontrará un [archivo con una tarjeta de presentación de ejemplo](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-english.jpg) y su salida estructurada, [salida de una tarjeta de presentación de ejemplo](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-result.json).
 
-Consulte el siguiente ejemplo de una respuesta JSON correcta:
+Consulte el siguiente ejemplo de una respuesta JSON correcta (la salida se ha abreviado por simplicidad):
 * El nodo `"readResults"` contiene todo el texto reconocido. El texto se organiza por página, después, por líneas y, finalmente, por palabras individuales.
 * El nodo `"documentResults"` contiene los valores específicos de la tarjeta de presentción que el modelo haya descubierto. Aquí encontrará información de contacto útil como el nombre, el apellido, el nombre de la compañía y más.
 
 ```json
 {
     "status": "succeeded",
-    "createdDateTime": "2020-08-20T17:41:19Z",
-    "lastUpdatedDateTime": "2020-08-20T17:41:24Z",
+    "createdDateTime": "2021-05-27T02:18:35Z",
+    "lastUpdatedDateTime": "2021-05-27T02:18:37Z",
     "analyzeResult": {
         "version": "2.1.0",
         "readResults": [
             {
                 "page": 1,
-                "angle": -17.0956,
-                "width": 4032,
-                "height": 3024,
+                "angle": 0.0255,
+                "width": 2592,
+                "height": 4608,
                 "unit": "pixel",
-                   "lines":
-                             {
-                        "text": "Dr. Avery Smith",
+                "lines": [
+                    {
+                        "text": "CONTOSO",
                         "boundingBox": [
-                            419.3,
-                            1154.6,
-                            1589.6,
-                            877.9,
-                            1618.9,
-                            1001.7,
-                            448.6,
-                            1278.4
+                            533,
+                            1570,
+                            1334,
+                            1570,
+                            1333,
+                            1721,
+                            533,
+                            1720
                         ],
                         "words": [
                             {
-                                "text": "Dr.",
+                                "text": "CONTOSO",
                                 "boundingBox": [
-                                    419,
-                            ]
-
+                                    535,
+                                    1571,
+                                    1278,
+                                    1571,
+                                    1279,
+                                    1722,
+                                    534,
+                                    1719
+                                ],
+                                "confidence": 0.994
+                            }
+                        ],
+                        "appearance": {
+                            "style": {
+                                "name": "other",
+                                "confidence": 0.878
+                            }
+                        }
+                    },
+                    ...
+                ]
             }
-        ],
+        ],   
         "documentResults": [
             {
                 "docType": "prebuilt:businesscard",
@@ -134,6 +165,62 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta:
                     1
                 ],
                 "fields": {
+                    "Addresses": {
+                        "type": "array",
+                        "valueArray": [
+                            {
+                                "type": "string",
+                                "valueString": "4001 1st Ave NE Redmond, WA 98052",
+                                "text": "4001 1st Ave NE Redmond, WA 98052",
+                                "boundingBox": [
+                                    400,
+                                    2789,
+                                    1514,
+                                    2789,
+                                    1514,
+                                    2857,
+                                    400,
+                                    2857
+                                ],
+                                "page": 1,
+                                "confidence": 0.986,
+                                "elements": [
+                                    "#/readResults/0/lines/9/words/0",
+                                    "#/readResults/0/lines/9/words/1",
+                                    "#/readResults/0/lines/9/words/2",
+                                    "#/readResults/0/lines/9/words/3",
+                                    "#/readResults/0/lines/9/words/4",
+                                    "#/readResults/0/lines/9/words/5",
+                                    "#/readResults/0/lines/9/words/6"
+                                ]
+                            }
+                        ]
+                    },
+                    "CompanyNames": {
+                        "type": "array",
+                        "valueArray": [
+                            {
+                                "type": "string",
+                                "valueString": "CONTOSO",
+                                "text": "CONTOSO",
+                                "boundingBox": [
+                                    535,
+                                    1571,
+                                    1278,
+                                    1571,
+                                    1279,
+                                    1722,
+                                    534,
+                                    1719
+                                ],
+                                "page": 1,
+                                "confidence": 0.985,
+                                "elements": [
+                                    "#/readResults/0/lines/0/words/0"
+                                ]
+                            }
+                        ]
+                    },
                     "ContactNames": {
                         "type": "array",
                         "valueArray": [
@@ -142,71 +229,60 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta:
                                 "valueObject": {
                                     "FirstName": {
                                         "type": "string",
-                                        "valueString": "Avery",
-                                        "text": "Avery",
+                                        "valueString": "Chris",
+                                        "text": "Chris",
                                         "boundingBox": [
-                                            703,
-                                            1096,
-                                            1134,
-                                            989,
-                                            1165,
-                                            1109,
-                                            733,
-                                            1206
+                                            1556,
+                                            2018,
+                                            1915,
+                                            2021,
+                                            1915,
+                                            2156,
+                                            1558,
+                                            2154
                                         ],
-                                        "page": 1
+                                        "page": 1,
+                                        "elements": [
+                                            "#/readResults/0/lines/1/words/0"
+                                        ]
                                     },
                                     "LastName": {
                                         "type": "string",
                                         "valueString": "Smith",
                                         "text": "Smith",
                                         "boundingBox": [
-                                            1186,
-                                            976,
-                                            1585,
-                                            879,
-                                            1618,
-                                            998,
-                                            1218,
-                                            1096
+                                            1944,
+                                            2021,
+                                            2368,
+                                            2016,
+                                            2364,
+                                            2156,
+                                            1944,
+                                            2156
                                         ],
-                                        "page": 1
+                                        "page": 1,
+                                        "elements": [
+                                            "#/readResults/0/lines/1/words/1"
+                                        ]
                                     }
                                 },
-                                "text": "Dr. Avery Smith",
+                                "text": "Chris Smith",
                                 "boundingBox": [
-                                    419.3,
-                                    1154.6,
-                                    1589.6,
-                                    877.9,
-                                    1618.9,
-                                    1001.7,
-                                    448.6,
-                                    1278.4
-                                ],
-                                "confidence": 0.97
-                            }
-                        ]
-                    },
-                    "JobTitles": {
-                        "type": "array",
-                        "valueArray": [
-                            {
-                                "type": "string",
-                                "valueString": "Senior Researcher",
-                                "text": "Senior Researcher",
-                                "boundingBox": [
-                                    451.8,
-                                    1301.9,
-                                    1313.5,
-                                    1099.9,
-                                    1333.8,
-                                    1186.7,
-                                    472.2,
-                                    1388.7
+                                    1556.1,
+                                    2010.3,
+                                    2368,
+                                    2016,
+                                    2367,
+                                    2159.6,
+                                    1555.1,
+                                    2154
                                 ],
                                 "page": 1,
-                                "confidence": 0.99
+                                "confidence": 0.99,
+                                "elements": [
+                                    "#/readResults/0/lines/1/words/0",
+                                    "#/readResults/0/lines/1/words/1"
+                                ]
                             }
                         ]
                     },
@@ -218,17 +294,23 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta:
                                 "valueString": "Cloud & Al Department",
                                 "text": "Cloud & Al Department",
                                 "boundingBox": [
-                                    480.1,
-                                    1403.3,
-                                    1590.5,
-                                    1129.6,
-                                    1612.6,
-                                    1219.6,
-                                    502.3,
-                                    1493.3
+                                    1578,
+                                    2288.8,
+                                    2277,
+                                    2295.1,
+                                    2276.3,
+                                    2367.8,
+                                    1577.3,
+                                    2361.5
                                 ],
                                 "page": 1,
-                                "confidence": 0.99
+                                "confidence": 0.989,
+                                "elements": [
+                                    "#/readResults/0/lines/3/words/0",
+                                    "#/readResults/0/lines/3/words/1",
+                                    "#/readResults/0/lines/3/words/2",
+                                    "#/readResults/0/lines/3/words/3"
+                                ]
                             }
                         ]
                     },
@@ -237,20 +319,103 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta:
                         "valueArray": [
                             {
                                 "type": "string",
-                                "valueString": "avery.smith@contoso.com",
-                                "text": "avery.smith@contoso.com",
+                                "valueString": "chris.smith@contoso.com",
+                                "text": "chris.smith@contoso.com",
                                 "boundingBox": [
-                                    2107,
-                                    934,
-                                    2917,
-                                    696,
-                                    2935,
-                                    764,
-                                    2126,
-                                    995
+                                    1583,
+                                    2381,
+                                    2309,
+                                    2382,
+                                    2308,
+                                    2445,
+                                    1584,
+                                    2447
                                 ],
                                 "page": 1,
-                                "confidence": 0.99
+                                "confidence": 0.99,
+                                "elements": [
+                                    "#/readResults/0/lines/4/words/0"
+                                ]
+                            }
+                        ]
+                    },
+                    "Faxes": {
+                        "type": "array",
+                        "valueArray": [
+                            {
+                                "type": "phoneNumber",
+                                "valuePhoneNumber": "+19873126745",
+                                "text": "+1 (987) 312-6745",
+                                "boundingBox": [
+                                    740,
+                                    2703.8,
+                                    1273,
+                                    2702.1,
+                                    1273.2,
+                                    2774.1,
+                                    740.2,
+                                    2775.8
+                                ],
+                                "page": 1,
+                                "confidence": 0.99,
+                                "elements": [
+                                    "#/readResults/0/lines/8/words/1",
+                                    "#/readResults/0/lines/8/words/2",
+                                    "#/readResults/0/lines/8/words/3"
+                                ]
+                            }
+                        ]
+                    },
+                    "JobTitles": {
+                        "type": "array",
+                        "valueArray": [
+                            {
+                                "type": "string",
+                                "valueString": "Senior Researcher",
+                                "text": "Senior Researcher",
+                                "boundingBox": [
+                                    1578,
+                                    2206,
+                                    2117,
+                                    2207.6,
+                                    2116.8,
+                                    2272.6,
+                                    1577.8,
+                                    2271
+                                ],
+                                "page": 1,
+                                "confidence": 0.99,
+                                "elements": [
+                                    "#/readResults/0/lines/2/words/0",
+                                    "#/readResults/0/lines/2/words/1"
+                                ]
+                            }
+                        ]
+                    },
+                    "MobilePhones": {
+                        "type": "array",
+                        "valueArray": [
+                            {
+                                "type": "phoneNumber",
+                                "valuePhoneNumber": "+19871234567",
+                                "text": "+1 (987) 123-4567",
+                                "boundingBox": [
+                                    744,
+                                    2529,
+                                    1281,
+                                    2529,
+                                    1281,
+                                    2603,
+                                    744,
+                                    2603
+                                ],
+                                "page": 1,
+                                "confidence": 0.99,
+                                "elements": [
+                                    "#/readResults/0/lines/5/words/1",
+                                    "#/readResults/0/lines/5/words/2",
+                                    "#/readResults/0/lines/5/words/3"
+                                ]
                             }
                         ]
                     },
@@ -262,124 +427,47 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta:
                                 "valueString": "https://www.contoso.com/",
                                 "text": "https://www.contoso.com/",
                                 "boundingBox": [
-                                    2121,
-                                    1002,
-                                    2992,
-                                    755,
-                                    3014,
-                                    826,
-                                    2143,
-                                    1077
+                                    1576,
+                                    2462,
+                                    2383,
+                                    2462,
+                                    2380,
+                                    2535,
+                                    1576,
+                                    2535
                                 ],
                                 "page": 1,
-                                "confidence": 0.995
+                                "confidence": 0.99,
+                                "elements": [
+                                    "#/readResults/0/lines/6/words/0"
+                                ]
                             }
                         ]
                     },
-                    "MobilePhones": {
+                    "WorkPhones": {
                         "type": "array",
                         "valueArray": [
                             {
                                 "type": "phoneNumber",
-                                "text": "+44 (0) 7911 123456",
+                                "valuePhoneNumber": "+19872135674",
+                                "text": "+1 (987) 213-5674",
                                 "boundingBox": [
-                                    2434.9,
-                                    1033.3,
-                                    3072,
-                                    836,
-                                    3096.2,
-                                    914.3,
-                                    2459.1,
-                                    1111.6
+                                    736,
+                                    2617.6,
+                                    1267.1,
+                                    2618.5,
+                                    1267,
+                                    2687.5,
+                                    735.9,
+                                    2686.6
                                 ],
                                 "page": 1,
-                                "confidence": 0.99
-                            }
-                        ]
-                    },
-                    "OtherPhones": {
-                        "type": "array",
-                        "valueArray": [
-                            {
-                                "type": "phoneNumber",
-                                "text": "+44 (0) 20 9876 5432",
-                                "boundingBox": [
-                                    2473.2,
-                                    1115.4,
-                                    3139.2,
-                                    907.7,
-                                    3163.2,
-                                    984.7,
-                                    2497.2,
-                                    1192.4
-                                ],
-                                "page": 1,
-                                "confidence": 0.99
-                            }
-                        ]
-                    },
-                    "Faxes": {
-                        "type": "array",
-                        "valueArray": [
-                            {
-                                "type": "phoneNumber",
-                                "text": "+44 (0) 20 6789 2345",
-                                "boundingBox": [
-                                    2525,
-                                    1185.4,
-                                    3192.4,
-                                    977.9,
-                                    3217.9,
-                                    1060,
-                                    2550.5,
-                                    1267.5
-                                ],
-                                "page": 1,
-                                "confidence": 0.99
-                            }
-                        ]
-                    },
-                    "Addresses": {
-                        "type": "array",
-                        "valueArray": [
-                            {
-                                "type": "string",
-                                "valueString": "2 Kingdom Street Paddington, London, W2 6BD",
-                                "text": "2 Kingdom Street Paddington, London, W2 6BD",
-                                "boundingBox": [
-                                    1230,
-                                    2138,
-                                    2535.2,
-                                    1678.6,
-                                    2614.2,
-                                    1903.1,
-                                    1309,
-                                    2362.5
-                                ],
-                                "page": 1,
-                                "confidence": 0.977
-                            }
-                        ]
-                    },
-                    "CompanyNames": {
-                        "type": "array",
-                        "valueArray": [
-                            {
-                                "type": "string",
-                                "valueString": "Contoso",
-                                "text": "Contoso",
-                                "boundingBox": [
-                                    1152,
-                                    1916,
-                                    2293,
-                                    1552,
-                                    2358,
-                                    1733,
-                                    1219,
-                                    2105
-                                ],
-                                "page": 1,
-                                "confidence": 0.97
+                                "confidence": 0.984,
+                                "elements": [
+                                    "#/readResults/0/lines/7/words/1",
+                                    "#/readResults/0/lines/7/words/2",
+                                    "#/readResults/0/lines/7/words/3"
+                                ]
                             }
                         ]
                     }
@@ -390,24 +478,7 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta:
 }
 ```
 
-Siga el [inicio rápido](./QuickStarts/client-library.md) para implementar la extracción de datos de tarjeta de presentación con Python y la API REST.
-
-## <a name="customer-scenarios"></a>Escenarios de cliente
-
-Los datos extraídos con Business Card API se pueden usar para realizar varias tareas. La extracción de esta información de contacto supone automáticamente un ahorro de tiempo para los usuarios en el caso de los roles orientados al cliente. A continuación se muestran algunos ejemplos de lo que nuestros clientes han realizado con la API de tarjeta de presentación:
-
-* Extraer información de contacto de tarjetas de presentación y crear contactos de teléfono rápidamente.
-* Integrarse con CRM para crear automáticamente el contacto mediante las imágenes de la tarjeta de presentación.
-* Realizar un seguimiento de los clientes potenciales.
-* Extraer información de contacto en masa de imágenes de tarjetas de presentación existentes.
-
-Business Card API también contribuye a la [característica de procesamiento de tarjetas de presentación de AI Builder](/ai-builder/prebuilt-business-card).
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para empezar a reconocer tarjetas de presentación, siga el [inicio rápido](./quickstarts/client-library.md).
-
-## <a name="see-also"></a>Consulte también
-
-* [¿Qué es Form Recognizer?](./overview.md)
-* [Documentos de referencia de la API de REST](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)
+* Pruebe sus propias tarjetas de visita y ejemplos en la [interfaz de usuario de ejemplo de Form Recognizer](https://fott-preview.azurewebsites.net/).
+* Realice un [inicio rápido de Form Recognizer](quickstarts/client-library.md) para empezar a escribir una aplicación de procesamiento de tarjetas de visita con Form Recognizer en el lenguaje de desarrollo que prefiera.
