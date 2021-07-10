@@ -11,28 +11,39 @@ ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: mbullwin
 keywords: anomaly detection, machine learning, algorithms
-ms.openlocfilehash: 7de25b4a099c706c05b32b52492096923033f822
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 30778cf48efda57fc0d50964611d5616ce7a84d5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107318869"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110062261"
 ---
 # <a name="multivariate-time-series-anomaly-detector-best-practices"></a>Procedimientos recomendados de Anomaly Detector para series temporales multivariantes
 
 En este artículo se proporcionan instrucciones sobre los procedimientos recomendados que deben seguirse al usar las API multivariantes de Anomaly Detector.
 
-## <a name="how-to-prepare-data-for-training"></a>Preparación de los datos para el entrenamiento
+## <a name="training-data"></a>Datos de aprendizaje. 
 
-Para usar las API multivariantes de Anomaly Detector, debemos entrenar nuestro propio modelo antes de usar la detección. Los datos que se usan para el entrenamiento es un lote de series temporales, cada una de las cuales de estar en formato CSV con dos columnas, de marca de tiempo y de valor. Todas las series temporales deben comprimirse en un archivo ZIP y cargarse en Azure Blob Storage. De forma predeterminada, el nombre de archivo se usará para representar la variable de la serie temporal. Como alternativa, si quiere que el nombre de la variable sea distinto al del archivo ZIP, puede incluirse un archivo meta.json adicional en el archivo ZIP. Una vez que se genere una [dirección URL de SAS (firmas de acceso compartido) de blobs](../../../storage/common/storage-sas-overview.md), podemos usarla para el entrenamiento.
+### <a name="data-schema"></a>Esquema de datos
+Para usar las API multivariantes de Anomaly Detector, primero debe entrenar sus propios modelos. Los datos de entrenamiento son un conjunto de varias series temporales que cumplen los siguientes requisitos:
 
-## <a name="data-quality-and-quantity"></a>Calidad y cantidad de los datos
+Cada serie temporal debe ser un archivo CSV con dos columnas (solo dos) y **"timestamp"** y **"value"** (todo en minúsculas) como fila de encabezado. Los valores de "timestamp" deben cumplir la norma ISO 8601; los de "value" pueden ser números enteros o decimales con cualquier número de posiciones decimales. Por ejemplo:
 
-La API multivariante de Anomaly Detector usa las redes neuronales profundas de última generación para aprender los patrones normales de los datos históricos y predecir si los valores futuros son anomalías. Tanto la calidad como la cantidad de datos de entrenamiento son importantes para entrenar un modelo óptimo. A medida que el modelo aprende los patrones normales a partir de los datos históricos, los datos de entrenamiento deben representar el estado normal general del sistema. Si hay una gran cantidad de anomalías en los datos de entrenamiento, es difícil que el modelo aprenda estos tipos de patrones. Además, el modelo tiene millones de parámetros y necesita un número mínimo de puntos de datos para aprender un conjunto óptimo de parámetros. Por regla general, debe proporcionar al menos 15 000 puntos de datos por variable para entrenar el modelo correctamente. Cuantos más datos, mejor será el modelo.
+|timestamp | value|
+|-------|-------|
+|2019-04-01T00:00:00Z| 5|
+|2019-04-01T00:01:00Z| 3.6|
+|2019-04-01T00:02:00Z| 4|
+|`...`| `...` |
 
-Es habitual que falten valores en muchas series temporales, lo que puede afectar al rendimiento de los modelos entrenados. La proporción que falta en cada serie temporal debe mantenerse en un valor razonable. Una serie temporal a la que le falten el 90 % de los valores proporciona poca información sobre los patrones normales del sistema. Y lo que es aún peor, el modelo puede considerar los valores rellenos como patrones normales, que suelen ser segmentos rectos o valores constantes. Al incorporarse datos nuevos, puede que se detecten como anomalías.
+Cada archivo CSV debe tener el nombre de una variable diferente que se usará para el entrenamiento del modelo. Por ejemplo, "temperature.csv" y "humidity.csv". Todos los archivos CSV deben comprimirse en un archivo ZIP sin subcarpetas. El archivo ZIP puede tener el nombre que desee. El archivo ZIP debe cargarse en Azure Blob Storage. Una vez que genere la [dirección URL de SAS de blob (firmas de acceso compartido)](../../../storage/common/storage-sas-overview.md) para el archivo zip, lo puede usar para el entrenamiento. Consulte este documento para obtener información sobre cómo generar direcciones URL de SAS a partir de Azure Blob Storage.
 
-Se recomienda un 20 % como umbral máximo recomendado de valores que faltan aunque, en algunas circunstancias, puede ser aceptable un umbral mayor. Por ejemplo, si tiene una serie temporal con una granularidad de un minuto y otra con una granularidad por hora.  Cada hora hay 60 puntos de datos por minuto de datos y un punto de datos para los datos por hora, lo que significa que la proporción de falta de datos por hora es del 98,33 %. Sin embargo, los datos por hora pueden rellenarse con el valor único si la serie temporal por hora no suele fluctuar demasiado.
+### <a name="data-quality"></a>Calidad de los datos
+- A medida que el modelo aprende los patrones normales a partir de los datos históricos, los datos de entrenamiento deben **representar el estado normal general del sistema**. Si hay una gran cantidad de anomalías en los datos de entrenamiento, es difícil que el modelo aprenda estos tipos de patrones. 
+-  El modelo tiene millones de parámetros y necesita un número mínimo de puntos de datos para aprender un conjunto óptimo de parámetros. Por regla general, debe proporcionar **al menos 15 000 puntos de datos por variable** para entrenar el modelo correctamente. Cuantos más datos, mejor será el modelo.
+- En general, la **proporción de valores que faltan de los datos de entrenamiento debe ser inferior a un 20 %.** El hecho de que falten demasiados datos puede generar valores rellenados de forma automática (normalmente segmentos rectos o valores constantes) que se aprenden como patrones normales. Esto puede dar lugar a que se detecten puntos de datos reales como anomalías. 
+
+    Sin embargo, hay casos en los que una proporción alta es aceptable. Por ejemplo, si tiene dos series temporales en un grupo que utilizan el modo `Outer` para alinear las marcas de tiempo. Una tiene una granularidad de un minuto y la otra, una granularidad por hora. La serie temporal por hora tiene por naturaleza al menos 59 / 60 = 98,33 % de puntos de datos que faltan. En estos casos, es correcto rellenar la serie temporal por hora con el único valor disponible si no suele fluctuar demasiado.
 
 ## <a name="parameters"></a>Parámetros
 

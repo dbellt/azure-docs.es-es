@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/06/2020
+ms.date: 06/02/2021
 ms.author: jeedes
-ms.openlocfilehash: a7868d702ff3f1190d7f51e4ad7316508d453015
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 858e63272faea2aaf2572a5e97e24ba5858d5bda
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92454531"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111568454"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-druva"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Druva
 
@@ -25,8 +25,6 @@ En este tutorial, aprenderá a integrar Druva con Azure Active Directory (Azur
 * Controlar en Azure AD quién tiene acceso a Druva.
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Druva con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
-
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -39,43 +37,42 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Druva admite inicio de sesión único iniciado por **IDP**
-* Una vez configurado el inicio de sesión único de Druva, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Druva admite el inicio de sesión único iniciado por **IDP**.
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
 
-## <a name="adding-druva-from-the-gallery"></a>Incorporación de Druva desde la galería
+## <a name="add-druva-from-the-gallery"></a>Adición de Druva desde la galería
 
 Para configurar la integración de Druva en Azure AD, tendrá que agregar Druva desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **Druva** en el cuadro de búsqueda.
 1. Seleccione **Druva** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-druva"></a>Configuración y prueba del inicio de sesión único de Azure AD para Druva
+## <a name="configure-and-test-azure-ad-sso-for-druva"></a>Configuración y prueba del inicio de sesión único de Azure AD para Druva
 
 Configure y pruebe el inicio de sesión único de Azure AD con Druva mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Druva.
 
-Para configurar y probar el inicio de sesión único de Azure AD con Druva, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con Druva, siga los pasos a continuación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
-    * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Druva](#configure-druva-sso)** , para definir los valores de inicio de sesión único en la aplicación.
-    * **[Creación de un usuario de prueba de Druva](#create-druva-test-user)** , para tener un homólogo de B.Simon en Druva que esté vinculado a la representación del usuario en Azure AD.
+    1. **[Creación de un usuario de prueba de Druva](#create-druva-test-user)** , para tener un homólogo de B.Simon en Druva que esté vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Druva**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de la aplicación **Druva**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
@@ -125,15 +122,9 @@ En esta sección, va a permitir que B.Simon acceda a Druva mediante el inicio de
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **Druva**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
-   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
 1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-
-    ![Vínculo de Agregar usuario](common/add-assign-user.png)
-
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ## <a name="configure-druva-sso"></a>Configurar el inicio de sesión único de Druva
@@ -142,19 +133,19 @@ En esta sección, va a permitir que B.Simon acceda a Druva mediante el inicio de
 
 1. Haga clic en el logotipo de Druva en la esquina superior izquierda y, a continuación, haga clic en **Druva Cloud Settings** (Configuración de la nube de Druva).
 
-    ![Configuración](./media/druva-tutorial/ic795091.png "Configuración")
+    ![Configuración](./media/druva-tutorial/cloud.png "Configuración")
 
 1. En la pestaña **Inicio de sesión único**, haga clic en **Editar**.
 
-    ![Captura de pantalla que muestra la pestaña "Configuración de acceso - Inicio de sesión único" con el botón "Editar" seleccionado.](./media/druva-tutorial/ic795092.png "Configuración de inicio de sesión único")
+    ![Captura de pantalla que muestra la pestaña "Configuración de acceso - Inicio de sesión único" con el botón "Editar" seleccionado.](./media/druva-tutorial/edit-tab.png "Configuración de inicio de sesión único")
 
 1. En la página **Edit Single Sign-On Settings** (Editar la configuración de inicio de sesión único), siga estos pasos:
 
-    ![Configuración de inicio de sesión único](./media/druva-tutorial/ic795095.png "Configuración de inicio de sesión único")
+    ![Configuración de inicio de sesión único](./media/druva-tutorial/configuration.png "Configuración de inicio de sesión único")
 
     1. En el cuadro de texto **ID Provider Login URL** (Dirección URL de inicio de sesión del proveedor de identidades), pegue el valor de **Dirección URL de inicio de sesión**  que ha copiado de Azure Portal.
 
-    1. Abra el certificado codificado en base 64 en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado de proveedor de Id.** .
+    1. Abra el certificado codificado en base 64 en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado de proveedor de Id.** .
 
        > [!NOTE]
        > Para habilitar el inicio de sesión único para administradores, seleccione las casillas **Administrators log into Druva Cloud through SSO provider** (Los administradores inician sesión en Druva en la nube a través del proveedor de SSO) y **Allow failsafe access to Druva Cloud administrators(recommended)** (Permitir el acceso a prueba de fallos a los administradores de Druva en la nube [recomendado]). Druva recomienda habilitar la opción **Failsafe for Administrators** (Seguridad a prueba de fallos para administradores) para que tengan que acceder a la consola de DCP en caso de que se produzcan errores en IdP. También permite a los administradores usar la contraseña de SSO y DCP para acceder a la consola de DCP.
@@ -167,18 +158,12 @@ En esta sección, se crea un usuario llamado B.Simon en Druva. Druva admite el a
 
 ## <a name="test-sso"></a>Prueba de SSO
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
 
-Al hacer clic en el icono de Druva en el Panel de acceso, debería iniciar sesión automáticamente en la instancia de Druva para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+* Haga clic en Probar esta aplicación en Azure Portal; debería iniciar sesión automáticamente en la instancia de Druva para la que configuró el inicio de sesión único.
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Druva en Aplicaciones, debería iniciar sesión automáticamente en la instancia de Druva para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+## <a name="next-steps"></a>Pasos siguientes
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
-
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
-
-- [Prueba de Druva con Azure AD](https://aad.portal.azure.com/)
-
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+Una vez que configure Druva, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

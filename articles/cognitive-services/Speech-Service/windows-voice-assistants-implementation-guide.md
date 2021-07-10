@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 92ab043d4fccbe0764e361eac6f71ef69a5963cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0bfdb7017a5042787e7e33e05e52bd90d67deb0e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98939861"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110058879"
 ---
 # <a name="implementing-voice-assistants-on-windows"></a>Implementación de asistentes de voz en Windows
 
@@ -66,7 +66,7 @@ private static async Task<ActivationSignalDetector> GetFirstEligibleDetectorAsyn
 }
 ```
 
-Después de recuperar el objeto ActivationSignalDetector, llame a su método `ActivationSignalDetector.CreateConfigurationAsync` con el identificador de señal, el identificador de modelo y el nombre para mostrar para registrar la palabra clave y recuperar la configuración `ActivationSignalDetectionConfiguration` de la aplicación. Los identificadores de señal y modelo deben ser GUID decididos por el desarrollador y permanecer coherentes con la misma palabra clave.
+Después de recuperar el objeto ActivationSignalDetector, llame a su método `ActivationSignalDetector.CreateConfigurationAsync` con el identificador de señal, el identificador de modelo y el nombre para mostrar para registrar la palabra clave y recuperar la configuración `ActivationSignalDetectionConfiguration` de la aplicación. Los identificadores de señal y modelo deben ser GUID decididos por el desarrollador y permanecer coherentes para la misma palabra clave.
 
 ### <a name="verify-that-the-voice-activation-setting-is-enabled"></a>Comprobación de que la configuración de activación por voz está habilitada
 
@@ -124,7 +124,7 @@ Cuando una aplicación muestra una vista cuando el dispositivo está bloqueado, 
 
 La activación cuando el dispositivo está bloqueado es parecida a la que se produce cuando no lo está. Si no hay instancias activas de la aplicación, se iniciará una nueva instancia en segundo plano y se llamará a `OnBackgroundActivated` en App.xaml.cs. Si hay una instancia de la aplicación, esa instancia recibirá una notificación mediante el evento `ConversationalAgentSession.SignalDetected`.
 
-Si la aplicación no aparece ya cuando el dispositivo está bloqueado, debe llamar a `ConversationalAgentSession.RequestForegroundActivationAsync`. Esto desencadena el método `OnLaunched` de App.xaml.cs, que debe ir a la vista que se mostrará cuando el dispositivo esté bloqueado.
+Si la aplicación no aparece cuando el dispositivo está bloqueado, debe llamar a `ConversationalAgentSession.RequestForegroundActivationAsync`. Esto desencadena el método `OnLaunched` del archivo App.xaml.cs, que debe ir a la vista que aparecerá cuando el dispositivo esté bloqueado.
 
 ### <a name="detecting-lock-screen-transitions"></a>Detección de transiciones de la pantalla de bloqueo
 

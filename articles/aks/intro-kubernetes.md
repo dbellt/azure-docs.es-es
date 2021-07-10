@@ -5,12 +5,12 @@ services: container-service
 ms.topic: overview
 ms.date: 02/24/2021
 ms.custom: mvc
-ms.openlocfilehash: 1cddd39d0b95e021478235fcdafbacd40eb4097c
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 315230a19967e4006e378b836b0ea70f6b5c19b9
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105262"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094301"
 ---
 # <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
 
@@ -117,13 +117,9 @@ Para empezar con el tráfico de entrada, consulte [Enrutamiento de aplicación H
 
 ## <a name="development-tooling-integration"></a>Integración de herramientas de desarrollo
 
-Kubernetes tiene un ecosistema completo de herramientas de desarrollo y administración que funcionan sin problemas con AKS. Estas herramientas incluyen Helm y la extensión Kubernetes para Visual Studio Code.   
+Kubernetes tiene un ecosistema completo de herramientas de desarrollo y administración que funcionan sin problemas con AKS. Estas herramientas incluyen Helm y la extensión Kubernetes para Visual Studio Code. 
 
-Azure proporciona varias herramientas que ayudan a simplificar Kubernetes, como Azure Dev Spaces y DevOps Starter.  
-
-### <a name="azure-dev-spaces"></a>Azure Dev Spaces
-
-Azure Dev Spaces proporciona a los equipos una experiencia de desarrollo en Kubernetes iterativa y rápida. Con una configuración mínima, puede ejecutar y depurar contenedores directamente en AKS. Para empezar, consulte [Azure Dev Spaces][azure-dev-spaces].
+Azure proporciona varias herramientas, como DevOps Starter, que ayudan a simplificar Kubernetes.  
 
 ### <a name="devops-starter"></a>DevOps Starter
 

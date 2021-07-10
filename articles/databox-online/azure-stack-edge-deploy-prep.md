@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Preparación del entorno del centro de datos de Azure Portal para implementar Azure Stack Edge Pro | Microsoft Docs'
-description: El primer tutorial para implementar Azure Stack Edge Pro trata sobre la preparación de Azure Portal.
+title: Tutorial para preparar la implementación de Azure Stack Edge Pro con FPGA mediante Azure Portal en el centro de datos
+description: El primer tutorial para implementar Azure Stack Edge Pro con FPGA trata sobre la preparación de Azure Portal.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 03/16/2021
 ms.author: alkohli
-ms.openlocfilehash: 0e0d7808e449a6e4f3e341cd40acdc220e65c0ba
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 1cab6f6f9db0650cee51b3863d521089b500bee9
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106068224"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461316"
 ---
-# <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro"></a>Tutorial: Preparación de la implementación de Azure Stack Edge Pro  
+# <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-fpga"></a>Tutorial: Preparación de la implementación de Azure Stack Edge Pro con FPGA  
 
-Este es el primero de una serie de tutoriales de implementación necesarios para implementar Azure Stack Edge Pro en su totalidad. En este tutorial se describe cómo preparar Azure Portal para implementar un recurso de Azure Stack Edge. 
+Este es el primero de una serie de tutoriales de implementación necesarios para implementar Azure Stack Edge Pro con FPGA en su totalidad. En este tutorial se describe cómo preparar Azure Portal para implementar un recurso de Azure Stack Edge. 
 
 Para completar el proceso de instalación y configuración se necesitan privilegios de administrador. La preparación del portal dura menos de 10 minutos.  
 
@@ -32,21 +32,21 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="get-started"></a>Introducción
 
-Para implementar Azure Stack Edge Pro, consulte los siguientes tutoriales en el orden indicado.
+Para implementar Azure Stack Edge Pro con FPGA, consulte los siguientes tutoriales en el orden indicado.
 
 | **#** | **En este paso** | **Use estos documentos** |
 | --- | --- | --- | 
-| 1. |**[Preparación de Azure Portal para Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md)** |Cree y configure el recurso de Azure Stack Edge antes de instalar un dispositivo físico de Azure Stack Box Edge. |
-| 2. |**[Instalación de Azure Stack Edge Pro](azure-stack-edge-deploy-install.md)**|Desempaquete, monte en el bastidor y realice el cableado del dispositivo físico de Azure Stack Edge Pro.  |
-| 3. |**[Conexión, configuración y activación de Azure Stack Edge Pro](azure-stack-edge-deploy-connect-setup-activate.md)** |Conéctese a la interfaz de usuario web local, complete la configuración del dispositivo y active el dispositivo. El dispositivo está listo para configurar recursos compartidos de SMB o NFS.  |
-| 4. |**[Transferencia de datos con Azure Stack Edge Pro](azure-stack-edge-deploy-add-shares.md)** |Agregue recursos compartidos y conéctese a ellos mediante SMB o NFS. |
-| 5. |**[Transformación de datos con Azure Stack Edge Pro](azure-stack-edge-deploy-configure-compute.md)** |Configure los módulos de proceso en el dispositivo para que transformen los datos a medida que estos se mueven a Azure. |
+| 1. |**[Preparación de Azure Portal para Azure Stack Edge Pro con FPGA](azure-stack-edge-deploy-prep.md)** |Cree y configure el recurso de Azure Stack Edge antes de instalar un dispositivo físico de Azure Stack Box Edge. |
+| 2. |**[Instalación de Azure Stack Edge Pro con FPGA](azure-stack-edge-deploy-install.md)**|Desempaquete, monte en el bastidor y realice el cableado del dispositivo físico de Azure Stack Edge Pro con FPGA.  |
+| 3. |**[Conexión, configuración y activación de Azure Stack Edge Pro con FPGA](azure-stack-edge-deploy-connect-setup-activate.md)** |Conéctese a la interfaz de usuario web local, complete la configuración del dispositivo y active el dispositivo. El dispositivo está listo para configurar recursos compartidos de SMB o NFS.  |
+| 4. |**[Transferencia de datos con Azure Stack Edge Pro con FPGA](azure-stack-edge-deploy-add-shares.md)** |Agregue recursos compartidos y conéctese a ellos mediante SMB o NFS. |
+| 5. |**[Transformación de datos con Azure Stack Edge Pro con FPGA](azure-stack-edge-deploy-configure-compute.md)** |Configure los módulos de proceso en el dispositivo para que transformen los datos a medida que estos se mueven a Azure. |
 
 Ya puede empezar a configurar Azure Portal.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-A continuación, encontrará los requisitos previos para configurar su recurso de Azure Stack Edge, el dispositivo de Azure Stack Edge Pro y la red de centros de datos.
+A continuación, encontrará los requisitos previos para configurar su recurso de Azure Stack Edge, el dispositivo de Azure Stack Edge Pro con FPGA y la red de centros de datos.
 
 ### <a name="for-the-azure-stack-edge-resource"></a>Para el recurso de Azure Stack Edge
 
@@ -65,7 +65,7 @@ Antes de comenzar, asegúrese de que:
 * Tiene una cuenta de almacenamiento de Microsoft Azure con credenciales de acceso.
 * No está bloqueado por ninguna directiva de Azure configurada por el administrador del sistema. Para más información sobre las directivas, consulte [Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles](../governance/policy/assign-policy-portal.md).
 
-### <a name="for-the-azure-stack-edge-pro-device"></a>Para el dispositivo de Azure Stack Edge Pro
+### <a name="for-the-azure-stack-edge-pro-fpga-device"></a>Para el dispositivo de Azure Stack Edge Pro con FPGA
 
 Antes de implementar un dispositivo físico, asegúrese de que:
 
@@ -79,20 +79,20 @@ Antes de implementar un dispositivo físico, asegúrese de que:
 
 Antes de comenzar, asegúrese de que:
 
-* La red del centro de datos está configurada según los requisitos de red para el dispositivo de Azure Stack Edge Pro. Para más información, consulte [Requisitos del sistema de Azure Stack Edge Pro](azure-stack-edge-system-requirements.md).
+* La red del centro de datos está configurada según los requisitos de red para el dispositivo de Azure Stack Edge Pro con FPGA. Para más información, consulte [Requisitos del sistema para Azure Stack Edge Pro con FPGA](azure-stack-edge-system-requirements.md).
 
-* Para que Azure Stack Edge Pro funcione normalmente, necesita lo siguiente:
+* Para que Azure Stack Edge Pro con FPGA funcione normalmente, necesita lo siguiente:
 
   * Un ancho de banda mínimo de 10 Mbps para garantizar que el dispositivo se mantiene actualizado.
   * Un ancho de banda mínimo de 20 Mbps dedicado a carga y descarga para transferir archivos.
 
 ## <a name="create-new-resource-for-existing-device"></a>Creación de un recurso nuevo para un dispositivo existente
 
-Si ya es un cliente de Azure Stack Edge Pro, use el procedimiento siguiente para crear un recurso nuevo si necesita reemplazar o restablecer el dispositivo existente.
+Si ya es un cliente de Azure Stack Edge Pro con FPGA, use el procedimiento siguiente para crear un recurso nuevo si necesita reemplazar o restablecer el dispositivo existente.
 
 Si es un cliente nuevo, le recomendamos que explore el uso de los dispositivos de Azure Stack Edge Pro-GPU para sus cargas de trabajo. Para más información, vaya a [¿Qué es Azure Stack Edge Pro con GPU?](azure-stack-edge-gpu-overview.md)? Para más información sobre cómo ordenar un dispositivo de Azure Stack Edge Pro con GPU, vaya al artículo sobre [creación de un nuevo recurso para Azure Stack Edge Pro - GPU](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource).
 
-Siga estos pasos en Azure Portal para crear un recurso nuevo de Azure Stack Edge Pro para un dispositivo existente.
+Siga estos pasos en Azure Portal para crear un recurso nuevo de Azure Stack Edge para un dispositivo existente.
 
 1. Use sus credenciales de Microsoft Azure para iniciar sesión en:
 
@@ -101,7 +101,7 @@ Siga estos pasos en Azure Portal para crear un recurso nuevo de Azure Stack Edge
 
 1. Seleccione **+ Crear un recurso**. Busque y seleccione **Azure Stack Edge**. Seleccione **Crear**.
 
-1. Seleccione la suscripción del dispositivo de Azure Stack Edge Pro y el país al que se enviará el dispositivo en **Enviar a**.
+1. Seleccione la suscripción del dispositivo de Azure Stack Edge Pro con FPGA y el país al que se enviará el dispositivo en **Enviar a**.
 
    ![Selección de la suscripción y el país de envío para el dispositivo](media/azure-stack-edge-deploy-prep/create-fpga-existing-resource-01.png)
 
@@ -116,14 +116,14 @@ Siga estos pasos en Azure Portal para crear un recurso nuevo de Azure Stack Edge
 
    1. Escriba o seleccione los siguientes **detalles del proyecto**.
     
-       |Setting  |Value  |
+       |Setting  |Valor  |
        |---------|---------|
        |Subscription    |Este valor se rellena automáticamente según la selección anterior. La suscripción está vinculada a la cuenta de facturación. |
        |Resource group  |Cree un nuevo grupo o seleccione uno existente.<br>Más información sobre los [grupos de recursos de Azure](../azure-resource-manager/management/overview.md).     |
 
    1. Escriba o seleccione los siguientes **detalles de la instancia**.
 
-       |Configuración  |Value  |
+       |Configuración  |Valor  |
        |---------|---------|
        |Nombre   | Nombre descriptivo que identifique el recurso.<br>El nombre tiene entre dos y 50 caracteres, que incluyen letras, números y guiones.<br> El nombre comienza y termina con una letra o un número.        |
        |Region     |Para una lista de todas las regiones en las que está disponible el recurso de Azure Stack Edge, consulte [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Si usa Azure Government, todas las regiones de gobierno están disponibles como se muestra en las [regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Elija la ubicación más cercana a la región geográfica donde quiera implementar el dispositivo.|
@@ -142,12 +142,12 @@ Siga estos pasos en Azure Portal para crear un recurso nuevo de Azure Stack Edge
 
 Una vez realizado el pedido, Microsoft lo revisa y se pone en contacto con usted (por correo electrónico) para indicarle los detalles del envío.
 
-![Notificación de revisión del pedido de Azure Stack Edge Pro](media/azure-stack-edge-deploy-prep/data-box-edge-resource-02.png)
+![Notificación de revisión del pedido de Azure Stack Edge Pro con FPGA](media/azure-stack-edge-deploy-prep/data-box-edge-resource-02.png)
 
 
 ## <a name="get-the-activation-key"></a>Obtención de la clave de activación
 
-Cuando el recurso de Azure Stack Edge esté en funcionamiento, tendrá que obtener la clave de activación. Esta clave se usa para activar y conectar el dispositivo de Azure Stack Edge Pro con el recurso. Puede obtener esta clave ahora mientras está en Azure Portal.
+Cuando el recurso de Azure Stack Edge esté en funcionamiento, tendrá que obtener la clave de activación. Esta clave se usa para activar y conectar el dispositivo de Azure Stack Edge Pro con FPGA con el recurso. Puede obtener esta clave ahora mientras está en Azure Portal.
 
 1. Vaya al recurso que ha creado y, a continuación, seleccione **Información general**. Se enviará una notificación al efecto para informarle del procesamiento del pedido.
 
@@ -164,14 +164,14 @@ Cuando el recurso de Azure Stack Edge esté en funcionamiento, tendrá que obten
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha obtenido información acerca de varios temas relacionados con Azure Stack Edge Pro, tales como:
+En este tutorial, ha obtenido información acerca de varios temas relacionados con Azure Stack Edge Pro con FPGA, tales como:
 
 > [!div class="checklist"]
 >
 > * Crear un nuevo recurso
 > * Obtención de la clave de activación
 
-En el siguiente tutorial aprenderá a instalar Azure Stack Edge Pro.
+En el siguiente tutorial aprenderá a instalar Azure Stack Edge Pro con FPGA.
 
 > [!div class="nextstepaction"]
-> [Instalación de Azure Stack Edge Pro](./azure-stack-edge-deploy-install.md)
+> [Instalación de Azure Stack Edge Pro con FPGA](./azure-stack-edge-deploy-install.md)

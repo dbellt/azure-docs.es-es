@@ -9,40 +9,42 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 05/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 3513a8546ab7da997c270713b0c0752726c80c35
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 0223b78ac34d2cfffa6a307f220c4d207c7f8b15
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108804059"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110068563"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-one"></a>Tutorial: Integración de Azure Active Directory con Zscaler One
 
-En este tutorial, aprenderá a integrar Zscaler One con Azure Active Directory (Azure AD).
-La integración de Zscaler One con Azure AD le proporciona las siguientes ventajas:
+En este tutorial, aprenderá a integrar Zscaler One con Azure Active Directory (Azure AD). Al integrar Zscaler One con Azure AD, puede hacer lo siguiente:
 
-- Puede controlar en Azure AD quién tiene acceso a Zscaler One.
-- Puede permitir que los usuarios inicien sesión automáticamente en Zscaler One (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* Controlar en Azure AD quién tiene acceso a Zscaler One.
+* Permitir que los usuarios inicien sesión automáticamente en Zscaler One con sus cuentas de Azure AD.
+* Administrar las cuentas desde una ubicación central (Azure Portal).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para configurar la integración de Azure AD con Zscaler One, necesita los siguientes elementos:
+Para empezar, necesita los siguientes elementos:
 
-- Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una cuenta gratuita](https://azure.microsoft.com/free/)
-- Suscripción habilitada para el inicio de sesión único en Zscaler One
+* Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
+* Una suscripción habilitada para el inicio de sesión único (SSO) en Zscaler One.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-- Zscaler One admite el inicio de sesión único iniciado por **SP**
+* Zscaler One admite el inicio de sesión único iniciado por **SP**.
 
-- Zscaler One admite el aprovisionamiento de usuarios **Just-In-Time**
+* Zscaler One admite el aprovisionamiento de usuarios **Just-In-Time**.
 
-## <a name="adding-zscaler-one-from-the-gallery"></a>Incorporación de Zscaler One desde la galería
+> [!NOTE]
+> El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
+
+## <a name="add-zscaler-one-from-the-gallery"></a>Incorporación de Zscaler One desde la galería
 
 Para configurar la integración de Zscaler One en Azure AD, deberá agregar Zscaler One desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -78,7 +80,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-   En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL con la que los usuarios inician sesión en la aplicación Zscaler One.
+   a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL con la que los usuarios inician sesión en la aplicación Zscaler One.
 
    > [!NOTE]
    > Actualizará este valor con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico al cliente de Zscaler One](https://www.zscaler.com/company/contact) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -154,7 +156,7 @@ En esta sección va a permitir que B.Simon acceda a Zscaler One mediante el inic
 
 4. Vaya a **Administración > Autenticación > Configuración de autenticación** y realice los siguientes pasos:
 
-   ![Captura de pantalla que muestra el sitio de Zscaler One con los pasos descritos.](./media/zscaler-one-tutorial/ic800206.png "Administración")
+   ![Captura de pantalla que muestra el sitio de Zscaler One con los pasos descritos.](./media/zscaler-one-tutorial/settings.png "Administración")
 
    a. En Tipo de autenticación, elija **SAML**.
 
@@ -162,13 +164,13 @@ En esta sección va a permitir que B.Simon acceda a Zscaler One mediante el inic
 
 5. En la ventana **Editar SAML**, realice los pasos siguientes y haga clic en Guardar.  
 
-   ![Administración de usuarios y autenticación](./media/zscaler-one-tutorial/ic800208.png "Manage Users & Authentication")
+   ![Administración de usuarios y autenticación](./media/zscaler-one-tutorial/users.png "Manage Users & Authentication")
 
    a. En el cuadro de texto **Dirección URL del portal de SAML**, pegue la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
    b. En el cuadro de texto **Atributo de nombre de inicio de sesión**, escriba **NameID**.
 
-   c. Haga clic en **Cargar** para cargar el certificado de firma de SAML de Azure que ha descargado desde Azure Portal en el **Certificado SSL público**.
+   c. Haga clic en **Cargar** para cargar el certificado de firma de SAML de Azure que ha descargado de Azure Portal en **Certificado SSL público**.
 
    d. Alterne **Habilitar aprovisionamiento automático de SAML**.
 
@@ -182,7 +184,7 @@ En esta sección va a permitir que B.Simon acceda a Zscaler One mediante el inic
 
 6. En la página del cuadro de diálogo **Configurar autenticación de usuario** , realice los pasos siguientes:
 
-   ![Captura de pantalla que muestra el cuadro de diálogo Configure User Authentication (Configurar autenticación de usuario) con la opción Activate (Activar) seleccionada.](./media/zscaler-one-tutorial/ic800207.png)
+   ![Captura de pantalla que muestra el cuadro de diálogo Configure User Authentication (Configurar autenticación de usuario) con la opción Activate (Activar) seleccionada.](./media/zscaler-one-tutorial/authentication.png)
 
    a. Mantenga el puntero sobre el menú **Activación** situado cerca de la parte inferior izquierda.
 
@@ -196,17 +198,17 @@ En esta sección va a permitir que B.Simon acceda a Zscaler One mediante el inic
 
 2. Seleccione **Opciones de Internet** en el menú **Herramientas** para abrir el diálogo **Opciones de Internet**.
 
-   ![Opciones de Internet](./media/zscaler-one-tutorial/ic769492.png &quot;Opciones de Internet")
+   ![Opciones de Internet](./media/zscaler-one-tutorial/connection.png &quot;Opciones de Internet")
 
 3. Haga clic en la pestaña **Conexiones** .
 
-   ![Conexiones](./media/zscaler-one-tutorial/ic769493.png "Conexiones")
+   ![Conexiones](./media/zscaler-one-tutorial/configuration.png "Conexiones")
 
 4. Haga clic en **Configuración de LAN** para abrir el diálogo **Configuración de LAN**.
 
 5. En la sección del servidor proxy, lleve a cabo estos pasos:
 
-   ![Servidor proxy](./media/zscaler-one-tutorial/ic769494.png "Servidor proxy")
+   ![Servidor proxy](./media/zscaler-one-tutorial/server.png "Servidor proxy")
 
    a. Seleccione **Usar un servidor proxy para la LAN**.
 
@@ -227,16 +229,16 @@ En esta sección, se crea un usuario llamado Britta Simon en Zscaler One. Zscale
 > [!Note]
 > Si tiene que crear un usuario manualmente, póngase en contacto con el [equipo de soporte técnico de Zscaler One](https://www.zscaler.com/company/contact).
 
-### <a name="test-sso"></a>Prueba de SSO
+## <a name="test-sso"></a>Prueba de SSO
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-- Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de Zscaler One, donde puede iniciar el flujo de inicio de sesión.
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de Zscaler One, donde puede iniciar el flujo de inicio de sesión. 
 
-- Vaya directamente a la dirección URL de inicio de sesión de Zscaler One e inicie el flujo de inicio de sesión desde allí.
+* Vaya directamente a la dirección URL de inicio de sesión de Zscaler One e inicie el flujo de inicio de sesión desde allí.
 
-- Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Zscaler One en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de dicha aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Zscaler One en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de dicha aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Zscaler One, puede aplicar el control de sesión, que protege su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado Zscaler One, puede aplicar el control de sesión, que protege su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

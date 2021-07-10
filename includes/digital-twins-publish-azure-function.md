@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 1/21/2021
 ms.author: baanders
-ms.openlocfilehash: ddc56ab05a087c9e86d67a13aebcfb8e65fbd78f
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 49f57f39ba59575417f3336d395b1cfa6cf97eb6
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107480747"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110451114"
 ---
 Para publicar el proyecto en una aplicación de funciones en Azure, empiece por el Explorador de soluciones. Haga clic con el botón derecho en el proyecto y, después, elija **Publicar**.
 
@@ -37,13 +37,13 @@ En la ventana **Function App (Windows) - Create new** [Aplicación de funciones 
 * Seleccione la **ubicación** del grupo de recursos.
 * Cree un nuevo recurso de **Azure Storage** mediante el vínculo **New** (Nuevo). Establezca la ubicación para que coincida con la del grupo de recursos, use los demás valores predeterminados y seleccione **OK** (Aceptar).
 
-:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Captura de pantalla de Visual Studio que muestra el cuadro de diálogo de publicación de una función de Azure. Se incluyen los detalles de una nueva aplicación de funciones, como el nombre, la suscripción, el grupo de recursos, el tipo de plan, la ubicación y la instancia de Azure Storage.":::
+:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Captura de pantalla de Visual Studio que muestra la página del cuadro de diálogo de publicación de una función de Azure, con los detalles de una nueva aplicación de funciones rellenados.":::
 
 Seleccione **Crear**.
 
 Una vez creada la instancia de App Service, se abrirá la pestana **Functions instance** (Instancia de Functions). La nueva aplicación de funciones aparece en el área **Function Apps** debajo del grupo de recursos. Seleccione **Finalizar**.
 
-:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Captura de pantalla de Visual Studio, en la que se muestra el cuadro de diálogo de publicación de una función de Azure. La pestaña de la instancia de Functions está seleccionada. La nueva aplicación de funciones aparece en el grupo de recursos.":::
+:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Captura de pantalla de Visual Studio, en la que se muestra el cuadro de diálogo de publicación de una función de Azure con la pestaña Instancia de Functions seleccionada.":::
 
 En el panel **Publish** (Publicar) que se abre en la ventana principal de Visual Studio, compruebe que toda la información sea correcta. Después, seleccione **Publicar**.
 
@@ -51,7 +51,7 @@ En el panel **Publish** (Publicar) que se abre en la ventana principal de Visual
 
 > [!NOTE]
 > Si ve una ventana emergente como la del ejemplo siguiente, seleccione **Attempt to retrieve credentials from Azure** (Intentar recuperar credenciales de Azure) y, a continuación, seleccione **Save** (Guardar).
-> :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Captura de pantalla de Visual Studio que muestra una ventana emergente de Visual Studio denominada Credenciales de publicación. Contiene campos para el nombre de usuario y la contraseña, además de un botón para intentar recuperar las credenciales de Azure." border="false":::
+> :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Captura de pantalla de Visual Studio, que muestra una ventana emergente denominada Credenciales de publicación." border="false":::
 >
 > Si ve una de las siguientes advertencias, siga las indicaciones para actualizar el producto a la versión en tiempo de ejecución más reciente Azure Functions:
 > * "Upgrade Functions version on Azure" (Actualizar la versión de Functions en Azure).

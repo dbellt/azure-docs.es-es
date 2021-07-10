@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 7b822b0a2d3988e055f080277d107544d5d45a84
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 4df49521d59118f23c82cdc57d1b4b28477f05c5
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110470488"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111439174"
 ---
 # <a name="discover-assess-and-migrate-google-cloud-platform-gcp-vms-to-azure"></a>Detección, evaluación y migración de máquinas virtuales de Google Cloud Platform (GCP) a Azure
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a:
 > * Configurar el dispositivo de replicación e implementar el servidor de configuración.
 > * Instalar el servicio Mobility en las máquinas virtuales de GCP que desee migrar.
 > * Habilite la replicación para máquinas virtuales.
-> * Realizar un seguimiento y supervisar el estado de la replicación. 
+> * Realizar un seguimiento y supervisar el estado de la replicación.
 > * Ejecute una migración de prueba para asegurarse de que todo funciona de la forma esperada.
 > * Ejecutar una migración completa a Azure.
 
@@ -61,7 +61,7 @@ Aunque se recomienda probar una evaluación, no es obligatorio llevarla a cabo p
 
 
 
-## <a name="prerequisites"></a>Prerrequisitos 
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Asegúrese de que las máquinas virtuales de GCP que quiere migrar ejecutan una versión del sistema operativo compatible. Las máquinas virtuales de GCP se tratan como máquinas físicas para el propósito de la migración. Revise los [sistemas operativos y versiones de kernel compatibles](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) para el flujo de trabajo de migración de servidores físicos. Puede usar comandos estándar como *hostnamectl* o *uname -a* para comprobar las versiones del sistema operativo y del kernel para las máquinas virtuales Linux.  Se recomienda realizar una migración de prueba para validar si la máquina virtual funciona según lo esperado antes de continuar con la migración real.
 - Asegúrese de que las máquinas virtuales de GCP cumplan con las [configuraciones admitidas](./migrate-support-matrix-physical-migration.md#physical-server-requirements) para la migración a Azure.
@@ -94,7 +94,7 @@ Asigne el rol de colaborador de la máquina virtual a la cuenta de Azure. Este r
 
 - Crear una máquina virtual en el grupo de recursos seleccionado.
 - Crear una máquina virtual en la red virtual seleccionada.
-- Escribir en un disco administrado de Azure. 
+- Escribir en un disco administrado de Azure.
 
 ### <a name="create-an-azure-network"></a>Creación de una red de Azure
 
@@ -119,8 +119,8 @@ Para prepararse para la implementación del dispositivo, siga estos pasos:
 - Las máquinas virtuales de GCP de origen se comunican con el dispositivo de replicación en los puertos de entrada HTTPS 443 (orquestación del canal de control) y TCP 9443 (transporte de datos) para la administración de la replicación y la transferencia de datos de la replicación. A su vez, el dispositivo de replicación orquesta y envía los datos de replicación a Azure a través del puerto HTTPS 443 de salida. Para configurar estas reglas, edite las reglas de entrada y salida del grupo de seguridad con los puertos y la información de IP de origen adecuados.
 
    ![Reglas de firewall de GCP](./media/tutorial-migrate-gcp-virtual-machines/gcp-firewall-rules.png)
-     
- 
+
+
    ![Editar reglas de firewall](./media/tutorial-migrate-gcp-virtual-machines/gcp-edit-firewall-rule.png)
 
 - El dispositivo de replicación usa MySQL. Revise las [opciones](migrate-replication-appliance.md#mysql-installation) para instalar MySQL en el dispositivo.
@@ -142,9 +142,9 @@ El primer paso de la migración consiste en configurar el dispositivo de replica
 5. Haga clic en **Crear recursos**. Esto crea un almacén de Azure Site Recovery en segundo plano.
     - Si ya ha configurado la migración con Azure Migrate Server Migration, no se puede configurar la opción de destino, ya que los recursos se configuraron anteriormente.
     - Después de hacer clic en este botón ya no se puede cambiar la región de destino de este proyecto.
-    - Para migrar las máquinas virtuales a otra región, debe crear un proyecto de Azure Migrate nuevo o diferente. 
+    - Para migrar las máquinas virtuales a otra región, debe crear un proyecto de Azure Migrate nuevo o diferente.
     > [!NOTE]
-    > Si seleccionó el punto de conexión privado como método de conectividad para el proyecto Azure Migrate cuando se creó, el almacén de Recovery Services también se configurará para la conectividad de punto de conexión privado. Asegúrese de que los puntos de conexión privados sean accesibles desde el dispositivo de replicación: [**Más información**](how-to-use-azure-migrate-with-private-endpoints.md#troubleshoot-network-connectivity)
+    > Si seleccionó el punto de conexión privado como método de conectividad para el proyecto Azure Migrate cuando se creó, el almacén de Recovery Services también se configurará para la conectividad de punto de conexión privado. Asegúrese de que los puntos de conexión privados sean accesibles desde el dispositivo de replicación: [**Más información**](troubleshoot-network-connectivity.md)
 
 6. En **¿Quiere instalar un nuevo dispositivo de replicación?** , seleccione **Instalar un dispositivo de replicación**.
 7. En **Descargue e instale el software del dispositivo de replicación**, descargue el instalador del dispositivo y la clave de registro. Necesitará la clave para registrar el dispositivo. La clave será válida durante cinco días a partir del momento en que se descarga.
@@ -165,8 +165,7 @@ El primer paso de la migración consiste en configurar el dispositivo de replica
     9.10 En **Summary** (Resumen), seleccione **Install** (Instalar).   
     9.11 **Installation Progress** (Progreso de la instalación) muestra información acerca del proceso de instalación. Cuando haya finalizado, seleccione **Finalizar**. Aparece una ventana que muestra un mensaje sobre un reinicio. Seleccione **Aceptar**.   
     9.12 A continuación, en una ventana se muestra un mensaje sobre la frase de contraseña de la conexión del servidor de configuración. Copie esa frase en el portapapeles y guárdela en un archivo de texto temporal en las máquinas virtuales de origen. Necesitará la frase de contraseña más adelante, durante el proceso de instalación del servicio Mobility.
-10. Una vez finalizada la instalación, el asistente para la configuración de dispositivos se iniciará automáticamente (también puede iniciarlo manualmente mediante el acceso directo cspsconfigtool que se crea en el escritorio del dispositivo). En este tutorial, vamos a instalar manualmente el servicio Mobility en las máquinas virtuales de origen que se van a replicar, por lo que debe crear una cuenta ficticia en este paso y continuar. Puede especificar los siguientes datos para crear la cuenta ficticia: "guest" como nombre descriptivo, "username" como nombre de usuario y "password" como contraseña de la cuenta. Esta cuenta ficticia la usará en la fase de habilitación de la replicación. 
-11. Una vez que se haya reiniciado el dispositivo después de la configuración, en **Detectar máquinas**, seleccione el nuevo dispositivo en **Seleccionar servidor de configuración** y haga clic en **Finalize registration**  (Finalizar registro). El paso de finalización del registro realiza un par de tareas finales para preparar el dispositivo de replicación.
+10. Una vez finalizada la instalación, el asistente para la configuración de dispositivos se iniciará automáticamente (también puede iniciarlo manualmente mediante el acceso directo cspsconfigtool que se crea en el escritorio del dispositivo). En este tutorial, vamos a instalar manualmente el servicio Mobility en las máquinas virtuales de origen que se van a replicar, por lo que debe crear una cuenta ficticia en este paso y continuar. Puede especificar los siguientes datos para crear la cuenta ficticia: "guest" como nombre descriptivo, "username" como nombre de usuario y "password" como contraseña de la cuenta. Esta cuenta ficticia la usará en la fase de habilitación de la replicación.
 
     ![Finalizar el registro](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
@@ -233,9 +232,9 @@ Se debe instalar un agente del servicio Mobility en las máquinas virtuales de G
 
 2. En **Replicar** > **Configuración de origen** >  **¿Las máquinas están virtualizadas?** , seleccione **Not virtualized/Other** (No virtualizadas/Otros).
 3. En **Dispositivo local**, seleccione el nombre del dispositivo de Azure Migrate que configuró.
-4. En **Servidor de procesos**, seleccione el nombre del dispositivo de replicación. 
+4. En **Servidor de procesos**, seleccione el nombre del dispositivo de replicación.
 5. En **Credenciales de invitado**, seleccione la cuenta ficticia creada anteriormente en la [configuración del instalador de la replicación](#download-the-replication-appliance-installer) para instalar el servicio Mobility de forma manual (la instalación de inserción no se admite). A continuación, haga clic en **Siguiente: Máquinas virtuales**.   
- 
+
     ![Configuración de replicación](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 6. En **Máquinas virtuales**, en **¿Quiere importar la configuración de migración de una evaluación?** , deje la configuración predeterminada **No, especificaré la configuración de migración manualmente**.
 7. Compruebe todas las máquinas virtuales que desea migrar. A continuación, haga clic en **Siguiente: Configuración de destino**.
@@ -244,11 +243,11 @@ Se debe instalar un agente del servicio Mobility en las máquinas virtuales de G
 
 8. En **Configuración de destino**, seleccione la suscripción y la región de destino a la que va a migrar, y especifique el grupo de recursos en el que residirán las máquinas virtuales de Azure después de la migración.
 9. En **Red virtual**, seleccione la red virtual o la subred de Azure a la que se unirán las máquinas virtuales de Azure después de la migración.  
-10. En **Cuenta de almacenamiento en caché**, mantenga la opción predeterminada para usar la cuenta de almacenamiento en caché que se crea automáticamente para el proyecto. Use la lista desplegable si desea especificar una cuenta de almacenamiento diferente para usarla como cuenta de almacenamiento en caché con fines de replicación. <br/> 
+10. En **Cuenta de almacenamiento en caché**, mantenga la opción predeterminada para usar la cuenta de almacenamiento en caché que se crea automáticamente para el proyecto. Use la lista desplegable si desea especificar una cuenta de almacenamiento diferente para usarla como cuenta de almacenamiento en caché con fines de replicación. <br/>
     > [!NOTE]
     >
     > - Si seleccionó el punto de conexión privado como método de conectividad para el proyecto Azure Migrate, conceda al almacén de Recovery Services acceso a la cuenta de almacenamiento en caché. [**Más información**](how-to-use-azure-migrate-with-private-endpoints.md#grant-access-permissions-to-the-recovery-services-vault)
-    > - Para la replicación mediante ExpressRoute con emparejamiento privado, cree un punto de conexión privado para la cuenta de almacenamiento en caché. [**Más información**](how-to-use-azure-migrate-with-private-endpoints.md#create-a-private-endpoint-for-the-storage-account-optional) 
+    > - Para la replicación mediante ExpressRoute con emparejamiento privado, cree un punto de conexión privado para la cuenta de almacenamiento en caché. [**Más información**](how-to-use-azure-migrate-with-private-endpoints.md#create-a-private-endpoint-for-the-storage-account-optional)
 11. En **Opciones de disponibilidad**, seleccione:
     -  La zona de disponibilidad para anclar la máquina migrada a una zona de disponibilidad específica de la región. Use esta opción para distribuir los servidores que forman una capa de aplicación de varios nodos en Availability Zones. Si selecciona esta opción, deberá especificar la zona de disponibilidad que se va a usar en cada una de las máquinas seleccionadas en la pestaña Proceso. Esta opción solo está disponible si la región de destino seleccionada para la migración admite Availability Zones.
     -  El conjunto de disponibilidad para colocar la máquina migrada en un conjunto de disponibilidad. Para usar esta opción, el grupo de recursos de destino seleccionado debe tener uno o varios conjuntos de disponibilidad.
@@ -260,7 +259,7 @@ Se debe instalar un agente del servicio Mobility en las máquinas virtuales de G
 
    > [!NOTE]
    > Para replicar máquinas virtuales con CMK, será necesario [crear un conjunto de cifrado de disco](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) en el grupo de recursos de destino. Un objeto de conjunto de cifrado de disco asigna instancias de Managed Disks a una instancia de Key Vault que contiene las claves CMK que se van a usar para SSE.
-  
+
 13. En **Ventaja híbrida de Azure**:
 
     - Seleccione **No** si no desea aplicar la Ventaja híbrida de Azure. A continuación, haga clic en **Siguiente**.
@@ -279,7 +278,7 @@ Se debe instalar un agente del servicio Mobility en las máquinas virtuales de G
 
 15. En **Discos**, especifique si los discos de máquina virtual se deben replicar en Azure y seleccione el tipo de disco (discos SSD o HDD estándar o bien discos administrados premium) en Azure. A continuación, haga clic en **Siguiente**.
     - Puede excluir discos de la replicación.
-    - Si excluye discos, no estarán presentes en la máquina virtual de Azure después de la migración. 
+    - Si excluye discos, no estarán presentes en la máquina virtual de Azure después de la migración.
 
     ![Configuración de discos](./media/tutorial-migrate-physical-virtual-machines/disks.png)
 
@@ -324,7 +323,10 @@ Realice una migración de prueba como se indica a continuación:
 6. Una vez finalizada la prueba, haga clic con el botón derecho en la máquina virtual de Azure, en **Replicación de máquinas**, y haga clic en **Limpiar la migración de prueba**.
 
     ![Limpiar la migración](./media/tutorial-migrate-physical-virtual-machines/clean-up.png)
-
+    > [!NOTE]
+    > Ahora puede registrar los servidores que ejecutan SQL Server con el proveedor de recursos de VM con SQL para aprovechar las ventajas de la aplicación automatizada de revisiones, la copia de seguridad automatizada y la administración simplificada de licencias mediante la extensión Agente de IaaS de SQL.
+    >- Seleccione **Manage** > **Replicating servers** > **Machine containing SQL server** >  **Compute and Network** (Administrar > Servidores de replicación > Máquina que contiene servidor SQL Server > Proceso y red) y seleccione **sí** para registrarse con el RP de máquina virtual con SQL.
+    >- Seleccione Ventaja híbrida de Azure para SQL Server si tiene instancias de SQL Server que están incluidas en suscripciones activas de Software Assurance o SQL Server y quiere aplicar la ventaja a las máquinas que va a migrar.
 
 ## <a name="migrate-gcp-vms"></a>Migración de máquinas virtuales de GCP
 
@@ -350,7 +352,7 @@ Después de comprobar que la migración de prueba funciona según lo previsto, p
 3. Realice los ajustes de la aplicación posteriores a la migración, como actualizar las cadenas de conexión de la base de datos y las configuraciones del servidor web.
 4. Realice las pruebas finales de la aplicación y la aceptación de la migración en la aplicación migrada que ahora se ejecuta en Azure.
 5. Pase el tráfico a la instancia de máquina virtual de Azure migrada.
-6. Actualice la documentación interna para mostrar la nueva ubicación y la dirección IP las máquinas virtuales de Azure. 
+6. Actualice la documentación interna para mostrar la nueva ubicación y la dirección IP las máquinas virtuales de Azure.
 
 
 
@@ -380,7 +382,7 @@ Después de comprobar que la migración de prueba funciona según lo previsto, p
 
 **Pregunta:** No puedo importar máquinas virtuales para la migración a partir de los resultados de Server Assessment creados anteriormente   
 **Respuesta:** Actualmente, no se admite la importación de evaluaciones para este flujo de trabajo. Como solución alternativa, puede exportar la evaluación y seleccionar manualmente la recomendación de máquina virtual durante el paso de habilitación de replicación.
-  
+
 **Pregunta:** Recibo el error "Failed to fetch BIOS GUID" (No se pudo capturar el GUID del BIOS) al intentar detectar mis máquinas virtuales de GCP   
 **Respuesta:** Use el inicio de sesión raíz para la autenticación y no otro usuario. Si no puede usar un usuario raíz, asegúrese de que las funcionalidades requeridas estén establecidas en el usuario, según las instrucciones que se indican en la [matriz de compatibilidad](migrate-support-matrix-physical.md#physical-server-requirements). Revise también los sistemas operativos compatibles para las máquinas virtuales de GCP.  
 
@@ -393,7 +395,7 @@ Después de comprobar que la migración de prueba funciona según lo previsto, p
 **Pregunta:** ¿Tengo que realizar alguna modificación antes de migrar mis máquinas virtuales de GCP a Azure?   
 **Respuesta:** quizá deba realizar estos cambios antes de migrar las máquinas virtuales de EC2 a Azure:
 
-- Si usa cloud-init para el aprovisionamiento de la máquina virtual, quizá quiera deshabilitar cloud-init en la máquina virtual antes de replicarla en Azure. Los pasos de aprovisionamiento que realiza cloud-init en la máquina virtual quizás sean específicos de GCP y no serán válidos después de la migración a Azure.  
+- Si usa cloud-init para el aprovisionamiento de la máquina virtual, quizá quiera deshabilitar cloud-init en la máquina virtual antes de replicarla en Azure. Los pasos de aprovisionamiento que realiza cloud-init en la máquina virtual quizás sean específicos de GCP y no serán válidos después de la migración a Azure. 
 - Revise la sección [Requisitos previos](#prerequisites) para determinar si es necesario realizar algún cambio en el sistema operativo antes de la migración a Azure.
 - Siempre se recomienda ejecutar una migración de prueba antes de la migración final.  
 

@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 02/19/2020
+ms.date: 06/04/2021
 ms.author: cherylmc
-ms.custom: include file
-ms.openlocfilehash: a3c10ca35ee2f085d4ce41e862a895ff17ff63a0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: include file, devx-track-azurepowershell
+ms.openlocfilehash: d41b443a076e303d96588a27285b671123593b57
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "84317469"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111556453"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>¿Cuántos puntos de conexión de cliente VPN puedo tener en mi configuración punto a sitio?
 
@@ -31,7 +31,7 @@ Se admiten los siguientes sistemas operativos de cliente:
 * Windows Server 2016 (solo 64 bits)
 * Windows Server 2019 (solo 64 bits)
 * Windows 10
-* Mac OS X versión 10.11 o versiones posteriores
+* macOS, versión 10.11 o posterior
 * Linux (StrongSwan)
 * iOS
 
@@ -65,7 +65,7 @@ En función del software cliente de VPN que se use, es posible conectarse a vari
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>¿Puedo configurar un cliente de punto a sitio para conectarse a varias redes virtuales al mismo tiempo?
 
-Sí, las conexiones de punto a sitio con una puerta de enlace de red virtual implementada en una red virtual emparejada con otras redes virtuales pueden tener acceso a otras redes virtuales emparejadas.  Siempre que las redes virtuales emparejadas usen las características UseRemoteGateway/AllowGatewayTransit, el cliente de punto a sitio podrá conectarse con ellas.  Para más información, consulte [este](../articles/vpn-gateway/vpn-gateway-about-point-to-site-routing.md) artículo.
+Sí, las conexiones de cliente de punto a sitio a una puerta de enlace de red virtual implementada en una red virtual emparejada con otras redes virtuales pueden tener acceso a las redes virtuales emparejadas. Los clientes de punto a sitio podrán conectarse a las redes virtuales emparejadas siempre que estas usen las características UseRemoteGateway/AllowGatewayTransit. Para más información, consulte [Acerca del enrutamiento de punto a sitio](../articles/vpn-gateway/vpn-gateway-about-point-to-site-routing.md).
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>¿Qué rendimiento puedo esperar en las conexiones de sitio a sitio o de punto a sitio?
 
@@ -73,7 +73,11 @@ Es difícil de mantener el rendimiento exacto de los túneles VPN. IPsec y SSTP 
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>¿Puedo usar cualquier software de cliente VPN para punto a sitio que admita SSTP o IKEv2?
 
-No. Solo puede usar el cliente VPN nativo en Windows para SSTP y el cliente VPN nativo en Mac para IKEv2. Sin embargo, puede utilizar el cliente OpenVPN en todas las plataformas para conectarse a través del protocolo OpenVPN. Consulte la lista de sistemas operativos cliente compatibles.
+No. Solo puede usar el cliente VPN nativo en Windows para SSTP y el cliente VPN nativo en Mac para IKEv2. Sin embargo, puede utilizar el cliente OpenVPN en todas las plataformas para conectarse a través del protocolo OpenVPN. Consulte la lista de [sistemas operativos cliente compatibles](#supportedclientos).
+
+### <a name="can-i-change-the-authentication-type-for-a-point-to-site-connection"></a>¿Cómo se cambia el tipo de autenticación a una conexión de punto a sitio?
+
+Sí. En el portal, vaya a la página **Puerta de enlace VPN -> Configuración de punto a sitio**. En **Tipo de autenticación**, seleccione los tipos de autenticación que desea usar. Tenga en cuenta que después de realizar un cambio en un tipo de autenticación, es posible que los clientes actuales no puedan conectarse hasta que se haya generado, descargado y aplicado un nuevo perfil de configuración de cliente VPN a cada cliente VPN.
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>¿Azure admite VPN IKEv2 con Windows?
 
@@ -98,11 +102,11 @@ Cuando configure tanto SSTP como IKEv2 en un entorno mixto (que consiste en disp
 
 ### <a name="other-than-windows-and-mac-which-other-platforms-does-azure-support-for-p2s-vpn"></a>Además de Windows y Mac, ¿qué otras plataformas Azure admite para VPN de P2S?
 
-Azure es compatible con Windows, Mac y Linux para VPN de P2S.
+Azure es compatible con Windows, Mac y Linux para VPN de punto a sitio.
 
 ### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enable-radius-andor-ikev2-vpn-on-it"></a>Ya tengo implementada una instancia de Azure VPN Gateway. ¿Puedo habilitar VPN de IKEv2 o RADIUS en ella?
 
-Sí, puede habilitar estas características nuevas en puertas de enlace ya implementadas mediante Powershell o Azure Portal, siempre que la SKU de la puerta de enlace que use admita RADIUS o IKEv2. Por ejemplo, la SKU de nivel Básico de VPN Gateway no admite RADIUS ni IKEv2.
+Sí, si la SKU de la puerta de enlace que usa admite RADIUS o IKEv2, puede habilitar estas características nuevas en puertas de enlace ya implementadas mediante PowerShell o Azure Portal. Tenga en cuenta que la SKU de nivel Básico no admite RADIUS ni IKEv2.
 
 ### <a name="how-do-i-remove-the-configuration-of-a-p2s-connection"></a><a name="removeconfig"></a>¿Cómo se puede quitar la configuración de una conexión P2S?
 

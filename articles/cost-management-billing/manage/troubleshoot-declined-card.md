@@ -1,23 +1,23 @@
 ---
 title: Solución de problemas de una tarjeta rechazada en el registro de Azure
-description: Resuelva problemas de tarjeta de crédito rechazada durante el registro de Azure en Azure Portal o en el Centro de cuentas.
+description: Resuelva problemas de tarjeta de crédito rechazada durante el registro de Azure en Azure Portal.
 author: v-miegge
 ms.reviewer: judupont
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 08/20/2020
+ms.date: 05/13/2021
 ms.author: banders
-ms.openlocfilehash: 5b53d1855abb3114be1ab31e19af3bb3a11d722f
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: e2295a974baec9a841e79873568f3f3c7c835544
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132166"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110470856"
 ---
 # <a name="troubleshoot-a-declined-card-at-azure-sign-up"></a>Solución de problemas de una tarjeta rechazada en el registro de Azure
 
-Puede experimentar un problema o un error en el que se rechace una tarjeta de crédito al registrarse en Azure en Microsoft Azure Portal o en el centro de cuentas de Azure.
+Puede experimentar un problema o un error en el que se rechace una tarjeta de crédito al registrarse en Azure en Microsoft Azure Portal.
 
 Para resolver el problema, seleccione a continuación el tema que más se asemeje al error.
 
@@ -42,9 +42,9 @@ Póngase en contacto con el banco para asegurarse de que la tarjeta está activa
 
 Puede que esté experimentando otros problemas de registro
 
-Para más información sobre cómo solucionar problemas de registro en Azure, vea el siguiente artículo de Knowledge Base:
+Para más información sobre cómo solucionar problemas de registro en Azure, consulte el siguiente artículo:
 
-[No se puede registrar en Azure en Azure Portal o en el Centro de cuentas de Azure](troubleshoot-azure-sign-up.md)
+[No puede registrarse en Azure en Azure Portal](troubleshoot-azure-sign-up.md)
 
 ## <a name="you-represent-a-business-that-doesnt-want-to-pay-by-card"></a>Representa a una empresa que no quiere pagar con tarjeta
 

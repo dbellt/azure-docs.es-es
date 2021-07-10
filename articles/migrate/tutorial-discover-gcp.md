@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/13/2021
 ms.custom: mvc
-ms.openlocfilehash: 5a581652bfd084118b47b5693a2b2ca9e92feda9
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 187808cacd40d2be0b122263e4c10672ef90fff3
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109751192"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111412464"
 ---
 # <a name="tutorial-discover-google-cloud-platform-gcp-instances-with-azure-migrate-discovery-and-assessment"></a>Tutorial: Detección de instancias de Google Cloud Platform (GCP) con Azure Migrate: Discovery and assessment
 
@@ -87,7 +87,7 @@ Configure una cuenta que el dispositivo pueda usar para acceder a los servidores
         * Usuarios del registro de rendimiento
 * Para **servidores Linux**:
     * Necesita una cuenta raíz en los servidores Linux que desee detectar. Si no puede proporcionar una cuenta raíz, consulte las instrucciones de la [matriz de compatibilidad](migrate-support-matrix-physical.md#physical-server-requirements) para conocer una alternativa.
-    * Azure Migrate usa la autenticación de contraseña al detectar instancias de AWS. Las instancias de AWS no admiten la autenticación de contraseña de forma predeterminada. Antes de poder detectar la instancia, debe habilitar la autenticación de contraseña.
+    * Azure Migrate usa la autenticación de contraseña al detectar instancias de GCP. Las instancias de GCP no admiten la autenticación de contraseña de forma predeterminada. Antes de poder detectar la instancia, debe habilitar la autenticación de contraseña.
         1. Inicie sesión en cada máquina Linux.
         2. Abra el archivo sshd_config: vi/etc/ssh/sshd_config
         3. En el archivo, busque la línea **PasswordAuthentication** y cambie el valor a **yes** (sí).

@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: texto a voz
-ms.openlocfilehash: edde973b8b3abf2ef370195d4903927fa9eba9fb
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 53b4d7a3e8b0831856f2b43fac40962fe81065d1
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109732873"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110478094"
 ---
 # <a name="what-is-text-to-speech"></a>¿Qué es el texto a voz?
 
@@ -44,7 +44,7 @@ Esta documentación contiene los siguientes tipos de artículos:
 
 * Voces neuronales: las redes neuronales profundas se usan para superar los límites de la síntesis de voz tradicional con respecto al acento y la entonación del lenguaje hablado. La predicción de la prosodia y la síntesis de voz se realizan simultáneamente, lo que resulta en una voz más fluida y natural. Las voces neuronales se pueden usar para que las interacciones con los bots de chat y los asistentes de voz sean más naturales y atractivas, para convertir textos digitales (por ejemplo, los libros electrónicos) en audiolibros y para mejorar los sistemas de navegación de los automóviles. Gracias a su prosodia natural similar a la humana y a la clara articulación de las palabras, las voces neuronales reducen considerablemente la fatiga al escucharlas que suele aparecer cuando los usuarios interactúan con sistemas de inteligencia artificial. Hay una lista completa de voces neuronales en [Idiomas admitidos](language-support.md#text-to-speech).
 
-* Ajuste de estilos de habla con SSML: Lenguaje de marcado de síntesis de voz (SSML) es un lenguaje de marcado basado en XML que se usa para personalizar las salidas de voz a texto. Con SSML, puede ajustar el tono, agregar pausas, mejorar la pronunciación, acelerar o ralentizar la velocidad del habla, subir o bajar el volumen y atribuir varias voces a un solo documento. Consulte el [procedimiento](speech-synthesis-markup.md) para ajustar estilos de habla.
+* Ajuste de la salida de TTS con SSML: el Lenguaje de marcado de síntesis de voz (SSML) es un lenguaje de marcado basado en XML que se usa para personalizar las salidas de texto a voz. Con SSML, no solo puede ajustar el tono, agregar pausas, mejorar la pronunciación, cambiar la velocidad de habla, ajustar el volumen y atribuir varias voces a un solo documento, sino también definir sus propios léxicos o cambiar a otros estilos de habla. Con las voces multilingües, también puede ajustar los idiomas de habla mediante SSML. Consulte [Mejora de la síntesis con el Lenguaje de marcado de síntesis de voz (SSML)](speech-synthesis-markup.md) para ajustar la salida de voz para su escenario. 
 
 * Visemas: [Visemas](how-to-speech-synthesis-viseme.md) son los principales planteamientos de la voz observada, incluida la posición de los labios, mandíbula y lengua al producir un fonema determinado. Las visemas tienen una correlación fuerte con las voces y fonemas. Mediante el uso de eventos de visema en Speech SDK, puede generar datos de animaciones faciales, que se pueden usar para animar caras en la comunicación de lectura de LIP, educación, entretenimiento y servicio de atención al cliente. Actualmente, visema solo es compatible con las [voces neuronales](language-support.md#text-to-speech) en `en-US` inglés (Estados Unidos).
 
@@ -61,7 +61,7 @@ El ejemplo de código para texto a voz está disponible en GitHub. Estos ejemplo
 
 ## <a name="customization"></a>Personalización
 
-Además de las voces neuronales, puede crear y ajustar las voces personalizadas exclusivas del producto o la marca. Todo lo que se necesita para empezar son unos cuantos archivos de audio y las transcripciones asociadas. Para obtener información, consulte [Introducción a voz personalizada](how-to-custom-voice.md).
+Además de las voces neuronales, puede crear y ajustar las voces personalizadas exclusivas del producto o la marca. Todo lo que se necesita para empezar son unos cuantos archivos de audio y las transcripciones asociadas. Para más información, consulte [Introducción a voz personalizada](how-to-custom-voice.md).
 
 ## <a name="pricing-note"></a>Nota de precios
 

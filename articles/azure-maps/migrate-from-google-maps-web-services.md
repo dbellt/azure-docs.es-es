@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: d2b80dfa091d6a2b892c8baf8e9c35084c5bee4e
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: caed40f91ef6a6c1e8bdb353c6548aee699dbc07
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076395"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110795435"
 ---
 # <a name="tutorial-migrate-web-service-from-google-maps"></a>Tutorial: Migración de un servicio web desde Google Maps
 
@@ -50,7 +50,7 @@ En la tabla se muestran las API de servicio de Azure Maps, que tienen una funcio
 | Límites de velocidad            | Consulte la sección [Geocodificación inversa de una coordenada](#reverse-geocode-a-coordinate).         |         
 | Mapa estático              | [Render](/rest/api/maps/render/getmapimage)                       |                         
 | Zona horaria               | [Zona horaria](/rest/api/maps/timezone)                              |                         
-| Elevation               | [Elevation (versión preliminar)](/rest/api/maps/elevation)                   | 
+| Elevation               | [Elevación](/rest/api/maps/elevation)                   | 
 
 Las siguientes API de servicio no están disponibles actualmente en Azure Maps:
 
@@ -203,7 +203,7 @@ El servicio de enrutamiento de Azure Maps proporciona las siguientes API para c
 
 - [**Calcular ruta**](/rest/api/maps/route/getroutedirections): calcula una ruta y la solicitud se procesa inmediatamente. Esta API admite solicitudes tanto GET como POST. Las solicitudes POST son recomendables cuando se especifica un gran número de puntos de referencia o se utilizan muchas opciones de ruta para garantizar que la solicitud de dirección URL no sea demasiado larga y provoque problemas. La dirección de la ruta POST de Azure Maps tiene una opción que puede tomar miles de [puntos de apoyo](/rest/api/maps/route/postroutedirections#supportingpoints) y los usa para volver a crear una ruta lógica entre ellos (ajustar a la carretera). 
 - [**Ruta por lotes**](/rest/api/maps/route/postroutedirectionsbatchpreview): cree una solicitud que contenga hasta 1000 solicitudes de ruta y procéselas durante un período de tiempo determinado. Todos los datos se procesarán en paralelo en el servidor y, cuando la operación se complete, puede descargar el conjunto de resultados completo.
-- [**Servicio Mobility (versión preliminar) **](/rest/api/maps/mobility): calcula rutas y direcciones según el transporte público.
+- [**Servicios Mobility (versión preliminar)** ](/rest/api/maps/mobility): calcule rutas y direcciones si usa transporte público.
 
 En la tabla se establecen referencias cruzadas entre los parámetros de API de Google Maps y los parámetros de API similares correspondientes de Azure Maps.
 

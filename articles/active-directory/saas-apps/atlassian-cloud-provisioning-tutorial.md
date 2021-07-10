@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 691d35267c255c933a8098b99301fbb795a3cd0c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 172ffe8b5028032c38f5c86a7289cef4250653a4
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181074"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110614956"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Tutorial: Configuración de Atlassian Cloud para el aprovisionamiento automático de usuarios
 
@@ -104,7 +104,9 @@ Esta sección le guiará por los pasos necesarios para configurar el servicio de
 
 8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Atlassian Cloud** (Sincronizar usuarios de Azure Active Directory con Atlassian Cloud).
 
-9. Revise los atributos de usuario que se sincronizan entre Azure AD y Atlassian Cloud en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Atlassian Cloud con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
+9. Revise los atributos de usuario que se sincronizan entre Azure AD y Atlassian Cloud en la sección **Asignación de atributos**.
+   El atributo email se usará para hacer coincidir las cuentas de Atlassian Cloud con las de Azure AD.
+   Seleccione el botón **Guardar** para confirmar los cambios.
 
    |Atributo|Tipo|
    |---|---|
@@ -116,7 +118,9 @@ Esta sección le guiará por los pasos necesarios para configurar el servicio de
 
 10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to Atlassian Cloud** (Sincronizar grupos de Azure Active Directory con Atlassian Cloud).
 
-11. Revise los atributos de grupo que se sincronizan entre Azure AD y Atlassian Cloud en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con los grupos de Atlassian Cloud para las operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
+11. Revise los atributos de grupo que se sincronizan entre Azure AD y Atlassian Cloud en la sección **Asignación de atributos**.
+    El atributo display name se usará para hacer coincidir los grupos de Atlassian Cloud con los de Azure AD.
+    Seleccione el botón **Guardar** para confirmar los cambios.
 
       |Atributo|Tipo|
       |---|---|
@@ -134,7 +138,7 @@ Esta sección le guiará por los pasos necesarios para configurar el servicio de
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 
-16. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar**.
+15. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar**.
 
     ![Guardar la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
 

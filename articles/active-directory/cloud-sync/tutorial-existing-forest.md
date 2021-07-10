@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64536024af7e939de2bd8f98a9ce14bb4df3303f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c447bae82f4e8eb428942bdf807f6ebf23b4043c
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98612363"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110070361"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>Integración de un bosque existente y un nuevo bosque con un único inquilino de Azure AD
 
@@ -68,6 +68,9 @@ En este escenario, hay un bosque existente sincronizado mediante Azure AD Conne
 
 9. En la pantalla **Configuración completa**, haga clic en **Confirmar**.  Esta operación registrará el agente y lo reiniciará.</br>
 ![Captura de pantalla que muestra la pantalla "Configuración completada".](media/how-to-install/install-4a.png)</br>
+
+   > [!NOTE]
+   > La cuenta de servicio administrado de grupo (por ejemplo, CONTOSO\provAgentgMSA$) se crea en el mismo dominio de Active Directory al que se ha unido el servidor host.
 
 10. Una vez que se completa esta operación debería aparecer un aviso: **La configuración del agente se ha comprobado correctamente.**  Puede hacer clic en **Salir**.</br>
 ![Pantalla principal](media/how-to-install/install-5.png)</br>

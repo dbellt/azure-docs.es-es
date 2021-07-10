@@ -20,6 +20,12 @@ items:
         href: manage-kafka-dotnet.md
   - name: Tutoriales
     items:
+      - name: Incorporación de orígenes de datos de Azure a escala
+        items:
+          - name: Comprobación de idoneidad de orígenes de datos de Azure a escala
+            href: tutorial-data-sources-readiness.md
+          - name: Configuración de MSI de Azure Purview a escala
+            href: tutorial-msi-configuration.md
       - name: Starter Kit
         items:
           - name: Examen de datos
@@ -152,7 +158,7 @@ items:
             href: how-to-browse-catalog.md
           - name: Búsqueda en Data Catalog
             href: how-to-search-catalog.md
-      - name: Lineage
+      - name: Linaje
         items:
           - name: Guía de usuario de Lineage
             href: catalog-lineage-user-guide.md
@@ -196,6 +202,8 @@ items:
     items:
       - name: Clasificaciones admitidas
         href: supported-classifications.md
+      - name: Glosario de productos de Azure Purview
+        href: reference-purview-glossary.md
       - name: Guía de implementación de funciones de ABAP
         href: abap-functions-deployment-guide.md
   - name: Recursos

@@ -10,14 +10,14 @@ ms.author: seramasu
 author: rsethur
 ms.reviewer: laobri
 ms.date: 05/25/2021
-ms.openlocfilehash: 472af8cdb377ea5eb1be15ebcfadabb38311545a
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: bc1983a16ba2ec85dc943e10d7b2220b0de1dc88
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382913"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111408540"
 ---
-# <a name="what-are-azure-machine-learning-endpoints-preview"></a>¿Qué son los puntos de conexión de Azure Machine Learning (versión preliminar)?
+# <a name="what-are-azure-machine-learning-endpoints-preview"></a>¿Qué son los puntos de conexión de Azure Machine Learning (versión preliminar)? 
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -140,7 +140,7 @@ Los puntos de conexión en línea administrados pueden ayudar a simplificar el p
 :::image type="content" source="media/concept-endpoints/endpoint-deployment-costs.png" alt-text="Captura de pantalla del gráfico de costos de un punto de conexión y de la implementación":::
 
 - Visualización de costos 
-    - Los puntos de conexión en línea administrados le permiten [supervisar el costo en los niveles de punto de conexión y de implementación](how-to-view-online-endpoints-costs.md).
+    - Los puntos de conexión en línea administrados permiten [supervisar el costo en los niveles de punto de conexión e implementación](how-to-view-online-endpoints-costs.md).
 
 Para ver un tutorial paso a paso, consulte [Implementación de puntos de conexión en línea administrados](how-to-deploy-managed-online-endpoints.md).
 

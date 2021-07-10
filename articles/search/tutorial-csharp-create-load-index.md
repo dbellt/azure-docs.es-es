@@ -7,15 +7,15 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 04/23/2021
+ms.date: 05/21/2021
 ms.custom: devx-track-csharp
 ms.devlang: dotnet
-ms.openlocfilehash: b7bbf9f1ec572680f02e4b6d3adca6d807b45f83
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 7822f86b52bf3b8fce9ee144797d8a9b83d90a9b
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107981996"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110469859"
 ---
 # <a name="2---create-and-load-search-index-with-net"></a>2\. Creación y carga de un índice de búsqueda con .NET
 
@@ -103,6 +103,14 @@ Anote el **nombre del recurso Search**. Lo necesitará para conectar la aplicaci
 
 > [!CAUTION]
 > Aunque es posible que se sienta tentado a utilizar la clave de administración de búsqueda en Función de Azure, no sigue el principio de privilegio mínimo. Función de Azure usará la clave de consulta para ajustarse al privilegio mínimo. 
+
+## <a name="rollback-bulk-import-file-changes"></a>Reversión de cambios de archivos de importación masiva
+
+Use el siguiente comando git en el terminal de VS Code integrado en el directorio `bulk-insert` para revertir los cambios. No son necesarios para continuar con el tutorial y no debe guardar ni insertar estos secretos en el repositorio. 
+
+```git
+git checkout .
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

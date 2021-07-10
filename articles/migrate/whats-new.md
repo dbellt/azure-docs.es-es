@@ -7,16 +7,22 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 3f49c0acc99f82cc2986ca896d40b3998cf47c5c
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: dadde132effe24fa1cdffd8830139573de4ee5d4
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107835009"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111439987"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novedades de Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) le ayuda a detectar, evaluar y migrar servidores, aplicaciones y datos locales a la nube de Microsoft Azure. En este artículo se resumen las nuevas versiones y características de Azure Migrate.
+
+## <a name="update-june-2021"></a>Actualización (junio de 2021)
+- Azure Migrate permite registrar servidores que ejecutan SQL Server en el RP de máquina virtual de SQL durante la replicación para instalar automáticamente la extensión del Agente IaaS de SQL. Esta característica está disponible para VMware sin agente, Hyper-V sin agente y migraciones basadas en agente.
+
+## <a name="update-may-2021"></a>Actualización (mayo de 2021)
+- Ahora se admite la migración de máquinas virtuales y servidores físicos con discos del sistema operativo de hasta 4 TB mediante el método de migración basado en agente.
 
 ## <a name="update-march-2021"></a>Actualización (marzo de 2021)
 - Compatibilidad para proporcionar varias credenciales de servidor en un dispositivo de Azure Migrate y detectar las aplicaciones instaladas (inventario de software), realizar análisis de dependencias sin agente y detectar instancias y bases de datos de SQL Server en el entorno de VMware. [Más información](tutorial-discover-vmware.md#provide-server-credentials)
@@ -59,7 +65,7 @@ ms.locfileid: "107835009"
 
 ## <a name="update-april-2020"></a>Actualización (abril de 2020)
 
-Azure Migrate admite implementaciones en Azure Government. 
+Azure Migrate admite implementaciones en Azure Government.
 
 - Puede descubrir y evaluar máquinas virtuales de VMware, máquinas virtuales de Hyper-V y servidores físicos.
 - Puede migrar máquinas virtuales de VMware locales, máquinas virtuales Hyper-V y servidores físicos a Azure.

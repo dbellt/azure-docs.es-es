@@ -3,13 +3,13 @@ title: Emparejamiento de entornos locales con Azure VMware Solution
 description: Aprenda a emparejar ExpressRoute Global Reach con una nube privada en Azure VMware Solution.
 ms.topic: tutorial
 ms.custom: contperf-fy21q4
-ms.date: 04/27/2021
-ms.openlocfilehash: fb0d8bc8391c96449cdf260c543cfed1af1125f5
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.date: 05/14/2021
+ms.openlocfilehash: 2b2fdf739b8e690b3210e1ba975ef14125e51c11
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108176115"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110086867"
 ---
 # <a name="peer-on-premises-environments-to-azure-vmware-solution"></a>Emparejamiento de entornos locales con Azure VMware Solution
 
@@ -33,7 +33,7 @@ Antes de habilitar la conectividad entre dos circuitos ExpressRoute mediante Glo
 - Asegúrese de que todas las puertas de enlace, incluido el servicio del proveedor de ExpressRoute, admitan un número de sistema autónomo (ASN) de 4 bytes. Azure VMware Solution utiliza ASN públicos de 4 bytes para anunciar rutas.
 
 
-## <a name="create-an-expressroute-authorization-key-in-the-on-premises-expressroute-circuit"></a>Creación de una clave de autorización de ExpressRoute en el circuito local de ExpressRoute
+## <a name="create-an-expressroute-auth-key-in-the-on-premises-expressroute-circuit"></a>Creación de una clave de autorización de ExpressRoute en el circuito local de ExpressRoute
 
 1. En la hoja **Circuitos de ExpressRoute**, en Configuración, seleccione **Autorizaciones**.
 

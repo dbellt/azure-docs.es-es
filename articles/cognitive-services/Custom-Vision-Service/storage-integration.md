@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: fd4ad1443f466a78abfc569d5f52f6bdeff2d5be
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 92a9b79e4de60e7308224b435953ac7b3eefc8a1
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048891"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951074"
 ---
 # <a name="integrate-azure-storage-for-notifications-and-backup"></a>Integración de Azure Storage con las notificaciones y la copia de seguridad
 
@@ -28,8 +28,8 @@ En esta guía se muestra cómo usar las API de REST con cURL. También puede usa
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Un recurso de Custom Vision en Azure. Si no tiene uno, vaya a Azure Portal y [cree un recurso de Custom Vision](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true). Esta característica no admite actualmente el recurso de Cognitive Services (clave todo en uno).
-- Una cuenta de Azure Storage con un contenedor de blobs. Siga el [ejercicio 1 del laboratorio de Azure Storage](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) si necesita ayuda con este paso.
-* [PowerShell versión 6.0+](/powershell/scripting/install/installing-powershell-core-on-windows) o una aplicación de la línea de comandos similar.
+- Una cuenta de Azure Storage con un contenedor de blobs. Si necesita ayuda con este paso, consulte el [inicio rápido de Storage](../../storage/blobs/storage-quickstart-blobs-portal.md).
+- [PowerShell versión 6.0+](/powershell/scripting/install/installing-powershell-core-on-windows) o una aplicación de la línea de comandos similar.
 
 ## <a name="set-up-azure-storage-integration"></a>Configuración de la integración de Azure Storage
 

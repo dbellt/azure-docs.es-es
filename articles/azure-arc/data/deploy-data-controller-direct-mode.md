@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 05/04/2021
 ms.topic: overview
-ms.openlocfilehash: 2cd9e1b0f3ba11eb051eb8d7f829b0c3b8b77c73
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: c5d09e98e25ccd91e1f9489ee161e88cb707c07e
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108748122"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111408324"
 ---
 #  <a name="deploy-azure-arc-data-controller--direct-connect-mode"></a>Implementación del controlador de datos de Azure Arc | Modo de conexión directa
 
@@ -79,6 +79,20 @@ az k8s-extension create -c "$ENV:resourceName" -g "$ENV:resourceGroup" --name "$
 
 az k8s-extension show -g "$ENV:resourceGroup" -c "$ENV:resourceName" --name "$ENV:ADSExtensionName" --cluster-type connectedclusters
 ```
+
+#### <a name="deploy-azure-arc-data-services-extension-using-private-container-registry-and-credentials"></a>Implementación de la extensión de servicios de datos de Azure Arc mediante credenciales y registro de contenedor privado
+
+Use el comando siguiente si va a realizar la implementación desde el repositorio privado:
+
+```
+az k8s-extension create -c "<connected cluster name>" -g "<resource group>" --name "<extension name>" --cluster-type connectedClusters --extension-type microsoft.arcdataservices --scope cluster --release-namespace "<namespace>" --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper --config imageCredentials.registry=<registry info> --config imageCredentials.username=<username> --config systemDefaultValues.image=<registry/repo/arc-bootstrapper:<imagetag>> --config-protected imageCredentials.password=$ENV:DOCKER_PASSWORD --debug
+```
+
+ Por ejemplo
+```
+az k8s-extension create -c "my-connected-cluster" -g "my-resource-group" --name "arc-data-services" --cluster-type connectedClusters --extension-type microsoft.arcdataservices --scope cluster --release-namespace "arc" --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper --config imageCredentials.registry=mcr.microsoft.com --config imageCredentials.username=arcuser --config systemDefaultValues.image=mcr.microsoft.com/arcdata/arc-bootstrapper:latest --config-protected imageCredentials.password=$ENV:DOCKER_PASSWORD --debug
+```
+
 
 > [!NOTE]
 > La instalación de la extensión de servicios de datos de Arc puede tardar un par de minutos en finalizar.

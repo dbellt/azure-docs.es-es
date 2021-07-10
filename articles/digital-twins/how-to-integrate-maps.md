@@ -2,18 +2,18 @@
 title: Integración con Azure Maps
 titleSuffix: Azure Digital Twins
 description: Vea cómo usar Azure Functions para crear una función que pueda usar las notificaciones de Azure Digital Twins y el grafo de gemelos para actualizar un mapa de interiores de Azure Maps.
-author: alexkarcher-msft
-ms.author: alkarche
+author: baanders
+ms.author: baanders
 ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: b2b6e045a86fff7ba8a0d88a938fae93a0c6812a
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 69a02db3eafa9c75808eece69ce8ed676adf0ab2
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790458"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110615821"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Uso de Azure Digital Twins para actualizar un plano interior de Azure Maps
 
@@ -37,7 +37,7 @@ En estas instrucciones se tratará lo siguiente:
 
 En la imagen siguiente se muestra dónde encajan los elementos de integración de planos interiores en este tutorial en un escenario de mayor tamaño de Azure Digital Twins de un extremo a otro.
 
-:::image type="content" source="media/how-to-integrate-maps/maps-integration-topology.png" alt-text="Vista de los servicios de Azure en un escenario de un extremo a otro, resaltando la parte Integración de planos interiores" lightbox="media/how-to-integrate-maps/maps-integration-topology.png":::
+:::image type="content" source="media/how-to-integrate-maps/maps-integration-topology.png" alt-text="Diagrama de los servicios de Azure en un escenario de un extremo a otro en el que se resalta la parte Integración de Indoor Maps." lightbox="media/how-to-integrate-maps/maps-integration-topology.png":::
 
 ## <a name="create-a-function-to-update-a-map-when-twins-update"></a>Creación de una función para actualizar un plano al actualizar los gemelos
 
@@ -67,7 +67,7 @@ Este patrón realiza la lectura directamente desde el gemelo de la sala, en luga
     >Para resolverlo, ejecute `az login` en Cloud Shell antes de ejecutar el comando, o bien use la [CLI local](/cli/azure/install-azure-cli) en lugar de Cloud Shell. Para obtener más información, vea [Solución de problemas: Problemas conocidos en Azure Digital Twins](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
 
     ```azurecli-interactive
-    az dt route create --dt-name <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
+    az dt route create --dt-name <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my-route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
 
 ## <a name="create-a-function-to-update-maps"></a>Creación de una función para actualizar planos
@@ -83,8 +83,8 @@ Reemplace el código de la función por el siguiente. Solo filtrará las actuali
 Tendrá que establecer dos variables de entorno en la aplicación de funciones. Una es la [clave de suscripción principal de Azure Maps](../azure-maps/quick-demo-map-app.md#get-the-primary-key-for-your-account), y la otra, el [id. del conjunto de estados de Azure Maps](../azure-maps/tutorial-creator-indoor-maps.md#create-a-feature-stateset).
 
 ```azurecli-interactive
-az functionapp config appsettings set --name <your-App-Service-(function-app)-name> --resource-group <your-resource-group> --settings "subscription-key=<your-Azure-Maps-primary-subscription-key>"
-az functionapp config appsettings set --name <your-App-Service-(function-app)-name>  --resource-group <your-resource-group> --settings "statesetID=<your-Azure-Maps-stateset-ID>"
+az functionapp config appsettings set --name <your-App-Service-function-app-name> --resource-group <your-resource-group> --settings "subscription-key=<your-Azure-Maps-primary-subscription-key>"
+az functionapp config appsettings set --name <your-App-Service-function-app-name>  --resource-group <your-resource-group> --settings "statesetID=<your-Azure-Maps-stateset-ID>"
 ```
 
 ### <a name="view-live-updates-on-your-map"></a>Consulta de actualizaciones directas en el plano
@@ -92,14 +92,14 @@ az functionapp config appsettings set --name <your-App-Service-(function-app)-na
 Para ver las actualizaciones directas de la temperatura, siga estos pasos:
 
 1. Comience a enviar datos de IoT simulados mediante la ejecución del proyecto **DeviceSimulator** desde el [Tutorial de Azure Digital Twins: Conexión de una solución de un extremo a otro](tutorial-end-to-end.md). Las instrucciones se encuentran en la sección [Configuración y ejecución de la simulación](././tutorial-end-to-end.md#configure-and-run-the-simulation).
-2. Use [el módulo **Azure Maps Indoor**](../azure-maps/how-to-use-indoor-module.md) para representar planos interiores creados en el Creador de Azure Maps.
+2. Use [el módulo Indoor de Azure Maps](../azure-maps/how-to-use-indoor-module.md) para representar los mapas de interiores creados en Azure Maps Creator.
     1. Copie el HTML de la sección [Ejemplo: Uso del módulo de planos interiores](../azure-maps/how-to-use-indoor-module.md#example-use-the-indoor-maps-module) del [Tutorial: Uso del módulo de mapas de Azure Maps Indoor](../azure-maps/how-to-use-indoor-module.md) en un archivo local.
     1. Reemplace la *clave de suscripción* y los elementos *tilesetId* y *statesetID* en el archivo HTML local por sus valores.
     1. Abra ese archivo en el explorador.
 
 Ambos ejemplos envían la temperatura en un rango compatible, por lo que debería ver el color de la actualización de la sala 121 en el plano aproximadamente cada 30 segundos.
 
-:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="Plano de una oficina que muestra la sala 121 de color naranja":::
+:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="Captura de pantalla de un plano de una oficina en la que se muestra la sala 121 de color naranja.":::
 
 ## <a name="store-your-maps-information-in-azure-digital-twins"></a>Almacenamiento de la información de los planos en Azure Digital Twins
 

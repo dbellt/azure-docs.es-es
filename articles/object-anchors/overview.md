@@ -7,12 +7,12 @@ ms.author: crtreasu
 ms.date: 03/02/2021
 ms.topic: overview
 ms.service: azure-object-anchors
-ms.openlocfilehash: 90b718e34a12fe71eec4e972bbf8de42d8b52007
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 84a69c46e9d7587ed87d8288fca5e7d8ef25f546
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063770"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111983601"
 ---
 # <a name="azure-object-anchors-overview"></a>Información general de Azure Object Anchors
 
@@ -20,7 +20,7 @@ Azure Object Anchors permite a una aplicación detectar un objeto en el mundo f
 
 Azure Object Anchors consta de un servicio para la conversión de modelos y un SDK de cliente de entorno de ejecución para HoloLens. El servicio acepta un modelo de objetos 3D y genera un modelo de Azure Object Anchors. El modelo de Azure Object Anchors se usa junto con el SDK de entorno de ejecución para permitir que una aplicación de HoloLens cargue un modelo de objetos y detecte y haga el seguimiento de las instancias de ese modelo en el mundo físico.
 
-:::image type="content" source="./media/aoa-overview.jpg" alt-text="Azure Object Anchors en acción":::
+:::image type="content" source="./media/object-anchors-overview.jpg" alt-text="Azure Object Anchors en acción":::
 
 ## <a name="examples"></a>Ejemplos
 
@@ -31,6 +31,24 @@ Entre los casos de uso de ejemplos habilitados por Azure Object Anchors se incl
 - **Guía para las tareas**. Guiar a los empleados por un conjunto de tareas puede ser mucho más sencillo con Mixed Reality. La superposición de instrucciones y procedimientos recomendados digitales aplicada al objeto físico, que puede ser una pieza de maquinaria en una planta de producción o una cafetera en la cocina del equipo, puede disminuir considerablemente la dificultad de completar el conjunto de tareas. Por lo general, desencadenar estas experiencias requiere algún tipo de marcador o alineación manual, pero con Azure Object Anchors, puede crear una experiencia que detecte automáticamente el objeto relacionado con la tarea a mano. Luego, siga sin problemas por las directrices de Mixed Reality sin marcadores ni alineación manual.
 
 - **Búsqueda de recursos**. Si ya tiene un modelo 3D de algún objeto en el espacio físico, Azure Object Anchors puede permitirle localizar instancias de ese objeto en el entorno físico y hacer su seguimiento.
+
+## <a name="usage-flow"></a>Flujo de uso
+
+En primer lugar, cargue el recurso 3d en nuestro servicio de conversión de Azure Object Anchors. Puede seguir los pasos de uno de nuestros inicios rápidos:
+
+  - [HoloLens en Unity](quickstarts/get-started-unity-hololens.md)
+  - [HoloLens para Unity con MRTK](quickstarts/get-started-unity-hololens-mrtk.md)
+  - [HoloLens DirectX](quickstarts/get-started-hololens-directx.md)
+
+A continuación, el servicio convertirá el recurso en un modelo de Azure Object Anchors. Descargue el modelo convertido, para que pueda [visualizar su malla](visualize-converted-model.md) si lo desea. Por último, copie el modelo en un dispositivo HoloLens que tenga el SDK del entorno de ejecución para [Unity](/dotnet/api/Microsoft.Azure.ObjectAnchors) u [HoloLens C++/WinRT](/cpp/api/object-anchors/winrt): ahora puede detectar objetos físicos que coincidan con el modelo original.
+
+:::image type="content" source="./media/object-anchors-flow.png" alt-text="Flujo de uso":::
+
+## <a name="asset-requirements"></a>Requisitos de los recursos
+
+Cada dimensión de un recurso debe tener entre 1 y 10 metros, y el tamaño del archivo debe ser inferior a 150 MB.
+
+Los formatos de recurso admitidos actualmente son: `fbx`, `ply`, `obj`, `glb` y `gltf`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -6,16 +6,16 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 06/30/2021
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-azcli-net-ps
-ms.openlocfilehash: b24fbcafa917e4577dc0b13b83e83cf105174332
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: d852cc082640c676b06efc4799f9a3b7211dcf2e
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113113202"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591519"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Inicio rápido: Creación y administración de recursos de Communication Services
 
@@ -23,7 +23,8 @@ Aprovisione su primer recurso de Communication Services a fin de empezar a usar 
 
 
 > [!WARNING]
-> Tenga en cuenta que, aunque Communication Services está disponibles en varias regiones geográficas, para obtener un número de teléfono, el recurso debe tener una ubicación de datos establecida en "EE. UU.". Además, observe que no es posible crear un grupo de recursos al mismo tiempo que un recurso para Azure Communication Services. Al crear un recurso, se debe usar un grupo de recursos que ya se ha creado.
+> Tenga en cuenta que, aunque Communication Services está disponibles en varias regiones geográficas, para obtener un número de teléfono, el recurso debe tener una ubicación de datos establecida en "EE. UU.". Tenga en cuenta también que los traslados de recursos no se admiten actualmente, pero estarán disponibles pronto.
+> Además, observe que no es posible crear un grupo de recursos al mismo tiempo que un recurso para Azure Communication Services. Al crear un recurso, se debe usar un grupo de recursos que ya se ha creado.
 
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/create-resource-azp.md)]

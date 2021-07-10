@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: Configuración de Azure Bastion y conexión a una máquina virtual mediante una dirección IP privada y un explorador'
 titleSuffix: Azure Bastion
-description: En este artículo de inicio rápido aprenderá a crear un host de Azure Bastion desde una máquina virtual y a conectarse a ella de forma segura mediante el explorador y una dirección IP privada.
+description: Aprenda a crear un host de Azure Bastion desde una máquina virtual y a conectarse a ella de forma segura mediante el explorador y una dirección IP privada.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: quickstart
 ms.date: 02/18/2021
 ms.author: cherylmc
-ms.openlocfilehash: 53f09eed89f9667611ed4d5e0268c889609d560a
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: e51d8633418a0a00afb8a6055c05f9c77d93f3cb
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553573"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110540460"
 ---
 # <a name="quickstart-connect-to-a-vm-securely-through-a-browser-via-private-ip-address"></a>Inicio rápido: conexión a una máquina virtual de forma segura mediante un explorador y una dirección IP privada
 

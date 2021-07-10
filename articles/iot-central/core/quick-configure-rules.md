@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 94dab0124a1f5e0144aab2e271fbf89e02111d3a
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 25342ef6f7a79d91e91c59b88639318bfbf824e8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108206806"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110072935"
 ---
 # <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Inicio rápido: Configuración de reglas y acciones para el dispositivo en Azure IoT Central
 
@@ -45,7 +45,7 @@ Antes de comenzar debe completar los dos inicios rápidos anteriores [Creación 
 
     :::image type="content" source="media/quick-configure-rules/condition.png" alt-text="Captura de pantalla que muestra la condición de la regla.":::
 
-1. Para agregar una acción de correo para que se ejecute cuando se desencadene la regla, seleccione **+ Correo electrónico**.
+1. Para agregar una acción de correo electrónico para que se ejecute cuando se desencadene la regla, en la sección **Acción**, seleccione **+ Correo electrónico**.
 
 1. Use la información de la tabla siguiente para definir la acción y, después, seleccione **Listo**:
 

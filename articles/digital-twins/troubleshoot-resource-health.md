@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/6/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 20afd0a696a2bbeda0e2fa8bb114ecb8b5b6a76b
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: f62e07bbc5b61ce07299f1d617b8aea1b331024e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205546"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475596"
 ---
 # <a name="troubleshooting-azure-digital-twins-resource-health"></a>Solución de problemas de Azure Digital Twins: Estado de los recursos
 
@@ -30,7 +30,7 @@ Para comprobar el estado de la instancia, siga estos pasos:
 
 2. En el menú de la instancia, seleccione _**Resource Health**_ en *Soporte técnico y solución de problemas*. Esto le llevará a la página para ver el historial de estado de los recursos. 
 
-    :::image type="content" source="media/troubleshoot-resource-health/resource-health.png" alt-text="Captura de pantalla que muestra la página &quot;Resource Health&quot;. Hay una sección &quot;Historial de estado&quot; que muestra un informe diario de los últimos nueve días. Cada día muestra el estado &quot;Disponible&quot;.":::
+    :::image type="content" source="media/troubleshoot-resource-health/resource-health.png" alt-text="Captura de pantalla que muestra la página &quot;Resource Health&quot;. Hay una sección &quot;Historial de estado&quot; que muestra un informe diario de los últimos nueve días.":::
 
 En la imagen anterior, esta instancia se muestra como *Disponible* y lo ha estado durante los últimos nueve días. Para más información sobre el estado *Disponible* y los otros tipos de estado que pueden aparecer, consulte [Introducción a Resource Health](../service-health/resource-health-overview.md).
 
