@@ -16,12 +16,12 @@ ms.date: 12/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 759781fd61cd42d05f2823d390e99d128dd2fcac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 83aa5f4527885fbb0a02c70857cdd8409f0fa554
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96512399"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111892731"
 ---
 # <a name="management-capabilities-for-privileged-access-azure-ad-groups-preview"></a>Funcionalidades de administración de grupos de Azure AD de acceso con privilegios (versión preliminar)
 
@@ -36,7 +36,7 @@ Algunas organizaciones usan herramientas, como la colaboración B2B de Azure AD
 
 ## <a name="activate-multiple-role-assignments-in-a-single-request"></a>Activación de varias asignaciones de roles en una única solicitud
 
-Con la versión preliminar de los grupos de acceso con privilegios, puede proporcionar a los administradores específicos de las cargas de trabajo un acceso rápido a varios roles con una única solicitud cuando es necesario. Por ejemplo, es posible que unos administradores de Office de nivel 3 necesiten acceso cuando es necesario a los roles Administrador de Exchange, Administrador de aplicaciones de Office, Administrador de Teams y Administrador de Search para investigar los incidentes que se producen a diario. Antes se necesitarían cuatro solicitudes consecutivas, lo que conlleva un proceso que tarda un tiempo en realizarse. En su lugar, se puede crear un grupo, al que se pueden asignar roles, llamado “Administradores de Office de nivel 3”, asignarlo a los cuatro roles que hemos mencionado (o a cualquier rol integrado de Azure AD) y habilitarlo para un acceso con privilegios en la sesión Actividad del grupo. Una vez habilitado para el acceso con privilegios, puede configurar el acceso cuando es necesario de los miembros del grupo y asignar los administradores y propietarios como aptos. Cuando se eleven los privilegios de los administradores en el grupo, se convertirán en miembros de los cuatro roles de Azure AD.
+Con la versión preliminar de los grupos de acceso con privilegios, puede proporcionar a los administradores específicos de las cargas de trabajo un acceso rápido a varios roles con una única solicitud cuando es necesario. Por ejemplo, es posible que unos administradores de Office de nivel 0 necesiten acceso JIT a los roles Administrador de Exchange, Administrador de aplicaciones de Office, Administrador de Teams y Administrador de Search para investigar los incidentes que se producen a diario. Antes se necesitarían cuatro solicitudes consecutivas, lo que conlleva un proceso que tarda un tiempo en realizarse. En su lugar, se puede crear un grupo, al que se pueden asignar roles, llamado “Administradores de Office de nivel 0”, asignarlo a los cuatro roles que hemos mencionado (o a cualquier rol integrado de Azure AD) y habilitarlo para un acceso con privilegios en la sesión Actividad del grupo. Una vez habilitado para el acceso con privilegios, puede configurar el acceso cuando es necesario de los miembros del grupo y asignar los administradores y propietarios como aptos. Cuando se eleven los privilegios de los administradores en el grupo, se convertirán en miembros de los cuatro roles de Azure AD.
 
 ## <a name="extend-and-renew-group-assignments"></a>Extensión y renovación de asignaciones de grupos
 

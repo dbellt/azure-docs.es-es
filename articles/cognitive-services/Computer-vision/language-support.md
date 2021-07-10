@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: a37b740333e599d19248ffa9b21be3e4d6fe78b3
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 9a52020ae09ff454af1d756dbff4041e96b2f798
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107306303"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111901572"
 ---
 # <a name="language-support-for-computer-vision"></a>Compatibilidad con idiomas para Computer Vision
 
@@ -25,89 +25,89 @@ Algunas características de Computer Vision admiten varios idiomas; las caracter
 
 Las API de OCR de Computer Vision admiten varios idiomas. No requieren que especifique un código de idioma. Consulte [Información general sobre el reconocimiento óptico de caracteres (OCR)](overview-ocr.md) para más información.
 
-|Idioma| Código de lenguaje | API de OCR | Read 3.0/3.1 | Read v3.2 |
+|Idioma| Código de lenguaje | Read 3.2 | API de OCR | Read 3.0/3.1 |
 |:-----|:----:|:-----:|:---:|:---:|
-|Afrikáans|`af`| | |✔ |
-|Albanés |`sq`| | |✔ |
-|Árabe | `ar`|✔ | | |
-|Asturiano |`ast`| | |✔ |
-|Vasco  |`eu`| | |✔ |
-|Bislama   |`bi`| | |✔ |
-|Bretón    |`br`| | |✔ |
-|Catalán    |`ca`| | |✔ |
-|Cebuano    |`ceb`| | |✔ |
-|Chamorro  |`ch`| | |✔ |
-|Chino (simplificado) | `zh-Hans`|✔ | |✔ |
-|Chino (tradicional) | `zh-Hant`|✔ | |✔ |
-|Córnico     |`kw`| | |✔ |
-|Corso      |`co`| | |✔ |
-|Tártaro de Crimea (Latín)  |`crh`| | |✔ |
-|Checo | `cs` |✔ | |✔ |
-|Danés | `da` |✔ | |✔ |
+|Afrikáans|`af`|✔ | | |
+|Albanés |`sq`|✔ | | |
+|Árabe | `ar`| ✔ | | |
+|Asturiano |`ast`|✔ | | |
+|Vasco  |`eu`| ✔ | | |
+|Bislama   |`bi`|✔ | | |
+|Bretón    |`br`|✔ | | |
+|Catalán    |`ca`|✔ | | |
+|Cebuano    |`ceb`|✔ | | |
+|Chamorro  |`ch`|✔| | |
+|Chino simplificado | `zh-Hans`|✔ |✔ | |
+|Chino tradicional | `zh-Hant`|✔ |✔ | |
+|Córnico     |`kw`|✔ | | |
+|Corso      |`co`|✔ | | |
+|Tártaro de Crimea (Latín)  |`crh`| ✔ | | |
+|Checo | `cs` |✔ | ✔ | |
+|Danés | `da` |✔ | ✔ | |
 |Neerlandés | `nl` |✔ |✔ |✔ |
-|Inglés | `en` |✔ |✔ |✔ |
-|Estonio  |`et`| | |✔ |
-|Fiyiano |`fj`| | |✔ |
-|Filipino  |`fil`| | |✔ |
-|Finés | `fi` |✔ | |✔ |
+|Inglés (manuscrito) | `en` |✔ |✔ (solo impresión)|✔ |
+|Estonio  |`et`|✔ | | |
+|Fiyiano |`fj`|✔ | | |
+|Filipino  |`fil`|✔ | | |
+|Finés | `fi` |✔ |✔ | |
 |Francés | `fr` |✔ |✔ |✔ |
-|Friulano  | `fur` | | |✔ |
-|Gallego   | `gl` | | |✔ |
+|Friulano  | `fur` |✔ | | |
+|Gallego   | `gl` |✔ | | |
 |Alemán | `de` |✔ |✔ |✔ |
-|Gilbertés    | `gil` | | |✔ |
-|Griego | `el` |✔ | | |
-|Groenlandés   | `kl` | | |✔ |
-|Criollo haitiano  | `ht` | | |✔ |
-|Hani  | `hni` | | |✔ |
-|Hmong Daw (Latín) | `mww` | | |✔ |
-|Húngaro | `hu` |✔ | | ✔ |
-|Indonesio   | `id` | | |✔ |
-|Interlingua  | `ia` | | |✔ |
-|Inuktitut (latino)  | `iu` | | |✔ |
-|Irlandés    | `ga` | | |✔ |
+|Gilbertés    | `gil` |✔ | | |
+|Griego | `el` | |✔ | |
+|Groenlandés   | `kl` |✔ | | |
+|Criollo haitiano  | `ht` |✔ | | |
+|Hani  | `hni` |✔ | | |
+|Hmong Daw (caracteres latinos) | `mww` | ✔ | | |
+|Húngaro | `hu` | ✔ |✔ | |
+|Indonesio   | `id` |✔ | | |
+|Interlingua  | `ia` |✔ | | |
+|Inuktitut (caracteres latinos)  | `iu` | ✔ | | |
+|Irlandés    | `ga` |✔ | | |
 |Italiano | `it` |✔ |✔ |✔ |
-|Japonés | `ja` |✔ | |✔ |
-|Javanés | `jv` | | |✔ |
-|Quiché  | `quc` | | |✔ |
-|Caboverdiano | `kea` | | |✔ |
-|Kachin (Latín) | `kac` | | |✔ |
-|Kara-Kalpak | `kaa` | | |✔ |
-|Casubio | `csb` | | |✔ |
-|Khasi  | `kha` | | |✔ |
-|Coreano | `ko` |✔ | |✔ |
-|Kurdo (latino) | `kur` | | |✔ |
-|Luxemburgués  | `lb` | | |✔ |
-|Malayo (latino)  | `ms` | | |✔ |
-|Manx  | `gv` | | |✔ |
-|Napolitano   | `nap` | | |✔ |
-|Noruego | `nb` |✔ | | |
-|Noruego | `no` | | |✔ |
-|Occitano | `oc` | | |✔ |
-|Polaco | `pl` |✔ | |✔ |
+|Japonés | `ja` |✔ |✔ | |
+|Javanés | `jv` |✔ | | |
+|Quiché  | `quc` |✔ | | |
+|Caboverdiano | `kea` |✔ | | |
+|Kachin (caracteres latinos) | `kac` |✔ | | |
+|Kara-Kalpak | `kaa` | ✔ | | |
+|Casubio | `csb` |✔ | | |
+|Khasi  | `kha` | ✔ | | |
+|Coreano | `ko` |✔ |✔ | |
+|Kurdo (caracteres latinos) | `kur` |✔ | | |
+|Luxemburgués  | `lb` | ✔ | | |
+|Malayo (caracteres latinos)  | `ms` | ✔ | | |
+|Manx  | `gv` | ✔ | | |
+|Napolitano   | `nap` | ✔ | | |
+|Noruego | `nb` | | ✔ | |
+|Noruego | `no` | ✔ | | |
+|Occitano | `oc` | ✔ | | |
+|Polaco | `pl` | ✔ |✔ | |
 |Portugués | `pt` |✔ |✔ |✔ |
-|Rumano | `ro` |✔ | | |
-|Romanche  | `rm` | | |✔ |
-|Ruso | `ru` |✔ | | |
-|Escocés  | `sco` | | |✔ |
-|Gaélico escocés  | `gd` | | |✔ |
-|Serbio (cirílico) | `sr-Cyrl` |✔ | | |
-|Serbio (latino) | `sr-Latn` |✔ | | |
-|Eslovaco | `sk` |✔ | | |
-|Esloveno  | `slv` | | |✔ |
+|Rumano | `ro` | | ✔ | |
+|Romanche  | `rm` | ✔ | | |
+|Ruso | `ru` | |✔ | |
+|Escocés  | `sco` | ✔ | | |
+|Gaélico escocés  | `gd` |✔ | | |
+|Serbio (cirílico) | `sr-Cyrl` | |✔ | |
+|Serbio (latino) | `sr-Latn` | |✔ | |
+|Eslovaco | `sk` | |✔ | |
+|Esloveno  | `slv` | ✔ || |
 |Español | `es` |✔ |✔ |✔ |
-|Swahili (Latín)  | `sw` | | |✔ |
-|Sueco | `sv` |✔ | |✔ |
-|Tártaro (Latín)  | `tat` | | |✔ |
-|Tetum    | `tet` | | |✔ |
-|Turco | `tr` |✔ | |✔ |
-|Alto sorbio  | `hsb` | | |✔ |
-|Uzbeko (latino)     | `uz` | | |✔ |
-|Volapük   | `vo` | | |✔ |
-|Walser    | `wae` | | |✔ |
-|Frisón occidental | `fy` | | |✔ |
-|Maya Yucateco | `yua` | | |✔ |
-|Zhuang | `za` | | |✔ |
-|Zulú  | `zu` | | |✔ |
+|Swahili (caracteres latinos)  | `sw` |✔ | | |
+|Sueco | `sv` |✔ |✔ | |
+|Tártaro (caracteres latinos)  | `tat` | ✔ | | |
+|Tetum    | `tet` |✔ |  | |
+|Turco | `tr` |✔ | ✔ | |
+|Alto sorbio  | `hsb` |✔ |  | |
+|Uzbeko (caracteres latinos)     | `uz` |✔ |  | |
+|Volapük   | `vo` | ✔ | | |
+|Walser    | `wae` | ✔ | | |
+|Frisón occidental | `fy` | ✔ | | |
+|Maya Yucateco | `yua` | ✔ | | |
+|Zhuang | `za` |✔ |  | |
+|Zulú  | `zu` | ✔ | | |
 
 ## <a name="image-analysis"></a>Análisis de imágenes
 

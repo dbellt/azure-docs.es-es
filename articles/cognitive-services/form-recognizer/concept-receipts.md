@@ -5,17 +5,17 @@ description: 'Conozca los conceptos relacionados con el análisis de recibos med
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: lajanuar
-ms.openlocfilehash: 9d37811c89cd42053333bfb8ddc17dfbb47b907c
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: f6fccecca72e106f42ccd185a7c2cb3ba9fe4a53
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110374703"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111887818"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Modelo de recibo creado previamente de Form Recognizer
 
@@ -60,7 +60,7 @@ El servicio de recibos pregenerado extrae el contenido de los recibos de venta: 
 
 |Nombre| Tipo | Descripción | Texto | Valor (salida estándar) |
 |:-----|:----|:----|:----| :----|
-| ReceiptType | string | Tipo de recibo de venta | Detallados |  |
+| ReceiptType | string | Tipo de recibo de venta |  | Detallados |
 | MerchantName | string | Nombre del comerciante que emite el recibo | Contoso |  |
 | MerchantPhoneNumber | phoneNumber | Número de teléfono mostrado del comerciante | 987-654-3210 | +19876543210 |
 | MerchantAddress | string | Dirección mostrada del comerciante | 123 Main St Redmond WA 98052 |  |
@@ -72,7 +72,7 @@ El servicio de recibos pregenerado extrae el contenido de los recibos de venta: 
 | Sugerencia | number | Propina incluida por el comprador | $1.00 | 1.00 |
 | Elementos | matriz de objetos | Líneas del artículo extraídas, con el nombre, la cantidad, el precio por unidad y el precio total extraídos | |
 | Nombre | string | Nombre del elemento | Surface Pro 6 | |
-| Cantidad | number | Cantidad de cada artículo | 1 | |
+| Cantidad | number | Cantidad de cada artículo | 1 | 1 |
 | Precio | number | Precio individual de cada unidad del artículo | $999.00 | 999.00 |
 | Precio total | number | Precio total del artículo | $999.00 | 999.00 |
 
@@ -91,17 +91,12 @@ Receipt API también devuelve la siguiente información:
 ## <a name="supported-locales"></a>Configuraciones regionales admitidas
 
 * **Pre-built Receipt v2.0** admite recibos de ventas en la configuración regional **en-us**.
-* **Pre-built Receipt v2.1** agrega compatibilidad adicional con las siguientes configuraciones locales de recibos en inglés:
-
-* **en-au**
-* **en-ca**
-* **en-gb**
-* **en-in**
+* **Pre-built Receipt v2.1** agrega compatibilidad adicional con las siguientes configuraciones regionales de recibos en inglés: **en-au**, **en-ca**, **en-gb** y **en-in**
 
   > [!NOTE]
   > Entrada de idioma
   >
-  > Prebuilt Receipt v2.1 tiene un parámetro de solicitud opcional para especificar una configuración regional de recibos de otros mercados en inglés. En el caso de los recibos de ventas en inglés de Australia (en-au), Canadá (en-ca), Gran Bretaña (en-gb) e India (en-in), puede especificar la configuración regional para obtener mejores resultados. Si no se especifica ninguna configuración regional en v2.1, el modelo se establecerá de forma predeterminada en en-us.
+  > Prebuilt Receipt v2.1 tiene un parámetro de solicitud opcional para especificar una configuración regional de recibos de otros mercados en inglés. En el caso de los recibos de ventas en inglés de Australia (en-au), Canadá (en-ca), Gran Bretaña (en-gb) e India (en-in), puede especificar la configuración regional para obtener mejores resultados. Si no se especifica ninguna configuración regional en la versión 2.1, el modelo detectará automáticamente la configuración regional.
 
 ## <a name="the-analyze-receipt-operation"></a>La operación Analyze Receipt
 
@@ -130,7 +125,7 @@ Cuando el campo **status** tenga el valor **succeeded**, la respuesta JSON inclu
 
 La respuesta a la operación Get Analyze Receipt Result será la representación estructurada del recibo con toda la información extraída.  Aquí encontrará un [archivo con un recibo de ejemplo](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg) y su salida estructurada, una [salida de un recibo de ejemplo](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/receipt-result.json).
 
-Consulte el siguiente ejemplo de una respuesta JSON correcta:
+Consulte el siguiente ejemplo de una respuesta JSON correcta (la salida se ha abreviado por simplicidad):
 * El nodo `"readResults"` contiene todo el texto reconocido. El texto se organiza por página, después, por líneas y, finalmente, por palabras individuales.
 * El nodo `"documentResults"` contiene los valores específicos de la tarjeta de presentción que el modelo haya descubierto. Aquí encontrará pares clave-valor útiles, como el nombre, el apellido, el nombre de la empresa y más.
 

@@ -3,12 +3,12 @@ title: 'Documentación de Azure Monitor: novedades de mayo de 2021'
 description: Novedades en la documentación de Azure Monitor de mayo de 2021.
 ms.topic: conceptual
 ms.date: 06/03/2021
-ms.openlocfilehash: 543cfc80cac144b4ff729338442b5169e0f3a5e1
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 26fe99f92656940616f09419674a02c046214dd0
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111747462"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112292292"
 ---
 # <a name="azure-monitor-docs-whats-new-for-may-2021"></a>Documentación de Azure Monitor: novedades de mayo de 2021
 
@@ -18,7 +18,7 @@ Le damos la bienvenida a las novedades en la documentación de Azure Monitor de 
 
 **Artículos actualizados**
 
-- [Preguntas más frecuentes sobre Azure Monitor](faq.md)
+- [Preguntas más frecuentes sobre Azure Monitor](faq.yml)
 - [Integraciones de asociados de Azure Monitor](partners.md)
 
 ## <a name="alerts"></a>Alertas

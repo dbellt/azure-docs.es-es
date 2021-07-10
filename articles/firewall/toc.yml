@@ -62,6 +62,8 @@
       href: remote-work-support.md
     - name: Nombre de dominio completo en las reglas de red
       href: fqdn-filtering-network-rules.md
+    - name: Detalles de proxy DNS
+      href: dns-details.md
     - name: Línea de base de seguridad
       href: /security/benchmark/azure/baselines/firewall-security-baseline?toc=/azure/firewall/toc.json
     - name: Compatibilidad con FTP activa
@@ -115,7 +117,7 @@
       href: integrate-with-nat-gateway.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/network/firewall
     - name: Azure PowerShell
       href: /powershell/module/az.network/new-azfirewall
@@ -136,7 +138,7 @@
     - name: Preguntas más frecuentes
       href: firewall-faq.yml
     - name: Creación de plantillas
-      href: ../azure-resource-manager/templates/template-syntax.md
+      href: ../azure-resource-manager/templates/syntax.md
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Plantillas de la comunidad

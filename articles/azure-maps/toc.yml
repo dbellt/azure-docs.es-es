@@ -67,10 +67,14 @@
       href: choose-pricing-tier.md
     - name: Uso de Creator para planos interiores
       items:
+        - name: Ámbito geográfico del servicio Creator
+          href: creator-geographic-scope.md
         - name: Conceptos de plano interior
           href: creator-indoor-maps.md
         - name: Errores y advertencias de conversión de dibujos
           href: drawing-conversion-error-codes.md
+    - name: Cifrado de datos en reposo
+      href: ../security/fundamentals/encryption-atrest.md
     - name: Cobertura
       items:
         - name: Cobertura
@@ -300,6 +304,8 @@
       items:
         - name: Requisitos de paquetes de dibujos
           href: drawing-requirements.md
+        - name: Guía de paquetes de dibujos
+          href: drawing-package-guide.md
         - name: StylesObject de mapas dinámicos
           href: schema-stateset-stylesobject.md
         - name: Modelo de consumo del vehículo
@@ -310,10 +316,12 @@
           href: geofence-geojson.md
         - name: Categorías de búsqueda admitidas
           href: supported-search-categories.md
+        - name: Facility Ontology
+          href: creator-facility-ontology.md
     - name: REST
       items:
         - name: Servicio de datos
-          href: /rest/api/maps/data
+          href: /rest/api/maps/data-v2
         - name: Servicio de elevación
           href: /rest/api/maps/elevation
         - name: Servicio de geolocalización
@@ -339,17 +347,17 @@
         - name: Servicio Maps Creator
           items:
             - name: Servicio de alias
-              href: /rest/api/maps/alias
+              href: /rest/api/maps/v2/alias
             - name: Servicio de conversión
-              href: /rest/api/maps/conversion
+              href: /rest/api/maps/v2/conversion
             - name: Servicio de conjunto de datos
-              href: /rest/api/maps/dataset
+              href: /rest/api/maps/v2/dataset
             - name: Servicio de estado de característica
-              href: /rest/api/maps/featurestate
+              href: /rest/api/maps/v2/feature-state
             - name: Servicio de conjunto de mosaicos
-              href: /rest/api/maps/tileset
+              href: /rest/api/maps/v2/tileset
             - name: Servicio WFS
-              href: /rest/api/maps/wfs
+              href: /rest/api/maps/v2/wfs
         - name: Administración de cuentas de Maps
           href: /rest/api/maps-management
     - name: JavaScript
