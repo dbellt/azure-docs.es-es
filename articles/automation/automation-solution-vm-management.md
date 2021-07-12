@@ -3,27 +3,29 @@ title: Introducción a la característica Start/Stop VMs during off-hours de Azu
 description: En este artículo se describe la característica Start/Stop VMs during off-hours, que inicia o detiene las máquinas virtuales según una programación y las supervisa de forma proactiva desde los registros de Azure Monitor.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/04/2020
+ms.date: 05/25/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b28367aa242d5fab71dc5046ff6188c634883f03
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 0ac3a2dccecf50b53917d878535ce62e124f8f8e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107834523"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110479554"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Introducción a la característica Start/Stop VMs during off-hours
 
 La característica Start/Stop VMs during off-hours inicia o detiene las máquinas virtuales de Azure habilitadas. Inicia o detiene las máquinas en las programaciones definidas por el usuario, proporciona información mediante los registros de Azure Monitor y envía mensajes de correo electrónico, si se desea, mediante [grupos de acciones](../azure-monitor/alerts/action-groups.md). La característica se puede habilitar en la mayoría de los escenarios tanto en máquinas virtuales clásicas como de Azure Resource Manager.
 
+> [!NOTE]
+> Antes de instalar esta versión (v1), nos gustaría que conozca la [siguiente versión](../azure-functions/start-stop-vms/overview.md), que se encuentra en versión preliminar en este momento. La nueva versión (v2) ofrece la misma funcionalidad que esta, pero está diseñada para aprovechar las ventajas de la tecnología más reciente de Azure. Agrega algunas de las características solicitadas de forma común por los clientes, como la compatibilidad con varias suscripciones desde una única instancia de inicio y detención. 
+>
+> Start/Stop VMs during off-hours (v1) se retirará el 21 de mayo de 2022. 
+
 Esta característica usa el cmdlet [Start-AzVm](/powershell/module/az.compute/start-azvm) para iniciar las máquinas virtuales. Usa [Stop-AzVm](/powershell/module/az.compute/stop-azvm) para detener las máquinas virtuales.
 
 > [!NOTE]
-> Aunque los runbooks se hayan actualizado para usar los nuevos cmdlets del módulo Az de Azure, usan el alias de prefijo AzureRM.
-
-> [!NOTE]
-> La característica Start/Stop VMs during off-hours se ha actualizado para admitir las versiones de los módulos de Azure más recientes disponibles. La versión actualizada de esta característica, disponible en Marketplace, no es compatible con los módulos de AzureRM porque hemos migrado de los módulos de AzureRM a los de Az.
+> La característica Start/Stop VMs during off-hours se ha actualizado para admitir las versiones de los módulos de Azure más recientes disponibles. La versión actualizada de esta característica, disponible en Marketplace, no es compatible con los módulos de AzureRM porque hemos migrado de los módulos de AzureRM a los de Az. Aunque los runbooks se hayan actualizado para usar los nuevos cmdlets del módulo Az de Azure, usan el alias de prefijo AzureRM.
 
 La característica proporciona una opción de automatización descentralizada de bajo costo para los usuarios que quieran optimizar sus costos de máquinas virtuales. Puede usar la característica para:
 
@@ -36,14 +38,11 @@ Las siguientes son limitaciones de la característica actual:
 - Administra máquinas virtuales de cualquier región, pero solo se puede utilizar en la misma suscripción que la cuenta de Azure Automation.
 - Está disponible en Azure y Azure Government para cualquier región que admita un área de trabajo de Log Analytics, una cuenta de Azure Automation y alertas. Las regiones de Azure Government no admiten la funcionalidad de correo electrónico en este momento.
 
-> [!NOTE]
-> Antes de instalar esta versión, nos gustaría que conozca la [siguiente versión](https://github.com/microsoft/startstopv2-deployments), que se encuentra en versión preliminar en este momento.  Esta nueva versión (V2) ofrece la misma funcionalidad que esta, pero está diseñada para aprovechar las ventajas de la tecnología más reciente de Azure. Agrega algunas de las características solicitadas de forma común por los clientes, como la compatibilidad con varias suscripciones desde una única instancia de inicio y detención.
-
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Los runbooks de la característica Start/Stop VMs during off hours funcionan con una [cuenta de ejecución de Azure](./automation-security-overview.md#run-as-accounts). La cuenta de ejecución es el método de autenticación preferido, ya que emplea la autenticación mediante certificado, en lugar de una contraseña que puede expirar o cambiar con frecuencia.
 
-- Un [área de trabajo de Log Analytics de Azure Monitor](../azure-monitor/logs/design-logs-deployment.md) que almacene los registros de trabajo de los runbooks y los resultados de los flujos de trabajo en un área de trabajo para consultarlos y analizarlos. La cuenta de Automation se puede vincular a un área de trabajo de Log Analytics nueva o existente, y ambos recursos deben estar en el mismo grupo de recursos.
+- Un [área de trabajo de Log Analytics de Azure Monitor](../azure-monitor/logs/design-logs-deployment.md) que almacene los registros de trabajo de los runbooks y los resultados de los flujos de trabajo en un área de trabajo para consultarlos y analizarlos. La cuenta de Automation y el área de trabajo de Log Analytics deben estar en la misma suscripción y la misma región admitida. El área de trabajo ya debe existir; no se puede crear una nueva área de trabajo durante la implementación de esta característica.
 
 Se recomienda usar otra cuenta de Automation para trabajar con máquinas virtuales habilitadas para la característica Start/Stop VMs during off-hours. Las versiones del módulo de Azure se actualizan con frecuencia y puede que sus parámetros cambien. La característica no se actualiza al mismo ritmo y es posible que no funcione con versiones más recientes de los cmdlets que usa. Antes de importar los módulos actualizados en las cuentas de Automation de producción, se recomienda importarlos en una cuenta de prueba, para comprobar que no hay problemas de compatibilidad.
 
@@ -80,7 +79,7 @@ Para permitir la característica Start/Stop VMs during off-hours en las máquina
 
 ### <a name="permissions-for-new-automation-account-and-new-log-analytics-workspace"></a>Permisos para una cuenta de Automation y un área de trabajo de Log Analytics nuevas
 
-Puede habilitar la característica Start/Stop VMs during off-hours en las máquinas virtuales mediante una cuenta de Automation y un área de trabajo de Log Analytics nuevas. En este caso, necesita los permisos definidos en la sección anterior, así como los definidos en esta. También necesita los siguientes roles:
+Puede habilitar la característica Start/Stop VMs during off-hours en las máquinas virtuales mediante una cuenta de Automation y un área de trabajo de Log Analytics nuevas. En este caso, necesita los permisos definidos en la sección anterior y los que se definen en esta. También necesita los siguientes roles:
 
 - Coadministrador en la suscripción. Este rol es necesario para crear la cuenta de ejecución clásica si va a administrar máquinas virtuales clásicas. Las [cuentas de ejecución clásicas](automation-create-standalone-account.md#create-a-classic-run-as-account) ya no se crean de forma predeterminada.
 - Pertenencia al rol de desarrollador de aplicaciones de [Azure AD](../active-directory/roles/permissions-reference.md). Para obtener más información sobre cómo configurar las cuentas de ejecución, consulte [Permisos para configurar cuentas de ejecución](automation-security-overview.md#permissions).
@@ -88,11 +87,11 @@ Puede habilitar la característica Start/Stop VMs during off-hours en las máqui
 
 | Permiso |Ámbito|
 | --- | --- |
-| Microsoft.Authorization/Operations/read | Subscription|
-| Microsoft.Authorization/permissions/read |Subscription|
-| Microsoft.Authorization/roleAssignments/read | Subscription |
-| Microsoft.Authorization/roleAssignments/write | Subscription |
-| Microsoft.Authorization/roleAssignments/delete | Subscription |
+| Microsoft.Authorization/Operations/read | Suscripción|
+| Microsoft.Authorization/permissions/read |Suscripción|
+| Microsoft.Authorization/roleAssignments/read | Suscripción |
+| Microsoft.Authorization/roleAssignments/write | Suscripción |
+| Microsoft.Authorization/roleAssignments/delete | Suscripción |
 | Microsoft.Automation/automationAccounts/connections/read | Grupo de recursos |
 | Microsoft.Automation/automationAccounts/certificates/read | Grupo de recursos |
 | Microsoft.Automation/automationAccounts/write | Grupo de recursos |
@@ -100,7 +99,7 @@ Puede habilitar la característica Start/Stop VMs during off-hours en las máqui
 
 ## <a name="components"></a>Componentes
 
-La característica Start/Stop VMs during off-hours incluye runbooks, programaciones e integración preconfigurados con registros de Azure Monitor. Puede usar estos elementos para personalizar el inicio y el apagado de las máquinas virtuales de modo que se adapten a sus necesidades empresariales.
+La característica Start/Stop VMs during off-hours incluye runbooks, programaciones e integración preconfigurados con los registros de Azure Monitor. Puede usar estos elementos para personalizar el inicio y el apagado de las máquinas virtuales de modo que se adapten a sus necesidades empresariales.
 
 ### <a name="runbooks"></a>Runbooks
 

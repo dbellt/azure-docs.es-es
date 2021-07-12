@@ -6,21 +6,22 @@ documentationcenter: ''
 author: barclayn
 manager: daveba
 editor: daveba
+ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/09/2020
+ms.date: 05/24/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4555baf658f720bc92e882e141b71f3b8050a1a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 66624f0304065c21ecde9de261bebad3300bbd26
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101093786"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077995"
 ---
 # <a name="use-a-windows-vm-system-assigned-managed-identity-to-access-resource-manager"></a>Uso de las identidades administradas asignadas por el sistema de una máquina virtual Windows para acceder a Resource Manager
 
@@ -42,17 +43,9 @@ En este tutorial, se muestra cómo acceder a la API de Azure Resource Manager me
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-resource-manager"></a>Concesión de acceso a la máquina virtual a un grupo de recursos en Resource Manager
 
-Mediante Managed Identities for Azure Resources, el código puede obtener tokens de acceso para autenticarse en aquellos recursos que admitan la autenticación de Azure AD.  Azure Resource Manager admite la autenticación de Azure AD.  En primer lugar, es necesario conceder acceso a la identidad administrada asignada por el sistema de esta máquina virtual a un recurso de Resource Manager, en este caso, al grupo de recursos que contiene la máquina virtual.  
-
-1.  Vaya a la pestaña de **Grupos de recursos**. 
-2.  Seleccione el **grupo de recursos** específico que creó para su **máquina virtual Windows**. 
-3.  Vaya a **Control de acceso (IAM)** en el panel izquierdo. 
-4.  A continuación, **agregue** una nueva asignación de rol para su **máquina virtual Windows**.  En **Rol**, elija **Lector**. 
-5.  En la lista desplegable siguiente, **asigne acceso** al recurso **Máquina virtual**. 
-6.  A continuación, asegúrese de que la suscripción adecuada aparece en la lista desplegable **Suscripción**. Y en **Grupo de recursos**, seleccione **Todos los grupos de recursos**. 
-7.  Por último, en **Seleccionar**, elija la máquina virtual Windows en la lista desplegable y haga clic en **Guardar**.
-
-    ![Texto alternativo de imagen](media/msi-tutorial-windows-vm-access-arm/msi-windows-permissions.png)
+Si utiliza identidades administradas para recursos de Azure, el código puede obtener tokens de acceso para autenticarse en aquellos recursos que admiten la autenticación de Azure AD, y Azure Resource Manager la admite.  Es necesario conceder acceso a la identidad administrada asignada por el sistema de esta VM a un recurso de Resource Manager, en este caso al grupo de recursos donde creó la VM. Asigne el rol [Lector](../../role-based-access-control/built-in-roles.md#reader) a la identidad administrada en el ámbito del grupo de recursos que creamos para la **VM Windows**.
+ 
+Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-resource-manager"></a>Obtención de un token de acceso mediante una identidad administrada asignada por el sistema de la máquina virtual y su uso para llamar a Azure Resource Manager 
 

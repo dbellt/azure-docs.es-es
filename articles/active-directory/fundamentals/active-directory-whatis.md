@@ -11,12 +11,12 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperf-fy20q4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b429182a4fd68fb03cea6b783e57cf30066f105
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 15872acea0ebb6b2f1e54c9d9d91a6f11d621fd5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063447"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111966123"
 ---
 # <a name="what-is-azure-active-directory"></a>¿Qué es Azure Active Directory?
 
@@ -65,7 +65,7 @@ Después de elegir su licencia de Azure AD, obtendrá acceso a algunas de las ca
 
 |Category|Descripción|
 |-------|-----------|
-|Administración de aplicaciones|Administre las aplicaciones en la nube y locales mediante el proxy de aplicación, el inicio de sesión único, el portal Mis aplicaciones (también conocido como Panel de acceso) y aplicaciones de software como servicio (SaaS). Para más información, consulte [Provisión de acceso remoto seguro a aplicaciones locales](../manage-apps/application-proxy.md) y [Documentación sobre la administración de aplicaciones](../manage-apps/index.yml).|
+|Administración de aplicaciones|Administre las aplicaciones en la nube y locales mediante el proxy de aplicación, el inicio de sesión único, el portal Mis aplicaciones (también conocido como Panel de acceso) y aplicaciones de software como servicio (SaaS). Para más información, consulte [Provisión de acceso remoto seguro a aplicaciones locales](../app-proxy/application-proxy.md) y [Documentación sobre la administración de aplicaciones](../manage-apps/index.yml).|
 |Authentication|Administre el restablecimiento de contraseñas de autoservicio de Azure Active Directory, Multi-Factor Authentication, la lista personalizada de contraseñas prohibidas y el bloqueo inteligente. Para más información, consulte la [documentación de Autenticación de Azure AD](../authentication/index.yml).|
 |Azure Active Directory para desarrolladores|Cree aplicaciones que inicie sesión en todas las identidades de Microsoft, obtenga tokens para llamar a Microsoft Graph, otras API de Microsoft API o API personalizadas. Para más información, consulte [Plataforma de identidad de Microsoft (Azure Active Directory para desarrolladores)](../develop/index.yml).|
 |Negocio a negocio (B2B)|Administre los usuarios invitados y los asociados externos sin perder el control sobre sus propios datos corporativos. Para más información, consulte [Documentación de Azure Active Directory B2B](../external-identities/index.yml).|
@@ -90,7 +90,7 @@ Para conocer mejor Azure AD y su documentación, es aconsejable revisar los tér
 |Identidad| Algo que se puede autenticar. Una identidad puede ser un usuario con un nombre de usuario y una contraseña. Entre las identidades también se incluyen aplicaciones u otros servidores que podrían requerir autenticación a través de claves secretas o certificados.|
 |Cuenta| Una identidad que tiene datos asociados a ella. No puede tener una cuenta sin una identidad.|
 |Cuenta de Azure AD| Una identidad que se crea mediante Azure AD u otro servicio en la nube de Microsoft, como Microsoft 365. Las identidades se almacenan en Azure AD y pueden acceder a ellas las suscripciones de servicio en la nube de su organización. Esta cuenta se denomina a veces también cuenta profesional o educativa.|
-|Administrador de cuenta|Este rol de administrador de suscripción clásica conceptualmente es el propietario de facturación de una suscripción. Este rol tiene acceso al [centro de cuentas de Azure](https://account.azure.com/Subscriptions) y permite administrar todas las suscripciones de una cuenta. Para más información, consulte [Roles de administrador de suscripciones clásico, de Azure y de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
+|Administrador de cuenta|Este rol de administrador de suscripción clásica conceptualmente es el propietario de facturación de una suscripción. Este rol le permite administrar todas las suscripciones de una cuenta. Para más información, consulte [Roles de administrador de suscripciones clásico, de Azure y de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Administrador de servicios|Este rol de administrador de suscripciones clásico permite administrar todos los recursos de Azure, incluido el acceso. Tiene el acceso equivalente a un usuario al que se le ha asignado la función de propietario en el ámbito de la suscripción. Para más información, consulte [Roles de administrador de suscripciones clásico, de Azure y de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Propietario|Este rol ayuda a administrar todos los recursos de Azure, incluido el acceso. Este rol se basa en un sistema de autorización más reciente llamado control de acceso basado en rol de Azure (RBAC de Azure) que proporciona una administración detallada del acceso a los recursos de Azure. Para más información, consulte [Roles de administrador de suscripciones clásico, de Azure y de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Administrador global de Azure AD|Este rol de administrador se asigna automáticamente a quien haya creado el inquilino de Azure AD. Los administradores globales pueden realizar todas las funciones administrativas de Azure AD y los servicios que se federan con Azure AD, como Exchange Online, SharePoint Online y Skype Empresarial Online. Puede tener varios administradores globales, pero estos administradores son los únicos que pueden asignar roles de administrador (lo que incluye la asignación de otros administradores globales) a los usuarios. Para más información acerca de los distintos roles de administrador, consulte [Permisos de roles de administrador en Azure Active Directory](../roles/permissions-reference.md).|

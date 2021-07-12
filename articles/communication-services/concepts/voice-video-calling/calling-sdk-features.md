@@ -6,17 +6,19 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 583f294551919baf946ec2f3f55213402f63e2d8
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 7173c625ef56ea9e4d4d43d90adc18ba4fe167ab
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108763728"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113109294"
 ---
 # <a name="calling-sdk-overview"></a>Información general de Calling SDK
+
+[!INCLUDE [SDP Plan B Deprecation Notice](../../includes/plan-b-sdp-deprecation.md)]
 
 Calling SDK permite que los dispositivos de usuario final impulsen experiencias de comunicación por voz y vídeo. En esta página se proporcionan descripciones detalladas de las características de llamadas, incluida información sobre la compatibilidad del explorador y la plataforma. Para empezar de inmediato, consulte los [inicios rápidos de llamada](../../quickstarts/voice-video-calling/getting-started-with-calling.md) o el [ejemplo de elementos principales de llamada](../../samples/calling-hero-sample.md). 
 
@@ -35,53 +37,55 @@ Principales características de Calling SDK:
 
 En la lista siguiente se presenta el conjunto de características que están disponibles actualmente en las instancias de Calling SDK de Azure Communication Services.
 
-| Grupo de características | Capacidad                                                                                                          | JS  | Java (Android) | Objective-C (iOS) |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------- | --- | -------------- | ----------------- |
-| Funcionalidades principales | Realizar una llamada uno a uno entre dos usuarios                                                                           | ✔️   | ✔️              | ✔️                 |
-|                   | Realizar una llamada de grupo con más de dos usuarios (hasta 350)                                                       | ✔️   | ✔️              | ✔️                 |
-|                   | Promocionar una llamada uno a uno con dos usuarios a una llamada de grupo con más de dos usuarios                                 | ✔️   | ✔️              | ✔️                 |
-|                   | Unirse a una llamada de grupo después de que se haya iniciado                                                                              | ✔️   | ✔️              | ✔️                 |
-|                   | Invitar a otro participante de VoIP a unirse a una llamada de grupo en curso                                                       | ✔️   | ✔️              | ✔️                 |
-| Control durante la llamada  | Activar o desactivar el vídeo                                                                                              | ✔️   | ✔️              | ✔️                 |
-|                   | Desactivar/activar audio del micrófono                                                                                                     | ✔️   | ✔️              | ✔️                 |
-|                   | Cambiar entre las cámaras                                                                                              | ✔️   | ✔️              | ✔️                 |
-|                   | Retención/reanudación local                                                                                                  | ✔️   | ✔️              | ✔️                 |
-|                   | Altavoz activo                                                                                                      | ✔️   | ✔️              | ✔️                 |
-|                   | Elegir el altavoz para llamadas                                                                                            | ✔️   | ✔️              | ✔️                 |
-|                   | Elegir el micrófono para llamadas                                                                                         | ✔️   | ✔️              | ✔️                 |
-|                   | Mostrar el estado de un participante<br/>*Inactivo, elementos multimedia iniciales, conectando, conectado, en espera, en la sala de espera, desconectado*         | ✔️   | ✔️              | ✔️                 |
-|                   | Mostrar el estado de una llamada<br/>*Elementos multimedia iniciales, entrante, conectando, llamando, conectada, en espera, desconectando, desconectada* | ✔️   | ✔️              | ✔️                 |
-|                   | Mostrar si un participante está silenciado                                                                                      | ✔️   | ✔️              | ✔️                 |
-|                   | Mostrar el motivo por el que un participante abandonó una llamada                                                                       | ✔️   | ✔️              | ✔️                 |
-| Uso compartido de la pantalla    | Compartir la pantalla completa desde la aplicación                                                                 | ✔️   | ❌              | ❌                 |
-|                   | Compartir una aplicación específica (desde la lista de aplicaciones en ejecución)                                                | ✔️   | ❌              | ❌                 |
-|                   | Compartir una pestaña del explorador web desde la lista de pestañas abiertas                                                                  | ✔️   | ❌              | ❌                 |
-|                   | El participante puede ver el uso compartido de pantalla remota                                                                            | ✔️   | ✔️              | ✔️                 |
-| Lista            | Enumerar participantes                                                                                                   | ✔️   | ✔️              | ✔️                 |
-|                   | Quitar un participante                                                                                                | ✔️   | ✔️              | ✔️                 |
-| RTC              | Realizar una llamada uno a uno con un participante de RTC                                                                     | ✔️   | ✔️              | ✔️                 |
-|                   | Realizar una llamada de grupo con participantes de RTC                                                                           | ✔️   | ✔️              | ✔️                 |
-|                   | Promocionar una llamada uno a uno con un participante de RTC a una llamada de grupo                                                 | ✔️   | ✔️              | ✔️                 |
-|                   | Llamada saliente de una llamada de grupo como participante de RTC                                                                    | ✔️   | ✔️              | ✔️                 |
-| General           | Probar el micrófono, el altavoz y la cámara con un servicio de prueba de audio (disponible llamando a 8:echo123).                   | ✔️   | ✔️              | ✔️                 |
-| Administración del dispositivo | Solicitar permiso para usar audio y/o vídeo                                                                       | ✔️   | ✔️              | ✔️                 |
-|                   | Obtener la lista de cámaras                                                                                                     | ✔️   | ✔️              | ✔️                 |
-|                   | Establecer cámara                                                                                                          | ✔️   | ✔️              | ✔️                 |
-|                   | Obtener la cámara seleccionada                                                                                                 | ✔️   | ✔️              | ✔️                 |
-|                   | Obtener la lista de micrófonos                                                                                                 | ✔️   | ❌              | ❌                 |
-|                   | Establecer micrófono                                                                                                      | ✔️   | ❌              | ❌                 |
-|                   | Obtener el micrófono seleccionado                                                                                             | ✔️   | ❌              | ❌                 |
-|                   | Obtener la lista de altavoces                                                                                                   | ✔️   | ❌              | ❌                 |
-|                   | Establecer el altavoz                                                                                                         | ✔️   | ❌              | ❌                 |
-|                   | Obtener el altavoz seleccionado                                                                                                | ✔️   | ❌              | ❌                 |
-| Representación de vídeo   | Representar un único vídeo en muchos lugares (cámara local o flujo remoto)                                                  | ✔️   | ✔️              | ✔️                 |
-|                   | Establecer y actualizar el modo de escalado                                                                                           | ✔️   | ✔️              | ✔️                 |
-|                   | Representar secuencias de vídeo remoto                                                                                          | ✔️   | ✔️              | ✔️                 |
+
+| Grupo de características | Capacidad                                                                                                          | JS  | Windows | Java (Android) | Objective-C (iOS) |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------- | --- | ------- | -------------- | ----------------- |
+| Funcionalidades principales | Realizar una llamada uno a uno entre dos usuarios                                                                           | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Realizar una llamada de grupo con más de dos usuarios (hasta 350)                                                       | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Promocionar una llamada uno a uno con dos usuarios a una llamada de grupo con más de dos usuarios                                 | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Unirse a una llamada de grupo después de que se haya iniciado                                                                              | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Invitar a otro participante de VoIP a unirse a una llamada de grupo en curso                                                       | ✔️   | ✔️       | ✔️              | ✔️                 |
+| Control durante la llamada  | Activar o desactivar el vídeo                                                                                              | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Desactivar/activar audio del micrófono                                                                                                     | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Cambiar entre las cámaras                                                                                              | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Retención/reanudación local                                                                                                  | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Altavoz activo                                                                                                      | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Elegir el altavoz para llamadas                                                                                            | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Elegir el micrófono para llamadas                                                                                         | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Mostrar el estado de un participante<br/>*Inactivo, elementos multimedia iniciales, conectando, conectado, en espera, en la sala de espera, desconectado*         | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Mostrar el estado de una llamada<br/>*Elementos multimedia iniciales, entrante, conectando, llamando, conectada, en espera, desconectando, desconectada* | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Mostrar si un participante está silenciado                                                                                      | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Mostrar el motivo por el que un participante abandonó una llamada                                                                       | ✔️   | ✔️       | ✔️              | ✔️                 |
+| Uso compartido de la pantalla    | Compartir la pantalla completa desde la aplicación                                                                 | ✔️   | ❌       | ❌              | ❌                 |
+|                   | Compartir una aplicación específica (desde la lista de aplicaciones en ejecución)                                                | ✔️   | ❌       | ❌              | ❌                 |
+|                   | Compartir una pestaña del explorador web desde la lista de pestañas abiertas                                                                  | ✔️   | ❌       | ❌              | ❌                 |
+|                   | El participante puede ver el uso compartido de pantalla remota                                                                            | ✔️   | ✔️       | ✔️              | ✔️                 |
+| Lista            | Enumerar participantes                                                                                                   | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Quitar un participante                                                                                                | ✔️   | ✔️       | ✔️              | ✔️                 |
+| RTC              | Realizar una llamada uno a uno con un participante de RTC                                                                     | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Realizar una llamada de grupo con participantes de RTC                                                                           | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Promocionar una llamada uno a uno con un participante de RTC a una llamada de grupo                                                 | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Llamada saliente de una llamada de grupo como participante de RTC                                                                    | ✔️   | ✔️       | ✔️              | ✔️                 |
+| General           | Probar el micrófono, el altavoz y la cámara con un servicio de prueba de audio (disponible llamando a 8:echo123).                   | ✔️   | ✔️       | ✔️              | ✔️                 |
+| Administración del dispositivo | Solicitar permiso para usar audio y/o vídeo                                                                       | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Obtener la lista de cámaras                                                                                                     | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Establecer cámara                                                                                                          | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Obtener la cámara seleccionada                                                                                                 | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Obtener la lista de micrófonos                                                                                                 | ✔️   | ✔️       | ❌              | ❌                 |
+|                   | Establecer micrófono                                                                                                      | ✔️   | ✔️       | ❌              | ❌                 |
+|                   | Obtener el micrófono seleccionado                                                                                             | ✔️   | ✔️       | ❌              | ❌                 |
+|                   | Obtener la lista de altavoces                                                                                                   | ✔️   | ✔️       | ❌              | ❌                 |
+|                   | Establecer el altavoz                                                                                                         | ✔️   | ✔️       | ❌              | ❌                 |
+|                   | Obtener el altavoz seleccionado                                                                                                | ✔️   | ✔️       | ❌              | ❌                 |
+| Representación de vídeo   | Representar un único vídeo en muchos lugares (cámara local o flujo remoto)                                                  | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Establecer y actualizar el modo de escalado                                                                                           | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Representar secuencias de vídeo remoto                                                                                          | ✔️   | ✔️       | ✔️              | ✔️                 |
+
 
 ## <a name="calling-sdk-streaming-support"></a>Compatibilidad con streaming de Calling SDK
 Calling SDK de Communication Services admite las siguientes configuraciones de streaming:
 
-| Límite                                                         | Web                         | Android/iOS                |
+| Límite                                                         | Web                         | Windows/Android/iOS        |
 | ------------------------------------------------------------- | --------------------------- | -------------------------- |
 | **Número de secuencias salientes que se pueden enviar simultáneamente**     | 1 vídeo o 1 uso compartido de pantalla | 1 vídeo + 1 uso compartido de pantalla |
 | **número de secuencias entrantes que se pueden representar simultáneamente** | 1 vídeo o 1 uso compartido de pantalla | 6 vídeo + 1 uso compartido de pantalla |
@@ -114,6 +118,20 @@ En la tabla siguiente se representa el conjunto de exploradores compatibles que 
 
 * Se admiten en las versiones de Safari 13.1 +, las llamadas uno a uno no se admiten en Safari.
 * Salvo que se especifique lo contrario, se admiten las tres últimas versiones de cada explorador.
+
+## <a name="android-calling-sdk-support"></a>Compatibilidad con el SDK de llamada de Android
+
+* Compatibilidad con Android API Nivel 21 o superior
+
+* Compatibilidad con Java 7 o posterior
+
+* Compatibilidad con Android Studio 2.0
+
+## <a name="ios-calling-sdk-support"></a>Compatibilidad con el SDK de llamada de iOS
+
+* Compatibilidad con iOS 10.0+ en tiempo de compilación y iOS 12.0+ en tiempo de ejecución
+
+* Xcode 12.0+
 
 ## <a name="calling-client---browser-security-model"></a>Cliente que llama: modelo de seguridad del explorador
 
