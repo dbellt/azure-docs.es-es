@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 04/14/2021
+ms.date: 06/10/2021
 ms.author: aahi
-ms.openlocfilehash: 59518b1117a566f9bc238a70a6bcaff6f1e05197
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: a8645552cba0bb687b5d9a9dc93bc917d7ee38af
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110085428"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969336"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Procedimiento: análisis de sentimiento y minería de opiniones
 
@@ -304,3 +304,4 @@ En este artículo, ha aprendido los conceptos y el flujo de trabajo del análisi
 * [Información general de Text Analytics](../overview.md)
 * [Uso de la biblioteca cliente de Text Analytics](../quickstarts/client-libraries-rest-api.md)
 * [Novedades](../whats-new.md)
+* [Versiones del modelo](../concepts/model-versioning.md)

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2021
 ms.author: duau
-ms.openlocfilehash: 9b916f9942b0459b41d98b952fad072ae48318b3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1e95d3b72af14b151bdd1cbeede4d65deef0f817
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102505445"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081522"
 ---
 # <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Tutorial: Dirección del tráfico a puntos de conexión específicos en función de la subred de usuario mediante Traffic Manager
 
@@ -67,9 +67,9 @@ En esta sección, creará dos máquinas virtuales *myIISVMEastUS* y *myIISVMWest
    - **Detalles de instancia** > **Nombre de máquina virtual**: Escriba *myIISVMEastUS*.
    - **Detalles de instancia** > **Región**:  Seleccione **Este de EE. UU**.
    - **Cuenta de administrador** > **Nombre de usuario**:  Escriba un nombre de usuario de su elección.
-   - **Cuenta de administrador** > **Contraseña**:  Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+   - **Cuenta de administrador** > **Contraseña**:  Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).
    - **Reglas de puerto de entrada** > **Puertos de entrada públicos**: seleccione **Permitir los puertos seleccionados**.
-   - **Reglas de puerto de entrada** > **Seleccionar puertos de entrada**: seleccione **RDP** y **HTTP** en el cuadro desplegable.
+   - **Reglas de puerto de entrada** > **Seleccionar puertos de entrada** virtual-machines/windows/faq.yml: seleccione **RDP** y **HTTP** en el cuadro desplegable.
 
 3. Seleccione la pestaña **Administración** o **Siguiente: Discos** y, después, **Siguiente: Redes**, a continuación, **Siguiente: Administración**. En **Supervisión**, establezca **Diagnósticos de arranque** en **Desactivado**.
 4. Seleccione **Revisar + crear**.
@@ -135,7 +135,7 @@ En esta sección, creará una máquina virtual (*myVMEastUS* y *myVMWestEurope*)
    - **Detalles de instancia** > **Nombre de máquina virtual**: Escriba *myVMEastUS*.
    - **Detalles de instancia** > **Región**:  Seleccione **Este de EE. UU**.
    - **Cuenta de administrador** > **Nombre de usuario**:  Escriba un nombre de usuario de su elección.
-   - **Cuenta de administrador** > **Contraseña**:  Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+   - **Cuenta de administrador** > **Contraseña**:  Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).
    - **Reglas de puerto de entrada** > **Puertos de entrada públicos**: seleccione **Permitir los puertos seleccionados**.
    - **Reglas de puerto de entrada** > **Seleccionar puertos de entrada**: seleccione **RDP** en el cuadro desplegable.
 
@@ -154,7 +154,7 @@ Cree un perfil de Traffic Manager que le permita devolver puntos de conexión es
 
     ![Crear un perfil de Traffic Manager](./media/tutorial-traffic-manager-subnet-routing/create-traffic-manager-profile.png)
 
-    | Configuración                 | Value                                              |
+    | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
     | Nombre                   | Este nombre debe ser único en la zona trafficmanager.net y generará el nombre DNS, trafficmanager.net, que se usa para acceder al perfil de Traffic Manager.                                   |
     | Método de enrutamiento          | Seleccione el método de enrutamiento **Subred**.                                       |
@@ -169,7 +169,7 @@ Agregue las dos máquinas virtuales que se ejecuten en los servidores IIS (*myII
 2. En **Perfil de Traffic Manager**, en la sección **Configuración**, seleccione **Puntos de conexión** y, a continuación, seleccione **Agregar**.
 3. Escriba o seleccione la siguiente información. Acepte los valores predeterminados en los demás valores y seleccione **Aceptar**:
 
-    | Configuración                 | Value                                              |
+    | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
     | Tipo                    | Punto de conexión de Azure                                   |
     | Nombre           | myInternalWebSiteEndpoint                                        |

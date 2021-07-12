@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: 78536867efa4894f1041a340b9d6347a4e030a69
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: d70a15456ecc688b6bc8137223d36164545c0123
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109685664"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111956227"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Tutorial: Implementación y recorrido por una plantilla de aplicación del centro de micrologística
 
@@ -57,6 +57,8 @@ Para crear una nueva aplicación del centro de micrologística que usa las carac
 
     ![Página New application (Nueva aplicación) de Azure IoT Central](./media/tutorial-micro-fulfillment-center-app/iotc-retail-create-app-mfc.png)
 
+    ![Captura de pantalla de la información de facturación de Azure IoT Central](./media/tutorial-micro-fulfillment-center-app/iotc-retail-create-app-mfc-billing.png)
+
 ## <a name="walk-through-the-application"></a>Recorrido por la aplicación. 
 
 Después de implementar correctamente la plantilla de aplicación, verá al **panel del centro de micrologística de Northwind Traders**. Northwind Traders es un minorista ficticio que tiene un centro de micrologística que se administrando en esta aplicación de Azure IoT Central. En este panel de operador, se ve información y datos de telemetría de los dispositivos de esta plantilla junto con un conjunto de comandos, trabajos y acciones que se pueden realizar. El panel se divide lógicamente en dos secciones. A la izquierda, es posible supervisar las condiciones del entorno dentro de la estructura logística y, a la derecha, se puede supervisar el estado de un operador robótico dentro de la instalación.  
@@ -66,11 +68,11 @@ Desde el panel se puede:
    * Ver el plan de la planta y la ubicación de los operadores robóticos en la estructura logística.
    * Desencadenar comandos, como restablecer el sistema de control, actualizar el firmware del operador y volver a configurar la red.
 
-     ![Captura de pantalla que muestra la mitad superior del panel del centro de micrologística de Northwind Traders.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
+     ![Captura de pantalla que muestra la mitad superior del panel del centro de micrologística de Northwind Traders.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard-1.png)
    * Vea un ejemplo del panel que los operadores pueden usar para supervisar las condiciones del centro logístico. 
    * Supervise el estado de las cargas que se ejecutan en el dispositivo de puerta de enlace del centro logístico.    
 
-     ![Captura de pantalla que muestra la mitad inferior del panel del centro de micrologística de Northwind Traders.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
+     ![Captura de pantalla que muestra la mitad inferior del panel del centro de micrologística de Northwind Traders.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard-2.png)
 
 ## <a name="device-template"></a>Plantilla de dispositivo
 Si seleccione la pestaña de plantillas de dispositivos, verá que hay dos tipos de dispositivo diferentes que forman parte de la plantilla: 

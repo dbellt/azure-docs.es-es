@@ -6,12 +6,12 @@ ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: overview
 ms.date: 03/11/2021
-ms.openlocfilehash: 41d60c8e565655793dd33393f41876438c7eab66
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 573e0dc028391c2eea9d412bfe68c07a2e95aec3
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108167077"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963150"
 ---
 # <a name="quickstart-create-a-serverless-simple-chat-application-with-azure-functions-and-azure-web-pubsub-service"></a>Inicio rápido: Creación de una aplicación de chat simple sin servidor con Azure Functions y el servicio Azure Web PubSub 
 
@@ -58,8 +58,8 @@ Mientras se implementa el servicio, pasaremos a trabajar con el código. Clone l
   Abra la carpeta */samples/functions/js/simplechat* en el repositorio clonado. Edite *local.settings.jspara* para agregar la cadena de conexión del servicio.
   En *local.settings.jsen*, debe realizar estos cambios y, después, guardar el archivo.
     - Reemplace el marcador de posición *<cadena de conexión>* por el real copiado de **Azure Portal** en el valor **`WebPubSubConnectionString`** . 
-    - En el caso del valor **`AzureWebJobsStorage`** , esto es necesario porque [Azure Functions requiere una cuenta de Azure Storage](https://docs.microsoft.com/azure/azure-functions/storage-considerations).
-        - Si tiene el emulador de Azure Storage ejecutado en local, mantenga la configuración original de "UseDevelopmentStorage=true".
+    - En el caso del valor **`AzureWebJobsStorage`** , esto es necesario porque [Azure Functions requiere una cuenta de Azure Storage](../azure-functions/storage-considerations.md).
+        - Si el emulador de Azure Storage se ejecuta en local, mantenga la configuración original de "UseDevelopmentStorage=true".
         - Si tiene una cadena de conexión de Azure Storage, reemplace el valor por ella.
  
 - Las funciones de JavaScript se organizan en carpetas. En cada carpeta hay dos archivos: `function.json`, que define los enlaces que se usan en la función, e `index.js`, que es el cuerpo de la función. Hay varias funciones desencadenadas en esta aplicación de función:

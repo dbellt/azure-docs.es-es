@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ba261609772e380e85de084096a3242f2f92fd49
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 17411f3c0a12e544d3204b2194e53d9565b164a9
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108734316"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112061909"
 ---
 # <a name="what-is-an-ontology"></a>¿Qué es una ontología? 
 
@@ -54,11 +54,12 @@ Independientemente de la estrategia que elija para integrar una ontología en Az
 1. Continúe con la estrategia de integración de ontologías elegida anteriormente: [Adopte](concepts-ontologies-adopt.md), [convierta](concepts-ontologies-convert.md) o [cree](concepts-models.md) los modelos según su ontología.
     1. Si es necesario, [extienda](concepts-ontologies-extend.md) su ontología para personalizarla según sus necesidades.
 1. [Valide](how-to-parse-models.md) los modelos para comprobar que son documentos DTDL operativos.
-1. Cargue los modelos terminados en Azure Digital Twins, mediante las [API](how-to-manage-model.md#upload-models) o un ejemplo como el del [cargador de modelos de Azure Digital Twins](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader).
+1. Cargue los modelos terminados en Azure Digital Twins, mediante las [API](how-to-manage-model.md#upload-models) o un ejemplo como el del [cargador de modelos de Azure Digital Twins](https://github.com/Azure/opendigitaltwins-tools/tree/master/ADTTools#uploadmodels).
 
 Después, debería poder usar los modelos en la instancia de Azure Digital Twins. 
 
-Puede visualizarlos con ejemplos como el de [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) o el [visualizador de modelos de Azure Digital Twins](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer), o bien pasar a usarlos para crear [gemelos digitales](concepts-twins-graph.md).
+>[!TIP]
+> Para visualizar los modelos en la ontología, utilice [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) o el [Azure Digital Twins Model Visualizer](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
