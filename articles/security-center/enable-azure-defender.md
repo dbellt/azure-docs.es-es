@@ -6,13 +6,13 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 02/24/2021
-ms.openlocfilehash: 7124014821c79fa37aa04da8909e3b4ac3bcb4fb
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.date: 06/07/2021
+ms.openlocfilehash: 4f7900c4abc37df776c231ac9d70a09862f6d49f
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106492501"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111748412"
 ---
 # <a name="quickstart-enable-azure-defender"></a>Inicio rápido: Habilitación de Azure Defender
 
@@ -32,7 +32,7 @@ Para habilitar todas las características de Security Center, incluidas las func
 
 - Puede habilitar **Azure Defender para cuentas de Storage** en el nivel de suscripción o de recurso.
 - Puede habilitar **Azure Defender para SQL** en el nivel de suscripción o de recurso.
-- Puede habilitar la protección contra amenazas para **Azure Database for MariaDB/MySQL/PostgreSQL** solo en el nivel de recurso.
+- Solo puede habilitar **Azure Defender para bases de datos relacionales de código abierto** en el nivel de recurso.
 
 ### <a name="to-enable-azure-defender-on-your-subscriptions-and-workspaces"></a>Para habilitar Azure Defender en las suscripciones y áreas de trabajo:
 
@@ -64,6 +64,21 @@ Para habilitar todas las características de Security Center, incluidas las func
         :::image type="content" source="./media/enable-azure-defender/upgrade-selected-workspaces-and-subscriptions.png" alt-text="Actualizar todas las áreas de trabajo y suscripciones seleccionadas desde la página de introducción":::
 
 
+## <a name="disable-azure-defender"></a>Deshabilitación de Azure Defender
+
+Si tiene que deshabilitar Azure Defender para una suscripción, el procedimiento es el mismo, pero tiene que **desactivar Azure Defender**:
+ 
+1. En el menú de Security Center, seleccione **Precios y configuración**.
+1. Seleccione la suscripción correspondiente.
+1. Si su suscripción tiene habilitado Azure Defender, abra los **planes de Azure Defender** y seleccione **Azure Defender off** (Azure Defender desactivado).
+
+    :::image type="content" source="./media/enable-azure-defender/disable-plans.png" alt-text="Habilitación o deshabilitación de Azure Defender":::
+
+1. Seleccione **Guardar**.
+
+> [!NOTE]
+> Después de deshabilitar Azure Defender, tanto si deshabilita un plan único como todos los planes a la vez, la recopilación de datos podrá continuar durante un breve período de tiempo. 
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha habilitado Azure Defender, habilite la recopilación automática de datos mediante los agentes y las extensiones necesarios descritos en [Configuración del aprovisionamiento automático de agentes y extensiones desde Azure Security Center](security-center-enable-data-collection.md).
+Ahora que ha habilitado Azure Defender, habilite la recopilación automática de datos mediante los agentes y las extensiones necesarios descritos en [Configuración del aprovisionamiento automático de agentes y extensiones](security-center-enable-data-collection.md).

@@ -2,14 +2,14 @@
 author: amitbapat
 ms.service: key-vault
 ms.topic: include
-ms.date: 03/09/2021
+ms.date: 05/28/2021
 ms.author: ambapat
-ms.openlocfilehash: 9ecfcff00e6f44f5c739513c063baaa3fa02a3db
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 3539e222407fee63a829e80db986f2b0eed02e24
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107753312"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111761415"
 ---
 El servicio Azure Key Vault admite dos tipos de recursos: almacenes y HSM administrados. En las dos secciones siguientes se describen los límites de servicio para cada uno de ellos, respectivamente.
 
@@ -62,6 +62,12 @@ Al realizar una copia de seguridad de un objeto almacenado en el almacén de cla
 > [!NOTE]
 > Si se intenta hacer una copia de seguridad de un objeto de clave, secreto o certificado con más versiones que el límite anterior, se producirá un error. No es posible eliminar versiones anteriores de una clave, un secreto o un certificado. 
 
+### <a name="limits-on-count-of-keys-secrets-and-certificates"></a>Límites en el recuento de claves, secretos y certificados:
+
+Key Vault no restringe el número de claves, secretos o certificados que se pueden almacenar en un almacén. Los límites de transacción en el almacén deben tenerse en cuenta para asegurarse de que las operaciones no estén limitadas.
+
+Key Vault no restringe el número de versiones de un secreto, una clave o un certificado, pero el almacenamiento de un gran número de versiones (más de 500) puede afectar al rendimiento de las operaciones de copia de seguridad. Consulte [Copia de seguridad de Azure Key Vault](../articles/key-vault/general/backup.md).
+
 #### <a name="azure-private-link-integration"></a>Integración de Azure Private Link
 
 > [!NOTE]
@@ -72,7 +78,7 @@ Al realizar una copia de seguridad de un objeto almacenado en el almacén de cla
 | Puntos de conexión privados por almacén de claves | 64 |
 | Almacenes de claves con puntos de conexión privados por suscripción | 400 |
 
-### <a name="resource-type-managed-hsm-preview"></a>Tipo de recurso: HSM administrado (versión preliminar)
+### <a name="resource-type-managed-hsm"></a>Tipo de recurso: HSM administrado
 
 En esta sección se describen los límites de servicio para el tipo de recurso `managed HSM`.
 
@@ -80,7 +86,7 @@ En esta sección se describen los límites de servicio para el tipo de recurso `
 
 |Elemento|Límites|
 |----|------:|
-Número de instancias de HSM por suscripción por región|1 (durante la versión preliminar)
+Número de instancias de HSM por suscripción por región|1 
 Número de claves por grupo de HSM|5000
 Número de versiones por clave|100
 Número de definiciones de roles personalizados por HSM|50
