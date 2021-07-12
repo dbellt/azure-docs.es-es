@@ -5,15 +5,15 @@ description: Aprenda sobre las topologías de flujo de llamadas en Azure Communi
 author: nmurav
 services: azure-communication-services
 ms.author: nmurav
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f25f7504c8962643176785f62e0d5d33928726bb
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: b2a9f53dd2513baaa60ba39b2eaae7b11fe9f4b8
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108325452"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113112714"
 ---
 # <a name="call-flow-topologies"></a>Topologías de flujos de llamadas
 En este artículo se describen las topologías de flujo de llamadas de Azure Communication Services. Este artículo es excelente si es un cliente de empresa que va a integrar Communication Services en una red de las que administra. Para una introducción a los flujos de llamadas de Communication Services, visite la [documentación conceptual sobre los flujos de llamadas](./call-flows.md).

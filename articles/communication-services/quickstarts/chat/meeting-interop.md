@@ -4,16 +4,16 @@ titleSuffix: An Azure Communication Services quickstart
 description: En esta guía de inicio rápido aprenderá a unirse a una reunión de Teams con el SDK de chat de Azure Communication Services.
 author: askaur
 ms.author: askaur
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-web-ios
-ms.openlocfilehash: 196c35d78b18241a808d4f941dd51d0f08a5b722
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c49f2a51dda269c8addcd32c2c82564455bc9743
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110080302"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113113104"
 ---
 # <a name="quickstart-join-your-chat-app-to-a-teams-meeting"></a>Inicio rápido: Incorporación de una aplicación de chat a una reunión de Teams
 

@@ -6,15 +6,15 @@ author: chpalm
 manager: chpalm
 services: azure-communication-services
 ms.author: chpalm
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 3fd6aa705a2220483534761c185ca7cac01e148e
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 142b4635bed6361987c21173245bb4d4e7557f90
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110093617"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113108106"
 ---
 # <a name="teams-interoperability"></a>Interoperabilidad de Teams
 
@@ -43,13 +43,11 @@ La arquitectura general de este caso de uso tiene el siguiente aspecto:
 
 ![Arquitectura de la interoperabilidad de Teams](./media/call-flows/teams-interop.png)
 
-Aunque determinadas características de las reuniones de Teams, como la posibilidad de levantar la mano, el modo Juntos y las salas de trabajo en grupo, solo estarán disponibles para los usuarios de Teams, la aplicación personalizada tendrá acceso a las funcionalidades principales de audio, vídeo, chat y uso compartido de la pantalla de la reunión. El usuario de la aplicación personalizada podrá acceder al chat de reuniones mientras se encuentre en la llamada. No podrán enviar ni recibir mensajes antes de unirse a la llamada o después de dejarla. 
+Los usuarios de Communication Services pueden unirse a reuniones de Teams programadas siempre y cuando esté habilitado que lo hagan de manera anónima en la [configuración de la reunión](/microsoftteams/meeting-settings-in-teams). 
+
+Aunque determinadas características de las reuniones de Teams, como la posibilidad de levantar la mano, el modo Juntos y las salas de trabajo en grupo, solo estarán disponibles para los usuarios de Teams, la aplicación personalizada tendrá acceso a las funcionalidades principales de audio, vídeo, chat y uso compartido de la pantalla de la reunión. El usuario de la aplicación personalizada podrá acceder al chat de reuniones mientras se encuentre en la llamada. No podrán enviar ni recibir mensajes antes de unirse a la llamada o después de dejarla. Si la reunión está programada para un canal, los usuarios de Communication Services no podrán unirse al chat ni enviar ni recibir mensajes.
 
 Cuando un usuario de Communication Services se une a la reunión de Teams, el nombre para mostrar proporcionado mediante Calling SDK se mostrará a los usuarios de Teams. Por lo demás, en Teams, al usuario de Communication Services se le tratará como usuario anónimo.  La aplicación personalizada debe considerar el uso de la autenticación del usuario y otras medidas de seguridad para proteger las reuniones de Teams. Piense en las implicaciones de seguridad de permitir que usuarios anónimos unan a las reuniones y use la [guía de seguridad de Teams](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) para configurar las funcionalidades disponibles para los usuarios anónimos.
-
-La interoperabilidad de Teams con Communication Services está actualmente en versión preliminar privada. Cuando esté disponible con carácter general, los usuarios de Communication Services se tratarán como "usuarios de acceso externo". Para más información sobre el acceso externo, consulte [Llamadas, chat y colaboración con personas de fuera de la organización en Microsoft Teams](/microsoftteams/communicate-with-users-from-other-organizations).
-
-Los usuarios de Communication Services pueden unirse a reuniones de Teams programadas siempre y cuando esté habilitado que lo hagan de manera anónima en la [configuración de la reunión](/microsoftteams/meeting-settings-in-teams). Si la reunión está programada para un canal, los usuarios de Communication Services no podrán unirse al chat ni enviar ni recibir mensajes.
 
 ## <a name="teams-in-government-clouds-gcc"></a>Teams en las nubes de la administración pública (GCC)
 Por ahora la interoperabilidad de Azure Communication Services no es compatible con las implementaciones de Teams mediante las [nubes de la administración pública (GCC) de Microsoft 365](/MicrosoftTeams/plan-for-government-gcc). 
@@ -59,7 +57,7 @@ Por ahora la interoperabilidad de Azure Communication Services no es compatible 
 > [!div class="nextstepaction"]
 > [Incorporación de una aplicación de llamadas a una reunión de Teams](../quickstarts/voice-video-calling/get-started-teams-interop.md)
 
-Para más información, consulte los siguientes artículos.
+Para más información, vea los siguientes artículos:
 
 - Más información sobre la [Biblioteca de interfaz de usuario](./ui-library/ui-library-overview.md)
 - Más información sobre las [Funcionalidades de la biblioteca de interfaz de usuario](./ui-library/ui-library-use-cases.md)
