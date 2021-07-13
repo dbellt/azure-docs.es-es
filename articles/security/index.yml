@@ -143,13 +143,13 @@ conceptualContent:
       links:
         - url: ../sentinel/overview.md
           itemType: overview
-          text: ¿Qué es Azure Sentinel (versión preliminar)?
+          text: ¿Qué es Azure Sentinel?
         - url: ../sentinel/quickstart-onboard.md
           itemType: quickstart
-          text: Incorporación en Azure Sentinel (versión preliminar)
+          text: Incorporación de Azure Sentinel
         - url: ../sentinel/quickstart-get-visibility.md
           itemType: quickstart
-          text: Introducción a Azure Sentinel (versión preliminar)
+          text: Introducción a Azure Sentinel
       footerLink:
         url: ../sentinel/index.yml
         text: Ver más

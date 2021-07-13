@@ -16,7 +16,7 @@
   items:
     - name: Conjuntos de datos en Azure Machine Learning
       href: how-to-create-azure-machine-learning-dataset-from-open-dataset.md
-- name: Conjuntos de datos
+- name: Catálogo de conjuntos de datos
   items:
     - name: Catálogo de conjuntos de datos
       href: dataset-catalog.md

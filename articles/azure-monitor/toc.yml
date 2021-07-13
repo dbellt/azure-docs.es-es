@@ -5,7 +5,7 @@
     - name: ¿Qué es Azure Monitor?
       href: overview.md
     - name: Preguntas más frecuentes
-      href: faq.md
+      href: faq.yml
     - name: Novedades
       href: whats-new.md
     - name: Migración desde Operations Manager
@@ -31,6 +31,8 @@
           href: vm/quick-collect-windows-computer.md
     - name: Supervisión de aplicaciones
       items:
+        - name: Aplicación ASP.NET Core
+          href: app/dotnet-quickstart.md
         - name: Aplicación Node.js
           href: app/nodejs-quick-start.md
         - name: Aplicación para dispositivos móviles
@@ -105,6 +107,8 @@
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
+    - name: Consultas de Azure Resource Graph
+      href: ./resource-graph-samples.md
 - name: Conceptos
   items:
     - name: ¿Qué se puede supervisar?
@@ -156,8 +160,20 @@
       items:
         - name: Supervisión de un recurso de Azure
           href: essentials/monitor-azure-resource.md
-        - name: Supervisión de máquinas virtuales de Azure
-          href: vm/monitor-vm-azure.md
+        - name: Supervisión de máquinas virtuales
+          items:
+            - name: Información general
+              href: vm/monitor-virtual-machine.md
+            - name: Configuración de la supervisión
+              href: vm/monitor-virtual-machine-configure.md
+            - name: Análisis de datos
+              href: vm/monitor-virtual-machine-analyze.md
+            - name: Supervisión de la seguridad
+              href: vm/monitor-virtual-machine-security.md
+            - name: Creación de alertas
+              href: vm/monitor-virtual-machine-alerts.md
+            - name: Supervisión de cargas de trabajo
+              href: vm/monitor-virtual-machine-workloads.md
           displayname: VM
     - name: Implementación
       items:
@@ -211,7 +227,7 @@
               items:
                 - name: Azure portal
                   href: logs/quick-create-workspace.md
-                - name: CLI de Azure
+                - name: Azure CLI
                   href: logs/quick-create-workspace-cli.md
                 - name: PowerShell
                   href: logs/powershell-workspace-configuration.md
@@ -362,7 +378,7 @@
         - name: Información general
           href: agents/agents-overview.md
         - name: Preguntas más frecuentes
-          href: faq.md#agents
+          href: /azure/azure-monitor/faq#agents
         - name: Agente de Azure Monitor
           items:
             - name: Información general
@@ -376,10 +392,10 @@
               href: agents/data-collection-rule-azure-monitor-agent.md
             - name: Implementación a escala
               displayname: Deploy Azure Monitor agent at scale
-              href: deploy-scale.md#azure-monitor-agent-preview
+              href: deploy-scale.md#azure-monitor-agent
             - name: Preguntas más frecuentes
               displayname: Azure Monitor agent FAQ
-              href: faq.md#azure-monitor-agent-preview
+              href: /azure/azure-monitor/faq#azure-monitor-agent
         - name: Agente de Log Analytics
           items:
             - name: Información general
@@ -629,7 +645,7 @@
         - name: Introducción sobre Application Insights
           href: app/app-insights-overview.md
         - name: Preguntas más frecuentes
-          href: ./faq.md
+          href: /azure/azure-monitor/faq#application-insights
         - name: Supervisión basada en código
           items:
             - name: .NET
@@ -763,15 +779,12 @@
                       href: app/status-monitor-v2-troubleshoot.md
                     - name: Referencia de API
                       href: app/status-monitor-v2-api-reference.md
-                    - name: Monitor de estado (heredado)
-                      displayname: 'IIS monitoring, on premises monitoring, on prem'
-                      href: app/monitor-performance-live-website-now.md
                 - name: Java
                   href: app/java-on-premises.md
         - name: OpenTelemetry
           items:
             - name: Preguntas más frecuentes
-              href: faq.md#opentelemetry
+              href: /azure/azure-monitor/faq#opentelemetry
         - name: Creación de un recurso (clásico)
           href: app/create-new-resource.md
         - name: Creación de un recurso (basado en el área de trabajo)
@@ -925,6 +938,8 @@
           items:
             - name: Control de acceso
               href: app/resources-roles-access-control.md
+            - name: Autenticación de Azure AD
+              href: app/azure-ad-authentication.md
             - name: Recopilación de direcciones IP
               href: app/ip-collection.md
               displayname: 'geolocation, IP collection, IP tracking, IP storage'
@@ -1011,9 +1026,9 @@
         - name: Información general
           href: vm/vminsights-overview.md
         - name: Preguntas frecuentes acerca de la disponibilidad general
-          href: vm/vminsights-ga-release-faq.md
+          href: vm/vminsights-ga-release-faq.yml
         - name: Preguntas más frecuentes
-          href: faq.md#vm-insights
+          href: /azure/azure-monitor/faq#vm-insights
         - name: Configuración del área de trabajo
           href: vm/vminsights-configure-workspace.md
         - name: Instalación de agentes
@@ -1052,8 +1067,6 @@
               href: vm/vminsights-health-troubleshoot.md
         - name: Análisis de datos con consultas de registros
           href: vm/vminsights-log-search.md
-        - name: Alertas
-          href: vm/vminsights-alerts.md
         - name: Supervisión de cambios
           href: vm/vminsights-change-analysis.md
         - name: Visualización de datos con libros
@@ -1067,7 +1080,7 @@
         - name: Información general
           href: containers/container-insights-overview.md
         - name: Preguntas más frecuentes
-          href: faq.md#container-insights
+          href: /azure/azure-monitor/faq#container-insights
         - name: Habilitar supervisión
           items:
             - name: Habilitar información general de la supervisión
@@ -1159,7 +1172,7 @@
             - name: Información general
               href: insights/sql-insights-overview.md
             - name: Preguntas más frecuentes
-              href: faq.md#sql-insights-preview
+              href: /azure/azure-monitor/faq#sql-insights-preview
             - name: Habilitar
               href: insights/sql-insights-enable.md
             - name: Alertas

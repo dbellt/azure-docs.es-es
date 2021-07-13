@@ -13,7 +13,7 @@ items:
       - name: Novedades
         href: whats-new.md
       - name: Preguntas frecuentes sobre Computer Vision
-        href: FAQ.md
+        href: FAQ.yml
   - name: Reconocimiento óptico de caracteres (OCR)
     items:
       - name: Introducción al OCR

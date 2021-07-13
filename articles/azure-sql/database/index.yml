@@ -12,12 +12,12 @@ metadata:
   ms.author: mathoma
   ms.reviewer: 
   ms.date: 01/25/2021
-  ms.openlocfilehash: a7d66b2775800d00aec434960847ec00cdcbbcf3
-  ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+  ms.openlocfilehash: cf7a5c488eb0a972831dccb9ac6770f08ac0591f
+  ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/29/2021
-  ms.locfileid: "110704214"
+  ms.lasthandoff: 06/22/2021
+  ms.locfileid: "112456965"
 landingContent:
 - title: Azure SQL Database
   linkLists:
@@ -25,8 +25,6 @@ landingContent:
     links:
     - text: Novedades
       url: doc-changes-updates-release-notes.md?tabs=single-database
-    - text: Comentarios Realice la encuesta.
-      url: https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456
   - linkListType: quickstart
     links:
     - text: Creación de una instancia de SQL Database
@@ -143,8 +141,8 @@ landingContent:
       url: https://datamigration.microsoft.com/
     - text: Transact-SQL (T-SQL)
       url: /sql/t-sql/language-reference
-    - text: CLI de Azure
-      url: /cli/azure/sql
+    - text: Azure CLI
+      url: /cli/azure/azure-cli-reference-for-sql#sql-database-references
     - text: PowerShell
       url: /powershell/module/az.sql
     - text: API DE REST

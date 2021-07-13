@@ -1,4 +1,4 @@
-- name: "Documentación de Azure\_DB for MariaDB"
+- name: Documentación de Azure Database for MariaDB
   href: index.yml
 - name: Información general
   expanded: true
@@ -45,9 +45,9 @@
       href: howto-create-users.md
     - name: Configuración de parámetros del servidor
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-server-parameters.md
-        - name: CLI de Azure
+        - name: Azure CLI
           href: howto-configure-server-parameters-cli.md
         - name: Azure PowerShell
           href: howto-configure-server-parameters-using-powershell.md
@@ -57,9 +57,9 @@
   items:
     - name: Diseño de una base de datos
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: tutorial-design-database-using-portal.md
-        - name: CLI de Azure
+        - name: Azure CLI
           href: tutorial-design-database-cli.md
         - name: Azure PowerShell
           href: tutorial-design-database-using-powershell.md
@@ -85,17 +85,17 @@
           href: howto-create-manage-server-portal.md
     - name: Almacenamiento de crecimiento automático
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-auto-grow-storage-portal.md
-        - name: CLI de Azure
+        - name: Azure CLI
           href: howto-auto-grow-storage-cli.md
         - name: Azure PowerShell
           href: howto-auto-grow-storage-powershell.md
     - name: Reinicio del servidor
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-restart-server-portal.md
-        - name: CLI de Azure
+        - name: Azure CLI
           href: howto-restart-server-cli.md
         - name: Azure PowerShell
           href: howto-restart-server-powershell.md
@@ -154,7 +154,7 @@
     - name: Configuración de TLS
       href: howto-tls-configurations.md
     - name: Protección contra amenazas con Azure Defender
-      href: ../security-center/defender-for-databases-introduction.md
+      href: ../security-center/defender-for-databases-usage.md?toc=/azure/mariadb/toc.json&bc=/azure/mariadb/breadcrumb/toc.json
     - name: Conceptos de auditorías
       href: concepts-audit-logs.md
     - name: Configuración de registros de auditoría
@@ -175,9 +175,9 @@
       href: concepts-backup.md
     - name: Restauración de un servidor
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-restore-server-portal.md
-        - name: CLI de Azure
+        - name: Azure CLI
           href: howto-restore-server-cli.md
         - name: Azure PowerShell
           href: howto-restore-server-powershell.md

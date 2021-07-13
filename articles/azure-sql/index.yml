@@ -14,12 +14,12 @@ metadata:
   ms.author: mathoma
   ms.reviewer: 
   ms.date: 10/30/2019
-  ms.openlocfilehash: 45e35a554bd00344574b4d1efe19377f2e0ae2e5
-  ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+  ms.openlocfilehash: 93d0a0f8942d4624bae9e8de93675e7ad2959493
+  ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/29/2021
-  ms.locfileid: "110707464"
+  ms.lasthandoff: 06/22/2021
+  ms.locfileid: "112454733"
 landingContent:
 - title: Azure SQL Database
   linkLists:
@@ -27,8 +27,6 @@ landingContent:
     links:
     - text: Novedades
       url: database/doc-changes-updates-release-notes.md?tabs=single-database
-    - text: Comentarios Realice la encuesta
-      url: https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456
   - linkListType: overview
     links:
     - text: ¿Qué es SQL Database?
@@ -183,8 +181,8 @@ landingContent:
       url: https://datamigration.microsoft.com/
     - text: Transact-SQL (T-SQL)
       url: /sql/t-sql/language-reference
-    - text: CLI de Azure
-      url: /cli/azure/sql
+    - text: Azure CLI
+      url: /cli/azure/azure-cli-reference-for-sql
     - text: PowerShell
       url: /powershell/module/az.sql
     - text: API DE REST

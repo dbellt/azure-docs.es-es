@@ -50,7 +50,7 @@
     - name: Integración de Key Vault con DigiCert CA
       href: how-to-integrate-certificate-authority.md
     - name: 'Solución de problemas: importar certificados'
-      href: import-cert-faqs.md
+      href: import-cert-faqs.yml
     - name: Exportación de certificado desde el almacén de claves
       href: how-to-export-certificate.md
 - name: Referencia

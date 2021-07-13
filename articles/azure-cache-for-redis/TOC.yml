@@ -111,11 +111,11 @@
         - name: Migración a Azure Cache for Redis
           href: cache-migration-guide.md
         - name: Preguntas más frecuentes de planeación
-          href: cache-planning-faq.md
+          href: cache-planning-faq.yml
     - name: Compilar
       items:
         - name: Preguntas más frecuentes de desarrollo
-          href: cache-development-faq.md
+          href: cache-development-faq.yml
     - name: Automatizar
       items:
         - name: Implementación y administración mediante Azure PowerShell
@@ -145,7 +145,7 @@
         - name: Eliminación de TLS 1.0 y 1.1
           href: cache-remove-tls-10-11.md
         - name: Preguntas frecuentes sobre la administración
-          href: cache-management-faq.md
+          href: cache-management-faq.yml
     - name: Supervisión
       items:
         - name: Monitor en Azure Portal
@@ -153,7 +153,7 @@
         - name: Establecer alertas para las excepciones
           href: cache-how-to-monitor.md#operations-and-alerts
         - name: Preguntas frecuentes sobre la supervisión
-          href: cache-monitor-troubleshoot-faq.md
+          href: cache-monitor-troubleshoot-faq.yml
     - name: Escala
       items:
         - name: Actualizar a un tamaño y nivel distintos
@@ -171,7 +171,7 @@
         - name: Solución de problemas de pérdidas de datos
           href: cache-troubleshoot-data-loss.md
         - name: Preguntas frecuentes sobre la solución de problemas
-          href: cache-monitor-troubleshoot-faq.md
+          href: cache-monitor-troubleshoot-faq.yml
 - name: Referencia
   items:
     - name: Ejemplos de Azure Cache for Redis
@@ -198,7 +198,7 @@
 - name: Recursos
   items:
     - name: Preguntas frecuentes sobre Azure Cache for Redis
-      href: cache-faq.md
+      href: cache-faq.yml
     - name: Vídeos
       href: 'https://www.youtube.com/results?search_query=azure+redis+cache'
     - name: Página de preguntas y respuestas de Microsoft

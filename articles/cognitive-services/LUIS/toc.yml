@@ -12,7 +12,7 @@
     - name: Novedades
       href: whats-new.md
     - name: PREGUNTAS MÁS FRECUENTES ACERCA DE LUIS
-      href: troubleshooting.md
+      href: troubleshooting.yml
       displayName: 'Troubleshooting, import'
 - name: Inicios rápidos de LUIS
   items:

@@ -25,6 +25,8 @@
           href: security-controls-policy.md
         - name: Introducción a la seguridad
           href: security-overview.md
+        - name: Redes de Private Link
+          href: private-link-security.md
 - name: Guías paso a paso
   items:
     - name: Implementación

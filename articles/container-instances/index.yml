@@ -11,12 +11,12 @@ metadata:
   author: dlepow
   ms.author: danlep
   ms.date: 09/25/2019
-  ms.openlocfilehash: 8dd403d9c1b2996c70c8d387e5305d2c8749bce8
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 7f9fb5223fc59fda2379d7b2cda660a504366c7b
+  ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "90705204"
+  ms.lasthandoff: 07/02/2021
+  ms.locfileid: "113217636"
 landingContent:
 - title: Acerca de Azure Container Instances
   linkLists:
@@ -27,7 +27,7 @@ landingContent:
     - text: Grupos de contenedores
       url: container-instances-container-groups.md
     - text: Preguntas más frecuentes
-      url: container-instances-faq.md
+      url: container-instances-faq.yml
 - title: Introducción
   linkLists:
   - linkListType: quickstart

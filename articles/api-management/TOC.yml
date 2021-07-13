@@ -320,7 +320,7 @@
           href: diagnose-solve-problems.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/apim
     - name: Azure PowerShell
       href: /powershell/module/az.apimanagement/
@@ -338,7 +338,7 @@
 - name: Recursos
   items:
     - name: Preguntas más frecuentes
-      href: api-management-faq.md
+      href: api-management-faq.yml
     - name: Precios
       href: 'https://aka.ms/apimpricing'
     - name: Actualizaciones del producto

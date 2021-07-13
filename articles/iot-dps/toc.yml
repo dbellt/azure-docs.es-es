@@ -118,8 +118,6 @@
   items:
     - name: Desarrollo
       items:
-        - name: Conexión de MXChip IoT DevKit a IoT Hub
-          href: how-to-connect-mxchip-iot-devkit.md
         - name: Envío de datos adicionales desde dispositivos
           href: how-to-send-additional-data.md
         - name: Aprovisionamiento de dispositivos mediante directivas de asignación personalizada
