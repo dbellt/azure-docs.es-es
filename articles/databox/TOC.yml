@@ -83,7 +83,7 @@
             - name: Transferencia de listas de control de acceso y metadatos
               href: data-box-file-acls-preservation.md
             - name: Preguntas más frecuentes
-              href: data-box-faq.md
+              href: data-box-faq.yml
         - name: Procedimientos
           items:
             - name: Administrar mediante Azure Portal
@@ -155,7 +155,7 @@
             - name: Revisión de la seguridad
               href: data-box-disk-security.md
             - name: Preguntas más frecuentes
-              href: data-box-disk-faq.md
+              href: data-box-disk-faq.yml
         - name: Procedimientos
           items:
             - name: Administrar mediante Azure Portal

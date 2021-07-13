@@ -14,12 +14,12 @@ metadata:
   ms.date: 08/16/2019
   ms.custom: seo-azure-migrate
   keywords: cloud data transfer, data migration to cloud, azure data box, data transfer service, data transfer services, azure data transfer
-  ms.openlocfilehash: 6b3ef7ace8bfb481b294ca4d823ccc1c6c2f7367
-  ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+  ms.openlocfilehash: 2ac1b3b0749897ec9532ac2972d88fe00882ed1f
+  ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/16/2020
-  ms.locfileid: "92125241"
+  ms.lasthandoff: 06/30/2021
+  ms.locfileid: "113092804"
 landingContent:
 - title: Acerca de la familia de productos de Azure Data Box
   linkLists:
@@ -90,8 +90,8 @@ landingContent:
     - text: Data Box Heavy
       url: data-box-troubleshoot.md
     - text: Mediante las preguntas más frecuentes sobre Data Box
-      url: data-box-faq.md
+      url: data-box-faq.yml
     - text: Mediante las preguntas más frecuentes sobre Data Box Disk
-      url: data-box-disk-faq.md
+      url: data-box-disk-faq.yml
     - text: Abrir una incidencia de soporte técnico
       url: data-box-disk-contact-microsoft-support.md

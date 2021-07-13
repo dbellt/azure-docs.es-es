@@ -24,7 +24,7 @@
 - name: Recursos
   items:
     - name: Preguntas frecuentes
-      href: frequently-asked-questions-genomics.md
+      href: frequently-asked-questions-genomics.yml
     - name: Guía de solución de problemas
       href: troubleshooting-guide-genomics.md
     - name: Apertura de una solicitud de soporte técnico

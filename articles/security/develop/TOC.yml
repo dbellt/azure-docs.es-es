@@ -24,7 +24,7 @@
         - name: Configuración
           href: security-code-analysis-customize.md
         - name: Preguntas más frecuentes
-          href: security-code-analysis-faq.md
+          href: security-code-analysis-faq.yml
         - name: Configuración de YAML
           href: yaml-configuration.md
         - name: Versiones y hoja de ruta

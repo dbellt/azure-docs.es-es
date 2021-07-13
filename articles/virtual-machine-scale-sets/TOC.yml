@@ -25,25 +25,25 @@
   items:
     - name: 1 - Creación y administración de un conjunto de escalado
       items:
-        - name: CLI de Azure
+        - name: Azure CLI
           href: tutorial-create-and-manage-cli.md
         - name: Azure PowerShell
           href: tutorial-create-and-manage-powershell.md
     - name: 2 - Uso de discos de datos
       items:
-        - name: CLI de Azure
+        - name: Azure CLI
           href: tutorial-use-disks-cli.md
         - name: Azure PowerShell
           href: tutorial-use-disks-powershell.md
     - name: 3 - Uso de una imagen de máquina virtual personalizada
       items:
-        - name: CLI de Azure
+        - name: Azure CLI
           href: tutorial-use-custom-image-cli.md
         - name: Azure PowerShell
           href: tutorial-use-custom-image-powershell.md
     - name: 4 - Implementación de aplicaciones en un conjunto de escalado
       items:
-        - name: CLI de Azure
+        - name: Azure CLI
           href: tutorial-install-apps-cli.md
         - name: Azure PowerShell
           href: tutorial-install-apps-powershell.md
@@ -149,7 +149,7 @@
           href: ../virtual-machines/sizes-hpc.md
           maintainContext: true
         - name: Máquinas virtuales de Azure sin disco temporal
-          href: ../virtual-machines/azure-vms-no-temp-disk.md
+          href: ../virtual-machines/azure-vms-no-temp-disk.yml
           maintainContext: true
         - name: Convenciones de nomenclatura de tamaños de máquina virtual de Azure
           href: ../virtual-machines/vm-naming-conventions.md
@@ -403,7 +403,7 @@
           maintainContext: true
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/vmss
     - name: Azure PowerShell
       href: /powershell/azure/
