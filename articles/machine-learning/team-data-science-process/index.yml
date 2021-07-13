@@ -1,0 +1,41 @@
+### YamlMime:Landing
+title: Documentación del proceso de ciencia de datos en equipo
+summary: Aprenda a usar el proceso de ciencia de datos en equipo, que una metodología de ciencia de datos ágil e iterativa para soluciones de análisis predictivo y aplicaciones inteligentes.
+metadata:
+  title: Documentación del proceso de ciencia de datos en equipo
+  description: Aprenda a usar el proceso de ciencia de datos en equipo, que una metodología de ciencia de datos ágil e iterativa para soluciones de análisis predictivo y aplicaciones inteligentes.
+  ms.service: machine-learning
+  ms.subservice: team-data-science-process
+  ms.topic: landing-page
+  author: marktab
+  ms.author: marktab
+  ms.date: 03/10/2020
+  ms.openlocfilehash: cfa2721328eb5cbe9a9a5b1db663702cc47fbec0
+  ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 06/24/2021
+  ms.locfileid: "112678241"
+landingContent:
+- title: Más información acerca del proceso
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es el Proceso de ciencia de datos en equipo (TDSP)?
+      url: /azure/architecture/data-science-process/overview
+  - linkListType: concept
+    links:
+    - text: Ciclo de vida del proceso
+      url: /azure/architecture/data-science-process/lifecycle
+    - text: Conocimiento del negocio
+      url: /azure/architecture/data-science-process/lifecycle-business-understanding
+    - text: Adquisición de datos
+      url: /azure/architecture/data-science-process/lifecycle-data
+- title: Planeación y desarrollo de un proyecto
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Planeación del proyecto
+      url: /azure/architecture/team-data-science-process-project-templates
+    - text: Desarrollo ágil
+      url: /azure/architecture/agile-development

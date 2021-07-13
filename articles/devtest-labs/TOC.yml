@@ -319,4 +319,4 @@
     - name: Vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=devtest-lab'
     - name: Preguntas más frecuentes
-      href: devtest-lab-faq.md
+      href: devtest-lab-faq.yml
