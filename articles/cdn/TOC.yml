@@ -74,7 +74,7 @@
         - name: Incorporación de un dominio raíz o de Apex
           href: onboard-apex-domain.md
         - name: Restricción del acceso por país o región
-          href: cdn-restrict-access-by-country.md
+          href: cdn-restrict-access-by-country-region.md
         - name: Mejora del rendimiento mediante la compresión de archivos
           href: cdn-improve-performance.md
         - name: Punto de conexión con varios orígenes

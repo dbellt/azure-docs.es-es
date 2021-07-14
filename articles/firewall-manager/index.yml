@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh
-  ms.date: 12/04/2020
-  ms.openlocfilehash: f25fff23bc371a172a8ddc992d3261705e647f25
-  ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+  ms.date: 06/30/2021
+  ms.openlocfilehash: b20ab24bf74d7e0562cc8a0b949cb9eca9074ed9
+  ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 12/04/2020
-  ms.locfileid: "96608391"
+  ms.lasthandoff: 07/07/2021
+  ms.locfileid: "113438645"
 landingContent:
 - title: Más información sobre Azure Firewall Manager
   linkLists:
@@ -25,6 +25,10 @@ landingContent:
       url: overview.md
     - text: Introducción a la implementación
       url: deployment-overview.md
+  - linkListType: learn
+    links:
+    - text: Introducción a Azure Firewall Manager
+      url: /learn/modules/intro-to-azure-firewall-manager/
 - title: Información sobre centros virtuales protegidos
   linkLists:
   - linkListType: concept
