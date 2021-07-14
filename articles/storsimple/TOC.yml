@@ -401,7 +401,7 @@
         - name: Notas de la versión de CSP
           href: 'https://partner.microsoft.com/Support/whats-new'
         - name: 'StorSimple para CSP: Preguntas más frecuentes'
-          href: storsimple-partner-csp-faq.md
+          href: storsimple-partner-csp-faq.yml
 - name: Temas relacionados
   items:
     - name: StorSimple series 5000-7000

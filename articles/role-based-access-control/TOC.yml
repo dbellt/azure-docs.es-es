@@ -100,6 +100,8 @@
           href: conditions-role-assignments-cli.md
         - name: API DE REST
           href: conditions-role-assignments-rest.md
+        - name: Plantilla ARM
+          href: conditions-role-assignments-template.md
         - name: Solución de problemas de condiciones
           href: conditions-troubleshoot.md
     - name: Eliminación de asignaciones de rol

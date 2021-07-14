@@ -12,12 +12,12 @@ metadata:
   ms.date: 10/19/2020
   author: curtand
   ms.author: curtand
-  ms.openlocfilehash: 8dd6ac6fef0dbc84c77ccacfd048b2af21771f6a
-  ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+  ms.openlocfilehash: 9a01fc386fcf1c100072d8cf813c27f2ba2f0ad1
+  ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 12/02/2020
-  ms.locfileid: "96499210"
+  ms.lasthandoff: 06/25/2021
+  ms.locfileid: "112965931"
 landingContent:
 - title: Acerca de los roles de Azure AD
   linkLists:
@@ -31,7 +31,7 @@ landingContent:
       url: concept-understand-roles.md
     - text: Descripción de las unidades administrativas de Azure AD
       url: administrative-units.md
-    - text: Uso de grupos en la nube para administrar asignaciones de roles
+    - text: Uso de grupos para las asignaciones de roles
       url: groups-concept.md
 - title: Introducción
   linkLists:
@@ -65,7 +65,7 @@ landingContent:
     links:
     - text: Creación de grupos a los que se pueden asignar roles
       url: groups-create-eligible.md
-    - text: Asignación de un rol a un grupo en la nube
+    - text: Asignación de roles a grupos
       url: groups-assign-role.md
     - text: Hacer que un grupo sea válido para PIM
       url: groups-pim-eligible.md

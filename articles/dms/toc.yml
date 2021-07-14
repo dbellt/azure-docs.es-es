@@ -47,12 +47,10 @@
       items:
         - name: a Azure Database for MySQL (sin conexión)
           href: tutorial-mysql-azure-mysql-offline-portal.md
-        - name: a Azure Database for MySQL (en línea)
-          href: tutorial-mysql-azure-mysql-online.md
     - name: Migración de MySQL de RDS
       items:
         - name: a Azure Database for MySQL
-          href: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
+          href: tutorial-mysql-azure-mysql-offline-portal.md
     - name: Migración de PostgreSQL
       items:
         - name: a Azure DB for PostgreSQL (Azure Portal)
@@ -139,8 +137,6 @@
           items:
             - name: Instancia administrada de SQL
               href: known-issues-azure-sql-db-managed-instance-online.md
-            - name: Base de datos MySQL en Azure
-              href: known-issues-azure-mysql-online.md
             - name: PostgreSQL a Azure DB for PostgreSQL
               href: known-issues-azure-postgresql-online.md
             - name: MongoDB a Azure Cosmos DB API para MongoDB
@@ -160,6 +156,6 @@
         - name: Supervisión de una migración en línea y realización de migración total
           href: 'https://azure.microsoft.com/resources/videos/how-to-monitor-online-migration-and-perform-cutover/'
         - name: Migración de Oracle a Azure SQL Database
-          href: 'https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/'
+          href: /azure/postgresql/howto-migrate-from-oracle
         - name: Migración de MongoDB a Azure Cosmos DB
           href: 'https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/'

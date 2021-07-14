@@ -44,7 +44,7 @@
     - name: Orígenes de datos admitidos
       href: analysis-services-datasource.md
     - name: Preguntas frecuentes acerca de la conectividad de red
-      href: analysis-services-network-faq.md
+      href: analysis-services-network-faq.yml
 - name: Instrucciones
   items:
     - name: Server

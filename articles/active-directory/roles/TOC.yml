@@ -18,7 +18,7 @@
           href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
         - name: Roles de Microsoft 365
           href: m365-workload-docs.md
-    - name: Asignación de roles basada en grupo
+    - name: Uso de grupos para las asignaciones de roles
       href: groups-concept.md
     - name: Unidades administrativas
       href: administrative-units.md
@@ -87,9 +87,9 @@
     - name: Solución de problemas
       items:
         - name: Solución de problemas de roles asignados a grupos
-          href: groups-faq-troubleshooting.md
+          href: groups-faq-troubleshooting.yml
         - name: Solución de problemas de unidades administrativas
-          href: admin-units-faq-troubleshoot.md
+          href: admin-units-faq-troubleshoot.yml
         - name: Obtener soporte técnico para Azure AD
           href: ../fundamentals/active-directory-troubleshooting-support-howto.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Referencia
