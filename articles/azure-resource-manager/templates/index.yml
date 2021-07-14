@@ -12,12 +12,12 @@ metadata:
   author: mumian
   ms.author: jgao
   ms.date: 03/03/2021
-  ms.openlocfilehash: b3a8448145a101367a2000e5b16d0ff61b93a0d7
-  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+  ms.openlocfilehash: 0f25783d39adb290b372ac87edcb69559143c1a5
+  ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/10/2021
-  ms.locfileid: "111963217"
+  ms.lasthandoff: 06/16/2021
+  ms.locfileid: "112202821"
 landingContent:
 - title: Acerca de las plantillas de Resource Manager
   linkLists:
@@ -30,7 +30,7 @@ landingContent:
     - text: Procedimientos recomendados
       url: ./best-practices.md
     - text: Preguntas más frecuentes
-      url: frequently-asked-questions.md
+      url: frequently-asked-questions.yml
     - text: Especificaciones de plantilla
       url: template-specs.md
     - text: Modos de implementación
@@ -113,7 +113,7 @@ landingContent:
     links:
     - text: Resource group
       url: deploy-to-resource-group.md
-    - text: Subscription
+    - text: Suscripción
       url: deploy-to-subscription.md
     - text: Grupo de administración
       url: deploy-to-management-group.md
@@ -133,7 +133,7 @@ landingContent:
       url: /rest/api/resources/
     - text: Azure PowerShell
       url: /powershell/module/az.resources
-    - text: CLI de Azure
+    - text: Azure CLI
       url: /cli/azure/resource
     - text: .NET
       url: /dotnet/api/microsoft.azure.management.resourcemanager

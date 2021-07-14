@@ -75,7 +75,7 @@
           href: troubleshoot-private-link-connectivity.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/network
     - name: Azure PowerShell
       href: /powershell/module/az.network
@@ -112,4 +112,4 @@
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-virtual-network'
     - name: Preguntas más frecuentes
-      href: private-link-faq.md
+      href: private-link-faq.yml

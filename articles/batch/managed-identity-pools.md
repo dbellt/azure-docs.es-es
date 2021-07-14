@@ -2,14 +2,13 @@
 title: Configuración de identidades administradas en grupos de Batch
 description: Obtenga información sobre cómo habilitar identidades administradas asignadas por el usuario en grupos de Batch y cómo usar identidades administradas en los nodos.
 ms.topic: conceptual
-ms.date: 03/23/2021
-ms.custom: references_regions
-ms.openlocfilehash: d69e983a4b17298150942c924a3c694e2cceaf72
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.date: 05/25/2021
+ms.openlocfilehash: 243cf375b3ebf8bd64d73022ba44c3224b58872d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967258"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110457776"
 ---
 # <a name="configure-managed-identities-in-batch-pools"></a>Configuración de identidades administradas en grupos de Batch
 
@@ -18,9 +17,9 @@ Las [identidades administradas para recursos de Azure](../active-directory/manag
 En este tema se explica cómo habilitar identidades administradas asignadas por el usuario en grupos de Batch y cómo usar identidades administradas en los nodos.
 
 > [!IMPORTANT]
-> La compatibilidad de grupos de Azure Batch con identidades administradas asignadas por el usuario se encuentra actualmente en versión preliminar pública para las siguientes regiones: Oeste de EE. UU. 2, Centro y Sur de EE. UU., Este de EE. UU., US Gov Arizona y US Gov Virginia.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Los grupos deben configurarse con la opción [Configuración de máquina virtual](nodes-and-pools.md#virtual-machine-configuration) para poder usar identidades administradas.
+>
+> La creación de grupos con identidades administradas se puede realizar mediante la [biblioteca de administración de .NET de Batch](/dotnet/api/overview/azure/batch#management-library), pero actualmente no es compatible con la [biblioteca cliente de .NET de Batch](/dotnet/api/overview/azure/batch#client-library).
 
 ## <a name="create-a-user-assigned-identity"></a>Creación de una identidad asignada por el usuario
 
@@ -29,9 +28,6 @@ En primer lugar, [cree la identidad administrada asignada por el usuario](../act
 ## <a name="create-a-batch-pool-with-user-assigned-managed-identities"></a>Creación de un grupo de Batch con identidades administradas asignadas por el usuario
 
 Después de haber creado una o más identidades administradas asignadas por el usuario, puede crear un grupo de Batch con esa identidad administrada mediante la [biblioteca de administración de .NET de Batch](/dotnet/api/overview/azure/batch#management-library).
-
-> [!IMPORTANT]
-> Los grupos deben configurarse con la opción [Configuración de máquina virtual](nodes-and-pools.md#virtual-machine-configuration) para poder usar identidades administradas.
 
 ```csharp
 var poolParameters = new Pool(name: "yourPoolName")
@@ -72,9 +68,6 @@ var pool = await managementClient.Pool.CreateWithHttpMessagesAsync(
     parameters: poolParameters,
     cancellationToken: default(CancellationToken)).ConfigureAwait(false);    
 ```
-
-> [!NOTE]
-> La creación de grupos con identidades administradas no se admite actualmente con la [biblioteca de cliente .NET de Batch](/dotnet/api/overview/azure/batch#client-library).
 
 ## <a name="use-user-assigned-managed-identities-in-batch-nodes"></a>Uso de identidades administradas asignadas por el usuario en nodos de Batch
 

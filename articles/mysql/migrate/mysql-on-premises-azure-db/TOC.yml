@@ -36,5 +36,25 @@
           href: 13-security.md
         - name: Resumen
           href: 14-summary.md
-        - name: Apéndice
-          href: 15-appendix.md
+    - name: Aplicaciones de ejemplo
+      href: 15-appendix.md
+    - name: Recursos
+      items:
+        - name: Migración de datos con mysqldump o phpmyadmin
+          href: ../../concepts-migrate-dump-restore.md
+          displayName: 'migrate, mysqldump'
+        - name: Migración de datos con dbForge Studio para MySQL
+          href: ../../concepts-migrate-dbforge-studio-for-mysql.md
+          displayName: 'migrate, dbforge'
+        - name: Migración de datos con MySQL Workbench
+          href: ../../concepts-migrate-import-export.md
+          displayName: 'import , migrate, export'
+        - name: Migración de datos de RDS MySQL con MySQL Workbench
+          href: ../../how-to-migrate-rds-mysql-workbench.md
+          displayName: 'import , migrate, export'
+        - name: Migración con tiempo de inactividad mínimo a Azure Database for PostgreSQL con un único servidor
+          href: ../../howto-migrate-online.md
+          displayName: 'migrate, dms, database migration service'
+        - name: Solución de errores comunes
+          href: ../../howto-troubleshoot-common-errors.md
+          displayName: 'SUPER privilege, DBA role, Access is denied'
