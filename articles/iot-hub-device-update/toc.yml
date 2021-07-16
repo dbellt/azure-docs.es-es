@@ -47,6 +47,8 @@ items:
         href: import-concepts.md
       - name: Esquema relacionado con la importación
         href: import-schema.md
+      - name: Límites de actualización de dispositivos
+        href: device-update-limits.md
   - name: Guías paso a paso
     items:
       - name: Creación de una cuenta de Device Update

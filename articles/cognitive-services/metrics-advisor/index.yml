@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 08/13/2020
   ms.author: mbullwin
-  ms.openlocfilehash: 51a9315974b97032a58e21923df12d0adbe9d11b
-  ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+  ms.openlocfilehash: 788b982828c288952b79ba49c5ce515a9e16496f
+  ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/10/2021
-  ms.locfileid: "111893866"
+  ms.lasthandoff: 06/19/2021
+  ms.locfileid: "112378518"
 landingContent:
 - title: Acerca de Metrics Advisor
   linkLists:
@@ -34,6 +34,12 @@ landingContent:
       url: quickstarts/web-portal.md
     - text: Uso de la API REST o bibliotecas de cliente
       url: quickstarts/rest-api-and-client-library.md
+  - linkListType: video
+    links:
+    - text: Introducción a Metrics Advisor
+      url: https://www.youtube.com/watch?v=0Y26cJqZMIM
+    - text: Novedades de Cognitive Services
+      url: https://www.youtube.com/watch?v=7tCLJHdBZgM
 - title: Artículos de procedimientos
   linkLists:
   - linkListType: how-to-guide
@@ -49,7 +55,7 @@ landingContent:
     - text: Configuración de alertas y obtención de notificaciones mediante un enlace
       url: how-tos/alerts.md
     - text: Diagnóstico de incidentes
-      url: how-tos/diagnose-incident.md
+      url: how-tos/diagnose-an-incident.md
     - text: Ajuste de la detección de anomalías mediante los comentarios
       url: how-tos/anomaly-feedback.md
     - text: Creación de un grafo de métricas

@@ -1,0 +1,79 @@
+- name: Documentación de Virtual Network NAT
+  href: index.yml
+- name: Información general
+  items:
+    - name: ¿Qué es NAT de Virtual Network?
+      href: nat-overview.md
+- name: Tutoriales
+  items:
+    - name: 'Creación y validación de una instancia de NAT Gateway: Azure Portal'
+      href: tutorial-create-nat-gateway-portal.md
+    - name: 'Creación y validación de una instancia de NAT Gateway: PowerShell'
+      href: tutorial-create-nat-gateway-powershell.md
+    - name: 'Creación y validación de una instancia de NAT Gateway: CLI de Azure'
+      href: tutorial-create-nat-gateway-cli.md
+    - name: 'Creación de una instancia de NAT Gateway: Plantilla de Resource Manager'
+      displayname: Resource Manager
+      href: quickstart-create-nat-gateway-template.md
+    - name: Integración del equilibrador de carga público de NAT Gateway
+      href: tutorial-nat-gateway-load-balancer-public-portal.md
+    - name: Integración del equilibrador de carga interno de NAT Gateway
+      href: tutorial-nat-gateway-load-balancer-internal-portal.md
+  expanded: true
+- name: Conceptos
+  items:
+    - name: Resource
+      href: nat-gateway-resource.md
+    - name: Métricas y alertas
+      href: nat-metrics.md
+    - name: Seguridad
+      items:
+        - name: Línea base de seguridad de NAT de Virtual Network
+          href: nat-security-baseline.md
+- name: Instrucciones
+  items:
+    - name: Solución de problemas
+      items:
+        - name: Solución de problemas de NAT Gateway
+          href: troubleshoot-nat.md
+- name: Referencia
+  items:
+    - name: Azure CLI
+      href: /cli/azure/azure-cli-reference-for-network
+    - name: Azure PowerShell
+      href: /powershell/module/az.network
+    - name: .NET
+      href: /dotnet/api/overview/azure/virtual-network
+    - name: Java
+      href: /java/api/
+    - name: Node.js
+      href: /javascript/azure#azure-sdk
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: REST
+      href: /rest/api/virtual-network
+    - name: Plantilla de Resource Manager
+      href: /azure/templates/microsoft.network/allversions
+    - name: Ejemplos de código
+      href: 'https://azure.microsoft.com/resources/samples/?service=virtual-network'
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ../policy-reference.md
+- name: Recursos
+  items:
+    - name: Desarrollo de aptitudes con Microsoft Learn
+      href: /learn/browse/
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Blog de redes
+      href: 'https://azure.microsoft.com/blog/topics/networking'
+    - name: Página de preguntas y respuestas de Microsoft para Redes
+      href: /answers/topics/azure-virtual-network.html
+    - name: Comentarios de redes
+      href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/virtual-network'
+    - name: Calculadora de precios
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-virtual-network'

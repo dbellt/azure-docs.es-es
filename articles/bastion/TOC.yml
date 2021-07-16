@@ -7,11 +7,11 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Creación de un host mediante la configuración de máquinas virtuales
+    - name: Configuración de Bastion a partir de las opciones de máquina virtual
       href: quickstart-host-portal.md
 - name: Tutoriales
   items:
-    - name: Creación de un host y conexión a una máquina virtual Windows
+    - name: Configuración de Bastión y conexión
       href: tutorial-create-host-portal.md
 - name: Conceptos
   items:
@@ -29,13 +29,13 @@
           href: /security/benchmark/azure/baselines/bastion-security-baseline?toc=/azure/bastion/TOC.json
 - name: Guías paso a paso
   items:
-    - name: Creación de un host
+    - name: Configuración de Bastion
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: tutorial-create-host-portal.md
         - name: Azure PowerShell
           href: bastion-create-host-powershell.md
-        - name: CLI de Azure
+        - name: Azure CLI
           href: create-host-cli.md
     - name: Conexión a una máquina virtual
       items:
@@ -55,12 +55,14 @@
           href: bastion-vm-full-screen.md
     - name: Trabajar con Grupos de seguridad de red
       href: bastion-nsg.md
-    - name: Configuración y acceso a registros de diagnóstico
-      href: diagnostic-logs.md
-    - name: Supervisión y administración de sesiones
-      href: session-monitoring.md
-    - name: 'Métricas, supervisión y alertas'
-      href: howto-metrics-monitor-alert.md
+    - name: Supervisión del estado
+      items:
+        - name: Supervisión de Azure Bastion
+          href: howto-metrics-monitor-alert.md
+        - name: Configuración y acceso a registros de diagnóstico
+          href: diagnostic-logs.md
+        - name: Supervisión y administración de sesiones
+          href: session-monitoring.md
     - name: Solución de problemas
       href: troubleshoot.md
 - name: Referencia

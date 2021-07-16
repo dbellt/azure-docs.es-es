@@ -30,6 +30,8 @@
   items:
     - name: Monitor de conexión
       href: connection-monitor-overview.md
+    - name: Esquema de Connection Monitor
+      href: connection-monitor-schema.md
     - name: Diagnóstico de problemas de filtro de tráfico de red de máquinas virtuales
       href: network-watcher-ip-flow-verify-overview.md
     - name: Diagnóstico de reglas del grupo de seguridad de red y filtrado del tráfico
@@ -139,10 +141,13 @@
             - name: Lectura de registros de flujos de NSG
               href: network-watcher-read-nsg-flow-logs.md
             - name: Uso del análisis del tráfico
-              href: traffic-analytics.md
               items:
+                - name: Introducción al análisis de tráfico
+                  href: traffic-analytics.md
                 - name: Preguntas más frecuentes
                   href: traffic-analytics-faq.yml
+                - name: Directiva integrada
+                  href: traffic-analytics-policy-portal.md
                 - name: Esquema y agregación de datos
                   href: traffic-analytics-schema.md
                 - name: Actualización del esquema (agosto de 2019)
@@ -191,7 +196,7 @@
           href: resource-move.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/network/watcher
     - name: Azure PowerShell
       href: /powershell/module/az.network/#network_watcher

@@ -82,6 +82,8 @@
           href: howto-sspr-windows.md
     - name: "Azure\_AD Multi-Factor Authentication"
       items:
+        - name: Guía de planeamiento
+          href: concept-mfa-plan.md
         - name: Guía de implementación
           href: howto-mfa-getstarted.md
         - name: Definición de configuración
@@ -160,6 +162,8 @@
       href: howto-authentication-temporary-access-pass.md
     - name: Uso de autenticación basada en SMS
       href: howto-authentication-sms-signin.md
+    - name: Aplicaciones admitidas para la autenticación basada en SMS
+      href: how-to-authentication-sms-supported-apps.md
     - name: SMS bidireccional no compatible
       href: how-to-authentication-two-way-sms-unsupported.md
     - name: Uso del inicio de sesión mediante dirección de correo electrónico
@@ -187,6 +191,14 @@
           href: howto-mfa-reporting-datacollection.md
     - name: Servidor MFA
       items:
+        - name: "Migración de un servidor Azure MFA a Azure\_AD\_MFA"
+          items:
+            - name: Información general
+              href: how-to-migrate-mfa-server-to-azure-mfa.md
+            - name: Migración a Azure MFA y autenticación de usuario
+              href: how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md
+            - name: Migración a Azure MFA con federación
+              href: how-to-migrate-mfa-server-to-azure-mfa-with-federation.md
         - name: Implementación de Multi-Factor Authentication local
           href: howto-mfaserver-deploy.md
         - name: Instalación del Portal de usuarios

@@ -149,16 +149,16 @@
       items:
         - name: Introducción a la seguridad
           href: search-security-overview.md
+        - name: Protección del acceso a datos externos
+          href: search-indexer-securing-resources.md
         - name: Controles de seguridad de Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
-        - name: Acceso a contenido protegido
-          href: search-indexer-securing-resources.md
         - name: Línea de base de seguridad
           href: /security/benchmark/azure/baselines/cognitive-search-security-baseline?toc=/azure/search/TOC.json
 - name: Guías paso a paso
   items:
-    - name: Administración
+    - name: Administración de servicios
       items:
         - name: Elija un nivel
           href: search-sku-tier.md
@@ -184,6 +184,38 @@
           href: search-howto-move-across-regions.md
         - name: Solución de problemas relacionados con la creación de recursos compartidos de Private Link
           href: troubleshoot-shared-private-link-resources.md
+    - name: Seguridad
+      items:
+        - name: Cifrado de datos
+          items:
+            - name: Claves administradas por el cliente
+              href: search-security-manage-encryption-keys.md
+            - name: Información de cifrado
+              href: search-security-get-encryption-keys.md
+        - name: Seguridad de entrada
+          items:
+            - name: Autenticación basada en claves
+              href: search-security-api-keys.md
+            - name: Autorización basada en roles
+              href: search-security-rbac.md
+            - name: "Configuración de un firewall de\_IP"
+              href: service-configure-firewall.md
+            - name: Creación de un punto de conexión privado
+              href: service-create-private-endpoint.md
+        - name: Seguridad de salida (indizadores)
+          items:
+            - name: Acceso a los datos a través de un intervalo IP
+              href: search-indexer-howto-access-ip-restricted.md
+            - name: Acceso a los datos mediante una identidad del sistema
+              href: search-indexer-howto-access-trusted-service-exception.md
+            - name: Acceso a los datos a través de puntos de conexión privados
+              href: search-indexer-howto-access-private.md
+        - name: Seguridad de nivel de documento
+          items:
+            - name: Filtros de seguridad
+              href: search-security-trimming-for-azure-search.md
+            - name: Filtro por identidades de usuario
+              href: search-security-trimming-for-azure-search-with-aad.md
     - name: Desarrollo
       items:
         - name: Versiones de API
@@ -240,7 +272,7 @@
           href: index-add-language-analyzers.md
         - name: Adición de un analizador personalizado
           href: index-add-custom-analyzers.md
-    - name: data
+    - name: Importación de datos
       items:
         - name: Introducción a la importación de datos
           href: search-what-is-data-import.md
@@ -274,10 +306,14 @@
               href: search-howto-managed-identities-cosmos-db.md
             - name: SQL Database
               href: search-howto-managed-identities-sql.md
-        - name: Orígenes de datos de Power Query
-          href: search-how-to-index-power-query-data-sources.md
-        - name: SharePoint Online
-          href: search-howto-index-sharepoint-online.md
+        - name: Guía de solución de problemas
+          href: search-indexer-troubleshooting.md
+        - name: Solución de errores y advertencias del indexador
+          href: cognitive-search-common-errors-warnings.md
+    - name: Orígenes de datos (indexadores)
+      items:
+        - name: Galería de orígenes de datos
+          href: search-data-sources-gallery.md
         - name: Azure Blobs
           items:
             - name: Búsqueda de blobs
@@ -308,35 +344,35 @@
               href: search-howto-index-cosmosdb-gremlin.md
         - name: Azure Data Lake Storage Gen2
           href: search-howto-index-azure-data-lake-storage.md
-        - name: Azure SQL Database
-          href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-        - name: Instancias administradas de Azure SQL
-          href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
-        - name: Máquinas virtuales con Azure SQL Server
-          href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
         - name: Azure MySQL
           href: search-howto-index-mysql.md
-        - name: Solución de problemas del indexador
-          href: search-indexer-troubleshooting.md
-        - name: Solución de errores y advertencias del indexador
-          href: cognitive-search-common-errors-warnings.md
-    - name: Conjuntos de aptitudes
+        - name: Azure SQL
+          items:
+            - name: Azure SQL Database
+              href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+            - name: Instancias administradas de Azure SQL
+              href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
+            - name: Máquinas virtuales con Azure SQL Server
+              href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+        - name: Orígenes de datos de Power Query
+          href: search-how-to-index-power-query-data-sources.md
+        - name: SharePoint Online
+          href: search-howto-index-sharepoint-online.md
+    - name: Conjuntos de aptitudes (indexadores)
       items:
         - name: Adjuntar un recurso de Cognitive Services
           href: cognitive-search-attach-cognitive-services.md
-        - name: Conjuntos de aptitudes
-          items:
-            - name: Definición de un conjunto de habilidades
-              href: cognitive-search-defining-skillset.md
-            - name: Referencia a una anotación
-              href: cognitive-search-concept-annotations-syntax.md
-            - name: Asignación a campos de índice
-              href: cognitive-search-output-field-mapping.md
-            - name: Proceso de archivos de imagen
-              href: cognitive-search-concept-image-scenarios.md
-            - name: Enriquecimiento de la caché (incremental)
-              href: search-howto-incremental-index.md
-        - name: Aptitudes personalizadas
+        - name: Definición de un conjunto de habilidades
+          href: cognitive-search-defining-skillset.md
+        - name: Referencia a una anotación
+          href: cognitive-search-concept-annotations-syntax.md
+        - name: Asignación a campos de índice
+          href: cognitive-search-output-field-mapping.md
+        - name: Proceso de archivos de imagen
+          href: cognitive-search-concept-image-scenarios.md
+        - name: Enriquecimiento de la caché (incremental)
+          href: search-howto-incremental-index.md
+        - name: Uso de aptitudes personalizadas
           items:
             - name: Integración de habilidades personalizadas
               href: cognitive-search-custom-skill-interface.md
@@ -442,41 +478,9 @@
           href: search-howto-monitor-indexers.md
         - name: Supervisión de interacciones del cliente
           href: search-traffic-analytics.md
-    - name: Seguridad
-      items:
-        - name: Asignación de roles
-          href: search-security-rbac.md
-        - name: Cifrado de datos
-          items:
-            - name: Claves administradas por el cliente
-              href: search-security-manage-encryption-keys.md
-            - name: Obtención de información clave
-              href: search-security-get-encryption-keys.md
-        - name: Seguridad de entrada
-          items:
-            - name: Autenticación mediante clave de API
-              href: search-security-api-keys.md
-            - name: "Configuración de un firewall de\_IP"
-              href: service-configure-firewall.md
-            - name: Creación de un punto de conexión privado
-              href: service-create-private-endpoint.md
-        - name: Seguridad de salida (indizadores)
-          items:
-            - name: Acceso a través de un intervalo IP
-              href: search-indexer-howto-access-ip-restricted.md
-            - name: Acceso a través de una excepción de un servicio de confianza
-              href: search-indexer-howto-access-trusted-service-exception.md
-            - name: Acceso a través de puntos de conexión privados
-              href: search-indexer-howto-access-private.md
-        - name: Seguridad de nivel de documento
-          items:
-            - name: Filtros de seguridad
-              href: search-security-trimming-for-azure-search.md
-            - name: Filtro por identidades de usuario
-              href: search-security-trimming-for-azure-search-with-aad.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/search
     - name: Azure PowerShell
       href: /powershell/module/az.search
@@ -484,14 +488,10 @@
       href: /azure/templates/microsoft.search/searchservices
     - name: REST
       items:
-        - name: Search API (estable)
+        - name: API de búsqueda
           href: /rest/api/searchservice
-        - name: Search API (versión preliminar)
-          href: /rest/api/searchservice/index-preview
-        - name: Management API (estable)
+        - name: API de administración
           href: /rest/api/searchmanagement
-        - name: Management API (versión preliminar)
-          href: /rest/api/searchmanagement/index-preview
     - name: .NET
       items:
         - name: API de búsqueda
@@ -602,13 +602,15 @@
       href: 'https://azure.microsoft.com/support/community/?product=search'
     - name: Información destacada de asociados
       href: resource-partners-knowledge-mining.md
+    - name: Orígenes de datos de asociados (condiciones de uso)
+      href: search-data-sources-terms-of-use.md
     - name: Actualizaciones de Azure
       href: 'https://azure.microsoft.com/updates/?product=search'
     - name: Foro de comentarios (UserVoice)
       href: 'https://feedback.azure.com/forums/263029-azure-search'
     - name: Cumplimiento y certificaciones
       href: 'https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/'
-    - name: Vínculos de documentación (minería de conocimiento)
+    - name: Vínculos a documentación (enriquecimiento con IA)
       href: cognitive-search-resources-documentation.md
     - name: Sitios de demostración
       items:
@@ -627,7 +629,7 @@
         - name: Curso para desarrolladores (Pluralsight)
           href: 'https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling'
     - name: Preguntas más frecuentes
-      href: search-faq-frequently-asked-questions.md
+      href: search-faq-frequently-asked-questions.yml
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/search/'
     - name: Vídeos

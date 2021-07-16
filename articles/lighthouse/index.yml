@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: JnHs
   ms.author: jenhayes
-  ms.date: 01/26/2021
-  ms.openlocfilehash: ad51b354bde216ced0d4e163a0566a0006e1d6a4
-  ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+  ms.date: 07/07/2021
+  ms.openlocfilehash: 788d1bd8438bd3e732e4f48da95abd7d6d891ab1
+  ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/12/2021
-  ms.locfileid: "109785896"
+  ms.lasthandoff: 07/08/2021
+  ms.locfileid: "113492179"
 landingContent:
 - title: Acerca de Azure Lighthouse
   linkLists:
@@ -35,6 +35,8 @@ landingContent:
     links:
     - text: Incorporación de un cliente a Azure Lighthouse
       url: ./how-to/onboard-customer.md
+    - text: Roles Just-In-Time (versión preliminar)
+      url: ./how-to/create-eligible-authorizations.md
     - text: Visualización y administración de clientes
       url: ./how-to/view-manage-customers.md
     - text: Vínculo a su identificador de asociado
@@ -67,7 +69,7 @@ landingContent:
     links:
     - text: Visualización y administración de proveedores de servicios
       url: ./how-to/view-manage-service-providers.md
-    - text: Visualización de la actividad del proveedor de servicios
+    - text: Visualización de la actividad de administración de inquilinos
       url: ./how-to/view-service-provider-activity.md
 - title: Ejemplos y plantillas
   linkLists:
