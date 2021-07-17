@@ -6,7 +6,7 @@
       href: lab-services-overview.md
 - name: Guías de inicio rápido
   items:
-    - name: Introducción
+    - name: Primeros pasos
       href: get-started-manage-labs.md
 - name: Tutoriales
   items:
@@ -52,8 +52,10 @@
               href: class-type-database-management.md
             - name: Aprendizaje profundo en el procesamiento del lenguaje natural
               href: class-type-deep-learning-natural-language-processing.md
-            - name: Piratería ética
+            - name: Piratería ética con Hyper-V
               href: class-type-ethical-hacking.md
+            - name: Piratería ética con VirtualBox
+              href: class-type-ethical-hacking-virtualbox.md
             - name: MATLAB
               href: class-type-matlab.md
             - name: Redes con GNS3
@@ -205,4 +207,4 @@
     - name: Foro de Tech Community
       href: 'https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices'
     - name: Preguntas más frecuentes
-      href: classroom-labs-faq.md
+      href: classroom-labs-faq.yml

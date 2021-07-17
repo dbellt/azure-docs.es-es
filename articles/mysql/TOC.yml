@@ -1,4 +1,4 @@
-- name: Documentación sobre Base de datos MySQL en Azure
+- name: Documentación de Azure Database for MySQL
   href: index.yml
 - name: Información general
   expanded: true
@@ -7,6 +7,10 @@
       href: overview.md
     - name: ¿Qué opción de MySQL debo elegir?
       href: select-right-deployment-type.md
+    - name: Novedades del servidor único
+      href: single-server-whats-new.md
+    - name: ¿Novedades de los servidores flexibles?
+      href: flexible-server/whats-new.md
     - name: Directiva de compatibilidad de versiones
       href: concepts-version-policy.md
       displayName: version policy
@@ -21,8 +25,6 @@
           href: single-server-overview.md
         - name: Versiones compatibles
           href: concepts-supported-versions.md
-        - name: Novedades del servidor único
-          href: single-server-whats-new.md
         - name: Planes de tarifa
           items:
             - name: Planes de tarifa
@@ -99,10 +101,10 @@
               displayName: firewall
         - name: Configuración de parámetros del servidor
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: howto-server-parameters.md
               displayName: server parameters
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-configure-server-parameters-using-cli.md
               displayName: 'server parameters, cli'
             - name: Azure PowerShell
@@ -144,10 +146,8 @@
               items:
                 - name: Configuración de SSL
                   href: concepts-ssl-connection-security.md
-            - name: Advanced Threat Protection
-              items:
-                - name: Protección contra amenazas con Azure Defender
-                  href: ../security-center/defender-for-databases-introduction.md
+            - name: Protección contra amenazas con Azure Defender
+              href: ../security-center/defender-for-databases-usage.md?toc=/azure/mysql/toc.json&bc=/azure/mysql/breadcrumb/toc.json
             - name: Cifrado en reposo
               items:
                 - name: Cifrado de datos
@@ -236,7 +236,7 @@
               items:
                 - name: Azure portal
                   href: tutorial-design-database-using-portal.md
-                - name: CLI de Azure
+                - name: Azure CLI
                   href: tutorial-design-database-using-cli.md
                 - name: Azure PowerShell
                   href: tutorial-design-database-using-powershell.md
@@ -428,7 +428,7 @@
           href: flexible-server/how-to-connect-tls-ssl.md
         - name: Configuración de parámetros del servidor
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: flexible-server/how-to-configure-server-parameters-portal.md
               displayName: server parameters
             - name: Azure CLI
@@ -497,7 +497,7 @@
           items:
             - name: Administración de un servicio
               items:
-                - name: Azure portal
+                - name: Portal de Azure
                   href: flexible-server/how-to-manage-server-portal.md
                 - name: CLI de Azure
                   href: flexible-server/how-to-manage-server-cli.md
@@ -505,11 +505,11 @@
               items:
                 - name: Azure portal
                   href: flexible-server/how-to-stop-start-server-portal.md
-                - name: CLI de Azure
+                - name: Azure CLI
                   href: flexible-server/how-to-restart-stop-start-server-cli.md
             - name: Reinicio del servidor
               items:
-                - name: Azure portal
+                - name: Portal de Azure
                   href: flexible-server/how-to-restart-server-portal.md
                 - name: CLI de Azure
                   href: flexible-server/how-to-restart-stop-start-server-cli.md
@@ -568,7 +568,7 @@
           items:
             - name: Restauración de un servidor
               items:
-                - name: Azure portal
+                - name: Portal de Azure
                   href: flexible-server/how-to-restore-server-portal.md
                 - name: CLI de Azure
                   href: flexible-server/how-to-restore-server-cli.md
@@ -583,6 +583,9 @@
     - name: Migración de datos con mysqldump o phpmyadmin
       href: concepts-migrate-dump-restore.md
       displayName: 'migrate, mysqldump'
+    - name: Migración de bases de datos grandes a Azure Database for MySQL mediante mydumper/myloader
+      href: concepts-migrate-mydumper-myloader.md
+      displayName: 'migrate, mydumper/myloader'
     - name: Migración de datos con dbForge Studio para MySQL
       href: concepts-migrate-dbforge-studio-for-mysql.md
       displayName: 'migrate, dbforge'
@@ -592,6 +595,9 @@
     - name: Migración de datos de RDS MySQL con MySQL Workbench
       href: how-to-migrate-rds-mysql-workbench.md
       displayName: 'import , migrate, export'
+    - name: "Migración de Azure\_DB for MySQL con servidor único a Azure DB for MySQL con servidor flexible"
+      href: howto-migrate-single-flexible-minimum-downtime.md
+      displayName: 'migrate, Single to Flexible'
     - name: Migración con tiempo de inactividad mínimo a Azure Database for PostgreSQL con un único servidor
       href: howto-migrate-online.md
       displayName: 'migrate, dms, database migration service'

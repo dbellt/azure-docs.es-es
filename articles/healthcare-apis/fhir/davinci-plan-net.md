@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: DaVersiones Plan Net - Azure API for FHIR'
-description: Este tutorial le guía a través de la configuración de la Azure API for FHIR para pasar pruebas de Touchstone para la Guía de implementación de intercambio de datos del pagador de Da York.
+description: Este tutorial le guía a través de la configuración de la Azure API for FHIR para pasar pruebas de Touchstone para la Guía de implementación de Da Dag Payer Data Exchange.
 services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -9,14 +9,14 @@ ms.reviewer: matjazl
 ms.author: cavoeg
 author: modillon
 ms.date: 06/25/2021
-ms.openlocfilehash: b91fc4d01a9279d6f2ce58b15fc8b8c00790ea57
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: bb7b7e3813a317aa1b1a9f97ab4f80650eb2fd1e
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113012973"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114285895"
 ---
-# <a name="da-vinci-plan-net"></a>Da Dag Plan Net
+# <a name="da-vinci-plan-net"></a>Da Vinci Plan Net
 
 En este tutorial, le guiaremos por la configuración de la Azure API for FHIR para pasar las pruebas de [Touchstone](https://touchstone.aegis.net/touchstone/) para la Guía de implementación de DaDex PDEX Payer Network (Plan-Net).
 
@@ -26,7 +26,7 @@ La primera prueba en la que nos centraremos es probar el Azure API for FHIR con 
 
 ## <a name="define-search-parameters"></a>Definición de parámetros de búsqueda
 
-Como parte de Da York Plan-Net IG, deberá definir [](https://docs.microsoft.com/azure/healthcare-apis/fhir/how-to-do-custom-search) seis nuevos parámetros de búsqueda para los recursos Healthcare Service, Insurance Plan, Practitioner Role, Organization y Organization Affiliation. Los seis se prueban en la instrucción de funcionalidad:
+Como parte de Da York Plan-Net IG, deberá definir [](./how-to-do-custom-search.md) seis nuevos parámetros de búsqueda para los recursos Healthcare Service, Insurance Plan, Practitioner Role, Organization y Organization Affiliation. Los seis se prueban en la instrucción de funcionalidad:
 
 * [Área de cobertura del servicio sanitario](http://hl7.org/fhir/us/davinci-pdex-plan-net/STU1/SearchParameter-healthcareservice-coverage-area.html)
 * [Área de cobertura del plan de seguros](http://hl7.org/fhir/us/davinci-pdex-plan-net/STU1/SearchParameter-insuranceplan-coverage-area.html)
@@ -42,7 +42,7 @@ El resto de los parámetros de búsqueda necesarios para la Plan-Net IG de Da Da
 
 ## <a name="store-profiles"></a>Almacenamiento de perfiles
 
-Fuera de definir parámetros de búsqueda, debe cargar los [perfiles y](https://docs.microsoft.com/azure/healthcare-apis/fhir/validation-against-profiles#storing-profiles) extensiones necesarios para superar esta prueba. Hay nueve perfiles que se usan como parte de la Plan-Net DA:
+Fuera de definir parámetros de búsqueda, debe cargar los [perfiles y](./validation-against-profiles.md#storing-profiles) extensiones necesarios para superar esta prueba. Hay nueve perfiles que se usan como parte de la Plan-Net DA:
 
 * [Punto de conexión de Plan-Net](http://hl7.org/fhir/us/davinci-pdex-plan-net/STU1/StructureDefinition-plannet-Endpoint.html)
 * [Plan-Net Healthcare Service](http://hl7.org/fhir/us/davinci-pdex-plan-net/STU1/StructureDefinition-plannet-HealthcareService.html)
@@ -75,7 +75,7 @@ La siguiente prueba que veremos es la prueba de [funcionalidades de consulta](ht
 > [!NOTE]
 > Con los recursos de ejemplo proporcionados, debería esperar una tasa de éxito del 98 % de las pruebas de consulta:
 
-> * Hay un problema abierto de GitHub en el servidor de FHIR que está provocando un error en una de estas pruebas: El recurso se devolvió varias veces si cumple los criterios base y _include [· Problema #2037 · microsoft/fhir-server (github.com)](https://github.com/microsoft/fhir-server/issues/2037)
+> * Hay un problema de GitHub abierto en el servidor FHIR que está causando un error en una de estas pruebas: Recurso devuelto varias veces si cumple los criterios base y _include [· Problema #2037 · microsoft/fhir-server (github.com)](https://github.com/microsoft/fhir-server/issues/2037)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

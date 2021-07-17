@@ -97,6 +97,8 @@
       items:
         - name: Codificación básica de Python
           href: encode-basic-encoding-python-quickstart.md
+        - name: Difuminado de caras basado en eventos
+          href: face-redaction-event-based-python-quickstart.md
     - name: Azure portal
       items:
         - name: Tutorial sobre claves administradas por el cliente o BYOK
@@ -226,6 +228,8 @@
           href: stream-streaming-policy-concept.md
         - name: Directivas de claves de contenido
           href: drm-content-key-policy-concept.md
+        - name: Lista de direcciones IP permitidas de entrega de claves
+          href: drm-content-protection-key-delivery-ip-allow.md
     - name: Supervisión
       items:
         - name: Supervisión con Azure Monitor
@@ -452,6 +456,9 @@
           href: asset-publish-cli-how-to.md
     - name: Seguridad
       items:
+        - name: Línea de base de seguridad
+          href: 'https://docs.microsoft.com/security/benchmark/azure/baselines/media-services-security-baseline'
+          displayName: 'security, baseline'
         - name: Azure RBAC
           href: security-rbac-concept.md
         - name: Acumulación de claves de acceso de almacenamiento
@@ -470,6 +477,9 @@
           href: security-access-storage-managed-identity-cli-tutorial.md
         - name: Proporcionar a una aplicación de funciones acceso a una cuenta de Media Services
           href: security-function-app-managed-identity-cli-tutorial.md
+        - name: Creación de una cuenta de Media Services y una cuenta de almacenamiento con un vínculo privado
+          href: security-private-link-how-to.md
+          displayName: 'security, private link, links, firewall'
     - name: Uso de reproductores multimedia
       items:
         - name: Configuración completa de Azure Media Player
