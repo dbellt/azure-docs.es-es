@@ -55,10 +55,10 @@
   items:
     - name: Instalación y uso de IoT Explorer
       href: howto-use-iot-explorer.md
-    - name: Instalación y uso de las herramientas de creación de DTDL
-      href: howto-use-dtdl-authoring-tools.md
     - name: Administración de Digital Twins
       href: howto-manage-digital-twin.md
+    - name: Conversión de un dispositivo a IoT Plug and Play
+      href: howto-convert-to-pnp.md
     - name: Procedimiento para conectar un ejemplo de puente de IoT Plug and Play
       href: howto-use-iot-pnp-bridge.md
     - name: Compilación e implementación de un puente de IoT Plug and Play

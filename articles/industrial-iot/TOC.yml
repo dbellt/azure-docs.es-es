@@ -22,8 +22,8 @@
           href: tutorial-deploy-industrial-iot-platform.md
         - name: Configuración de los componentes de IIoT
           href: tutorial-configure-industrial-iot-components.md
-        - name: Extraer datos de IIoT en Azure Data Explorer
-          href: tutorial-industrial-iot-azure-data-explorer.md
+        - name: Uso de IoT industrial para extraer datos en Azure Data Explorer
+          href: tutorial-data-explorer-import.md
         - name: Visualizar y analizar los datos mediante Time Series Insights
           href: tutorial-visualize-data-time-series-insights.md
 - name: Referencia

@@ -1,0 +1,30 @@
+### YamlMime:Landing
+title: Documentación de PyTorch Enterprise en Azure
+summary: PyTorch Enterprise proporciona soporte técnico a largo plazo, solución de problemas prioritaria e integración con soluciones de Azure para desarrolladores de PyTorch.
+metadata:
+  author: alonbochman
+  description: Soporte técnico a largo plazo, solución de problemas prioritaria e integración con soluciones de Azure para desarrolladores de PyTorch.
+  ms.author: alonbochman
+  ms.collection: na
+  ms.date: 07/06/2021
+  ms.service: pytorch-enterprise
+  ms.topic: landing-page
+  ms.openlocfilehash: 6a00ad68978dedd393c62ad9aee052dfce3d27f9
+  ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 07/10/2021
+  ms.locfileid: "113598518"
+landingContent:
+- title: ¿Qué es PyTorch Enterprise?
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es PyTorch Enterprise?
+      url: pte-overview.md
+- title: ¿Qué se va a tratar?
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Límites de compatibilidad para PyTorch Enterprise
+      url: support-boundaries.md

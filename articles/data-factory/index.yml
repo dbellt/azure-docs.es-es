@@ -10,13 +10,14 @@ metadata:
   ms.collection: collection
   author: jonburchel
   ms.author: jburchel
-  ms.date: 10/02/2019
-  ms.openlocfilehash: 754cdd8b8f2029814f69b12166d93adf03576911
-  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+  ms.date: 06/14/2021
+  ms.custom: contperf-fy21q4
+  ms.openlocfilehash: 2cf3843234051d51b681ca8ccb4f0ce88613bd9f
+  ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/10/2021
-  ms.locfileid: "111957171"
+  ms.lasthandoff: 06/16/2021
+  ms.locfileid: "112239607"
 landingContent:
 - title: Acerca de Azure Data Factory
   linkLists:
@@ -40,6 +41,10 @@ landingContent:
       url: https://feedback.azure.com/forums/270578-azure-data-factory
 - title: Introducción
   linkLists:
+  - linkListType: concept
+    links:
+    - text: Canalizaciones y actividades en Azure Data Factory
+      url: ./concepts-pipelines-activities.md
   - linkListType: quickstart
     links:
     - text: Interfaz de usuario de Azure Data Factory
@@ -56,22 +61,26 @@ landingContent:
       url: ./quickstart-create-data-factory-rest-api.md
     - text: Plantilla de Resource Manager
       url: ./quickstart-create-data-factory-resource-manager-template.md
+  - linkListType: how-to-guide
+    links:
+    - text: Expresiones y funciones de Azure Data Factory
+      url: ./control-flow-expression-language-functions.md
   - linkListType: learn
     links:
     - text: Introducción a Azure Data Factory
       url: /learn/modules/intro-to-azure-data-factory/
 - title: Movimiento de datos
   linkLists:
+  - linkListType: overview
+    links:
+    - text: Migración del lago de datos y del almacenamiento de datos
+      url: ./data-migration-guidance-overview.md
   - linkListType: concept
     links:
     - text: Introducción a la actividad de copia
       url: ./copy-activity-overview.md
     - text: Ajuste del rendimiento de la copia
       url: ./copy-activity-performance.md
-  - linkListType: overview
-    links:
-    - text: Migración del lago de datos y del almacenamiento de datos
-      url: ./data-migration-guidance-overview.md
   - linkListType: tutorial
     links:
     - text: Copia de datos en la nube
@@ -90,10 +99,6 @@ landingContent:
       url: ./load-sap-bw-data.md
 - title: Transformación de datos
   linkLists:
-  - linkListType: concept
-    links:
-    - text: ¿Qué son los flujos de datos de asignación?
-      url: ./concepts-data-flow-overview.md
   - linkListType: tutorial
     links:
     - text: Creación de un flujo de datos
@@ -108,12 +113,22 @@ landingContent:
       url: ./concepts-data-flow-monitoring.md
     - text: Rendimiento de flujo de datos
       url: ./concepts-data-flow-performance.md
+  - linkListType: concept
+    links:
+    - text: ¿Qué son los flujos de datos de asignación?
+      url: ./concepts-data-flow-overview.md
+    - text: Expresiones de transformación de datos en Asignación de Data Flow
+      url: ./data-flow-expression-functions.md
 - title: Migración de paquetes SSIS mediante lift-and-shift
   linkLists:
   - linkListType: overview
     links:
     - text: Migración de paquetes de SSIS a Instancia administrada de Azure SQL
       url: ./scenario-ssis-migration-ssisdb-mi.md
+  - linkListType: concept
+    links:
+    - text: Integration Runtime en Azure Data Factory
+      url: ./concepts-integration-runtime.md
   - linkListType: tutorial
     links:
     - text: Ejecución de paquetes de SSIS en Azure
@@ -126,51 +141,19 @@ landingContent:
       url: ./join-azure-ssis-integration-runtime-virtual-network.md
     - text: Ejecución de paquetes de SSIS con la actividad Ejecutar paquete de SSIS
       url: ./how-to-invoke-ssis-package-ssis-activity.md
-    - text: Programación de Azure-SSIS Integration Runtime
-      url: ./how-to-schedule-azure-ssis-integration-runtime.md
-    - text: Configuración personalizada de una instancia de una instancia de Azure-SSIS IR
-      url: ./how-to-configure-azure-ssis-ir-custom-setup.md
-    - text: Instalación de los componentes con licencia de una instancia de Azure-SSIS Integration Runtime
-      url: ./how-to-develop-azure-ssis-ir-licensed-components.md
-- title: Seguridad
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Consideraciones sobre la seguridad del movimiento de datos
-      url: ./data-movement-security-considerations.md
-    - text: Identidad administrada de una factoría de datos
-      url: ./data-factory-service-identity.md
-    - text: Almacenamiento de credenciales en Azure Key Vault
-      url: ./store-credentials-in-key-vault.md
+    - text: Creación y configuración de un entorno de ejecución de integración autohospedado
+      url: ./create-self-hosted-integration-runtime.md
 - title: Creación, supervisión y administración
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Supervise visualmente las factorías de datos de Azure
       url: ./author-visually.md
+    - text: Solución de problemas de conectores en Azure Data Factory
+      url: ./connector-troubleshoot-guide.md
     - text: Control de código fuente
       url: ./source-control.md
     - text: Integración y entrega continuas
       url: ./continuous-integration-deployment.md
-    - text: Desarrollo y depuración iterativos
-      url: ./iterative-development-debugging.md
-    - text: Supervisión visual
-      url: ./monitor-visually.md
     - text: Supervisión con Azure Monitor
       url: ./monitor-using-azure-monitor.md
-    - text: Supervisar con SDK
-      url: ./monitor-programmatically.md
-- title: Lenguajes
-  linkLists:
-  - linkListType: reference
-    links:
-    - text: Azure PowerShell
-      url: /powershell/module/az.datafactory/
-    - text: .NET
-      url: /dotnet/api/microsoft.azure.management.datafactory/
-    - text: Python
-      url: /python/api/overview/azure/datafactory
-    - text: REST
-      url: /rest/api/datafactory/
-    - text: Plantilla de Resource Manager
-      url: /azure/templates/microsoft.datafactory/allversions

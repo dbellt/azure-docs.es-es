@@ -139,8 +139,6 @@
               displayName: 'permissions, authorization'
             - name: Confianza de contenido
               href: container-registry-content-trust.md
-            - name: Digitalización de imágenes con Security Center
-              href: ../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json
         - name: Registros y otros servicios de Azure
           expanded: false
           items:
@@ -157,6 +155,13 @@
               href: monitor-service.md
             - name: Auditoría de cumplimiento mediante Azure Policy
               href: container-registry-azure-policy.md
+            - name: Digitalización de imágenes de contenedor
+              expanded: false
+              items:
+                - name: Digitalización con Azure Defender
+                  href: scan-images-defender.md
+                - name: Digitalización con acciones de GitHub
+                  href: github-action-scan.md
         - name: Solución de problemas
           expanded: false
           items:

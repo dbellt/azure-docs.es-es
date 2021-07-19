@@ -1,0 +1,43 @@
+### YamlMime:Landing
+title: Documentación de Virtual Network NAT
+summary: Aprenda a usar Azure Virtual Network NAT. En los inicios rápidos, tutoriales, ejemplos, etc, se muestra cómo implementar una puerta de enlace NAT.
+metadata:
+  title: 'Documentación sobre Azure Virtual Network NAT: tutoriales, guías de inicio rápido y referencias de API'
+  description: Aprenda a usar Azure Virtual Network NAT. En los inicios rápidos, tutoriales, ejemplos, etc, se muestra cómo implementar una puerta de enlace NAT.
+  services: virtual-network
+  ms.service: virtual-network
+  ms.subservice: nat
+  ms.topic: landing-page
+  ms.collection: collection
+  author: asudbring
+  ms.author: allensu
+  ms.date: 04/05/2021
+  ms.openlocfilehash: cb818fd91d9777a8579a6dd31189511b4ff472b2
+  ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 07/07/2021
+  ms.locfileid: "113438732"
+landingContent:
+- title: Acerca de Virtual Network NAT
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Azure Virtual Network NAT?
+      url: nat-overview.md
+  - linkListType: concept
+    links:
+    - text: Diseño de redes virtuales con recursos de puertas de enlace de NAT
+      url: nat-gateway-resource.md
+- title: Primeros pasos
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Creación y validación de una instancia de NAT Gateway
+      url: tutorial-create-nat-gateway-portal.md
+  - linkListType: tutorial
+    links:
+    - text: Integración de NAT Gateway con un equilibrador de carga público
+      url: tutorial-nat-gateway-load-balancer-public-portal.md
+    - text: Integración de NAT Gateway con un equilibrador de carga interno
+      url: tutorial-nat-gateway-load-balancer-internal-portal.md

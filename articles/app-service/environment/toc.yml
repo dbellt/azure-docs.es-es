@@ -3,7 +3,7 @@
   items:
     - name: Acerca de App Service Environment
       href: intro.md
-    - name: "App Service Environment\_v3 (versión preliminar)"
+    - name: "App Service Environment\_v3"
       href: overview.md
 - name: Guías de inicio rápido
   expanded: true
@@ -12,7 +12,7 @@
       href: create-external-ase.md
     - name: Creación de un ASE interno
       href: create-ilb-ase.md
-    - name: Creación de ASEv3 (versión preliminar)
+    - name: Creación de ASEv3
       href: creation.md
 - name: Tutoriales
   items:
@@ -22,7 +22,7 @@
       href: app-service-app-service-environment-custom-settings.md
 - name: Ejemplos
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: ../samples-cli.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
     - name: Azure PowerShell
       href: ../samples-powershell.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
@@ -36,7 +36,7 @@
       href: ../overview-diagnostics.md
     - name: Certificados
       href: certificates.md
-    - name: Redes de ASEv3 (versión preliminar)
+    - name: Redes de ASEv3
       href: networking.md
 - name: Guías de procedimientos
   items:
@@ -52,7 +52,7 @@
       href: firewall-integration.md
     - name: Redundancia de zona
       href: zone-redundancy.md
-    - name: Uso de ASEv3 (versión preliminar)
+    - name: Uso de ASEv3
       href: using.md
 - name: Referencia
   items:
@@ -127,10 +127,10 @@
         - name: Preguntas más frecuentes
           items:
             - name: 'Disponibilidad, rendimiento y preguntas más frecuentes sobre aplicaciones'
-              href: ../faq-availability-performance-application-issues.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+              href: ../faq-availability-performance-application-issues.yml?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
             - name: Preguntas más frecuentes sobre la implementación
-              href: ../faq-deployment.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+              href: ../faq-deployment.yml?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
             - name: Preguntas más frecuentes sobre las tecnologías de código abierto
-              href: ../faq-open-source-technologies.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+              href: ../faq-open-source-technologies.yml?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
             - name: Preguntas más frecuentes sobre la configuración y administración
-              href: ../faq-configuration-and-management.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+              href: ../faq-configuration-and-management.yml?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json

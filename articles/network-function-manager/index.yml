@@ -1,0 +1,36 @@
+### YamlMime:Landing
+title: Documentación sobre Network Function Manager (versión preliminar)
+summary: Azure Network Function Manager ofrece una experiencia de Azure Marketplace para implementar funciones de red en el dispositivo Azure Stack Edge.
+metadata:
+  title: Documentación sobre Network Function Manager (versión preliminar)
+  description: Más información acerca de Network Function Manager.
+  ms.service: vnf-manager
+  ms.topic: landing-page
+  author: cherylmc
+  ms.author: cherylmc
+  ms.date: 06/09/2021
+  ms.openlocfilehash: c2d71775890c3cafca81f5f4b8bf93c35587905a
+  ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 06/16/2021
+  ms.locfileid: "112240553"
+landingContent:
+- title: Acerca de Network Function Manager
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Network Function Manager?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Preguntas más frecuentes sobre Network Function Manager
+      url: faq.md
+- title: Primeros pasos
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Creación de un recurso de dispositivo
+      url: create-device.md
+    - text: Implementación de funciones de red
+      url: deploy-functions.md

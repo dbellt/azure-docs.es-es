@@ -12,12 +12,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 02/03/2021
-  ms.openlocfilehash: e27705b9b4a8120861b605cdc9cf33a16f7ad577
-  ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+  ms.openlocfilehash: 7f0ac9bc80068830d02636ba85f1846b4e86c690
+  ms.sourcegitcommit: 5a27d9ba530aee0e563a1b0159241078e8c7c1e4
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/24/2021
-  ms.locfileid: "105045236"
+  ms.lasthandoff: 06/21/2021
+  ms.locfileid: "112422838"
 landingContent:
 - title: Acerca de la seguridad en Azure
   linkLists:
@@ -53,6 +53,8 @@ landingContent:
       url: management-monitoring-overview.md
     - text: Protección contra amenazas
       url: threat-detection.md
+    - text: Recuperación de un riesgo de identidad
+      url: recover-from-identity-compromise.md
 - title: Procedimientos recomendados para proteger las soluciones en la nube
   linkLists:
   - linkListType: concept

@@ -48,6 +48,8 @@
           href: configure-azure-ad-ui.md
         - name: Actualización de secreto de extracción de un clúster de ARO
           href: howto-add-update-pull-secret.md
+        - name: Rotación de credenciales de entidad de servicio para un clúster de Red Hat OpenShift en Azure (ARO)
+          href: howto-service-principal-credential-rotation.md
     - name: Copia de seguridad y restauración
       items:
         - name: Creación de una copia de seguridad de una aplicación de clúster con Velero
@@ -120,7 +122,7 @@
 - name: Recursos
   items:
     - name: Preguntas más frecuentes
-      href: openshift-faq.md
+      href: openshift-faq.yml
     - name: Solución de problemas
       href: troubleshoot.md
     - name: "Directivas de soporte técnico de ARO\_4"

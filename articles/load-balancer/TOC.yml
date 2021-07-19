@@ -46,9 +46,9 @@
     - name: NAT Gateway
       items:
         - name: Integración del equilibrador de carga público de NAT Gateway
-          href: ../virtual-network/tutorial-nat-gateway-load-balancer-public-portal.md?toc=%2fazure%2fload-balancer%2ftoc.json
+          href: ../virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-public-portal.md?toc=%2fazure%2fload-balancer%2ftoc.json
         - name: Integración del equilibrador de carga interno de NAT Gateway
-          href: ../virtual-network/tutorial-nat-gateway-load-balancer-internal-portal.md?toc=%2fazure%2fload-balancer%2ftoc.json
+          href: ../virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal.md?toc=%2fazure%2fload-balancer%2ftoc.json
     - name: Back-end basado en IP
       items:
         - name: Creación de un equilibrador de carga público con un back-end basado en IP con Azure Portal
@@ -75,14 +75,16 @@
       href: skus.md
     - name: Supervisión del estado
       items:
+        - name: Supervisión del equilibrador de carga
+          href: monitor-load-balancer.md
+        - name: Referencia de datos de supervisión
+          href: monitor-load-balancer-reference.md
         - name: Sondeos de estado
           href: load-balancer-custom-probe-overview.md
         - name: Azure Monitor Insights para Load Balancer
           href: load-balancer-insights.md
         - name: Diagnósticos y métrica de Load Balancer estándar
           href: load-balancer-standard-diagnostics.md
-        - name: Registros de Azure Monitor para Load Balancer
-          href: load-balancer-monitor-log.md
         - name: Obtención de métricas de Load Balancer con REST
           href: load-balancer-query-metrics-rest-api.md
     - name: Puertos de alta disponibilidad
@@ -220,4 +222,4 @@
     - name: Actualizaciones del producto
       href: 'https://azure.microsoft.com/updates/?product=load-balancer'
     - name: Preguntas más frecuentes
-      href: load-balancer-faqs.md
+      href: load-balancer-faqs.yml

@@ -70,6 +70,8 @@
           href: ./encryption/cognitive-services-encryption-keys-portal.md
         - name: Autenticación de solicitudes en Cognitive Services
           href: authentication.md
+        - name: Configuración de la prevención de la pérdida de datos
+          href: cognitive-services-data-loss-prevention.md
         - name: Línea de base de seguridad
           href: /security/benchmark/azure/baselines/cognitive-services-security-baseline?toc=/azure/cognitive-services/TOC.json
         - name: Controles de seguridad de Azure Policy

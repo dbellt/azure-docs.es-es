@@ -7,7 +7,7 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Prueba de la demostración en vivo
+    - name: Prueba de la demostración en directo de la sala de chat
       href: quickstart-live-demo.md
     - name: Inicio con una sencilla aplicación sin servidor de sala de chat
       href: quickstart-serverless.md

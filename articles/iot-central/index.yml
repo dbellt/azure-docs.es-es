@@ -11,12 +11,12 @@ metadata:
   ms.author: dobett
   ms.date: 09/02/2021
   ms.custom: contperf-fy21q3
-  ms.openlocfilehash: b863c90897fb9fdd67ced188747f31411d37bdac
-  ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+  ms.openlocfilehash: 76c00322bd14c20b85ecd6d248fb5d35b226aace
+  ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/25/2021
-  ms.locfileid: "105109155"
+  ms.lasthandoff: 07/09/2021
+  ms.locfileid: "113588007"
 landingContent:
 - title: Acerca de Azure IoT Central
   linkLists:
@@ -58,8 +58,6 @@ landingContent:
       url: core/concepts-telemetry-properties-commands.md
   - linkListType: how-to-guide
     links:
-    - text: Conexión de un dispositivo de Azure Sphere
-      url: core/howto-connect-sphere.md
     - text: Solución de problemas de conectividad de dispositivos
       url: core/troubleshoot-connection.md
 - title: Creación de soluciones integradas
@@ -75,13 +73,11 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Crear un panel
-      url: core/howto-create-personal-dashboards.md
+      url: core/howto-manage-dashboards.md
     - text: Analizar los datos del dispositivo
       url: core/howto-create-analytics.md
     - text: Exportación de datos a destinos en la nube
       url: core/howto-export-data.md
-    - text: Traslado de dispositivos desde IoT Hub
-      url: core/how-to-move-device-to-iot.md
   - linkListType: reference
     links:
     - text: API DE REST
@@ -98,10 +94,10 @@ landingContent:
       url: core/tutorial-use-device-groups.md
   - linkListType: how-to-guide
     links:
-    - text: Adición, importación y exportación de dispositivos
-      url: core/howto-manage-devices.md
-    - text: Ejecución de un trabajo
-      url: core/howto-run-a-job.md
+    - text: Administración de dispositivos de forma individual
+      url: core/howto-manage-devices-individually.md
+    - text: Administración de dispositivos de forma masiva
+      url: core/howto-manage-devices-in-bulk.md
 - title: Administración
   linkLists:
   - linkListType: overview
@@ -114,8 +110,6 @@ landingContent:
       url: core/howto-administer.md
     - text: Administración de los usuarios y los roles.
       url: core/howto-manage-users-roles.md
-    - text: Ver la factura
-      url: core/howto-view-bill.md
     - text: Personalización de la interfaz de usuario de la aplicación
       url: core/howto-customize-ui.md
   - linkListType: sample
@@ -138,6 +132,8 @@ landingContent:
       url: /learn/modules/manage-iot-central-apps-with-rest-api/
     - text: 'Módulo de aprendizaje: configuración de la exportación continua de datos desde Azure IoT Central a una aplicación de Power BI'
       url: /learn/modules/continuously-export-data-from-iot-central-power-bi/
+    - text: 'Módulo de aprendizaje: Conexión del dispositivo de IoT Edge a la aplicación de IoT Central.'
+      url: /learn/modules/connect-iot-edge-device-to-iot-central/
 - title: Plantillas de aplicaciones del sector
   linkLists:
   - linkListType: tutorial

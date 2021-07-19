@@ -251,7 +251,7 @@
         - name: Load Balancer (publico)
           href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: NAT Gateway
-          href: ../../virtual-network/quickstart-create-nat-gateway-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+          href: ../../virtual-network/nat-gateway/quickstart-create-nat-gateway-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Punto de conexión privado
           href: ../../private-link/create-private-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Servicio Private Link
@@ -293,7 +293,7 @@
     - name: Tipos de datos
       href: data-types.md
     - name: Preguntas más frecuentes
-      href: frequently-asked-questions.md
+      href: frequently-asked-questions.yml
     - name: Plantillas para mantener la coherencia en la nube
       href: template-cloud-consistency.md
     - name: Modos de implementación
@@ -346,16 +346,16 @@
         - name: Creación de varias instancias
           items:
             - name: Recursos
-              displayName: 'iteration,copy,multiple'
+              displayName: 'iteration,copy'
               href: copy-resources.md
             - name: Propiedades
-              displayName: 'iteration,copy,multiple'
+              displayName: 'iteration,copy'
               href: copy-properties.md
             - name: variables
-              displayName: 'iteration,copy,multiple'
+              displayName: 'iteration,copy'
               href: copy-variables.md
             - name: Salidas
-              displayName: 'iteration,copy,multiple'
+              displayName: 'iteration,copy'
               href: copy-outputs.md
     - name: Implementación de plantillas
       items:
@@ -381,7 +381,7 @@
           items:
             - name: Resource group
               href: deploy-to-resource-group.md
-            - name: Subscription
+            - name: Suscripción
               href: deploy-to-subscription.md
             - name: Grupo de administración
               href: deploy-to-management-group.md
@@ -413,6 +413,8 @@
           href: test-toolkit.md
         - name: Casos de prueba
           href: test-cases.md
+        - name: Casos de prueba de CreateUiDefinition
+          href: createuidefinition-test-cases.md
     - name: Especificaciones de plantilla
       items:
         - name: Creación e implementación de especificaciones de plantillas
@@ -503,7 +505,7 @@
       href: /rest/api/resources/
     - name: Azure PowerShell
       href: /powershell/module/az.resources
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/resource
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.resourcemanager

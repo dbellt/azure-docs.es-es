@@ -31,7 +31,7 @@
   items:
     - name: Notas de transparencia
       items:
-        - name: Casos de uso de Azure Form Recognizer
+        - name: Escenarios de Azure Form Recognizer
           href: /legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/cognitive-services/form-recognizer/context/context
         - name: Características y limitaciones
           href: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=/azure/cognitive-services/form-recognizer/context/context
@@ -41,15 +41,17 @@
       href: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/cognitive-services/form-recognizer/context/context
 - name: Guías paso a paso
   items:
+    - name: Implementación de la herramienta de etiquetado de ejemplo
+      href: deploy-label-tool.md
     - name: Entrenamiento de un modelo personalizado con la herramienta de etiquetado de ejemplo
       href: label-tool.md
     - name: Uso de contenedores
       items:
         - name: Instalación y ejecución de contenedores
           displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
-          href: form-recognizer-container-howto.md
+          href: containers/form-recognizer-container-install-run.md
         - name: Configuración de contenedores
-          href: form-recognizer-container-configuration.md
+          href: containers/form-recognizer-container-configuration.md
           displayName: 'docker, container, run, billing, apikey, logging'
         - name: Uso de instancias de contenedores
           maintainContext: true
@@ -63,6 +65,8 @@
       items:
         - name: Configuración de redes virtuales
           href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/form-recognizer/context/context
+        - name: Creación y uso de identidad administrada
+          href: managed-identity-byos.md
         - name: Uso de claves administradas por el cliente
           href: encrypt-data-at-rest.md
         - name: "Uso de Autenticación de Azure\_AD"
@@ -95,7 +99,7 @@
       items:
         - name: Referencia de la API REST v2.1
           href: 'https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm'
-        - name: SDK v3.1.0
+        - name: SDK y bibliotecas cliente
           items:
             - name: .NET
               href: /dotnet/api/overview/azure/ai.formrecognizer-readme

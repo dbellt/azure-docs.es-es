@@ -217,7 +217,7 @@
         - name: Introducción a la autenticación de paso a través
           href: how-to-connect-pta-quick-start.md
         - name: Preguntas frecuentes sobre la autenticación de paso a través
-          href: how-to-connect-pta-faq.md
+          href: how-to-connect-pta-faq.yml
         - name: "Deshabilitación de PTA con la opción \"No configurar\" de Azure\_AD Connect"
           href: how-to-connect-pta-disable-do-not-configure.md
     - name: Administración de servicios de federación
@@ -244,12 +244,14 @@
           href: how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks.md
         - name: "Rotación de emergencia de certificados de AD\_FS"
           href: how-to-connect-emergency-ad-fs-certificate-rotation.md
+        - name: Supervisión de cambios en la configuración de federación
+          href: how-to-connect-monitor-federation-changes.md
     - name: Administración del inicio de sesión único
       items:
         - name: Introducción al inicio de sesión único
           href: how-to-connect-sso-quick-start.md
         - name: Preguntas frecuentes sobre el inicio de sesión único
-          href: how-to-connect-sso-faq.md
+          href: how-to-connect-sso-faq.yml
     - name: Administración de Azure AD Connect Health
       items:
         - name: Operaciones de Azure AD Connect Health
@@ -357,9 +359,9 @@
     - name: Cuentas y permisos
       href: reference-connect-accounts-permissions.md
     - name: Preguntas más frecuentes sobre Azure AD Connect
-      href: reference-connect-faq.md
+      href: reference-connect-faq.yml
     - name: Preguntas más frecuentes de Azure AD Connect Health
-      href: reference-connect-health-faq.md
+      href: reference-connect-health-faq.yml
     - name: Consideraciones al respecto de la identidad híbrida para Azure Government
       href: reference-connect-government-cloud.md
     - name: Privacidad del usuario de Azure AD Connect
@@ -378,6 +380,8 @@
       href: how-to-connect-fed-compatibility.md
     - name: Cumplimiento de TLS 1.2
       href: reference-connect-tls-enforcement.md
+    - name: Referencia de ADSync
+      href: reference-connect-adsync.md
     - name: Referencia de ADSyncConfig
       href: reference-connect-adsyncconfig.md
     - name: Referencia de ADSyncTools

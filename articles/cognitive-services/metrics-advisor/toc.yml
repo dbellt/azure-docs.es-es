@@ -1,0 +1,88 @@
+- name: Documentación de Metrics Advisor
+  href: index.yml
+- name: Información general
+  expanded: true
+  items:
+    - name: ¿Qué es Metrics Advisor?
+      href: overview.md
+    - name: Precios
+      href: 'https://aka.ms/ma-pricing'
+    - name: Novedades
+      href: whats-new.md
+    - name: Preguntas más frecuentes sobre Metrics Advisor
+      href: faq.yml
+- name: Guías de inicio rápido
+  items:
+    - name: Portal web
+      href: quickstarts/web-portal.md
+    - name: API REST y bibliotecas de cliente
+      href: quickstarts/rest-api-and-client-library.md
+- name: Ejemplos
+  href: /samples/browse/?products=azure&terms=metrics-advisor
+- name: Guías paso a paso
+  items:
+    - name: Incorporación de los datos
+      href: how-tos/onboard-your-data.md
+    - name: Creación de una entidad de credencial
+      href: how-tos/credential-entity.md
+    - name: Conexión con distintos orígenes de datos
+      href: data-feeds-from-different-sources.md
+    - name: Administración de fuentes de distribución de datos
+      href: how-tos/manage-data-feeds.md
+    - name: Configuración de métricas y ajuste de la configuración de la detección
+      href: how-tos/configure-metrics.md
+    - name: Configuración de alertas y obtención de notificaciones mediante un enlace
+      href: how-tos/alerts.md
+    - name: Diagnóstico de incidentes
+      href: how-tos/diagnose-an-incident.md
+    - name: Ajuste de la detección de anomalías mediante los comentarios
+      href: how-tos/anomaly-feedback.md
+    - name: Creación de un grafo de métricas
+      href: how-tos/metrics-graph.md
+    - name: Adecuado para empresas
+      items:
+        - name: Uso de claves administradas por el cliente
+          href: encryption.md
+- name: Conceptos
+  items:
+    - name: Términos clave de Metrics Advisor
+      href: glossary.md
+    - name: Administración de costos
+      href: cost-management.md
+      displayname: 'cost, pricing, price, billing, bill'
+- name: Uso responsable de la inteligencia artificial
+  items:
+    - name: Notas de transparencia
+      items:
+        - name: Casos de uso de Metrics Advisor
+          href: /legal/cognitive-services/anomaly-detector/transparency-note?context=/azure/cognitive-services/metrics-advisor/context/context
+        - name: Características y limitaciones
+          href: /legal/cognitive-services/anomaly-detector/characteristics-and-limitations?context=/azure/cognitive-services/metrics-advisor/context/context
+    - name: Integración y uso responsable
+      href: /legal/cognitive-services/anomaly-detector/guidance-integration-responsible-use?context=/azure/cognitive-services/metrics-advisor/context/context
+    - name: 'Datos, privacidad y seguridad'
+      href: /legal/cognitive-services/anomaly-detector/data-privacy-security?context=/azure/cognitive-services/metrics-advisor/context/context
+- name: Tutoriales
+  items:
+    - name: Habilitación de notificaciones a través de un canal diferente
+      href: tutorials/enable-anomaly-notification.md
+    - name: Escritura de una consulta válida
+      href: tutorials/write-a-valid-query.md
+- name: Referencia
+  items:
+    - name: API de REST de Metrics Advisor
+      href: 'https://go.microsoft.com/fwlink/?linkid=2141634'
+    - name: Referencia de la CLI de Azure
+      href: /cli/azure/cognitiveservices#az_cognitiveservices_list
+    - name: Referencia de PowerShell
+      href: /powershell/module/azurerm.cognitiveservices/
+- name: Recursos
+  items:
+    - name: Adecuado para empresas
+      items:
+        - name: Regiones admitidas
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Cumplimiento y certificación
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Opciones de ayuda y soporte técnico
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/metrics-advisor/context/context

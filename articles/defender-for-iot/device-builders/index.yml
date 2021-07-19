@@ -1,0 +1,63 @@
+### YamlMime:Landing
+title: Documentación sobre Azure Defender para IoT para creadores de dispositivos
+summary: Azure Defender para IoT proporciona una completa detección de amenazas para entornos de IoT/OT y tiene varias opciones de implementación, entre las que se incluyen la implementación completamente local, la conectada a la nube o una híbrida.
+metadata:
+  title: Documentación sobre Azure Defender para IoT para creadores de dispositivos
+  description: Azure Defender para IoT proporciona una completa detección de amenazas para entornos de IoT/OT y tiene varias opciones de implementación, entre las que se incluyen la implementación completamente local, la conectada a la nube o una híbrida.
+  services: service
+  ms.service: defender-for-iot
+  ms.topic: landing-page
+  ms.collection: M365-security-compliance
+  author: elazark
+  ms.author: v-ekrieg
+  manager: raynew
+  ms.date: 06/17/2021
+  ms.openlocfilehash: c4853f4ca1017510c24a97fd4c974972667e26df
+  ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 06/29/2021
+  ms.locfileid: "113013984"
+landingContent:
+- title: Acerca de Azure Defender para IoT para creadores de dispositivos
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Azure Defender para IoT para creadores de dispositivos?
+      url: overview.md
+    - text: Solución basada en agente para la arquitectura de los creadores de dispositivos
+      url: architecture-agent-based.md
+- title: Primeros pasos
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Incorporación de Defender para IoT a una solución basada en agente
+      url: quickstart-onboard-iot-hub.md
+    - text: Configuración de la solución de Azure Defender para IoT
+      url: quickstart-configure-your-solution.md
+- title: Seguridad
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Recomendaciones de seguridad
+      url: concept-recommendations.md
+    - text: Agregación de datos
+      url: concept-event-aggregation.md
+- title: Instrucciones
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Configuración de una solución basada en agente de Azure Defender para IoT
+      url: how-to-configure-agent-based-solution.md
+    - text: Investigación de la base de referencia del sistema operativo
+      url: how-to-investigate-cis-benchmark.md
+    - text: Creación de alertas personalizadas
+      url: quickstart-create-custom-alerts.md
+    - text: Configurar y personalizar Defender-IoT-micro-agent para Azure RTOS (versión preliminar)
+      url: how-to-azure-rtos-security-module.md
+- title: Novedades de la documentación
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: ¿Cuáles son las novedades para los creadores de dispositivos?
+      url: release-notes.md

@@ -3,7 +3,7 @@
 - name: Información general
   expanded: true
   items:
-    - name: ¿Qué es Translator?
+    - name: ¿Qué es Traductor?
       href: translator-info-overview.md
     - name: Compatibilidad con idiomas
       href: language-support.md
@@ -90,14 +90,20 @@
   items:
     - name: ¿Qué es la traducción de documentos?
       href: document-translation/overview.md
+    - name: SDK y bibliotecas cliente
+      href: document-translation/client-sdks.md
     - name: Guía de inicio rápido
       href: document-translation/get-started-with-document-translation.md
     - name: Guías paso a paso
       items:
         - name: Creación de tokens de SAS para la traducción de documentos
           href: document-translation/create-sas-tokens.md
+        - name: Creación y uso de identidad administrada
+          href: document-translation/managed-identity.md
     - name: Referencia
       items:
+        - name: Guía de referencia de API REST
+          href: document-translation/reference/rest-api-guide.md
         - name: Obtención de formatos de documento admitidos
           href: document-translation/reference/get-supported-document-formats.md
         - name: Obtención de formatos de glosario admitidos

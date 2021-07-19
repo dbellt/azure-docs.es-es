@@ -25,6 +25,8 @@
   items:
     - name: Administración de las preferencias y la configuración de Azure Portal
       href: set-preferences.md
+    - name: Administración de las opciones de Azure Portal (versión antigua)
+      href: original-preferences.md
     - name: 'Adición, eliminación y ordenación de favoritos'
       href: azure-portal-add-remove-sort-favorites.md
     - name: Visualización y filtrado de información de los recursos
@@ -72,9 +74,9 @@
           href: capture-browser-trace.md
 - name: Referencia
   items:
-    - name: Accesos directos del teclado
+    - name: Métodos abreviados de teclado
       href: azure-portal-keyboard-shortcuts.md
-    - name: Guarde en la lista de direcciones IP seguras las URL de Azure Portal
+    - name: Direcciones URL de Azure Portal
       href: azure-portal-safelist-urls.md
     - name: Estructura de los paneles de Azure
       href: azure-portal-dashboards-structure.md

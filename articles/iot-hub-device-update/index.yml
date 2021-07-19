@@ -11,12 +11,12 @@ metadata:
   ms.author: philmea
   manager: philmea
   ms.date: 2/17/2021
-  ms.openlocfilehash: b143fb6ea1ee4c91e743bb71b3788dd2e43cd2e4
-  ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+  ms.openlocfilehash: 9427d361e3ce8e972efb1ce8924502bc0b45bd78
+  ms.sourcegitcommit: 9caa850a2b26773e238f8ba6f4ca151c47260915
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/04/2021
-  ms.locfileid: "111409872"
+  ms.lasthandoff: 07/11/2021
+  ms.locfileid: "113600719"
 landingContent:
 - title: Acerca de Device Update
   linkLists:
@@ -50,6 +50,8 @@ landingContent:
       url: import-concepts.md
     - text: Información sobre los grupos de Device Update
       url: device-update-groups.md
+    - text: Información sobre los límites de Device Update
+      url: device-update-limits.md
 - title: Guía del desarrollador
   linkLists:
   - linkListType: how-to-guide

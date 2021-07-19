@@ -26,6 +26,14 @@ groups:
     title: Flask
   - id: python-framework-django
     title: Django
+- id: postgres-server-options
+  title: Servidor PostgreSQL
+  prompt: Elección de una SKU de PostgreSQL
+  pivots:
+  - id: postgres-single-server
+    title: Servidor único
+  - id: postgres-flexible-server
+    title: Servidor flexible (versión preliminar)
 - id: programming-languages-set-one
   title: Lenguajes de programación
   prompt: Selección de un lenguaje de programación
@@ -872,6 +880,14 @@ groups:
     title: JavaScript
   - id: programming-language-csharp
     title: C#
+- id: acs-csharp-java
+  title: Dinamizaciones de Java y C#
+  prompt: Selección de un lenguaje de programación
+  pivots:
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-csharp
+    title: C#
 - id: acs-plat-azp-azcli-net-ps
   title: Apartados de JS y C#
   prompt: Selección de un lenguaje de programación
@@ -879,7 +895,7 @@ groups:
   - id: platform-azp
     title: Azure portal
   - id: platform-azcli
-    title: CLI de Azure
+    title: Azure CLI
   - id: platform-net
     title: .NET
   - id: platform-powershell
@@ -1027,7 +1043,7 @@ groups:
   - id: platform-azp
     title: Azure portal
   - id: platform-azcli
-    title: CLI de Azure
+    title: Azure CLI
   - id: platform-net
     title: .NET
 - id: acs-plat-azp-arm-net-python-go-powershell
@@ -1225,9 +1241,9 @@ groups:
   prompt: Elegir una opción.
   pivots:
   - id: identity-mi-methods-azp
-    title: Azure portal
+    title: Portal de Azure
   - id: identity-mi-methods-azcli
-    title: CLI de Azure
+    title: Azure CLI
   - id: identity-mi-methods-powershell
     title: PowerShell
   - id: identity-mi-methods-arm
@@ -1239,15 +1255,15 @@ groups:
   prompt: Elegir una opción.
   pivots:
   - id: identity-mi-methods-sub-azp
-    title: Azure portal
+    title: Portal de Azure
   - id: identity-mi-methods-sub-azcli
-    title: CLI de Azure
+    title: Azure CLI
   - id: identity-mi-methods-sub-powershell
     title: PowerShell
 metadata:
-  ms.openlocfilehash: 0a7eb15f89dccdc97443a2c14107aa7bdb6fdba4
-  ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+  ms.openlocfilehash: d6ef125a7b5cd8a3122e9a965eda0f71f99c0d69
+  ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/10/2021
-  ms.locfileid: "111902238"
+  ms.lasthandoff: 07/10/2021
+  ms.locfileid: "113594668"

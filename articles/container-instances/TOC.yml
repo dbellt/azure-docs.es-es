@@ -130,8 +130,8 @@
           href: container-instances-get-logs.md
         - name: Registro con registros de Azure Monitor
           href: container-instances-log-analytics.md
-        - name: Búsqueda de imágenes mediante la acción Examen de Azure Container
-          href: container-instances-github-action-scan.md
+        - name: Visualización del estado de una instancia
+          href: container-state.md
     - name: Solución de problemas
       items:
         - name: Solución de problemas comunes
@@ -178,6 +178,6 @@
     - name: Vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest'
     - name: Preguntas más frecuentes
-      href: container-instances-faq.md
+      href: container-instances-faq.yml
 - name: Soporte técnico y solución de problemas
   href: container-instances-support-help.md
