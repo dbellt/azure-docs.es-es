@@ -1,0 +1,46 @@
+- name: Documentación sobre el proceso perimetral multiacceso privado de Azure
+  href: index.yml
+  items:
+    - name: Información general
+      expanded: true
+      items:
+        - name: ¿Qué es el MEC privado de Azure?
+          href: overview.md
+        - name: Soluciones de asociados de MEC privado de Azure
+          href: partner-programs.md
+    - name: "Conectividad perimetral mediante Metaswitch\_5G Fusion Core"
+      items:
+        - name: Información general
+          items:
+            - name: ¿Qué es Fusion Core?
+              href: metaswitch-fusion-core-overview.md
+        - name: Guías paso a paso
+          items:
+            - name: Implementación de Fusion Core en Azure Stack Edge
+              href: deploy-metaswitch-fusion-core-solution.md
+    - name: Redes privadas que usan el servicio de red privada afirmada
+      items:
+        - name: Información general
+          items:
+            - name: ¿Qué es el servicio de red privada afirmada en Azure?
+              href: affirmed-private-network-service-overview.md
+        - name: Guías paso a paso
+          items:
+            - name: Implementación del servicio de red privada afirmada en Azure
+              href: deploy-affirmed-private-network-service-solution.md
+    - name: Temas relacionados
+      items:
+        - name: Azure Network Function Manager
+          href: ../network-function-manager/index.yml
+    - name: Recursos
+      items:
+        - name: Página del producto MEC privado de Azure
+          href: 'https://go.microsoft.com/fwlink/?linkid=2165610'
+        - name: Página del producto Network Function Manager
+          href: 'https://go.microsoft.com/fwlink/?linkid=2166098'
+        - name: Azure Marketplace
+          href: 'https://azuremarketplace.microsoft.com/marketplace/'
+        - name: Azure Roadmap
+          href: 'https://azure.microsoft.com/roadmap/?category=networking'
+        - name: Blog
+          href: 'https://azure.microsoft.com/blog/topics/networking'

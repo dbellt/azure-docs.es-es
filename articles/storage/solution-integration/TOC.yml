@@ -31,6 +31,8 @@
       href: ./validated-partners/data-management/dobimigrate-quick-start-guide.md
     - name: Guía de introducción a Komprise
       href: ./validated-partners/data-management/komprise-quick-start-guide.md
+    - name: Guía de introducción a StorageX
+      href: ./validated-partners/data-management/storagex-quick-start-guide.md
   expanded: false
 - name: Asociados de almacenamiento principal y secundario
   items:

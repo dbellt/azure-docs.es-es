@@ -128,6 +128,8 @@
               href: event-schema-container-registry.md
             - name: Azure Event Hubs
               href: event-schema-event-hubs.md
+            - name: FarmBeats de Azure
+              href: event-schema-farmbeats.md
             - name: Azure IoT Hub
               href: event-schema-iot-hub.md
             - name: Azure Key Vault
@@ -270,8 +272,6 @@
           href: move-custom-topics-across-regions.md
         - name: Traslado de dominios entre regiones
           href: move-domains-across-regions.md
-        - name: Traslado espacios de nombres de asociados entre regiones
-          href: move-partner-namespaces-across-regions.md
     - name: Seguridad
       items:
         - name: Publicación de eventos de forma segura a través de un vínculo privado
@@ -286,6 +286,8 @@
               href: add-identity-roles.md
             - name: Creación de una suscripción a eventos que usa la identidad administrada
               href: managed-service-identity.md
+        - name: Aplicación de controles de seguridad con directivas personalizadas de Azure
+          href: custom-azure-policies-for-security-control.md
         - name: Entrega de eventos de forma segura a través de un vínculo privado
           href: consume-private-endpoints.md
         - name: Configuración de la dirección IP del firewall

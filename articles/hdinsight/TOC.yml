@@ -210,6 +210,8 @@
               href: ./hdinsight-log-management.md
             - name: Adición de cuentas de almacenamiento
               href: ./hdinsight-hadoop-add-storage.md
+            - name: Actualización de la clave de acceso de la cuenta de almacenamiento
+              href: ./hdinsight-rotate-storage-keys.md
             - name: Carga de datos para trabajos de Apache Hadoop
               href: ./hdinsight-upload-data.md
             - name: Varios clústeres de HDInsight con Data Lake Storage
@@ -278,7 +280,7 @@
               href: ./hdinsight-hadoop-templeton-webhcat-debug-errors.md
     - name: Referencia
       items:
-        - name: CLI de Azure
+        - name: Azure CLI
           href: /cli/azure/hdinsight
         - name: Azure PowerShell
           href: /powershell/module/az.hdinsight
@@ -313,7 +315,7 @@
             - name: Notas de la versión archivadas de Azure HDInsight
               href: ./hdinsight-release-notes-archive.md
         - name: Preguntas más frecuentes
-          href: ./hdinsight-faq.md
+          href: ./hdinsight-faq.yml
         - name: Migración a acceso basado en rol detallado para configuraciones de clúster
           href: ./hdinsight-migrate-granular-access-cluster-configurations.md
         - name: Información sobre el uso de HDInsight en Linux
@@ -660,7 +662,7 @@
         - name: Optimización del rendimiento
           href: ./kafka/apache-kafka-performance-tuning.md
         - name: Preguntas más frecuentes sobre Kafka
-          href: ./kafka/kafka-faq.md
+          href: ./kafka/kafka-faq.yml
     - name: Guías paso a paso
       items:
         - name: Desarrollar
@@ -679,7 +681,7 @@
                   href: ./hdinsight-apache-spark-with-kafka.md
                 - name: Uso de Apache Kafka con Azure Container Service
                   href: ./kafka/apache-kafka-azure-container-services.md
-        - name: Administración
+        - name: Administrar
           items:
             - name: Uso de Apache Kafka en una red virtual
               href: ./kafka/apache-kafka-connect-vpn-gateway.md
@@ -732,7 +734,7 @@
               href: ./hbase/apache-hbase-using-phoenix-query-server-rest-sdk.md
             - name: Carga masiva de datos en Apache Phoenix mediante psql
               href: ./hbase/apache-hbase-phoenix-psql.md
-        - name: Administración
+        - name: Administrar
           items:
             - name: Escrituras aceleradas
               href: ./hbase/apache-hbase-accelerated-writes.md
@@ -891,7 +893,7 @@
       items:
         - name: Comandos de Workload Management de Hive LLAP
           href: ./interactive-query/workload-management-commands.md
-- name: Machine Learning Services
+- name: ML Services (retirado)
   items:
     - name: Información general
       items:
@@ -920,7 +922,7 @@
               href: ./r-server/r-server-compute-contexts.md
             - name: ScaleR y SparkR
               href: ./hdinsight-hadoop-r-scaler-sparkr.md
-        - name: Administración
+        - name: Administrar
           items:
             - name: Administración de clústeres de Machine Learning Services
               href: ./r-server/r-server-hdinsight-manage.md

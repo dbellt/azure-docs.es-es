@@ -54,12 +54,18 @@
       href: ./tutorials/create-share-query.md
 - name: Ejemplos
   items:
-    - name: Consultas de inicio
-      displayName: 'query language, data explorer, count, list, show'
-      href: ./samples/starter.md
-    - name: Consultas avanzadas
-      displayName: 'query language, data explorer, list, regex'
-      href: ./samples/advanced.md
+    - name: Ejemplos de lenguajes
+      items:
+        - name: Consultas de inicio
+          displayName: 'query language, data explorer, count, list, show'
+          href: ./samples/starter.md
+        - name: Consultas avanzadas
+          displayName: 'query language, data explorer, list, regex'
+          href: ./samples/advanced.md
+    - name: Indexación por categoría
+      href: ./samples/samples-by-category.md
+    - name: Indexación por tabla
+      href: ./samples/samples-by-table.md
 - name: Conceptos
   items:
     - name: Descripción del lenguaje de consultas

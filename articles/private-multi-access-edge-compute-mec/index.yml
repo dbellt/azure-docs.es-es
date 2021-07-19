@@ -1,0 +1,58 @@
+### YamlMime:Landing
+title: Documentación sobre el proceso perimetral multiacceso privado de Azure
+summary: La solución de proceso perimetral multiacceso privado de Azure permite a los operadores e integrantes del sistema ofrecer alto rendimiento, conectividad de baja latencia y aplicaciones de IoT en el perímetro empresarial.
+metadata:
+  title: Documentación sobre el proceso perimetral multiacceso privado de Azure
+  description: La solución de proceso perimetral multiacceso privado de Azure permite a los operadores e integrantes del sistema ofrecer alto rendimiento, conectividad de baja latencia y aplicaciones de IoT en el perímetro empresarial.
+  ms.service: private-multi-access-edge-compute-mec
+  ms.topic: landing-page
+  author: kumud
+  ms.author: KumudD
+  ms.date: 06/15/2021
+  ms.openlocfilehash: 57bd78341606ee1b15afbd3a37363fa6d84f95a0
+  ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 06/22/2021
+  ms.locfileid: "112458369"
+landingContent:
+- title: Acerca del proceso perimetral multiacceso privado de Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es el proceso perimetral multiacceso privado de Azure?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Soluciones de socios
+      url: partner-programs.md
+- title: Conectividad perimetral mediante la solución Metaswitch
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: ¿Qué es Fusion Core?
+      url: metaswitch-fusion-core-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Implementación de Fusion Core en un dispositivo de Azure Stack Edge
+      url: deploy-metaswitch-fusion-core-solution.md
+- title: Acerca del servicio de red privada afirmada en Azure
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: ¿Qué es el servicio de red privada afirmada en Azure?
+      url: affirmed-private-network-service-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Implementación del servicio de red privada afirmada en Azure
+      url: deploy-affirmed-private-network-service-solution.md
+- title: Acerca de Azure Network Function Manager
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Azure Network Function Manager?
+      url: ../network-function-manager/overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Implementación de una función de red
+      url: ../network-function-manager/deploy-functions.md
