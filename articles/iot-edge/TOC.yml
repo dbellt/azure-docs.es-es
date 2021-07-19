@@ -123,14 +123,16 @@
           items:
             - name: Instalación de IoT Edge para Linux
               href: how-to-install-iot-edge.md
-            - name: Ejecución de IoT Edge para Linux en Windows
+            - name: Instalación de IoT Edge para Linux en Windows
               href: how-to-install-iot-edge-on-windows.md
-        - name: Actualización del entorno en tiempo de ejecución
+        - name: Actualización de IoT Edge
           href: how-to-update-iot-edge.md
         - name: Administración de certificados de dispositivo
           href: how-to-manage-device-certificates.md
         - name: Configuración de la virtualización anidada para máquinas virtuales Windows
           href: nested-virtualization.md
+        - name: Configuración de la aceleración de GPU para Linux en Windows
+          href: gpu-acceleration.md
     - name: Escenarios de dispositivos alternativos
       items:
         - name: Ejecución de IoT Edge con contenedores de Windows
@@ -145,6 +147,8 @@
           items:
             - name: Linux
               href: how-to-auto-provision-simulated-device-linux.md
+            - name: Contenedores de Linux en Windows
+              href: how-to-auto-provision-tpm-linux-on-windows.md
             - name: Windows
               href: how-to-auto-provision-simulated-device-windows.md
         - name: Atestación de certificados de cliente X.509
@@ -167,7 +171,7 @@
       items:
         - name: Implementación en dispositivos individuales
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: how-to-deploy-modules-portal.md
             - name: Azure CLI
               href: how-to-deploy-modules-cli.md
@@ -175,7 +179,7 @@
               href: how-to-deploy-modules-vscode.md
         - name: Implementación a escala
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: how-to-deploy-at-scale.md
             - name: Azure CLI
               href: how-to-deploy-cli-at-scale.md

@@ -79,7 +79,11 @@
         - name: Inclusión de aplicaciones ASP.NET en contenedores y migración a AKS
           href: tutorial-app-containerization-aspnet-kubernetes.md
         - name: Inclusión de aplicaciones web de Java en contenedores y migración a AKS
-          href: tutorial-containerize-java-kubernetes.md
+          href: tutorial-app-containerization-java-kubernetes.md
+        - name: Inclusión de aplicaciones ASP.NET en contenedores y migración a App Service
+          href: tutorial-app-containerization-aspnet-app-service.md
+        - name: Inclusión de aplicaciones web Java en contenedores y migración a App Service
+          href: tutorial-app-containerization-java-app-service.md
 - name: Conceptos
   items:
     - name: General
@@ -128,6 +132,9 @@
           href: migrate-replication-appliance.md
         - name: Arquitectura de migración sin agente de VMware
           href: concepts-vmware-agentless-migration.md
+          items:
+            - name: Preparación para la migración sin agentes de VMware
+              href: prepare-for-agentless-migration.md
         - name: Arquitectura de migración de Hyper-V
           href: hyper-v-migration-architecture.md
         - name: Arquitectura de migración basada en agente de VMware
@@ -235,11 +242,15 @@
           href: troubleshoot-project.md
     - name: Descubra
       items:
-        - name: Solución de problemas de un dispositivo o detección de Azure Migrate
-          href: troubleshoot-appliance-discovery.md
+        - name: Solución de problemas de dispositivos Azure Migrate
+          href: troubleshoot-appliance.md
+        - name: Solución de problemas de detección
+          href: troubleshoot-discovery.md
+        - name: Solución de problemas de visualización de dependencias
+          href: troubleshoot-dependencies.md
     - name: Evaluar
       items:
-        - name: Solución de problemas de evaluación o visualización de dependencias
+        - name: Solución de problemas de evaluación
           href: troubleshoot-assessment.md
     - name: Migrate
       items:
@@ -247,7 +258,7 @@
           href: troubleshoot-changed-block-tracking-replication.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/offazure
     - name: Azure PowerShell
       href: /powershell/module/az.migrate/

@@ -238,6 +238,12 @@
               href: backup-managed-disks-ps.md
             - name: Restauración
               href: restore-managed-disks-ps.md
+        - name: Con la CLI
+          items:
+            - name: Copia de seguridad
+              href: backup-managed-disks-cli.md
+            - name: Restauración
+              href: restore-managed-disks-cli.md
     - name: Copia de seguridad de blobs de Azure
       items:
         - name: Información general
@@ -254,6 +260,20 @@
               href: backup-blobs-storage-account-ps.md
             - name: Restauración
               href: restore-blobs-storage-account-ps.md
+        - name: Con la CLI
+          items:
+            - name: Copia de seguridad
+              href: backup-blobs-storage-account-cli.md
+            - name: Restauración
+              href: restore-blobs-storage-account-cli.md
+        - name: Con API REST
+          items:
+            - name: Directiva de blobs
+              href: backup-azure-dataprotection-use-rest-api-create-update-blob-policy.md
+            - name: Copia de seguridad
+              href: backup-azure-dataprotection-use-rest-api-backup-blobs.md
+            - name: Restauración
+              href: backup-azure-dataprotection-use-rest-api-restore-blobs.md
     - name: Copia de seguridad de un recurso compartido de archivos de Azure
       items:
         - name: Información general
@@ -334,6 +354,8 @@
               href: backup-azure-sql-mabs.md
             - name: Protección del estado del sistema y reconstrucción completa
               href: backup-mabs-system-state-and-bmr.md
+            - name: Uso de scripts anteriores y posteriores a la copia de seguridad
+              href: pre-backup-post-backup-scripts.md
         - name: Recuperación de datos de Azure Backup Server
           href: backup-azure-alternate-dpm-server.md
         - name: Restauración de máquinas virtuales de VMware con Azure Backup Server
@@ -440,6 +462,8 @@
               href: backup-azure-arm-userestapi-restoreazurevms.md
             - name: Administración de trabajos de Azure Backup
               href: backup-azure-arm-userestapi-managejobs.md
+        - name: Uso de la API REST de Azure Data Protection
+          href: backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md
         - name: Consulta de información de copia de seguridad mediante ARG
           href: query-backups-using-azure-resource-graph.md
         - name: Plantillas de Resource Manager

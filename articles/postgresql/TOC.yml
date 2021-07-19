@@ -105,7 +105,7 @@
             - name: Azure portal
               href: tutorial-design-database-using-azure-portal.md
               displayName: design database
-            - name: CLI de Azure
+            - name: Azure CLI
               href: tutorial-design-database-using-azure-cli.md
             - name: Azure PowerShell
               href: tutorial-design-database-using-powershell.md
@@ -151,7 +151,7 @@
               href: concepts-connectivity-architecture.md
               displayName: 'security, architecture'
             - name: Protección contra amenazas con Azure Defender
-              href: ../security-center/defender-for-databases-introduction.md
+              href: ../security-center/defender-for-databases-usage.md?toc=/azure/postgresql/toc.json&bc=/azure/postgresql/breadcrumb/toc.json
               displayName: 'security, advanced threat protection'
             - name: Autenticación de Azure AD
               href: concepts-aad-authentication.md
@@ -244,20 +244,20 @@
             - name: Azure portal
               href: howto-create-manage-server-portal.md
               displayName: 'scale server, reset password'
-            - name: CLI de Azure
+            - name: Azure CLI
               href: how-to-manage-server-cli.md
               displayName: 'scale server, reset password'
         - name: Reinicio del servidor
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: howto-restart-server-portal.md
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-restart-server-cli.md
             - name: Azure PowerShell
               href: howto-restart-server-powershell.md
         - name: Reglas de firewall
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: howto-manage-firewall-using-portal.md
               displayName: 'firewall, portal, rules'
             - name: CLI de Azure
@@ -271,7 +271,7 @@
             - name: Azure portal
               href: howto-restore-server-portal.md
               displayName: 'restore, georestore, geo-restore, outage'
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-restore-server-cli.md
               displayName: 'restore, georestore, geo-restore, outage'
             - name: Azure PowerShell
@@ -312,10 +312,10 @@
           displayName: 'application development, TLS'
         - name: Configuración de parámetros del servidor
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: howto-configure-server-parameters-using-portal.md
               displayName: 'application development, server parameters'
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-configure-server-parameters-using-cli.md
               displayName: 'application development, server parameters'
             - name: Azure PowerShell
@@ -323,10 +323,10 @@
               displayName: 'application development, server parameters'
         - name: Almacenamiento de crecimiento automático
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: howto-auto-grow-storage-portal.md
               displayName: 'business continuity, scale , storage'
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-auto-grow-storage-cli.md
               displayName: 'business continuity, scale , storage'
             - name: Azure PowerShell
@@ -334,10 +334,10 @@
               displayName: 'business continuity, scale , storage'
         - name: Registros de acceso
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: howto-configure-server-logs-in-portal.md
               displayName: 'access logs, monitor'
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-configure-server-logs-using-cli.md
               displayName: 'access logs, monitor'
         - name: Supervisión
@@ -504,7 +504,7 @@
       items:
         - name: Administración de un servicio
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: flexible-server/how-to-manage-server-portal.md
             - name: Azure CLI
               href: flexible-server/how-to-manage-server-cli.md
@@ -526,15 +526,17 @@
               items:
                 - name: Azure portal
                   href: flexible-server/how-to-manage-firewall-portal.md
-                - name: CLI de Azure
+                - name: Azure CLI
                   href: flexible-server/how-to-manage-firewall-cli.md
-            - name: TLS/SSL
+            - name: TLS/SSL/SCRAM
               items:
                 - name: Conexión mediante TLS/SSL
                   href: flexible-server/how-to-connect-tls-ssl.md
+                - name: Conexión mediante SCRAM
+                  href: flexible-server/how-to-connect-scram.md
         - name: Configuración de parámetros del servidor
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: flexible-server/howto-configure-server-parameters-using-portal.md
               displayName: 'application development, server parameters'
             - name: CLI de Azure
@@ -548,11 +550,11 @@
           items:
             - name: Azure portal
               href: flexible-server/how-to-restart-server-portal.md
-            - name: CLI de Azure
+            - name: Azure CLI
               href: flexible-server/how-to-restart-server-cli.md
         - name: Restauración de un servidor
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: flexible-server/how-to-restore-server-portal.md
             - name: CLI de Azure
               href: flexible-server/how-to-restore-server-cli.md
@@ -566,7 +568,7 @@
           items:
             - name: Portal de Azure
               href: flexible-server/how-to-manage-high-availability-portal.md
-            - name: CLI de Azure
+            - name: Azure CLI
               href: flexible-server/how-to-configure-high-availability-cli.md
         - name: Supervisión
           items:
@@ -695,6 +697,8 @@
           items:
             - name: Azure portal
               href: howto-hyperscale-maintenance.md
+        - name: Reinicio del grupo del servidor
+          href: howto-hyperscale-restart.md
         - name: Supervisión
           items:
             - name: Creación de alertas basadas en métricas

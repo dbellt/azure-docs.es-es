@@ -45,6 +45,8 @@
       href: concept-activity-logs-azure-monitor.md
     - name: Planeación de una implementación de informes y supervisión
       href: plan-monitoring-and-reporting.md
+    - name: Inicio de sesión en escenarios de diagnóstico
+      href: concept-sign-in-diagnostics-scenarios.md
 - name: Guías paso a paso
   expanded: true
   items:

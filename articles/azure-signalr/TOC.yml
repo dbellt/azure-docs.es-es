@@ -126,6 +126,8 @@
           href: signalr-howto-troubleshoot-guide.md
         - name: Métodos de solución de problemas
           href: signalr-howto-troubleshoot-method.md
+        - name: Solución de problemas con la herramienta de seguimiento en directo
+          href: signalr-howto-troubleshoot-live-trace.md
 - name: Referencias
   items:
     - name: Azure CLI
@@ -152,7 +154,7 @@
     - name: Disponibilidad en regiones
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=signalr-service'
     - name: Preguntas más frecuentes
-      href: signalr-resource-faq.md
+      href: signalr-resource-faq.yml
     - name: Límites de nivel de suscripción de SignalR Service
       href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-signalr-service-limits
     - name: Precios
