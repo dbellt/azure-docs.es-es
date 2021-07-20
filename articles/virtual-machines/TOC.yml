@@ -199,7 +199,7 @@
           items:
             - name: Información general
               displayName: 'GPU, sizes, size, accelerated compute, compute, nvidia'
-              href: sizes-gpu.md?context=/azure/virtual-machines/context/context
+              href: sizes-gpu.md
             - name: Serie NC
               href: nc-series.md
             - name: Serie NCv2
@@ -235,7 +235,7 @@
           items:
             - name: Información general
               displayName: 'FPGA, accelerated compute, compute, accelerated, gpu'
-              href: sizes-field-programmable-gate-arrays.md?context=/azure/virtual-machines/context/context
+              href: sizes-field-programmable-gate-arrays.md
             - name: "Serie\_NP"
               href: np-series.md
             - name: Servicio de atestación de FPGA
@@ -266,7 +266,7 @@
               displayName: 'vCPU, quota, limit'
               href: ./windows/quotas.md
         - name: Máquinas virtuales de Azure sin disco temporal
-          href: azure-vms-no-temp-disk.md
+          href: azure-vms-no-temp-disk.yml
         - name: Convenciones de nomenclatura de tamaños de máquina virtual de Azure
           href: vm-naming-conventions.md
         - name: Generaciones anteriores
@@ -278,14 +278,14 @@
         - name: Unidades de proceso de Azure (ACU)
           href: acu.md
         - name: Puntuaciones de pruebas comparativas
+          displayName: 'benchmark, coremark'
           items:
             - name: Linux
-              displayName: 'Benchmark scores, score, acu'
               href: ./linux/compute-benchmark-scores.md
             - name: Windows
-              displayName: 'Benchmark scores, score, acu'
               href: ./windows/compute-benchmark-scores.md
     - name: Hosts dedicados
+      displayName: 'sole-tenant, sole tenant, isolated, isolation'
       items:
         - name: Información general
           displayName: 'Dedicated hosts, ADH'
@@ -599,7 +599,7 @@
           href: migration-classic-resource-manager-community-tools.md
         - name: Preguntas más frecuentes
           displayName: 'classic, migration, classic to ARM, CSES, Cloud Services'
-          href: migration-classic-resource-manager-faq.md
+          href: migration-classic-resource-manager-faq.yml
 - name: Imágenes
   items:
     - name: Búsqueda de imágenes de Azure Marketplace
@@ -640,9 +640,6 @@
             - name: FreeBSD
               displayName: 'Linux distribution specific requirements, FreeBSD'
               href: ./linux/freebsd-intro-on-azure.md
-            - name: Filtro de paquetes de FreeBSD
-              displayName: 'Linux distribution specific requirements, FreeBSD'
-              href: ./linux/freebsd-pf-nat.md
             - name: Oracle Linux
               displayName: 'Linux distribution specific requirements, Oracle'
               href: ./linux/oracle-create-upload-vhd.md
@@ -694,6 +691,8 @@
         - name: Preparación de un disco duro virtual para cargarlo
           displayName: 'Windows custom images, images, windows, upload, prepare, VHD'
           href: ./windows/prepare-for-upload-vhd-image.md
+        - name: Generalización de una máquina virtual
+          href: generalize.md
         - name: Carga de un disco duro virtual y creación de una imagen administrada
           displayName: 'Windows custom images, images, windows, upload, prepare, VHD, managed'
           href: ./windows/upload-generalized-managed.md
@@ -791,6 +790,8 @@
                 - name: Windows
                   displayName: 'Shared Image Gallery, SIG, sig, gallery, image, create'
                   href: ./windows/shared-images-portal.md
+            - name: Captura de una máquina virtual en el portal
+              href: capture-image-portal.md
         - name: Plantillas de Resource Manager
           items:
             - name: Creación de una instancia de Shared Image Gallery
@@ -1301,19 +1302,91 @@
   items:
     - name: Información general
       displayName: Networking Overview
-      href: network-overview.md
+      href: network-overview.md?context=/azure/virtual-machines/context/context
+    - name: Optimización del rendimiento de la red
+      href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?context=/azure/virtual-machines/context/context
+    - name: Procedimientos recomendados
+      href: /azure/virtual-network/concepts-and-best-practices
     - name: Creación de una red virtual
       href: ../virtual-network/quick-create-cli.md?context=/azure/virtual-machines/context/context
+    - name: Filtrado del tráfico de red
+      items:
+        - name: Portal de Azure
+          href: ../virtual-network/tutorial-filter-network-traffic.md?context=/azure/virtual-machines/context/context
+        - name: Azure PowerShell
+          href: ../virtual-network/tutorial-filter-network-traffic-powershell.md?context=/azure/virtual-machines/context/context
+        - name: Azure CLI
+          href: ../virtual-network/tutorial-filter-network-traffic-cli.md?context=/azure/virtual-machines/context/context
+    - name: 'Creación de una máquina virtual: IP pública estática'
+      items:
+        - name: Portal de Azure
+          href: ../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?context=/azure/virtual-machines/context/context
+        - name: Azure PowerShell
+          href: ../virtual-network/virtual-network-deploy-static-pip-arm-ps.md?context=/azure/virtual-machines/context/context
+        - name: Azure CLI
+          href: ../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?context=/azure/virtual-machines/context/context
+        - name: Incorporación de una dirección IP pública a una máquina virtual existente
+          href: ../virtual-network/associate-public-ip-address-vm.md?context=/azure/virtual-machines/context/context
+        - name: Desasociar dirección IP pública de una máquina virtual
+          href: ../virtual-network/remove-public-ip-address-vm.md?context=/azure/virtual-machines/context/context
+    - name: 'Creación de una máquina virtual: IP privada estática'
+      items:
+        - name: Portal de Azure
+          href: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md?context=/azure/virtual-machines/context/context
+        - name: Azure PowerShell
+          href: ../virtual-network/virtual-networks-static-private-ip-arm-ps.md?context=/azure/virtual-machines/context/context
+        - name: Azure CLI
+          href: ../virtual-network/virtual-networks-static-private-ip-arm-cli.md?context=/azure/virtual-machines/context/context
+    - name: 'Creación de una máquina virtual: varias IP'
+      items:
+        - name: Portal de Azure
+          href: ../virtual-network/virtual-network-multiple-ip-addresses-portal.md?context=/azure/virtual-machines/context/context
+        - name: Azure PowerShell
+          href: ../virtual-network/virtual-network-multiple-ip-addresses-powershell.md?context=/azure/virtual-machines/context/context
+        - name: Azure CLI
+          href: ../virtual-network/virtual-network-multiple-ip-addresses-cli.md?context=/azure/virtual-machines/context/context
+        - name: Adición o eliminación de interfaces de red
+          href: ../virtual-network/virtual-network-network-interface-vm.md?context=/azure/virtual-machines/context/context
+        - name: 'Creación de una máquina virtual: varias NIC'
+          items:
+            - name: Azure PowerShell
+              href: ./windows/multiple-nics.md
+            - name: Azure CLI
+              href: ./linux/multiple-nics.md
+    - name: 'Creación de una máquina virtual: redes aceleradas'
+      items:
+        - name: Azure PowerShell
+          href: ../virtual-network/create-vm-accelerated-networking-powershell.md?context=/azure/virtual-machines/context/context
+        - name: Azure CLI
+          href: ../virtual-network/create-vm-accelerated-networking-cli.md?context=/azure/virtual-machines/context/context
+          items:
+            - name: Configuración de DPDK
+              href: ../virtual-network/setup-dpdk.md?context=/azure/virtual-machines/context/context
+    - name: Optimización del rendimiento de TCP/IP para máquinas virtuales de Azure
+      href: ../virtual-network/virtual-network-tcpip-performance-tuning.md?context=/azure/virtual-machines/context/context
+    - name: Rendimiento de red de máquinas virtuales
+      href: ../virtual-network/virtual-machine-network-throughput.md?context=/azure/virtual-machines/context/context
+    - name: Creación de un plan de DDoS Protection
+      items:
+        - name: Portal
+          href: ../ddos-protection/manage-ddos-protection.md?context=/azure/virtual-machines/context/context
+        - name: PowerShell
+          href: ../ddos-protection/manage-ddos-protection-powershell.md?context=/azure/virtual-machines/context/context
+        - name: CLI
+          href: ../ddos-protection/manage-ddos-protection-cli.md?context=/azure/virtual-machines/context/context
+        - name: Plantilla ARM
+          displayName: Resource Manager
+          href: ../ddos-protection/manage-ddos-protection-template.md?context=/azure/virtual-machines/context/context
     - name: Apertura de puertos a una máquina virtual
       items:
         - name: CLI
-          displayName: Open ports to a VM
+          displayName: port nsg network security group
           href: ./linux/nsg-quickstart.md
         - name: PowerShell
-          displayName: Open ports to a VM
+          displayName: nsg network security group
           href: ./windows/nsg-quickstart-powershell.md
         - name: Portal
-          displayName: Open ports to a VM
+          displayName: port nsg network security group
           href: ./windows/nsg-quickstart-portal.md
     - name: Asignación de direcciones IP públicas
       href: ../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?context=/azure/virtual-machines/context/context
@@ -1327,12 +1400,12 @@
         - name: Windows mediante PowerShell
           displayName: Use multipe NICs
           href: ./windows/multiple-nics.md
-    - name: Uso de redes aceleradas
-      href: ../virtual-network/create-vm-accelerated-networking-cli.md?context=/azure/virtual-machines/context/context
-    - name: Asignación de nombres DNS públicos
-      href: create-fqdn.md
     - name: Búsqueda y eliminación de NIC no conectadas
       href: ./linux/find-unattached-nics.md
+    - name: Asignación de nombres DNS públicos
+      href: create-fqdn.md
+    - name: Asignación de nombres DNS públicos
+      href: create-fqdn.md
     - name: Resolución DNS
       href: ./linux/azure-dns.md
     - name: Uso de DNS interno
@@ -1448,11 +1521,17 @@
           displayName: Configured managed identies
           href: ../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?context=/azure/virtual-machines/context/context
     - name: Inicio de sesión de Active Directory de Linux
-      href: ./linux/login-using-aad.md
+      displayName: aad
+      items:
+        - name: SSH con Azure Active Directory
+          href: ../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md
+          items:
+            - name: La versión anterior pasará a estar en desuso a partir del 15 de agosto de 2021
+              href: ./linux/login-using-aad.md
 - name: Actualizaciones y mantenimiento
   items:
     - name: Información general
-      displayName: Updates and maintenance
+      displayName: 'maintenance, updates, live-migration'
       href: updates-maintenance-overview.md
     - name: Actualización automática de las imágenes del sistema operativo
       items:
@@ -1541,16 +1620,25 @@
       href: ../azure-monitor/vm/monitor-vm-azure.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: Supervisión de máquinas virtuales
       items:
-        - name: Windows
-          displayName: Monitoring VMs
-          href: ./windows/tutorial-monitor.md
+        - name: Información general
+          href: ../azure-monitor/vm/monitor-virtual-machine.md?context=/azure/virtual-machines/context/context
+        - name: Configuración de la supervisión
+          href: ../azure-monitor/vm/monitor-virtual-machine-configure.md?context=/azure/virtual-machines/context/context
+        - name: Análisis de datos
+          href: ../azure-monitor/vm/monitor-virtual-machine-analyze.md?context=/azure/virtual-machines/context/context
+        - name: Supervisión de la seguridad
+          href: ../azure-monitor/vm/monitor-virtual-machine-security.md?context=/azure/virtual-machines/context/context
+        - name: Creación de alertas
+          href: ../azure-monitor/vm/monitor-virtual-machine-alerts.md?context=/azure/virtual-machines/context/context
+        - name: Supervisión de cargas de trabajo
+          href: ../azure-monitor/vm/monitor-virtual-machine-workloads.md?context=/azure/virtual-machines/context/context
     - name: Agentes
       items:
         - name: Información general de los agentes
           href: ../azure-monitor/agents/agents-overview.md?context=/azure/virtual-machines/context/context
         - name: Preguntas más frecuentes
           displayName: Agents
-          href: ../azure-monitor/faq.md?context=/azure/virtual-machines/context/context#agents
+          href: /azure/azure-monitor/faq#agents
         - name: Extensión de Diagnósticos de Azure
           items:
             - name: Información general
@@ -1620,10 +1708,10 @@
               href: ../azure-monitor/vm/vminsights-overview.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
             - name: Preguntas frecuentes acerca de la disponibilidad general
               displayName: Azure monitor for VMs
-              href: ../azure-monitor/vm/vminsights-ga-release-faq.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+              href: ../azure-monitor/vm/vminsights-ga-release-faq.yml?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
             - name: Preguntas más frecuentes
               displayName: Azure monitor for VMs
-              href: ../azure-monitor/faq.md?context=/azure/virtual-machines/context/context
+              href: /azure/azure-monitor/faq?context=/azure/virtual-machines/context/context
             - name: Habilitar supervisión
               items:
                 - name: Habilitar información general de la supervisión
