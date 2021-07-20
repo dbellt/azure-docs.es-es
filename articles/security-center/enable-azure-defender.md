@@ -7,12 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
 ms.date: 06/07/2021
-ms.openlocfilehash: 4f7900c4abc37df776c231ac9d70a09862f6d49f
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: bc8449950134ba8c247c57df06b7495a48558def
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111748412"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112238593"
 ---
 # <a name="quickstart-enable-azure-defender"></a>Inicio rápido: Habilitación de Azure Defender
 
@@ -54,14 +54,14 @@ Para habilitar todas las características de Security Center, incluidas las func
 
         La pestaña **Actualizar** muestra las suscripciones y áreas de trabajo aptas para la incorporación.
 
-        :::image type="content" source="./media/enable-azure-defender/get-started-upgrade-tab.png" alt-text="Pestaña Actualizar de la página introducción"::: 
+        :::image type="content" source="./media/enable-azure-defender/get-started-upgrade-tab.png" alt-text="Pestaña Actualizar de la página de introducción."::: 
 
     1. En la lista **Select subscriptions and workspaces to enable Azure Defender on** (Seleccionar las suscripciones y áreas de trabajo en las que habilitar Azure Defender), seleccione las suscripciones y áreas de trabajo que desea actualizar y seleccione **Upgrade** (Actualizar) para habilitar Azure Defender.
 
        - Si selecciona suscripciones y áreas de trabajo que no sean válidas para la evaluación, el paso siguiente las actualizará y se iniciarán los cargos.
        - Si selecciona un área de trabajo apta para una evaluación gratuita, el siguiente paso comenzará una evaluación gratuita.
 
-        :::image type="content" source="./media/enable-azure-defender/upgrade-selected-workspaces-and-subscriptions.png" alt-text="Actualizar todas las áreas de trabajo y suscripciones seleccionadas desde la página de introducción":::
+        :::image type="content" source="./media/enable-azure-defender/upgrade-selected-workspaces-and-subscriptions.png" alt-text="Actualizar todas las áreas de trabajo y suscripciones seleccionadas desde la página de introducción.":::
 
 
 ## <a name="disable-azure-defender"></a>Deshabilitación de Azure Defender
@@ -72,7 +72,7 @@ Si tiene que deshabilitar Azure Defender para una suscripción, el procedimiento
 1. Seleccione la suscripción correspondiente.
 1. Si su suscripción tiene habilitado Azure Defender, abra los **planes de Azure Defender** y seleccione **Azure Defender off** (Azure Defender desactivado).
 
-    :::image type="content" source="./media/enable-azure-defender/disable-plans.png" alt-text="Habilitación o deshabilitación de Azure Defender":::
+    :::image type="content" source="./media/enable-azure-defender/disable-plans.png" alt-text="Habilitación o deshabilitación de Azure Defender.":::
 
 1. Seleccione **Guardar**.
 

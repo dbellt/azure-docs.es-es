@@ -18,40 +18,40 @@
       href: tutorial-deploy-vmware-hcx.md
 - name: Tutoriales
   items:
-    - name: 1 - Lista de comprobación de planificación de la red
-      href: tutorial-network-checklist.md
-    - name: 2 - Creación de una nube privada
-      href: tutorial-create-private-cloud.md
-    - name: 3 - Acceso a una nube privada
+    - name: Acceso a una nube privada
       href: tutorial-access-private-cloud.md
-    - name: 4 - Configuración de la red
+    - name: Configuración de las redes
       href: tutorial-configure-networking.md
-    - name: 5 - Creación de segmentos de red de NSX-T
+    - name: Creación de una nube privada
+      href: tutorial-create-private-cloud.md
+    - name: Creación de segmentos de red de NSX-T
       href: tutorial-nsx-t-network-segment.md
-    - name: 6 - Emparejamiento de un entorno local con una nube privada
-      href: tutorial-expressroute-global-reach-private-cloud.md
-    - name: 7 - Implementación y configuración de VMware HCX
-      href: tutorial-deploy-vmware-hcx.md
-    - name: 8- Expansión o reducción de clústeres en una nube privada
-      href: tutorial-scale-private-cloud.md
-    - name: 9 - Eliminación de una nube privada
+    - name: Eliminación de una nube privada
       href: tutorial-delete-private-cloud.md
+    - name: Implementación y configuración de VMware HCX
+      href: tutorial-deploy-vmware-hcx.md
+    - name: Expansión o reducción de clústeres en una nube privada
+      href: tutorial-scale-private-cloud.md
+    - name: Lista de comprobación de planeación de la red
+      href: tutorial-network-checklist.md
+    - name: Emparejamiento de un entorno local con una nube privada
+      href: tutorial-expressroute-global-reach-private-cloud.md
 - name: Conceptos
   items:
-    - name: Nubes privadas y clústeres
-      href: concepts-private-clouds-clusters.md
-    - name: Redes e interconectividad
-      href: concepts-networking.md
-    - name: Storage
-      href: concepts-storage.md
     - name: Acceso e identidad
       href: concepts-identity.md
-    - name: Supervisión y protección
-      href: concepts-monitor-protection.md
     - name: API Management
       href: concepts-api-management.md
     - name: En estrella tipo hub-and-spoke
       href: concepts-hub-and-spoke.md
+    - name: Supervisión y protección
+      href: concepts-monitor-protection.md
+    - name: Redes e interconectividad
+      href: concepts-networking.md
+    - name: Nubes privadas y clústeres
+      href: concepts-private-clouds-clusters.md
+    - name: Storage
+      href: concepts-storage.md
 - name: Guías paso a paso
   items:
     - name: Creación de una evaluación de Azure VMware Solution
@@ -60,33 +60,53 @@
       href: request-host-quota-azure-vmware-solution.md
     - name: Ahorro de costos con una instancia reservada
       href: reserved-instance.md
+    - name: Configuración de las redes
+      items:
+        - name: Configuración de DHCP
+          href: configure-dhcp-azure-vmware-solution.md
+        - name: "Configuración de DHCP en redes de VMware HCX extendido\_L2"
+          href: configure-l2-stretched-vmware-hcx-networks.md
+        - name: Configuración de componentes de NSX mediante Azure
+          href: configure-nsx-network-components-azure-portal.md
+        - name: Configuración del servidor de GitHub Enterprise
+          href: ./configure-github-enterprise-server.md
+        - name: Habilitación del acceso a través de una red de Internet pública
+          href: enable-public-internet-access.md
+        - name: Configuración de una VPN de sitio a sitio en vWAN
+          href: configure-site-to-site-vpn-gateway.md
+    - name: Configurar los clústeres de conmutación por error de Windows Server
+      href: configure-windows-server-failover-cluster.md
+    - name: Rotación de credenciales de cloudadmin
+      href: rotate-cloudadmin-credentials.md
+    - name: Conexión de varias nubes privadas en la misma región
+      href: connect-multiple-private-clouds-same-region.md
     - name: Traslado de recursos
       items:
         - name: Traslado de las suscripciones de Azure VMware Solution
           href: move-ea-csp-subscriptions.md
         - name: Traslado de recursos de Azure VMware Solution entre regiones
           href: move-azure-vmware-solution-across-regions.md
-    - name: Configuración de DHCP
-      href: configure-dhcp-azure-vmware-solution.md
-    - name: "Configuración de DHCP en redes de VMware HCX extendido\_L2"
-      href: configure-l2-stretched-vmware-hcx-networks.md
-    - name: Configuración de componentes de NSX mediante Azure
-      href: configure-nsx-network-components-azure-portal.md
-    - name: Configuración del servidor de GitHub Enterprise
-      href: ./configure-github-enterprise-server.md
-    - name: Habilitación del acceso a través de una red de Internet pública
-      href: enable-public-internet-access.md
-    - name: Configuración de una VPN de sitio a sitio en vWAN
-      href: configure-site-to-site-vpn-gateway.md
-    - name: Configurar los clústeres de conmutación por error de Windows Server
-      href: configure-windows-server-failover-cluster.md
-    - name: Rotación de credenciales de cloudadmin
-      href: rotate-cloudadmin-credentials.md
-    - name: Recuperación ante desastres
+    - name: Integración nativa de Azure
       items:
-        - name: Implementación de la recuperación ante desastres mediante VMware HCX
-          href: deploy-disaster-recovery-using-vmware-hcx.md
-        - name: Recuperación ante desastres en Azure Site Recovery
+        - name: 'Protección, supervisión y administración de máquinas virtuales'
+          href: integrate-azure-native-services.md
+        - name: Integración de Azure Security Center
+          href: azure-security-integration.md
+        - name: Integración con Azure NetApp Files
+          href: netapp-files-with-azure-vmware-solution.md
+        - name: Protección de aplicaciones web con Azure Application Gateway
+          href: protect-azure-vmware-solution-with-application-gateway.md
+        - name: Implementación de Traffic Manager para equilibrar cargas de trabajo
+          href: deploy-traffic-manager-balance-workloads.md
+        - name: Configuración de alertas y trabajo con métricas
+          href: configure-alerts-for-azure-vmware-solution.md
+        - name: Copia de seguridad con Azure Backup Server
+          items:
+            - name: Configuración Backup Server
+              href: set-up-backup-server-for-azure-vmware-solution.md
+            - name: Copia de seguridad de las máquinas virtuales de una nube privada con Backup Server
+              href: backup-azure-vmware-solution-virtual-machines.md
+        - name: Recuperación ante desastres mediante Azure Site Recovery
           items:
             - name: Preparación de Azure
               href: ../site-recovery/avs-tutorial-prepare-azure.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
@@ -102,20 +122,6 @@
               href: ../site-recovery/avs-tutorial-reprotect.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
             - name: Conmutación por recuperación desde Azure
               href: ../site-recovery/avs-tutorial-failback.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-    - name: Integración nativa de Azure
-      items:
-        - name: 'Protección, supervisión y administración de máquinas virtuales'
-          href: integrate-azure-native-services.md
-        - name: Integración de Azure Security Center
-          href: azure-security-integration.md
-        - name: Integración con Azure NetApp Files
-          href: netapp-files-with-azure-vmware-solution.md
-        - name: Protección de aplicaciones web con Azure Application Gateway
-          href: protect-azure-vmware-solution-with-application-gateway.md
-        - name: Implementación de Traffic Manager para equilibrar cargas de trabajo
-          href: deploy-traffic-manager-balance-workloads.md
-        - name: Configuración de alertas y trabajo con métricas
-          href: configure-alerts-for-azure-vmware-solution.md
     - name: Soluciones de VMware
       items:
         - name: Configuración de operaciones de vRealize
@@ -124,6 +130,10 @@
           href: azure-vmware-solution-horizon.md
         - name: Implementación de máquinas virtuales desde la biblioteca de contenido
           href: deploy-vm-content-library.md
+        - name: Implementación de la recuperación ante desastres mediante VMware HCX
+          href: deploy-disaster-recovery-using-vmware-hcx.md
+        - name: Actualización del dispositivo VMware HCX
+          href: 'https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html'
     - name: Ecosistema de VMware
       items:
         - name: Soluciones de copia de seguridad para máquinas virtuales
@@ -132,6 +142,10 @@
           href: ecosystem-migration-vms.md
 - name: Recursos
   items:
+    - name: Ruta de aprendizaje
+      items:
+        - name: Ejecución de cargas de trabajo de VMware en Azure VMware Solution
+          href: /learn/paths/run-vmware-workloads-azure-vmware-solution/
     - name: Solución de problemas
       items:
         - name: Abrir una solicitud de soporte técnico para los errores de implementación
@@ -141,27 +155,29 @@
     - name: Preguntas más frecuentes
       items:
         - name: General
-          href: faq.yml
+          href: ./faq.yml
         - name: Comunicación al cliente
-          href: /azure/azure-vmware/faq.yml#customer-communication
+          href: /azure/azure-vmware/faq#customer-communication
         - name: Instalación y configuración
-          href: /azure/azure-vmware/faq.yml#configuration-and-setup
+          href: /azure/azure-vmware/faq#configuration-and-setup
         - name: Software de VMware
-          href: /azure/azure-vmware/faq.yml#vmware-software
+          href: /azure/azure-vmware/faq#vmware-software
         - name: Soluciones de copia de seguridad de terceros
-          href: /azure/azure-vmware/faq.yml#third-party-backup-and-recovery
+          href: /azure/azure-vmware/faq#third-party-backup-and-recovery
         - name: Compute
-          href: /azure/azure-vmware/faq.yml#compute
+          href: /azure/azure-vmware/faq#compute
         - name: Redes e interconectividad
-          href: /azure/azure-vmware/faq.yml#networking-and-interconnectivity
+          href: /azure/azure-vmware/faq#networking-and-interconnectivity
         - name: Storage
-          href: /azure/azure-vmware/faq.yml#storage
+          href: /azure/azure-vmware/faq#storage
         - name: 'Hosts, clústeres y nubes privadas'
-          href: '/azure/azure-vmware/faq.yml#hosts,-clusters,-and-private-clouds'
+          href: '/azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds'
         - name: Administración de identidades
-          href: /azure/azure-vmware/faq.yml#identity-management
+          href: /azure/azure-vmware/faq#identity-management
+        - name: CSP y multiinquilino
+          href: /azure/azure-vmware/faq#csp-and-multi-tenancy
         - name: Facturación y soporte técnico
-          href: /azure/azure-vmware/faq.yml#billing-and-support
+          href: /azure/azure-vmware/faq#billing-and-support
     - name: Vídeos
       items:
         - name: Lista de reproducción

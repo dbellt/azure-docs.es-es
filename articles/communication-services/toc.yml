@@ -13,16 +13,14 @@ items:
     items:
       - name: Crear un recurso de Communication Services
         href: quickstarts/create-communication-resource.md
-      - name: Creación y administración de tokens de acceso
-        href: quickstarts/access-tokens.md
-      - name: Uso de identidades administradas
-        href: quickstarts/managed-identity.md
-      - name: Configuración de identidades administradas desde la CLI
+      - name: Identidad y acceso
+        items:
+          - name: Creación y administración de tokens de acceso
+            href: quickstarts/access-tokens.md
+          - name: Uso de identidades administradas
+            href: quickstarts/managed-identity.md
+          - name: Configuración de identidades administradas desde la CLI
         href: quickstarts/managed-identity-from-cli.md
-      - name: Exportación de datos de telemetría del SDK a Application Insights
-        href: quickstarts/telemetry-application-insights.md
-      - name: Obtención de un token de relé
-        href: quickstarts/relay-token.md
       - name: Chat
         items:
           - name: Incorporación del chat a una aplicación
@@ -45,14 +43,18 @@ items:
             href: quickstarts/telephony-sms/logic-app.md
       - name: Llamadas de voz y vídeo
         items:
-          - name: Adición de llamadas de voz a una aplicación
+          - name: Adición de llamadas de voz a la aplicación cliente
             href: quickstarts/voice-video-calling/getting-started-with-calling.md
-          - name: Incorporación de las videollamadas a la aplicación
+          - name: Adición de llamadas de vídeo a la aplicación cliente
             href: quickstarts/voice-video-calling/get-started-with-video-calling.md
           - name: Uso de Calling SDK
             href: quickstarts/voice-video-calling/calling-client-samples.md
-          - name: Incorporación de una aplicación de llamadas a una reunión de Teams
+          - name: Una su aplicación cliente de llamadas a una reunión de Teams.
             href: quickstarts/voice-video-calling/get-started-teams-interop.md
+          - name: Unión de un servicio a una llamada
+            href: quickstarts/voice-video-calling/call-automation-api-sample.md
+          - name: Registro de llamadas
+            href: quickstarts/voice-video-calling/call-recording-sample.md
       - name: Biblioteca de interfaz de usuario
         items:
           - name: Introducción a composición
@@ -61,15 +63,19 @@ items:
             href: 'https://azure.github.io/communication-ui-library/?path=/story/quickstarts-statefulclient--page'
           - name: Introducción a los componentes de la interfaz de usuario
             href: 'https://azure.github.io/communication-ui-library/?path=/story/quickstarts-uicomponents--page'
+      - name: Acceso a retransmisiones TURN
+        href: quickstarts/relay-token.md
   - name: Tutoriales
     expanded: false
     items:
       - name: Creación de un servicio de autenticación de confianza mediante Azure Functions
         href: tutorials/trusted-service-tutorial.md
-      - name: "Firma de una solicitud HTTP con una firma HMAC mediante\_C#"
-        href: tutorials/hmac-header-tutorial.md
+      - name: Exportación de datos de telemetría del SDK a Application Insights
+        href: quickstarts/telemetry-application-insights.md
       - name: Preparación de una aplicación web para Azure Communication Services (Node.js)
         href: tutorials/building-app-start.md
+      - name: "Firma de una solicitud HTTP con una firma HMAC mediante\_C#"
+        href: tutorials/hmac-header-tutorial.md
       - name: Firma y realización de solicitudes a la API de SMS de ACS con Postman
         href: tutorials/postman-tutorial.md
   - name: Conceptos
@@ -93,6 +99,10 @@ items:
             href: concepts/telephony-sms/plan-solution.md
           - name: Requisitos de infraestructura del enrutamiento directo de Azure
             href: concepts/telephony-sms/sip-interface-infrastructure.md
+          - name: Controladores de límite de sesión certificados de enrutamiento directo de Azure
+            href: concepts/telephony-sms/certified-session-border-controllers.md
+          - name: Emparejamiento del controlador de límite de sesión y configuración del enrutamiento de voz
+            href: concepts/telephony-sms/direct-routing-provisioning.md
           - name: Preguntas más frecuentes sobre SMS
             href: concepts/telephony-sms/sms-faq.md
           - name: Directiva de mensajería
@@ -101,14 +111,20 @@ items:
         items:
           - name: Información general de Calling SDK
             href: concepts/voice-video-calling/calling-sdk-features.md
-          - name: Conceptos de voz y vídeo
+          - name: Terminología de voz y vídeo
             href: concepts/voice-video-calling/about-call-types.md
-          - name: Requisitos de red
+          - name: Automatización de llamadas
+            href: concepts/voice-video-calling/call-automation-apis.md
+          - name: Grabación de llamadas
+            href: concepts/voice-video-calling/call-recording.md
+          - name: Recomendaciones de red
             href: concepts/voice-video-calling/network-requirements.md
           - name: Flujos de llamadas
             href: concepts/call-flows.md
           - name: Topologías de flujos de llamadas
             href: concepts/detailed-call-flows.md
+          - name: Procedimientos web recomendados
+            href: concepts/best-practices.md
           - name: Problemas conocidos
             href: concepts/known-issues.md
       - name: Biblioteca de interfaz de usuario
@@ -156,7 +172,7 @@ items:
     items:
       - name: Introducción a la documentación de referencia
         href: concepts/reference.md
-      - name: CLI de Azure
+      - name: Azure CLI
         href: /cli/azure/communication
       - name: Documentación de la API REST
         href: /rest/api/communication/

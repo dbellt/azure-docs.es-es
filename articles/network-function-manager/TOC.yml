@@ -1,0 +1,32 @@
+- name: Documentación sobre Network Function Manager
+  href: index.yml
+- name: Información general
+  expanded: true
+  items:
+    - name: Acerca de Network Function Manager
+      href: overview.md
+- name: Tutoriales
+  expanded: true
+  items:
+    - name: Creación de un recurso de dispositivo
+      href: create-device.md
+    - name: Implementación de funciones de red
+      href: deploy-functions.md
+- name: Conceptos
+  expanded: true
+  items:
+    - name: Asociados
+      href: partners.md
+    - name: Preguntas más frecuentes
+      href: faq.md
+- name: Recursos
+  expanded: true
+  items:
+    - name: Página del producto Network Function Manager
+      href: 'https://go.microsoft.com/fwlink/?linkid=2166098'
+    - name: Documentación privada sobre Multi-Access Edge Computing (MEC) de Azure
+      href: 'https://go.microsoft.com/fwlink/?linkid=2165316'
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Blog
+      href: 'https://azure.microsoft.com/blog/topics/networking'

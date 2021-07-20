@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: 68fcf8a8feb046fca2c26041d92264dd8b3a638e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8ca3f7c9104fa655536762ac38f50c78cb96ad3a
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103465504"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237933"
 ---
 # <a name="connect-your-non-azure-machines-to-security-center"></a>Conexión de máquinas que no son de Azure a Security Center
 
@@ -55,14 +55,14 @@ Además, los servidores habilitados de Azure Arc proporcionan funcionalidades me
 1. En el menú de Security Center, abra la página **Introducción**.
 1. Seleccione la pestaña **Introducción**.
 
-    :::image type="content" source="./media/security-center-onboarding/onboarding-get-started-tab.png" alt-text="Pestaña Introducción de la página de introducción" lightbox="./media/security-center-onboarding/onboarding-get-started-tab.png":::
+    :::image type="content" source="./media/security-center-onboarding/onboarding-get-started-tab.png" alt-text="Pestaña Introducción de la página de introducción." lightbox="./media/security-center-onboarding/onboarding-get-started-tab.png":::
 
 1. En **Servidores que no son de Azure**, seleccione **Configurar**.
 
     > [!TIP]
     > También puede abrir el menú para agregar máquinas en el botón **Agregar servidores que no sean de Azure** de la página **Inventario**.
     > 
-    > :::image type="content" source="./media/security-center-onboarding/onboard-inventory.png" alt-text="Incorporación de máquinas que no sean de Azure desde la página de inventario de recursos":::
+    > :::image type="content" source="./media/security-center-onboarding/onboard-inventory.png" alt-text="Incorporación de máquinas que no son de Azure desde la página de inventario de recursos.":::
 
     Aparecerá una lista de las áreas de trabajo de Log Analytics. La lista incluye, si procede, el área de trabajo predeterminada que Security Center crea automáticamente si el aprovisionamiento automático está habilitado. Seleccione esta área de trabajo u otra que desee usar.
 
@@ -129,11 +129,11 @@ Para más información sobre cómo instalar y configurar el agente, vea [Conexi�
 
 ¡Enhorabuena! Ahora puede ver las máquinas de Azure y las que no son de Azure en un solo lugar. Abra la [página del inventario de recursos](asset-inventory.md) y filtre por los tipos de recursos correspondientes. Estos dos iconos distinguen los tipos:
 
-  ![Icono de ASC para la máquina que no es de Azure](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Máquina que no es de Azure
+  ![Icono de ASC para una máquina que no es de Azure.](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Máquina que no es de Azure
 
-  ![Icono de ASC para la máquina de Azure](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM
+  ![Icono de ASC para una máquina de Azure.](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM
 
-  ![Icono de ASC para el servidor de Azure Arc](./media/quick-onboard-linux-computer/arc-enabled-machine-icon.png) Servidor habilitado para Azure Arc
+  ![Icono de ASC para un servidor de Azure Arc.](./media/quick-onboard-linux-computer/arc-enabled-machine-icon.png) Servidor habilitado para Azure Arc
 
 ## <a name="next-steps"></a>Pasos siguientes
 

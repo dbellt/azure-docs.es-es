@@ -5,15 +5,15 @@ author: chpalm
 manager: anvalent
 services: azure-communication-services
 ms.author: chpalm
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 9ccc192bb5cf4c5e183e21add8e73d9e096d281c
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: bb40c4bdcdc61cfa3d82ea5313a1c6b084bb1514
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108136020"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113110681"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilidad de regiones y residencia de datos
 
@@ -21,7 +21,7 @@ Azure Communication Services se compromete a ayudar a nuestros clientes a cumpli
 
 ## <a name="data-residency"></a>Residencia de datos
 
-Al crear un recurso de Communication Services, se especifica una **geografía** (no un centro de datos de Azure). Todos los datos almacenados por Communication Services en reposo se conservarán en esa geografía, en un centro de datos seleccionado internamente por Communication Services. Los datos pueden estar en tránsito o procesarse en otras regiones geográficas. Estos puntos de conexión globales son necesarios para proporcionar una experiencia de alto rendimiento y baja latencia a los usuarios finales, independientemente de su ubicación.
+Al crear un recurso de Communication Services, se especifica una **geografía** (no un centro de datos de Azure). Todos los mensajes de chat y los datos de recursos almacenados por Communication Services en reposo se conservarán en esa geografía, en un centro de datos seleccionado internamente por Communication Services. Los datos pueden estar en tránsito o procesarse en otras regiones geográficas. Estos puntos de conexión globales son necesarios para proporcionar una experiencia de alto rendimiento y baja latencia a los usuarios finales, independientemente de su ubicación.
 
 ## <a name="data-residency-and-events"></a>Residencia de datos y eventos
 

@@ -7,24 +7,10 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Envío de datos de telemetría
-      items:
-        - name: Introducción
-          href: quickstart-send-telemetry-cli.md
-        - name: C
-          href: quickstart-send-telemetry-c.md
-        - name: Node.js
-          href: quickstart-send-telemetry-node.md
-        - name: .NET
-          href: quickstart-send-telemetry-dotnet.md
-        - name: Java
-          href: quickstart-send-telemetry-java.md
-        - name: Python
-          href: quickstart-send-telemetry-python.md
-        - name: Android
-          href: quickstart-send-telemetry-android.md
-        - name: iOS
-          href: quickstart-send-telemetry-ios.md
+    - name: Inicio rápido sin código mediante la CLI
+      href: quickstart-send-telemetry-cli.md
+    - name: Envío de datos de telemetría mediante SDK
+      href: ../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Control de un dispositivo
       items:
         - name: Node.js
@@ -173,8 +159,6 @@
           items:
             - name: Información general sobre el SDK
               href: iot-hub-devguide-sdks.md
-            - name: Compatibilidad con la plataforma del SDK
-              href: iot-hub-device-sdk-platform-support.md
             - name: Desarrollo sin el SDK
               href: iot-hub-devguide-no-sdk.md
             - name: Administración de conectividad y mensajería de confianza
@@ -373,18 +357,6 @@
               href: iot-hub-raspberry-pi-kit-node-get-started.md
             - name: Raspberry Pi con C
               href: iot-hub-raspberry-pi-kit-c-get-started.md
-            - name: MXChip IoT DevKit con Arduino
-              href: iot-hub-arduino-iot-devkit-az3166-get-started.md
-        - name: Uso de MXChip IoT DevKit
-          items:
-            - name: Traducción de mensajes de voz con Azure Cognitive Services
-              href: iot-hub-arduino-iot-devkit-az3166-translator.md
-            - name: Recuperación de un mensaje de Twitter con Azure Functions
-              href: iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md
-            - name: Envío de mensajes a un servidor MQTT mediante Eclipse Paho API
-              href: iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md
-            - name: Supervisión del sensor magnético y envío de notificaciones mediante correo electrónico con Azure Functions
-              href: iot-hub-arduino-iot-devkit-az3166-door-monitor.md
     - name: Escenarios de IoT ampliados
       items:
         - name: Administración de la mensajería de dispositivos en la nube con herramientas de Azure IoT para VS Code
@@ -445,7 +417,7 @@
               href: iot-hub-troubleshoot-error-504101-gatewaytimeout.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/azure-cli-reference-for-IoT
     - name: Azure PowerShell
       href: /powershell/module/az.iothub#iothub

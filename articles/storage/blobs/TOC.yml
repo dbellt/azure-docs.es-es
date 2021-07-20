@@ -17,7 +17,7 @@
       items:
         - name: Uso de blobs
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: storage-quickstart-blobs-portal.md
             - name: Explorador de Storage
               href: storage-quickstart-blobs-storage-explorer.md
@@ -121,7 +121,7 @@
           href: ../common/storage-samples.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Azure PowerShell
           href: storage-samples-blobs-powershell.md
-        - name: CLI de Azure
+        - name: Azure CLI
           href: storage-samples-blobs-cli.md
     - name: Conceptos
       items:
@@ -169,16 +169,16 @@
               href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Configuración de las preferencias de enrutamiento de red
               href: ../common/network-routing-preference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Protección de los datos
+        - name: Protección de datos
           items:
             - name: Información general
               href: data-protection-overview.md
             - name: Eliminación temporal para contenedores
               href: soft-delete-container-overview.md
-            - name: Control de versiones
-              href: versioning-overview.md
             - name: Eliminación temporal para blobs
               href: soft-delete-blob-overview.md
+            - name: Control de versiones
+              href: versioning-overview.md
             - name: Restauración a un momento dado
               href: point-in-time-restore-overview.md
             - name: Instantáneas
@@ -229,14 +229,14 @@
                   href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Búsqueda y comprensión de datos de blobs
           items:
-            - name: Uso de etiquetas de índice de blobs para administrar y buscar datos de blob
-              href: storage-manage-find-blobs.md
-            - name: Uso de la inteligencia artificial para comprender los datos de los blobs
-              href: ../../search/search-blob-ai-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Búsqueda de texto completo en los datos de los blobs
-              href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Uso del inventario de blobs para administrar datos de blobs
+            - name: Inventario de blobs
               href: blob-inventory.md
+            - name: Etiquetas de índice de blobs
+              href: storage-manage-find-blobs.md
+            - name: Búsqueda de texto completo
+              href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Azure Cognitive Search
+              href: ../../search/search-blob-ai-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Migración de datos
           items:
             - name: Información general sobre la migración del almacenamiento
@@ -274,6 +274,8 @@
               href: network-file-system-protocol-support.md
             - name: Consideraciones de rendimiento
               href: network-file-system-protocol-support-performance.md
+            - name: Problemas conocidos
+              href: network-file-system-protocol-known-issues.md
         - name: Control de eventos
           href: storage-blob-event-overview.md
         - name: Características de blobs en páginas
@@ -291,7 +293,7 @@
               href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: recuperar una cuenta de almacenamiento eliminada
               href: ../common/storage-account-recover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Obtener el tipo de cuenta y el nombre de la SKU (.NET)
+            - name: Obtención de las propiedades de configuración de una cuenta
               href: ../common/storage-account-get-info.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Administración del nivel de acceso predeterminado de una cuenta de almacenamiento
               href: ../common/manage-account-default-access-tier.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -315,6 +317,8 @@
               href: storage-blob-copy.md
             - name: Uso de etiquetas de índice de blobs
               href: storage-blob-index-how-to.md
+            - name: Habilitación del inventario de blobs
+              href: blob-inventory-how-to.md
             - name: Cálculo del número de blobs y el tamaño total
               href: calculate-blob-count-size.md
         - name: Autorización del acceso a datos de blob
@@ -591,6 +595,8 @@
               href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Inicio de sesión en el Explorador de Storage
               href: ../common/storage-explorer-sign-in.md
+            - name: Redes del Explorador de Storage
+              href: ../common/storage-explorer-network.md
             - name: Notas de la versión del Explorador de Storage
               href: 'https://github.com/microsoft/AzureStorageExplorer/releases'
             - name: Solución de problemas del Explorador de Storage
@@ -619,6 +625,8 @@
           href: 'https://azure.microsoft.com/pricing/calculator/'
         - name: Vídeos
           href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
+        - name: 'Comparación del acceso con NFS a Azure Blob Storage, Azure Files y Azure NetApp Files'
+          href: ../common/nfs-comparison.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Paquetes NuGet (.NET)
           items:
             - name: Microsoft.Azure.Storage.Common (versión 11.x)

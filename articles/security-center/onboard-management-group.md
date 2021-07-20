@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 03/11/2021
 ms.author: memildin
-ms.openlocfilehash: 01036343e2585adf7c09ad3f0d236948a537fc29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea5522cfd8f407ffd7259335706cc69555ce2329
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103016566"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112238251"
 ---
 # <a name="enable-security-center-on-all-subscriptions-in-a-management-group"></a>Habilitación de Security Center en todas las suscripciones de un grupo de administración
 
@@ -22,18 +22,18 @@ Para incorporar un grupo de administración y todas sus suscripciones:
 
 1. Como usuario con permisos de **administrador de seguridad**, abra Azure Policy y busque la definición **Habilitar Azure Security Center en la suscripción**.
 
-    :::image type="content" source="./media/security-center-get-started/enable-security-center-policy.png" alt-text="La definición de Azure Policy Habilitar Azure Security Center en la suscripción":::
+    :::image type="content" source="./media/security-center-get-started/enable-security-center-policy.png" alt-text="Definición de Azure Policy Habilitar Azure Security Center en la suscripción.":::
 
 1. Seleccione **Asignar** y asegúrese de establecer el ámbito en el nivel de grupo de administración.
 
-    :::image type="content" source="./media/security-center-get-started/assign-policy.png" alt-text="Asignación de la definición Habilitar Azure Security Center en la suscripción":::
+    :::image type="content" source="./media/security-center-get-started/assign-policy.png" alt-text="Asignación de la definición Habilitar Azure Security Center en la suscripción.":::
 
     > [!TIP]
     > Aparte del ámbito, no hay parámetros obligatorios.
 
 1. Seleccione **Crear una tarea de corrección** para asegurarse de que se incorporarán todas las suscripciones existentes que no tienen Security Center habilitado.
 
-    :::image type="content" source="./media/security-center-get-started/remediation-task.png" alt-text="Creación de una tarea de corrección para la definición de Azure Policy Habilitar Azure Security Center en la suscripción":::
+    :::image type="content" source="./media/security-center-get-started/remediation-task.png" alt-text="Creación de una tarea de corrección para la definición de Azure Policy Habilitar Azure Security Center en la suscripción.":::
 
 1. Cuando se asigne la definición:
 

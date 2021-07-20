@@ -7,12 +7,12 @@ ms.date: 02/04/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 42aa07ccf8d886dc7eb7109bc405c730331b2c3b
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 3d14a4a569d59b8bc9cac1334da1486960288412
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102095636"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113003543"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Introducción a Azure Defender para Storage
 
@@ -27,7 +27,7 @@ Las alertas de seguridad se desencadenan cuando se producen anomalías en una ac
 |Estado de la versión:|Disponibilidad general (GA)|
 |Precios:|**Azure Defender para Storage** se factura como se indica en [Precios de Security Center](https://azure.microsoft.com/pricing/details/security-center/).|
 |Tipos de almacenamiento protegido:|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/)<br>[Archivos de Azure](../storage/files/storage-files-introduction.md)<br>[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)|
-|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, otros gobiernos|
+|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Azure China|
 |||
 
 
@@ -39,7 +39,7 @@ Azure Defender para Storage proporciona:
 - **Conjunto de detecciones enriquecidas**: con tecnología de inteligencia sobre amenazas de Microsoft, las detecciones de Defender para Storage abarcan las principales amenazas de Storage, como el acceso anónimo, las credenciales en peligro, la ingeniería social, el abuso de privilegios y el contenido malintencionado.
 - **Respuesta a escala**: las herramientas de automatización de Security Center facilitan la prevención y la respuesta a las amenazas identificadas. Puede obtener más información en [Automatización de respuestas a desencadenadores de Security Center](workflow-automation.md).
 
-:::image type="content" source="media/defender-for-storage-introduction/defender-for-storage-high-level-overview.png" alt-text="Información general de alto nivel de las características de Azure Defender para Storage":::
+:::image type="content" source="media/defender-for-storage-introduction/defender-for-storage-high-level-overview.png" alt-text="Información general de las características de Azure Defender para Storage.":::
 
 
 ## <a name="what-kind-of-alerts-does-azure-defender-for-storage-provide"></a>¿Qué tipos de alertas ofrece Azure Defender para Storage?
@@ -74,7 +74,7 @@ Para probar las alertas de seguridad de Azure Defender para Storage en su entorn
 1. Abra una cuenta de almacenamiento con Azure Defender para Storage habilitado.
 1. En la barra lateral, seleccione "Contenedores" y abra un contenedor existente o cree uno.
 
-    :::image type="content" source="media/defender-for-storage-introduction/opening-storage-container.png" alt-text="Apertura de un contenedor de blobs desde una cuenta de Azure Storage" lightbox="media/defender-for-storage-introduction/opening-storage-container.png":::
+    :::image type="content" source="media/defender-for-storage-introduction/opening-storage-container.png" alt-text="Apertura de un contenedor de blobs desde una cuenta de Azure Storage." lightbox="media/defender-for-storage-introduction/opening-storage-container.png":::
 
 1. Cargue un archivo en ese contenedor.
 
@@ -83,7 +83,7 @@ Para probar las alertas de seguridad de Azure Defender para Storage en su entorn
 
 1. Use el menú contextual del archivo cargado para seleccionar "Generar SAS".
 
-    :::image type="content" source="media/defender-for-storage-introduction/generate-sas.png" alt-text="La opción Generar SAS de un archivo en un contenedor de blobs":::
+    :::image type="content" source="media/defender-for-storage-introduction/generate-sas.png" alt-text="Opción Generar SAS de un archivo en un contenedor de blobs.":::
 
 1. Deje las opciones predeterminadas y seleccione **Generar URL y token de SAS**.
 
@@ -100,7 +100,7 @@ Para probar las alertas de seguridad de Azure Defender para Storage en su entorn
 
     Al cabo de dos horas, recibirá la siguiente alerta de seguridad de Security Center:
 
-    :::image type="content" source="media/defender-for-storage-introduction/tor-access-alert-storage.png" alt-text="Alerta de seguridad respecto al acceso desde un nodo de salida de Tor":::
+    :::image type="content" source="media/defender-for-storage-introduction/tor-access-alert-storage.png" alt-text="Alerta de seguridad respecto al acceso desde un nodo de salida de Tor.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

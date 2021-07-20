@@ -193,6 +193,8 @@
                   href: database/authentication-aad-directory-readers-role-tutorial.md
                 - name: Habilitación de la autenticación solo de Azure AD
                   href: database/authentication-azure-ad-only-authentication-tutorial.md
+                - name: "Creación de un servidor con autenticación solo con Azure\_AD habilitada"
+                  href: database/authentication-azure-ad-only-authentication-create-server.md
             - name: Configuración de TDE con BYOK
               href: database/transparent-data-encryption-byok-configure.md
             - name: Always Encrypted
@@ -291,6 +293,10 @@
               href: database/service-tier-hyperscale.md
             - name: Preguntas más frecuentes sobre Hiperescala
               href: database/service-tier-hyperscale-frequently-asked-questions-faq.yml
+            - name: Réplicas de hiperescala
+              href: database/service-tier-hyperscale-replicas.md
+            - name: Preguntas más frecuentes sobre las réplicas de hiperescala
+              href: database/service-tier-hyperscale-named-replicas-faq.yml
             - name: vCore
               href: database/service-tiers-sql-database-vcore.md
         - name: Planificación y administración de costos
@@ -300,7 +306,7 @@
       items:
         - name: Crear base de datos
           items:
-            - name: Azure portal
+            - name: 'Azure Portal, PowerShell, CLI de Azure'
               href: database/single-database-create-quickstart.md
             - name: Plantilla ARM
               displayName: Resource Manager
@@ -354,6 +360,10 @@
               href: database/sql-data-sync-sql-server-configure.md
             - name: Migración de SQLite a sin servidor
               href: database/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial.md
+        - name: Escalado horizontal
+          items:
+            - name: Configuración de la seguridad para las réplicas con nombre
+              href: database/hyperscale-named-replica-security-configure.md
     - name: Guías de migración
       items:
         - name: De Access
@@ -486,7 +496,7 @@
             - name: Traslado de datos con particiones
               href: database/elastic-scale-overview-split-and-merge.md
             - name: Preguntas más frecuentes sobre herramientas elásticas
-              href: database/elastic-scale-faq.md
+              href: database/elastic-scale-faq.yml
     - name: Procedimientos
       href: database/how-to-content-reference-guide.md
       items:
@@ -499,7 +509,7 @@
                   href: /sql/azure-data-studio/quickstart-sql-database?toc=%2Fazure%2Fazure-sql%2Ftoc.json
                 - name: SSMS
                   href: database/connect-query-ssms.md
-                - name: Azure portal
+                - name: Portal de Azure
                   href: database/connect-query-portal.md
                 - name: Código de VS
                   href: database/connect-query-vscode.md
@@ -726,7 +736,7 @@
                       href: database/saas-multitenantdb-tenant-analytics.md
     - name: Ejemplos
       items:
-        - name: CLI de Azure
+        - name: Azure CLI
           href: database/az-cli-script-samples-content-guide.md?tabs=single-database
         - name: Azure PowerShell
           href: database/powershell-script-content-guide.md?tabs=single-database
@@ -757,7 +767,7 @@
             - name: Azure portal
               href: managed-instance/instance-create-quickstart.md
             - name: PowerShell
-              href: managed-instance/scripts/create-configure-managed-instance-powershell.md
+              href: managed-instance/create-configure-managed-instance-powershell-quickstart.md
             - name: Plantilla ARM
               displayName: Resource Manager
               href: managed-instance/create-template-quickstart.md
@@ -1073,7 +1083,7 @@
               href: managed-instance/user-initiated-failover.md
     - name: Ejemplos
       items:
-        - name: CLI de Azure
+        - name: Azure CLI
           href: database/az-cli-script-samples-content-guide.md?tabs=managed-instance
         - name: Azure PowerShell
           href: database/powershell-script-content-guide.md?tabs=managed-instance
@@ -1133,10 +1143,10 @@
                 - name: Configuración de alta disponibilidad y recuperación ante desastres
                   href: virtual-machines/windows/hadr-cluster-best-practices.md
                   displayName: 'failover cluster instance, fci, availability group, ag, always on'
-                - name: Recopilación de la línea base
-                  href: virtual-machines/windows/performance-guidelines-best-practices-collect-baseline.md
                 - name: Patrones de aplicación
                   href: virtual-machines/windows/application-patterns-development-strategies.md
+                - name: Recopilación de la línea base
+                  href: virtual-machines/windows/performance-guidelines-best-practices-collect-baseline.md
             - name: Administración
               items:
                 - name: Extensión Agente de IaaS de SQL
@@ -1175,8 +1185,6 @@
                   href: virtual-machines/windows/azure-key-vault-integration-configure.md
                 - name: Migración del almacenamiento a UltraSSD
                   href: virtual-machines/windows/storage-migrate-to-ultradisk.md
-                - name: Habilitación de las valoraciones de vulnerabilidades de SQL
-                  href: ../security-center/defender-for-sql-on-machines-vulnerability-assessment.md
                 - name: Instalación de la extensión Agente de IaaS de SQL
                   displayName: 'resource provider, registration, sql vm rp'
                   items:
@@ -1218,7 +1226,7 @@
                           href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
                         - name: Configuración manual
                           items:
-                            - name: Requisitos previos
+                            - name: Prerrequisitos
                               href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
                             - name: Tutorial
                               href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
@@ -1261,7 +1269,7 @@
             - name: Azure PowerShell
               href: /powershell/azure/
             - name: Azure CLI
-              href: /cli/azure/
+              href: /cli/azure/azure-cli-reference-for-sql
             - name: T-SQL
               href: /sql/t-sql/language-reference
             - name: Controladores de SQL Server
@@ -1344,7 +1352,7 @@
     - name: Referencia al lenguaje T-SQL
       href: /sql/t-sql/language-reference
     - name: Azure CLI
-      href: /cli/azure/sql
+      href: /cli/azure/azure-cli-reference-for-sql
     - name: Azure PowerShell
       href: /powershell/module/az.sql
     - name: .NET

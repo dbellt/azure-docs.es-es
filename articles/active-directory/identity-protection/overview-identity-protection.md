@@ -5,27 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 01/05/2021
+ms.date: 06/15/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e274d35fde6a3d55c05bcb5a9f22e75a37aa3c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77305f9f2216adba8fb46cf2d4ee6b0da8c10e5f
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97955406"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113106000"
 ---
 # <a name="what-is-identity-protection"></a>¿Qué es Identity Protection?
 
 Identity Protection es una herramienta que permite a las organizaciones realizar tres tareas clave:
 
-- Automatizar la detección y corrección de riesgos basados en la identidad.
-- Investigar los riesgos de usar los datos en el portal.
-- Exportar los datos de detección de riesgos a utilidades de terceros para su posterior análisis.
+- [Automatizar la detección y corrección de riesgos basados en la identidad](howto-identity-protection-configure-risk-policies.md).
+- [Investigar los riesgos](howto-identity-protection-investigate-risk.md) con los datos del portal.
+- [Exportar los datos de detección de riesgos al SIEM](../../sentinel/connect-azure-ad-identity-protection.md).
 
 Identity Protection usa los aprendizajes que Microsoft ha adquirido de su puesto en organizaciones con Azure AD, el espacio de consumidor con cuentas de Microsoft y juegos con Xbox para proteger a los usuarios. Microsoft analiza 6,5 billones de señales al día para identificar y proteger a los clientes frente a amenazas.
 
@@ -45,22 +45,17 @@ En su [entrada de blog de octubre de 2018](https://techcommunity.microsoft.com/t
 
 ## <a name="risk-detection-and-remediation"></a>Detección y corrección de riesgos
 
-Identity Protection identifica los riesgos de las siguientes clasificaciones:
+Identity Protection identifica riesgos de muchos tipos, entre los que se incluyen:
 
-| Tipo de detección de riesgo | Descripción |
-| --- | --- |
-| Dirección IP anónima | Iniciar sesión desde una dirección IP anónima (por ejemplo: el explorador Tor o redes VPN anonimizadoras). |
-| Viaje atípico | Iniciar sesión desde una ubicación atípica, en función de los inicios de sesión del usuario recientes. |
-| Dirección IP vinculada al malware | Se inicia sesión desde una dirección IP vinculada al malware. |
-| Propiedades de inicio de sesión desconocidas | Iniciar sesión con propiedades que no hemos observado recientemente en el usuario en cuestión. |
-| Filtración de credenciales | Indica que se han filtrado las credenciales válidas del usuario. |
-| Difusión de contraseña | Indica que se está realizando un ataque de varios nombres de usuario mediante contraseñas comunes de manera unificada. |
-| Inteligencia de Azure AD sobre amenazas | Los orígenes de inteligencia sobre amenazas internas y externas de Microsoft han identificado un patrón de ataque conocido. |
-| Nuevo país | Esta detección se debe a [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-infrequent-country). |
-| Actividad desde una dirección IP anónima | Esta detección se debe a [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-anonymous-ip-addresses). |
-| Reenvío sospechoso desde la bandeja de entrada | Esta detección se debe a [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-forwarding). |
+- Uso de una dirección IP anónima
+- Viaje atípico
+- Dirección IP vinculada al malware
+- Propiedades de inicio de sesión desconocidas
+- Credenciales con fugas
+- Difusión de contraseña
+- Y mucho más...
 
-Puede encontrar más información sobre estos riesgos y cómo/cuándo se calculan en el artículo [Qué es el riesgo](concept-identity-protection-risks.md).
+Puede encontrar más información sobre estos y otros riesgos, y cómo y cuándo se calculan, en el artículo [¿Qué es el riesgo?](concept-identity-protection-risks.md).
 
 Las señales de riesgo pueden desencadenar esfuerzos de corrección, como exigir a los usuarios que usen Azure AD Multi-Factor Authentication, que restablezcan su contraseña mediante el autoservicio de restablecimiento de contraseña o que apliquen bloqueos hasta que un administrador tome medidas.
 

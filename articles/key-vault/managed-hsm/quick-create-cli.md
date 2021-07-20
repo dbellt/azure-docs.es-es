@@ -7,27 +7,27 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: quickstart
-ms.date: 06/01/2021
+ms.date: 06/21/2021
 ms.author: ambapat
-ms.openlocfilehash: 0b29a292dae570d368f54f65773ce72a54de2e2d
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: cbde53687c08208dc8fed3b69a6a98ed732cf57c
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413994"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112380381"
 ---
 # <a name="quickstart-provision-and-activate-a-managed-hsm-using-azure-cli"></a>Inicio rápido: Aprovisionamiento y activación de un HSM administrado mediante la CLI de Azure
 
 Azure Key Vault Managed HSM es un servicio en la nube que cumple los estándares, totalmente administrado, de alta disponibilidad y de un solo inquilino, que le permite proteger las claves criptográficas de las aplicaciones en la nube mediante HSM validados de **FIPS 140-2 de nivel 3**. Para más información sobre Managed HSM, puede consultar esta [introducción](overview.md). 
 
-En este inicio rápido, se crea y activa un HSM administrado con la CLI de Azure. Una vez que haya terminado, almacenará un secreto.
+En este inicio rápido, se crea y activa un HSM administrado con la CLI de Azure.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para completar los pasos de este artículo, debe tener los siguientes elementos:
 
 * Una suscripción a Microsoft Azure. Si no tiene una, puede registrarse para una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial).
-* La CLI de Azure, versión 2.12.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
+* La CLI de Azure, versión 2.25.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 * Un HSM administrado en la suscripción. Consulte [Quickstart: Aprovisionamiento y activación de un HSM administrado mediante la CLI de Azure](quick-create-cli.md) para aprovisionar y activar un HSM administrado.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -127,4 +127,5 @@ En este inicio rápido, ha creado una instancia de Key Vault y ha almacenado un 
 
 - Lea una [introducción a Managed HSM](overview.md)
 - Obtenga información sobre la [administración de claves en un HSM administrado](key-management.md)
+- Puede encontrar más información en [Administración de roles de Managed HSM](role-management.md).
 - Consulte [Procedimientos recomendados de Managed HSM](best-practices.md)

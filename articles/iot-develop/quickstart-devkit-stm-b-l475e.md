@@ -1,27 +1,27 @@
 ---
-title: Inicio rápido de conexión de una instancia de ST Microelectronics B-L475E-IOT01A o B-L4S5I-IOT01A a Azure IoT Central
-description: Use software insertado de Azure RTOS para conectar un dispositivo ST Microelectronics B-L475E-IOT01A o B-L4S5I-IOT01A a Azure IoT y enviar telemetría.
+title: Inicio rápido para la conexión de un dispositivo STMicroelectronics B-L475E-IOT01A o B-L4S5I-IOT01A a Azure IoT Central
+description: Use el software insertado de Azure RTOS para conectar un dispositivo STMicroelectronics B-L475E-IOT01A o B-L4S5I-IOT01A a Azure IoT y enviar datos de telemetría.
 author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/02/2021
-ms.openlocfilehash: 9fee4c2642178bfc288396d3e783940e41a0502e
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: dd8a214e060f9f4ace9f310fec3ebca33d4619c0
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903984"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113109240"
 ---
-# <a name="quickstart-connect-an-st-microelectronics-b-l475e-iot01a-or-b-l4s5i-iot01a-discovery-kit-to-iot-central"></a>Inicio rápido: Conexión de un kit de detección de ST Microelectronics B-L475E-IOT01A o B-L4S5I-IOT01A a IoT Central
+# <a name="quickstart-connect-an-stmicroelectronics-b-l475e-iot01a-or-b-l4s5i-iot01a-discovery-kit-to-iot-central"></a>Inicio rápido: Conexión de un dispositivo STMicroelectronics B-L475E-IOT01A o B-L4S5I-IOT01A a Azure IoT Central
 
 **Se aplica a**: [desarrollo de dispositivos insertados](about-iot-develop.md#embedded-device-development)<br>
 **Tiempo total para realizarlo**: 30 minutos
 
 [![Examinar el código](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/STM32L4_L4+)
 
-En este inicio rápido, usará Azure RTOS para conectar el kit de detección de ST Microelectronics [B-L475E-IOT01A](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) o [B-L4S5I-IOT01A](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html) (en adelante, STM DevKit) a Azure IoT.
+En este inicio rápido, va a utilizar Azure RTOS para conectar los kits de detección STMicroelectronics [B-L475E-IOT01A](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) o [B-L4S5I-IOT01A](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html) (en adelante, STM DevKit) a Azure IoT.
 
 Deberá completar las siguientes tareas:
 
@@ -145,7 +145,7 @@ Puede usar la aplicación **Termite** para supervisar la comunicación y confirm
 
 1. Inicie **Termite**.
     > [!TIP]
-    > Si no puede conectar Termite al kit de desarrollo, instale el [controlador ST-LINK](https://my.st.com/content/ccc/resource/technical/software/driver/files/stsw-link009.zip) e inténtelo de nuevo. Consulte [Solución de problemas](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md) para ver otros pasos.
+    > Si no puede conectar Termite al kit de desarrollo, instale el [controlador ST-LINK](https://my.st.com/content/ccc/resource/technical/software/driver/files/stsw-link009.zip) e inténtelo de nuevo. Consulte [Solución de problemas](troubleshoot-embedded-device-quickstarts.md) para ver otros pasos.
 1. Haga clic en **Configuración**.
 1. En el cuadro de diálogo **Serial port settings** (Configuración de puerto serie), compruebe los siguientes valores y actualícelos si es necesario:
     * **Baud rate** (Velocidad en baudios): 115.200
@@ -248,7 +248,7 @@ En la página del dispositivo, seleccione la pestaña **Acerca de**.
 
 ## <a name="troubleshoot-and-debug"></a>Solución de problemas y depuración
 
-Si tiene problemas para compilar el código del dispositivo, guardar la imagen en la memoria flash del dispositivo o conectarse, consulte [Solución de problemas](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+Si tiene problemas para compilar el código del dispositivo, guardar la imagen en la memoria flash del dispositivo o conectarse, consulte [Solución de problemas](troubleshoot-embedded-device-quickstarts.md).
 
 Para depurar la aplicación, consulte [Depuración con Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 

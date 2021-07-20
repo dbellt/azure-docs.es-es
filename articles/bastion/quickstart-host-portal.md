@@ -6,18 +6,18 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 02/18/2021
+ms.date: 06/29/2021
 ms.author: cherylmc
-ms.openlocfilehash: e51d8633418a0a00afb8a6055c05f9c77d93f3cb
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 67211215b3dac9ad8774dc4e3c67a869bd031646
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110540460"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113111274"
 ---
 # <a name="quickstart-connect-to-a-vm-securely-through-a-browser-via-private-ip-address"></a>Inicio rápido: conexión a una máquina virtual de forma segura mediante un explorador y una dirección IP privada
 
-Puede conectarse a una máquina virtual mediante el explorador con Azure Bastion y Azure Portal. En este artículo de inicio rápido se muestra cómo configurar Azure Bastion en función de la configuración de la máquina virtual y conectarse a la máquina virtual mediante el portal. La máquina virtual no necesita una dirección IP pública, software cliente, agente ni una configuración especial. Cuando se aprovisiona el servicio, la experiencia de RDP/SSH está disponible para todas las máquinas virtuales de la misma red virtual. Para más información sobre Azure Bastion, consulte [¿Qué es Azure Bastion?](bastion-overview.md)
+Puede conectarse a una máquina virtual mediante el explorador con Azure Bastion y Azure Portal. En este artículo de inicio rápido se muestra cómo configurar Azure Bastion en función de la configuración de la máquina virtual. Cuando se aprovisiona el servicio, la experiencia de RDP/SSH está disponible para todas las máquinas virtuales de la misma red virtual. La máquina virtual no necesita una dirección IP pública, software cliente, agente ni una configuración especial. Si no necesita la dirección IP pública en la máquina virtual para nada más, puede quitarla. A continuación, conéctese a la máquina virtual mediante el portal con la dirección IP privada. Para más información sobre Azure Bastion, consulte [¿Qué es Azure Bastion?](bastion-overview.md)
 
 ## <a name="prerequisites"></a><a name="prereq"></a>Requisitos previos
 
@@ -104,14 +104,21 @@ Hay varias maneras de configurar un host bastión. En los pasos siguientes crear
    :::image type="content" source="./media/quickstart-host-portal/create-bastion.png" alt-text="Captura de pantalla del paso 3.":::
 1. Después de completar los valores, seleccione **Create Azure Bastion using defaults** (Usar valores predeterminados para crear Azure Bastion). Azure valida la configuración y luego crea el host. El host y sus recursos tardan unos cinco minutos en crearse e implementarse.
 
-## <a name="connect"></a><a name="connect"></a>Conexión
+## <a name="remove-vm-public-ip-address"></a><a name="remove"></a>Eliminación de una dirección IP pública de máquina virtual
+
+[!INCLUDE [Remove a public IP address from a VM](../../includes/bastion-remove-ip.md)]
+
+## <a name="connect-to-a-vm"></a><a name="connect"></a>Conexión a una máquina virtual
 
 Una vez implementado Bastion en la red virtual, la pantalla cambia a la página Conectar.
 
 1. Escriba el nombre de usuario y la contraseña de la máquina virtual. A continuación, seleccione **Conectar**.
 
    :::image type="content" source="./media/quickstart-host-portal/connect.png" alt-text="Captura de pantalla que muestra el cuadro de diálogo Conectar usando Azure Bastion.":::
-1. La conexión RDP con esta máquina virtual a se abrirá directamente en Azure Portal (mediante HTML5) con el puerto 443 y el servicio Bastion.
+1. La conexión RDP con esta máquina virtual a través de Bastion se abrirá directamente en Azure Portal (a través de HTML5) mediante el puerto 443 y el servicio Bastion. 
+
+   * Al conectarse, el escritorio de la máquina virtual puede tener un aspecto diferente al de la captura de pantalla de ejemplo. 
+   * Es posible que el uso de teclas de método abreviado de teclado mientras está conectado a una máquina virtual no tenga el mismo comportamiento que las teclas de método abreviado en un equipo local. Por ejemplo, cuando se conecta a una máquina virtual Windows desde un cliente Windows, Ctrl+Alt+Fin es el método abreviado de teclado para Ctrl+Alt+Supr en un equipo local. Para hacerlo desde un equipo Mac mientras está conectado a una máquina virtual Windows, el método abreviado de teclado es Fn+Ctrl+Alt+Retroceso.
 
    :::image type="content" source="./media/quickstart-host-portal/connected.png" alt-text="Conexión RDP":::
 

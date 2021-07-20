@@ -33,6 +33,8 @@
       href: concepts-legacy.md
     - name: Conceptos de marketing
       href: concepts-marketing.md
+    - name: Niveles de software
+      href: how-to-software-levels.md
 - name: Guías paso a paso
   items:
     - name: Procedimiento para editar dispositivos publicados

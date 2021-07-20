@@ -25,12 +25,6 @@
       href: tutorial-restrict-network-access-to-resources.md
     - name: Conexión de redes virtuales
       href: tutorial-connect-virtual-networks-portal.md
-    - name: Creación y validación de una instancia de NAT Gateway
-      href: tutorial-create-nat-gateway-portal.md
-    - name: Integración del equilibrador de carga público de NAT Gateway
-      href: tutorial-nat-gateway-load-balancer-public-portal.md
-    - name: Integración del equilibrador de carga interno de NAT Gateway
-      href: tutorial-nat-gateway-load-balancer-internal-portal.md
 - name: Ejemplos
   items:
     - name: Azure CLI
@@ -47,16 +41,6 @@
       href: virtual-network-disaster-recovery-guidance.md
     - name: Conectividad
       items:
-        - name: NAT
-          items:
-            - name: Información general
-              href: nat-overview.md
-            - name: Recurso
-              href: nat-gateway-resource.md
-            - name: Métricas y alertas
-              href: nat-metrics.md
-            - name: Solución de problemas
-              href: troubleshoot-nat.md
         - name: Enrutamiento
           href: virtual-networks-udr-overview.md
         - name: Interoperabilidad de conectividad de back-end
@@ -95,10 +79,12 @@
           href: private-ip-addresses.md
         - name: Prefijo de IP pública
           href: public-ip-address-prefix.md
+        - name: Administración de direcciones IP públicas
+          href: virtual-network-public-ip-address.md
+        - name: Administración de un prefijo de IP pública
+          href: manage-public-ip-address-prefix.md
         - name: IPv6 para la red virtual de Azure
           href: ipv6-overview.md
-        - name: Prefijo de dirección IPv6 pública
-          href: ipv6-public-ip-address-prefix.md
         - name: Preferencia de enrutamiento
           href: routing-preference-overview.md
         - name: Preferencias de enrutamiento desmedido
@@ -162,7 +148,7 @@
       items:
         - name: Enrutado del tráfico de red
           items:
-            - name: Azure Portal
+            - name: Portal de Azure
               href: tutorial-create-route-table-portal.md
             - name: Azure PowerShell
               href: tutorial-create-route-table-powershell.md
@@ -214,79 +200,95 @@
           href: deploy-container-networking.md
     - name: Servicios de IP
       items:
-        - name: IPv6 para VNet
+        - name: Administración de recursos
           items:
-            - name: Adición de IPv6 a la aplicación IPv4
-              items:
-                - name: Azure PowerShell
-                  href: ipv6-add-to-existing-vnet-powershell.md
-                - name: Azure CLI
-                  href: ipv6-add-to-existing-vnet-cli.md
-            - name: Equilibrador de carga público básico
-              items:
-                - name: Azure PowerShell
-                  href: virtual-network-ipv4-ipv6-dual-stack-powershell.md
-                - name: Azure CLI
-                  href: virtual-network-ipv4-ipv6-dual-stack-cli.md
-                - name: Plantilla de Resource Manager
-                  href: ipv6-configure-template-json.md
-            - name: Equilibrador de carga público básico
-              items:
-                - name: Azure PowerShell
-                  href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
-                - name: Azure CLI
-                  href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
-                - name: Plantilla de Resource Manager
-                  href: ipv6-configure-standard-load-balancer-template-json.md
-            - name: Equilibrador de carga público estándar
-              href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
-            - name: Conjunto de escalado de máquinas virtuales con IPv6
-              href: ipv6-virtual-machine-scale-set.md
-            - name: Prefijo de dirección IPv6 pública
-              href: ipv6-reserve-public-ip-address-prefix.md
-        - name: Direcciones IP
+            - name: Equilibrador de carga
+              href: configure-public-ip-load-balancer.md
+            - name: NAT Gateway
+              href: configure-public-ip-nat-gateway.md
+            - name: Firewall
+              href: configure-public-ip-firewall.md
+            - name: puerta de enlace de VPN
+              href: configure-public-ip-vpn-gateway.md
+            - name: puerta de enlace de aplicaciones
+              href: configure-public-ip-application-gateway.md
+            - name: Máquina virtual
+              href: configure-public-ip-vm.md
+            - name: Bastion
+              href: configure-public-ip-bastion.md
+        - name: Creación de una dirección IP pública
           items:
-            - name: 'Creación de direcciones IP públicas: Azure Portal'
+            - name: 'Creación de una dirección IP pública: Azure Portal'
               href: create-public-ip-portal.md
-            - name: 'Creación de direcciones IP públicas: PowerShell'
+            - name: 'Creación de una dirección IP pública: PowerShell'
               href: create-public-ip-powershell.md
-            - name: 'Creación de direcciones IP públicas: CLI de Azure'
+            - name: 'Creación de una dirección IP pública: CLI de Azure'
               href: create-public-ip-cli.md
-            - name: Administración de direcciones IP públicas
-              href: virtual-network-public-ip-address.md
-            - name: Administración de un prefijo de IP pública
-              href: manage-public-ip-address-prefix.md
-            - name: "Actualización de direcciones\_IP públicas"
-              href: virtual-network-public-ip-address-upgrade.md
-            - name: Incorporación o eliminación de direcciones IP de tarjetas de interfaz de red
-              href: virtual-network-network-interface-addresses.md
-            - name: Preferencia de enrutamiento
+            - name: 'Creación de una dirección IP pública: Plantilla de ARM'
+              href: create-public-ip-template.md
+        - name: Creación de un prefijo de IP pública
+          items:
+            - name: 'Creación de un prefijo de IP pública: Azure Portal'
+              href: create-public-ip-prefix-portal.md
+            - name: Creación de un prefijo de IPv6 pública
+              href: ipv6-reserve-public-ip-address-prefix.md
+        - name: Actualización de una dirección IP pública
+          items:
+            - name: 'Actualización de una dirección IP pública: Azure Portal'
+              href: public-ip-upgrade-portal.md
+            - name: 'Actualización de una dirección IP pública: PowerShell'
+              href: public-ip-upgrade-powershell.md
+            - name: 'Actualización de una dirección IP pública: CLI de Azure'
+              href: public-ip-upgrade-cli.md
+            - name: Migración de una dirección IP reservada clásica
+              href: public-ip-upgrade-classic.md
+        - name: Equilibrador de carga
+          items:
+            - name: Público estándar
               items:
-                - name: Creación de una dirección IP pública
-                  items:
-                    - name: Azure portal
-                      href: routing-preference-portal.md
-                    - name: Azure PowerShell
-                      href: routing-preference-powershell.md
-                    - name: Azure CLI
-                      href: routing-preference-cli.md
-                - name: Configuración de una máquina virtual con preferencia de enrutamiento de Internet
-                  items:
-                    - name: Azure portal
-                      href: tutorial-routing-preference-virtual-machine-portal.md
-                    - name: Azure PowerShell
-                      href: configure-routing-preference-virtual-machine-powershell.md
-                    - name: Azure CLI
-                      href: configure-routing-preference-virtual-machine-cli.md
-                - name: Configuración de las preferencias de enrutamiento mixto para una máquina virtual
-                  href: routing-preference-mixed-network-adapter-portal.md
-                - name: Configuración de preferencias de enrutamiento para un clúster de AKS
-                  href: routing-preference-azure-kubernetes-service-cli.md
+                - name: 'Equilibrador de carga público estándar con IPv6: PowerShell'
+                  href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+                - name: 'Equilibrador de carga público estándar con IPv6: CLI de Azure'
+                  href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
+                - name: 'Equilibrador de carga público estándar con IPv6: Plantilla de ARM'
+                  href: ipv6-configure-standard-load-balancer-template-json.md
+            - name: Interno estándar
+              items:
+                - name: 'Equilibrador de carga interno estándar con IPv6: PowerShell'
+                  href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
+            - name: Público básico
+              items:
+                - name: 'Equilibrador de carga público básico con IPv6: PowerShell'
+                  href: ipv6-add-to-existing-vnet-powershell.md
+                - name: 'Equilibrador de carga público básico con IPv6: CLI de Azure'
+                  href: ipv6-add-to-existing-vnet-cli.md
+        - name: Preferencia de enrutamiento
+          items:
+            - name: Creación de una dirección IP pública
+              items:
+                - name: Azure portal
+                  href: routing-preference-portal.md
+                - name: Azure PowerShell
+                  href: routing-preference-powershell.md
+                - name: Azure CLI
+                  href: routing-preference-cli.md
+            - name: Configuración de una máquina virtual con preferencia de enrutamiento de Internet
+              items:
+                - name: Azure portal
+                  href: tutorial-routing-preference-virtual-machine-portal.md
+                - name: Azure PowerShell
+                  href: configure-routing-preference-virtual-machine-powershell.md
+                - name: Azure CLI
+                  href: configure-routing-preference-virtual-machine-cli.md
+            - name: Configuración de las preferencias de enrutamiento mixto para una máquina virtual
+              href: routing-preference-mixed-network-adapter-portal.md
+            - name: Configuración de preferencias de enrutamiento para un clúster de AKS
+              href: routing-preference-azure-kubernetes-service-cli.md
     - name: Seguridad
       items:
         - name: Filtrado del tráfico de red
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: tutorial-filter-network-traffic.md
             - name: Azure PowerShell
               href: tutorial-filter-network-traffic-powershell.md
@@ -296,7 +298,7 @@
           items:
             - name: Uso de puntos de conexión privados
               items:
-                - name: Azure portal
+                - name: Portal de Azure
                   href: ../private-link/create-private-endpoint-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json
                 - name: Azure PowerShell
                   href: ../private-link/create-private-endpoint-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json
@@ -304,7 +306,7 @@
                   href: ../private-link/create-private-endpoint-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json
             - name: Uso de puntos de conexión de servicio
               items:
-                - name: Azure portal
+                - name: Portal de Azure
                   href: tutorial-restrict-network-access-to-resources.md
                 - name: Azure PowerShell
                   href: tutorial-restrict-network-access-to-resources-powershell.md
@@ -312,7 +314,7 @@
                   href: tutorial-restrict-network-access-to-resources-cli.md
             - name: Uso de directivas de punto de conexión de servicio
               items:
-                - name: Azure portal
+                - name: Portal de Azure
                   href: virtual-network-service-endpoint-policies-portal.md
                 - name: Azure PowerShell
                   href: virtual-network-service-endpoint-policies-powershell.md
@@ -334,7 +336,7 @@
       items:
         - name: 'Creación de una máquina virtual: IP pública estática'
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: virtual-network-deploy-static-pip-arm-portal.md
             - name: Azure PowerShell
               href: virtual-network-deploy-static-pip-arm-ps.md
@@ -346,7 +348,7 @@
               href: remove-public-ip-address-vm.md
         - name: 'Creación de una máquina virtual: IP privada estática'
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: virtual-networks-static-private-ip-arm-pportal.md
             - name: Azure PowerShell
               href: virtual-networks-static-private-ip-arm-ps.md
@@ -354,13 +356,13 @@
               href: virtual-networks-static-private-ip-arm-cli.md
         - name: 'Creación de máquina virtual: Dirección IP privada estática (clásica)'
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: virtual-networks-static-private-ip-classic-pportal.md
             - name: Azure PowerShell
               href: virtual-networks-static-private-ip-classic-ps.md
         - name: 'Creación de una máquina virtual: varias IP'
           items:
-            - name: Azure Portal
+            - name: Portal de Azure
               href: virtual-network-multiple-ip-addresses-portal.md
             - name: Azure PowerShell
               href: virtual-network-multiple-ip-addresses-powershell.md
@@ -387,6 +389,8 @@
           href: virtual-network-tcpip-performance-tuning.md
         - name: Rendimiento de red de máquinas virtuales
           href: virtual-machine-network-throughput.md
+        - name: Conjunto de escalado de máquinas virtuales con IPv6
+          href: ipv6-virtual-machine-scale-set.md
     - name: Traslado entre regiones
       items:
         - name: Grupos de seguridad de red (NSG)
@@ -411,15 +415,6 @@
               href: move-across-regions-publicip-portal.md
             - name: 'IP públicas: PowerShell'
               href: move-across-regions-publicip-powershell.md
-    - name: NAT
-      items:
-        - name: 'Creación y validación de una instancia de NAT Gateway: PowerShell'
-          href: tutorial-create-nat-gateway-powershell.md
-        - name: 'Creación y validación de una instancia de NAT Gateway: CLI'
-          href: tutorial-create-nat-gateway-cli.md
-        - name: 'Creación de una instancia de NAT Gateway: Plantilla de Resource Manager'
-          displayname: Resource Manager
-          href: quickstart-create-nat-gateway-template.md
     - name: Solución de problemas
       items:
         - name: Solución de problemas de emparejamiento de redes virtuales
@@ -448,10 +443,14 @@
           href: what-is-ip-address-168-63-129-16.md
         - name: Solución de problemas de conectividad de máquinas virtuales de Azure
           href: troubleshoot-vm-connectivity.md
+    - name: Supervisión de la red virtual
+      href: monitor-virtual-network.md
     - name: Implementación clásica
       href: /previous-versions/azure/virtual-network/create-virtual-network-classic
 - name: Referencia
   items:
+    - name: Supervisión de referencia de datos
+      href: monitor-virtual-network-reference.md
     - name: Azure CLI
       href: /cli/azure/azure-cli-reference-for-network
     - name: Azure PowerShell

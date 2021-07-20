@@ -9,12 +9,13 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 510f2556fba42176817b782fe48d01d76eaa3fd7
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 3873ae1dd4ab230e5e0c3424341722e76aeb48fb
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107568461"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113216232"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Carga de datos de forma segura mediante el uso de Synapse SQL
 
@@ -72,7 +73,7 @@ WITH (
 
 La autenticación de Identidad administrada es necesaria cuando la cuenta de almacenamiento está conectada a una red virtual. 
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 1. Instale Azure PowerShell mediante esta [guía](/powershell/azure/install-az-ps?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Si tiene una cuenta de uso general v1 o de Blob Storage, primero debe actualizar a Uso general v2 mediante esta [guía](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
@@ -105,7 +106,20 @@ La autenticación de Identidad administrada es necesaria cuando la cuenta de alm
    > - Si tiene una cuenta de uso general v1 o de Blob Storage, **primero debe actualizar a Uso general v2** mediante esta [guía](../../storage/common/storage-account-upgrade.md).
    > - Para saber los problemas conocidos con Azure Data Lake Storage Gen2, consulte esta [guía](../../storage/blobs/data-lake-storage-known-issues.md).
 
-1. En la cuenta de almacenamiento, vaya a **Control de acceso (IAM)** y seleccione **Agregar asignación de roles**. Asigne el rol de Azure de **Colaborador de datos de blobs de almacenamiento** al servidor o al área de trabajo que hospedan el grupo de SQL dedicado que ha registrado con Azure Active Directory (AAD).
+1. En la cuenta de almacenamiento, seleccione **Control de acceso (IAM)** .
+
+1. Seleccione **Agregar** > **Agregar asignación de roles** para abrir la página Agregar asignación de roles.
+
+1. Asigne el siguiente rol. Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Configuración | Valor |
+    | --- | --- |
+    | Role | Colaborador de datos de blobs de almacenamiento |
+    | Asignar acceso a | SERVICEPRINCIPAL |
+    | Miembros | Servidor o área de trabajo que hospeda el grupo de SQL dedicado que ha registrado con Azure Active Directory (AAD)  |
+
+    ![Página Agregar asignación de roles en Azure Portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+
 
    > [!NOTE]
    > Solo los miembros con el privilegio Propietario pueden realizar este paso. Para conocer los distintos roles integrados de Azure, consulte esta [guía](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
@@ -129,16 +143,28 @@ La autenticación de Identidad administrada es necesaria cuando la cuenta de alm
 ## <a name="d-azure-active-directory-authentication"></a>D. Autenticación con Azure Active Directory
 #### <a name="steps"></a>Pasos
 
-1. En la cuenta de almacenamiento, vaya a **Control de acceso (IAM)** y seleccione **Agregar asignación de roles**. Asigne los roles de Azure **Lector, Colaborador o Propietario de datos de Storage Blob** a su usuario de Azure AD. 
+1. En la cuenta de almacenamiento, seleccione **Control de acceso (IAM)** .
+
+1. Seleccione **Agregar** > **Agregar asignación de roles** para abrir la página Agregar asignación de roles.
+
+1. Asigne el siguiente rol. Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Configuración | Valor |
+    | --- | --- |
+    | Role | Propietario, Colaborador o Lector de datos de Storage Blob |
+    | Asignar acceso a | USER |
+    | Miembros | Usuario de Azure AD |
+
+    ![Página Agregar asignación de roles en Azure Portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
     > [!IMPORTANT]
     > Especifique los roles de Azure **Propietario, Colaborador o Lector** de los **datos de Storage Blob**. Estos roles son diferentes de los roles integrados de Azure de Propietario, Colaborador y Lector.
 
     ![Concesión de permiso de RBAC de Azure para la carga](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
-2. Para configurar la autenticación de Azure AD, consulte la siguiente [documentación](../../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell). 
+1. Para configurar la autenticación de Azure AD, consulte la siguiente [documentación](../../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell). 
 
-3. Conéctese a su grupo de SQL mediante Active Directory, donde ahora puede ejecutar la instrucción COPY sin especificar ninguna credencial:
+1. Conéctese a su grupo de SQL mediante Active Directory, donde ahora puede ejecutar la instrucción COPY sin especificar ninguna credencial:
 
     ```sql
     COPY INTO dbo.target_table

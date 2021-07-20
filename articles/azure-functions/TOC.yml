@@ -282,7 +282,7 @@
           items:
             - name: Desencadenador HTTP
               items:
-                - name: Azure portal
+                - name: Portal de Azure
                   href: functions-create-function-app-portal.md
                 - name: Línea de comandos
                   href: ./create-first-function-cli-csharp.md
@@ -399,17 +399,17 @@
         - name: Análisis de datos de telemetría
           href: analyze-telemetry-data.md
           displayName: 'App Insights, Application Insights, Kusto'
+        - name: Supervisión de métricas
+          href: monitor-metrics.md
         - name: Registros de streaming
           href: streaming-logs.md
           displayName: monitoring
         - name: Registros de diagnóstico
           href: functions-monitor-log-analytics.md
           displayName: 'Azure Monitor, Kusto, Log Analytics, metrics'
-    - name: Seguridad
+    - name: Authenticate
       items:
-        - name: Adición de un certificado SSL
-          href: ../app-service/configure-ssl-certificate.md?toc=%2fazure%2fazure-functions%2ftoc.json
-        - name: Autenticación de usuarios
+        - name: Configuración de proveedores de autenticación
           items:
             - name: Autenticación mediante Azure Active Directory
               href: ../app-service/configure-authentication-provider-aad.md?toc=%2fazure%2fazure-functions%2ftoc.json
@@ -423,8 +423,20 @@
               href: ../app-service/configure-authentication-provider-openid-connect.md?toc=%2fazure%2fazure-functions%2ftoc.json
             - name: Autenticación mediante Iniciar sesión con Apple (versión preliminar)
               href: ../app-service/configure-authentication-provider-apple.md?toc=%2fazure%2fazure-functions%2ftoc.json
-        - name: Autenticación avanzada
-          href: ../app-service/app-service-authentication-how-to.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Personalización de los inicios y cierres de sesión
+          href: ../app-service/configure-authentication-customize-sign-in-out.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Acceso a identidades de usuario
+          href: ../app-service/configure-authentication-user-identities.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Trabajo con tokens
+          href: ../app-service/configure-authentication-oauth-tokens.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Administración de las versiones de API
+          href: ../app-service/configure-authentication-api-version.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Configuración basada en archivos
+          href: ../app-service/configure-authentication-file-based.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Seguridad
+      items:
+        - name: Adición de un certificado SSL
+          href: ../app-service/configure-ssl-certificate.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Restricción de direcciones IP
           href: ../app-service/app-service-ip-restrictions.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Uso de una identidad administrada
@@ -674,7 +686,7 @@
     - name: host.json 1.x reference
       href: functions-host-json-v1.md
     - name: Preguntas más frecuentes sobre las redes
-      href: functions-networking-faq.md
+      href: functions-networking-faq.yml
 - name: Recursos
   items:
     - name: Desarrollo de aptitudes con Microsoft Learn
@@ -685,6 +697,8 @@
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
     - name: Precios
       href: pricing.md
+    - name: Directiva de compatibilidad de idiomas
+      href: language-support-policy.md
     - name: Calculadora de precios
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Información de cuota

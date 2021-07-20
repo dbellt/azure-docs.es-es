@@ -9,12 +9,13 @@ ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: d38f1f294f60b73e8f1e69169a75333eb175c9f6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 0f593d801bdcc477d6084a395630211393ffa9c7
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104600163"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113217295"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Inicio rápido: Creación de un área de trabajo de Synapse
 En este inicio rápido se describe cómo crear un área de trabajo de Azure Synapse mediante Azure Portal.
@@ -48,9 +49,17 @@ Una vez creada el área de trabajo de Azure Synapse, hay dos maneras de abrir Sy
 
 1. Abra [Azure Portal](https://portal.azure.com).
 1. Navegue a una cuenta de almacenamiento de ADLSGEN2 existente.
-1. Seleccione **Access control (IAM)** (Control de acceso [IAM]) en el panel izquierdo. Luego, asigne los siguientes roles o asegúrese de que ya estén asignados:
-    * Asígnese el rol **Propietario**.
-    * Asígnese el rol **Propietario de datos de Storage Blob**.
+1. Seleccione **Access Control (IAM)** .
+1. Seleccione **Agregar** > **Agregar asignación de roles** para abrir la página Agregar asignación de roles.
+1. Asigne el siguiente rol. Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
+    
+    | Configuración | Valor |
+    | --- | --- |
+    | Role | Propietario y Propietario de datos de Storage Blob |
+    | Asignar acceso a | [USER |
+    | Miembros | Nombre del usuario |
+
+    ![Página Agregar asignación de roles en Azure Portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 1. En el panel izquierdo, seleccione **Contenedores** y cree un contenedor.
 1. Puede asignar cualquier nombre al contenedor. En este documento, llamaremos **users** al contenedor.
 1. Acepte el valor predeterminado **Nivel de acceso público** y, después, seleccione **Crear**.
@@ -60,11 +69,20 @@ Una vez creada el área de trabajo de Azure Synapse, hay dos maneras de abrir Sy
 Es posible que las identidades administradas del área de trabajo de Azure Synapse ya tengan acceso a la cuenta de almacenamiento. Siga estos pasos para asegurarse:
 
 1. Abra [Azure Portal](https://portal.azure.com) y la cuenta de almacenamiento principal elegida para el área de trabajo.
-1. Seleccione **Control de acceso (IAM)** en el panel izquierdo.
-1. Asigne los siguientes roles o asegúrese de que ya estén asignados. Se usa el mismo nombre para la identidad y para el nombre del área de trabajo.
-    * Para el rol **Colaborador de datos de Storage Blob** de la cuenta de almacenamiento, asigne **myworkspace** como identidad del área de trabajo.
-    * Asigne **myworkspace** como el nombre del área de trabajo.
+1. Seleccione **Access Control (IAM)** .
+1. Seleccione **Agregar** > **Agregar asignación de roles** para abrir la página Agregar asignación de roles.
+1. Asigne el siguiente rol. Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
+    
+    | Configuración | Valor |
+    | --- | --- |
+    | Role | Colaborador de datos de blobs de almacenamiento |
+    | Asignar acceso a | MANAGEDIDENTITY |
+    | Miembros | myworkspace  |
 
+    > [!NOTE]
+    > El nombre de la identidad administrada también es el nombre del área de trabajo.
+
+    ![Página Agregar asignación de roles en Azure Portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 1. Seleccione **Guardar**.
 
 ## <a name="next-steps"></a>Pasos siguientes

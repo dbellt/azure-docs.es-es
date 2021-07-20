@@ -10,12 +10,12 @@ metadata:
   author: ekpgh
   ms.author: v-erkel
   ms.date: 11/07/2019
-  ms.openlocfilehash: a31fb7a2878766e960e602e5167df4f92a978f25
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: d2101ad354a67e79356d6f2fb5a41eecea2f5936
+  ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "87061288"
+  ms.lasthandoff: 07/09/2021
+  ms.locfileid: "113587596"
 landingContent:
 - title: Acerca de Azure HPC Cache
   linkLists:
@@ -35,8 +35,10 @@ landingContent:
       url: hpc-cache-add-storage.md
     - text: Agregar clientes
       url: hpc-cache-mount.md
-    - text: Administración y supervisión de la caché
+    - text: Administración de la caché
       url: hpc-cache-manage.md
+    - text: Visualización de métricas de caché
+      url: metrics.md
   - linkListType: concept
     links:
     - text: Planeamiento del espacio de nombres agregado
@@ -51,6 +53,8 @@ landingContent:
       url: hpc-cache-support-ticket.md
     - text: Edición de un destino de almacenamiento
       url: hpc-cache-edit-storage.md
+    - text: Administración de destinos de almacenamiento
+      url: manage-storage-targets.md
     - text: Solución alternativa para los valores del firewall para crear destinos de almacenamiento de blobs
       url: hpc-cache-blob-firewall-fix.md
     - text: Solución de problemas de creación de destinos de almacenamiento de NFS

@@ -6,12 +6,12 @@ ms.author: mimcco
 ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 03/25/2021
-ms.openlocfilehash: ae2720c321e701d14e91f8aee7a6dfbfc5f15739
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 03cab112681536708496c35e4440e463d1522406
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110071351"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113108196"
 ---
 # <a name="azure-percept-audio-setup"></a>Instalación de Azure Percept Audio
 
@@ -31,7 +31,7 @@ Azure Percept Audio está listo para usarse con Azure Percept DK. No es necesar
 
 1. (Opcional) Conecte el altavoz o los auriculares al dispositivo Azure Percept Audio mediante el conector de auriculares, etiquetado como "Salida de línea". Esto le permitirá escuchar las respuestas de audio.
 
-1. Encienda el kit de desarrollo. El LED L02 pasará a parpadear en blanco para indicar que el dispositivo se ha encendido y se está autenticando.
+1. Encienda el kit de desarrollo; para ello, conéctelo al adaptador de alimentación. El LED L02 pasará a parpadear en blanco para indicar que el dispositivo se ha encendido y se está autenticando.
 
 1. Espere a que se complete el proceso de autenticación; que tarda hasta 5 minutos.
 

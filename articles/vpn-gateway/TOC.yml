@@ -57,6 +57,8 @@
       href: point-to-site-about.md
     - name: Información sobre el enrutamiento de VPN de punto a sitio
       href: vpn-gateway-about-point-to-site-routing.md
+    - name: Acerca de NAT y VPN Gateway
+      href: nat-overview.md
     - name: Acerca de las puertas de enlace con redundancia de zona para Availability Zones
       href: about-zone-redundant-vnet-gateways.md
     - name: Seguridad
@@ -79,7 +81,7 @@
       items:
         - name: Creación de una puerta de enlace VPN basada en ruta
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: tutorial-create-gateway-portal.md
             - name: Azure PowerShell
               href: create-routebased-vpn-gateway-powershell.md
@@ -91,7 +93,7 @@
           href: reset-gateway.md
         - name: Eliminación de una instancia de VPN Gateway
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: vpn-gateway-delete-vnet-gateway-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-delete-vnet-gateway-powershell.md
@@ -101,7 +103,7 @@
       items:
         - name: Configuración de conexiones S2S
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: tutorial-site-to-site-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-create-site-to-site-rm-powershell.md
@@ -121,7 +123,7 @@
       items:
         - name: Configuración de conexiones de red virtual a red virtual
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: vpn-gateway-howto-vnet-vnet-resource-manager-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-vnet-vnet-rm-ps.md
@@ -129,7 +131,7 @@
               href: vpn-gateway-howto-vnet-vnet-cli.md
         - name: Configuración de una conexión de red virtual a red virtual entre distintos modelos de implementación
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: vpn-gateway-connect-different-deployment-models-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-connect-different-deployment-models-powershell.md
@@ -139,7 +141,7 @@
           items:
             - name: Configuración de una VPN de punto a sitio
               items:
-                - name: Azure portal
+                - name: Portal de Azure
                   href: vpn-gateway-howto-point-to-site-resource-manager-portal.md
                 - name: Azure PowerShell
                   href: vpn-gateway-howto-point-to-site-rm-ps.md
@@ -225,9 +227,11 @@
               href: vpn-gateway-about-forced-tunneling.md
         - name: Configuración del tránsito de puerta de enlace para el emparejamiento de VNET
           href: vpn-gateway-peering-gateway-transit.md
+    - name: Configuración de NAT para VPN Gateway
+      href: nat-howto.md
     - name: Modificación de una puerta de enlace de red local
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: vpn-gateway-modify-local-network-gateway-portal.md
         - name: Azure PowerShell
           href: vpn-gateway-modify-local-network-gateway.md
@@ -241,10 +245,10 @@
           href: vpn-gateway-download-vpndevicescript.md
         - name: 'Sample: Dispositivo Cisco ASA (IKEv2/sin BGP)'
           href: vpn-gateway-3rdparty-device-config-cisco-asa.md
-    - name: Supervisión y alertas
+    - name: Supervisión del estado
       items:
-        - name: Visualización de métricas VPN Gateway
-          href: vpn-gateway-howto-view-virtual-network-gateway-metrics.md
+        - name: Supervisión de VPN Gateway
+          href: monitor-vpn-gateway.md
         - name: Configuración de alertas basadas en métricas
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
         - name: Configuración de alertas basadas en registros de recursos

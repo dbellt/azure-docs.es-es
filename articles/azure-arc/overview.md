@@ -3,12 +3,12 @@ title: Introducción a Azure Arc
 description: Obtenga información sobre qué es Azure Arc y cómo ayuda a los clientes a habilitar la administración y el gobierno de sus recursos híbridos con otros servicios y características de Azure.
 ms.date: 05/25/2021
 ms.topic: overview
-ms.openlocfilehash: b9e3cac865a92023d0079a5face9fbc8a3734c6e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b67c01f666916508946b49b0ad45d7151ed179ef
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967082"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112287306"
 ---
 # <a name="azure-arc-overview"></a>Introducción a Azure Arc
 
@@ -29,7 +29,8 @@ En la actualidad, Azure Arc le permite administrar los siguientes tipos de recur
 
 * Servidores: máquinas físicas y virtuales que ejecutan Windows o Linux.
 * Clústeres de Kubernetes: admiten varias distribuciones de Kubernetes.
-* Servicios de datos de Azure: servicios de hiperescala de Azure SQL Database y PostgreSQL.
+* Servicios de datos de Azure: Azure SQL Managed Instance y servicios de Hiperescala de PostgreSQL.
+* SQL Server: inscripción de instancias desde cualquier ubicación.
 
 ## <a name="what-does-azure-arc-deliver"></a>¿Qué ofrece Azure Arc?
 

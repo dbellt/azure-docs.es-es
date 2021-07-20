@@ -1,5 +1,7 @@
 - name: Documentación sobre aspectos básicos
   href: index.yml
+- name: Recuperación de un riesgo de identidad sistemático
+  href: recover-from-identity-compromise.md
 - name: Información general
   items:
     - name: Introducción a la seguridad de Azure

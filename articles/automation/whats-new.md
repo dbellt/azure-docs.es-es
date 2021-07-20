@@ -6,12 +6,12 @@ ms.subservice: ''
 ms.topic: overview
 ms.date: 06/09/2021
 ms.custom: references_regions
-ms.openlocfilehash: 6eae4a65412ad922724d4c35b7628b15698ba841
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: bd2bd39839645aa0511a00cc7a6c87c711e33e2b
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982941"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112294758"
 ---
 # <a name="whats-new-in-azure-automation"></a>Novedades de Azure Automation
 
@@ -24,6 +24,14 @@ Azure Automation recibe mejoras de forma continua. Para mantenerse al día de lo
 Esta página se actualiza mensualmente, por lo que se recomienda visitarla con frecuencia.
 
 ## <a name="june-2021"></a>Junio de 2021
+
+### <a name="security-update-for-log-analytics-contributor-role"></a>Actualización de seguridad para el rol Colaborador de Log Analytics
+
+**Tipo:** Plan de cambio
+
+Microsoft quiere quitar los derechos de la cuenta de Automation del rol Colaborador de Log Analytics. Actualmente, el rol integrado [Colaborador de Log Analytics](./automation-role-based-access-control.md#log-analytics-contributor) puede escalar los privilegios al rol [Colaborador](./../role-based-access-control/built-in-roles.md#contributor) de la suscripción. Como las cuentas de ejecución de la cuenta de Automation se configuran inicialmente con derechos de Colaborador en la suscripción, un atacante puede usarla para crear runbooks y ejecutar código como Colaborador en la suscripción.
+
+Debido a este riesgo de seguridad, se recomienda no utilizar el rol Colaborador de Log Analytics para ejecutar trabajos de Automation. En su lugar, cree el rol personalizado Colaborador de Azure Automation y utilícelo para las acciones relacionadas con la cuenta de Automation. Para ver los pasos de implementación, consulte [Rol Colaborador de Azure Automation personalizado](./automation-role-based-access-control.md#custom-azure-automation-contributor-role).
 
 ### <a name="support-for-automation-and-state-configuration-available-in-west-us-3"></a>Compatibilidad con Automation y State Configuration disponible en Oeste de EE. UU. 3
 

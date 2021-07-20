@@ -113,6 +113,8 @@
           items:
             - name: "Procedimientos recomendados para el aterrizaje de datos en el lago con ADLS\_Gen2"
               href: tutorial-data-flow-write-to-lake.md
+            - name: Nombres de columnas establecidos dinámicamente
+              href: tutorial-data-flow-dynamic-columns.md
             - name: Transformación de datos en el lago con Delta Lake
               href: tutorial-data-flow-delta-lake.md
             - name: Transformación de datos con Mapping Data Flow
@@ -283,7 +285,7 @@
           href: connector-azure-databricks-delta-lake.md
         - name: Azure File Storage
           href: connector-azure-file-storage.md
-        - name: Azure SQL Database
+        - name: "Azure\_SQL\_Database"
           href: connector-azure-sql-database.md
           displayName: upsert
         - name: Instancia administrada de Azure SQL
@@ -476,6 +478,8 @@
           href: delete-activity.md
         - name: Herramienta copiar datos
           href: copy-data-tool.md
+        - name: Datos de copia controlados por metadatos
+          href: copy-data-tool-metadata-driven.md
         - name: Compatibilidad con formato y compresión
           href: supported-file-formats-and-compression-codecs.md
           displayName: zip
@@ -881,7 +885,7 @@
           href: ssis-integration-runtime-management-troubleshoot.md
           displayName: timeout
         - name: Ejecución de paquetes en Azure-SSIS Integration Runtime
-          href: ssis-integration-runtime-ssis-activity-faq.md
+          href: ssis-integration-runtime-ssis-activity-faq.yml
           displayName: 'retry, timeout'
         - name: Diagnóstico de la conectividad en Azure-SSIS IR
           href: ssis-integration-runtime-diagnose-connectivity-faq.md
@@ -927,3 +931,5 @@
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Opciones de soporte técnico
       href: 'https://azure.microsoft.com/support/options/'
+    - name: Límites
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits

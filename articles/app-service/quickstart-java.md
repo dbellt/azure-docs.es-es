@@ -14,12 +14,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-java-uiex
-ms.openlocfilehash: 24a564d836405bf51aacf73af359e987e8c957e1
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 7393a8085a2ac597f3fdbcc365608d32956f39b7
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109737140"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113111706"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Inicio rápido: Creación de una aplicación de Java en Azure App Service
 
@@ -42,13 +42,13 @@ ms.locfileid: "109737140"
 
 Clone el proyecto de ejemplo [Primeros pasos de Spring Boot](https://github.com/spring-guides/gs-spring-boot).
 
-```bash
+```azurecli-interactive
 git clone https://github.com/spring-guides/gs-spring-boot
 ```
 
 Cambie de directorio al del proyecto completado.
 
-```bash
+```azurecli-interactive
 cd gs-spring-boot/complete
 ```
 
@@ -56,15 +56,38 @@ cd gs-spring-boot/complete
 
 Ejecute el siguiente comando de Maven en el símbolo del sistema de Cloud Shell para crear una aplicación denominada `helloworld`:
 
-```bash
+```azurecli-interactive
 mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp" "-Dversion=1.0-SNAPSHOT"
 ```
 
 A continuación, cambie el directorio de trabajo a la carpeta del proyecto:
 
-```bash
+```azurecli-interactive
 cd helloworld
 ```
+
+# <a name="jboss-eap"></a>[JBoss EAP](#tab/jbosseap)
+
+::: zone pivot="platform-windows"
+
+JBoss EAP solo está disponible en la versión para Linux de App Service. Seleccione el botón **Linux** de la parte superior de este artículo para ver las instrucciones de inicio rápido de JBoss EAP.
+
+::: zone-end
+::: zone pivot="platform-linux"
+
+Clone la aplicación de demostración Pet Store (Tienda para mascotas).
+
+```azurecli-interactive
+git clone https://github.com/agoncal/agoncal-application-petstore-ee7.git
+```
+
+Cambie de directorio al del proyecto clonado.
+
+```azurecli-interactive
+cd agoncal-application-petstore-ee7
+```
+
+::: zone-end
 
 ---
 
@@ -74,20 +97,20 @@ El proceso de implementación en Azure App Service utilizará sus credenciales d
 
 Ejecute el siguiente comando de Maven para configurar la implementación. Este comando le ayudará a configurar el sistema operativo de App Service, la versión de Java y la versión de Tomcat.
 
-```bash
-mvn com.microsoft.azure:azure-webapp-maven-plugin:1.14.0:config
+```azurecli-interactive
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.0.0:config
 ```
 
 ::: zone pivot="platform-windows"
 
 # <a name="java-se"></a>[Java SE](#tab/javase)
 
-1. Cuando se le aparezca la opción **Suscripción**, escriba el número impreso en el comienzo de línea para seleccionar el valor de `Subscription` adecuado.
-1. Cuando se le solicite la opción **Aplicación web**, presione Entrar para aceptar la opción predeterminada `<create>` o seleccione una aplicación existente.
-1. Cuando se le solicite la opción **SO**, especifique `3` para seleccionar **Windows**.
-1. Cuando se le solicite la opción **Plan de tarifa**, especifique `2` para seleccionar **B2**.
-1. Use la versión de Java predeterminada, **Java 8**; para ello, presione Entrar.
-1. Por último, presione Entrar en la última solicitud para confirmar las selecciones.
+1. Si se le solicita la opción **Suscripción**, escriba el número impreso en el comienzo de línea para seleccionar el valor de `Subscription` adecuado.
+2. Cuando se le solicite la opción **Aplicación web**, presione Entrar para seleccionar la opción predeterminada, `<create>`.
+3. Cuando se le solicite la opción **SO**, especifique `2` para seleccionar **Windows**.
+4. Cuando se le solicite la opción **javaVersion**, escriba `1` para seleccionar **Java 8**.
+5. Cuando se le solicite la opción **Plan de tarifa**, especifique `7` para seleccionar **P1v2**.
+6. Por último, presione Entrar en la última solicitud para confirmar las selecciones.
 
     La salida del resumen tendrá un aspecto similar al fragmento de código que se muestra a continuación.
 
@@ -114,13 +137,13 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.14.0:config
 
 # <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
-1. Cuando se le aparezca la opción **Suscripción**, escriba el número impreso en el comienzo de línea para seleccionar el valor de `Subscription` adecuado.
-1. Cuando se le solicite la opción **Aplicación web**, presione Entrar para aceptar la opción predeterminada `<create>` o seleccione una aplicación existente.
-1. Cuando se le solicite la opción **SO**, especifique `3` para seleccionar **Windows**.
-1. Cuando se le solicite la opción **Plan de tarifa**, especifique `2` para seleccionar **B2**.
-1. Use la versión de Java predeterminada, **Java 8**; para ello, presione Entrar.
-1. Use el contenedor web predeterminado, **Tomcat 8.5**; para ello, presione Entrar.
-1. Por último, presione Entrar en la última solicitud para confirmar las selecciones.
+1. Si se le solicita la opción **Suscripción**, escriba el número impreso en el comienzo de línea para seleccionar el valor de `Subscription` adecuado.
+2. Cuando se le solicite la opción **Aplicación web**, presione Entrar para seleccionar la opción predeterminada, `<create>`.
+3. Cuando se le solicite la opción **SO**, especifique `2` para seleccionar **Windows**.
+4. Cuando se le solicite la opción **javaVersion**, escriba `1` para seleccionar **Java 8**.
+5. Cuando se le solicite la opción **webContainer**, escriba `3` para seleccionar **Tomcat 8.5**.
+6. Cuando se le solicite la opción **Plan de tarifa**, especifique `7` para seleccionar **P1v2**.
+7. Por último, presione Entrar en la última solicitud para confirmar las selecciones.
 
     La salida del resumen tendrá un aspecto similar al fragmento de código que se muestra a continuación.
 
@@ -145,19 +168,23 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.14.0:config
     [INFO] ------------------------------------------------------------------------
     ```
 
+# <a name="jboss-eap"></a>[JBoss EAP](#tab/jbosseap)
+
+JBoss EAP solo está disponible en la versión para Linux de App Service. Seleccione el botón **Linux** de la parte superior de este artículo para ver las instrucciones de inicio rápido de JBoss EAP.
+
 ---
 
 ::: zone-end
 ::: zone pivot="platform-linux"
 
-### <a name="java-se"></a>[Java SE](#tab/javase)
+# <a name="java-se"></a>[Java SE](#tab/javase)
 
-1. Cuando se le aparezca la opción **Suscripción**, escriba el número impreso en el comienzo de línea para seleccionar el valor de `Subscription` adecuado.
-1. Cuando se le solicite la opción **Aplicación web**, presione Entrar para aceptar la opción predeterminada `<create>` o seleccione una aplicación existente.
+1. Cuando se le solicite la opción **Suscripción**, escriba el número impreso en el comienzo de línea para seleccionar el valor de `Subscription` adecuado.
+1. Cuando se le solicite la opción **Aplicación web**, presione Entrar para seleccionar la opción predeterminada, `<create>`.
 1. Cuando se le solicite la opción **SO**, presione Entrar para seleccionar **Linux**.
-1. Cuando se le solicite la opción **Plan de tarifa**, especifique `2` para seleccionar **B2**.
-1. Use la versión de Java predeterminada, **Java 8**; para ello, presione Entrar.
-1. Por último, presione Entrar en la última solicitud para confirmar las selecciones.
+2. Cuando se le solicite la opción **javaVersion**, escriba `1` para seleccionar **Java 8**.
+3. Cuando se le solicite la opción **Plan de tarifa**, especifique `6` para seleccionar **P1v2**.
+4. Por último, presione Entrar en la última solicitud para confirmar las selecciones.
 
     ```
     Please confirm webapp properties
@@ -179,14 +206,14 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.14.0:config
     [INFO] ------------------------------------------------------------------------
     ```
 
-### <a name="tomcat"></a>[Tomcat](#tab/tomcat)
+# <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
-1. Cuando se le aparezca la opción **Suscripción**, escriba el número impreso en el comienzo de línea para seleccionar el valor de `Subscription` adecuado.
-1. Cuando se le solicite la opción **Aplicación web**, presione Entrar para aceptar la opción predeterminada `<create>` o seleccione una aplicación existente.
+1. Cuando se le solicite la opción **Suscripción**, escriba el número impreso en el comienzo de línea para seleccionar el valor de `Subscription` adecuado.
+1. Cuando se le solicite la opción **Aplicación web**, presione Entrar para seleccionar la opción predeterminada, `<create>`.
 1. Cuando se le solicite la opción **SO**, presione Entrar para seleccionar **Linux**.
-1. Cuando se le solicite la opción **Plan de tarifa**, especifique `2` para seleccionar **B2**.
-1. Use la versión de Java predeterminada, **Java 8**; para ello, presione Entrar.
-1. Use el contenedor web predeterminado, **Tomcat 8.5**; para ello, presione Entrar.
+1. Cuando se le solicite la opción **javaVersion**, escriba `1` para seleccionar **Java 8**.
+1. Cuando se le solicite la opción **runtimeStack**, escriba `3` para seleccionar **Tomcat 8.5**.
+1. Cuando se le solicite la opción **Plan de tarifa**, especifique `6` para seleccionar **P1v2**.
 1. Por último, presione Entrar en la última solicitud para confirmar las selecciones.
 
     ```
@@ -209,6 +236,37 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.14.0:config
     [INFO] ------------------------------------------------------------------------
     ```
 
+# <a name="jboss-eap"></a>[JBoss EAP](#tab/jbosseap)
+
+1. Si se le solicita la opción **Suscripción**, escriba el número impreso en el comienzo de línea para seleccionar el valor de `Subscription` adecuado.
+1. Cuando aparezca la opción **Aplicación web**, acepte la opción predeterminada `<create>` presionando Entrar.
+1. Cuando se le solicite la opción **SO**, presione Entrar para seleccionar **Linux**.
+1. Cuando se le solicite la opción **javaVersion**, escriba `1` para seleccionar **Java 8**.
+1. Cuando se le solicite la opción **runtimeStack**, escriba `2` para seleccionar **Jbosseap 7**.
+1. Cuando se le solicite la opción **Plan de tarifa**, especifique `3` para seleccionar **P1v3**.
+1. Por último, presione Entrar en la última solicitud para confirmar las selecciones.
+
+    ```
+    Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
+    AppName : petstoreee7-1623451825408
+    ResourceGroup : petstoreee7-1623451825408-rg
+    Region : westeurope
+    PricingTier : P1v3
+    OS : Linux
+    Java : Java 8
+    Web server stack: Jbosseap 7.2
+    Deploy to slot : false
+    Confirm (Y/N) [Y]: y
+    [INFO] Saving configuration to pom.
+    [INFO] ------------------------------------------------------------------------
+    [INFO] BUILD SUCCESS
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Total time: 01:01 min
+    [INFO] Finished at: 2021-06-11T15:52:25-07:00
+    [INFO] ------------------------------------------------------------------------
+    ```
+
 ---
 
 ::: zone-end
@@ -218,15 +276,15 @@ Las configuraciones de App Service se pueden modificar directamente en el archiv
 Propiedad | Obligatorio | Descripción | Versión
 ---|---|---|---
 `<schemaVersion>` | false | Especifique la versión del esquema de configuración. Los valores admitidos son: `v1`, `v2`. | 1.5.2
-`<subscriptionId>` | false | Especifique el identificador de la suscripción. | 0.1.0+
+`<subscriptionId>` | false | Especifique el identificador de suscripción. | 0.1.0+
 `<resourceGroup>` | true | Grupo de recursos de Azure para la aplicación web. | 0.1.0+
 `<appName>` | true | El nombre de la aplicación web. | 0.1.0+
 `<region>` | true | Especifica la región donde se hospedará la aplicación web. El valor predeterminado es **westeurope**. Todas las regiones válidas en la sección [Regiones admitidas](https://azure.microsoft.com/global-infrastructure/services/?products=app-service). | 0.1.0+
-`<pricingTier>` | false | El plan de tarifa de la aplicación web. El valor predeterminado es **P1V2** para cargas de trabajo de producción, mientras que **B2** es el mínimo recomendado para desarrollo y pruebas de Java. [Más información](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
+`<pricingTier>` | true | El plan de tarifa de la aplicación web. El valor predeterminado es **P1V2** para cargas de trabajo de producción, mientras que **B2** es el mínimo recomendado para desarrollo y pruebas de Java. [Más información](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
 `<runtime>` | true | La configuración del entorno en tiempo de ejecución. Puede ver los detalles [aquí](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
 `<deployment>` | true | La configuración de implementación. Puede ver los detalles [aquí](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
 
-Tenga cuidado con los valores de `<appName>` y `<resourceGroup>`(`helloworld-1590394316693` y `helloworld-1590394316693-rg` en la demostración), ya que se usarán más adelante.
+Tenga cuidado con los valores de `<appName>` y `<resourceGroup>` (`helloworld-1590394316693` y `helloworld-1590394316693-rg` en la demostración), ya que se usarán más adelante.
 
 > [!div class="nextstepaction"]
 > [He tenido un problema](https://www.research.net/r/javae2e?tutorial=quickstart-java&step=config)
@@ -235,17 +293,24 @@ Tenga cuidado con los valores de `<appName>` y `<resourceGroup>`(`helloworld-159
 
 El complemento de Maven usa las credenciales de la cuenta desde la CLI de Azure para la implementación en App Services. [Inicie sesión con la CLI de Azure](/cli/azure/authenticate-azure-cli) antes de continuar.
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
 A continuación, puede implementar la aplicación de Java en Azure mediante el siguiente comando.
 
-```bash
+```azurecli-interactive
 mvn package azure-webapp:deploy
 ```
 
-Una vez finalizada la implementación, la aplicación estará lista en `http://<appName>.azurewebsites.net/`(`http://helloworld-1590394316693.azurewebsites.net` en la demostración). Abra la dirección URL con un explorador web local; debería ver
+::: zone pivot="platform-linux"
+
+> [!NOTE]
+> Para JBoss EAP, ejecute `mvn package azure-webapp:deploy -DskipTests` para deshabilitar las pruebas, ya que requiere que Wildfly esté instalado localmente. 
+
+::: zone-end
+
+Una vez finalizada la implementación, la aplicación estará lista en `http://<appName>.azurewebsites.net/` (`http://helloworld-1590394316693.azurewebsites.net` en la demostración). Abra la dirección URL con un explorador web local; debería ver
 
 ![Aplicación de ejemplo que se ejecuta en Azure App Service](./media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 

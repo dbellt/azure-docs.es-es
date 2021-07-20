@@ -59,6 +59,18 @@
               href: how-to-custom-speech-model-and-endpoint-lifecycle.md
     - name: Uso responsable de la inteligencia artificial
       items:
+        - name: Voz a texto
+          items:
+            - name: Nota de transparencia
+              items:
+                - name: Casos de uso de la conversión de voz en texto
+                  href: /legal/cognitive-services/speech-service/speech-to-text/transparency-note?context=/azure/cognitive-services/speech-service/context/context
+                - name: Características y limitaciones
+                  href: /legal/cognitive-services/speech-service/speech-to-text/characteristics-and-limitations?context=/azure/cognitive-services/speech-service/context/context
+            - name: Integración y uso responsable
+              href: /legal/cognitive-services/speech-service/speech-to-text/guidance-integration-responsible-use?context=/azure/cognitive-services/speech-service/context/context
+            - name: 'Datos, privacidad y seguridad'
+              href: /legal/cognitive-services/speech-service/speech-to-text/data-privacy-security?context=/azure/cognitive-services/speech-service/context/context
         - name: Valoración de la pronunciación
           items:
             - name: Nota de transparencia
@@ -105,9 +117,11 @@
           href: language-support.md#speech-to-text
         - name: Regiones admitidas
           href: regions.md#speech-to-text-text-to-speech-and-translation
+        - name: Cliente de ingesta
+          href: ingestion-client.md
         - name: Preguntas más frecuentes sobre la conversión de voz a texto
           displayName: 'FAQ,STT FAQ,SR FAQ,frequently asked questions'
-          href: faq-stt.md
+          href: faq-stt.yml
 - name: Texto a voz
   items:
     - name: Documentación de texto a voz
@@ -499,8 +513,8 @@
           maintainContext: true
           href: ../containers/azure-container-instance-recipe.md
         - name: Preguntas frecuentes sobre Containers
-          href: speech-container-faq.md
-        - name: Toda la documentación de contenedores de Cognitive Services
+          href: speech-container-faq.yml
+        - name: Documentación de contenedores de Cognitive Services
           href: ../containers/index.yml
           maintainContext: true
     - name: Migración

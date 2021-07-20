@@ -7,12 +7,12 @@ ms.date: 04/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 282777a692b7b0fe54415ef09c2cf1879868dd3b
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: f11a9391b0a4f467cba41724b1d15493f1393201
+ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854439"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112992142"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introducción a Azure Defender para registros de contenedor
 
@@ -53,14 +53,14 @@ Hay tres desencadenadores para un examen de imagen:
  
 El análisis se completa normalmente en 2 minutos, pero puede tardar hasta 15 minutos. Los resultados se publican como recomendaciones de Security Center, como en este caso:
 
-[![Ejemplo de recomendación Azure Security Center sobre puntos vulnerables detectados en una imagen hospedada de Azure Container Registry (ACR)](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
+[![Ejemplo de recomendación de Azure Security Center sobre vulnerabilidades detectadas en una imagen hospedada en Azure Container Registry (ACR).](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
 
 ## <a name="how-does-security-center-work-with-azure-container-registry"></a>Funcionamiento de Security Center con Azure Container Registry
 
 A continuación se muestra un diagrama detallado de los componentes y las ventajas de proteger los registros con Security Center.
 
-![Introducción de alto nivel de Azure Security Center y Azure Container Registry (ACR)](./media/azure-container-registry-integration/aks-acr-integration-detailed.png)
+![Introducción general a Azure Security Center y Azure Container Registry (ACR).](./media/azure-container-registry-integration/aks-acr-integration-detailed.png)
 
 
 
@@ -88,8 +88,6 @@ Sí. Si tiene una necesidad organizativa de omitir un resultado, en lugar de cor
 ### <a name="why-is-security-center-alerting-me-to-vulnerabilities-about-an-image-that-isnt-in-my-registry"></a>¿Por qué me está avisando Security Center de las vulnerabilidades de una imagen que no está en mi registro?
 Security Center proporciona evaluaciones de vulnerabilidades de cada imagen que se inserta o se extrae en un registro. Algunas imágenes pueden volver a usar etiquetas de una imagen que ya se ha examinado. Por ejemplo, puede reasignar la etiqueta "Más reciente" cada vez que se agrega una imagen a un código hash. En esos casos, la imagen "antigua" todavía existe en el registro y es posible que todavía se pueda extraer mediante su código hash. Si la imagen tiene resultados de seguridad y se extrae, mostrará vulnerabilidades de seguridad.
 
-### <a name="what-should-i-do-if-the-scan-results-for-my-image-arent-shown"></a>¿Qué debo hacer si no se muestran los resultados del examen de la imagen?
-Espere unos minutos y, si los resultados no aparecen, intente insertar la imagen de nuevo para desencadenar un nuevo examen. Si aún no aparecen, póngase en contacto con nuestro equipo de soporte técnico. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

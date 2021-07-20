@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 06/13/2021
+ms.date: 07/01/2021
 ms.author: memildin
-ms.openlocfilehash: a490a08946a7357af41cce04051ef01765c8fbe5
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: cff1215fadcd26f18b75c33bba6794c625729e5d
+ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112062251"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113225595"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Próximos cambios importantes en Azure Security Center
 
@@ -26,19 +26,56 @@ Si busca las notas de la versión más recientes, puede encontrarlas en [Novedad
 
 ## <a name="planned-changes"></a>Cambios planeados
 
-| Cambio planeado                                                                                                                                                        | Fecha estimada del cambio |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| [La implementación heredada de ISO 27001 se está reemplazando por la nueva ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)          | Junio de 2021                 |
-| [Mejoras en la recomendación de clasificación de datos de SQL](#enhancements-to-sql-data-classification-recommendation)                                                     | Tercer trimestre de 2021                   |
-| [Habilitación del control de seguridad de Azure Defender para incluirse en la puntuación de seguridad](#enable-azure-defender-security-control-to-be-included-in-secure-score)                       | Tercer trimestre de 2021                   |
-|                                                                                                                                                                       |                           |
+| Cambio planeado                                                                                                                                                                                          | Fecha estimada del cambio |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
+| [Las exportaciones de archivos .csv se limitarán a 20 MB.](#csv-exports-to-be-limited-to-20-mb)                                                                                                                               | Julio de 2021                 |
+| [La implementación heredada de ISO 27001 se está reemplazando por la nueva ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)                                            | Julio de 2021                 |
+| [Entra en desuso la recomendación "Se deben resolver los problemas de estado del agente de Log Analytics en las máquinas".](#deprecating-recommendation-log-analytics-agent-health-issues-should-be-resolved-on-your-machines) | Julio de 2021                 |
+| [Mejoras en la recomendación de clasificación de datos de SQL](#enhancements-to-sql-data-classification-recommendation)                                                                                       | Tercer trimestre de 2021                   |
+| [Habilitación del control de seguridad de Azure Defender para incluirse en la puntuación de seguridad](#enable-azure-defender-security-control-to-be-included-in-secure-score)                                                         | Tercer trimestre de 2021                   |
+|                                                                                                                                                                                                         |                           |
 
+
+### <a name="csv-exports-to-be-limited-to-20-mb"></a>Las exportaciones de archivos .csv se limitarán a 20 MB.
+
+**Fecha estimada del cambio:** julio de 2021
+
+Al exportar datos de recomendaciones de Security Center, actualmente no hay ningún límite en la cantidad de datos que puede descargar.
+
+:::image type="content" source="media/upcoming-changes/download-csv-report.png" alt-text="Botón &quot;Descargar informe CSV&quot; de Security Center para exportar datos de recomendaciones.":::
+
+Con este cambio, se establece un límite de 20 MB.
+
+Si tiene que exportar mayor cantidad de datos, use los filtros disponibles antes de seleccionarlos, o bien seleccione subconjuntos de las suscripciones y descargue los datos en lotes.
+
+:::image type="content" source="media/upcoming-changes/filter-subscriptions.png" alt-text="Filtrado de suscripciones en Azure Portal.":::
+
+Más información sobre [cómo realizar una exportación de archivos .csv de las recomendaciones de seguridad](continuous-export.md#manual-one-time-export-of-alerts-and-recommendations).
 
 ### <a name="legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013"></a>La implementación heredada de ISO 27001 se está reemplazando por la nueva ISO 27001:2013
+
+**Fecha estimada del cambio:** julio de 2021
 
 La implementación heredada de ISO 27001 se eliminará del panel de cumplimiento normativo de Security Center. Si está haciendo un seguimiento del cumplimiento de la norma ISO 27001 mediante Security Center, incorpore el nuevo estándar ISO 27001:2013 para los grupos de administración o suscripciones pertinentes, y la norma ISO 27001 heredada actual pronto se eliminará del panel.
 
 :::image type="content" source="media/upcoming-changes/removing-iso-27001-legacy-implementation.png" alt-text="Panel de cumplimiento normativo de Security Center que muestra el mensaje sobre la eliminación de la implementación heredada de ISO 27001." lightbox="media/upcoming-changes/removing-iso-27001-legacy-implementation.png":::
+
+### <a name="deprecating-recommendation-log-analytics-agent-health-issues-should-be-resolved-on-your-machines"></a>Entra en desuso la recomendación "Se deben resolver los problemas de estado del agente de Log Analytics en las máquinas".
+
+**Fecha estimada del cambio:** julio de 2021
+
+Hemos detectado que la recomendación **Se deben resolver los problemas de estado del agente de Log Analytics en las máquinas** afecta a las puntuaciones de seguridad de maneras incoherentes con el enfoque de administración de la posición de seguridad en la nube (CSPM) de Security Center. Normalmente, CSPM se relaciona con la identificación de errores de configuración de seguridad. Los problemas de estado del agente no encajan en esta categoría de problemas.
+
+Además, la recomendación es una anomalía en comparación con los demás agentes relacionados con Security Center: este es el único agente con una recomendación relacionada con problemas de estado.
+
+La recomendación entrará en desuso.
+
+Como resultado de esta entrada en desuso, también realizaremos pequeños cambios en las recomendaciones sobre la instalación del agente de Log Analytics (**El agente de Log Analytics se debe instalar en...** ).
+
+Es probable que este cambio afecte a las puntuaciones de seguridad. Para la mayoría de las suscripciones, esperamos que el cambio lleve a una puntuación mayor, pero es posible que las actualizaciones de la recomendación de instalación puedan dar lugar a una disminución de las puntuaciones en algunos casos.
+
+> [!TIP]
+> La página de [inventario de recursos](asset-inventory.md) también se verá afectada por este cambio, ya que también muestra información sobre si una máquina está supervisada, no supervisada o parcialmente supervisada (un estado que hace referencia a un agente con problemas de estado). 
 
 ### <a name="enhancements-to-sql-data-classification-recommendation"></a>Mejoras en la recomendación de clasificación de datos de SQL
 

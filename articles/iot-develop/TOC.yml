@@ -31,7 +31,7 @@
           href: quickstart-devkit-renesas-rx65n-2mb.md
         - name: Kit de nube Renesas RX65N
           href: quickstart-devkit-renesas-rx65n-cloud-kit.md
-        - name: ST Microelectronics B-L475E/L4S5I-IOT01A
+        - name: STMicroelectronics B-L475E/L4S5I-IOT01A
           href: quickstart-devkit-stm-b-l475e.md
 - name: Tutoriales
   items:
@@ -43,9 +43,15 @@
       href: concepts-overview-connection-options.md
     - name: Introducción a los tipos de dispositivos
       href: concepts-iot-device-types.md
+- name: Procedimientos
+  items:
+    - name: Solución de problemas
+      items:
+        - name: Solución de problemas de inicios rápidos insertados
+          href: troubleshoot-embedded-device-quickstarts.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/azure-cli-reference-for-IoT
     - name: Azure PowerShell
       href: /powershell/module/az.iothub#iothub
