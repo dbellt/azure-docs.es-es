@@ -1,5 +1,5 @@
 ---
-title: Introducción al control de acceso del área de trabajo de Synapse
+title: Introducción al control de acceso del área de trabajo de Azure Synapse
 description: En este artículo se describen los mecanismos que se usan para controlar el acceso a las áreas de trabajo de Synapse, así como a los recursos y artefactos de código que contienen.
 services: synapse-analytics
 author: RonyMSFT
@@ -9,26 +9,26 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 20614b1c397bdf24e807d48d3de33f0033da14bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 574211bc426d97c5bd734dcf348b66ecce1b3ff8
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100105120"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113217816"
 ---
-# <a name="synapse-access-control"></a>Control de acceso de Synapse 
+# <a name="azure-synapse-access-control"></a>Control de acceso de Azure Synapse 
 
-En este artículo se proporciona información general acerca de los mecanismos disponibles para controlar el acceso a los datos y recursos de proceso de Synapse.  
+En este artículo, se proporciona información general acerca de los mecanismos disponibles para controlar el acceso a los datos y recursos de proceso de Azure Synapse.  
 
 ## <a name="overview"></a>Información general
 
-Synapse proporciona un sistema de control de acceso completo y específico que integra: 
+Azure Synapse proporciona un sistema de control de acceso completo y detallado que integra: 
 - **Roles de Azure** para la administración de los recursos y el acceso a los datos en el almacenamiento. 
 - **Roles de Synapse** para administrar el acceso en vivo al código y a la ejecución. 
 - **Roles de SQL** para el acceso al plano de datos para los datos de grupos de SQL. 
 - **Permisos de Git** para el control del código fuente, lo que incluye la integración continua y el soporte técnico de la implementación.  
 
-Los roles de Synapse proporcionan conjuntos de permisos que se pueden aplicar en diferentes ámbitos. Esta granularidad facilita la concesión del acceso apropiado a administradores, desarrolladores, personal de seguridad y operadores para procesar recursos y datos.
+Los roles de Azure Synapse proporcionan conjuntos de permisos que se pueden aplicar en ámbitos diferentes. Esta granularidad facilita la concesión del acceso apropiado a administradores, desarrolladores, personal de seguridad y operadores para procesar recursos y datos.
 
 Para simplificar el control de acceso se pueden usar grupos de seguridad que estén alineados con los roles de trabajo de las personas. Para administrar el acceso solo hay que agregar y quitar usuarios de los grupos de seguridad adecuados.
 

@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 04/06/2021
 ms.author: memildin
-ms.openlocfilehash: 9fddb27ee6a1139fa8b07c6c19dd4fdf1a20096e
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 17a590be2038acc56656d91cf11230b0782e1c81
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107029151"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112239028"
 ---
 # <a name="container-security-in-security-center"></a>Seguridad de los contenedores en Security Center
 
@@ -22,9 +22,9 @@ Security Center puede proteger los siguientes tipos de recursos de contenedor:
 
 | Tipo de recurso | Protecciones ofrecidas por Security Center |
 |:--------------------:|-----------|
-| ![Servicio Kubernetes](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png)<br>**Clústeres de Kubernetes** | Evaluación continua de los clústeres para proporcionar visibilidad sobre las configuraciones incorrectas y las directrices que le ayudarán a mitigar las amenazas identificadas. Más información sobre la [protección del entorno mediante recomendaciones de seguridad](#environment-hardening).<br><br>Protección contra amenazas para clústeres y nodos Linux. [Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md) proporciona alertas de actividades sospechosas. Este plan de Azure Defender protegerá los clústeres de Kubernetes tanto si se hospedan en Azure Kubernetes Service (AKS), localmente o en otros proveedores de nube. Clústeres. <br>Más información sobre la [protección en tiempo de ejecución de los clústeres y nodos de Kubernetes](#run-time-protection-for-kubernetes-nodes-and-clusters).|
-| ![Host de contenedor](./media/security-center-virtual-machine-recommendations/icon-container-host-rec.png)<br>**Hosts de contenedor**<br>(Máquinas virtuales que ejecutan Docker) | Evaluación continua de los entornos de Docker para proporcionar visibilidad de los errores de configuración e instrucciones que le ayudarán a mitigar las amenazas identificadas con la funcionalidad opcional [Azure Defender para servidores](defender-for-servers-introduction.md).<br>Más información sobre la [protección del entorno mediante recomendaciones de seguridad](#environment-hardening).|
-| ![Registro de contenedor](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png)<br>**Registros de Azure Container Registry (ACR)** | Herramientas de evaluación y administración de vulnerabilidades para las imágenes de los registros de ACR basados en Azure Resource Manager con la funcionalidad opcional [Azure Defender para registros de contenedor](defender-for-container-registries-introduction.md).<br>Más información sobre el [examen de las imágenes de contenedor en busca de vulnerabilidades](#vulnerability-management---scanning-container-images). |
+| ![Instancia de Kubernetes Service.](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png)<br>**Clústeres de Kubernetes** | Evaluación continua de los clústeres para proporcionar visibilidad sobre las configuraciones incorrectas y las directrices que le ayudarán a mitigar las amenazas identificadas. Más información sobre la [protección del entorno mediante recomendaciones de seguridad](#environment-hardening).<br><br>Protección contra amenazas para clústeres y nodos Linux. [Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md) proporciona alertas de actividades sospechosas. Este plan de Azure Defender protegerá los clústeres de Kubernetes tanto si se hospedan en Azure Kubernetes Service (AKS), localmente o en otros proveedores de nube. Clústeres. <br>Más información sobre la [protección en tiempo de ejecución de los clústeres y nodos de Kubernetes](#run-time-protection-for-kubernetes-nodes-and-clusters).|
+| ![Host de contenedor.](./media/security-center-virtual-machine-recommendations/icon-container-host-rec.png)<br>**Hosts de contenedor**<br>(Máquinas virtuales que ejecutan Docker) | Evaluación continua de los entornos de Docker para proporcionar visibilidad de los errores de configuración e instrucciones que le ayudarán a mitigar las amenazas identificadas con la funcionalidad opcional [Azure Defender para servidores](defender-for-servers-introduction.md).<br>Más información sobre la [protección del entorno mediante recomendaciones de seguridad](#environment-hardening).|
+| ![Registro de contenedor.](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png)<br>**Registros de Azure Container Registry (ACR)** | Herramientas de evaluación y administración de vulnerabilidades para las imágenes de los registros de ACR basados en Azure Resource Manager con la funcionalidad opcional [Azure Defender para registros de contenedor](defender-for-container-registries-introduction.md).<br>Más información sobre el [examen de las imágenes de contenedor en busca de vulnerabilidades](#vulnerability-management---scanning-container-images). |
 |||
 
 En este artículo se describe cómo puede usar Security Center, junto con los planes de Azure Defender opcionales para los registros de contenedor, los servidores y Kubernetes, a fin de mejorar, supervisar y mantener la seguridad de los contenedores y sus aplicaciones.

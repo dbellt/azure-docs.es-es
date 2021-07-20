@@ -3,16 +3,16 @@ title: 'Inicio rápido: Ejecución de un contenedor personalizado en App Service
 description: 'Para comenzar a usar contenedores en Azure App Service: implemente su primer contenedor personalizado.'
 author: msangapu-msft
 ms.author: msangapu
-ms.date: 10/21/2019
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 360da015f012822593dbb6390cb7df0017ba85b1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d4e22c58fd45edc4beb58b4b1b9ae7c835e8fa9
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96745084"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113215460"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Ejecución de un contenedor personalizado en Azure
 
@@ -91,17 +91,17 @@ Cree una aplicación web ASP.NET siguiendo estos pasos:
 
 1. Elija **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 
-1. En el cuadro de búsqueda que está encima de la lista de recursos de Azure Marketplace, busque **Web App for Containers** y seleccione **Crear**.
+1. En **Servicios populares**, seleccione **Crear** en **Aplicación web**.
 
-1. En  **Web App Create** (Creación de aplicación web), elija su suscripción y un **grupo de recursos**. Si es necesario, puede crear un grupo de recursos.
+1. En **Crear aplicación web**, elija la suscripción y un **grupo de recursos**. Si es necesario, puede crear un grupo de recursos.
 
-1. Especifique un nombre de aplicación, como *win-container-demo* y elija **Windows** en **Sistema operativo**. Seleccione **Siguiente: Docker** para continuar.
+1. Proporcione un nombre de aplicación, como *win-container-demo*. Elija **Contenedor de Docker** para **Publicar** y **Windows** para **Sistema operativo**. Seleccione **Siguiente: Docker** para continuar.
 
-   ![Crear una instancia de Web App for Containers](media/quickstart-custom-container/create-web-app-continer.png)
+   ![Crear una instancia de Web App for Containers](media/quickstart-custom-container/create-web-app-container.png)
 
 1. En **Origen de imagen**, elija **Docker Hub** y en **Imagen y etiqueta**, escriba el nombre del repositorio que copió en [Publicar en Docker Hub](#publish-to-docker-hub).
 
-   ![Configurar una instancia de Web App for Containers](media/quickstart-custom-container/configure-web-app-continer.png)
+   ![Configurar una instancia de Web App for Containers](media/quickstart-custom-container/configure-web-app-container.png)
 
     Si tiene una imagen personalizada de la aplicación web en otra parte como, por ejemplo, en [Azure Container Registry](../container-registry/index.yml) o en cualquier otro repositorio privado, puede configurarla aquí.
 
@@ -192,44 +192,124 @@ App Service en Linux proporciona pilas de aplicaciones predefinidas en Linux con
 * La [extensión de Azure App Service para VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Puede usar esta extensión para crear, administrar e implementar Web Apps de Linux en la Plataforma como servicio (PaaS) de Azure.
 * La [extensión de Docker para VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker). Puede usar esta extensión para simplificar la administración de imágenes y comandos locales de Docker e implementar imágenes de aplicaciones compiladas en Azure.
 
-## <a name="create-an-image"></a>Crear una imagen
+## <a name="create-a-container-registry"></a>Creación de un registro de contenedor
 
-Para completar este inicio rápido, necesitará una imagen de aplicación web adecuada almacenada en [Azure Container Registry](../container-registry/index.yml). Siga las instrucciones del artículo [Guía de inicio rápido: Creación de un registro de contenedor privado con Azure Portal](../container-registry/container-registry-get-started-portal.md), pero use la imagen `mcr.microsoft.com/azuredocs/go` en lugar de `hello-world`. Como referencia, el [ejemplo de Dockerfile se encuentra en el repositorio Azure Samples](https://github.com/Azure-Samples/go-docs-hello-world).
+En este inicio rápido, se usa Azure Container Registry como registro de su elección. Puede usar otros registros, pero los pasos pueden diferir ligeramente.
+
+Cree un registro de contenedor según las instrucciones que se indican en [Inicio rápido: Creación de un instancia de Azure Container Registry mediante Azure Portal](../container-registry/container-registry-get-started-portal.md).
 
 > [!IMPORTANT]
-> Asegúrese de establecer la opción **Usuario administrador** en **Habilitar** al crear el registro de contenedor. También puede establecerla en la sección **Claves de acceso** de la página de registro en Azure Portal. Esta opción de configuración es necesaria para el acceso a App Service.
+> Asegúrese de establecer la opción **Usuario administrador** en **Habilitar** al crear el registro de contenedor de Azure. También puede establecerla en la sección **Claves de acceso** de la página de registro en Azure Portal. Esta opción de configuración es necesaria para el acceso a App Service.
 
 ## <a name="sign-in"></a>Iniciar sesión
 
-A continuación, inicie VS Code e inicie sesión en su cuenta de Azure con la extensión App Service. Para ello, seleccione el logotipo de Azure en la barra de actividades, vaya al explorador **APP SERVICE**, después, seleccione **Iniciar sesión en Azure** y siga las instrucciones.
+1. Inicie Visual Studio Code. 
+1. Seleccione el logotipo de **Azure** en la [barra de actividades](https://code.visualstudio.com/docs/getstarted/userinterface), vaya al explorador **APP SERVICE**, después, seleccione **Iniciar sesión en Azure** y siga las instrucciones.
 
-![inicio de sesión en Azure](./media/quickstart-docker/sign-in.png)
+    ![inicio de sesión en Azure](./media/quickstart-docker/sign-in.png)
+
+1. En la [barra de estado](https://code.visualstudio.com/docs/getstarted/userinterface) de la parte inferior, compruebe la dirección de correo electrónico de la cuenta de Azure. Se debe mostrar la suscripción en el explorador **APP SERVICE**.
+
+1. En la barra de actividades, seleccione el logotipo de **Docker**. En el explorador **REGISTROS**, compruebe que aparece el registro de contenedor que ha creado.
+
+    ![Captura de pantalla que muestra el valor de Registros con Azure expandido.](./media/quickstart-docker/registries.png)
 
 ## <a name="check-prerequisites"></a>Comprobación de los requisitos previos
 
-Ahora puede comprobar si ha instalado y configurado todos los requisitos previos.
-
-En VS Code, verá su dirección de correo electrónico de Azure en la barra de estado y la suscripción en el explorador de **APP SERVICE**.
-
-A continuación, compruebe que tiene Docker instalado y en ejecución. El siguiente comando mostrará la versión de Docker si se está ejecutando.
+Compruebe que tiene Docker instalado y en ejecución. El siguiente comando mostrará la versión de Docker si se está ejecutando.
 
 ```bash
 docker --version
 ```
 
-Por último, asegúrese de que Azure Container Registry está conectado. Para ello, seleccione el logotipo de Docker en la barra de actividad y, a continuación, vaya a **REGISTRIES** (Registros).
+## <a name="create-and-build-image"></a>Creación y compilación de una imagen
 
-![En la captura de pantalla se muestra el valor de los registros con Azure expandido y un archivo con la extensión de nombre de archivo .io.](./media/quickstart-docker/registries.png)
+1. En Visual Studio Code, abra una carpeta vacía y agregue un archivo llamado `Dockerfile`. En el archivo Dockerfile, pegue el contenido en función del marco de lenguaje deseado:
 
-## <a name="deploy-the-image-to-azure-app-service"></a>Implementación de la imagen en Azure App Service
+# <a name="net"></a>[.NET](#tab/dotnet)
 
-Ahora que todo está configurado, puede implementar la imagen en [Azure App Service](https://azure.microsoft.com/services/app-service/) directamente desde el explorador de extensiones de Docker.
+<!-- https://mcr.microsoft.com/v2/appsvc%2Fdotnetcore/tags/list -->
+```dockerfile
+FROM mcr.microsoft.com/appsvc/dotnetcore:lts
 
-Busque la imagen debajo del nodo **Registries** en el Explorador de **DOCKER** y expándalo para mostrar sus etiquetas. Haga clic con el botón derecho en una etiqueta y, después, seleccione **Implementar imagen en Azure App Service**.
+ENV PORT 8080
+EXPOSE 8080
 
-Desde aquí, siga las indicaciones para elegir una suscripción, un nombre de aplicación único global, un grupo de recursos y un plan de App Service. Elija **B1 básico** como plan de tarifa y una región.
+ENV ASPNETCORE_URLS "http://*:${PORT}"
 
-Después de la implementación, la aplicación está disponible en `http://<app name>.azurewebsites.net`.
+ENTRYPOINT ["dotnet", "/defaulthome/hostingstart/hostingstart.dll"]
+```
+
+En este archivo Dockerfile, la imagen primaria es uno de los contenedores de .NET integrados de App Service. Puede encontrar los archivos de código fuente [en el repositorio de GitHub Azure-App-Service/ImageBuilder, en GenerateDockerFiles/dotnetcore](https://github.com/Azure-App-Service/ImageBuilder/tree/master/GenerateDockerFiles/dotnetcore). Su archivo [Dockerfile](https://github.com/Azure-App-Service/ImageBuilder/blob/master/GenerateDockerFiles/dotnetcore/debian-9/Dockerfile) copia una aplicación sencilla de .NET en `/defaulthome/hostingstart`. El archivo Dockerfile simplemente inicia esa aplicación.
+
+# <a name="nodejs"></a>[Node.js](#tab/node)
+
+<!-- https://mcr.microsoft.com/v2/appsvc%2Fnode/tags/list -->
+```dockerfile
+FROM mcr.microsoft.com/appsvc/node:10-lts
+
+ENV HOST 0.0.0.0
+ENV PORT 8080
+EXPOSE 8080
+
+ENTRYPOINT ["pm2", "start", "--no-daemon", "/opt/startup/default-static-site.js"]
+```
+
+En este archivo Dockerfile, la imagen primaria es uno de los contenedores de Node.js integrados de App Service. Puede encontrar los archivos de código fuente [en el repositorio de GitHub Azure-App-Service/ImageBuilder, en GenerateDockerFiles/node/node-template](https://github.com/Azure-App-Service/ImageBuilder/tree/master/GenerateDockerFiles/node/node-template). Su archivo [Dockerfile](https://github.com/Azure-App-Service/ImageBuilder/blob/master/GenerateDockerFiles/node/node-template/Dockerfile) copia una aplicación sencilla de Node.js en `/opt/startup`. El archivo Dockerfile simplemente inicia esa aplicación mediante PM2, que ya está instalado por la imagen primaria.
+
+# <a name="python"></a>[Python](#tab/python)
+
+<!-- https://mcr.microsoft.com/v2/appsvc%2Fpython/tags/list -->
+```dockerfile
+FROM mcr.microsoft.com/appsvc/python:latest
+
+ENV PORT 8080
+EXPOSE 8080
+
+ENTRYPOINT ["gunicorn", "--timeout", "600", "--access-logfile", "'-'", "--error-logfile", "'-'", "--chdir=/opt/defaultsite", "application:app"]
+```
+
+En este archivo Dockerfile, la imagen primaria es uno de los contenedores de Python integrados de App Service. Puede encontrar los archivos de código fuente [en el repositorio de GitHub Azure-App-Service/ImageBuilder, en GenerateDockerFiles/python/template-3.9](https://github.com/Azure-App-Service/ImageBuilder/tree/master/GenerateDockerFiles/python/template-3.9). Su archivo [Dockerfile](https://github.com/Azure-App-Service/ImageBuilder/blob/master/GenerateDockerFiles/python/template-3.9/Dockerfile) copia una aplicación sencilla de Python en `/opt/defaultsite`. El archivo Dockerfile simplemente inicia esa aplicación mediante Gunicorn, que ya está instalado por la imagen primaria.
+
+# <a name="java"></a>[Java](#tab/java)
+
+<!-- https://mcr.microsoft.com/v2/azure-app-service%2Fjava/tags/list -->
+```dockerfile
+FROM mcr.microsoft.com/azure-app-service/java:11-java11_stable
+
+ENV PORT 80
+EXPOSE 80
+
+ENTRYPOINT ["java", "-Dserver.port=80", "-jar", "/tmp/appservice/parkingpage.jar"]
+```
+
+En este archivo Dockerfile, la imagen primaria es uno de los contenedores de Java integrados de App Service. Puede encontrar los archivos de código fuente [en el repositorio de GitHub Azure-App-Service/java, en java/tree/dev/java11-alpine](https://github.com/Azure-App-Service/java/tree/dev/java11-alpine). Su archivo [Dockerfile](https://github.com/Azure-App-Service/java/blob/dev/java11-alpine/Dockerfile) copia una aplicación sencilla de Java en `/tmp/appservice`. El archivo Dockerfile simplemente inicia esa aplicación.
+
+-----
+
+2. [Abra la paleta de comandos](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) y escriba **Docker Images: Build Image** (Imágenes de Docker: compilar imagen). Pulse **Entrar** para ejecutar el comando.
+
+3. En el cuadro de etiqueta de imagen, especifique la etiqueta que desee en el formato siguiente: `<acr-name>.azurecr.io/<image-name>/<tag>`, donde `<acr-name>` es el nombre del registro de contenedor que ha creado. Presione **ENTRAR**.
+
+4. Cuando la imagen termine de compilarse, haga clic en **Actualizar** en la parte superior del explorador **IMÁGENES** y compruebe que la imagen se ha compilado correctamente.
+
+    ![Captura de pantalla que muestra la imagen compilada con la etiqueta.](./media/quickstart-docker/built-image.png)
+
+## <a name="deploy-to-container-registry"></a>Implementación en el registro de contenedor
+
+1. En la barra de actividades, haga clic en el icono de **Docker**. En el explorador **IMÁGENES**, busque la imagen que acaba de compilar.
+1. Expanda la imagen, haga clic con el botón derecho en la etiqueta que desee y haga clic en **Insertar**.
+1. Asegúrese de que la etiqueta de imagen comienza por `<acr-name>.azurecr.io` y pulse **Entrar**.
+1. Cuando Visual Studio Code finalice la inserción de la imagen en el registro de contenedor, haga clic en **Actualizar** en la parte superior del explorador **REGISTROS** y compruebe que la imagen se ha insertado correctamente.
+
+    ![Captura de pantalla que muestra la imagen implementada en Azure Container Registry.](./media/quickstart-docker/image-in-registry.png)
+
+## <a name="deploy-to-app-service"></a>Implementación en App Service
+
+1. En el explorador **REGISTROS**, expanda la imagen, haga clic con el botón derecho en la etiqueta y haga clic en **Deploy image to Azure App Service** (Implementar imagen en Azure App Service).
+1. Siga las indicaciones para elegir una suscripción, un nombre de aplicación globalmente único, un grupo de recursos y un plan de App Service. Elija **B1 Básico** como plan de tarifa y una región cercana.
+
+Después de la implementación, la aplicación está disponible en `http://<app-name>.azurewebsites.net`.
 
 Un **grupo de recursos** es una colección con nombre de todos los recursos de la aplicación en Azure. Por ejemplo, un grupo de recursos puede contener una referencia a un sitio web, una base de datos y una función de Azure.
 
@@ -237,7 +317,7 @@ Un **plan de App Service** define los recursos físicos que se van a usar para h
 
 ## <a name="browse-the-website"></a>Examinar el sitio web
 
-El panel **Salida** se abrirá durante la implementación para indicar el estado de la operación. Cuando se complete la operación, busque la aplicación que creó en el explorador de **APP SERVICE**, haga clic con el botón derecho en ella y, después, seleccione **Examinar sitio web** para abrir el sitio en el explorador.
+El panel **Salida** muestra el estado de las operaciones de implementación. Cuando finalice la operación, haga clic en **Abrir sitio** en la notificación emergente para abrir el sitio en el explorador.
 
 > [!div class="nextstepaction"]
 > [He tenido un problema](https://www.research.net/r/PWZWZ52?tutorial=quickstart-docker&step=deploy-app)
@@ -246,18 +326,23 @@ El panel **Salida** se abrirá durante la implementación para indicar el estado
 
 Ha completado correctamente este inicio rápido.
 
-A continuación, vea otras extensiones de Azure.
+La aplicación de App Service extrae del registro de contenedor cada vez que se inicia. Si recompila la imagen, solo tiene que insertarla en el registro de contenedor y la aplicación extrae la imagen actualizada cuando se reinicia. Para indicar a la aplicación que extraiga la imagen actualizada inmediatamente, reiníciela.
+
+> [!div class="nextstepaction"]
+> [Configuración de un contenedor personalizado](configure-custom-container.md)
+
+> [!div class="nextstepaction"]
+> [Migración de software personalizado a Azure App Service mediante un contenedor personalizado](tutorial-custom-container.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: Creación de una aplicación de varios contenedores (versión preliminar) en Web App for Containers](tutorial-multi-container-app.md)
+
+Otras extensiones de Azure:
 
 * [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 * [Funciones de Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 * [Herramientas de la CLI de Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
 * [Herramientas de Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
-
-O bien, puede conseguirlas todas si instala el paquete de extensiones [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack).
-
-Consulte otros recursos:
-
-> [!div class="nextstepaction"]
-> [Configuración de un contenedor personalizado](configure-custom-container.md)
+* El paquete de extensiones [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) incluye todas las extensiones anteriores.
 
 ::: zone-end

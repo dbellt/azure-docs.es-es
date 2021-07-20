@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ea5a443caba25b7b5e6d843408c12e61a55b9e10
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 129d66f762966f55567793d6a39589585f194b35
+ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105047446"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113223577"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>Inicio rápido: Creación de una aplicación de Cassandra con el SDK para Python y Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -41,7 +41,7 @@ En este inicio rápido se crea una cuenta de Cassandra API de Azure Cosmos DB y
 
 Para poder crear una base de datos de documentos, debe crear una cuenta de Cassandra con Azure Cosmos DB.
 
-[!INCLUDE [cosmos-db-create-dbaccount-cassandra](../../includes/cosmos-db-create-dbaccount-cassandra.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-cassandra](includes/cosmos-db-create-dbaccount-cassandra.md)]
 
 ## <a name="clone-the-sample-application"></a>Clonación de la aplicación de ejemplo
 
@@ -142,11 +142,14 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 2. Ejecute los comandos siguientes para instalar los módulos necesarios:
 
     ```python
-    python -m pip install cassandra-driver
+    python -m pip install cassandra-driver==3.20.2
     python -m pip install prettytable
     python -m pip install requests
     python -m pip install pyopenssl
     ```
+
+    > [!NOTE]
+    > Se recomienda la versión **3.20.2** del controlador de Python para su uso con Cassandra API. Las versiones posteriores pueden producir errores.
 
 2. Ejecute el comando siguiente para iniciar la aplicación de Python:
 
@@ -166,11 +169,11 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
 ## <a name="review-slas-in-the-azure-portal"></a>Revisión de los SLA en Azure Portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

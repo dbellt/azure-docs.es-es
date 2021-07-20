@@ -5,13 +5,13 @@ author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
 ms.topic: quickstart
-ms.date: 06/01/2021
-ms.openlocfilehash: a66af648abc0ae48c0a4fcc7eb33ab7c1351c41b
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.date: 06/04/2021
+ms.openlocfilehash: d78b915fc9efffd52f31b75edcb35d91fb529e4a
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111372036"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113219796"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Inicio rápido: Uso de la herramienta Copy Data para copiar datos
 
@@ -61,9 +61,9 @@ En esta guía de inicio rápido, usará Azure Portal para crear una factoría de
     
 ## <a name="start-the-copy-data-tool"></a>Inicio de la herramienta Copy Data
 
-1. En la página **Let's get started** (Comencemos), seleccione el icono **Copy Data** para iniciar la herramienta Copy Data.
+1. En la página principal de Azure Data Factory, seleccione el icono **Ingest** (Ingerir) para iniciar la herramienta Copiar datos.
 
-   ![Icono Copy Data](./media/doc-common-process/get-started-page.png)
+   ![Captura de pantalla que muestra la página principal de Azure Data Factory.](./media/doc-common-process/get-started-page.png)
 
 1. En la página **Propiedades** de la herramienta Copiar datos, elija **Tarea de copia integrada** en **Tipo de tarea** y, a continuación, seleccione **Siguiente**.
 

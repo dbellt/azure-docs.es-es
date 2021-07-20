@@ -1,78 +1,115 @@
 ---
-title: 'Inicio rápido: Creación de una aplicación de Azure IoT Central | Microsoft Docs'
-description: 'Inicio rápido: Creación de una nueva aplicación de Azure IoT Central. Cree la aplicación mediante el plan de precios gratuito o uno de los planes de precios estándar.'
-author: viv-liu
-ms.author: viviali
-ms.date: 12/28/2020
+title: 'Inicio rápido: Creación y uso de una aplicación de Azure IoT Central | Microsoft Docs'
+description: 'Inicio rápido: Cree una nueva aplicación de Azure IoT Central y conecte su primer dispositivo. En esta guía de inicio rápido, se usa una aplicación de smartphone de Google Play o Apple App Store como un dispositivo IoT.'
+author: dominicbetts
+ms.author: dobett
+ms.date: 05/27/2021
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
-manager: corywink
-ms.openlocfilehash: ef76b1283215da9ff08efb4d151d8e0e99a228f0
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 4e40c079c50ccb7f83a4e03d47cf3e9b419870ef
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108768758"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112288617"
 ---
-# <a name="quickstart---create-an-azure-iot-central-application"></a>Inicio rápido: Creación de una aplicación de Azure IoT Central
+# <a name="quickstart---create-an-azure-iot-central-application-and-use-your-smartphone-to-send-telemetry"></a>Inicio rápido: Creación de una aplicación de Azure IoT Central y uso de un smartphone para enviar datos de telemetría
 
-En este inicio rápido se muestra cómo crear una aplicación de Azure IoT Central.
+En este inicio rápido, se muestra cómo crear una aplicación de Azure IoT Central y conectar su primer dispositivo. Para empezar a trabajar rápidamente, instale una aplicación en el smartphone para que actúe como el dispositivo. La aplicación envía datos de telemetría, notifica las propiedades y responde a comandos:
 
-## <a name="prerequisite"></a>Requisito previo 
+:::image type="content" source="media/quick-deploy-iot-central/overview.png" alt-text="Información general sobre el escenario de inicio rápido que conecta una aplicación de smartphone a IoT Central." border="false":::
 
- - Una cuenta de Azure con una suscripción activa. Cree una cuenta [gratuita](https://aka.ms/createazuresubscription).
- - La suscripción de Azure debe tener acceso de colaborador
+## <a name="prerequisites"></a>Prerrequisitos
+
+Una suscripción de Azure activa. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+
+> [!TIP]
+> Debe tener como mínimo acceso de **colaborador** en la suscripción a Azure. Si creó la suscripción usted mismo, automáticamente será un administrador con acceso suficiente. Para más información, consulte [¿Qué es el control de acceso basado en rol de Azure (RBAC)?](../../role-based-access-control/overview.md)
+
+Un teléfono Android o iOS en el que pueda instalar una aplicación gratuita desde una de las tiendas de aplicaciones oficiales.
 
 ## <a name="create-an-application"></a>Crear una aplicación
 
-Navegue al sitio de [Compilación Azure IoT Central](https://aka.ms/iotcentral). Después, inicie sesión con una cuenta Microsoft personal, profesional o educativa.
+Navegue al sitio de [Compilación Azure IoT Central](https://aka.ms/iotcentral). A continuación, inicie sesión con la cuenta personal, profesional o educativa de Microsoft asociada a la suscripción de Azure.
 
-Puede crear una nueva aplicación desde la lista de plantillas de IoT Central relevantes del sector, lo que le ayudaría a empezar a trabajar rápidamente, o bien partir de cero con una plantilla de **Aplicación personalizada**. En este inicio rápido se usa la plantilla **Aplicación personalizada**.
+IoT Central proporciona varias plantillas de aplicación centradas en el sector para ayudarle a empezar a trabajar. En este inicio rápido, se usa la plantilla **Aplicación personalizada** para crear una aplicación desde cero:
 
-Para crear una aplicación de Azure IoT Central a partir de la plantilla **Aplicación personalizada**:
-
-1. Vaya a la página **Compilar**:
+1. Vaya a la página **Crear** y seleccione **Crear aplicación** en el icono **Aplicación personalizada**:
 
     :::image type="content" source="media/quick-deploy-iot-central/iotcentralcreate-new-application.png" alt-text="Página Compilación de una aplicación de IoT":::
 
-1. Elija **Aplicación personalizada**.
-
 1. En la página **Nueva aplicación**, asegúrese de que **Aplicación personalizada** está seleccionada en **Plantilla de aplicación**.
 
-1. Azure IoT Central sugiere automáticamente un **nombre de aplicación** en función de la plantilla de aplicación que ha seleccionado. Puede usar este nombre o escribir su propio nombre descriptivo de la aplicación.
+1. Azure IoT Central sugiere automáticamente un **nombre de aplicación** en función de la plantilla de aplicación que ha seleccionado. Escriba su propio nombre de aplicación, como *Contoso quickstart app* (Aplicación de inicio rápido de Contoso).
 
-1. Azure IoT Central también genera un prefijo de dirección **URL** único, en función del nombre de la aplicación. Esta dirección URL se usa para tener acceso a la aplicación. Si quiere, cambie el prefijo de esta URL por algo más fácil de recordar.
+1. Azure IoT Central también genera un prefijo de dirección **URL** único, en función del nombre de la aplicación. Esta dirección URL se usa para tener acceso a la aplicación. Si quiere, cambie el prefijo de esta URL por algo más fácil de recordar. Esta dirección URL debe ser única.
 
     :::image type="content" source="media/quick-deploy-iot-central/iotcentralcreate-custom.png" alt-text="Página de creación de una aplicación de Azure IoT Central":::
 
-    :::image type="content" source="media/quick-deploy-iot-central/iotcentralcreate-billinginfo.png" alt-text="Información acerca de la facturación de Azure IoT Central":::
+1. Para esta guía de inicio rápido, deje el plan de precios establecido en **Estándar 2**.
 
-    > [!Tip]
-    > Si ha eligió **Aplicación personalizada** en la página anterior, verá la lista desplegable **Plantilla de aplicación**. Es posible que la muestre otras plantillas que la organización ha puesto a su disposición.
+1. Seleccione la suscripción en el desplegable **Suscripción de Azure**.
 
-1. Elija si desea crear esta aplicación mediante el plan de precios de evaluación gratuita durante siete días o uno de los planes de precios Estándar:
+1. Seleccione la ubicación más cercana en la lista desplegable **Ubicación**.
 
-    - Las aplicaciones que se crean mediante el plan *gratuito* no tienen costo durante siete días y admiten un máximo de cinco dispositivos. En cualquier momento antes de que expiren puede convertirlas para que usen un plan de precios estándar.
-        > [!NOTE]
-        > Las aplicaciones creadas con el plan *gratuito* no requieren suscripciones de Azure y, por lo tanto, no aparecerán en la suscripción de Azure en Azure Portal. Solo puede ver y administrar las aplicaciones gratuitas del portal de IoT Central.          
-    - Las aplicaciones que se crean con un plan *estándar* se facturan por dispositivo, y puede elegir entre el plan de precios **Estándar 0**, **Estándar 1** o **Estándar 2**, siendo gratis los dos primeros dispositivos. Obtenga más información sobre los planes de precios gratuito y estándar en la [página de precios de Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). Si crea una aplicación que use un plan de precios estándar, tendrá que seleccionar su *directorio*, *suscripción de Azure* y *ubicación*:
-        - *Directorio* es la instancia de Azure Active Directory en que se crea la aplicación. Azure Active Directory contiene identidades de usuario, credenciales y otra información de la organización. Si no tiene Azure Active Directory, se crea uno automáticamente al crear una suscripción de Azure.
-        - Una *suscripción de Azure* permite crear instancias de los servicios de Azure. IoT Central aprovisiona los recursos de su suscripción. Si no tiene una suscripción a Azure, puede crear la de forma gratuita en la [página de suscripción a Azure](https://aka.ms/createazuresubscription). Después de crear la suscripción a Azure, vuelva a la página **Nueva aplicación**. La nueva suscripción aparece en el cuadro de lista desplegable **Suscripción de Azure**.
-        - *Ubicación* es la [zona geográfica](https://azure.microsoft.com/global-infrastructure/geographies/) en la que desea crear la aplicación. Normalmente, se debe elegir la ubicación más cercana físicamente a los dispositivos para un rendimiento óptimo. Una vez que elija una ubicación, no puede mover la aplicación a otra más adelante.
-
-1. Revise los Términos y Condiciones y seleccione **Crear** en la parte inferior de la página. Después de unos minutos, la aplicación de IoT Central estará lista para usarse:
+1. Revise los Términos y Condiciones y seleccione **Crear** en la parte inferior de la página. Después de unos segundos, la aplicación de IoT Central aplicación lista para usarse:
 
     :::image type="content" source="media/quick-deploy-iot-central/iotcentral-application.png" alt-text="Aplicación de Azure IoT Central":::
 
+## <a name="register-a-device"></a>Registrar un dispositivo
+
+Para conectar un dispositivo a la aplicación de IoT Central, necesita la información de conexión. Una manera fácil de obtener esta información de conexión es registrar el dispositivo.
+
+Para registrar el dispositivo:
+
+1. En IoT Central, vaya a la página **Dispositivos** y seleccione **Crear un dispositivo**:
+
+    :::image type="content" source="media/quick-deploy-iot-central/create-device.png" alt-text="Captura de pantalla que muestra la creación de un dispositivo en IoT Central.":::
+
+1. En la página **Crear un dispositivo**, acepte los valores predeterminados y, a continuación, seleccione **Crear**.
+
+1. En la lista de dispositivos, haga clic en el nombre de dispositivo.
+
+    :::image type="content" source="media/quick-deploy-iot-central/device-name.png" alt-text="Captura de pantalla que muestra el nombre del dispositivo resaltado que puede seleccionar.":::
+
+1. En la página del dispositivo, seleccione **Conectar** y, a continuación, seleccione **Código QR**:
+
+    :::image type="content" source="media/quick-deploy-iot-central/device-registration.png" alt-text="Captura de pantalla que muestra el código QR que puede usar para conectar la aplicación del teléfono.":::
+
+Mantenga esta página abierta. En la sección siguiente, examinará este código QR mediante la aplicación del teléfono para conectarlo a IoT Central.
+
+## <a name="connect-your-device"></a>Conexión del dispositivo
+
+Para empezar a trabajar rápidamente, en este artículo se usa la aplicación de smartphone **IoT Plug and Play** como un dispositivo IoT. La aplicación envía los datos de telemetría recopilados de los sensores del teléfono, responde a los comandos invocados desde IoT Central e informa de los valores de las propiedades a IoT Central.
+
+[!INCLUDE [iot-phoneapp-install](../../../includes/iot-phoneapp-install.md)]
+
+Para conectar la aplicación **IoT Plug and Play** a la aplicación de IoT Central:
+
+1. Abra la aplicación **IoT PnP** en el smartphone.
+
+1. En la página principal, seleccione **Scan QR code** (Escanear código QR). Apunte la cámara del teléfono al código QR. A continuación, espere unos segundos mientras se establece la conexión.
+
+1. En la página de telemetría de la aplicación, puede ver los datos que la aplicación envía a IoT Central. En la página de registros, puede ver el dispositivo que se conecta y varios mensajes de inicialización.
+
+Para ver los datos de telemetría de la aplicación de smartphone en IoT Central:
+
+1. En IoT Central, vaya a la página **Dispositivos**.
+
+1. En la lista de dispositivos, haga clic en el nombre del dispositivo y seleccione **Información general**:
+
+    :::image type="content" source="media/quick-deploy-iot-central/iotcentral-telemetry.png" alt-text="Captura de pantalla de la página de información general con trazados de telemetría.":::
+
+> [!TIP]
+> La aplicación de smartphone solo envía datos cuando la pantalla está activada.
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 [!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha creado una aplicación de IoT Central. Este es el siguiente paso sugerido para obtener más información sobre IoT Central:
+En este inicio rápido, ha creado una aplicación de IoT Central y ha conectado un dispositivo que envía datos de telemetría. En este inicio rápido, ha usado una aplicación de smartphone como dispositivo IoT que se conecta a IoT Central. Este es el siguiente paso sugerido para obtener más información sobre IoT Central:
 
 > [!div class="nextstepaction"]
-> [Agregar un dispositivo simulado a la aplicación IoT Central](./quick-create-simulated-device.md)
-
+> [Inicio rápido: Configuración de reglas y acciones para el dispositivo en Azure IoT Central](./quick-configure-rules.md)

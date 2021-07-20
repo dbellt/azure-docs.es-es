@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: ce5f1e9a7ab493bf7989a55fccb5ef696433d771
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 7dae716944426ce21cb81bdbb36992238e4bb227
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110066977"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112298446"
 ---
 # <a name="register-and-scan-teradata-source"></a>Registro y examen de un origen de Teradata
 
@@ -72,11 +72,11 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
 
 1.  En el centro de administración, haga clic en **Integration runtimes** (Entornos de ejecución de integración). Asegúrese de que está configurado un entorno de ejecución de integración autohospedado. Si no lo está, use los pasos que se indican [aquí](./manage-integration-runtimes.md) para configurar un entorno de ejecución de integración autohospedado.
 
-2.  Vaya a **Sources** (Orígenes).
+2.  Seleccione la pestaña **Mapa de datos** en el panel izquierdo de Purview Studio.
 
 3.  Seleccione el origen de Teradata registrado.
 
-4.  Seleccione **+ New scan** (+ Nuevo examen).
+4.  Seleccione **New scan** (Nuevo examen).
 
 5.  Especifique los detalles siguientes:
 

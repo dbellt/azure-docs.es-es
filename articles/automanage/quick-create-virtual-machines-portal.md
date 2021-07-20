@@ -10,12 +10,12 @@ ms.subservice: automanage
 ms.workload: infrastructure
 ms.custom:
 - mode-portal
-ms.openlocfilehash: 7121d83f9401fe985966324afe6a61cf8396b2bb
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: d0c319fa9579f68c7f429283327f43869c4ab2b1
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534074"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113006057"
 ---
 # <a name="quickstart-enable-azure-automanage-for-virtual-machines-in-the-azure-portal"></a>Inicio rápido: Habilitación de la administración automática para máquinas virtuales en Azure Portal
 
@@ -37,7 +37,7 @@ Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.
 
 Inicie sesión en [Azure Portal](https://aka.ms/AutomanagePortal-Ignite21).
 
-## <a name="enable-automanage-for-a-single-vm"></a>Habilitación de Automanage para una única máquina virtual
+## <a name="enable-automanage-for-a-single-machine"></a>Habilitación de Automanage para una sola máquina
 
 1. Vaya a la máquina virtual que desea habilitar.
 
@@ -51,7 +51,7 @@ Inicie sesión en [Azure Portal](https://aka.ms/AutomanagePortal-Ignite21).
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\vmmanage-enablepane.png" alt-text="Habilitar en una única máquina virtual.":::
 
-## <a name="enable-automanage-for-multiple-vms"></a>Habilitación de Automanage para varias máquinas virtuales
+## <a name="enable-automanage-for-multiple-machines"></a>Habilitación de Automanage para varias máquinas
 
 1. En la barra de búsqueda, busque y seleccione **Automanage: procedimientos recomendados para máquinas de Azure**.
 
@@ -60,13 +60,15 @@ Inicie sesión en [Azure Portal](https://aka.ms/AutomanagePortal-Ignite21).
     :::image type="content" source="media\quick-create-virtual-machine-portal\zero-vm-list-view.png" alt-text="Habilitación en una máquina virtual existente.":::
 
 3. En la hoja **Seleccionar máquinas**:
-    1. Filtre la lista de máquinas virtuales por su **Suscripción** y **Grupo de recursos**.
+    1. Filtre la lista por su **Suscripción** y **Grupo de recursos**.
     1. Active la casilla de cada máquina virtual que desee incorporar.
     1. Haga clic en el botón **Seleccionar**.
+    > [!NOTE]
+    > Puede seleccionar máquinas virtuales de Azure y servidores habilitados para Arc.
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-select-machine.png" alt-text="Seleccione una máquina virtual existente en la lista de máquinas virtuales disponibles.":::
 
-4. En **Entorno**, seleccione el tipo de entorno: **Desarrollo/pruebas** o **Producción**. 
+4. En **Entorno**, seleccione el tipo de entorno: **Desarrollo/pruebas** o **Producción**.
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="Selección de entornos.":::
 
@@ -76,7 +78,7 @@ Inicie sesión en [Azure Portal](https://aka.ms/AutomanagePortal-Ignite21).
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Browse production environment (Explorar entorno de producción).":::
 
-5. La opción **Procedimientos recomendados de Azure** se selecciona de forma predeterminada para las preferencias de configuración. Para cambiar esto, cree una nueva preferencia o seleccione una existente. 
+5. La opción **Procedimientos recomendados de Azure** se selecciona de forma predeterminada para las preferencias de configuración. Para cambiar esto, cree una nueva preferencia o seleccione una existente.
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\create-preference.png" alt-text="Creación de una preferencia.":::
 

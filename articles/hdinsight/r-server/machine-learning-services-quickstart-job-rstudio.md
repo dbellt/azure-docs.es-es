@@ -4,17 +4,19 @@ description: En el inicio rápido, ejecutará un script de R en un clúster de M
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/19/2019
-ms.custom: mvc
-ms.openlocfilehash: 8abd485bff885868d7865cf273cb161974106013
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7c50088b1e54c289107a040141a62cd312cb942e
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104862840"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112299436"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>Inicio rápido: Ejecución de un script de R en un clúster de Machine Learning Services en Azure HDInsight con RStudio Server
 
-Machine Learning Services en Azure HDInsight permite que los scripts de R usen Apache Spark y Apache Hadoop MapReduce para ejecutar cálculos distribuidos. ML Services controla cómo se ejecutan las llamadas mediante el establecimiento del contexto de proceso. El nodo perimetral de un clúster proporciona un lugar conveniente para conectarse al clúster y ejecutar los scripts de R. Con un nodo perimetral, tiene la opción de ejecutar las funciones distribuidas paralelizadas de RevoScaleR en los diferentes núcleos del servidor de nodo perimetral. También puede ejecutarlas en los nodos del clúster utilizando los contextos de proceso de Apache Spark o Hadoop MapReduce de RevoScaleR.
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
+
+Machine Learning Services en Azure HDInsight permite que los scripts de R usen Apache Spark y Apache Hadoop MapReduce para ejecutar cálculos distribuidos. ML Services controla cómo se ejecutan las llamadas mediante el establecimiento del contexto de proceso. El nodo perimetral de un clúster proporciona un lugar conveniente para conectarse al clúster y ejecutar los scripts de R. Con un nodo perimetral, tiene la opción de ejecutar las funciones distribuidas paralelizadas de RevoScaleR en los diferentes núcleos del servidor de nodo perimetral. También puede ejecutarlas en los nodos del clúster mediante los contextos de proceso de Apache Spark o Hadoop Map Reduce de RevoScaleR.
 
 En este inicio rápido, aprenderá a ejecutar un script de R con RStudio Server que muestra el uso de Spark para cálculos de R distribuidos. Definirá un contexto de proceso para llevar a cabo cálculos localmente en un nodo perimetral y, nuevamente, distribuidos entre los nodos del clúster de HDInsight.
 
@@ -141,7 +143,7 @@ Una vez conectado, la pantalla debe ser similar a la siguiente captura de pantal
     
       ---
     
-      Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+      Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     
       Condition number of final variance-covariance matrix: 11904202
       Number of iterations: 7

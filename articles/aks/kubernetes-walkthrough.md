@@ -13,12 +13,12 @@ ms.custom:
 - seo-python-october2019
 - devx-track-azurecli
 - contperf-fy21q1
-ms.openlocfilehash: 8adfd1a6e26a3381653ca9a794b124e201b9d481
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 9814037b9a4ace0a5f39d6ab0b01d1d940fb00fa
+ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106106745"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112991989"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service mediante la CLI de Azure
 
@@ -38,6 +38,7 @@ Para más información sobre cómo crear un grupo de nodos de Windows Server, c
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 - En este artículo se necesita la versión 2.0.64, o versiones posteriores, de la CLI de Azure. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
+- La identidad que usa para crear el clúster tiene los permisos mínimos adecuados. Para más información sobre el acceso y la identidad en AKS, consulte [Opciones de acceso e identidad en Azure Kubernetes Service (AKS)](concepts-identity.md).
 
 > [!NOTE]
 > Si planea ejecutar los comandos de este inicio rápido localmente en lugar de en Azure Cloud Shell, hágalo como administrador.

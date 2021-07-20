@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: ab08832927aeb969175968b8330b4ab54fc887bf
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: 848f5f13218fde513bf48575c2f9bb298521d3ad
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112071306"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113214756"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>Autoayuda para grupos de SQL sin servidor
 
@@ -41,7 +41,7 @@ Si el problema continúa, cree una [incidencia de soporte técnico](../../azure-
 
 ### <a name="query-fails-because-file-cannot-be-opened"></a>Se produce un error en la consulta porque no se puede abrir el archivo
 
-Si aparece en la consulta un error que indica que no se puede abrir el archivo porque no existe o porque lo está usando otro proceso, y está seguro de que el archivo existe y que no lo usa ningún otro proceso, significa que el grupo de SQL sin servidor no puede acceder al archivo. Este problema suele ocurrir porque su identidad de Azure Active Directory no tiene derechos de acceso al archivo. De forma predeterminada, el grupo de SQL sin servidor intenta acceder al archivo mediante su identidad de Azure Active Directory. Para resolver este problema, debe tener los derechos adecuados para acceder al archivo. La manera más fácil es concederse el rol "Colaborador de datos de blobs de almacenamiento" en la cuenta de almacenamiento que está intentando consultar. 
+Si aparece en la consulta un error que indica que no se puede abrir el archivo porque no existe o porque lo está usando otro proceso, y está seguro de que el archivo existe y que no lo usa ningún otro proceso, significa que el grupo de SQL sin servidor no puede acceder al archivo. Este problema suele ocurrir porque la identidad de Azure Active Directory no tiene derechos para acceder al archivo o porque un firewall bloquea el acceso al archivo. De forma predeterminada, el grupo de SQL sin servidor intenta acceder al archivo mediante su identidad de Azure Active Directory. Para resolver este problema, debe tener los derechos adecuados para acceder al archivo. La manera más fácil es concederse el rol "Colaborador de datos de blobs de almacenamiento" en la cuenta de almacenamiento que está intentando consultar. 
 - [Visite la guía completa sobre el control de acceso de Azure Active Directory para el almacenamiento para más información](../../storage/common/storage-auth-aad-rbac-portal.md). 
 - [Visite Control del acceso a la cuenta de almacenamiento del grupo de SQL sin servidor en Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
 
@@ -438,7 +438,7 @@ CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat]
 WITH ( FORMAT_TYPE = PARQUET)
 ```
 
-### <a name="operation-operation-name-is-not-allowed-for-a-replicated-database"></a>No se permite la operación [[nombre de operación]] para una base de datos replicada.
+### <a name="operation-is-not-allowed-for-a-replicated-database"></a>No se permite la operación para una base de datos replicada.
    
 Si intenta crear algunos objetos o usuarios de SQL o cambiar permisos de una base de datos, es posible que reciba errores del tipo "No se permite la operación CREATE USER para la base de datos replicada". Este error se devuelve al intentar crear algunos objetos en una base de datos que se [comparte con el grupo de Spark](../metadata/database.md). Las bases de datos que se replican desde los grupos de Apache Spark son de solo lectura. No se pueden crear otros objetos en la base de datos replicada mediante T-SQL.
 
@@ -464,6 +464,14 @@ Synapse SQL devolverá `NULL` en lugar de los valores que ve en el almacén de t
 
 El valor especificado en la cláusula `WITH` no coincide con los tipos de Cosmos DB subyacentes en el almacenamiento analítico y no se puede convertir implícitamente. Use el tipo `VARCHAR` en el esquema.
 
+### <a name="performance-issues"></a>Problemas de rendimiento
+
+Si experimenta algunos problemas de rendimiento inesperados, asegúrese de aplicar los procedimientos recomendados, como:
+- Asegúrese de que ha colocado la aplicación cliente, el grupo sin servidor y el almacenamiento analítico de Cosmos DB en [la misma región](best-practices-serverless-sql-pool.md#colocate-your-cosmosdb-analytical-storage-and-serverless-sql-pool).
+- Asegúrese de que usa la cláusula `WITH` con los [tipos de datos óptimos](best-practices-serverless-sql-pool.md#use-appropriate-data-types).
+- Asegúrese de que usa la [intercalación Latin1_General_100_BIN2_UTF8](best-practices-serverless-sql-pool.md#use-proper-collation-to-utilize-predicate-pushdown-for-character-columns) al filtrar los datos mediante predicados de cadena.
+- Si tiene consultas repetitivas que se podrían almacenar en caché, intente usar [CETAS para almacenar los resultados de la consulta en Azure Data Lake Storage](best-practices-serverless-sql-pool.md#use-cetas-to-enhance-query-performance-and-joins).
+
 ## <a name="delta-lake"></a>Delta Lake
 
 La compatibilidad con Delta Lake se encuentra actualmente en versión preliminar pública en los grupos de SQL sin servidor. Hay algunos problemas conocidos que podría experimentar durante la versión preliminar.
@@ -471,10 +479,9 @@ La compatibilidad con Delta Lake se encuentra actualmente en versión preliminar
   - La carpeta raíz debe tener una subcarpeta denominada `_delta_log`. Se producirá un error en la consulta si no hay ninguna carpeta `_delta_log`. Si no ve esa carpeta, significa que hace referencia a archivos Parquet sin formato que se deben [convertir a Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#convert-parquet-to-delta) mediante grupos de Apache Spark.
   - No especifique caracteres comodín para describir el esquema de partición. La consulta de Delta Lake identificará automáticamente las particiones de Delta Lake. 
 - Las tablas de Delta Lake creadas en los grupos de Apache Spark no se sincronizan en el grupo de SQL sin servidor. No se pueden consultar tablas de Delta Lake de grupos de Apache Spark mediante el lenguaje T-SQL.
-- Las tablas externas no admiten la creación de particiones. Use [vistas con particiones](create-use-views.md#delta-lake-partitioned-views) en la carpeta de Delta Lake para aprovechar la eliminación de particiones.
-  - Las [vistas con particiones](create-use-views.md#delta-lake-partitioned-views) en Delta Lake no deben tener la función `OPENROWSET` con la cláusula `WITH`. Debido al problema conocido en la versión preliminar, debe usar la inferencia de esquema y quitar la cláusula `WITH`.
-- Los grupos de SQL sin servidor no admiten consultas de viajes en el tiempo ni la actualización de archivos de Delta Lake. Puede usar el grupo de SQL sin servidor para consultar la versión más reciente de Delta Lake. Use grupos de Apache Spark en Azure Synapse Analytics [para actualizar Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data) o [leer datos históricos](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
-- Los grupos de SQL sin servidor no admiten conjuntos de datos de Delta Lake con las particiones que contienen valores `null` o vacíos. Actualice los valores `null` o vacíos de los conjuntos de datos si necesita leerlos con los grupos de SQL sin servidor.
+- Las tablas externas no admiten la creación de particiones. Use [vistas con particiones](create-use-views.md#delta-lake-partitioned-views) en la carpeta de Delta Lake para aprovechar la eliminación de particiones. Consulte a continuación los problemas conocidos y las soluciones alternativas.
+- Los grupos de SQL sin servidor no admiten consultas de viaje en el tiempo. Puede votar por esta característica en el [sitio de comentarios de Azure](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/43656111-add-time-travel-feature-in-delta-lake).
+- Los grupos de SQL sin servidor no admiten la actualización de archivos de Delta Lake. Puede usar el grupo de SQL sin servidor para consultar la versión más reciente de Delta Lake. Use grupos de Apache Spark en Azure Synapse Analytics [para actualizar Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data) o [leer datos históricos](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 - La compatibilidad con Delta Lake no está disponible en grupos de SQL dedicados. Asegúrese de que usa grupos sin servidor para consultar archivos de Delta Lake.
 
 Puede proponer ideas y mejoras en el [sitio de comentarios de Azure Synapse](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=171048).
@@ -488,7 +495,28 @@ Msg 13807, Level 16, State 1, Line 6
 Content of directory on path 'https://.....core.windows.net/.../_delta_log/*.json' cannot be listed.
 ```
 
-Asegúrese de que existe esa carpeta `_delta_log` (quizás esté consultando archivos Parquet sin formato que no se convierten al formato Delta Lake). Si la carpeta `_delta_log` existe, asegúrese de que tiene permisos de lectura y enumeración en las carpetas de Delta Lake subyacentes.
+Asegúrese de que existe esa carpeta `_delta_log` (quizás esté consultando archivos Parquet sin formato que no se convierten al formato Delta Lake).
+
+Si la carpeta `_delta_log` existe, asegúrese de que tiene permisos de lectura y enumeración en las carpetas de Delta Lake subyacentes.
+Intente leer los archivos \*.json directamente mediante FORMAT='CSV' (coloque el identificador URI en el parámetro BULK):
+
+```sql
+select top 10 * 
+from openrowset(BULK 'https://.....core.windows.net/.../_delta_log/*.json', 
+FORMAT='csv', FIELDQUOTE = '0x0b', FIELDTERMINATOR ='0x0b', ROWTERMINATOR = '0x0b') with (line varchar(max)) as logs
+```
+
+Si se produce un error en esta consulta, el autor de llamada no tiene permiso para leer los archivos del almacenamiento subyacente. 
+
+La manera más fácil es concederse el rol "Colaborador de datos de blobs de almacenamiento" en la cuenta de almacenamiento que está intentando consultar. 
+- [Visite la guía completa sobre el control de acceso de Azure Active Directory para el almacenamiento para más información](../../storage/common/storage-auth-aad-rbac-portal.md). 
+- [Visite Control del acceso a la cuenta de almacenamiento del grupo de SQL sin servidor en Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
+
+### <a name="partitioning-column-returns-null-values"></a>La columna de creación de particiones devuelve valores NULL
+
+Si usa vistas sobre la función `OPENROWSET` que lee la carpeta de Delta Lake con particiones, puede obtener el valor `NULL` en lugar de los valores de columna reales para las columnas de creación de particiones. Debido a este problema conocido, la función `OPENROWSET` con la cláusula `WITH` no puede leer columnas de creación de particiones. Las [vistas con particiones](create-use-views.md#delta-lake-partitioned-views) en Delta Lake no deben tener la función `OPENROWSET` con la cláusula `WITH`. Debe usar la función `OPENROWSET` que no tiene un esquema especificado explícitamente.
+
+**Solución alternativa:** quite la cláusula `WITH` de la función `OPENROWSET` que se usa en las vistas.
 
 ### <a name="query-failed-because-of-a-topology-change-or-compute-container-failure"></a>Error de consulta debido a un cambio de topología o a un error del contenedor de proceso
 
@@ -499,19 +527,42 @@ CREATE DATABASE mydb
     COLLATE Latin1_General_100_BIN2_UTF8;
 ```
 
+Las consultas ejecutadas mediante la base de datos maestra se ven afectadas por este problema.
+
+**Solución alternativa:** ejecute las consultas en una base de datos personalizada con la intercalación de base de datos `Latin1_General_100_BIN2_UTF8`.
+
 ### <a name="column-of-type-varchar-is-not-compatible-with-external-data-type-parquet-column-is-of-nested-type"></a>La columna de tipo "VARCHAR" no es compatible con el tipo de datos externo: "La columna Parquet es de tipo anidado"
 
-Está intentando leer archivos de Delta Lake que contienen algunas columnas de tipo anidado sin especificar la cláusula WITH (mediante la inferencia automática de esquemas). La inferencia automática de esquemas no funciona con las columnas anidadas en Delta Lake. Use la cláusula `WITH` y asigne explícitamente el tipo `VARCHAR` a las columnas anidadas.
+Está intentando leer archivos de Delta Lake que contienen algunas columnas de tipo anidado sin especificar la cláusula WITH (mediante la inferencia automática de esquemas). La inferencia automática de esquemas no funciona con las columnas anidadas en Delta Lake.
+
+**Solución alternativa:** use la cláusula `WITH` y asigne explícitamente el tipo `VARCHAR` a las columnas anidadas.
 
 ### <a name="cannot-find-value-of-partitioning-column-in-file"></a>No se encuentra el valor de la columna de partición en el archivo 
 
-Los conjuntos de datos de Delta Lake pueden tener valores `NULL` en las columnas de partición. Este escenario no se admite actualmente en grupos de SQL sin servidor. En este caso, recibirá un error como este:
+Los conjuntos de datos de Delta Lake pueden tener valores `NULL` en las columnas de partición. Estas particiones se almacenan en la carpeta `HIVE_DEFAULT_PARTITION`. Este escenario no se admite actualmente en grupos de SQL sin servidor. En este caso, recibirá un error como este:
 
 ```
-Resolving Delta logs on path 'https://....core.windows.net/.../' failed with error: Cannot find value of partitioning column '<column name>' in file 'https://......core.windows.net/...../<column name>=__HIVE_DEFAULT_PARTITION__/part-00042-2c0d5c0e-8e89-4ab8-b514-207dcfd6fe13.c000.snappy.parquet'.
+Resolving Delta logs on path 'https://....core.windows.net/.../' failed with error:
+Cannot find value of partitioning column '<column name>' in file 
+'https://......core.windows.net/...../<column name>=__HIVE_DEFAULT_PARTITION__/part-00042-2c0d5c0e-8e89-4ab8-b514-207dcfd6fe13.c000.snappy.parquet'.
 ```
 
-Pruebe a actualizar el conjunto de datos de Delta Lake mediante grupos de Apache Spark y use algún valor (cadena vacía o `"null"`) en lugar de `null` en la columna de partición.
+**Solución alternativa:** pruebe a actualizar el conjunto de datos de Delta Lake mediante grupos de Apache Spark y use algún valor (cadena vacía o `"null"`) en lugar de `null` en la columna de creación de particiones.
+
+## <a name="constraints"></a>Restricciones
+
+Hay algunas restricciones generales del sistema que pueden afectar a la carga de trabajo:
+
+| Propiedad | Limitación |
+|---|---|
+| Número máximo de áreas de trabajo de Synapse por suscripción | 20 |
+| Número máximo de bases de datos por grupo sin servidor | 20 (sin incluir las bases de datos sincronizadas desde el grupo de Apache Spark) |
+| Número máximo de bases de datos sincronizadas desde el grupo de Apache Spark | Sin límite |
+| Número máximo de objetos de base de datos por base de datos | La suma del número de todos los objetos de una base de datos no puede superar 2 147 483 647 (consulte las [limitaciones del motor de base de datos de SQL Server](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects)). |
+| Longitud máxima del identificador (en caracteres) | 128 (consulte las [limitaciones del motor de base de datos de SQL Server](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects))|
+| Duración máxima de la consulta | 30 min |
+| Tamaño máximo del conjunto de resultados | 80 GB (compartidos entre todas las consultas simultáneas que se ejecutan actualmente) |
+| Simultaneidad máxima | No está limitada y depende de la complejidad de las consultas y la cantidad de datos analizados. Un grupo de SQL sin servidor puede controlar simultáneamente 1000 sesiones activas que ejecuten consultas ligeras, pero las cifras se reducen si las consultas son más complejas o examinan una mayor cantidad de datos. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

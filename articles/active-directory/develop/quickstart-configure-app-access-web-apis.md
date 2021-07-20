@@ -13,12 +13,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: cfa4239fb6a3c78d861885478c1c643151ee6e13
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 0a490811250d4665531119733ab959ed2780e741
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128566"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112280988"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Inicio rápido: Configuración de una aplicación cliente para acceder a las API web
 
@@ -128,7 +128,7 @@ Puede agregar o quitar los permisos que aparecen en esta tabla siguiendo los pas
 
 ### <a name="other-permissions-granted"></a>Otros permisos concedidos
 
-También podría ver una tabla titulada **Otros permisos concedidos para {su inquilino}** en el panel **Permisos de API**. En la tabla **Otros permisos concedidos para {su inquilino}** se muestran los permisos concedidos para el inquilino que no se han configurado explícitamente en el objeto de aplicación. Estos permisos se solicitaron y consintieron dinámicamente. Esta sección solo aparece si hay al menos un permiso vigente.
+También podría ver una tabla titulada **Otros permisos concedidos para {su inquilino}** en el panel **Permisos de API**. En la tabla **Otros permisos concedidos para {su inquilino}** se muestran los permisos de nivel de inquilino concedidos para el inquilino que no se han configurado explícitamente en el objeto de aplicación. Estos permisos los solicitó y consintió dinámicamente un administrador, en nombre de todos los usuarios. Esta sección solo aparece si hay al menos un permiso vigente.
 
 Puede agregar el conjunto de permisos de API entero o permisos individuales de esta tabla a la tabla **Permisos configurados**. Como administrador, en esta sección puede revocar el consentimiento del administrador para las API o permisos individuales.
 

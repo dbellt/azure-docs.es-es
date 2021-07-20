@@ -6,14 +6,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 05/28/2021
+ms.date: 06/24/2021
 ms.custom: references_regions
-ms.openlocfilehash: 57776654087e6e07b8515d76c955cb82ce1e07bf
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 945a11fb8d8aef3eef2d3c43a68b8c092741436e
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110787773"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113003789"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novedades de Azure Cognitive Search
 
@@ -33,16 +33,16 @@ Conozca las novedades del servicio. Marque esta página para mantenerse actualiz
 
 |Característica&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Descripción | Disponibilidad  |
 |------------------------------|---------------|---------------|
-| [Compatibilidad con Gremlin API](search-howto-index-cosmosdb-gremlin.md) | Para la indexación basada en indexador, ahora puede crear un origen de datos que recupere el contenido de Cosmos DB al que se accede mediante Gremlin API. | Versión preliminar pública ([bajo solicitud](https://aka.ms/azure-cognitive-search/indexer-preview)) mediante api-version=2020-06-30-Preview. |
+| [Compatibilidad con Gremlin API (versión preliminar)](search-howto-index-cosmosdb-gremlin.md) | Para la indexación basada en indexador, ahora puede crear un origen de datos que recupere el contenido de Cosmos DB al que se accede mediante Gremlin API. | Versión preliminar pública ([bajo solicitud](https://aka.ms/azure-cognitive-search/indexer-preview)) mediante api-version=2020-06-30-Preview. |
 
 ## <a name="march-2021"></a>Marzo de 2021
 
 |Característica&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Descripción | Disponibilidad  |
 |------------------------------|---------------|---------------|
-| [Búsqueda semántica](semantic-search-overview.md) | Colección de características relacionadas con consultas que mejoran significativamente la relevancia de los resultados de búsqueda mediante ajustes mínimos en una solicitud de consulta. </br></br>La [clasificación semántica](semantic-ranking.md) calcula las puntuaciones de relevancia mediante el significado semántico de las palabras y el contenido. </br></br>Los [subtítulos semánticos](semantic-how-to-query-request.md) devuelven los pasajes relevantes del documento que lo resumen mejor, con los términos o frases más importantes destacados. </br></br>Las [respuestas semánticas](semantic-answers.md) devuelven los pasajes clave, extraídos de un documento de búsqueda, que se formulan como respuesta directa a una consulta que tiene el aspecto de una pregunta. | Versión preliminar pública ([bajo solicitud](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Use [Documentos de búsqueda (REST)](/rest/api/searchservice/preview-api/search-documents) api-version=2020-06-30-Preview o el [Explorador de búsqueda](search-explorer.md) en Azure Portal. </br></br>Se aplican restricciones de región y de nivel. |
-| [Corrector ortográfico de términos de consulta](speller-how-to-add.md) | Antes de que los términos de la consulta lleguen al motor de búsqueda, puede comprobar que no tengan errores ortográficos. La opción `speller` funciona con cualquier tipo de consulta (simple, completa o semántica). |  Versión preliminar pública, solo REST, api-version=2020-06-30-Preview|
-| [Indexador de SharePoint Online](search-howto-index-sharepoint-online.md) | Este indexador le conecta a un sitio de SharePoint Online para que pueda indexar el contenido de una biblioteca de documentos. | Versión preliminar pública, solo REST, api-version=2020-06-30-Preview |
-| [Normalizadores](search-normalizers.md) | Los normalizadores proporcionan un procesamiento previo de texto simple: uso coherente de mayúsculas y minúsculas, eliminación de acentos y plegado ASCII, sin invocar la cadena de análisis de texto completo.| Versión preliminar pública, solo REST, api-version=2020-06-30-Preview |
+| [Búsqueda semántica (versión preliminar)](semantic-search-overview.md) | Colección de características relacionadas con consultas que mejoran significativamente la relevancia de los resultados de búsqueda mediante ajustes mínimos en una solicitud de consulta. </br></br>La [clasificación semántica](semantic-ranking.md) calcula las puntuaciones de relevancia mediante el significado semántico de las palabras y el contenido. </br></br>Los [subtítulos semánticos](semantic-how-to-query-request.md) devuelven los pasajes relevantes del documento que lo resumen mejor, con los términos o frases más importantes destacados. </br></br>Las [respuestas semánticas](semantic-answers.md) devuelven los pasajes clave, extraídos de un documento de búsqueda, que se formulan como respuesta directa a una consulta que tiene el aspecto de una pregunta. | Versión preliminar pública ([bajo solicitud](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Use [Documentos de búsqueda (REST)](/rest/api/searchservice/preview-api/search-documents) api-version=2020-06-30-Preview o el [Explorador de búsqueda](search-explorer.md) en Azure Portal. </br></br>Se aplican restricciones de región y de nivel. |
+| [Corrector ortográfico de términos de consulta (versión preliminar)](speller-how-to-add.md) | Antes de que los términos de la consulta lleguen al motor de búsqueda, puede comprobar que no tengan errores ortográficos. La opción `speller` funciona con cualquier tipo de consulta (simple, completa o semántica). |  Versión preliminar pública, solo REST, api-version=2020-06-30-Preview|
+| [Indexador de SharePoint Online (versión preliminar)](search-howto-index-sharepoint-online.md) | Este indexador le conecta a un sitio de SharePoint Online para que pueda indexar el contenido de una biblioteca de documentos. | Versión preliminar pública, solo REST, api-version=2020-06-30-Preview |
+| [Normalizadores (versión preliminar)](search-normalizers.md) | Los normalizadores proporcionan un procesamiento previo de texto simple: uso coherente de mayúsculas y minúsculas, eliminación de acentos y plegado ASCII, sin invocar la cadena de análisis de texto completo.| Versión preliminar pública, solo REST, api-version=2020-06-30-Preview |
 | [Aptitud de búsqueda de entidades personalizadas](cognitive-search-skill-custom-entity-lookup.md ) |  Aptitud cognitiva que busca texto de una lista de palabras y frases personalizada definida por el usuario. Con esta lista, se etiquetan todos los documentos con entidades coincidentes. La aptitud también admite un grado de coincidencia aproximada que se puede aplicar para buscar coincidencias similares pero no exactas. | Disponible con carácter general. |
 
 ## <a name="february-2021"></a>Febrero de 2021
@@ -91,14 +91,14 @@ Conozca las novedades del servicio. Marque esta página para mantenerse actualiz
 |February | [Aptitud para la detección de información de identificación personal (versión preliminar)](cognitive-search-skill-pii-detection.md)  | Habilidad cognitiva que extrae y enmascara información personal. |
 |February | [Aptitud de búsqueda de entidades personalizadas (versión preliminar)](cognitive-search-skill-custom-entity-lookup.md) | Habilidad cognitiva que busca palabras y frases de una lista y etiqueta todos los documentos con las entidades coincidentes.  |
 |January | [Cifrado de claves administrado por el cliente](search-security-manage-encryption-keys.md) | Disponibilidad general  |
-|January | [Reglas de IP para la compatibilidad con el firewall de entrada (versión preliminar)](service-configure-firewall.md) | Propiedades nuevas **IpRule** y **NetworkRuleSet** en [CreateOrUpdate API](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service).  |
+|January | [Reglas de IP para la compatibilidad con el firewall de entrada (versión preliminar)](service-configure-firewall.md) | Propiedades nuevas **IpRule** y **NetworkRuleSet** en [CreateOrUpdate API](/rest/api/searchmanagement/2020-08-01/services/create-or-update).  |
 |January | [Creación de un punto de conexión privado (versión preliminar)](service-create-private-endpoint.md) | Configure un vínculo privado para las conexiones seguras con el servicio de búsqueda. Esta característica en versión preliminar usa [Azure Private Link](../private-link/private-link-overview.md) y [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) como parte de la solución. |
 
 ## <a name="2019-archive"></a>Archivo de 2019
 
 | Month (Mes) | Característica | Descripción |
 |-------|---------|-------------|
-|Diciembre | [Creación de una aplicación de demostración (versión preliminar)](search-create-app-portal.md) | Asistente que genera un archivo HTML descargable con acceso de consulta (solo lectura) a un índice, diseñado como herramienta de validación y pruebas en lugar de un atajo a una aplicación cliente completa.|
+|Diciembre | [Creación de una aplicación de demostración](search-create-app-portal.md) | Asistente que genera un archivo HTML descargable con acceso de consulta (solo lectura) a un índice, diseñado como herramienta de validación y pruebas en lugar de un atajo a una aplicación cliente completa.|
 |Noviembre | [Enriquecimiento incremental (versión preliminar)](cognitive-search-incremental-indexing-conceptual.md) | Almacena en caché el procesamiento del conjunto de aptitudes para su reutilización futura.  |
 |Noviembre | [Aptitud de extracción de documentos (versión preliminar)](cognitive-search-skill-document-extraction.md) | Aptitud cognitiva para extraer el contenido de un archivo desde un conjunto de aptitudes.|
 |Noviembre | [Aptitud de traducción de texto](cognitive-search-skill-text-translation.md) | Habilidad cognitiva utilizada durante la indexación que analiza y traduce el texto. Disponible con carácter general.|
