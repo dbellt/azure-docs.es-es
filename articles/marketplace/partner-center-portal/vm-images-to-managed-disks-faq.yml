@@ -1,0 +1,67 @@
+### YamlMime:FAQ
+metadata:
+  title: Migración de imágenes de máquina virtual (VM) a almacenamiento de disco administrado en Azure Marketplace
+  description: Para proporcionar almacenamiento más rápido y confiable y compatibilidad con nuevas características y funcionalidades de Marketplace, vamos a migrar imágenes de máquina virtual de Marketplace a almacenamiento de disco administrado.
+  ms.service: marketplace
+  ms.subservice: partnercenter-marketplace-publisher
+  ms.topic: conceptual
+  ms.date: 11/22/2019
+  author: kriti-ms
+  ms.author: krsh
+  ms.openlocfilehash: 1ba233abe92c07dc36234a524f8956c2f161e88a
+  ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 07/07/2021
+  ms.locfileid: "113439413"
+title: Migración de imágenes de máquina virtual (VM) a almacenamiento de disco administrado en Azure Marketplace
+summary: >
+  Para proporcionar almacenamiento más rápido y confiable y compatibilidad con nuevas características y funcionalidades de Marketplace, vamos a migrar imágenes de máquina virtual de Marketplace a almacenamiento de disco administrado.
+
+
+  A partir del 2 de enero de 2020, se van a migrar imágenes de máquina virtual a almacenamiento de disco administrado por fases. En la primera fase, solo se migrarán las imágenes sin nuevas implementaciones o máquinas virtuales en ejecución en los 90 días anteriores. Antes de migrar cualquiera de las imágenes, enviaremos un correo electrónico para que el anunciante sepa qué imágenes se migrarán y cuándo.
+
+
+  Ni los anunciantes ni los consumidores tienen que hacer nada y los usuarios no se verán afectados. Las ofertas de Marketplace seguirán estando disponibles y los clientes podrán seguir implementando máquinas virtuales administradas a partir de estas imágenes, durante y después de la migración.
+
+
+  Si le queda alguna duda, póngase en [contacto con nosotros](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff).
+
+
+  ## <a name="faqs"></a>Preguntas más frecuentes
+sections:
+- name: Omitido
+  questions:
+  - question: >
+      ¿Los usuarios de las imágenes de máquina virtual experimentarán una interrupción?
+    answer: "No. \n"
+  - question: >
+      ¿Cuánto tiempo tardará el proceso en realizarse?
+    answer: >
+      La migración puede tardar hasta 24 horas en realizarse.
+  - question: >
+      ¿Es necesario hacer algo?
+    answer: >
+      No. Ni los anunciantes ni los consumidores tiene que hacer nada.
+  - question: >
+      ¿Debo actualizar el sistema para que llame a las API del portal en la nube de una manera diferente después de que se hayan migrado a almacenamiento de disco administrado?
+    answer: >
+      No. Las llamadas API existentes seguirán funcionando.
+  - question: >
+      ¿Todas mis imágenes de máquina virtual se migrarán a un disco administrado al mismo tiempo?
+    answer: >
+      Todas las imágenes de máquina virtual se migrarán en el mismo día. Recibirá una notificación una vez finalizado el proceso.
+  - question: >
+      ¿Puedo solicitar programar la migración de las imágenes de máquina virtual en otro momento?
+    answer: >
+      Se recomienda migrar las imágenes en la fecha programada. Sin embargo, si tiene problemas, póngase en contacto con nosotros para volver a programar la migración.
+  - question: >
+      ¿Puedo publicar actualizaciones en mis imágenes de máquina virtual durante la migración?
+    answer: >
+      No se pueden realizar actualizaciones en las imágenes de máquina virtual durante la migración.
+  - question: >
+      ¿Va a cambiar el proceso de publicación después de que la imagen de la máquina virtual se mueva a Disco administrado?
+    answer: "No, el proceso de publicación sigue igual. \n"
+  - question: >
+      ¿Puede el anunciante trasladar sus ofertas a Managed Disks?
+    answer: No, los anunciantes no pueden trasladar sus ofertas a Managed Disks. Tendrán que esperar y sus imágenes se trasladarán automáticamente. Se enviarán notificaciones al anunciante antes de realizar los cambios.
