@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 9184bf7baa85420e067edb4c0aafccb7e6711225
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6cda31ad3bd830112d7be2dbf3370e4130473228
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86512187"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110474424"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Lógica de procesamiento de reglas de Azure Firewall
 
@@ -21,6 +21,15 @@ Azure Firewall tiene reglas NAT, reglas de red y reglas de aplicaciones. Las reg
 ## <a name="network-rules-and-applications-rules"></a>Reglas de red y reglas de aplicaciones
 
 En primer lugar se aplican las reglas de red y después las reglas de aplicaciones. Las reglas están terminando. Por tanto, si se encuentra alguna coincidencia en las reglas de red, las reglas de aplicación no se procesan.  Si no coincide ninguna regla de red, y si el protocolo del paquete es HTTP/HTTPS, las reglas de aplicación lo evalúan posteriormente. Si sigue sin haber coincidencias, el paquete se evalúa con la colección de reglas de infraestructura. Si sigue sin haber coincidencias, el paquete se deniega de forma predeterminada.
+
+![Lógica de procesamiento de reglas generales](media/rule-processing/rule-logic-processing.png)
+
+### <a name="example-of-processing-logic"></a>Ejemplo de lógica de procesamiento
+Escenario de ejemplo: existen tres grupos de recopilación de reglas en una directiva de Azure Firewall.  Cada grupo de recopilación de reglas tiene una serie de reglas de aplicación y de red.
+
+![Orden de ejecución de reglas](media/rule-processing/rule-execution-order.png)
+
+En el diagrama ilustrado, las reglas de red se ejecutan primero, seguidas de las reglas de aplicación debido a la lógica de procesamiento de reglas de Azure Firewall, que indica que las reglas de red siempre deben ejecutarse antes que las reglas de aplicación.
 
 ## <a name="nat-rules"></a>Reglas NAT
 

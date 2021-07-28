@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 04/08/2021
+ms.date: 05/25/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bbb3bc0e34ad596c39aebb49124bb72d0b3efe6f
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 6298c8483c44472fe6f52f3e48b5c529c2d978a5
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103972"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110457499"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies"></a>Solución de problemas de directivas personalizadas de Azure AD B2C
 
@@ -45,10 +45,10 @@ Copie el identificador de correlación y, a continuación, continúe con el fluj
 
 Puede incluir el identificador de correlación en los tokens de Azure AD B2C. Para incluir el identificador de correlación:
 
-1. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`**</em>.
+1. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Busque el elemento [BuildingBlocks](buildingblocks.md). Si el elemento no existe, agréguelo.
 1. Busque el elemento [ClaimsSchema](claimsschema.md). Si el elemento no existe, agréguelo.
-1. Agregue la notificación de ciudad al elemento **ClaimsSchema**.  
+1. Agregue la notificación Id. de correlación al elemento **ClaimsSchema**.  
 
     ```xml
     <!-- 
@@ -63,7 +63,7 @@ Puede incluir el identificador de correlación en los tokens de Azure AD B2C. P
     </BuildingBlocks>-->
     ```
 
-1. Abra el archivo de usuario de confianza de la directiva. Por ejemplo, el archivo <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em>. La notificación de salida se agregará al token después de un recorrido del usuario correcto y se envía a la aplicación. Modifique el elemento de perfil técnico en la sección de usuario de confianza para agregar la ciudad como una notificación de salida.
+1. Abra el archivo de usuario de confianza de la directiva. Por ejemplo, el archivo <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em>. La notificación de salida se agregará al token después de un recorrido del usuario correcto y se envía a la aplicación. Modifique el elemento de perfil técnico en la sección de usuario de confianza para agregar `correlationId` como una notificación de salida.
  
     ```xml
     <RelyingParty>

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 24c181c17e49fe5b7c3001c1cb2839bc957ef463
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: fe259c3858e798f9bcb72600b680f12c19055884
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490495"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110470363"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Supervisión de conectividad de red con Connection Monitor
 
@@ -97,7 +97,7 @@ El script configura solo el firewall de Windows localmente. Si tiene un firewall
 
 Todas las suscripciones que tienen una red virtual se habilitan con Network Watcher. Al crear una red virtual en la suscripción, Network Watcher se habilita automáticamente en la región y suscripción de la red virtual. Esta habilitación automática no afecta los recursos ni incurre en cargos. Asegúrese de que Network Watcher no esté explícitamente deshabilitado en la suscripción. 
 
-Para más información, consulte [Habilitación de Network Watcher](./network-watcher-create.md).
+Asegúrese de que Network Watcher está [disponible para su región](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher&regions=all). Para más información, consulte [Habilitación de Network Watcher](./network-watcher-create.md).
 
 ## <a name="create-a-connection-monitor"></a>Creación de un monitor de conexión 
 
@@ -281,7 +281,7 @@ Utilice Log Analytics para crear vistas personalizadas de los datos de supervisi
 
 #### <a name="metrics-in-azure-monitor"></a>Métricas en Azure Monitor
 
-En los monitores de conexión que se crearon antes de la experiencia de Connection Monitor, las cuatro métricas están disponibles: % Probes Failed (% de sondeos con error), AverageRoundtripMs (recorrido de ida y vuelta promedio en milisegundos), ChecksFailedPercent (% de comprobaciones con erro) (versión preliminar) y RoundTripTimeMs (recorrido de ida y vuelta en milisegundos) (versión preliminar). En los monitores de conexión que se crearon en la experiencia de Connection Monitor, los datos solo están disponibles para las métricas etiquetadas con *(versión preliminar)* .
+En los monitores de conexión creados antes de la experiencia de Connection Monitor, las cuatro métricas están disponibles: % Probes Failed (% de sondeos con error), AverageRoundtripMs (recorrido de ida y vuelta promedio en milisegundos), ChecksFailedPercent (% de comprobaciones con erro) y RoundTripTimeMs (recorrido de ida y vuelta en milisegundos). En los monitores de conexión creados en la experiencia de Connection Monitor, los datos solo están disponibles para las métricas (% de comprobaciones con erro), RoundTripTimeMs (recorrido de ida y vuelta en milisegundos) y Resultado de la prueba.
 
   :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Captura de pantalla que muestra métricas en Connection Monitor" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
 
@@ -289,11 +289,11 @@ Cuando use métricas, establezca el tipo de recurso como Microsoft.Network/netwo
 
 | Métrica | Nombre para mostrar | Unidad | Tipo de agregación | Descripción | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| ProbesFailedPercent (clásico) | % de sondeos con error (clásico) | Porcentaje | Average | Porcentaje de sondeos de supervisión de conectividad con error. | Sin dimensiones |
-| AverageRoundtripMs (clásico) | Prom. Tiempo de ida y vuelta (ms) (clásico) | Milisegundos | Average | RTT de red promedio para los sondeos de supervisión de conectividad que se envían entre el origen y el destino. |             Sin dimensiones |
-| ChecksFailedPercent | Porcentaje de comprobaciones con error | Porcentaje | Average | Porcentaje de comprobaciones con error de una prueba. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
-| RoundTripTimeMs | Tiempo de ida y vuelta (ms) | Milisegundos | Average | RTT para las comprobaciones enviadas entre el origen y el destino. Este valor no se calcula como promedio. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
-| TestResult | Resultado de pruebas | Count | Average | Recurso de la prueba de Connection Monitor | SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
+| ProbesFailedPercent (clásico) | % de sondeos con error (clásico) | Porcentaje | Average | Porcentaje de sondeos de supervisión de conectividad con error.<br>Esta métrica solo está disponible para la versión clásica de Connection Monitor.  | Sin dimensiones |
+| AverageRoundtripMs (clásico) | Prom. Tiempo de ida y vuelta (ms) (clásico) | Milisegundos | Average | RTT de red promedio para los sondeos de supervisión de conectividad que se envían entre el origen y el destino.<br>Esta métrica solo está disponible para la versión clásica de Connection Monitor. |             Sin dimensiones |
+| ChecksFailedPercent | Porcentaje de comprobaciones con error | Porcentaje | Average | Porcentaje de comprobaciones con error de una prueba. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
+| RoundTripTimeMs | Tiempo de ida y vuelta (ms) | Milisegundos | Average | RTT para las comprobaciones enviadas entre el origen y el destino. Este valor no se calcula como promedio. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
+| TestResult | Resultado de pruebas | Count | Average | Recurso de la prueba de Connection Monitor <br>La interpretación de valores de los resultados es la siguiente: <br>0: Indeterminado <br>1: Sin errores <br>2: Advertencia <br>3: Error| SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
 
 #### <a name="metric-based-alerts-for-connection-monitor"></a>Alertas basadas en métricas de Connection Monitor
 
@@ -304,8 +304,8 @@ Puede crear alertas de métricas en monitores de conexión mediante los métodos
 1. Desde Azure Monitor: para crear una alerta en Azure Monitor: 
     1. Elija el recurso de monitor de conexión que creó en Connection Monitor.
     1. Asegúrese de que la **Métrica** se muestra como un tipo de señal para el monitor de conexión.
-    1. En **Agregar conexión**, para el **Nombre de señal**, seleccione **ChecksFailedPercent(Preview)** o **RoundTripTimeMs(Preview)** .
-    1. En **Tipo de señal**, elija **Métricas**. Por ejemplo, seleccione **ChecksFailedPercent(Preview)** .
+    1. En **Agregar condición**, en **Nombre de señal**, seleccione **ChecksFailedPercent** o **RoundTripTimeMs**.
+    1. En **Tipo de señal**, elija **Métricas**. Por ejemplo, seleccione **ChecksFailedPercent**.
     1. Se muestran todas las dimensiones de la métrica. Elija el nombre de la dimensión y el valor de la dimensión. Por ejemplo, seleccione **Dirección de origen** y escriba la dirección IP de cualquier origen en el monitor de conexión.
     1. En **Lógica de alerta**, rellene estos detalles:
         * **Tipo de condición**: **Estática**.
@@ -364,6 +364,21 @@ En el caso de las redes cuyos orígenes son máquinas virtuales de Azure, se pue
 * Tráfico detenido debido a rutas del sistema o UDR.
 * BGP no está habilitado en la conexión de puerta de enlace.
 * El sondeo de DIP está inactivo en el equilibrador de carga.
+
+## <a name="faq"></a>Preguntas más frecuentes
+
+### <a name="are-classic-vms-supported"></a>¿Se admiten VM clásicas?
+No, Connection Monitor no admite VM clásicas. Se recomienda migrar los recursos de IaaS del modelo clásico a Azure Resource Manager, ya que los recursos clásicos [dejarán de estar en uso](../virtual-machines/classic-vm-deprecation.md). Consulte este artículo para comprender [cómo realizar la migración](../virtual-machines/migration-classic-resource-manager-overview.md).
+
+### <a name="my-topology-is-not-decorated-or-my-hops-have-missing-information"></a>¿Mi topología no está decorada o falta información en mis saltos?
+De una región que no es de Azure a Azure, la topología solo se puede decorar si el recurso de Azure de destino y el recurso de monitor de conexión están en la misma región. 
+
+### <a name="my-connection-monitor-creation-is-failing-with-error-we-dont-allow-creating-different-endpoints-for-the-same-vm"></a>Mi creación de Connection Monitor genera un error que indica que no se permite crear puntos de conexión diferentes para la misma VM.
+No se puede usar la misma VM de Azure con configuraciones diferentes en el mismo monitor de conexión. Por ejemplo, no se admite el uso de la misma VM con un filtro y sin un filtro en el mismo monitor de conexión.
+
+### <a name="the-test-failure-reason-is-nothing-to-display"></a>¿El motivo del error de la prueba es "No hay nada para mostrar"?
+Los problemas que se muestran en el panel Connection Monitor se detectan durante la detección de topología o la exploración de saltos. Puede haber casos en los que el umbral establecido para el porcentaje de pérdida o RTT se incumpla, pero no se encuentre ningún problema en los saltos.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
     

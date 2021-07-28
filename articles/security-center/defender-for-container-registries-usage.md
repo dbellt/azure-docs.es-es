@@ -7,12 +7,12 @@ ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: ee4992e41e792b570d8937edfe31efb4c651d742
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 286ce9b628eff0975cff1cfa006f914ed43c3c46
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102100736"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110469685"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Uso de Azure Defender para registros de contenedor para examinar las imágenes en busca de vulnerabilidades
 
@@ -21,6 +21,9 @@ En esta página se explica cómo usar el analizador de vulnerabilidades integrad
 Cuando **Azure Defender para registros de contenedor** está habilitado, cualquier imagen que inserte en el registro se examinará de inmediato. Además, también se analizan las imágenes extraídas en los últimos 30 días. 
 
 Cuando en detector notifica vulnerabilidades a Security Center, este presenta los resultados y la información relacionada como recomendaciones. Además, los resultados incluyen información relacionada, como pasos de corrección, CVE pertinentes, puntuaciones de CVSS, etc. Se pueden ver las vulnerabilidades identificadas para una o varias suscripciones, o para un registro específico.
+
+> [!TIP]
+> También puede examinar las imágenes de contenedor en busca de vulnerabilidades a medida que las imágenes se integran en los flujos de trabajo de CI/CD de GitHub. Obtenga más información en [Identificación de imágenes de contenedor vulnerables en los flujos de trabajo de CI/CD](defender-for-container-registries-cicd.md).
 
 
 ## <a name="identify-vulnerabilities-in-images-in-azure-container-registries"></a>Identificación de vulnerabilidades en las imágenes de los registros de contenedor de Azure 

@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: genli
-ms.openlocfilehash: 573f97c7f592186173b13ea592d151ee291b8249
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 8315c2fa094f1d12a788d42a336cb01feb58c6c9
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967972"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110450282"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparación de un VHD o un VHDX de Windows antes de cargarlo en Azure
 
@@ -223,19 +223,19 @@ Asegúrese de que la siguiente configuración está establecida correctamente pa
 
    ```powershell
    Enable-PSRemoting -Force
-   Set-NetFirewallRule -DisplayName 'Windows Remote Management (HTTP-In)' -Enabled True
+   Set-NetFirewallRule -Name WINRM-HTTP-In-TCP, WINRM-HTTP-In-TCP-PUBLIC -Enabled True
    ```
 
 1. Habilite las siguientes reglas de firewall para permitir el tráfico RDP:
 
    ```powershell
-   Set-NetFirewallRule -DisplayGroup 'Remote Desktop' -Enabled True
+   Set-NetFirewallRule -Group '@FirewallAPI.dll,-28752' -Enabled True
    ```
 
 1. Habilite la regla de uso compartido de archivos e impresoras para que la máquina virtual pueda responder a las solicitudes ping dentro de la red virtual:
 
    ```powershell
-   Set-NetFirewallRule -DisplayName 'File and Printer Sharing (Echo Request - ICMPv4-In)' -Enabled True
+   Set-NetFirewallRule -Name FPS-ICMP4-ERQ-In -Enabled True
    ```
 
 1. Cree una regla para la red de la plataforma Azure:
@@ -314,10 +314,23 @@ Asegúrese de que la máquina virtual tiene un estado correcto, es segura y est�
 
    Si el repositorio está dañado, consulte [WMI: daños en el repositorio, o no](https://techcommunity.microsoft.com/t5/ask-the-performance-team/wmi-repository-corruption-or-not/ba-p/375484).
 
-1. Asegúrese de que ninguna otra aplicación está usando el puerto 3389. Este puerto se usa para el servicio RDP en Azure. Para ver qué puertos se usan en la máquina virtual, ejecute `netstat.exe -anob`:
+1. Asegúrese de que ninguna otra aplicación que no sea TermService use el puerto 3389. Este puerto se usa para el servicio RDP en Azure. Para ver qué puertos se usan en la máquina virtual, ejecute `netstat.exe -anob`:
 
    ```powershell
    netstat.exe -anob
+   ```
+   
+   A continuación se muestra un ejemplo.
+
+   ```powershell
+   netstat.exe -anob | findstr 3389
+   TCP    0.0.0.0:3389           0.0.0.0:0              LISTENING       4056
+   TCP    [::]:3389              [::]:0                 LISTENING       4056
+   UDP    0.0.0.0:3389           *:*                                    4056
+   UDP    [::]:3389              *:*                                    4056
+
+   tasklist /svc | findstr 4056
+   svchost.exe                   4056 TermService
    ```
 
 1. Para cargar un VHD de Windows que sea un controlador de dominio:
@@ -462,6 +475,14 @@ Use uno de los métodos descritos en esta sección para convertir y cambiar el t
 1. Cambie el tamaño del disco virtual para cumplir los requisitos de Azure:
 
    1. Los discos de Azure deben tener un tamaño virtual alineado con 1 MiB. Si el VHD es una fracción de 1 MiB, deberá cambiar el tamaño del disco a un múltiplo de 1 MiB. Los discos que son fracciones de 1 MiB provocan errores al crear imágenes a partir del disco duro virtual cargado. Para comprobar el tamaño, puede usar el cmdlet [Get-VHD](/powershell/module/hyper-v/get-vhd) de PowerShell para mostrar el valor de "Size", que debe ser un múltiplo de 1 MiB en Azure y "FileSize", que será igual al valor de "Size" más 512 bytes para el pie de página del VHD.
+   
+      ```powershell
+      $vhd = Get-VHD -Path C:\test\MyNewVM.vhd
+      $vhd.Size % 1MB
+      0
+      $vhd.FileSize - $vhd.Size
+      512
+      ```
    
    1. El tamaño máximo permitido del disco duro virtual del sistema operativo en una máquina virtual de generación 1 es de 2048 GiB (2 TiB). 
    1. El tamaño máximo de un disco de datos es de 32 767 GiB (32 TiB).

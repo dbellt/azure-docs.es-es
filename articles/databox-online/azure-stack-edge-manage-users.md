@@ -1,5 +1,5 @@
 ---
-title: Usuarios de administración de Azure Stack Edge Pro con FPGA | Microsoft Docs
+title: Administración de usuarios de Azure Stack Edge Pro FPGA
 description: Se describe cómo usar Azure Portal para administrar usuarios en Azure Stack Edge Pro.
 services: databox
 author: alkohli
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 01/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 27ca190f3bad7f75175e5206d48e13dae1f5687e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cb7b4ee235d83afd5bdaafe5c7678069c5c864de
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97913353"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460690"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-stack-edge-pro-fpga"></a>Uso de Azure Portal para administrar usuarios en Azure Stack Edge Pro con FPGA
 
-En este artículo se explica cómo administrar los usuarios en Azure Stack Edge Pro con un dispositivo con FPGA. Azure Stack Edge Pro se puede administrar con Azure Portal o con la interfaz de usuario web local. Usar Azure Portal para agregar, modificar o eliminar usuarios.
+En este artículo se explica cómo administrar los usuarios en Azure Stack Edge Pro con un dispositivo con FPGA. Azure Stack Edge Pro FPGA se puede administrar con Azure Portal o con la interfaz de usuario web local. Usar Azure Portal para agregar, modificar o eliminar usuarios.
 
 En este artículo aprenderá a:
 

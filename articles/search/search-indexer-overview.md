@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: 6cce37a7c719c6a0c183e166fa28967ea926a221
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: ac9708e496fd0ee84d6e225ff8a63807bbe34fcd
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581641"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110468397"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indexadores de Azure Cognitive Search
 
@@ -38,13 +38,21 @@ Puede usar un indexador como único medio para la ingesta de datos o como parte 
 
 ## <a name="supported-data-sources"></a>Orígenes de datos admitidos
 
-Los indexadores rastrean los almacenes de datos en Azure.
+Los indexadores rastrean los almacenes de datos en Azure y fuera de Azure.
 
++ [Amazon Redshift](search-how-to-index-power-query-data-sources.md) (en versión preliminar)
 + [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
-+ [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) (en versión preliminar)
-+ [Azure Table Storage](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
++ [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md)
++ [Azure MySQL](search-howto-index-mysql.md) (en versión preliminar)
 + [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
++ [Azure Table Storage](search-howto-indexing-azure-tables.md)
++ [Elasticsearch](search-how-to-index-power-query-data-sources.md) (en versión preliminar)
++ [PostgreSQL](search-how-to-index-power-query-data-sources.md) (en versión preliminar)
++ [Objectos de Salesforce](search-how-to-index-power-query-data-sources.md) (en versión preliminar)
++ [Informes de Salesforce](search-how-to-index-power-query-data-sources.md) (en versión preliminar)
++ [Smartsheet](search-how-to-index-power-query-data-sources.md) (en versión preliminar)
++ [Snowflake](search-how-to-index-power-query-data-sources.md) (en versión preliminar)
 + [Instancia administrada de SQL](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 + [SQL Server en Azure Virtual Machines](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 

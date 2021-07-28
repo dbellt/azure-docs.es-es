@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 203baa58e286bd605bf28f511a5c12fcf3dc2033
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: d122c9ae2281bde041a15c4f137293f76e0c618c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108165072"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475281"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Cómo solucionar problemas relacionados con el agente de Log Analytics para Linux
 
@@ -52,7 +52,7 @@ A continuación se muestra una lista de escenarios comprobados por la herramient
 6. Los registros personalizados del agente no funcionan.
 7. Recopilación de registros del agente
 
-Para obtener más información, consulte la [documentación de github](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting-Tool.md).
+Para obtener más información, consulte la [documentación de GitHub](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting-Tool.md).
 
  > [!NOTE]
  > Ejecute la herramienta de recopilador de registros cuando experimente un problema. Disponer inicialmente de los registros ayudará a nuestro equipo de soporte técnico a solucionar el problema más rápido.

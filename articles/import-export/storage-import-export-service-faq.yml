@@ -1,0 +1,162 @@
+### YamlMime:FAQ
+metadata:
+  title: Preguntas frecuentes sobre el servicio Azure Import/Export | Microsoft Docs
+  description: Lea las respuestas a las preguntas frecuentes sobre el servicio Azure Import/Export.
+  author: alkohli
+  services: storage
+  ms.service: storage
+  ms.topic: conceptual
+  ms.date: 01/14/2021
+  ms.author: alkohli
+  ms.subservice: common
+  ms.openlocfilehash: 51af880897564851750dccd756601d86a1dab889
+  ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 06/30/2021
+  ms.locfileid: "113095210"
+title: 'Servicio Azure Import/Export: preguntas frecuentes'
+summary: >
+  Estas son algunas de las preguntas que puede plantearse, junto con sus respuestas, al usar el servicio Azure Import/Export para transferir datos a Azure Storage.
+sections:
+- name: Acerca del servicio Import/Export
+  questions:
+  - question: >
+      ¿Puedo copiar Azure File Storage mediante el servicio Azure Import/Export?
+    answer: >
+      Sí. Sí, el servicio Azure Import/Export permite importar en Azure File Storage. Actualmente no admite la exportación de Azure Files.
+  - question: >
+      ¿Está disponible el servicio Azure Import/Export para suscripciones de CSP?
+    answer: >
+      Sí. El servicio Azure Import/Export admite suscripciones a proveedores de soluciones en la nube (CSP).
+  - question: >
+      ¿Puedo usar el servicio Azure Import/Export para copiar buzones PST y datos de SharePoint en Microsoft 365?
+    answer: >
+      Sí. Para obtener más información, consulte [Información general sobre la importación de archivos PST de su organización](/microsoft-365/compliance/importing-pst-files-to-office-365).
+  - question: >
+      ¿Puedo usar el servicio Azure Import/Export para copiar las copias de seguridad sin conexión en el servicio Azure Backup?
+    answer: >
+      Sí. Para más información, consulte [Flujo de trabajo de copia de seguridad sin conexión en Azure Backup](../backup/backup-azure-backup-import-export.md).
+  - question: >
+      ¿Puedo adquirir unidades de Microsoft para los trabajos de importación y exportación?
+    answer: >
+      No. Deberá enviar sus propias unidades para los trabajos de importación y exportación.
+- name: Preparación de discos para importación y exportación
+  questions:
+  - question: >
+      ¿Puedo omitir el paso de preparación de las unidades en un trabajo de importación? ¿Puedo preparar una unidad sin necesidad de copiar?
+    answer: >
+      No. Todas las unidades usadas para importar los datos se deben preparar con la herramienta WAImportExport de Azure. Use la herramienta para copiar también los datos en la unidad.
+  - question: >
+      ¿Es necesario realizar alguna preparación en el disco al crear un trabajo de exportación?
+    answer: >
+      No. Se recomiendan algunas comprobaciones previas. Para comprobar el número de discos necesarios, use el comando PreviewExport de la herramienta WAImportExport. Para más información, consulte [Vista previa de uso de disco para un trabajo de exportación](/previous-versions/azure/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1). El comando le ayuda a obtener una vista previa del uso del disco para los blobs que ha seleccionado, en función del tamaño de las unidades que se van a usar. Compruebe también que puede leer y escribir en la unidad de disco duro que se va a enviar para el trabajo de exportación.
+- name: Trabajos de importación y exportación
+  questions:
+  - question: >
+      ¿Puedo cancelar un trabajo?
+    answer: >
+      Sí. Puede cancelar un trabajo si el estado es **Creando** o **Enviando**. Superadas estas fases, no se puede cancelar el trabajo y este continúa hasta la fase final.
+  - question: >
+      ¿Durante cuánto tiempo puedo visualizar el estado de los trabajos completados en Azure Portal?
+    answer: >
+      Puede ver el estado de los trabajos completados durante 90 días. Los trabajos completados se eliminarán transcurridos 90 días.
+  - question: >
+      Si deseo importar o exportar más de 10 unidades, ¿qué debo hacer?
+    answer: >
+      Un trabajo de importación o exportación solo puede hacer referencia a 10 unidades en un único trabajo. Para enviar más de 10 unidades de disco, debe crear varios trabajos. Las unidades asociadas al mismo trabajo se deben enviar juntas en el mismo paquete.
+
+      Para más información e instrucciones cuando la capacidad de los datos abarca varios trabajos de importación de discos, póngase en contacto con Soporte técnico de Microsoft.
+  - question: >
+      El blob cargado muestra el estado como concesión expirada. ¿Cuál debo hacer?
+    answer: >
+      Puede omitir el campo de concesión expirada. El servicio Import/Export toma la concesión del blob durante la carga para asegurarse de que ningún otro proceso puede actualizar el blob en paralelo. La concesión expirada implica que el servicio Import/Export ya no se está cargando en él y que el blob está disponible para su uso.
+- name: Envío de discos
+  questions:
+  - question: >
+      ¿Cuántas unidades de disco duro se pueden incluir como máximo en un envío?
+    answer: >
+      No hay ningún límite para el número de unidades de disco duro en un solo envío. Si los discos pertenecen a varios trabajos, se recomienda lo siguiente:
+
+
+      - Etiquetar los discos con los nombres de los trabajos correspondientes
+
+      - Actualizar los trabajos con un número de seguimiento que lleve el sufijo -1, -2, etc.
+  - question: >
+      ¿Debo incluir alguna otra cosa, aparte de la unidad de disco duro, en el paquete?
+    answer: >
+      Envíe solo las unidades de disco duro en el paquete de envío. No incluya elementos como cables de alimentación o cables USB.
+  - question: >
+      ¿Es necesario enviar mis unidades con FedEx o DHL?
+    answer: >
+      Puede enviar las unidades al centro de datos de Azure con cualquier empresa de transporte conocida, como FedEx, DHL o UPS, o bien mediante el servicio postal de los Estados Unidos. Sin embargo, para el envío de devolución de las unidades desde el centro de datos, debe proporcionar:
+
+
+      - Un número de cuenta de FedEx en Estados Unidos y Europa, o
+
+      - Un número de cuenta de DHL en las regiones de Asia y Australia.
+
+
+      > [!NOTE]
+
+      > Los centros de datos en la India requieren una carta de declaración en el membrete (entrega challan) para devolver las unidades de disco. Para organizar el pase de entrada necesario, también se debe reservar la selección con el operador seleccionado y compartir los detalles con el centro de datos.
+  - question: >
+      ¿Existe alguna restricción internacional en el envío y la devolución de las unidades?
+    answer: >
+      Tenga en cuenta que es posible que los medios físicos que está enviando deban cruzar alguna frontera internacional. Usted es el responsable de asegurar que los medios y datos físicos se importan o exportan de acuerdo con todas las normativas aplicables. Antes de enviar los medios físicos, pida asesoramiento para comprobar que los medios y datos se pueden enviar legalmente al centro de datos identificado. De este modo, se asegurará de que llegan a Microsoft de manera puntual.
+
+
+      Una vez completada la carga, el proceso para devolver las unidades a una dirección internacional puede tardar más de los días de 2-3 necesarios habitualmente para el envío local. Durante la fase indicada en Azure Portal como empaquetado, el equipo de Data Box está asegurándose de que se proporciona la documentación correcta para garantizar que el envío cumple con los diversos requisitos internacionales de importación y exportación.
+  - question: >
+      ¿Hay algún requisito especial para entregar mis discos a un centro de datos?
+    answer: >
+      Los requisitos dependen de las restricciones del centro de datos de Azure específico.
+
+
+      - Hay unos pocos sitios, como Australia, Alemania y Sur de Reino Unido, que requieren que se escriba en el paquete un número de identificador de entrada del centro de datos de Microsoft por motivos de seguridad. Antes de enviar las unidades o los discos al centro de datos, póngase en contacto con las operaciones de Azure Data Box (adbops@microsoft.com) para obtener este número. Sin este número, se rechazará el paquete.
+
+      - Los centros de datos en la India requieren la información personal del conductor, como la tarjeta de identificación gubernamental o el número de la prueba (por ejemplo, PAN, AADHAR, DL), el nombre, los datos de contacto y el número de matrícula del coche para obtener un pase de la puerta de entrada. Para evitar retrasos en la entrega, informe a su operador acerca de estos requisitos.
+  - question: >
+      Al crear un trabajo, la dirección de envío es una ubicación distinta de la ubicación de la cuenta de almacenamiento. ¿Cuál debo hacer?
+    answer: >
+      Algunas ubicaciones de la cuenta de almacenamiento se asignan a ubicaciones de envío alternativas. Ubicaciones de envío anteriormente disponibles se pueden asignar también temporalmente a ubicaciones alternativas. Compruebe siempre la dirección de envío proporcionada durante la creación del trabajo antes de enviar las unidades.
+  - question: >
+      Al enviar la unidad, la empresa de transporte le pedirá la dirección de contacto y el número de teléfono del centro de datos. ¿Qué debo proporcionar?
+    answer: >
+      El número de teléfono y la dirección del centro de datos se proporcionan como parte de la creación del trabajo.
+- name: Varios
+  questions:
+  - question: >
+      ¿Qué sucede si envío por error una unidad de disco duro que no cumple con los requisitos de compatibilidad?
+    answer: >
+      El centro de datos de Azure le devolverá la unidad que no cumple con los requisitos de compatibilidad. Si solo algunos de los dispositivos del paquete cumplen con los requisitos de compatibilidad, esas unidades se procesarán, y las unidades que no cumplan los requisitos se le devolverán.
+  - question: >
+      ¿El servicio formatea las unidades antes de devolverlas?
+    answer: >
+      No. Todas las unidades están cifradas con BitLocker.
+  - question: >
+      ¿Cómo puedo acceder a los datos importados por este servicio?
+    answer: "Use Azure Portal o el [Explorador de Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) para acceder a los datos de la cuenta de almacenamiento de Azure.  \n"
+  - question: >
+      Cuando finalice el trabajo de importación, ¿cómo se muestran los datos en la cuenta de almacenamiento? ¿Se conserva la jerarquía de directorios?
+    answer: >
+      Al preparar una unidad de disco duro para un trabajo de importación, el destino se especifica mediante el campo DstBlobPathOrPrefix del archivo CSV de conjunto de datos. Este es el contenedor de destino de la cuenta de almacenamiento donde se copian los datos de la unidad de disco duro. Dentro de él se crean directorios virtuales para las carpetas de la unidad de disco duro y blobs para los archivos.
+  - question: >
+      Si una unidad tiene archivos que ya existen en la cuenta de almacenamiento, ¿el servicio sobrescribirá los blobs o archivos existentes?
+    answer: >
+      Depende. Al preparar la unidad, puede especificar que los archivos de destino se sobrescriban u omitan mediante el campo del archivo CSV de conjunto de datos llamado Disposition:<rename|no-overwrite|overwrite>. De forma predeterminada, el servicio cambia el nombre de los nuevos archivos en lugar de sobrescribir los blobs o archivos existentes.
+  - question: >
+      ¿Es compatible la herramienta WAImportExport con sistemas operativos de 32 bits?
+    answer: >
+      No. La herramienta WAImportExport solo es compatible con sistemas operativos de Windows de 64 bits. Para obtener una lista completa de sistemas operativos admitidos, vaya a [Sistemas operativos compatibles](./storage-import-export-requirements.md).
+  - question: >
+      ¿Qué tamaño máximo de blobs en bloques y blobs en páginas admite Azure Import/Export?
+    answer: >
+      - El tamaño máximo aproximado de blobs en bloques admitido es de 4,768 TB o 5.000.000 MB.
+
+      - El tamaño máximo de blobs en páginas es de 8 TB.
+  - question: >
+      ¿Admite el servicio Azure Import/Export el cifrado AES 256?
+    answer: >
+      Sí. El servicio Azure Import/Export emplea el cifrado de BitLocker AES-256.
+additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n\n* [¿Qué es Azure Import/Export?](storage-import-export-service.md)"

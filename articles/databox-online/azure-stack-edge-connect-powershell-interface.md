@@ -1,6 +1,6 @@
 ---
-title: Conexión a un dispositivo Microsoft Azure Stack Edge Pro y administración mediante la interfaz de Windows PowerShell | Microsoft Docs
-description: Se describe cómo conectarse a Azure Stack Edge Pro y cómo administrarlo mediante la interfaz de Windows PowerShell.
+title: Conexión y administración de un dispositivo Microsoft Azure Stack Edge Pro FPGA mediante la interfaz de Windows PowerShell
+description: Describe la conexión y administración de Azure Stack Edge Pro FPGA a través de la interfaz de Windows PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: alkohli
-ms.openlocfilehash: c9c6247f021b7af4cfdd899ffd4b6bd178f2256c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 09271ddeac59446d134feaa0f2acb6c3e3d9d89f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96345600"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461280"
 ---
 # <a name="manage-an-azure-stack-edge-pro-fpga-device-via-windows-powershell"></a>Administración de un dispositivo Azure Stack Edge Pro con FPGA mediante Windows PowerShell
 
-La solución Azure Stack Edge Pro permite procesar datos y enviarlos a través de la red a Azure. En este artículo se describen algunas de las tareas de configuración y administración del dispositivo Azure Stack Edge Pro. Puede usar Azure Portal, la interfaz de usuario web local o la interfaz de Windows PowerShell para administrar su dispositivo.
+La solución Azure Stack Edge Pro FPGA permite procesar datos y enviarlos a través de la red a Azure. En este artículo se describen algunas de las tareas de configuración y administración del dispositivo Azure Stack Edge Pro FPGA. Puede usar Azure Portal, la interfaz de usuario web local o la interfaz de Windows PowerShell para administrar su dispositivo.
 
 Este artículo se centra en las tareas que realizará mediante la interfaz de PowerShell. 
 
@@ -94,4 +94,4 @@ Para salir de la sesión remota de PowerShell, cierre la ventana de PowerShell.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Implemente [Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md) en Azure Portal.
+- Implemente [Azure Stack Edge Pro FPGA](azure-stack-edge-deploy-prep.md) en Azure Portal.

@@ -1,6 +1,6 @@
 ---
-title: Reemplazo de un dispositivo Azure Stack Edge Pro | Microsoft Docs
-description: Se describe cómo obtener el reemplazo de un dispositivo Azure Stack Edge Pro.
+title: Reemplazo de un dispositivo Azure Stack Edge
+description: Se describe cómo obtener el reemplazo de un dispositivo de Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 2196c9463569dc43092b38de58e0103104efed0c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c3c029826ccd4430f935b63b74bc958ad8de4c1e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443478"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460639"
 ---
-# <a name="replace-your-azure-stack-edge-pro-device"></a>Reemplazo de un dispositivo Azure Stack Edge Pro
+# <a name="replace-your-azure-stack-edge-device"></a>Reemplazo de un dispositivo de Azure Stack Edge
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-En este artículo se describe cómo reemplazar un dispositivo Azure Stack Edge Pro. Se necesita un dispositivo de sustitución cuando el dispositivo existente tiene un error de hardware o necesita una actualización. 
+En este artículo se describe cómo reemplazar un dispositivo Azure Stack Edge. Se necesita un dispositivo de sustitución cuando el dispositivo existente tiene un error de hardware o necesita una actualización. 
 
 
 En este artículo aprenderá a:
@@ -35,7 +35,7 @@ En este artículo aprenderá a:
 
 Si el dispositivo existente tiene un error de hardware, abra una incidencia de soporte técnico con estos pasos:
 
-1. Abra una incidencia de soporte técnico con Microsoft Support para indicar que quiere devolver el dispositivo. Seleccione el tipo de problema **Azure Stack Edge Pro Hardware** (hardware de Azure Stack Pro) y elija el subtipo **Hardware issues** (problemas de hardware).  
+1. Abra una incidencia de soporte técnico con Microsoft Support para indicar que quiere devolver el dispositivo. Seleccione el tipo de problema **Azure Stack Edge Pro Hardware** (Hardware de Azure Stack Pro) y elija el subtipo **Hardware issues** (Problemas de hardware).  
 
     ![Abrir una incidencia de soporte técnico](media/azure-stack-edge-replace-device/open-support-ticket-1.png)  
 
@@ -67,4 +67,4 @@ Siga todos los pasos para devolver el dispositivo original:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Aprenda a [devolver un dispositivo Azure Stack Edge Pro](azure-stack-edge-return-device.md).
+- Obtenga información sobre cómo [devolver un dispositivo de Azure Stack Edge](azure-stack-edge-return-device.md).

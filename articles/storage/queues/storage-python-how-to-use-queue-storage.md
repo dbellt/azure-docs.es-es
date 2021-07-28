@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.custom: seo-javascript-october2019, devx-track-python
-ms.openlocfilehash: 32dc54673674ac10f8dc1e3351133ca33ef7665c
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 11b50ad391c5b73b7f986ddb7ad2972ebeaf2c58
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277426"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110477274"
 ---
 # <a name="how-to-use-azure-queue-storage-from-python"></a>Procedimiento para usar Azure Queue Storage desde Python
 
@@ -38,7 +38,7 @@ El [SDK de Azure Storage para Python](https://github.com/azure/azure-storage-pyt
 
 Para realizar la instalación mediante el índice de paquetes de Python (PyPI), escriba:
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[SDK para Python v12](#tab/python)
 
 ```console
 pip install azure-storage-queue
@@ -61,7 +61,7 @@ Para métodos de instalación alternativos, consulte [SDK de Azure para Python](
 
 ## <a name="configure-your-application-to-access-queue-storage"></a>Configuración de la aplicación para obtener acceso a Queue Storage
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[SDK para Python v12](#tab/python)
 
 El objeto [`QueueClient`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient) permite trabajar con una cola. Agregue el siguiente código cerca de la parte superior de cualquier archivo Python en el que desee obtener acceso a una cola de Azure mediante programación:
 
@@ -88,7 +88,7 @@ El paquete `os` proporciona compatibilidad para recuperar una variable de entorn
 
 La cadena de conexión se recupera de la variable de entorno `AZURE_STORAGE_CONNECTION_STRING` establecida anteriormente.
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[SDK para Python v12](#tab/python)
 
 El código siguiente crea un objeto `QueueClient` con la cadena de conexión de almacenamiento.
 
@@ -119,7 +119,7 @@ queue_service.create_queue(queue_name)
 
 Los mensajes de la cola de Azure se almacenan como texto. Si quiere almacenar datos binarios, configure las funciones de codificación y descodificación de Base64 antes de colocar un mensaje en la cola.
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[SDK para Python v12](#tab/python)
 
 Configure las funciones de codificación y descodificación de Base64 durante la creación del objeto de cliente.
 
@@ -139,7 +139,7 @@ queue_service.decode_function = QueueMessageFormat.binary_base64decode
 
 ## <a name="insert-a-message-into-a-queue"></a>un mensaje en una cola
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[SDK para Python v12](#tab/python)
 
 Para insertar un mensaje en una cola, use el método [`send_message`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-).
 
@@ -159,7 +159,7 @@ queue_service.put_message(queue_name, message)
 
 ## <a name="peek-at-messages"></a>Inspección de mensajes
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[SDK para Python v12](#tab/python)
 
 Puede ver el código sin salir de los mensajes sin tener que quitarlos de la cola, mediante una llamada al método [`peek_messages`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#peek-messages-max-messages-none----kwargs-). De forma predeterminada, este método ve el código sin salir en un único mensaje.
 
@@ -182,7 +182,7 @@ for peeked_message in messages:
 
 Puede cambiar el contenido de un mensaje local en la cola. Si el mensaje representa una tarea, puede usar esta característica para actualizar el estado de la tarea.
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[SDK para Python v12](#tab/python)
 
 En el código siguiente se usa el método [`update_message`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#update-message-message--pop-receipt-none--content-none----kwargs-) para actualizar un mensaje. El tiempo de espera de visibilidad se establece en 0, lo que significa que el mensaje aparece inmediatamente y se actualiza el contenido.
 
@@ -206,7 +206,7 @@ for message in messages:
 
 Puede obtener una estimación del número de mensajes existentes en una cola.
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[SDK para Python v12](#tab/python)
 
 El método [get_queue_properties](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#get-queue-properties---kwargs-) devuelve propiedades de cola, incluida `approximate_message_count`.
 
@@ -230,7 +230,7 @@ El resultado solo es aproximado, ya que se pueden agregar o borrar mensajes desp
 
 Quite un mensaje de una cola en dos pasos. Si el código no puede procesar un mensaje, este proceso de dos pasos garantiza que pueda obtener el mismo mensaje e intentarlo de nuevo. Llame a `delete_message` después de que el mensaje se haya procesado correctamente.
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[SDK para Python v12](#tab/python)
 
 Si llama a [receive_messages](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-), obtiene, de forma predeterminada, el siguiente mensaje de una cola. Un mensaje devuelto por `receive_messages` se hace invisible a cualquier otro código de lectura de mensajes de esta cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. Para terminar quitando el mensaje de la cola, también debe llamar a [delete_message](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#delete-message-message--pop-receipt-none----kwargs-).
 
@@ -252,7 +252,7 @@ for message in messages:
 
 Hay dos formas de personalizar la recuperación de mensajes de una cola. En primer lugar, puede obtener un lote de mensajes (hasta 32). En segundo lugar, puede establecer un tiempo de espera de la invisibilidad más largo o más corto para que el código disponga de más o menos tiempo para procesar cada mensaje.
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[SDK para Python v12](#tab/python)
 
 En el ejemplo de código siguiente se usa el método [`receive_messages`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) para obtener mensajes en lotes. A continuación, procesa cada mensaje dentro de cada lote mediante un bucle `for` anidado. También establece el tiempo de espera de la invisibilidad en cinco minutos para cada mensaje.
 
@@ -274,7 +274,7 @@ for message in messages:
 
 ## <a name="delete-a-queue"></a>Eliminación de una cola
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[SDK para Python v12](#tab/python)
 
 Para eliminar una cola y todos los mensajes que contiene, llame al método [`delete_queue`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#delete-queue---kwargs-).
 

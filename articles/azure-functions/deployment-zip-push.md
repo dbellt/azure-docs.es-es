@@ -3,12 +3,12 @@ title: Implementación para insertar archivos ZIP en Azure Functions
 description: Use las funciones de implementación de archivos ZIP del servicio de implementación de Kudu para publicar sus instancias de Azure Functions.
 ms.topic: conceptual
 ms.date: 08/12/2018
-ms.openlocfilehash: fb6867d7719f9650acb00f80ac3a933713ce0e23
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a8a8b6e0ad1cd70ae6fe2f0025afcba6fc9e44a5
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777658"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110465840"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Implementación de archivos ZIP en Azure Functions
 
@@ -36,11 +36,11 @@ El archivo ZIP que use para la implementación de inserción debe contener todos
 
 Una aplicación de función incluye todos los archivos y carpetas del directorio `wwwroot`. Una implementación de archivo .zip incluye el contenido del directorio `wwwroot`, pero no el propio directorio. Al implementar un proyecto de la biblioteca de clases de C#, debe incluir las dependencias y los archivos de biblioteca compilados en una subcarpeta `bin` del paquete ZIP.
 
+Al desarrollar contenido en un equipo local, puede crear manualmente un archivo .zip de la carpeta del proyecto de la aplicación de funciones mediante la funcionalidad de compresión .zip integrada o herramientas de terceros.
+
 ## <a name="download-your-function-app-files"></a>Descarga de los archivos de aplicación de función
 
-Si usa un equipo local para desarrollar elementos, verá que es fácil crear un archivo .zip de la carpeta del proyecto de la aplicación de función en el equipo de desarrollo.
-
-Sin embargo, es posible crear las funciones mediante el editor en Azure Portal. Puede descargar un proyecto de aplicación de función existente de una de estas maneras:
+Si creó las funciones mediante el editor de Azure Portal, puede descargar el proyecto de la aplicación de funciones existente como un archivo .zip de una de estas maneras:
 
 + **Desde Azure Portal**
 

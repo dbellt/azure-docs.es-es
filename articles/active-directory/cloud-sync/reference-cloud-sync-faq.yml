@@ -1,0 +1,96 @@
+### YamlMime:FAQ
+metadata:
+  title: Preguntas frecuentes de la sincronización en la nube de Azure AD Connect
+  description: En este documento se describen las preguntas frecuentes sobre la sincronización en la nube.
+  services: active-directory
+  author: billmath
+  manager: daveba
+  ms.service: active-directory
+  ms.workload: identity
+  ms.topic: reference
+  ms.date: 06/25/2020
+  ms.subservice: hybrid
+  ms.author: billmath
+  ms.collection: M365-identity-device-management
+  ms.openlocfilehash: cde28b924954db563ce3ed71873ded00a753f80f
+  ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 06/30/2021
+  ms.locfileid: "113114593"
+title: Preguntas frecuentes de sincronización en la nube de Azure Active Directory Connect
+summary: >
+  Lea las preguntas más frecuentes sobre la sincronización en la nube de Azure Active Directory (Azure AD) Connect.
+sections:
+- name: Instalación general
+  questions:
+  - question: >
+      ¿Con qué frecuencia se ejecuta la sincronización en la nube?
+    answer: >
+      El aprovisionamiento en la nube está programado para ejecutarse cada 2 minutos. Cada 2 minutos, los cambios de hash de cualquier usuario, grupo y contraseña se aprovisionarán en Azure AD.
+  - question: >
+      Aparecen errores de sincronización del hash de contraseñas en la primera ejecución. ¿Por qué?
+    answer: >
+      Se espera que esto sea así. Los errores se deben a que el objeto de usuario no está presente en Azure AD. Una vez que el usuario se aprovisiona en Azure AD, los hashes de contraseña deben aprovisionarse en la ejecución posterior. Espere un par de ejecuciones y confirme que la sincronización de los hashes de contraseña no genera los errores.
+  - question: >
+      ¿Qué ocurre si la instancia de Active Directory tiene atributos que no son compatibles con la sincronización en la nube (por ejemplo, las extensiones de directorio)?
+    answer: >
+      El aprovisionamiento en la nube se ejecutará y aprovisionará los atributos admitidos. Los atributos no admitidos no se aprovisionarán para Azure AD. Revise las extensiones de directorio en Active Directory y asegúrese de que no necesita que esos atributos fluyan a Azure AD. Si se requieren uno o varios atributos, considere la posibilidad de usar la sincronización de Azure AD Connect o mover la información necesaria a uno de los atributos admitidos (por ejemplo, los atributos de extensión 1-15).
+  - question: >
+      ¿En qué se diferencian la sincronización de Azure AD Connect y la sincronización en la nube?
+    answer: "Con la sincronización de Azure AD Connect, el aprovisionamiento se ejecuta en el servidor de sincronización local. La configuración se almacena en el servidor de sincronización local. Con la sincronización en la nube de Azure AD Connect, la configuración de aprovisionamiento se almacena en la nube y se ejecuta en esta como parte del servicio de aprovisionamiento de Azure AD. \n"
+  - question: >
+      ¿Puedo usar la sincronización en la nube para sincronizar desde varios bosques de Active Directory?
+    answer: "Sí. El aprovisionamiento en la nube se puede usar para sincronizar desde varios bosques de Active Directory. En un entorno de varios bosques, todas las referencias (por ejemplo, administrador) deben estar dentro del dominio.  \n"
+  - question: >
+      ¿Cómo se actualiza el agente?
+    answer: "Microsoft actualiza automáticamente los agentes. Para el equipo de TI, esto reduce la carga de tener que probar y validar las nuevas versiones del agente. \n"
+  - question: >
+      ¿Puedo deshabilitar la actualización automática?
+    answer: >
+      No se admite ninguna manera de deshabilitar la actualización automática.
+  - question: >
+      ¿Puedo cambiar el delimitador de origen para la sincronización en la nube?
+    answer: >
+      De manera predeterminada, la sincronización en la nube usa ms-ds-consistency-GUID con una reserva para ObjectGUID como delimitador de origen. No se admite ninguna manera de cambiar el delimitador de origen.
+  - question: >
+      Veo nuevas entidades de servicio con los nombres de dominio de AD al usar la sincronización en la nube. ¿Es normal?
+    answer: >
+      Sí, la sincronización en la nube crea una entidad de servicio para la configuración de aprovisionamiento con el nombre de dominio como el nombre de la entidad de servicio. No realice ningún cambio en la configuración de la entidad de servicio.
+  - question: >
+      ¿Qué ocurre cuando se solicita a un usuario sincronizado cambiar la contraseña en el siguiente inicio de sesión?
+    answer: >
+      Si la sincronización de hash de la contraseña está habilitada en la sincronización en la nube y se requiere que el usuario sincronizado cambie la contraseña en el siguiente inicio de sesión en AD local, la sincronización en la nube no aprovisiona el hash de contraseña que se debe cambiar en Azure AD. Una vez que el usuario cambia la contraseña, el hash de la contraseña del usuario se aprovisiona desde AD a Azure AD.
+  - question: >
+      ¿Admite la sincronización en la nube la escritura diferida de ms-ds-consistencyGUID en cualquier objeto?
+    answer: "No, la sincronización en la nube no admite la escritura diferida de ms-ds-consistencyGUID en ningún objeto (incluidos los objetos de usuario). \n"
+  - question: "Estoy aprovisionando usuarios mediante la sincronización en la nube. He eliminado la configuración. ¿Por qué sigo viendo los objetos sincronizados antiguos en Azure AD? \n"
+    answer: "Al eliminar la configuración, la sincronización en la nube no elimina automáticamente los objetos sincronizados en Azure AD. Para asegurarse de que no tiene los objetos antiguos, cambie el ámbito de la configuración a un grupo o a unidades organizativas vacíos. Una vez que el aprovisionamiento se ejecuta y limpia los objetos, deshabilite la configuración y elimínela. \n"
+  - question: >
+      ¿Qué significa que no se admite Exchange híbrido?
+    answer: >
+      La característica de implementación híbrida de Exchange permite la coexistencia de buzones de Exchange en un entorno local y en Microsoft 365. Azure AD Connect sincroniza un conjunto específico de atributos de Azure AD en su directorio local.  Actualmente, el agente de aprovisionamiento en la nube no vuelve a sincronizar estos atributos en el directorio local y, por tanto, no se admite como reemplazo de Azure AD Connect.
+  - question: >
+      ¿Puedo instalar el agente de aprovisionamiento en la nube en Windows Server Core?
+    answer: >
+      No, no se admite la instalación del agente en Server Core.
+  - question: >
+      ¿Puedo usar un servidor provisional con el agente de aprovisionamiento en la nube?
+    answer: >
+      No, no se admiten servidores provisionales.
+  - question: >
+      ¿Puedo sincronizar cuentas de usuarios invitados?
+    answer: >
+      No, no se admite la sincronización de cuentas de usuarios invitados.
+  - question: >
+      Si muevo un usuario de una unidad organizativa, cuyo ámbito es la sincronización en la nube, a una unidad organizativa cuyo ámbito es Azure AD Connect, ¿qué ocurre?
+    answer: >
+      Se eliminará el usuario y se volverá a crear.  Mover un usuario de una unidad organizativa cuyo ámbito sea la sincronización en la nube se verá como una operación de eliminación.  Si el usuario se mueve a una unidad organizativa administrada por Azure AD Connect, se volverá a aprovisionar a Azure AD y se creará un usuario.
+  - question: >
+      Si cambio el nombre de la unidad organizativa que se encuentra en el ámbito del filtro de sincronización en la nube o la muevo, ¿qué ocurre con el usuario que se creó en Azure AD?
+    answer: >
+      Nada.  Los usuarios no se eliminarán si se cambia el nombre de la unidad organizativa o se mueve.
+  - question: >
+      ¿Admite la sincronización en la nube de Azure AD Connect grupos grandes?
+    answer: "Sí. En la actualidad, se admiten hasta 50 000 miembros del grupo sincronizados con el filtrado del ámbito de unidad organizativa. Al mismo tiempo, cuando se usa el filtrado de ámbito de grupo, se recomienda mantener el tamaño de grupo en menos de 1500 miembros. El motivo es que, aunque puede sincronizar un grupo grande como parte del filtro de ámbito de grupo, al agregar miembros a ese grupo por lotes de más de 1500, se producirá un error en la sincronización diferencial. \n"
+additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes \n\n- [¿Qué es el aprovisionamiento?](what-is-provisioning.md)\n- [¿Qué es la sincronización en la nube de Azure AD Connect?](what-is-cloud-sync.md)\n        \n"

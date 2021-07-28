@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a2571706d3b1341d6eb3751e50b699043b376767
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: f35a32370f2c5aba0ea3c3e0ea84b739942ceb30
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108320662"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110457949"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Mantenimiento del back-end y registros de diagnóstico para Application Gateway
 
@@ -222,7 +222,7 @@ El registro de acceso solo se genera si lo habilitó para cada instancia de Appl
 |sslProtocol| Protocolo SSL/TLS que se usa (si se ha habilitado TLS).|
 |serverRouted| Servidor back-end al que Application Gateway redirige la solicitud.|
 |serverStatus| Código de estado HTTP del servidor back-end.|
-|serverResponseLatency| Latencia de la respuesta del servidor back-end.|
+|serverResponseLatency| Latencia de la respuesta (en **segundos**) del servidor backend.|
 |host| Dirección que aparece en el encabezado de host de la solicitud. Si se reescribe mediante una reescritura de encabezado, este campo contiene el nombre de host actualizado|
 |originalRequestUriWithArgs| Este campo contiene la dirección URL de la solicitud original |
 |requestUri| Este campo contiene la dirección URL posterior a la operación de reescritura en Application Gateway |
@@ -243,13 +243,13 @@ El registro de acceso solo se genera si lo habilitó para cada instancia de Appl
         "httpVersion": "HTTP/1.0",
         "receivedBytes": 65,
         "sentBytes": 553,
-        "timeTaken": 205,
+        "timeTaken": "0.012",
         "sslEnabled": "off",
         "sslCipher": "",
         "sslProtocol": "",
         "serverRouted": "104.41.114.59:80",
         "serverStatus": "200",
-        "serverResponseLatency": "0.023",
+        "serverResponseLatency": "0.012",
         "host": "www.contoso.com",
     }
 }

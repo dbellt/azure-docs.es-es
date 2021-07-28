@@ -11,12 +11,12 @@ ms.date: 02/18/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: ffdfd4dc8a81587d757e3f9853f1bb34e0b93c0d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: b76a1b8fa3a7d42f8b649adc225af89b4a40f15c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043752"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461817"
 ---
 # <a name="client-side-encryption-with-python"></a>Cifrado en el lado de cliente con Python
 
@@ -150,7 +150,7 @@ Los usuarios pueden habilitar opcionalmente un modo de operación en el que se d
 ### <a name="blob-service-encryption"></a>Cifrado de Blob service
 Establezca los campos de directiva de cifrado en el objeto blockblobservice. Todo lo demás lo controlará la biblioteca de cliente internamente.
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[SDK de Python v12](#tab/python)
 
 Actualmente, estamos trabajando para crear fragmentos de código que reflejen la versión 12.x de las bibliotecas cliente de Azure Storage. Para más información, consulte el [anuncio de las bibliotecas cliente de Azure Storage v12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
@@ -182,7 +182,7 @@ blob = my_block_blob_service.get_blob_to_bytes(container_name, blob_name)
 ### <a name="queue-service-encryption"></a>Cifrado del servicio Cola
 Establezca los campos de directiva de cifrado en el objeto queueservice. Todo lo demás lo controlará la biblioteca de cliente internamente.
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[SDK de Python v12](#tab/python)
 
 Actualmente, estamos trabajando para crear fragmentos de código que reflejen la versión 12.x de las bibliotecas cliente de Azure Storage. Para más información, consulte el [anuncio de las bibliotecas cliente de Azure Storage v12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
@@ -215,7 +215,7 @@ Además de crear una directiva de cifrado y configurarla en las opciones de soli
 
 ### <a name="using-the-resolver"></a>Uso de la resolución
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[SDK de Python v12](#tab/python)
 
 Actualmente, estamos trabajando para crear fragmentos de código que reflejen la versión 12.x de las bibliotecas cliente de Azure Storage. Para más información, consulte el [anuncio de las bibliotecas cliente de Azure Storage v12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
@@ -258,7 +258,7 @@ my_table_service.get_entity(
 ### <a name="using-attributes"></a>Uso de los atributos
 Tal como se mencionó anteriormente, se puede marcar una propiedad para cifrado si se la almacena en un objeto EntityProperty y se establece el campo de cifrado.
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[SDK de Python v12](#tab/python)
 
 Actualmente, estamos trabajando para crear fragmentos de código que reflejen la versión 12.x de las bibliotecas cliente de Azure Storage. Para más información, consulte el [anuncio de las bibliotecas cliente de Azure Storage v12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 

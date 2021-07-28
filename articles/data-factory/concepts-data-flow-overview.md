@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 04/14/2021
-ms.openlocfilehash: 826183e09f2aa7f3f22ace8b5ce3e16767d49863
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 05/20/2021
+ms.openlocfilehash: ef0639637736b0a8b4f41d6fd038de81a8e94a69
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515668"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110454966"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Flujos de datos de asignación en Azure Data Factory
 
@@ -84,7 +84,19 @@ Vea [Introducción a las transformaciones en el flujo de datos de asignación](d
 
 ## <a name="data-flow-data-types"></a>Tipos de datos de flujo de datos
 
-matriz, binario, booleano, complejo, decimal, fecha, float, entero, largo, asignación, corto, cadena, marca de tiempo
+* array
+* binary
+* boolean
+* complejas
+* decimal (incluye precisión)
+* date
+* FLOAT
+* integer
+* long
+* mapa
+* short
+* string
+* timestamp
 
 ## <a name="data-flow-activity"></a>Actividad de los flujos de datos
 

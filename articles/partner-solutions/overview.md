@@ -4,14 +4,14 @@ description: Obtenga información sobre las soluciones que ofrecen los asociados
 author: tfitzmac
 ms.topic: conceptual
 ms.service: partner-services
-ms.date: 02/12/2021
+ms.date: 05/25/2021
 ms.author: tomfitz
-ms.openlocfilehash: cab246cf19e8a2e3f9e7b08019cd836e3d085266
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 208f8d4e8d0fc8b688f45af5e8164b41c3eba768
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101736056"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110464100"
 ---
 # <a name="extend-azure-with-solutions-from-partners"></a>Extensión de Azure con soluciones de asociados
 
@@ -23,3 +23,4 @@ Las soluciones de asociados están disponibles a través de Marketplace.
 | :--- | :--- |
 | [Apache Kafka para Confluent Cloud](./apache-kafka-confluent-cloud/overview.md) | Plataforma de streaming de eventos totalmente administrada con tecnología Apache Kafka |
 | [Datadog](./datadog/overview.md) | Supervise los servidores, las nubes, las métricas y las aplicaciones desde un solo lugar. |
+| [Elastic](./elastic/overview.md) | Supervise el estado y el rendimiento de su entorno de Azure. |

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 05/19/2021
 ms.author: alkohli
-ms.openlocfilehash: a0e52d64625e8dc9d785a1e6f53db0042de8a1bf
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: d7dd4a3920e947469c85df0d9ab440d95ab7712d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126172"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110466931"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Implementación de máquinas virtuales en un dispositivo Azure Stack Edge Pro con GPU con la CLI de Azure y Python
 
@@ -51,7 +51,7 @@ Antes de empezar a crear y administrar una máquina virtual en el dispositivo Az
 
 1. Ha completado la configuración de red en el dispositivo Azure Stack Edge Pro como se describe en [Paso 1: configuración de un dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
 
-2. Ha habilitado una interfaz de red para proceso. Esta dirección IP de la interfaz de red se utiliza para crear un conmutador virtual para la implementación de la máquina virtual. Los pasos siguientes le guiarán en el proceso:
+2. Ha habilitado una interfaz de red de proceso. Esta dirección IP de la interfaz de red se utiliza para crear un conmutador virtual para la implementación de la máquina virtual. Los pasos siguientes le guiarán en el proceso:
 
     1. Vaya a **Proceso**. Seleccione la interfaz de red que va a usar para crear un conmutador virtual.
 
@@ -72,14 +72,14 @@ Antes de empezar a crear y administrar una máquina virtual en el dispositivo Az
 
 4. Ha creado un certificado *.cer* codificado en Base 64 para el dispositivo Azure Stack Edge Pro. Este certificado ya se ha cargado como una cadena de firma en el dispositivo y se ha instalado en el almacén raíz de confianza del cliente. Este certificado también se necesita con el formato *pem* para que Python funcione en este cliente.
 
-    Convierta este certificado al formato `pem`, para lo que debe usar el comando `certutil`. Debe ejecutar este comando en el directorio que contiene el certificado.
+    Convierta este certificado al formato `pem` mediante el comando [certutil](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc732443(v=ws.11)). Debe ejecutar este comando en el directorio que contiene el certificado.
 
     ```powershell
     certutil.exe <SourceCertificateName.cer> <DestinationCertificateName.pem>
     ```
     A continuación se muestra un ejemplo del uso del comando:
 
-    ```powershell
+    ```output
     PS C:\Certificates> certutil.exe -encode aze-root.cer aze-root.pem
     Input Length = 2150
     Output Length = 3014
@@ -113,13 +113,17 @@ Antes de empezar a crear y administrar una máquina virtual en el dispositivo Az
 
 6. [Descargue el script de Python](https://aka.ms/ase-vm-python) que se usa en este procedimiento.
 
+7. Preparación del entorno para la CLI de Azure:
+
+   [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
 ## <a name="step-1-set-up-azure-clipython-on-the-client"></a>Paso 1: Configuración de la CLI de Azure y Python en el cliente
 
 ### <a name="verify-profile-and-install-azure-cli"></a>Comprobación del perfil e instalación de la CLI de Azure
 
 <!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908&preserve-view=true#azure-resource-manager-api-profiles).-->
 
-1. Instale la CLI de Azure en el cliente. En este ejemplo, se ha instalado la CLI de Azure versión 2.0.80. Para comprobar la versión de la CLI de Azure, ejecute el comando `az --version`.
+1. Instale la CLI de Azure en el cliente. En este ejemplo, se ha instalado la CLI de Azure versión 2.0.80. Para comprobar la versión de la CLI de Azure, ejecute el comando [az --version](/cli/azure/reference-index?view=azure-cli-latest&preserve-view=true#az_version).
 
     Este es un ejemplo de la salida que genera el comando anterior:
 
@@ -153,7 +157,7 @@ Antes de empezar a crear y administrar una máquina virtual en el dispositivo Az
 
 3. Para ejecutar el script de ejemplo que se usa en este artículo, necesitará las siguientes versiones de la biblioteca de Python:
 
-    ```powershell
+    ```
     azure-common==1.1.23
     azure-mgmt-resource==2.1.0
     azure-mgmt-network==2.7.0
@@ -163,6 +167,7 @@ Antes de empezar a crear y administrar una máquina virtual en el dispositivo Az
     haikunator
     msrestazure==0.6.2
     ```
+
     Para instalar las versiones, ejecute el siguiente comando:
 
     ```powershell
@@ -257,9 +262,9 @@ Antes de empezar a crear y administrar una máquina virtual en el dispositivo Az
     
 ### <a name="connect-to-azure-stack-edge-pro"></a>Conexión a Azure Stack Edge Pro
 
-1. Registre el entorno de Azure Stack Edge Pro. Para ello, ejecute el comando `az cloud register`.
+1. Registre el entorno de Azure Stack Edge Pro. Para ello, ejecute el comando [az cloud register](/cli/azure/cloud?view=azure-cli-latest&preserve-view=true#az_cloud_register).
 
-    En algunos escenarios, la conectividad directa a internet saliente se enruta mediante un servidor proxy o firewall, que exige la intercepción de SSL. En estos casos, el comando az cloud register puede producir un error del tipo \"Unable to get endpoints from the cloud\" (No se pueden obtener los puntos de conexión de la nube). Para solucionar este error, establezca las siguientes variables de entorno en Windows PowerShell:
+    En algunos escenarios, la conectividad directa a internet saliente se enruta mediante un servidor proxy o firewall, que exige la intercepción de SSL. En estos casos, el comando `az cloud register` puede producir un error similar a \"No se pueden obtener puntos de conexión de la nube.\" Para evitar este error, establezca las siguientes variables de entorno en Windows PowerShell:
 
     ```powershell
     $ENV:AZURE_CLI_DISABLE_CONNECTION_VERIFICATION = 1 
@@ -276,31 +281,31 @@ Antes de empezar a crear y administrar una máquina virtual en el dispositivo Az
     $ENV:PRIVATE_IP_ADDRESS = "5.5.174.126"
     ```
 
-3. Registre su entorno. Utilice los siguientes parámetros cuando ejecute az cloud register:
+3. Registre su entorno. Utilice los siguientes parámetros cuando ejecute [az cloud register](/cli/azure/cloud?view=azure-cli-latest&preserve-view=true#az_cloud_register):
 
-    | Value | Descripción | Ejemplo |
+    | Valor | Descripción | Ejemplo |
     | --- | --- | --- |
     | Nombre del entorno | Nombre del entorno al que se intenta conectar. | Proporcione un nombre, por ejemplo, `aze-environ`. |
     | Punto de conexión de Resource Manager | La dirección URL es `https://Management.<appliancename><dnsdomain>`. <br> Para obtener esta dirección URL, vaya a la página **Dispositivos** en la interfaz de usuario web local del dispositivo. |Por ejemplo, `https://management.team3device.teatraining1.com`.  |
     
-    ```powershell
+    ```azurecli
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.<appliance name>.<DNS domain>"
     ```
     A continuación se muestra un ejemplo de uso del comando anterior:
     
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az cloud register -n az-new-env --endpoint-resource-manager "https://management.team3device.teatraining1.com"
     ```
     
     
-4. Establezca el entorno activo mediante los comandos siguientes:
+4. Establezca el entorno activo mediante el comando siguiente:
 
-    ```powershell
+    ```azurecli
     az cloud set -n <EnvironmentName>
     ```
     A continuación se muestra un ejemplo de uso del comando anterior:
 
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az cloud set -n az-new-env
     Switched active cloud to 'az-new-env'.
     Use 'az login' to log in to this cloud.
@@ -308,7 +313,7 @@ Antes de empezar a crear y administrar una máquina virtual en el dispositivo Az
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
     ```
 
-4. Inicie sesión en el entorno de Azure Stack Edge Pro con el comando `az login`. Puede iniciar sesión en el entorno de Azure Stack Edge Pro como un usuario o como una [entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md).
+4. Inicie sesión en el entorno de Azure Stack Edge Pro mediante el comando [az login](/cli/azure/reference-index?view=azure-cli-latest&preserve-view=true#az_login). Puede iniciar sesión en el entorno de Azure Stack Edge Pro como un usuario o como una [entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md).
 
    Siga estos pasos para iniciar sesión como un *usuario*:
 
@@ -316,7 +321,7 @@ Antes de empezar a crear y administrar una máquina virtual en el dispositivo Az
 
    A continuación se muestra un ejemplo de uso del comando `az login`:
     
-    ```powershell
+    ```azurecli
     PS C:\Certificates> az login -u EdgeARMuser
     ```
    Después de usar el comando de inicio de sesión, se le solicitará una contraseña. Proporcione la contraseña de Azure Resource Manager.
@@ -359,16 +364,17 @@ Antes de empezar a crear y administrar una máquina virtual en el dispositivo Az
 
 5. Cambie el perfil a la versión 2019-03-01-hybrid. Para cambiar la versión del perfil, ejecute el siguiente comando:
 
-    ```powershell
+    ```azurecli
     az cloud update --profile 2019-03-01-hybrid
     ```
 
     A continuación se muestra un ejemplo de uso del comando `az cloud update`:
 
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az cloud update --profile 2019-03-01-hybrid
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
     ```
+<!--Sample is identical to the preceding sample, with window dressing.-->
 
 ## <a name="step-2-create-a-vm"></a>Paso 2: Crear una VM
 
@@ -376,14 +382,17 @@ Se le proporciona un script de Python para crear una máquina virtual. En funci�
 
 1. Ejecute el script de Python desde el mismo directorio en el que está instalado Python.
 
-    `.\python.exe example_dbe_arguments_name_https.py cli`
+```powershell
+.\python.exe example_dbe_arguments_name_https.py cli
+```
+<!--Please verify: This is a PowerShell script? (For consistency, I converted the code-formatted setoff line to a code block.)-->
 
 2. Cuando se ejecuta el script, la carga del disco duro virtual tarda de 20 a 30 minutos. Para ver el progreso de la operación de carga, puede usar el Explorador de Azure Storage o AzCopy.
 
     Este es un ejemplo de salida de una ejecución correcta del script. El script crea todos los recursos dentro de un grupo de recursos, utiliza esos recursos para crear una máquina virtual y, por último, elimina el grupo de recursos, incluidos todos los recursos que creó.
 
     
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> .\python.exe example_dbe_arguments_name_https.py cli
     
     Create Resource Group

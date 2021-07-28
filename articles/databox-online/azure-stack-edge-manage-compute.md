@@ -1,6 +1,6 @@
 ---
-title: Administración del proceso del dispositivo Azure Stack Edge Pro | Microsoft Docs
-description: En este artículo se explica cómo administrar la configuración del proceso en Edge, como el desencadenador, los módulos, y ver y quitar la configuración por medio de Azure Portal en Azure Stack Edge Pro.
+title: Administración de procesos de Azure Stack Edge Pro FPGA
+description: En este artículo se explica cómo administrar la configuración de procesos en Edge, como el desencadenador, los módulos, y ver y quitar la configuración por medio de Azure Portal en Azure Stack Edge Pro FPGA.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: alkohli
-ms.openlocfilehash: ebf967fe02ab6424b9952bb0315b70fadb547fe3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 80d19909cc4a2fe843adbf19eed0f8316d64f6db
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97967918"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460707"
 ---
-# <a name="manage-compute-on-your-azure-stack-edge-pro"></a>Administración del proceso en el dispositivo Azure Stack Edge Pro
+# <a name="manage-compute-on-your-azure-stack-edge-pro-fpga"></a>Administración de procesos en Azure Stack Edge Pro FPGA
 
-En este artículo se explica cómo administrar procesos en Azure Stack Edge Pro. Puede administrar el proceso a través de Azure Portal o mediante la interfaz de usuario web local. Use Azure Portal para administrar los módulos, los desencadenadores y la configuración de proceso, y la interfaz de usuario web local para administrar los valores del proceso.
+En este artículo se explica cómo administrar procesos en Azure Stack Edge Pro FPGA. Puede administrar el proceso a través de Azure Portal o mediante la interfaz de usuario web local. Use Azure Portal para administrar los módulos, los desencadenadores y la configuración de proceso, y la interfaz de usuario web local para administrar los valores del proceso.
 
 En este artículo aprenderá a:
 
@@ -28,7 +28,7 @@ En este artículo aprenderá a:
 
 ## <a name="manage-triggers"></a>Administración de desencadenadores
 
-Los eventos son cosas que ocurren dentro del entorno de nube o en el dispositivo sobre las cuales quizás quiera tomar medidas. Por ejemplo, cuando se crea un archivo en un recurso compartido, hablamos de un evento. Los desencadenadores provocan los eventos. En Azure Stack Edge Pro, los desencadenadores pueden surgir en respuesta a eventos de archivos o según una programación.
+Los eventos son cosas que ocurren dentro del entorno de nube o en el dispositivo sobre las cuales quizás quiera tomar medidas. Por ejemplo, cuando se crea un archivo en un recurso compartido, hablamos de un evento. Los desencadenadores provocan los eventos. En Azure Stack Edge Pro FPGA, los desencadenadores pueden surgir en respuesta a eventos de archivos o según una programación.
 
 - **Archivo**: estos desencadenadores surgen en respuesta a eventos de archivo como la creación de un archivo o su modificación.
 - **Scheduled**: estos desencadenadores surgen en respuesta a una programación que puede definir con una fecha de inicio, una hora de inicio y el intervalo de repetición.
@@ -54,7 +54,7 @@ Para crear un desencadenador, siga estos pasos en Azure Portal.
 
     - **Scheduled trigger** (Desencadenador programado): especifique la fecha y hora de inicio y el intervalo de repetición en horas, minutos o segundos. Escriba también el nombre para un tema. Un tema le brindará la flexibilidad que necesita para enrutar el desencadenador a un módulo implementado en el dispositivo.
 
-        Una cadena de ruta de ejemplo es: `"route3": "FROM /* WHERE topic = 'topicname' INTO BrokeredEndpoint("modules/modulename/inputs/input1")"`.
+        Una cadena de ruta de ejemplo es: `"route3&quot;: &quot;FROM /* WHERE topic = 'topicname' INTO BrokeredEndpoint(&quot;modules/modulename/inputs/input1")"`.
 
         ![Incorporación de un recurso compartido NFS](media/azure-stack-edge-manage-compute/add-scheduled-trigger.png)
 
@@ -82,7 +82,7 @@ La lista de desencadenadores se actualiza para reflejar la eliminación.
 
 ## <a name="manage-compute-configuration"></a>Administración de la configuración del proceso
 
-Use Azure Portal para ver la configuración de proceso, quitar una configuración de proceso ya existente o actualizarla con el fin de sincronizar las claves de acceso del dispositivo IoT y el dispositivo IoT Edge de Azure Stack Edge Pro.
+Use Azure Portal para ver la configuración de proceso, quitar una configuración de proceso existente o actualizarla con el fin de sincronizar las claves de acceso del dispositivo IoT y el dispositivo IoT Edge de Azure Stack Edge Pro FPGA.
 
 ### <a name="view-compute-configuration"></a>Vista de la configuración de proceso
 
@@ -111,11 +111,11 @@ Para quitar la configuración de proceso perimetral existente del dispositivo, s
 
 ### <a name="sync-up-iot-device-and-iot-edge-device-access-keys"></a>Sincronización de las claves de acceso de dispositivo IoT y dispositivo IoT Edge
 
-Cuando se configura el proceso en Azure Stack Edge Pro, se crea un dispositivo IoT y un dispositivo IoT Edge. A estos dispositivos se les asigna automáticamente claves de acceso simétricas. Como procedimiento recomendado de seguridad, estas claves se rotan de manera periódica a través del servicio IoT Hub.
+Cuando se configura el proceso en Azure Stack Edge Pro FPGA, se crea un dispositivo IoT y un dispositivo IoT Edge. A estos dispositivos se les asigna automáticamente claves de acceso simétricas. Como procedimiento recomendado de seguridad, estas claves se rotan de manera periódica a través del servicio IoT Hub.
 
 Para rotar estas claves, puede ir al servicio IoT Hub que creó y seleccionar el dispositivo IoT o el dispositivo IoT Edge. Cada dispositivo tiene una clave de acceso primaria y una clave de acceso secundaria. Asigne la clave de acceso primaria a la clave de acceso secundario y luego vuelva a generar la clave de acceso primaria.
 
-Si las claves del dispositivo IoT y del dispositivo IoT Edge se han rotado, deberá actualizar la configuración en Azure Stack Edge Pro para tener las claves de acceso más recientes. La sincronización permite que el dispositivo obtenga las claves más recientes del dispositivo IoT y del dispositivo IoT Edge. Azure Stack Edge Pro solo usa las claves de acceso primarias.
+Si las claves del dispositivo IoT y del dispositivo IoT Edge se han rotado, deberá actualizar la configuración en Azure Stack Edge Pro FPGA para tener las claves de acceso más recientes. La sincronización permite que el dispositivo obtenga las claves más recientes del dispositivo IoT y del dispositivo IoT Edge. Azure Stack Edge Pro FPGA solo usa las claves de acceso primarias.
 
 Para sincronizar las claves de acceso del dispositivo, siga estos pasos en Azure Portal.
 

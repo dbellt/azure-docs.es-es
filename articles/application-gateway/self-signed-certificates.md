@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/23/2019
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 51536db7fe0bc1ae723327f17b2b5e8303c07e83
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 602f766429045d91748c0f0873744fe1d35b621d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315892"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467019"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Generación de un certificado autofirmado de Azure Application Gateway con una entidad de certificación raíz personalizada
 
@@ -50,20 +50,21 @@ Cree el certificado de entidad de certificación raíz con OpenSSL.
 
 ### <a name="create-the-root-key"></a>Creación de la clave raíz
 
-1. Inicie sesión en el equipo donde está instalado OpenSSL y ejecute el siguiente comando. Esto crea una clave protegida por contraseña.
+1. Inicie sesión en el equipo donde está instalado OpenSSL y ejecute el siguiente comando. Este comando crea una clave cifrada.
 
    ```
    openssl ecparam -out contoso.key -name prime256v1 -genkey
    ```
-1. En el símbolo del sistema, escriba una contraseña segura. Por ejemplo, al menos nueve caracteres, con mayúsculas, minúsculas, números y símbolos.
-
+   
 ### <a name="create-a-root-certificate-and-self-sign-it"></a>Creación de un certificado raíz y autofirmado
 
 1. Use los siguientes comandos para generar la CSR y el certificado.
 
    ```
    openssl req -new -sha256 -key contoso.key -out contoso.csr
-
+   ```
+   
+   ```
    openssl x509 -req -sha256 -days 365 -in contoso.csr -signkey contoso.key -out contoso.crt
    ```
    Los comandos anteriores crean el certificado raíz. Lo usará para firmar el certificado de servidor.

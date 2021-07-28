@@ -3,12 +3,12 @@ title: 'Mensajería de Azure Service Bus: colas, temas y suscripciones'
 description: En este artículo se proporciona información general sobre las entidades de mensajería (colas, temas y suscripciones) de Azure Service Bus.
 ms.topic: conceptual
 ms.date: 04/08/2021
-ms.openlocfilehash: ccd91d5091dbbba072cf222e5a73c3db1d48c321
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: c3e50c5f8487a0f6dc26a50ec6bfb10f4136f899
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107209831"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110479101"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Colas, temas y suscripciones de Service Bus
 Azure Service Bus admite un conjunto de tecnologías middleware orientadas a mensajes basadas en la nube, entre las que se incluyen una cola de mensajes de confianza y una mensajería de publicación/suscripción duradera. Estas funcionalidades de mensajería asincrónica pueden considerarse como características de mensajería desacopladas que admiten la publicación-suscripción, el desacoplamiento temporal y los escenarios de equilibrio de carga mediante la carga de trabajo de mensajería de Service Bus. La comunicación desacoplada ofrece muchas ventajas. Por ejemplo, los clientes y servidores pueden conectarse según sea necesario y realizar sus operaciones de manera asincrónica.
@@ -23,7 +23,7 @@ Una ventaja relacionada es la **nivelación de la carga**, lo que permite a los 
 El uso de colas para intermediar entre los consumidores y productores de mensajes proporciona un acoplamiento no estricto inherente entre los componentes. Dado que los productores y consumidores no están relacionados entre sí, un consumidor puede actualizarse sin tener ningún efecto en el productor.
 
 ### <a name="create-queues"></a>Creación de colas
-Puede crear colas mediante [Azure Portal](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), la [CLI](service-bus-quickstart-cli.md) o [plantillas de Resource Manager](service-bus-resource-manager-namespace-queue.md). A continuación, envíe y reciba mensajes mediante clientes escritos en [C#](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md), [Python](service-bus-python-how-to-use-queues.md), [JavaScript](service-bus-nodejs-how-to-use-queues.md), [PHP](service-bus-php-how-to-use-queues.md) y [Ruby](service-bus-ruby-how-to-use-queues.md). 
+Puede crear colas mediante [Azure Portal](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), la [CLI](service-bus-quickstart-cli.md) o [plantillas de Resource Manager](service-bus-resource-manager-namespace-queue.md). A continuación, envíe y reciba mensajes mediante clientes escritos en [C#](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md), [Python](service-bus-python-how-to-use-queues.md), [JavaScript](service-bus-nodejs-how-to-use-queues.md) y [PHP](service-bus-php-how-to-use-queues.md). 
 
 ### <a name="receive-modes"></a>Modos de recepción
 Puede especificar dos modos distintos en los que Service Bus recibe los mensajes.
@@ -46,7 +46,7 @@ Una cola permite que un único consumidor procese un mensaje. En comparación co
 La funcionalidad de envío de mensajes de una cola los asigna directamente a un tema y su funcionalidad de recepción de mensajes a una suscripción. Entre otras cosas, esta característica significa que las suscripciones admiten los mismos patrones que se han descrito en esta misma sección con respecto a las colas: consumidor en competencia, desacoplamiento temporal, nivelación de carga y equilibrio de la carga.
 
 ### <a name="create-topics-and-subscriptions"></a>Creación de temas y suscripciones
-La creación de un tema es similar a la creación de una cola, como se describe en la sección anterior. Puede crear temas y suscripciones mediante [Azure Portal](service-bus-quickstart-topics-subscriptions-portal.md), [PowerShell](service-bus-quickstart-powershell.md), la [CLI](service-bus-tutorial-topics-subscriptions-cli.md) o [plantillas de Resource Manager](service-bus-resource-manager-namespace-topic.md). A continuación, envíe mensajes a un tema y recíbalos de las suscripciones mediante clientes escritos en [C#](service-bus-dotnet-how-to-use-topics-subscriptions.md), [Java](service-bus-java-how-to-use-topics-subscriptions.md), [Python](service-bus-python-how-to-use-topics-subscriptions.md), [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md), [PHP](service-bus-php-how-to-use-topics-subscriptions.md) y [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md). 
+La creación de un tema es similar a la creación de una cola, como se describe en la sección anterior. Puede crear temas y suscripciones mediante [Azure Portal](service-bus-quickstart-topics-subscriptions-portal.md), [PowerShell](service-bus-quickstart-powershell.md), la [CLI](service-bus-tutorial-topics-subscriptions-cli.md) o [plantillas de Resource Manager](service-bus-resource-manager-namespace-topic.md). A continuación, envíe mensajes a un tema y recíbalos de las suscripciones mediante clientes escritos en [C#](service-bus-dotnet-how-to-use-topics-subscriptions.md), [Java](service-bus-java-how-to-use-topics-subscriptions.md), [Python](service-bus-python-how-to-use-topics-subscriptions.md), [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md) y [PHP](service-bus-php-how-to-use-topics-subscriptions.md). 
 
 ### <a name="rules-and-actions"></a>Reglas y acciones
 En muchos escenarios, los mensajes que tienen características específicas deben procesarse de maneras diferentes. Para permitir este procesamiento, puede configurar suscripciones para buscar los mensajes que tengan las propiedades deseadas y, después, realizar determinadas modificaciones en dichas propiedades. Mientras que las suscripciones del Service Bus ven todos los mensajes enviados al tema, solo se puede copiar un subconjunto de dichos mensajes en la cola de suscripción virtual. Este filtrado se consigue mediante los filtros de suscripción. Dichas modificaciones se denominan **acciones de filtrado**. Cuando se cree una suscripción, podrá proporcionar una expresión de filtro que opere en las propiedades del mensaje. Las propiedades pueden ser del sistema (por ejemplo, **etiqueta**) y propiedades de la aplicación personalizadas (por ejemplo, **StoreName**). En este caso, la expresión de filtro SQL es opcional. Sin una expresión de filtro SQL, todas las acciones de filtro definidas en una suscripción se realizarán en todos los mensajes de dicha suscripción.

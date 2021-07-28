@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: tisande
-ms.openlocfilehash: d9cafc100ddd4b553577c447e82334e6ee7d1b6d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0bc50cb511f176b76db2f0ea9f0576a857b3c69e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96545458"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110466897"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>Cláusula GROUP BY en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -61,6 +61,8 @@ FROM f
 GROUP BY f.lastName
 ) AS UniqueLastNames
 ```
+
+Además, las consultas de `GROUP BY` entre particiones pueden tener un máximo de 21 [funciones de agregado del sistema](sql-query-aggregate-functions.md). 
 
 ## <a name="examples"></a>Ejemplos
 

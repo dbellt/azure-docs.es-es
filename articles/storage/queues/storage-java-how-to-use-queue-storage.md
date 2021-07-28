@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-java
-ms.openlocfilehash: 8b9ffad004f2bb9c16ca31e44d044e71c679dced
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: ddcc256630633b2394d017ee7409ebffbdebe0e9
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108161454"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110477350"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Uso de Queue Storage de Java
 
@@ -30,7 +30,7 @@ Esta guía muestra cómo codificar algunos escenarios comunes a través del serv
 
 ## <a name="create-a-java-application"></a>Creación de una aplicación Java
 
-# <a name="java-v12"></a>[Java v12](#tab/java)
+# <a name="java-v12-sdk"></a>[SDK de Java v12](#tab/java)
 
 En primer lugar, compruebe que el sistema de desarrollo cumple los requisitos previos enumerados en [Biblioteca cliente de Azure Queue Storage v12 para Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue).
 
@@ -111,7 +111,7 @@ Abra el archivo `pom.xml` en el editor de texto. Agregue el siguiente elemento d
 </dependency>
 ```
 
-# <a name="java-v8"></a>[Java v8](#tab/java8)
+# <a name="java-v8-sdk"></a>[SDK de Java v8](#tab/java8)
 
 En primer lugar, compruebe que el sistema de desarrollo cumple los requisitos previos enumerados en el [SDK de Azure Storage para Java v8](https://github.com/azure/azure-storage-java). Siga las instrucciones para descargar e instalar las bibliotecas de Azure Storage para Java. Después, puede crear una aplicación de Java con los ejemplos de este artículo.
 
@@ -121,11 +121,11 @@ En primer lugar, compruebe que el sistema de desarrollo cumple los requisitos pr
 
 Agregue las siguientes instrucciones de importación en la parte superior del archivo Java en el que desea utilizar las API de Azure Storage para obtener acceso a las colas:
 
-# <a name="java-v12"></a>[Java v12](#tab/java)
+# <a name="java-v12-sdk"></a>[SDK de Java v12](#tab/java)
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_ImportStatements":::
 
-# <a name="java-v8"></a>[Java v8](#tab/java8)
+# <a name="java-v8-sdk"></a>[SDK de Java v8](#tab/java8)
 
 ```java
 // Include the following imports to use queue APIs.
@@ -139,11 +139,11 @@ import com.microsoft.azure.storage.queue.*;
 
 Un cliente de Azure Storage usa una cadena de conexión de almacenamiento para tener acceso a los servicios de administración de datos. Obtenga el nombre y la clave de acceso principal de la cuenta de almacenamiento que aparecen en [Azure Portal](https://portal.azure.com). Úselos como los valores `AccountName` y `AccountKey` en la cadena de conexión. En este ejemplo se muestra cómo puede declarar un campo estático para mantener la cadena de conexión:
 
-# <a name="java-v12"></a>[Java v12](#tab/java)
+# <a name="java-v12-sdk"></a>[SDK de Java v12](#tab/java)
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_ConnectionString":::
 
-# <a name="java-v8"></a>[Java v8](#tab/java8)
+# <a name="java-v8-sdk"></a>[SDK de Java v8](#tab/java8)
 
 ```java
 // Define the connection-string with your values.
@@ -167,13 +167,13 @@ En los ejemplos siguientes se supone que tiene un objeto `String` que contiene l
 
 ## <a name="how-to-create-a-queue"></a>Procedimientos: Creación de una cola
 
-# <a name="java-v12"></a>[Java v12](#tab/java)
+# <a name="java-v12-sdk"></a>[SDK de Java v12](#tab/java)
 
 Un objeto `QueueClient` contiene las operaciones para interactuar con una cola. El código siguiente crea un objeto `QueueClient`. Use el objeto `QueueClient` para crear la cola que desea utilizar.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_CreateQueue":::
 
-# <a name="java-v8"></a>[Java v8](#tab/java8)
+# <a name="java-v8-sdk"></a>[SDK de Java v8](#tab/java8)
 
 Los objetos `CloudQueueClient` le permiten obtener objetos de referencia para las colas. En el código siguiente se crea un objeto `CloudQueueClient` que proporciona una referencia a la cola que se desea utilizar. En caso de que la cola no exista todavía, es posible crearla.
 
@@ -207,13 +207,13 @@ catch (Exception e)
 
 ## <a name="how-to-add-a-message-to-a-queue"></a>Procedimientos: un mensaje a una cola
 
-# <a name="java-v12"></a>[Java v12](#tab/java)
+# <a name="java-v12-sdk"></a>[SDK de Java v12](#tab/java)
 
 Para insertar un mensaje en una cola existente, llame al método `sendMessage`. Un mensaje puede ser una cadena (en formato UTF-8) o una matriz de bytes. Este es el código que envía un mensaje de cadena a la cola.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_AddMessage":::
 
-# <a name="java-v8"></a>[Java v8](#tab/java8)
+# <a name="java-v8-sdk"></a>[SDK de Java v8](#tab/java8)
 
 Para insertar un mensaje en una cola existente, cree en primer lugar un nuevo `CloudQueueMessage`. A continuación, llame al método `addMessage`. Se puede crear un objeto `CloudQueueMessage` a partir de una cadena (en formato UTF-8) o de una matriz de bytes. A continuación se muestra el código con el que se crea una cola (si no existe) y se inserta el mensaje `Hello, World`.
 
@@ -250,11 +250,11 @@ catch (Exception e)
 
 Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, mediante una llamada a `peekMessage`:
 
-# <a name="java-v12"></a>[Java v12](#tab/java)
+# <a name="java-v12-sdk"></a>[SDK de Java v12](#tab/java)
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_PeekMessage":::
 
-# <a name="java-v8"></a>[Java v8](#tab/java8)
+# <a name="java-v8-sdk"></a>[SDK de Java v8](#tab/java8)
 
 ```java
 try
@@ -291,13 +291,13 @@ catch (Exception e)
 
 Puede cambiar el contenido de un mensaje local en la cola. Si el mensaje representa una tarea de trabajo, puede usar esta característica para actualizar el estado. El siguiente código actualiza el mensaje de la cola con contenido nuevo y amplía el tiempo de espera de la visibilidad en 30 segundos más. La extensión del tiempo de espera de visibilidad proporciona al cliente otros 30 segundos para seguir trabajando en el mensaje. También puede mantener un número de reintentos. Si el mensaje se vuelve a intentar más de *n* veces, lo eliminaría. Este escenario proporciona protección frente a un mensaje que produce un error en la aplicación cada vez que se procesa.
 
-# <a name="java-v12"></a>[Java v12](#tab/java)
+# <a name="java-v12-sdk"></a>[SDK de Java v12](#tab/java)
 
 El siguiente código de ejemplo busca en la cola de mensajes, encuentra el primer mensaje cuyo contenido coincide con una cadena de búsqueda, modifica el contenido del mensaje y se cierra.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_UpdateSearchMessage":::
 
-# <a name="java-v8"></a>[Java v8](#tab/java8)
+# <a name="java-v8-sdk"></a>[SDK de Java v8](#tab/java8)
 
 El siguiente código de ejemplo busca en la cola de mensajes, encuentra el primer mensaje cuyo contenido coincide con `Hello, world`, modifica el contenido del mensaje y se cierra.
 
@@ -346,11 +346,11 @@ catch (Exception e)
 
 El siguiente código de ejemplo actualiza únicamente el primer mensaje visible de la cola.
 
-# <a name="java-v12"></a>[Java v12](#tab/java)
+# <a name="java-v12-sdk"></a>[SDK de Java v12](#tab/java)
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_UpdateFirstMessage":::
 
-# <a name="java-v8"></a>[Java v8](#tab/java8)
+# <a name="java-v8-sdk"></a>[SDK de Java v8](#tab/java8)
 
 ```java
 try
@@ -393,13 +393,13 @@ catch (Exception e)
 
 Puede obtener una estimación del número de mensajes existentes en una cola.
 
-# <a name="java-v12"></a>[Java v12](#tab/java)
+# <a name="java-v12-sdk"></a>[SDK de Java v12](#tab/java)
 
 El método `getProperties` devuelve varios valores, incluido el número de mensajes que hay actualmente en una cola. El recuento solo es aproximado, ya que se pueden agregar o borrar mensajes después de que el servicio de cola haya respondido su solicitud. El método `getApproximateMessageCount` devuelve el último valor recuperado por la llamada a `getProperties`, sin llamar a Queue Storage.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_GetQueueLength":::
 
-# <a name="java-v8"></a>[Java v8](#tab/java8)
+# <a name="java-v8-sdk"></a>[SDK de Java v8](#tab/java8)
 
 El método `downloadAttributes` recupera varios valores, incluido el número de mensajes que hay actualmente en una cola. El recuento solo es aproximado, ya que se pueden agregar o borrar mensajes después de que el servicio de cola haya respondido su solicitud. El método `getApproximateMessageCount` devuelve el último valor recuperado por la llamada a `downloadAttributes`, sin llamar a Queue Storage.
 
@@ -436,13 +436,13 @@ catch (Exception e)
 
 ## <a name="how-to-dequeue-the-next-message"></a>Procedimientos: Extracción del siguiente mensaje de la cola
 
-# <a name="java-v12"></a>[Java v12](#tab/java)
+# <a name="java-v12-sdk"></a>[SDK de Java v12](#tab/java)
 
 El código extrae un mensaje de una cola en dos pasos. Al llamar a `receiveMessage`, obtiene el siguiente mensaje de una cola. Un mensaje devuelto por `receiveMessage` se hace invisible a cualquier otro código de lectura de mensajes de esta cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. Para terminar quitando el mensaje de la cola, también debe llamar a `deleteMessage`. Si el código no puede procesar un mensaje, este proceso de dos pasos garantiza que pueda obtener el mismo mensaje e intentarlo de nuevo. El código siguiente llama a `deleteMessage` justo después de haberse procesado el mensaje.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_DequeueMessage":::
 
-# <a name="java-v8"></a>[Java v8](#tab/java8)
+# <a name="java-v8-sdk"></a>[SDK de Java v8](#tab/java8)
 
 El código extrae un mensaje de una cola en dos pasos. Al llamar a `retrieveMessage`, obtiene el siguiente mensaje de una cola. Un mensaje devuelto por `retrieveMessage` se hace invisible a cualquier otro código de lectura de mensajes de esta cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. Para terminar quitando el mensaje de la cola, también debe llamar a `deleteMessage`. Si el código no puede procesar un mensaje, este proceso de dos pasos garantiza que pueda obtener el mismo mensaje e intentarlo de nuevo. El código siguiente llama a `deleteMessage` justo después de haberse procesado el mensaje.
 
@@ -481,13 +481,13 @@ catch (Exception e)
 
 Hay dos formas de personalizar la recuperación de mensajes de una cola. En primer lugar, obtenga un lote de mensajes (hasta 32). En segundo lugar, establezca r un tiempo de espera de la invisibilidad más largo o más corto para que el código disponga de más o menos tiempo para procesar cada mensaje.
 
-# <a name="java-v12"></a>[Java v12](#tab/java)
+# <a name="java-v12-sdk"></a>[SDK de Java v12](#tab/java)
 
 El siguiente ejemplo de código utiliza el método `receiveMessages` para obtener veinte mensajes en una llamada. A continuación, procesa cada mensaje con un bucle `for`. También establece el tiempo de espera de la invisibilidad en cinco minutos (300 segundos) para cada mensaje. El tiempo de espera se inicia para todos los mensajes al mismo tiempo. Cuando hayan transcurrido cinco minutos desde la llamada a `receiveMessages`, todos los mensajes que no se eliminen volverán a estar visibles.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_DequeueMessages":::
 
-# <a name="java-v8"></a>[Java v8](#tab/java8)
+# <a name="java-v8-sdk"></a>[SDK de Java v8](#tab/java8)
 
 El siguiente ejemplo de código utiliza el método `retrieveMessages` para obtener veinte mensajes en una llamada. A continuación, procesa cada mensaje con un bucle `for`. También establece el tiempo de espera de la invisibilidad en cinco minutos (300 segundos) para cada mensaje. El tiempo de espera se inicia para todos los mensajes al mismo tiempo. Cuando hayan transcurrido cinco minutos desde la llamada a `retrieveMessages`, todos los mensajes que no se eliminen volverán a estar visibles.
 
@@ -522,13 +522,13 @@ catch (Exception e)
 
 ## <a name="how-to-list-the-queues"></a>Procedimientos: Enumeración de las colas
 
-# <a name="java-v12"></a>[Java v12](#tab/java)
+# <a name="java-v12-sdk"></a>[SDK de Java v12](#tab/java)
 
 Para obtener una lista de las colas actuales, llame al método `QueueServiceClient.listQueues()` , el cual devolverá una colección de objetos `QueueItem`.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_ListQueues":::
 
-# <a name="java-v8"></a>[Java v8](#tab/java8)
+# <a name="java-v8-sdk"></a>[SDK de Java v8](#tab/java8)
 
 Para obtener una lista de las colas actuales, llame al método `CloudQueueClient.listQueues()` , el cual devolverá una colección de objetos `CloudQueue`.
 
@@ -561,13 +561,13 @@ catch (Exception e)
 
 ## <a name="how-to-delete-a-queue"></a>Procedimientos: Eliminación de una cola
 
-# <a name="java-v12"></a>[Java v12](#tab/java)
+# <a name="java-v12-sdk"></a>[SDK de Java v12](#tab/java)
 
-Para eliminar una cola y todos los mensajes que contiene, llame al método `delete` en el objeto `QueueClient`.
+Para eliminar una cola y todos los mensajes contenidos en ella, llame al método `delete` en el objeto de cola `QueueClient`.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_DeleteMessageQueue":::
 
-# <a name="java-v8"></a>[Java v8](#tab/java8)
+# <a name="java-v8-sdk"></a>[SDK de Java v8](#tab/java8)
 
 Para eliminar una cola y todos los mensajes contenidos en ella, llame al método `deleteIfExists` en el objeto de cola `CloudQueue`.
 

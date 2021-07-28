@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/22/2021
-ms.openlocfilehash: 0a203531e026d00b274ac98784076d33b22666d8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 31c5be9ce48ffea8ebd23e893e2d77e6365d2327
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104800149"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467673"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Niveles de coherencia en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -92,7 +92,7 @@ Los clientes que están fuera de la sesión que realiza escrituras verán las ga
 - Coherencia para clientes de la misma región para una cuenta con región de escritura única = De prefijo coherente
 - Coherencia para clientes de distintas regiones para una cuenta con región de escritura única = De prefijo coherente
 - Coherencia para clientes que escriben en una sola región para una cuenta con varias regiones de escritura = De prefijo coherente
-- Coherencia para clientes que escriben en varias regiones para una cuenta con varias regiones de escritura = Final
+- Coherencia para clientes que escriben en varias regiones para una cuenta con varias regiones de escritura = Posible
 
   La coherencia de la sesión es el nivel de coherencia más usado para regiones únicas, así como para aplicaciones distribuidas globalmente. Proporciona latencias de escritura, disponibilidad y rendimiento de lectura equiparables a los de la coherencia final, pero también proporciona las garantías de coherencia que satisfacen las necesidades de aplicaciones escritas para funcionar en el contexto de un usuario. En el gráfico siguiente se ilustra la coherencia de la sesión con notas musicales. El "escritor de Oeste de EE. UU. 2" y el "lector de Oeste de EE. UU. 2" usan la misma sesión (sesión A), por lo que ambos leen los mismos datos al mismo tiempo. Sin embargo, la región "Este de Australia" usa la "sesión B", por lo que recibe los datos más tarde pero en el mismo orden en que se escriben.
 

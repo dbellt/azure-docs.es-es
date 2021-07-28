@@ -1,0 +1,77 @@
+### YamlMime:FAQ
+metadata:
+  title: Preguntas frecuentes sobre réplicas con nombre de Hiperescala de Azure SQL Database
+  description: Respuestas a las preguntas más habituales que los clientes formulan sobre una base de datos en SQL Database en las réplicas con nombre del nivel de servicio Hiperescala.
+  services: sql-database
+  ms.service: sql-database
+  ms.subservice: 
+  ms.custom: 
+  ms.devlang: 
+  ms.topic: conceptual
+  author: yorek
+  ms.author: damauri
+  ms.reviewer: 
+  ms.date: 06/09/2021
+  ms.openlocfilehash: 53dd0035a9ee973b68b7a1f795e500775e226e3f
+  ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 07/02/2021
+  ms.locfileid: "113233447"
+title: Preguntas frecuentes sobre réplicas con nombre de Hiperescala de Azure SQL Database
+summary: "[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]\n\nEste artículo da respuesta a las preguntas más frecuentes que los clientes formulan sobre las bases de datos de Azure SQL Database en el nivel de servicio Hiperescala, a la que se hará referencia solo como Hiperescala en el resto de este documento. En este artículo se describen los escenarios que admite Hiperescala y las características con las que es compatible.\n\n- Esta sección de preguntas más frecuentes está pensada para lectores que tienen un conocimiento básico de las réplicas con nombre del nivel de servicio Hiperescala y que buscan una respuesta para sus preguntas y preocupaciones específicas.\n- Para obtener información completa sobre las réplicas con nombre de Hiperescala, consulte [Réplica con nombre (versión preliminar)](service-tier-hyperscale-replicas.md#named-replica-in-preview). \n"
+sections:
+- name: Preguntas generales
+  questions:
+  - question: >
+      ¿Se puede usar una réplica con nombre como destino de conmutación por error?
+    answer: >
+      No, las réplicas con nombre no se pueden usar como destinos de conmutación por error. Use réplicas de alta disponibilidad con ese fin.
+  - question: >
+      ¿Cómo puedo distribuir la carga de trabajo de solo lectura entre mis réplicas con nombre?
+    answer: >
+      Dado que cada réplica con nombre puede tener un objetivo de nivel de servicio diferente y, por tanto, usarse para distintos casos de uso, no hay ninguna manera integrada de dirigir el tráfico de solo lectura enviado a la réplica principal a las réplicas con nombre relacionadas. Por ejemplo, puede tener ocho réplicas con nombre y puede querer dirigir la carga de trabajo de OLTP solo a las réplicas con nombre 1 a 4, mientras que todas las cargas de trabajo analíticas de Power BI usarán las réplicas con nombre 5 y 6 y la carga de trabajo de ciencia de datos usará las réplicas 7 y 8. En función de la herramienta o el lenguaje de programación que use, las estrategias para distribuir dicha carga de trabajo pueden variar. Este es un ejemplo de creación de una solución de enrutamiento de cargas de trabajo para permitir que un back-end REST se escale horizontalmente: [Ejemplo de escalado horizontal de OLTP](https://github.com/Azure-Samples/azure-sql-db-named-replica-oltp-scaleout).
+  - question: >
+      ¿Puede una réplica con nombre estar en una región diferente de la región de la réplica principal?
+    answer: >
+      No, como las réplicas con nombre usan los mismos servidores de páginas que la réplica principal, deben estar en la misma región.
+  - question: >
+      ¿Puede una réplica con nombre afectar a la disponibilidad o al rendimiento de la réplica principal?
+    answer: >
+      Una réplica con nombre no puede afectar a la disponibilidad de la réplica principal. Las réplicas con nombre, en circunstancias normales, no suelen afectar al rendimiento de la principal, pero puede ocurrir si hay cargas de trabajo intensivas en ejecución. Al igual que una réplica de alta disponibilidad, una réplica con nombre se mantiene sincronizada con la principal mediante el servicio de registro de transacciones. Si, por cualquier motivo, una réplica con nombre no puede consumir el registro de transacciones lo suficientemente rápido, comenzará a pedir a la réplica principal que ralentice (limite) su generación de registros para que pueda ponerse al día. Aunque este comportamiento no afectará a la disponibilidad de la principal, afectará a sus rendimientos. Para evitar esta situación, asegúrese de que las réplicas con nombre tengan suficientes recursos libres (principalmente CPU) para que puedan procesar el registro de transacciones sin retraso. Por ejemplo, si la principal está procesando numerosos cambios de datos, se recomienda tener la réplica con nombre con al menos el mismo objetivo de nivel de servicio que la principal, para evitar cuellos de botella en la CPU de las réplicas y, por tanto, forzar la ralentización de la réplica principal.
+  - question: >
+      ¿Qué ocurre con las réplicas con nombre si la réplica principal no está disponible, por ejemplo, debido al mantenimiento planeado?
+    answer: >
+      Las réplicas con nombre seguirán estando disponibles para el acceso de solo lectura, como de costumbre.
+  - question: >
+      ¿Cómo puedo validar si me he conectado correctamente a la réplica de proceso secundaria mediante SQL Server Management Studio (SSMS) u otras herramientas de cliente?
+    answer: >
+      Puede ejecutar la siguiente consulta T-SQL:
+
+
+      ```sql
+
+      SELECT @@SERVERNAME, DB_NAME(), DATABASEPROPERTYEX(DB_NAME(), 'Updateability');
+
+      ```
+
+
+      El resultado es `READ_ONLY` si está conectado a una réplica secundaria de solo lectura y `READ_WRITE`, si está conectado a la réplica principal. El contexto de la base de datos se debe establecer en el nombre de la base de datos de Hiperescala, no en la base de datos `master`.
+  - question: >
+      ¿Puedo crear cualquier objeto o índice en mis réplicas de proceso secundarias?
+    answer: >
+      No. Las bases de datos de Hiperescala tienen el almacenamiento compartido, lo que significa que todas las réplicas de proceso ven las mismas tablas, índices y vistas. Si desea índices adicionales optimizados para lecturas en la réplica secundaria, debe primero agregarlos a la réplica principal.
+
+
+      Todavía puede crear y usar tablas temporales para almacenar datos temporales.
+  - question: >
+      ¿Cuánto retraso va a haber entre la réplica de proceso principal y las secundarias?
+    answer: >
+      La latencia de los datos desde el momento en que se confirma una transacción en el servidor principal hasta el momento en que se puede leer en una secundaria depende de la velocidad de generación de registros actual, el tamaño de las transacciones, la carga en la réplica y otros factores. La latencia de los datos típica para las transacciones pequeñas es de decenas de milisegundos; sin embargo, no hay límite superior en la latencia de los datos. Los datos de una réplica secundaria determinada siempre son coherentes con las transacciones. Sin embargo, en un momento dado, la latencia de datos puede ser diferente para las distintas réplicas secundarias. Las cargas de trabajo que necesitan leer los datos confirmados inmediatamente deben ejecutarse en la réplica principal.
+  - question: >
+      ¿Cómo puedo mejorar la disponibilidad de las réplicas con nombre?
+    answer: >
+      De manera predeterminada, las réplicas con nombre no tienen ninguna réplica de alta disponibilidad. Sin embargo, dado que se comportan como una base de datos de Azure SQL normal (de solo lectura), pueden beneficiarse del [SLA superior](https://azure.microsoft.com/support/legal/sla/azure-sql-database/) que proporcionan las réplicas de alta disponibilidad. Para establecer el número de réplicas de alta disponibilidad, puede usar el parámetro `--ha-replicas` con [AZ CLI](/cli/azure/sql/db/replica?view=azure-cli-latest#az_sql_db_replica_create) o el parámetro `--HighAvailabilityReplicaCount` con [PowerShell](/powershell/module/az.sql/set-azsqldatabase) o mediante la propiedad `highAvailabilityReplicaCount` con la [API REST](/rest/api/sql/2021-02-01-preview/databases/create-or-update).
+
+      El número de réplicas de alta disponibilidad se puede establecer durante la creación de una réplica con nombre y se puede cambiar (solo mediante AZ CLI, PowerShell o la API REST) en cualquier momento después de crear la réplica con nombre. Los precios de las réplicas de alta disponibilidad para las réplicas con nombre son los mismos que las réplicas de alta disponibilidad para las bases de datos normales.
+additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n\nPara obtener más información sobre el nivel de servicio Hiperescala, vea [Nivel de servicio Hiperescala](service-tier-hyperscale.md).\nPara más información sobre las réplicas de Hiperescala, consulte [Réplicas secundarias de Hiperescala](service-tier-hyperscale-replicas.md)."

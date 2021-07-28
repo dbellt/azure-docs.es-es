@@ -1,6 +1,6 @@
 ---
-title: Requisitos del sistema de Microsoft Azure Stack Edge Pro | Microsoft Docs
-description: Obtenga información sobre los requisitos de software y de red de Azure Stack Edge Pro
+title: Requisitos del sistema de Azure Stack Edge Pro FPGA
+description: Obtenga información sobre los requisitos de software y redes de Azure Stack Edge Pro FPGA
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/26/2021
 ms.author: alkohli
-ms.openlocfilehash: 0e49d460d5ba7bf9131bc0a2f7ec0c1c9a6e653b
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 7be7715586339a4d38370acbe4a047f86b3a917f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108076786"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460520"
 ---
-# <a name="azure-stack-edge-pro-system-requirements"></a>Requisitos del sistema de Azure Stack Edge Pro
+# <a name="azure-stack-edge-pro-fpga-system-requirements"></a>Requisitos del sistema de Azure Stack Edge Pro FPGA
 
-En este artículo se describen los requisitos importantes del sistema de la solución Microsoft Azure Stack Edge Pro y de los clientes que se conectan a Azure Stack Edge Pro. Le recomendamos que examine detenidamente la información antes de implementar Azure Stack Edge Pro. Puede consultar esta información según considere necesario durante la implementación y las operaciones posteriores.
+En este artículo se describen los requisitos importantes del sistema de la solución Microsoft Azure Stack Edge Pro FPGA y de los clientes que se conectan a Azure Stack Edge Pro FPGA. Le recomendamos que examine detenidamente la información antes de implementar Azure Stack Edge Pro FPGA. Puede consultar esta información según considere necesario durante la implementación y las operaciones posteriores.
 
-Los requisitos del sistema de Azure Stack Edge Pro son: 
+Los requisitos del sistema de Azure Stack Edge Pro FPGA incluyen los siguientes: 
 
 - **Requisitos de software para hosts**: describe las plataformas compatibles, los exploradores de la interfaz de usuario de configuración local, los clientes SMB y los requisitos adicionales de los clientes que acceden al dispositivo.
 - **Requisitos de red para el dispositivo**: proporciona información acerca de los requisitos de red para el funcionamiento del dispositivo físico.
@@ -46,9 +46,9 @@ Los requisitos del sistema de Azure Stack Edge Pro son:
 
 ## <a name="networking-port-requirements"></a>Requisitos de los puertos de redes
 
-### <a name="port-requirements-for-azure-stack-edge-pro"></a>Requisitos de puertos de Azure Stack Edge Pro
+### <a name="port-requirements-for-azure-stack-edge-pro-fpga"></a>Requisitos de puertos de Azure Stack Edge Pro FPGA
 
-La siguiente tabla enumera los puertos que deben abrirse en el firewall para permitir el tráfico de administración, de la nube o de SMB. En esta tabla, *dentro* o *entrante* hace referencia a la dirección desde la que el cliente entrante solicita acceso al dispositivo. Por su parte, *fuera* o *saliente* hacen referencia a la dirección en la que el dispositivo Azure Stack Edge Pro envía datos al exterior, fuera de los límites de la implementación; por ejemplo, datos que salen a Internet.
+La siguiente tabla enumera los puertos que deben abrirse en el firewall para permitir el tráfico de administración, de la nube o de SMB. En esta tabla, *dentro* o *entrante* hace referencia a la dirección desde la que el cliente entrante solicita acceso al dispositivo. *Salida* o *saliente* hacen referencia a la dirección en la que el dispositivo Azure Stack Edge Pro FPGA envía datos al exterior, fuera de los límites de la implementación; por ejemplo, datos que salen a Internet.
 
 [!INCLUDE [Port configuration for device](../../includes/data-box-edge-gateway-port-config.md)]
 
@@ -66,9 +66,9 @@ Para obtener información completa, vaya a [Reglas de configuración de puertos 
 
 ## <a name="url-patterns-for-firewall-rules"></a>Patrones de URL para reglas de firewall
 
-Con frecuencia, los administradores de red pueden configurar reglas avanzadas de firewall de acuerdo con los patrones de URL para filtrar el tráfico saliente y entrante. El dispositivo Azure Stack Edge Pro y el servicio dependen de otras aplicaciones de Microsoft, como Azure Service Bus, Azure Active Directory Access Control, cuentas de almacenamiento y servidores de Microsoft Update. Es posible usar los patrones de URL asociados a estas aplicaciones para configurar las reglas de firewall. Es importante entender que los patrones de URL asociados a estas aplicaciones pueden cambiar. Estos cambios requieren que el administrador de red supervise y actualice las reglas de firewall de Azure Stack Edge Pro cuando sea necesario.
+Con frecuencia, los administradores de red pueden configurar reglas avanzadas de firewall de acuerdo con los patrones de URL para filtrar el tráfico saliente y entrante. El dispositivo Azure Stack Edge Pro FPGA y el servicio dependen de otras aplicaciones de Microsoft, como Azure Service Bus, Azure Active Directory Access Control, cuentas de almacenamiento y servidores de Microsoft Update. Es posible usar los patrones de URL asociados a estas aplicaciones para configurar las reglas de firewall. Es importante entender que los patrones de URL asociados a estas aplicaciones pueden cambiar. Estos cambios requieren que el administrador de red supervise y actualice las reglas de firewall de Azure Stack Edge Pro FPGA cuando sea necesario.
 
-Es recomendable configurar las reglas de firewall para el tráfico de salida en función de las direcciones IP fijas de Azure Stack Edge Pro, que pueden establecerse libremente en la mayoría de los casos. Sin embargo, puede utilizar la información siguiente con el objetivo de establecer las reglas avanzadas de firewall que se necesitan para crear entornos seguros.
+Es recomendable configurar las reglas de firewall para el tráfico de salida en función de las direcciones IP fijas de Azure Stack Edge Pro FPGA, que pueden establecerse libremente en la mayoría de los casos. Sin embargo, puede utilizar la información siguiente con el objetivo de establecer las reglas avanzadas de firewall que se necesitan para crear entornos seguros.
 
 > [!NOTE]
 > - Las direcciones IP del dispositivo (origen) siempre se deben establecer en todas las interfaces de red habilitadas para la nube.
@@ -104,7 +104,7 @@ Es recomendable configurar las reglas de firewall para el tráfico de salida en 
 
 ## <a name="compute-sizing-considerations"></a>Consideraciones de tamaño de proceso
 
-Use su experiencia al desarrollar y probar la solución para asegurarse de que hay suficiente capacidad en el dispositivo Azure Stack Edge Pro y obtener un rendimiento óptimo del dispositivo.
+Haga uso de su experiencia al desarrollar y probar la solución para asegurarse de que hay suficiente capacidad en el dispositivo Azure Stack Edge Pro FPGA y que se obtiene un rendimiento óptimo del dispositivo.
 
 Debe considerar los siguientes factores:
 
@@ -130,9 +130,9 @@ Para comprender y ajustar el rendimiento de la solución, puede usar:
 
     Para obtener más información sobre los comandos disponibles, vaya a [Supervisar y solucionar problemas de los módulos de proceso](azure-stack-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules).
 
-Por último, no olvide validar la solución en el conjunto de datos y cuantificar el rendimiento de Azure Stack Edge Pro antes de realizar la implementación en producción.
+Por último, no olvide validar la solución en el conjunto de datos y cuantificar el rendimiento de Azure Stack Edge Pro FPGA antes de realizar la implementación en producción.
 
 
 ## <a name="next-step"></a>Paso siguiente
 
-- [Implementación de Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md)
+- [Implementación de Azure Stack Edge Pro FPGA](azure-stack-edge-deploy-prep.md)

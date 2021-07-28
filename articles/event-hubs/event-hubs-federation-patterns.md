@@ -3,12 +3,12 @@ title: 'Patrones de tareas de replicación de eventos: Azure Event Hubs | Micros
 description: En este artículo se proporcionan instrucciones detalladas para implementar patrones de tareas de replicación de eventos específicos.
 ms.topic: article
 ms.date: 12/12/2020
-ms.openlocfilehash: 438964c228f060dede93abf582c9504b698db8b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: adaa124470e6b3cc94bab647967f08b63a1c4f49
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97934618"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110462859"
 ---
 # <a name="event-replication-tasks-patterns"></a>Patrones de tareas de replicación de eventos
 
@@ -78,7 +78,7 @@ En la zona de la aplicación, creará una entrada CNAME que apunte a la zona sub
 
 | Registro CNAME                | Alias                    |
 | --------------------------- | ------------------------ |
-| `eventhub.test.example.com` | `test1.test.example.com` |
+| `eventhub.test.example.com` | `eh1.test.example.com`   |
 
 El uso de un cliente DNS que permite consultar los registros CNAME y SRV explícitamente (los clientes integrados de Java y .NET solo permiten la resolución simple de nombres en direcciones IP), puede resolver el punto de conexión deseado. Con [DnsClient.NET](https://dnsclient.michaco.net/), por ejemplo, la función de búsqueda es:
 
@@ -195,7 +195,7 @@ select * into dest2Output from inputSource where Info = 2
 
 ## <a name="log-projection"></a>Proyección de registros
 
-El patrón de proyección de registros simplifica la secuencia de eventos en una base de datos indexada, con eventos que se convierten en registros en la base de datos. Normalmente, los eventos se agregan a la misma colección o tabla, y la clave de partición del centro de eventos se convierte en la entidad de la clave principal que busca convertir el registro en único.
+El patrón de proyección de registros simplifica la secuencia de eventos en una base de datos indexada, con eventos que se convierten en registros en la base de datos. Normalmente, los eventos se agregan a la misma colección o tabla, y la clave de partición del centro de eventos se convierte en la parte de la clave principal que busca convertir el registro en único.
 
 La proyección de registros puede generar un historial de series temporales de los datos de eventos o una vista compacta, en la que solo se conserva el evento más reciente para cada clave de partición. La forma de la base de datos de destino depende en última instancia de usted y de las necesidades de la aplicación. Este patrón también se conoce como "aprovisionamiento de eventos".
 
