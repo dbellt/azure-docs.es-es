@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 02/11/2021
+ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: ebc8405a2afe9a6e2d802b68c59142f6fbf01de5
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: d5e9b449aaff6bb14283184c2182d0e9de2ef0c5
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108288119"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111407568"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Creación de un grupo de servidores Hiperescala de PostgreSQL habilitado para Azure Arc
 
@@ -80,7 +80,18 @@ Los parámetros principales que debe tener en cuenta son:
 
 - **la versión del motor de PostgreSQL** que quiere implementar: de forma predeterminada, es la versión 12; Para implementar la versión 12, puede omitir este parámetro o pasar uno de los siguientes parámetros: `--engine-version 12` o `-ev 12`. Para implementar la versión 11, indique `--engine-version 11` o `-ev 11`.
 
-- **el número de nodos de trabajo** que quiere implementar para escalar horizontalmente y lograr mejores rendimientos; Antes de continuar, lea los [conceptos sobre Hiperescala de Postgres](concepts-distributed-postgres-hyperscale.md). Para indicar el número de nodos de trabajo que se van a implementar, use el parámetro `--workers` o `-w` seguido de un entero mayor o igual que 2. Por ejemplo, si quiere implementar un grupo de servidores con 2 nodos de trabajo, indique `--workers 2` o `-w 2`. Se crean tres pods, uno para el nodo o la instancia de coordinación y dos para los nodos o las instancias de trabajo (uno para cada uno de los trabajos).
+- **el número de nodos de trabajo** que quiere implementar para escalar horizontalmente y lograr mejores rendimientos; Antes de continuar, lea los [conceptos sobre Hiperescala de Postgres](concepts-distributed-postgres-hyperscale.md). Para indicar el número de nodos de trabajo que se van a implementar, use el parámetro `--workers` o `-w` seguido de un entero. En la tabla siguiente se indica el intervalo de valores admitidos y qué forma de implementación de Postgres obtiene con ellos. Por ejemplo, si quiere implementar un grupo de servidores con 2 nodos de trabajo, indique `--workers 2` o `-w 2`. Se crean tres pods, uno para el nodo o la instancia de coordinación y dos para los nodos o las instancias de trabajo (uno para cada uno de los trabajos).
+
+
+
+|Necesita:   |Forma del grupo de servidores que se va a implementar   |Parámetro -w que se usará   |Nota   |
+|---|---|---|---|
+|Una forma de Postgres de escalado horizontal para satisfacer las necesidades de escalabilidad de las aplicaciones.   |3 o más instancias de Postgres, 1 es el coordinador, n son los trabajos con n >=2.   |Use -w n, con n>=2.   |Se carga la extensión Citus que proporciona la funcionalidad de Hiperescala.   |
+|Una forma básica de Hiperescala de Postgres para que realice la validación funcional de la aplicación con un coste mínimo. No es válido para la validación del rendimiento y la escalabilidad. Para ello, debe usar el tipo de implementaciones descritas anteriormente.   |1 instancia de Postgres que es el coordinador y el trabajo.   |Use -w 0 y cargue la extensión Citus. Use los parámetros siguientes si realiza la implementación desde la línea de comandos: -w 0 --extensions Citus.   |Se carga la extensión Citus que proporciona la funcionalidad de Hiperescala.   |
+|Una instancia sencilla de Postgres que está lista para escalar horizontalmente cuando la necesite.   |1 instancia de Postgres. Todavía no es consciente de la semántica para el coordinador y el trabajo. Para escalarla horizontalmente después de la implementación, edite la configuración, aumente el número de nodos de trabajo y distribuya los datos.   |Use -w 0 o no especifique -w.   |La extensión Citus que proporciona la funcionalidad Hiperescala está presente en la implementación, pero aún no está cargada.   |
+|   |   |   |   |
+
+Aunque el uso de -w 1 funciona, no se recomienda usarlo. Esta implementación no le proporcionará mucho valor. Con ella, se obtienen 2 instancias de Postgres: 1 coordinador y 1 trabajo. Con esta configuración, los datos no se escalan horizontalmente en realidad, ya que se implementa un único trabajo. Por lo tanto, no verá un aumento del nivel de rendimiento y escalabilidad. Quitaremos la compatibilidad de esta implementación en una versión futura.
 
 - **las clases de almacenamiento** que quiere que use el grupo de servidores. Es importante que establezca la clase de almacenamiento justo en el momento de implementar un grupo de servidores, ya que no se puede cambiar después. Si va a cambiar la clase de almacenamiento después de la implementación, deberá extraer los datos, eliminar el grupo de servidores, crear otro grupo de servidores e importar los datos. Puede especificar las clases de almacenamiento que se usarán para los datos, los registros y las copias de seguridad. De forma predeterminada, si no indica las clases de almacenamiento, se usarán las clases de almacenamiento del controlador de datos.
     - Para establecer la clase de almacenamiento para los datos, indique el parámetro `--storage-class-data` o `-scd` seguido del nombre de la clase de almacenamiento.
@@ -246,7 +257,7 @@ psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
 
     > \* En los documentos anteriores, omita las secciones **Inicio de sesión en Azure Portal** y **Creación de una instancia de Azure Database for PostgreSQL: Hiperescala (Citus)** . Implemente los pasos restantes en la implementación de Azure Arc. Esas secciones son específicas de Hiperescala (Citus) de Azure Database for PostgreSQL que se ofrece como un servicio PaaS en la nube de Azure, pero las demás partes de los documentos se aplican directamente a Hiperescala de PostgreSQL habilitada para Azure Arc.
 
-- [Escalado horizontal del grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc](scale-out-postgresql-hyperscale-server-group.md)
+- [Escalado horizontal del grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc](scale-out-in-postgresql-hyperscale-server-group.md)
 - [Conceptos de almacenamiento de Kubernetes y configuración de almacenamiento](storage-configuration.md)
 - [Expansión de notificaciones de volúmenes persistentes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Modelo de recursos de Kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)

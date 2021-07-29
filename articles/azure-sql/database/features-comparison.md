@@ -4,20 +4,20 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 description: En este artículo se comparan las características del motor de base de datos de Azure SQL Database e Instancia administrada de Azure SQL.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: features
+ms.subservice: service-overview
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: bonova, sstein, danil
-ms.date: 03/08/2021
-ms.openlocfilehash: 1a6b6bb8551f9d67b8ec5b1f546a6499fa913021
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.reviewer: bonova, mathoma, danil
+ms.date: 05/18/2021
+ms.openlocfilehash: 1f645b8d62bc3e0acdbdd12a21b335deea3cd53e
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108736494"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110690025"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Comparación de características: Azure SQL Database e Instancia administrada de Azure SQL
 
@@ -35,6 +35,7 @@ Azure administra las bases de datos y garantiza su alta disponibilidad. Algunas 
 Si necesita más detalles sobre las diferencias, los encontrará en las páginas aparte:
 - [Diferencias entre Azure SQL Database y SQL Server](transact-sql-tsql-differences-sql-server.md)
 - [Diferencias entre Azure SQL Managed Instance y SQL Server](../managed-instance/transact-sql-tsql-differences-sql-server.md)
+
 
 ## <a name="features-of-sql-database-and-sql-managed-instance"></a>Características de SQL Database e Instancia administrada de SQL
 
@@ -68,7 +69,7 @@ En la tabla siguiente se enumeran las características principales de SQL Server
 | [Transacciones distribuidas: MS DTC](/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | No; consulte el artículo sobre [transacciones elásticas](elastic-transactions-overview.md). |  No; consulte las [diferencias de servidores vinculados](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers). Intente consolidar las bases de datos de varias instancias de SQL Server distribuidas en una Instancia administrada de SQL durante la migración. |
 | [Desencadenadores DML](/sql/relational-databases/triggers/create-dml-triggers) | La mayoría; consulte el artículo sobre instrucciones. |  Sí |
 | [DMV](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | La mayoría; consulte el artículo sobre DMV |  Sí; consulte el artículo sobre [diferencias de T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
-| [Consulta elástica](elastic-query-overview.md) (en versión preliminar pública) | Sí, con el tipo RDBMS requerido. | Sí, con el tipo RDBMS requerido. |
+| [Consulta elástica](elastic-query-overview.md) (en versión preliminar pública) | Sí, con el tipo RDBMS requerido. | No |
 | [Notificaciones de eventos](/sql/relational-databases/service-broker/event-notifications) | No; consulte el artículo sobre [alertas](alerts-insights-configure-portal.md). | No |
 | [Expresiones](/sql/t-sql/language-elements/expressions-transact-sql) |Sí | Sí |
 | [Eventos extendidos (XEvent)](/sql/relational-databases/extended-events/extended-events) | Algunas; consulte [Eventos extendidos en SQL Database](xevent-db-diff-from-svr.md) | Sí: consulte el artículo sobre [diferencias de eventos extendidos](../managed-instance/transact-sql-tsql-differences-sql-server.md#extended-events) |
@@ -153,6 +154,7 @@ La plataforma de Azure proporciona una serie de funcionalidades de PaaS que se a
 | [Red virtual](../../virtual-network/virtual-networks-overview.md) | Parcial; permite el acceso restringido mediante [puntos de conexión de red virtual](vnet-service-endpoint-rule-overview.md). | Sí, Instancia administrada de SQL se inserta en la red virtual del cliente. Consulte [subred](../managed-instance/transact-sql-tsql-differences-sql-server.md#subnet) y [red virtual](../managed-instance/transact-sql-tsql-differences-sql-server.md#vnet). |
 | Punto de conexión de servicio de VNet | [Sí](vnet-service-endpoint-rule-overview.md) | No |
 | Emparejamiento global de red virtual | Sí, uso de los [puntos de conexión de IP privada y de servicio](vnet-service-endpoint-rule-overview.md) | Sí, mediante el [emparejamiento de red virtual](https://techcommunity.microsoft.com/t5/azure-sql/new-feature-global-vnet-peering-support-for-azure-sql-managed/ba-p/1746913). |
+| [Conectividad privada](../../private-link/private-link-overview.md) | Sí, mediante [Private Link](/database/private-endpoint-overview.md) | Sí, con VNet. | 
 
 ## <a name="tools"></a>Herramientas
 
@@ -173,7 +175,7 @@ Azure SQL Database e Instancia administrada de Azure SQL admiten diversas herram
 | [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) | Sí | Sí, [versión 18.0 o posterior](/sql/ssms/download-sql-server-management-studio-ssms). |
 | [SQL Server PowerShell](/sql/relational-databases/scripting/sql-server-powershell) | Sí | Sí |
 | [SQL Server Profiler](/sql/tools/sql-server-profiler/sql-server-profiler) | No; consulte el artículo sobre [eventos extendidos](xevent-db-diff-from-svr.md). | Sí |
-| [System Center Operations Manager (SCOM)](/system-center/scom/welcome) | [Sí](https://www.microsoft.com/download/details.aspx?id=38829) | [Sí](https://www.microsoft.com/en-us/download/details.aspx?id=101203) |
+| [System Center Operations Manager](/system-center/scom/welcome) | [Sí](https://www.microsoft.com/download/details.aspx?id=38829) | [Sí](https://www.microsoft.com/en-us/download/details.aspx?id=101203) |
 
 ## <a name="migration-methods"></a>Métodos de migración
 

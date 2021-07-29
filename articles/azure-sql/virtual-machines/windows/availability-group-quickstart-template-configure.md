@@ -14,13 +14,13 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.custom: seo-lt-2019
-ms.openlocfilehash: deaa7834d4aa69ccf161b58f566dbc82ea71ad78
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.openlocfilehash: ab57e66ff37fb31a91a1949896a4e7736669d6c6
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108755736"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078930"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Uso de las plantillas de inicio rápido de Azure para configurar un grupo de disponibilidad para SQL Server en una máquina virtual de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -88,7 +88,11 @@ La adición de las VM con SQL Server al grupo de recursos *SqlVirtualMachineGrou
 >[!NOTE]
 > Las credenciales proporcionadas durante la implementación de la plantilla se almacenan solo mientras dure dicha implementación. Una vez finalizada la implementación, se quitan esas contraseñas. Se le pedirá que las proporcione de nuevo si agrega más máquinas virtuales con SQL Server al clúster. 
 
+## <a name="configure-quorum"></a>Configuración de un cuórum
 
+Aunque el testigo de disco es la opción de cuórum más resistente, requiere un disco compartido de Azure que impone algunas limitaciones al grupo de disponibilidad. Por lo tanto, el testigo en la nube es la solución de cuórum recomendada para los clústeres que hospedan grupos de disponibilidad de SQL Server en máquinas virtuales de Azure. 
+
+Si tiene un número par de votos en el clúster, configure la [solución de cuórum](hadr-cluster-quorum-configure-how-to.md) que mejor se adapte a sus necesidades empresariales. Para más información, consulte [Cuórum con VM SQL Server](hadr-windows-server-failover-cluster-overview.md#quorum). 
 
 ## <a name="validate-cluster"></a>Validar el clúster 
 
@@ -124,7 +128,7 @@ Solo tiene que crear el equilibrador de carga interno. En el paso 4, la plantil
 4. En la hoja **Load Balancer**, haga clic en **Crear**.
 5. En el cuadro de diálogo **Crear equilibrador de carga**, configure el equilibrador de carga tal y como se explica a continuación:
 
-   | Configuración | Value |
+   | Configuración | Valor |
    | --- | --- |
    | **Nombre** |Escriba un nombre de texto que represente el equilibrador de carga. Por ejemplo, **sqlLB**. |
    | **Tipo** |**Internas**: en la mayoría de las implementaciones se usa un equilibrador de carga interno que permite que las aplicaciones dentro de la misma red virtual se conecten al grupo de disponibilidad.  </br> **Externas**: permite que las aplicaciones se conecten al grupo de disponibilidad mediante una conexión a Internet pública. |
@@ -223,10 +227,10 @@ Una vez realizados estos cambios, trate de implementar la plantilla de inicio r�
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información, consulte los siguientes artículos. 
+Para obtener más información, consulte:
 
 * [Introducción a las máquinas virtuales con SQL Server](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [Preguntas más frecuentes sobre las máquinas virtuales con SQL Server](frequently-asked-questions-faq.md)
+* [Preguntas más frecuentes sobre las máquinas virtuales con SQL Server](frequently-asked-questions-faq.yml)
 * [Guía de precios para máquinas virtuales con SQL Server](pricing-guidance.md)
 * [Notas de la versión de las máquinas virtuales con SQL Server](../../database/doc-changes-updates-release-notes.md)
 * [Cambio de los modelos de licencia para una VM con SQL Server](licensing-model-azure-hybrid-benefit-ahb-change.md)

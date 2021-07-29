@@ -7,13 +7,14 @@ ms.subservice: extensions
 author: mgoedtel
 ms.author: magoedte
 ms.collection: windows
-ms.date: 03/29/2019
-ms.openlocfilehash: 429cc01f466c55283985729c3395bb2137e38fa6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/01/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 1de4facc6cc945b5cada2201d3da667efae793aa
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102566315"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110797363"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual de Azure Monitor Dependency para Windows
 
@@ -133,6 +134,29 @@ Set-AzVMExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
     -TypeHandlerVersion 9.5 `
     -Location WestUS 
 ```
+
+## <a name="automatic-upgrade-preview"></a>Actualización automática (versión preliminar)
+Ahora hay disponible una nueva característica para actualizar automáticamente las versiones secundarias de la extensión Dependency en versión preliminar pública. Debe realizar los siguientes cambios de configuración para habilitar esta característica.
+
+-   Use uno de los métodos de [Habilitación del acceso en versión preliminar](../automatic-extension-upgrade.md#enabling-preview-access) para habilitar la característica en la suscripción.
+- Agregue el atributo `enableAutomaticUpgrade` a la plantilla.
+
+El esquema del control de versiones de la extensión Dependency Agent sigue el formato siguiente:
+
+```
+<MM.mm.bb.rr> where M = Major version number, m = minor version number, b = bug number, r = revision number.
+```
+
+Los atributos `enableAutomaticUpgrade` y `autoUpgradeMinorVersion` funcionan conjuntamente para determinar cómo se controlarán las actualizaciones de las máquinas virtuales de la suscripción.
+
+| enableAutomaticUpgrade | autoUpgradeMinorVersion | Efecto |
+|:---|:---|:---|
+| true | false | Actualice Dependency Agent si existe una versión más reciente de bb.rr. Por ejemplo, si ejecuta 9.6.0.1355 y la versión más reciente es 9.6.2.1366, las máquinas virtuales de las suscripciones habilitadas se actualizarán a 9.6.2.1366. |
+| true | true |  Esto actualizará Dependency Agent si existe una versión más reciente de mm.bb.rr o bb.rr. Por ejemplo, si ejecuta 9.6.0.1355 y la versión más reciente es 9.7.1.1416, las máquinas virtuales de las suscripciones habilitadas se actualizarán a 9.7.1.1416. Además, si ejecuta 9.6.0.1355 y la versión más reciente es 9.6.2.1366, las máquinas virtuales de las suscripciones habilitadas se actualizarán a 9.6.2.1366. |
+| false | true o false | La actualización automática está deshabilitada.
+
+> [!IMPORTANT]
+> Si agrega `enableAutomaticUpgrade` a la plantilla, asegúrese de usar al menos la versión de API 2019-12-01.
 
 ## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
 

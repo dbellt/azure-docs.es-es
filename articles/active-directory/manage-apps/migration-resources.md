@@ -2,21 +2,21 @@
 title: Recursos para migrar aplicaciones a Azure Active Directory | Microsoft Docs
 description: Recursos para ayudarle a migrar el acceso a la aplicación y la autenticación a Azure Active Directory (Azure AD).
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 02/29/2020
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: baselden
-ms.openlocfilehash: 2d01c174bbfa522700773b87737b1e3da2de422e
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 1f167abc4fca3bd8d96a9fbc7a932ea296da96d0
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376654"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112076949"
 ---
 # <a name="resources-for-migrating-applications-to-azure-active-directory"></a>Recursos para migrar aplicaciones a Azure Active Directory
 
@@ -33,3 +33,4 @@ Recursos para ayudarle a migrar el acceso a la aplicación y la autenticación a
 | [Plan de implementación: habilitación del inicio de sesión único en una aplicación SaaS con Azure AD](https://aka.ms/SSODPDownload) | El inicio de sesión único (SSO) le ayuda a acceder a todas las aplicaciones y los recursos que necesita para hacer negocios, iniciando sesión una sola vez con una única cuenta de usuario. Por ejemplo, después de iniciar la sesión, el usuario puede cambiar entre Microsoft Office, Salesforce o Box sin necesidad de volver a autenticarse (por ejemplo, mediante una contraseña). 
 | [Plan de implementación: ampliación de las aplicaciones a Azure AD con el proxy de aplicación](https://aka.ms/AppProxyDPDownload)| Para proporcionar acceso a los portátiles de los empleados y otros dispositivos a las aplicaciones locales, siempre se han usado redes privadas virtuales (VPN) o redes perimetrales (DMZ). No obstante, estas soluciones no solo son complejas y difíciles de proteger, sino también costosas de configurar y administrar. Azure AD Application Proxy facilita el acceso a las aplicaciones locales. |
 | [Planes de implementación](../fundamentals/active-directory-deployment-plans.md) | Encuentre más planes de implementación para implementar características como la autenticación multifactor, el acceso condicional, el aprovisionamiento de usuarios, SSO ininterrumpido, el autoservicio de restablecimiento de contraseña y mucho más. |
+| [Migración de aplicaciones de Symantec SiteMinder a Azure AD](https://azure.microsoft.com/mediahandler/files/resourcefiles/migrating-applications-from-symantec-siteminder-to-azure-active-directory/Migrating-applications-from-Symantec-SiteMinder-to-Azure-Active-Directory.pdf) | Obtenga instrucciones paso a paso sobre las opciones de integración y migración de aplicaciones con un ejemplo que le guiará a través de la migración de aplicaciones de Symantec SiteMinder a Azure AD. |

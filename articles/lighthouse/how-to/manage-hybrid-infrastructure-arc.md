@@ -1,14 +1,14 @@
 ---
 title: Administración de la infraestructura híbrida a gran escala con Azure Arc
-description: Aprenda a administrar de forma eficaz los equipos de sus clientes y los clústeres de Kubernetes fuera de Azure.
+description: Azure Lighthouse ayuda a administrar de forma eficaz las máquinas de sus clientes y los clústeres de Kubernetes fuera de Azure.
 ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: da7f016b507f8f876d27f6924f87f078a7806563
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: edb9553288ff909e5a5f51bf1440c29914672cb9
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563606"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112082089"
 ---
 # <a name="manage-hybrid-infrastructure-at-scale-with-azure-arc"></a>Administración de la infraestructura híbrida a gran escala con Azure Arc
 

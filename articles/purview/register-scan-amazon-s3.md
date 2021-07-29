@@ -6,14 +6,14 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 05/13/2021
 ms.custom: references_regions
-ms.openlocfilehash: b020c74ce7479f9925c1a4e1db06fb4b3b9ef22b
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.openlocfilehash: e339c9847024aa35665b9a8b4114102c8fde22a1
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108065446"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110470294"
 ---
 # <a name="azure-purview-connector-for-amazon-s3"></a>Conector de Azure Purview para Amazon S3
 
@@ -29,9 +29,8 @@ El siguiente ámbito es específico para el registro y el examen de los cubos de
 
 |Ámbito  |Descripción  |
 |---------|---------|
-|**Límites de datos**     |    El servicio de examen de Purview admite actualmente el examen de cubos de Amazon S3 hasta 100 GB de datos por inquilino.     |
 |**Tipos de archivo**     | El servicio de examen de Purview admite actualmente los siguientes tipos de archivo: <br><br>.avro, .csv, .doc, .docm, .docx, .dot, .json, .odp, .ods, .odt, .orc, .parquet, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .psv, .ssv, .tsv, .txt, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt, .xml        |
-|**Regiones**     | El conector Purview del servicio Amazon S3 está implementado actualmente en las regiones de AWS de **Este de EE. UU. (Ohio)** , **Este de EE. UU. (N. Virginia)** , **Europa (Irlanda)** y **Europa (Fráncfort)** y **Asia Pacífico (Sídney)** . <br><br>Para más información, consulte [Regiones de almacenamiento y examen](#storage-and-scanning-regions).   |
+|**Regiones**     | El conector de Purview para el servicio Amazon S3 está implementado actualmente solo en regiones específicas. <br><br>Para más información, consulte [Regiones de almacenamiento y examen](#storage-and-scanning-regions).   |
 |     |         |
 
 Para más información, consulte los límites documentados de Purview en:
@@ -52,24 +51,24 @@ En la tabla siguiente se asignan las regiones en las que se almacenan los datos 
 | ------------------------------- | ------------------------------------- |
 | Este de EE. UU. (Ohio)                  | Este de EE. UU. (Ohio)                        |
 | Este de EE. UU. (N. Virginia)           | Este de EE. UU. (N. Virginia)                       |
-| Oeste de EE. UU. (N. California)         | Este de EE. UU. (Ohio)                        |
-| Oeste de EE. UU. (Oregon)                | Este de EE. UU. (Ohio)                        |
+| Oeste de EE. UU. (N. California)         | Este de EE. UU. (Ohio) u Oeste de EE. UU. (N. California)                        |
+| Oeste de EE. UU. (Oregon)                | Este de EE. UU. (Ohio) u Oeste de EE. UU. (Oregón)                      |
 | África (Ciudad del cabo)              | Europa (Frankfurt)                    |
-| Asia Pacífico (Hong Kong)        | Asia Pacífico (Sídney)                   |
-| Asia Pacífico (Mumbai)           | Asia Pacífico (Sídney)                   |
-| Asia Pacífico (Osaka-local)      | Asia Pacífico (Sídney)                   |
-| Asia Pacífico (Seúl)            | Asia Pacífico (Sídney)                   |
-| Asia Pacífico (Singapur)        | Asia Pacífico (Sídney)                   |
+| Asia Pacífico (Hong Kong)        | Asia Pacífico (Sydney) o Asia Pacífico (Singapur)                |
+| Asia Pacífico (Mumbai)           | Asia Pacífico (Sydney) o Asia Pacífico (Singapur)                |
+| Asia Pacífico (Osaka-local)      | Asia Pacífico (Sydney) o Asia Pacífico (Tokio)                 |
+| Asia Pacífico (Seúl)            | Asia Pacífico (Sydney) o Asia Pacífico (Tokio)                 |
+| Asia Pacífico (Singapur)        | Asia Pacífico (Sydney) o Asia Pacífico (Singapur)                 |
 | Asia Pacífico (Sídney)           | Asia Pacífico (Sídney)                  |
-| Asia Pacífico (Tokio)            | Asia Pacífico (Sídney)                 |
+| Asia Pacífico (Tokio)            | Asia Pacífico (Sydney) o Asia Pacífico (Tokio)                |
 | Canada (Central)                | Este de EE. UU. (Ohio)                        |
 | China (Pekín)                 | No compatible                    |
 | China (Ningxia)                 | No compatible                   |
 | Europa (Frankfurt)              | Europa (Frankfurt)                    |
 | Europa (Irlanda)                | Europa (Irlanda)                   |
-| Europa (Londres)                 | Europa (Irlanda)                   |
+| Europa (Londres)                 | Europa (Irlanda) o Europa (Londres)                 |
 | Europa (Milán)                  | Europa (Frankfurt)                    |
-| Europa (París)                  | Europa (Frankfurt)                    |
+| Europa (París)                  | Europa (Frankfurt) o Europa (París)                   |
 | Europa (Estocolmo)              | Europa (Frankfurt)                    |
 | Oriente Medio (Bahrein)           | Europa (Frankfurt)                    |
 | Sudamérica (Sao Paulo)       | Este de EE. UU. (Ohio)                        |

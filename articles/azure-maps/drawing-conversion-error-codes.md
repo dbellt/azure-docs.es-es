@@ -3,21 +3,21 @@ title: Errores y advertencias de conversión de dibujos de Azure Maps
 description: Obtenga información sobre los errores y las advertencias de conversión que puede encontrar al utilizar el servicio de conversión de Azure Maps. Lea las recomendaciones sobre cómo resolver los errores y las advertencias, con algunos ejemplos.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 05/21/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: cecc19f0984ce1801d50e5cbda73e98a01e2825b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fd6c20277098d0a2d1909cfb93243dd8e3bbcca0
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96906223"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110793242"
 ---
 # <a name="drawing-conversion-errors-and-warnings"></a>Errores y advertencias de conversión de dibujos
 
-El servicio de conversión de [Azure Maps](/rest/api/maps/conversion) permite convertir paquetes de dibujo cargados en datos de mapa. Los paquetes de dibujos deben ajustarse a los [requisitos de los paquetes de dibujos](drawing-requirements.md). Si no se cumplen uno o más requisitos, el servicio de conversión devolverá errores o advertencias. En este artículo se enumeran los códigos de error y de advertencia de conversión, con recomendaciones sobre cómo resolverlos. También proporciona algunos ejemplos de dibujos que pueden hacer que el servicio de conversión devuelva estos códigos.
+El servicio de conversión de [Azure Maps](/rest/api/maps/v2/conversion) permite convertir paquetes de dibujo cargados en datos de mapa. Los paquetes de dibujos deben ajustarse a los [requisitos de los paquetes de dibujos](drawing-requirements.md). Si no se cumplen uno o más requisitos, el servicio de conversión devolverá errores o advertencias. En este artículo se enumeran los códigos de error y de advertencia de conversión, con recomendaciones sobre cómo resolverlos. También proporciona algunos ejemplos de dibujos que pueden hacer que el servicio de conversión devuelva estos códigos.
 
 El servicio de conversión realizará la operación correctamente si hay advertencias de conversión. Sin embargo, se recomienda que revise y resuelva todas las advertencias. Una advertencia significa que parte de la conversión se ignoró o corrigió automáticamente. Si no se resuelven las advertencias, podrían producirse errores en procesos posteriores.
 
@@ -330,7 +330,7 @@ Ha intentado cargar un paquete de dibujos con un parámetro `udid` incorrecto.
 Para corregir un error **invalidUserData**, compruebe lo siguiente:
 
 * Ha proporcionado un `udid` correcto para el paquete cargado.
-* Creator de Azure Maps (versión preliminar) se ha habilitado para la cuenta de Azure Maps que usó para cargar el paquete de dibujo.
+* Azure Maps Creator se ha habilitado para la cuenta de Azure Maps que usó para cargar el paquete de dibujos.
 * La solicitud de la API al servicio de conversión contiene la clave de suscripción a la cuenta de Azure Maps que usó para cargar el paquete de dibujos.
 
 ### <a name="dwgerror"></a>**dwgError**
@@ -506,4 +506,7 @@ Para corregir un error **verticalPenetrationError**, consulte cómo usar una car
 > [Cómo usar el visualizador de errores de dibujo de Azure Maps](drawing-error-visualizer.md)
 
 > [!div class="nextstepaction"]
-> [Creator (versión preliminar) para mapas de interiores](creator-indoor-maps.md)
+> [Guía de paquetes de dibujos](drawing-package-guide.md)
+
+> [!div class="nextstepaction"]
+> [Uso de Creator para mapas interiores](creator-indoor-maps.md)

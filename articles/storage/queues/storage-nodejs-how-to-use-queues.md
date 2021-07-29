@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.custom: seo-javascript-september2019, devx-track-js
-ms.openlocfilehash: 161000f2860a1153424a628a2b303f3717f828da
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: ec0f439e8ad098e1fe2d14c3f61f98b387edf625
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106275947"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110477213"
 ---
 # <a name="how-to-use-azure-queue-storage-from-nodejs"></a>Uso de Azure Queue Storage desde Node.js
 
@@ -42,7 +42,7 @@ La [biblioteca cliente de Azure Storage para JavaScript](https://github.com/Azur
 
 1. Use una interfaz de línea de comandos, como PowerShell (Windows), Terminal (Mac) o Bash (Unix), y vaya a la carpeta donde ha creado la aplicación de ejemplo.
 
-# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+# <a name="javascript-v12-sdk"></a>[SDK de JavaScript v12](#tab/javascript)
 
 1. Escriba `npm install @azure/storage-queue` en la ventana de comandos.
 
@@ -60,7 +60,7 @@ La [biblioteca cliente de Azure Storage para JavaScript](https://github.com/Azur
 
 Con el editor de código, agregue lo siguiente al principio del archivo de JavaScript en el que pretenda utilizar el las colas.
 
-# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+# <a name="javascript-v12-sdk"></a>[SDK de JavaScript v12](#tab/javascript)
 
 :::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_ImportStatements":::
 
@@ -74,7 +74,7 @@ var azure = require('azure-storage');
 
 ## <a name="how-to-create-a-queue"></a>Creación de una cola
 
-# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+# <a name="javascript-v12-sdk"></a>[SDK de JavaScript v12](#tab/javascript)
 
 En el código siguiente se obtiene el valor de una variable de entorno denominada `AZURE_STORAGE_CONNECTION_STRING` y se usa para crear un objeto [`QueueServiceClient`](/javascript/api/@azure/storage-queue/queueserviceclient). Este objeto se utiliza a continuación para crear un objeto [`QueueClient`](/javascript/api/@azure/storage-queue/queueclient) que permita trabajar con una cola específica.
 
@@ -108,7 +108,7 @@ Si la cola se crea, `result.created` es verdadero. Si la cola existe, `result.cr
 
 ## <a name="how-to-insert-a-message-into-a-queue"></a>Cómo insertar un mensaje en una cola
 
-# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+# <a name="javascript-v12-sdk"></a>[SDK de JavaScript v12](#tab/javascript)
 
 Para agregar un mensaje a una cola, llame al método [`sendMessage`](/javascript/api/@azure/storage-queue/queueclient#sendmessage-string--queuesendmessageoptions-).
 
@@ -132,7 +132,7 @@ queueSvc.createMessage('myqueue', "Hello, World", function(error, results, respo
 
 Puede inspeccionar el mensaje de la cola sin tener que quitarlo de esta, mediante una llamada al método `peekMessages`.
 
-# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+# <a name="javascript-v12-sdk"></a>[SDK de JavaScript v12](#tab/javascript)
 
 De forma predeterminada, [`peekMessages`](/javascript/api/@azure/storage-queue/queueclient#peekmessages-queuepeekmessagesoptions-) inspecciona un único mensaje. En el ejemplo siguiente se inspeccionan los cinco primeros mensajes de la cola. Si hay menos de cinco mensajes visibles, solo se devuelven los mensajes visibles.
 
@@ -160,7 +160,7 @@ Si llama a `peekMessages` cuando no hay ningún mensaje en la cola, no se devolv
 
 En el ejemplo siguiente se actualiza el texto de un mensaje.
 
-# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+# <a name="javascript-v12-sdk"></a>[SDK de JavaScript v12](#tab/javascript)
 
 Cambie el contenido de un mensaje local en la cola llamando a [`updateMessage`](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-).
 
@@ -196,7 +196,7 @@ El proceso para quitar un mensaje de la cola consta de dos etapas:
 
 En el siguiente ejemplo se obtiene un mensaje y luego se elimina.
 
-# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+# <a name="javascript-v12-sdk"></a>[SDK de JavaScript v12](#tab/javascript)
 
 Para obtener un mensaje, llame al método [`receiveMessages`](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-). Esta llamada hace que los mensajes sean invisibles en la cola, así que ningún otro cliente puede procesarlos. Después de que la aplicación haya procesado un mensaje, llame a [`deleteMessage`](/javascript/api/@azure/storage-queue/queueclient#deletemessage-string--string--queuedeletemessageoptions-) para eliminarlo de la cola.
 
@@ -232,7 +232,7 @@ Si usa `getMessages` cuando no hay ningún mensaje en la cola, no se devolverá 
 
 ## <a name="additional-options-for-dequeuing-messages"></a>Opciones adicionales para quitar mensajes de la cola
 
-# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+# <a name="javascript-v12-sdk"></a>[SDK de JavaScript v12](#tab/javascript)
 
 Hay dos formas de personalizar la recuperación de mensajes de una cola:
 
@@ -273,7 +273,7 @@ queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, 
 
 ## <a name="how-to-get-the-queue-length"></a>Obtención de la longitud de la cola
 
-# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+# <a name="javascript-v12-sdk"></a>[SDK de JavaScript v12](#tab/javascript)
 
 El método [`getProperties`](/javascript/api/@azure/storage-queue/queueclient#getproperties-queuegetpropertiesoptions-) devuelve metadatos sobre la cola, junto con el número aproximado de mensajes que esperan en la cola.
 
@@ -295,7 +295,7 @@ queueSvc.getQueueMetadata('myqueue', function(error, results, response){
 
 ## <a name="how-to-list-queues"></a>Enumeración de las colas
 
-# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+# <a name="javascript-v12-sdk"></a>[SDK de JavaScript v12](#tab/javascript)
 
 Para recuperar una lista de colas, llame a [`QueueServiceClient.listQueues`](/javascript/api/@azure/storage-queue/servicelistqueuesoptions#prefix). Para recuperar una lista filtrada por un prefijo específico, establezca [options.prefix](/javascript/api/@azure/storage-queue/servicelistqueuesoptions#prefix) en la llamada a `listQueues`.
 
@@ -319,7 +319,7 @@ Si no se pueden devolver todas las colas, pase `result.continuationToken` como p
 
 ## <a name="how-to-delete-a-queue"></a>Como eliminar una cola
 
-# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+# <a name="javascript-v12-sdk"></a>[SDK de JavaScript v12](#tab/javascript)
 
 Para eliminar una cola y todos los mensajes contenidos en ella, llame al método [`DeleteQueue`](/javascript/api/@azure/storage-queue/queueclient#delete-queuedeleteoptions-) en el objeto `QueueClient`.
 

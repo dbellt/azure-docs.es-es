@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: navits09
 ms.author: navits
-ms.date: 04/14/2020
-ms.openlocfilehash: 02e64c6c6e5ab2ef77f02959ada6f95d1042b76d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/14/2021
+ms.openlocfilehash: 0173d6e897c122d53d8f64c1d0110ab7ddfa68ed
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94488764"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112075923"
 ---
 # <a name="support-for-the-microsoft-commercial-marketplace"></a>Soporte técnico de marketplace comercial de Microsoft
 
@@ -26,7 +26,8 @@ Abra un vale con el [soporte técnico del anunciante de Marketplace](https://aka
 
 | Canal de soporte técnico | Descripción | Disponibilidad |  
 |:--- |:--- |:--- |  
-| Para obtener ayuda, visite la página de creación de incidentes en el [soporte técnico de Marketplace](https://aka.ms/marketplacepublishersupport).</li> </ul> | Soporte técnico para el Centro de partners. | La compatibilidad se proporciona 24 horas, 5 días de la semana. |  
+| Para obtener ayuda, visite la página de creación de incidentes en el [soporte técnico de Marketplace](https://aka.ms/marketplacepublishersupport).</li> </ul> | Soporte técnico para el Centro de partners. | La compatibilidad se proporciona 24 horas, 5 días de la semana. |
+|
 
 ## <a name="technical"></a>Requisitos previos técnicos  
 
@@ -39,12 +40,12 @@ Abra un vale con el [soporte técnico del anunciante de Marketplace](https://aka
 
 | Canal de soporte técnico | Descripción | Disponibilidad |  
 |:--- |:--- |:--- |
-| Correo electrónico: [gtm@microsoft.com](mailto:gtm@microsoft.com) | Ayuda para las ventajas de GTM y preguntas relativas al programa. | El horario comercial es el de la zona horaria del Pacífico. |  
-| Correo electrónico: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Responde a preguntas sobre el uso de logotipos de Azure y la personalización de marca. |  |  
+| Correo electrónico: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Responde a preguntas sobre el uso de logotipos de Azure y la personalización de marca. |  |
+|
+
+Si tiene alguna pregunta sobre Marketplace Rewards, póngase en contacto con el [Soporte técnico del Centro de partners](https://partner.microsoft.com/support/v2/?stage=1).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte la [guía del publicador de marketplace comercial](index.yml).
-* Más información acerca del [Soporte técnico para el programa de marketplace comercial en el Centro de partners](support.md).
-
----
+- Consulte la [página de la guía del editor de marketplace comercial](index.yml).
+- Obtenga más información sobre el [soporte técnico para el programa de marketplace comercial en el Centro de partners](support.md).

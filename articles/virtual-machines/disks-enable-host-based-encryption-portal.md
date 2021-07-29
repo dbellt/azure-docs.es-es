@@ -4,16 +4,16 @@ description: Use el cifrado en el host para habilitar el cifrado de un extremo a
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 06/14/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: cdb22805e2e68893d3883272b66c2cfac13c807e
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: ad053a0e97a8efa50fbb01798e639fb33e769bef
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721875"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078784"
 ---
 # <a name="use-the-azure-portal-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Use Azure Portal para habilitar el cifrado de un extremo a otro mediante el cifrado en host
 
@@ -40,13 +40,13 @@ Debe habilitar la característica para su suscripción antes de usar la propieda
 
     ![Icono para iniciar Cloud Shell desde Azure Portal](../Cloud-Shell/media/overview/portal-launch-icon.png)
     
-2.  Ejecute el siguiente comando para registrar la característica para su suscripción
+1.  Ejecute el siguiente comando para registrar la característica para su suscripción
 
     ```powershell
      Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute" 
     ```
 
-3.  Compruebe que el estado de registro es Registrado (tarda unos minutos) mediante el comando siguiente antes de probar la característica.
+1.  Compruebe que el estado de registro es **Registrado** (tarda unos minutos) mediante el comando siguiente antes de probar la característica.
 
     ```powershell
      Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"  
@@ -66,7 +66,7 @@ Una vez habilitada la característica, deberá configurar un almacén de Azure K
 
 ## <a name="deploy-a-vm"></a>Implementación de una máquina virtual
 
-Debe implementar una máquina virtual nueva para habilitar el cifrado en el host, no se puede habilitar en las máquinas virtuales existentes.
+Ahora que ha configurado una instancia de Azure Key Vault y un conjunto de cifrado de disco, puede implementar una máquina virtual y usará el cifrado en el host.
 
 1. Busque **Máquinas virtuales** y seleccione **+Agregar** para crear una VM.
 1. Cree una máquina virtual nueva, seleccione una región adecuada y un tamaño de máquina virtual compatible.

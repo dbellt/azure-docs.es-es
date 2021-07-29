@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
-ms.openlocfilehash: 6f7e74a4e3a0ad208ea832798748adf7a15dfc89
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 955e79040f84f395849ab13103fd4c22693a9913
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103417756"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110163075"
 ---
 El control del audio comprimido se implementa mediante [GStreamer](https://gstreamer.freedesktop.org). Por motivos de licencia, los binarios de GStreamer no se compilan ni se vinculan con el SDK de Voz. En su lugar, tiene que usar los binarios compilados previamente para Android. Para descargar las bibliotecas compiladas previamente, vea [Instalación para desarrollo de Android](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c).
 
-`libgstreamer_android.so` es obligatorio. Asegúrese de que todos los complementos de GStreamer (del archivo Android.mk siguiente) estén vinculados en `libgstreamer_android.so`. Cuando se usa el último SDK de voz (1.16.0 y versiones posteriores) con la versión de GStreamer 1.18.3, también es necesario que `libc++_shared.so` esté presente en el NDK de Android.
+`libgstreamer_android.so` es obligatorio. Asegúrese de que todos los complementos de GStreamer (del archivo Android.mk siguiente) estén vinculados en `libgstreamer_android.so`. Cuando se usa el último SDK de voz (1.16 y versiones posteriores) con la versión de GStreamer 1.18.3, también es necesario que `libc++_shared.so` esté presente en el NDK de Android.
 
 ```makefile
 GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 \

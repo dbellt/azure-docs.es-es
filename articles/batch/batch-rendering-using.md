@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 03/12/2020
 ms.topic: how-to
-ms.openlocfilehash: df82f51377ac1a585dbfab989ca5386d33d90297
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: d164eb0250c98573e781b87be339748900c4920b
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107988971"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110452072"
 ---
 # <a name="using-azure-batch-rendering"></a>Uso de la representación de Azure Batch
 
@@ -35,10 +35,6 @@ La mejor forma de probar la representación de Azure Batch y la manera más senc
 
 ## <a name="using-batch-explorer"></a>Uso de Batch Explorer
 
-Para ver un tutorial paso a paso para usar Batch Explorer para realizar la representación consulte el [tutorial de Blender](./tutorial-rendering-batchexplorer-blender.md).
-
-### <a name="download-and-install"></a>Descarga e instalación
-
 Las [descargas](https://azure.github.io/BatchExplorer/) de Batch Explorer están disponibles para Windows, OSX y Linux.
 
 ### <a name="using-templates-to-create-pools-and-run-jobs"></a>Uso de plantillas para crear grupos y ejecutar trabajos
@@ -57,7 +53,5 @@ La sección "Datos" de Batch Explorer permite que se copien archivos entre un si
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para ver ejemplos de representación de Batch consulte los dos tutoriales siguientes:
-
-* [Representación mediante la CLI de Azure](./tutorial-rendering-cli.md)
-* [Representación mediante Batch Explorer](./tutorial-rendering-batchexplorer-blender.md)
+* Obtenga información sobre el [uso de aplicaciones de representación con Batch](batch-rendering-applications.md).
+* Obtenga información sobre las [opciones de almacenamiento y movimiento de datos para representar archivos de recursos y de salida](batch-rendering-storage-data-movement.md).

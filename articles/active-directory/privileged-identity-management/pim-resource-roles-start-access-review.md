@@ -15,12 +15,12 @@ ms.date: 04/27/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 923c084066b8e40dd8c17541222e9f44c6cc6147
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 3cf140468aa0743ab93eaa2fe2d1c35f5fa64b37
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124082"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110084814"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Creación de una revisión de acceso de los roles de recursos de Azure en Privileged Identity Management
 
@@ -73,15 +73,12 @@ La necesidad de acceso a los roles de recursos de Azure con privilegios para los
 1. En **Revisar la pertenencia al rol**, seleccione los roles de Azure con privilegios que se deben revisar. 
 
     > [!NOTE]
-    > - Los roles seleccionados aquí incluyen [roles permanentes y elegibles](../privileged-identity-management/pim-how-to-add-role-to-user.md).
-    > - Si selecciona más de un rol, se crearán varias revisiones de acceso. Por ejemplo, al seleccionar cinco roles, se crearán cinco revisiones de acceso independientes.
+    > Si selecciona más de un rol, se crearán varias revisiones de acceso. Por ejemplo, al seleccionar cinco roles, se crearán cinco revisiones de acceso independientes.
     Si va a crear una revisión de acceso de los **roles de Azure AD**, a continuación se muestra un ejemplo de la lista de revisión de pertenencia.
 
-    ![Panel para la revisión de pertenencia que muestra los roles de Azure AD que puede seleccionar](./media/pim-resource-roles-start-access-review/review-membership.png)
+1. En el **tipo de asignación**, defina el ámbito de la revisión según la asignación de la entidad de seguridad al rol. Elija **Eligible assignments only** (Solo asignaciones aptas), en versión preliminar, para revisar las asignaciones aptas (independientemente del estado de activación al crear la revisión) o **Active Assignments only** (Solo asignaciones activas), en versión preliminar, para revisar las asignaciones activas. Elija **All active and eligible assignments** (Todas las asignaciones activas y aptas) para revisar todas las asignaciones, independientemente del tipo.
 
-    Si va a crear una revisión de acceso de los **roles de recursos de Azure**, la imagen a continuación muestra un ejemplo de la lista de revisión de pertenencia.
-
-    ![Panel para la revisión de pertenencia que muestra los recursos de Azure que puede seleccionar](./media/pim-resource-roles-start-access-review/review-membership-azure-resource-roles.png)
+    ![Lista de revisores de tipos de asignación](./media/pim-resource-roles-start-access-review/assignment-type-select.png)
 
 1. En la sección **Revisores**, seleccione una o más personas para que revisen a todos los usuarios. También puede seleccionar que los miembros revisen su propio acceso.
 

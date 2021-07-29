@@ -1,14 +1,14 @@
 ---
 title: Visualización y administración de proveedores de servicios
-description: Los clientes pueden usar la página proveedores de servicios en Azure Portal para ver información acerca de los proveedores de servicios, ofertas de proveedores de servicios y recursos delegados.
+description: Los clientes pueden ver información sobre las ofertas de los proveedores de servicios, los recursos delegados y los proveedores de servicios de Azure Lighthouse en Azure Portal.
 ms.date: 02/16/2021
 ms.topic: how-to
-ms.openlocfilehash: f6ee5fb154d75ff715acf99c5184cd1652ccdb80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 23fe84132b3c2dbee584f452b14503adfdb6db7d
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100555584"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080928"
 ---
 # <a name="view-and-manage-service-providers"></a>Visualización y administración de proveedores de servicios
 

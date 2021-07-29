@@ -2,22 +2,22 @@
 title: 'Uso de restricciones de inquilino para administrar el acceso a las aplicaciones SaaS: Azure AD'
 description: Cómo usar restricciones de inquilino para administrar los usuarios que pueden tener acceso a las aplicaciones según su inquilino de Azure AD.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 4/6/2021
-ms.author: iangithinji
+ms.date: 6/2/2021
+ms.author: mtillman
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78ae7a6fec007818da584dc7e22658890dd2bea6
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: c443f3084c465e1a8f2358c1b8db365e576b04f5
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517053"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112082242"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Uso de restricciones de inquilino para administrar el acceso a aplicaciones en la nube SaaS
 
@@ -29,7 +29,7 @@ Con las restricciones de inquilino, las organizaciones pueden especificar la lis
 
 Este artículo se centra en las restricciones de inquilino de Microsoft 365, pero la característica protege todas las aplicaciones que envían al usuario al inicio de sesión único de Azure AD. Si usa aplicaciones SaaS con un inquilino de Azure AD diferente al inquilino que usa Microsoft 365, asegúrese de que todos los inquilinos necesarios tengan permiso (por ejemplo, en los escenarios de colaboración B2B). Para más información sobre aplicaciones en la nube SaaS, consulte [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps).
 
-Además, la característica de restricciones de inquilino ahora permite [bloquear el uso de todas las aplicaciones de consumidor de Microsoft](#blocking-consumer-applications-public-preview) (aplicaciones MSA), como OneDrive, Hotmail y Xbox.com.  Se usa un encabezado distinto para el punto de conexión `login.live.com` y se detalla al final del documento.
+Además, la característica de restricciones de inquilino ahora permite [bloquear el uso de todas las aplicaciones de consumidor de Microsoft](#blocking-consumer-applications) (aplicaciones MSA), como OneDrive, Hotmail y Xbox.com.  Se usa un encabezado distinto para el punto de conexión `login.live.com` y se detalla al final del documento.
 
 ## <a name="how-it-works"></a>Funcionamiento
 
@@ -197,7 +197,7 @@ Dependiendo de las funcionalidades de la infraestructura del proxy, es posible q
 
 Para obtener detalles específicos, consulte la documentación del servidor proxy.
 
-## <a name="blocking-consumer-applications-public-preview"></a>Bloqueo de aplicaciones de consumidor (versión preliminar pública)
+## <a name="blocking-consumer-applications"></a>Bloqueo de aplicaciones de consumidor
 
 Las aplicaciones de Microsoft que admiten tanto cuentas de consumidor como cuentas de la organización, como [OneDrive](https://onedrive.live.com/) o [Microsoft Learn](/learn/), a veces se pueden hospedar en la misma dirección URL.  Esto significa que los usuarios que tienen que acceder a esa dirección URL en el trabajo también tienen acceso a ella para uso personal, lo que puede que no se permita en las pautas de actuación.
 

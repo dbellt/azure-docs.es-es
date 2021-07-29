@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ab51a22abd5dac99a1a1bd3be5324e5d57c8e12e
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: a0eca49f600855e3fa092ed45e2ee314284ec474
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108145616"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079776"
 ---
 # <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Consideraciones de seguridad para SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +29,7 @@ En este tema se incluyen instrucciones de seguridad generales que ayudan a estab
 
 Azure cumple diversos reglamentos y estándares del sector que permiten compilar una solución compatible con SQL Server que se ejecuta en una máquina virtual. Para obtener información acerca del cumplimiento normativo de Azure, consulte [Centro de confianza de Azure](https://azure.microsoft.com/support/trust-center/).
 
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
+Para obtener detalles completos, consulte otros artículos de esta serie: [Lista de comprobación](performance-guidelines-best-practices-checklist.md), [Tamaño de VM](performance-guidelines-best-practices-vm-size.md), [Almacenamiento](performance-guidelines-best-practices-storage.md), [Configuración de HADR](hadr-cluster-best-practices.md) y [Recopilación de la base de referencia](performance-guidelines-best-practices-collect-baseline.md). 
 
 ## <a name="control-access-to-the-sql-virtual-machine"></a>Control del acceso a la máquina virtual de SQL
 
@@ -109,6 +109,14 @@ Para obtener más información sobre la seguridad de las máquinas virtuales, co
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si también está interesado en los procedimientos recomendados de rendimiento, consulte [Directrices de rendimiento para SQL Server en Azure Virtual Machines](./performance-guidelines-best-practices-checklist.md).
+Para obtener más información, vea los demás artículos de esta serie:
 
-Para ver otros temas sobre la ejecución de SQL Server en Azure Virtual Machines, consulte [Información general sobre SQL Server en Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md). Si tiene alguna pregunta sobre las máquinas virtuales de SQL Server, consulte las [Preguntas más frecuentes](frequently-asked-questions-faq.md).
+- [Lista de comprobación rápida](performance-guidelines-best-practices-checklist.md)
+- [Tamaño de VM](performance-guidelines-best-practices-vm-size.md)
+- [Storage](performance-guidelines-best-practices-storage.md)
+- [Seguridad](security-considerations-best-practices.md)
+- [Configuración de HADR](hadr-cluster-best-practices.md)
+- [Recopilación de la línea base](performance-guidelines-best-practices-collect-baseline.md)
+
+Para ver otros temas sobre la ejecución de SQL Server en Azure Virtual Machines, consulte [Información general sobre SQL Server en Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md). Si tiene alguna pregunta sobre las máquinas virtuales de SQL Server, consulte las [Preguntas más frecuentes](frequently-asked-questions-faq.yml).
+

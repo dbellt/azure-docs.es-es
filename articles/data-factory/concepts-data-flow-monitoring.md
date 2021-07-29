@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/11/2021
-ms.openlocfilehash: 82aba428627cba1a3df26fc67c5da0cde52d368c
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 06/11/2021
+ms.openlocfilehash: 18481a24bb9e8d5624cb52c9b02833204d4f403d
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309074"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112076619"
 ---
 # <a name="monitor-data-flows"></a>Supervisión de flujos de datos
 
@@ -22,7 +22,7 @@ Después de haber completado la compilación y depuración del flujo de datos, d
 
 Cuando se ejecuta la canalización, puede supervisar la canalización y todas las actividades contenidas en la canalización, incluida la actividad de Data Flow. Haga clic en el icono de supervisión en el panel izquierdo de la interfaz de usuario de Azure Data Factory. Puede ver una pantalla similar a la siguiente. Los iconos resaltados permiten profundizar en las actividades de la canalización, incluidas las actividades de Data Flow.
 
-![Captura de pantalla que muestra los iconos que se deben seleccionar para las canalizaciones a fin de obtener más información.](media/data-flow/mon001.png "Supervisión de Data Flow")
+![Captura de pantalla que muestra los iconos que se deben seleccionar para las canalizaciones a fin de obtener más información.](media/data-flow/monitor-new-001.png "Supervisión de Data Flow")
 
 Se muestran estadísticas en este nivel, así como los tiempos de ejecución y estado. El identificador de ejecución en el nivel de actividad es diferente al del nivel de canalización. El identificador de ejecución en el nivel anterior es para la canalización. Al seleccionar el icono de las gafas, se obtienen detalles de la ejecución del flujo de datos.
 
@@ -32,15 +32,11 @@ En la vista de supervisión del nodo gráfico, puede ver una versión simplifica
 
 ![Captura de pantalla que muestra la versión de solo lectura del gráfico.](media/data-flow/mon003.png "Supervisión de Data Flow")
 
-Este es un vídeo de información general sobre la supervisión del rendimiento de los flujos de datos desde la pantalla de supervisión de ADF:
-
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4u4mH]
-
 ## <a name="view-data-flow-execution-plans"></a>Visualización de planes de ejecución de Data Flow
 
-Cuando se ejecuta Data Flow en Spark, Azure Data Factory determina las rutas de acceso de código óptimo según la integridad del flujo de datos. Además, las rutas de ejecución pueden producirse en distintos nodos de escalabilidad horizontal y particiones de datos. Por lo tanto, el gráfico de supervisión representa el diseño del flujo, teniendo en cuenta la ruta de acceso de ejecución de las transformaciones. Al seleccionar los nodos individuales, puede ver "agrupaciones" que representan el código que se ejecutó juntos en el clúster. Los intervalos y recuentos que ve representan esos grupos en lugar de los pasos individuales del diseño.
+Cuando se ejecuta Data Flow en Spark, Azure Data Factory determina las rutas de acceso de código óptimo según la integridad del flujo de datos. Además, las rutas de ejecución pueden producirse en distintos nodos de escalabilidad horizontal y particiones de datos. Por lo tanto, el gráfico de supervisión representa el diseño del flujo, teniendo en cuenta la ruta de acceso de ejecución de las transformaciones. Al seleccionar los nodos individuales, puede ver "fases" que representan el código que se ejecutó en el clúster. Los intervalos y recuentos que ve representan esos grupos o fases en lugar de los pasos individuales del diseño.
 
-![Captura de pantalla que muestra la página de un flujo de datos.](media/data-flow/mon004.png "Supervisión de Data Flow")
+![Captura de pantalla que muestra la página de un flujo de datos.](media/data-flow/monitor-new-005.png "Supervisión de Data Flow")
 
 * Al seleccionar el espacio abierto de la ventana de supervisión, las estadísticas del panel inferior muestran los recuentos de filas y el tiempo de cada receptor y las transformaciones que dieron lugar a los datos de receptor de linaje de transformación.
 
@@ -85,6 +81,8 @@ Cuando seleccione un icono de transformación del receptor en el mapa, el panel 
 * Duración de SQL previo y posterior: el tiempo empleado en ejecutar comandos SQL previos y posteriores.
 * Duración de los comandos previos y posteriores: el tiempo dedicado a ejecutar cualquier operación previa o posterior para el origen o los receptores basados en archivos. Por ejemplo, mover o eliminar archivos después del procesamiento.
 * Duración de la combinación: el tiempo empleado en combinar el archivo, los archivos de combinación se usan para los receptores basados en archivos al escribir en un solo archivo o cuando se usa el "nombre de archivo como datos de columna". Si se dedica mucho tiempo a esta métrica, debe evitar el uso de estas opciones.
+* Tiempo de la fase: la cantidad total de tiempo empleado en Spark para completar la operación como una fase.
+* Almacenamiento provisional temporal estable: nombre de la tabla temporal que usan los flujos de datos para almacenar datos en la base de datos.
   
 ## <a name="error-rows"></a>Filas de error
 

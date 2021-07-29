@@ -1,26 +1,27 @@
 ---
-title: Información general sobre el aislamiento y la seguridad de la red virtual
+title: Protección de los recursos del área de trabajo mediante redes virtuales (redes virtuales)
 titleSuffix: Azure Machine Learning
-description: Use una instancia de Azure Virtual Network aislada con Azure Machine Learning para proteger los recursos del área de trabajo y los entornos de proceso.
+description: Proteja los entornos de proceso y los recursos del área de trabajo de Azure Machine Learning mediante una instancia de Azure Virtual Network (VNet) aislada.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 03/02/2021
+ms.date: 06/11/2021
 ms.topic: how-to
-ms.custom: devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: e6b8a4bbbe596ec06f7f9b445dbaa439e1207e46
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q4,FY21Q4-aml-seo-hack
+ms.openlocfilehash: c5e5461163b28ff53e77121a8e48dc478887ea6c
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107888717"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081072"
 ---
-# <a name="virtual-network-isolation-and-privacy-overview"></a>Información general sobre la privacidad y el aislamiento de la red virtual
+<!-- # Virtual network isolation and privacy overview -->
+# <a name="secure-azure-machine-learning-workspace-resources-using-virtual-networks-vnets"></a>Protección de los recursos del área de trabajo de Azure Machine Learning con redes virtuales (VNet)
 
-En este artículo, aprenderá a usar redes virtuales (VNET) para proteger la comunicación de red en Azure Machine Learning. En este artículo se usa un escenario de ejemplo para mostrar cómo configurar una red virtual completa.
+Proteja los entornos de proceso y los recursos del área de trabajo de Azure Machine Learning mediante redes virtuales (VNet) aisladas. En este artículo se usa un escenario de ejemplo para mostrar cómo configurar una red virtual completa.
 
 Este artículo forma parte de una serie de cinco capítulos que le guía a través de la protección de un flujo de trabajo de Azure Machine Learning. Se recomienda encarecidamente leer este artículo de información general para comprender los conceptos en primer lugar. 
 

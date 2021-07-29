@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/13/2020
 ms.author: trbye
-ms.openlocfilehash: eaf8d8f741c120297e6ae57e8ddb8b62f7c7f534
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 56c1142ace0591543127289ff6228df05420f1f3
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105104715"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110486761"
 ---
 Una de las características principales del servicio de voz es la capacidad para reconocer la voz humana y traducirla a otros idiomas. En este inicio rápido, aprenderá a usar Speech SDK en sus aplicaciones y productos para realizar la traducción de voz de alta calidad. En este inicio rápido se tratan temas que incluyen:
 
@@ -330,6 +330,106 @@ void translateSpeech() {
 ```
 
 Para más información acerca de la síntesis de voz, consulte [Aspectos básicos de la síntesis de voz](../../../get-started-text-to-speech.md).
+
+## <a name="multi-lingual-translation-with-language-identification"></a>Traducción multilingüe con identificación de idioma
+
+En muchos escenarios, es posible que no sepa qué idiomas de entrada especificar. Usar la identificación de idioma le permite especificar hasta diez idiomas de entrada posibles y traducir automáticamente a los idiomas de destino. 
+
+En el ejemplo siguiente se usa la traducción continua de un archivo de audio y se detecta automáticamente el idioma de entrada, incluso si este cambia durante el proceso. Al ejecutar el ejemplo, `en-US` y `zh-CN` se detectarán automáticamente porque están definidos en `AutoDetectSourceLanguageConfig`. A continuación, la voz se traducirá a `de` y `fr` como se especifica en las llamadas a `AddTargetLanguage()`.
+
+> [!IMPORTANT]
+> Esta funcionalidad actualmente está en su **versión preliminar**.
+
+```cpp
+using namespace std;
+using namespace Microsoft::CognitiveServices::Speech;
+using namespace Microsoft::CognitiveServices::Speech::Audio;
+
+void MultiLingualTranslation()
+{
+    auto region = "<paste-your-region>";
+    // currently the v2 endpoint is required for this design pattern
+    auto endpointString = std::format("wss://{}.stt.speech.microsoft.com/speech/universal/v2", region);
+    auto config = SpeechConfig::FromEndpoint(endpointString, "<paste-your-subscription-key>");
+
+    config->SetProperty(PropertyId::SpeechServiceConnection_ContinuousLanguageIdPriority, "Latency");
+    auto autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "zh-CN" });
+
+    promise<void> recognitionEnd;
+    // Source lang is required, but is currently NoOp 
+    auto fromLanguage = "en-US";
+    config->SetSpeechRecognitionLanguage(fromLanguage);
+    config->AddTargetLanguage("de");
+    config->AddTargetLanguage("fr");
+
+    auto audioInput = AudioConfig::FromWavFileInput("path-to-your-audio-file.wav");
+    auto recognizer = TranslationRecognizer::FromConfig(config, autoDetectSourceLanguageConfig, audioInput);
+
+    recognizer->Recognizing.Connect([](const TranslationRecognitionEventArgs& e)
+        {
+            std::string lidResult = e.Result->Properties.GetProperty(PropertyId::SpeechServiceConnection_AutoDetectSourceLanguageResult);
+
+            cout << "Recognizing in Language = "<< lidResult << ":" << e.Result->Text << std::endl;
+            for (const auto& it : e.Result->Translations)
+            {
+                cout << "  Translated into '" << it.first.c_str() << "': " << it.second.c_str() << std::endl;
+            }
+        });
+
+    recognizer->Recognized.Connect([](const TranslationRecognitionEventArgs& e)
+        {
+            if (e.Result->Reason == ResultReason::TranslatedSpeech)
+            {
+                std::string lidResult = e.Result->Properties.GetProperty(PropertyId::SpeechServiceConnection_AutoDetectSourceLanguageResult);
+                cout << "RECOGNIZED in Language = " << lidResult << ": Text=" << e.Result->Text << std::endl;
+            }
+            else if (e.Result->Reason == ResultReason::RecognizedSpeech)
+            {
+                cout << "RECOGNIZED: Text=" << e.Result->Text << " (text could not be translated)" << std::endl;
+            }
+            else if (e.Result->Reason == ResultReason::NoMatch)
+            {
+                cout << "NOMATCH: Speech could not be recognized." << std::endl;
+            }
+
+            for (const auto& it : e.Result->Translations)
+            {
+                cout << "  Translated into '" << it.first.c_str() << "': " << it.second.c_str() << std::endl;
+            }
+        });
+
+    recognizer->Canceled.Connect([&recognitionEnd](const TranslationRecognitionCanceledEventArgs& e)
+        {
+            cout << "CANCELED: Reason=" << (int)e.Reason << std::endl;
+            if (e.Reason == CancellationReason::Error)
+            {
+                cout << "CANCELED: ErrorCode=" << (int)e.ErrorCode << std::endl;
+                cout << "CANCELED: ErrorDetails=" << e.ErrorDetails << std::endl;
+                cout << "CANCELED: Did you update the subscription info?" << std::endl;
+
+                recognitionEnd.set_value();
+            }
+        });
+
+    recognizer->Synthesizing.Connect([](const TranslationSynthesisEventArgs& e)
+        {
+            auto size = e.Result->Audio.size();
+            cout << "Translation synthesis result: size of audio data: " << size
+                << (size == 0 ? "(END)" : "");
+        });
+
+    recognizer->SessionStopped.Connect([&recognitionEnd](const SessionEventArgs& e)
+        {
+            cout << "Session stopped.";
+            recognitionEnd.set_value();
+        });
+
+    // Starts continuos recognition. Use StopContinuousRecognitionAsync() to stop recognition.
+    recognizer->StartContinuousRecognitionAsync().get();
+    recognitionEnd.get_future().get();
+    recognizer->StopContinuousRecognitionAsync().get();
+}
+```
 
 [config]: /cpp/cognitive-services/speech/translation-speechtranslationconfig
 [audioconfig]: /cpp/cognitive-services/speech/audio-audioconfig

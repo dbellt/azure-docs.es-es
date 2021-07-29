@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/30/2020
+ms.date: 06/11/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 22a1a4b99717df32a40ea69ebb65a3a8e14ee2b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 19b9cfc6ad6467b2779abb3561899fd3bd8d037e
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102510920"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112040408"
 ---
 Los discos compartidos solo se pueden habilitar para un subconjunto de tipos de disco. Actualmente, solo los discos Ultra Disks y SSD Premium pueden habilitar discos compartidos. Cada disco administrado que tiene discos compartidos habilitados está sujeto a las siguientes limitaciones, organizadas según el tipo de disco:
 
@@ -25,6 +25,7 @@ Al compartir discos Ultra Disks, estos tienen las siguientes limitaciones adicio
 
 - Actualmente, se limita a la compatibilidad con Azure Resource Manager o SDK. 
 - Solo se pueden usar discos básicos con algunas versiones del clúster de conmutación por error de Windows Server. Para más información, consulte [Requisitos de hardware y opciones de almacenamiento de clústeres de conmutación por error](/windows-server/failover-clustering/clustering-requirements).
+- Solo se admite el [cifrado del lado servidor](../articles/virtual-machines/disk-encryption.md); [Azure Disk Encryption](../articles/virtual-machines/windows/disk-encryption-overview.md) no se admite actualmente.
 
 Los discos Ultra Disks compartidos están disponibles en todas las regiones que admiten este tipo de disco de forma predeterminada y no requieren que se registren para poder usarlos.
 
@@ -38,7 +39,8 @@ Los discos Ultra Disks compartidos están disponibles en todas las regiones que 
 - Al usar [grupos con ubicación por proximidad (PPG)](../articles/virtual-machines/windows/proximity-placement-groups.md), todas las máquinas virtuales que comparten un disco deben ser parte del mismo grupo con ubicación por proximidad.
 - Solo se pueden usar discos básicos con algunas versiones del clúster de conmutación por error de Windows Server. Para más información, consulte [Requisitos de hardware y opciones de almacenamiento de clústeres de conmutación por error](/windows-server/failover-clustering/clustering-requirements).
 - La compatibilidad con Azure Site Recovery todavía no está disponible.
-- Azure Backup está disponible a través de [Azure Disk Backup (versión preliminar)](../articles/backup/disk-backup-overview.md).
+- Azure Backup está disponible a través de [Azure Disk Backup](../articles/backup/disk-backup-overview.md).
+- Solo se admite el [cifrado del lado servidor](../articles/virtual-machines/disk-encryption.md); [Azure Disk Encryption](../articles/virtual-machines/windows/disk-encryption-overview.md) no se admite actualmente.
 
 #### <a name="regional-availability"></a>Disponibilidad regional
 

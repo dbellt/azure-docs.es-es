@@ -7,14 +7,14 @@ tags: azure-key-vault
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: conceptual
-ms.date: 09/17/2020
+ms.date: 06/01/2021
 ms.author: ambapat
-ms.openlocfilehash: 9ef3b19e5064c8a88bf80eebf57539be72747fe4
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: a7cccecc47973d372453ce86d0d5d12c8d773b3a
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482524"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111413976"
 ---
 # <a name="best-practices-when-using-managed-hsm"></a>Procedimientos recomendados al usar Managed HSM
 
@@ -42,8 +42,8 @@ Managed HSM es un servicio en la nube que protege las claves de cifrado. Como es
 
 ## <a name="turn-on-recovery-options"></a>Activar las opciones de recuperación
 
-- La [eliminación temporal](../general/soft-delete-overview.md) está habilitada de manera predeterminada.
-- Active la protección de purgas si quiere tener protección frente a posibles eliminaciones forzadas del HSM, incluso con la eliminación temporal activada.
+- La [eliminación temporal](soft-delete-overview.md) está habilitada de manera predeterminada. Puede elegir un período de retención de entre 7 y 90 días.
+- Active la protección de purga para evitar la eliminación permanente inmediata de HSM o las claves. Cuando la protección de purga esté activada, HSM o las claves permanecerán en estado eliminado hasta que transcurra el tiempo de retención.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -51,3 +51,4 @@ Managed HSM es un servicio en la nube que protege las claves de cifrado. Como es
 - Consulte [Registro de Managed HSM](logging.md) para aprender a usar Azure Monitor para configurar el registro.
 - Consulte [Administración de claves de HSM administrado](key-management.md) para la administración de claves.
 - Consulte [Administración de roles de HSM administrado](role-management.md) para la administración de asignaciones de roles.
+- Consulte [Información general sobre la eliminación temporal de HSM administrado](soft-delete-overview.md) para ver las opciones de recuperación.

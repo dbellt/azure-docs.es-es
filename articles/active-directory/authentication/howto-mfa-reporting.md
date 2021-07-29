@@ -5,19 +5,19 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 05/15/2020
+ms.date: 06/14/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5f78b70599d6d0ae8825accf4cc55cdc1c01d9ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f9d5f47b6f1552c769a7827eeebfb46dc79d8a75
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96861245"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077813"
 ---
 # <a name="use-the-sign-ins-report-to-review-azure-ad-multi-factor-authentication-events"></a>Uso del informe de inicios de sesión para revisar los eventos de Azure AD Multi-Factor Authentication
 
@@ -31,6 +31,7 @@ El informe de inicios de sesión le proporciona información acerca del uso de l
 
 - ¿Supuso un problema la MFA para el inicio de sesión?
 - ¿Cómo completo el usuario la MFA?
+- ¿Qué métodos de autenticación se usaron durante un inicio de sesión?
 - ¿Por qué no pudo completar el usuario la MFA?
 - ¿En cuántos usuarios se usa MFA?
 - ¿Cuántos usuarios no pueden completar el desafío de MFA?
@@ -43,13 +44,39 @@ Para ver el informe de actividad de inicio de sesión en [Azure Portal](https://
 1. En *Actividad* en el menú del lado izquierdo, seleccione **Inicios de sesión**.
 1. Se muestra una lista de eventos de inicio de sesión, incluido el estado. Puede seleccionar un evento para ver más detalles.
 
-    En la pestaña *Detalles de autenticación* o *Acceso condicional* de los detalles del evento se le muestra el código de estado o la directiva que desencadenó el mensaje de MFA.
+    En la pestaña **Detalles de autenticación** o **Acceso condicional** de los detalles del evento se le muestra el código de estado o la directiva que desencadenó el mensaje de MFA.
 
     [![Captura de pantalla de informe de inicios de sesión de Azure Active Directory de ejemplo en Azure Portal](media/howto-mfa-reporting/sign-in-report-cropped.png)](media/howto-mfa-reporting/sign-in-report.png#lightbox)
 
 Si está disponible, se muestra la autenticación, como mensaje de texto, notificación de la aplicación de Microsoft Authenticator o llamada de teléfono.
 
-Los detalles siguientes aparecen en la ventana *Detalles de autenticación* para un evento de inicio de sesión que muestra si la solicitud de MFA se ha cumplido o denegado:
+La pestaña **Detalles de autenticación** proporciona la siguiente información para cada intento de autenticación:
+
+- Una lista de las directivas de autenticación aplicadas (por ejemplo, acceso condicional, MFA por usuario, valores predeterminados de seguridad).
+- La secuencia de los métodos de autenticación usados para iniciar sesión.
+- Si el intento de autenticación se ha realizado correctamente o no.
+- Detalles sobre por qué el intento de autenticación se ha realizado correctamente o no.
+
+Esta información permite a los administradores solucionar problemas de cada paso en el inicio de sesión de un usuario y realizar un seguimiento de los siguientes aspectos:
+
+- Volumen de inicios de sesión protegidos por la autenticación multifactor. 
+- Tasas de uso y éxito de cada método de autenticación. 
+- Uso de métodos de autenticación sin contraseña (como el inicio de sesión con teléfono sin contraseña, FIDO2 y Windows Hello para empresas). 
+- Con qué frecuencia se cumplen los requisitos de autenticación mediante notificaciones de token (donde a los usuarios no se les pide interactivamente que escriban una contraseña, escriban un SMS OTP, y así sucesivamente).
+
+Al ver el informe de inicios de sesión, seleccione la pestaña **Detalles de autenticación**: 
+
+![Captura de pantalla de la pestaña Detalles de autenticación](media/howto-mfa-reporting/auth-details-tab.png)
+
+>[!NOTE]
+>El **código de verificación OATH** se registra como el método de autenticación para tokens de hardware y software OATH (por ejemplo, la aplicación Microsoft Authenticator).
+
+>[!IMPORTANT]
+>La pestaña **Detalles de autenticación** puede mostrar inicialmente datos incompletos o inexactos, hasta que la información del registro se agregue por completo. Algunos ejemplos conocidos son: 
+>- Un mensaje de **notificación de cumplimiento en el token** se muestra incorrectamente cuando se registran inicialmente eventos de inicio de sesión. 
+>- La fila **autenticación principal** no se registra inicialmente. 
+
+Los detalles siguientes aparecen en la ventana **Detalles de autenticación** para un evento de inicio de sesión que muestra si la solicitud de MFA se ha cumplido o denegado:
 
 * Si se ha cumplido, esta columna proporciona más información acerca de cómo se ha hecho.
    * completado en la nube
@@ -108,11 +135,7 @@ Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods.Count -eq 0 -an
 Identifique los usuarios y los métodos de salida registrados:
 
 ```powershell
-Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalName}},
-
-@{N='MFA Status';E={if ($_.StrongAuthenticationRequirements.State){$_.StrongAuthenticationRequirements.State} else {"Disabled"}}},
-
-@{N='MFA Methods';E={$_.StrongAuthenticationMethods.methodtype}} | Export-Csv -Path c:\MFA_Report.csv -NoTypeInformation
+Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalName}},@{N='MFA Status';E={if ($_.StrongAuthenticationRequirements.State){$_.StrongAuthenticationRequirements.State} else {"Disabled"}}},@{N='MFA Methods';E={$_.StrongAuthenticationMethods.methodtype}} | Export-Csv -Path c:\MFA_Report.csv -NoTypeInformation
 ```
 
 ## <a name="downloaded-activity-reports-result-codes"></a>Códigos de resultado de informes de actividad descargados
@@ -167,6 +190,7 @@ La tabla siguiente puede ayudarle a solucionar problemas de eventos mediante la 
 | FAILED_AUTH_RESULT_TIMEOUT | Tiempo de espera de resultado de autenticación | El usuario tardó demasiado en completar el intento de Multi-Factor Authentication. |
 | FAILED_AUTHENTICATION_THROTTLED | Autenticación limitada | El servicio ha limitado el intento de Multi-Factor Authentication. |
 
+
 ## <a name="additional-mfa-reports"></a>Informes de MFA adicionales
 
 La información y los informes adicionales que se muestran a continuación están disponibles para los eventos de MFA, incluidos los del Servidor MFA:
@@ -177,6 +201,7 @@ La información y los informes adicionales que se muestran a continuación está
 | Uso de componentes locales | Azure AD > Seguridad > MFA > Informe de actividad | Proporciona información sobre el uso general del Servidor MFA a través de la extensión NPS, AD FS y el Servidor MFA. |
 | Historial de usuarios omitidos | Azure AD > Seguridad > MFA > Omisión por única vez | Proporciona un historial de solicitudes del Servidor MFA a fin de omitir MFA para un usuario. |
 | Estado del servidor | Azure AD > Seguridad > MFA > Estado del servidor | Muestra el estado de los Servidores MFA asociados a su cuenta. |
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

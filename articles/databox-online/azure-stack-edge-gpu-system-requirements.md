@@ -8,13 +8,13 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 04/26/2021
 ms.author: alkohli
-ms.custom: contperf-fy21q3
-ms.openlocfilehash: 1233c35df8c8471b91eafdc98616906f76ffe103
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.custom: contperf-fy21q4
+ms.openlocfilehash: e9bf7d7d61ad05726ca8dcaad06d63902273f6f8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108073184"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110085067"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>Requisitos del sistema de Azure Stack Edge Pro con GPU 
 
@@ -107,6 +107,7 @@ Es recomendable configurar las reglas de firewall para el tráfico de salida en 
 | https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Registro de contenedor de Microsoft (obligatorio)               |
 | https://\*.azurecr.io                     | Registros de contenedores personales y de terceros (opcional) | 
 | https://\*.azure-devices.net              | Acceso de IoT Hub (obligatorio)                             | 
+| https://\*.docker.com              | StorageClass (obligatorio)                             | 
 
 ### <a name="url-patterns-for-monitoring"></a>Patrones de dirección URL para la supervisión
 

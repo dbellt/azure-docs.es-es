@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: 320bd87aa78d26cee44c48f27365febd1dd426ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2bdf660d57f4fa8cb3a804ff55028dc442f96b8b
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96620297"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110786142"
 ---
 # <a name="change-the-sku-for-an-existing-azure-active-directory-domain-services-managed-domain"></a>Cambio de SKU en un dominio administrado de Azure Active Directory Domain Services
 
@@ -42,7 +42,7 @@ Puede aumentar o reducir las SKU una vez implementado el dominio administrado. S
 
 Por ejemplo:
 
-* Si ha creado dos relaciones de confianza entre bosques en la SKU *Premium*, no podrá cambiar a la SKU *Estándar*. La SKU *Estándar* no admite relaciones de confianza entre bosques.
+* No se puede cambiar a la *SKU* estándar. El bosque de recursos de Azure AD DS no admite la SKU *Estándar*. 
 * De igual modo, si ha creado siete relaciones de confianza en la SKU *Premium*, no podrá cambiar a la SKU *Enterprise*. La SKU *Enterprise* admite un máximo de cinco relaciones de confianza.
 
 Para más información sobre estos límites, consulte este artículo sobre las [características y límites de las SKU de Azure AD DS][concepts-sku].

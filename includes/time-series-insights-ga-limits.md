@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: e584b6eff16636f0657c586f6c630dbf8bbb99b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9af31fb52a888148f33268a30c37609a5e8f2cd3
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96025952"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110486657"
 ---
 A continuación, se resumen los límites clave en Azure Time Series Insights Gen1.
 
@@ -24,13 +24,13 @@ Las capacidades y tasas de entrada de las SKU S1 y S2 proporcionan flexibilidad 
 
 | Capacidad de SKU de S1 | Velocidad de entrada | Capacidad máxima de almacenamiento
 | --- | --- | --- |
-| 1 | 1 GB (1 millón de eventos) al día | 30 GB (30 millones de eventos) al mes |
-| 10 | 10 GB (10 millones de eventos) al día | 300 GB (300 millones de eventos) al mes |
+| 1 | 1 GB (1 millón de eventos) al día | 30 GB (30 millones de eventos) |
+| 10 | 10 GB (10 millones de eventos) al día | 300 GB (300 millones de eventos) |
 
 | Capacidad de SKU de S2 | Velocidad de entrada | Capacidad máxima de almacenamiento
 | --- | --- | --- |
-| 1 | 10 GB (10 millones de eventos) al día | 300 GB (300 millones de eventos) al mes |
-| 10 | 100 GB (100 millones de eventos) al día | 3 TB (3 mil millones de eventos) al mes |
+| 1 | 10 GB (10 millones de eventos) al día | 300 GB (300 millones de eventos) |
+| 10 | 100 GB (100 millones de eventos) al día | 3 TB (3 mil millones de eventos) |
 
 > [!NOTE]
 > Las capacidades se escalan linealmente, por lo que una SKU de S1 con capacidad 2 admite una velocidad de entrada de 2 GB (2 millones) de eventos al día y 60 GB (60 millones de eventos) al mes.
