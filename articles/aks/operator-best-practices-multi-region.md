@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/11/2021
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5bcd30c22132bc53ff28fdefcb73f686e08e34ea
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: eda7816050aedc0ff910d975f920d79771f7d0b4
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105092"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461628"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para continuidad empresarial y recuperación ante desastres en Azure Kubernetes Service (AKS)
 
@@ -40,7 +40,8 @@ Un clúster de AKS se implementa en una sola región. Para proteger el sistema f
     * AKS se expande continuamente en nuevas regiones.
 * [**Regiones emparejadas de Azure**](../best-practices-availability-paired-regions.md)
     * Para su área geográfica, elija dos regiones emparejadas entre sí.
-    * Las regiones emparejadas coordinan las actualizaciones de la plataforma y dan prioridad a los esfuerzos de recuperación cuando resulta necesario.
+    * Las actualizaciones de la plataforma AKS (mantenimiento planeado) se serializan con un retraso de al menos 24 horas entre regiones emparejadas. 
+    * Los esfuerzos de recuperación de las regiones emparejadas se priorizan si es necesario. 
 * **Disponibilidad del servicio**
     * Decida si las regiones emparejadas deben ser las del nivel de acceso frecuente/frecuente, frecuente/normal o frecuente/poco frecuente.
     * ¿Desea ejecutar ambas regiones al mismo tiempo, con una región *preparada* para empezar a atender el tráfico? O bien,

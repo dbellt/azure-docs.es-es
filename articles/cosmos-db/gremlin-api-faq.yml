@@ -1,0 +1,172 @@
+### YamlMime:FAQ
+metadata:
+  title: Preguntas más frecuentes sobre la API de Gremlin en Azure Cosmos DB
+  description: Obtenga respuestas a las preguntas más frecuentes sobre la API de Gremlin para Azure Cosmos DB
+  ms.service: cosmos-db
+  ms.subservice: cosmosdb-graph
+  ms.topic: conceptual
+  ms.date: 04/28/2020
+  author: manishmsfte
+  ms.author: mansha
+  ms.openlocfilehash: 2441a10cd21d933474053bc79e6243e984ef625c
+  ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 07/07/2021
+  ms.locfileid: "113354268"
+title: Preguntas más frecuentes sobre la API de Gremlin en Azure Cosmos DB
+summary: >
+  [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+
+
+  En este artículo se explican las respuestas a algunas de las preguntas más frecuentes sobre la API de Gremlin en Azure Cosmos DB.
+sections:
+- name: Consultas de Gremlin
+  questions:
+  - question: >
+      Evaluación de la eficiencia de las consultas de Gremlin
+    answer: >
+      Se puede usar el paso de vista previa **executionProfile()** para realizar un análisis del plan de ejecución de la consulta. Este paso debe agregarse al final de cualquier consulta de Gremlin, tal y como se muestra en el ejemplo siguiente:
+
+
+      **Ejemplo de consulta**
+
+
+      ```
+
+      g.V('mary').out('knows').executionProfile()
+
+      ```
+
+
+      **Salida del ejemplo**
+
+
+      ```json
+
+      [
+        {
+          "gremlin": "g.V('mary').out('knows').executionProfile()",
+          "totalTime": 8,
+          "metrics": [
+            {
+              "name": "GetVertices",
+              "time": 3,
+              "annotations": {
+                "percentTime": 37.5
+              },
+              "counts": {
+                "resultCount": 1
+              }
+            },
+            {
+              "name": "GetEdges",
+              "time": 5,
+              "annotations": {
+                "percentTime": 62.5
+              },
+              "counts": {
+                "resultCount": 0
+              },
+              "storeOps": [
+                {
+                  "count": 0,
+                  "size": 0,
+                  "time": 0.6
+                }
+              ]
+            },
+            {
+              "name": "GetNeighborVertices",
+              "time": 0,
+              "annotations": {
+                "percentTime": 0
+              },
+              "counts": {
+                "resultCount": 0
+              }
+            },
+            {
+              "name": "ProjectOperator",
+              "time": 0,
+              "annotations": {
+                "percentTime": 0
+              },
+              "counts": {
+                "resultCount": 0
+              }
+            }
+          ]
+        }
+      ]
+
+      ```
+
+
+      La salida del perfil anterior muestra cuánto tiempo se dedica a obtener los objetos de vértice y borde, así como el tamaño del conjunto de datos de trabajo. Esto tiene que ver con las mediciones de los costos estándar para las consultas de Azure Cosmos DB.
+- name: Otras preguntas frecuentes
+  questions:
+  - question: >
+      ¿Cómo se cobran las RU/s cuando se ejecutan consultas en una base de datos de grafos?
+    answer: >
+      Todos los objetos de gráficos, vértices y bordes se muestran como documentos JSON en el servidor back-end. Como una consulta de Gremlin puede modificar uno o varios objetos de grafo a la vez, el costo asociado con él está directamente relacionado con los objetos, los bordes que la consulta procesa. Este es el mismo proceso que Azure Cosmos DB usa para las demás API. Para más información, vea [Unidades de solicitud en Azure Cosmos DB](request-units.md).
+
+
+      El cargo por las RU se basa en el conjunto de datos de trabajo del recorrido, y no en el conjunto de resultados. Por ejemplo, si una consulta pretende obtener como resultado un solo vértice pero, para ello, debe atravesar más de un objeto en el camino, el costo se basará en todos los objetos de gráfico que se necesiten para procesar el resultado de un vértice.
+  - question: >
+      ¿Cuál es la escala máxima que puede tener una base de datos de grafos de Gremlin API de Azure Cosmos DB?
+    answer: >
+      Azure Cosmos DB usa [particiones horizontales](partitioning-overview.md) para abordar automáticamente el aumento en los requisitos de almacenamiento y capacidad de proceso. La capacidad de rendimiento y la capacidad de almacenamiento máximas de una carga de trabajo vienen determinadas por el número de particiones que están asociadas con un contenedor determinada. Sin embargo, un contenedor de Gremlin API tiene un conjunto específico de directrices para garantizar una experiencia de rendimiento adecuada a escala. Para más información sobre la creación de particiones y procedimientos recomendados, vea el artículo sobre [creación de particiones en Azure Cosmos DB](partitioning-overview.md).
+  - question: >
+      ¿Para desarrollar con C# o .NET, debo usar el paquete de Microsoft.Azure.Graphs o Gremlin.NET?
+    answer: >
+      Gremlin API de Azure Cosmos DB aprovecha los controladores de código abierto como conectores principales para el servicio. Por lo tanto, la opción recomendada es usar [controladores que sean compatibles con Apache Tinkerpop](https://tinkerpop.apache.org/).
+  - question: >
+      ¿Cómo me puedo proteger frente a ataques de inyección de código con los controladores Gremlin?
+    answer: >
+      La mayoría de los controladores Gremlin de Apache Tinkerpop nativos ofrecen la opción de proporcionar un diccionario de parámetros para la ejecución de consultas. Este es un ejemplo de cómo hacerlo en [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) y en [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/main/app.js).
+  - question: >
+      ¿Por qué recibo el mensaje "Gremlin Query Compilation Error: Unable to find any method" (Error de compilación de consultas de Gremlin: no se encuentra ningún método)?
+    answer: >
+      Gremlin API de Azure Cosmos DB implementa un subconjunto de la funcionalidad definida en el área expuesta de Gremlin. Para ver pasos admitidos y obtener más información, consulte el artículo sobre [compatibilidad con Gremlin](gremlin-support.md).
+
+
+      La mejor solución es volver a escribir los pasos necesarios de Gremlin con la funcionalidad admitida, porque todos los pasos de Gremlin esenciales son compatibles con Azure Cosmos DB.
+  - question: >
+      ¿Por qué recibo el mensaje "WebSocketException: The server returned status code "200" when status code "101" was expected" (WebSocketException: el servidor devolvió el código de estado "200" cuando el código de estado esperado era "101")?
+    answer: >
+      Este error probablemente se produce cuando se usa el punto de conexión incorrecto. El punto de conexión que genera este error tiene el siguiente patrón:
+
+
+      `https:// YOUR_DATABASE_ACCOUNT.documents.azure.com:443/`
+
+
+      Este es el punto de conexión de documentos de la base de datos de grafos.  El punto de conexión correcto que hay que usar es el punto de conexión de Gremlin, que tiene el formato siguiente:
+
+
+      `https://YOUR_DATABASE_ACCOUNT.gremlin.cosmosdb.azure.com:443/`
+  - question: >
+      ¿Por qué recibo el error "RequestRateIsTooLarge"?
+    answer: >
+      Este error significa que las unidades de solicitud por segundo asignadas no son suficientes para atender la consulta. Este error suele aparecer cuando se ejecuta una consulta que obtiene todos los vértices:
+
+
+      ```
+
+      // Query example:
+
+      g.V()
+
+      ```
+
+
+      Esta consulta intentará recuperar todos los vértices del grafo. Por lo tanto, el costo de esta consulta será igual que el número de vértices en términos de RU, como mínimo. El valor de RU/s se debería ajustar para poder atender esta consulta.
+  - question: >
+      ¿Por qué las conexiones del controlador de Gremlin terminan por desconectarse?
+    answer: >
+      Las conexiones de Gremlin se realizan a través de una conexión de WebSocket. Aunque las conexiones WebSocket no tienen un tiempo de vida específico, Gremlin API de Azure Cosmos DB terminará las conexiones inactivas después de 30 minutos de inactividad.
+  - question: >
+      ¿Por qué no puedo usar llamadas a API fluida en los controladores nativos de Gremlin?
+    answer: >
+      Gremlin API de Azure Cosmos DB aún no admite llamadas API fluidas. Las llamadas API fluidas requieren una característica de formato interna conocida como compatibilidad con código de bytes, que actualmente no se admite en Gremlin API de Azure Cosmos DB. Por el mismo motivo, el controlador más reciente de Gremlin-JavaScript tampoco es compatible.
+additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n\n* [Compatibilidad con protocolo de transferencia de Azure Cosmos DB con Gremlin](gremlin-support.md)\n* Creación, consulta y recorrido de una base de datos de grafos de Azure Cosmos DB en la [consola de Gremlin](create-graph-gremlin-console.md)\n"

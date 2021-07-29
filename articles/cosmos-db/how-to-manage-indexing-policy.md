@@ -5,15 +5,15 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 11/02/2020
+ms.date: 05/25/2021
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: a01b826f99b7bbfc864ad2a6f2913f4f4a9f3e54
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 8a854e17c8a28b335f8c4e8c67bd5f27cb360789
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108072286"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110464636"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Administración de directivas de indexación en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -48,7 +48,8 @@ Estos son algunos ejemplos de directivas de indexación que se muestran en [su f
     }
 ```
 
-Esta directiva de indexación es equivalente a la siguiente, que establece manualmente ```kind```, ```dataType``` y ```precision``` en sus valores predeterminados. Estas propiedades ya no tienen que establecerse explícitamente y debe omitirlas por completo en la directiva de indexación (como se muestra en el ejemplo anterior).
+Esta directiva de indexación es equivalente a la siguiente, que establece manualmente ```kind```, ```dataType``` y ```precision``` en sus valores predeterminados. Estas propiedades ya no tienen que establecerse explícitamente y debe omitirlas por completo en la directiva de indexación (como se muestra en el ejemplo anterior). Si intenta establecer estas propiedades, se quitarán automáticamente de la directiva de indexación.
+
 
 ```json
     {
@@ -102,7 +103,8 @@ Esta directiva de indexación es equivalente a la siguiente, que establece manua
     }
 ```
 
-Esta directiva de indexación es equivalente a la siguiente, que establece manualmente ```kind```, ```dataType``` y ```precision``` en sus valores predeterminados. Estas propiedades ya no tienen que establecerse explícitamente y debe omitirlas por completo en la directiva de indexación (como se muestra en el ejemplo anterior).
+Esta directiva de indexación es equivalente a la siguiente, que establece manualmente ```kind```, ```dataType``` y ```precision``` en sus valores predeterminados. Estas propiedades ya no tienen que establecerse explícitamente y debe omitirlas por completo en la directiva de indexación (como se muestra en el ejemplo anterior). Si intenta establecer estas propiedades, se quitarán automáticamente de la directiva de indexación.
+
 
 ```json
     {

@@ -1,0 +1,229 @@
+### YamlMime:FAQ
+metadata:
+  title: Preguntas frecuentes sobre la administración de Azure Cache for Redis
+  description: Conozca las respuestas a preguntas comunes que le ayudarán a administrar Azure Cache for Redis.
+  author: yegu-ms
+  ms.author: yegu
+  ms.service: cache
+  ms.topic: conceptual
+  ms.custom: devx-track-csharp
+  ms.date: 08/06/2020
+  ms.openlocfilehash: 312d9c83eed96c646c5897270f3058e5a097b4b7
+  ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 07/01/2021
+  ms.locfileid: "113137431"
+title: Preguntas frecuentes sobre la administración de Azure Cache for Redis
+summary: En este artículo se proporcionan respuestas a preguntas habituales sobre cómo administrar Azure Cache for Redis.
+sections:
+- name: Omitido
+  questions:
+  - question: >
+      ¿Cuándo se debe habilitar el puerto que no es TLS/SSL para la conexión a Redis?
+    answer: >
+      El servidor Redis no admite TLS de forma nativa, pero Azure Cache for Redis, sí. Si se conecta a Azure Cache for Redis y el cliente admite TLS, como StackExchange.Redis, use TLS.
+
+
+      >[!NOTE]
+
+      >El puerto no TLS está deshabilitado de forma predeterminada para instancias nuevas de Azure Cache for Redis. Si el cliente no admite TLS, debe habilitar el puerto no TLS siguiendo las instrucciones que se indican en la sección [Access ports](cache-configure.md#access-ports) (Puertos de acceso) del artículo [Configuración de Azure Cache for Redis](cache-configure.md).
+
+      >
+
+      >
+
+
+      Las herramientas de Redis, como `redis-cli`, no funcionan con el puerto TLS. Sin embargo, puede usar una utilidad (por ejemplo, `stunnel`) para conectar de forma segura las herramientas con el puerto TLS. Para ello, siga las instrucciones que se describen en la entrada de blog [Presentación del proveedor de estado de sesión de ASP.NET para la versión preliminar de Redis](https://devblogs.microsoft.com/aspnet/announcing-asp-net-session-state-provider-for-redis-preview-release/).
+
+
+      Para obtener instrucciones acerca de cómo descargar las herramientas de Redis, consulte la sección [¿Cómo puedo ejecutar comandos de Redis?](cache-development-faq.yml#how-can-i-run-redis-commands-) .
+  - question: >
+      ¿Cuáles son algunas prácticas recomendadas de producción?
+    answer: >
+      * [Prácticas recomendadas de StackExchange.Redis](#stackexchangeredis-best-practices)
+
+      * [Configuración y conceptos](#configuration-and-concepts)
+
+      * [Pruebas de rendimiento](#performance-testing)
+
+
+      ### <a name="stackexchangeredis-best-practices"></a>Prácticas recomendadas de StackExchange.Redis
+
+
+      * Establecer `AbortConnect` en false y deje que el ConnectionMultiplexer se vuelva a conectar automáticamente. [Haga clic aquí para obtener información detallada](https://gist.github.com/JonCole/36ba6f60c274e89014dd#file-se-redis-setabortconnecttofalse-md).
+
+      * Reutilice el elemento ConnectionMultiplexer; no cree uno nuevo para cada solicitud. En su lugar, use este patrón. El patrón `Lazy<ConnectionMultiplexer>` se muestra [aquí](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
+
+      * Redis funciona mejor con valores más pequeños, por lo que puede cortar los datos más grandes en varias claves. En [esta discusión de Redis](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ), 100 kB se considera "grande". Lea [este artículo](https://gist.github.com/JonCole/db0e90bedeb3fc4823c2#large-requestresponse-size) para ver un problema de ejemplo que puede deberse a valores grandes.
+
+      * Configure [ThreadPool](#important-details-about-threadpool-growth) para evitar que se agoten los tiempos de espera.
+
+      * Utilice al menos el valor de connectTimeout predeterminado de 5 segundos. Este intervalo da el tiempo suficiente a StackExchange.Redis para volver a establecer la conexión en caso de una interrupción momentánea de la red.
+
+      * Tenga en cuenta los costos de rendimiento de las diferentes operaciones que se estén ejecutando. Por ejemplo, el comando `KEYS` es una operación O(n) y debe evitarse. El [sitio redis.io](https://redis.io/commands/) tiene información sobre la complejidad de tiempo de cada operación admitida. Seleccione cada comando para ver la complejidad de cada operación.
+
+
+      ### <a name="configuration-and-concepts"></a>Configuración y conceptos
+
+
+      * Use el nivel Estándar o Premium en sistemas de producción. El nivel básico es un sistema de nodo único sin replicación de datos ni Acuerdo de Nivel de Servicio. Además, utilice al menos una caché de C1. Las cachés C0 se usan normalmente en escenarios de desarrollo o pruebas sencillos.
+
+      * Recuerde que Redis es un almacén de datos **en memoria** . Consulte [este artículo](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) para ser consciente de los escenarios en los que puede producirse una pérdida de datos.
+
+      * Desarrolle el sistema para que pueda controlar interrupciones momentáneas de conexión [provocadas por la aplicación de revisiones y la conmutación por error](https://gist.github.com/JonCole/317fe03805d5802e31cfa37e646e419d#file-azureredis-patchingexplained-md).
+
+
+      ### <a name="performance-testing"></a>Pruebas de rendimiento
+
+
+      * Empiece utilizando `redis-benchmark.exe` para hacerse una idea del rendimiento posible antes de escribir sus propias pruebas de rendimiento. Dado que `redis-benchmark` no admite TLS, debe [habilitar el puerto no TLS mediante Azure Portal](cache-configure.md#access-ports) antes de ejecutar la prueba. Para ver ejemplos, consulte [¿Cómo se pueden realizar bancos de pruebas y probar el rendimiento del caché?](#how-can-i-benchmark-and-test-the-performance-of-my-cache-)
+
+      * El cliente para pruebas de máquina virtual debe estar en la misma región que la instancia de Azure Cache for Redis.
+
+      * Se recomienda usar la serie de máquina virtual Dv2 para su cliente, ya que tiene mejor hardware y logrará los mejores resultados.
+
+      * Asegúrese de que la máquina virtual cliente que elija tenga al menos tanta capacidad de proceso y ancho de banda como la memoria caché que va a probar.
+
+      * Habilite VRSS en el equipo cliente si se encuentra en Windows. [Haga clic aquí para obtener información detallada](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383582(v=ws.11)).
+
+      * Las instancias de Redis de nivel Premium tienen mejor latencia de red y rendimiento porque se ejecutan en un hardware mejor de CPU y red.
+  - question: >
+      ¿Cuáles son algunas de las consideraciones al usar los comandos de Redis comunes?
+    answer: >
+      * Evite usar determinados comandos de Redis que tardan mucho tiempo en completarse a menos que conozca completamente el resultado de estos comandos. Por ejemplo, no ejecute el comando [KEYS](https://redis.io/commands/keys) en producción. Dependiendo del número de claves, puede tardar mucho tiempo en completarse. Redis es un servidor de un único subproceso y procesa los comandos uno a la vez. Si ha emitido otros comandos después de KEYS, no se procesarán hasta que Redis procese el comando KEYS. El [sitio redis.io](https://redis.io/commands/) tiene información sobre la complejidad de tiempo de cada operación admitida. Seleccione cada comando para ver la complejidad de cada operación.
+
+      * Tamaños de clave: ¿debo usar claves/valores pequeños o claves/valores grandes? Depende del escenario. Si su escenario requiere claves de mayor tamaño, puede ajustar el valor de ConnectionTimeout y los valores de reintento y ajustar la lógica de reintento. Desde la perspectiva del servidor Redis, los valores menores ofrecen un mejor rendimiento.
+
+      * Estas consideraciones no significan que no pueda almacenar valores mayores en Redis, simplemente debe tenerlas en cuenta. Las latencias serán mayores. Si tiene un conjunto de datos de mayor tamaño y otro de menor tamaño, puede usar varias instancias de ConnectionMultiplexer. Configure cada una con un conjunto diferente de valores de tiempo de espera y reintento, como se describe en la sección [¿Qué hacen las opciones de configuración de StackExchange.Redis?](cache-development-faq.yml#what-do-the-stackexchange-redis-configuration-options-do-) anterior.
+  - question: >
+      ¿Cómo se pueden realizar bancos de pruebas y probar el rendimiento del caché?
+    answer: >
+      * [Habilite los diagnósticos de la memoria caché](cache-how-to-monitor.md#enable-cache-diagnostics) para que pueda [supervisar](cache-how-to-monitor.md) su estado. Puede ver las métricas en Azure Portal y también [descargarlas y revisarlas](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) mediante las herramientas que prefiera.
+
+      * Puede utilizar redis-benchmark.exe para la prueba de carga del servidor Redis.
+
+      * Asegúrese de que el cliente para la prueba de carga y la instancia de Azure Cache for Redis se encuentran la misma región.
+
+      * Use redis cli.exe y supervise la memoria caché mediante el comando INFO.
+
+      * Si la carga provoca una elevada fragmentación de memoria, debe escalar verticalmente a un tamaño mayor de caché.
+
+      * Para obtener instrucciones acerca de cómo descargar las herramientas de Redis, consulte la sección [¿Cómo puedo ejecutar comandos de Redis?](cache-development-faq.yml#how-can-i-run-redis-commands-) .
+
+
+      Estos son algunos ejemplos de uso de redis-benchmark.exe. Ejecute estos comandos desde una máquina virtual de la misma región que la caché para obtener resultados precisos. cache-development-faq.yml
+
+
+      * Pruebe solicitudes SET con canalización con una carga útil de 1000
+
+        `redis-benchmark.exe -h **yourcache**.redis.cache.windows.net -a **yourAccesskey** -t SET -n 1000000 -d 1024 -P 50`
+      * Pruebe solicitudes GET con canalización con una carga útil de 1000.
+
+
+      >[!NOTE]
+
+      > Ejecute primero la prueba SET mostrada anteriormente para rellenar la caché
+
+      >
+
+        `redis-benchmark.exe -h **yourcache**.redis.cache.windows.net -a **yourAccesskey** -t GET -n 1000000 -d 1024 -P 50`
+  - question: >
+      Detalles importantes sobre el crecimiento del grupo de subprocesos
+    answer: >
+      El grupo de subprocesos de CLR tiene dos tipos de subprocesos: subprocesos de "trabajo" y subprocesos de "puertos de terminación de E/S" (lo que se conoce como IOCP).
+
+
+      * Los subprocesos de trabajo se utilizan para aspectos como el procesamiento de los métodos `Task.Run(…)` o `ThreadPool.QueueUserWorkItem(…)`. Estos subprocesos también se utilizan en varios componentes del CLR cuando el trabajo se debe ejecutar en un subproceso en segundo plano.
+
+      * Los subprocesos IOCP se usan cuando se produce E/S asincrónica (por ejemplo, cuando se lee de la red).
+
+
+      El grupo de subprocesos proporciona nuevos subprocesos de trabajo o de terminación de E/S a petición (sin limitación) hasta que se llega a la configuración "mínima" de cada tipo de subproceso. De forma predeterminada, el número mínimo de subprocesos se establece en el número de procesadores en un sistema.
+
+
+      Cuando el número de subprocesos existentes (ocupado) alcanza el número "mínimo" de subprocesos, el grupo de subprocesos limitará la velocidad a la que inserta nuevos subprocesos a un subproceso por 500 milisegundos. Normalmente, si su sistema obtiene una ráfaga de trabajo que necesita un subproceso IOCP, ese trabajo se procesará muy rápidamente. Sin embargo, si la ráfaga es mayor que la configuración "mínima" establecida, habrá cierto retraso en el procesamiento de parte del trabajo, ya que el grupo de subprocesos espera una de estas dos posibilidades:
+
+
+      * Un subproceso existente queda libre para procesar el trabajo.
+
+      * Ningún subproceso existente queda libre durante 500 ms, por lo que se crea un nuevo subproceso.
+
+
+      Básicamente, cuando el número de subprocesos ocupados es mayor que los subprocesos mínimos, es probable que experimente un retraso de 500 ms antes de que la aplicación procese el tráfico de red. Además, cuando un subproceso existente permanece inactivo durante más de 15 segundos, se elimina, y este ciclo de crecimiento y reducción se puede repetir.
+
+
+      Si examinamos un mensaje de error de ejemplo de StackExchange.Redis (compilación 1.0.450 o posterior), verá que ahora se imprimen las estadísticas del grupo de subprocesos. Consulte los detalles de IOCP y WORKER a continuación.
+
+
+      ```
+
+      System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive,
+
+      queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0,
+
+      IOCP: (Busy=6,Free=994,Min=4,Max=1000),
+
+      WORKER: (Busy=3,Free=997,Min=4,Max=1000)
+
+      ```
+
+
+      Como se muestra en el ejemplo, puede ver que para el subproceso de IOCP hay seis subprocesos ocupados y el sistema está configurado para permitir cuatro subprocesos mínimos. En este caso, el cliente probablemente habría visto dos retrasos de 500 ms porque 6 > 4.
+
+
+      > [!NOTE]
+
+      > StackExchange.Redis puede alcanzar los tiempos de espera si se limita el crecimiento de los subprocesos de IOCP o WORKER.
+
+
+      ### <a name="recommendation"></a>Recomendación
+
+
+      Dada esta información, se recomienda encarecidamente que los clientes establezcan el valor de configuración mínimo para los subprocesos IOPC y de trabajo en un valor algo mayor que el predeterminado. No podemos dar una orientación exacta sobre cuál debe ser este valor porque el que sea correcto para una aplicación puede ser demasiado alto o bajo para otra. Esta configuración también puede afectar al rendimiento de otras partes de aplicaciones complicadas, por lo que cada cliente debe ajustar este valor de acuerdo con sus necesidades específicas. Un buen punto de partida es 200 o 300, y luego probar y ajustar según sea necesario.
+
+
+      Cómo configurar este valor:
+
+
+      * Se recomienda cambiar esta configuración mediante programación con el método [ThreadPool.SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) de `global.asax.cs`. Por ejemplo:
+
+          ```csharp
+          private readonly int minThreads = 200;
+          void Application_Start(object sender, EventArgs e)
+          {
+              // Code that runs on application startup
+              AreaRegistration.RegisterAllAreas();
+              RouteConfig.RegisterRoutes(RouteTable.Routes);
+              BundleConfig.RegisterBundles(BundleTable.Bundles);
+              ThreadPool.SetMinThreads(minThreads, minThreads);
+          }
+          ```
+
+          > [!NOTE]
+          > El valor especificado por este método es una configuración global, que afecta a todo AppDomain. Por ejemplo, si tiene una máquina de 4 núcleos y desea establecer *minWorkerThreads* y *minIOThreads* en 50 por CPU durante el tiempo de ejecución, utilice **ThreadPool.SetMinThreads(200, 200)**.
+
+      * También es posible especificar el valor mínimo de subprocesos mediante los valores de configuración [*minIoThreads* o *minWorkerThreads*](/previous-versions/dotnet/netframework-4.0/7w2sway1(v=vs.100)) del elemento de configuración `<processModel>` de `Machine.config`. `Machine.config` normalmente se encuentra en `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **No se recomienda establecer el número mínimo de subprocesos de esta forma, ya que es una configuración que afecta a todo el sistema.**
+
+        > [!NOTE]
+        > El valor especificado en este elemento de configuración es *por núcleo*. Por ejemplo, si tiene una máquina de 4 núcleos y quiere que el valor de *minIOThreads* sea 200 en tiempo de ejecución, use `<processModel minIoThreads="50"/>`.
+        >
+  - question: >
+      Habilitación de GC del servidor para obtener más rendimiento en el cliente cuando se usa StackExchange.Redis
+    answer: >
+      La habilitación de GC del servidor puede optimizar el cliente y mejorar el rendimiento y la capacidad cuando se usa StackExchange.Redis. Para más información sobre GC del servidor y cómo habilitarlo, consulte los siguientes artículos.
+
+
+      * [Para habilitar GC del servidor](/dotnet/framework/configure-apps/file-schema/runtime/gcserver-element)
+
+      * [Fundamentos de la recolección de elementos no utilizados](/dotnet/standard/garbage-collection/fundamentals)
+
+      * [Recolección de elementos no utilizados y rendimiento](/dotnet/standard/garbage-collection/performance)
+  - question: >
+      Consideraciones sobre rendimiento de las conexiones
+    answer: >
+      Cada plan de tarifa tiene distintos límites para las conexiones de cliente, memoria y ancho de banda. Si bien cada tamaño de caché permite *hasta* cierta cantidad de conexiones, cada conexión a Redis tiene asociada una sobrecarga. Un ejemplo de dicha sobrecarga podría ser el uso de memoria y CPU debido al cifrado TLS/SSL. El límite máximo de conexiones para un tamaño de caché determinado supone una caché con poca carga. Si la carga proveniente de la sobrecarga de conexiones *más* la carga proveniente de las operaciones de clientes supera la capacidad del sistema, la caché puede tener problemas de capacidad incluso si no ha excedido el límite de conexiones para el tamaño de la caché actual.
+
+
+      Para más información acerca de los diferentes límites de conexión para cada nivel, consulte [Precios de Azure Cache for Redis](https://azure.microsoft.com/pricing/details/cache/). Para más información sobre las conexiones y otras configuraciones predeterminadas, consulte [Configuración predeterminada del servidor Redis](cache-configure.md#default-redis-server-configuration).
+additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n   Más información sobre otras [preguntas frecuentes sobre Azure Cache for Redis](cache-faq.yml)."

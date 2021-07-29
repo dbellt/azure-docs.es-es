@@ -1,6 +1,6 @@
 ---
-title: Módulo de IoT Edge en C# para Azure Stack Edge Pro | Microsoft Docs
-description: Aprenda a desarrollar un módulo de IoT Edge en C# que se pueda implementar en Azure Stack Edge Pro.
+title: Módulo de IoT Edge en C# de Azure Stack Edge Pro FPGA
+description: Aprenda a desarrollar un módulo de IoT Edge en C# para su dispositivo Azure Stack Edge Pro FPGA.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,48 +9,48 @@ ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: alkohli
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4519bc187c4ec53294e5eef15c4ad1954b691224
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: cc7b71d644fa26c0262f2304b380827b36b6c193
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107870848"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461333"
 ---
-# <a name="develop-a-c-iot-edge-module-to-move-files-with-azure-stack-edge-pro"></a>Desarrollo de un módulo IoT Edge en C# para mover archivos con Azure Stack Edge Pro
+# <a name="develop-a-c-iot-edge-module-to-move-files-with-azure-stack-edge-pro-fpga"></a>Desarrollo de un módulo de IoT Edge en C# para mover archivos con Azure Stack Edge Pro FPGA
 
-En este artículo, se explican los pasos para crear un módulo de IoT Edge e implementarlo con el dispositivo Azure Stack Edge Pro. Azure Stack Edge Pro es una solución de almacenamiento que permite procesar datos y enviarlos por la red a Azure.
+En este artículo, se explican los pasos para crear un módulo de IoT Edge e implementarlo con el dispositivo Azure Stack Edge Pro FPGA. Azure Stack Edge Pro FPGA es una solución de almacenamiento que permite procesar datos y enviarlos por la red a Azure.
 
-Puede usar módulos de Azure IoT Edge con Azure Stack Edge Pro para transformar los datos a medida que se migran a Azure. El módulo que se utiliza en este artículo implementa la lógica para copiar un archivo de un recurso compartido local en un recurso compartido en la nube del dispositivo Azure Stack Edge Pro.
+Puede usar módulos de Azure IoT Edge con Azure Stack Edge Pro FPGA para transformar los datos a medida que se migran a Azure. El módulo que se utiliza en este artículo implementa la lógica para copiar un archivo de un recurso compartido local en un recurso compartido en la nube del dispositivo Azure Stack Edge Pro FPGA.
 
 En este artículo aprenderá a:
 
 > [!div class="checklist"]
 >
 > * Cree un registro de contenedor para almacenar y administrar los módulos (imágenes de Docker).
-> * Cree un módulo de IoT Edge para implementarlo en el dispositivo Azure Stack Edge Pro. 
+> * Cree un módulo de IoT Edge para implementarlo en el dispositivo Azure Stack Edge Pro FPGA. 
 
 
 ## <a name="about-the-iot-edge-module"></a>Acerca del módulo de IoT Edge
 
-El dispositivo Azure Stack Edge Pro puede implementar y ejecutar módulos de IoT Edge. Los módulos de Edge son básicamente contenedores de Docker que realizan una tarea específica, como ingerir un mensaje de un dispositivo, transforman un mensaje o enviar un mensaje a un centro de IoT. En este artículo, va a crear un módulo que copia archivos de un recurso compartido local en un recurso compartido en la nube del dispositivo Azure Stack Edge Pro.
+El dispositivo Azure Stack Edge Pro FPGA puede implementar y ejecutar módulos de IoT Edge. Los módulos de Edge son básicamente contenedores de Docker que realizan una tarea específica, como ingerir un mensaje de un dispositivo, transforman un mensaje o enviar un mensaje a un centro de IoT. En este artículo, va a crear un módulo que copia archivos de un recurso compartido local en un recurso compartido en la nube del dispositivo Azure Stack Edge Pro FPGA.
 
-1. Los archivos se escriben en el recurso compartido local del dispositivo Azure Stack Edge Pro.
+1. Los archivos se escriben en el recurso compartido local del dispositivo Azure Stack Edge Pro FPGA.
 2. El generador de eventos de archivo crea un evento de archivo para cada archivo escrito en el recurso compartido local. Los eventos de archivo también se generan cuando se modifica un archivo. Los eventos de archivo se envían luego al centro de IoT Edge (en el entorno de ejecución de IoT Edge).
 3. El módulo personalizado de IoT Edge procesa el evento de archivo para crear un objeto de evento de archivo que también contiene una ruta de acceso relativa para el archivo. El módulo genera una ruta de acceso absoluta mediante la ruta de acceso de archivo relativa y copia el archivo del recurso compartido local al recurso compartido de nube. El módulo elimina entonces el archivo del recurso compartido local.
 
-![Funcionamiento del módulo de Azure IoT Edge en Azure Stack Edge Pro](./media/azure-stack-edge-create-iot-edge-module/how-module-works-1.png)
+![Funcionamiento del módulo de Azure IoT Edge en Azure Stack Edge Pro FPGA](./media/azure-stack-edge-create-iot-edge-module/how-module-works-1.png)
 
 Una vez que el archivo está en el recurso compartido en la nube, se carga automáticamente en la cuenta de Azure Storage.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar, asegúrese de que tiene:
 
-- Un dispositivo Azure Stack Edge Pro en ejecución.
+- Un dispositivo Azure Stack Edge Pro FPGA en ejecución.
 
     - El dispositivo también tiene un recurso de IoT Hub asociado.
     - El dispositivo tiene configurado el rol de proceso perimetral.
-    Para más información, vaya a [Configuración del proceso](azure-stack-edge-deploy-configure-compute.md#configure-compute) en Azure Stack Edge Pro.
+    Para más información, vaya a [Configuración del proceso](azure-stack-edge-deploy-configure-compute.md#configure-compute) en Azure Stack Edge Pro FPGA.
 
 - Los siguientes recursos de desarrollo:
 
@@ -278,4 +278,4 @@ En la sección anterior, creó una solución de IoT Edge y agregó código a Fil
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para implementar y ejecutar este módulo en Azure Stack Edge Pro, consulte los pasos que se indican en [Adición de un módulo](azure-stack-edge-deploy-configure-compute.md#add-a-module).
+Para implementar y ejecutar este módulo en Azure Stack Edge Pro FPGA, consulte los pasos que se indican en [Adición de un módulo](azure-stack-edge-deploy-configure-compute.md#add-a-module).
