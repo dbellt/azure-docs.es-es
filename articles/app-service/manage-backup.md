@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 055e212e0f8fcd53f74c7e1b99dd0a217412c21f
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 7aca099b4396237a80255a24149d9977c96b87cd
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166764"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110794109"
 ---
 # <a name="back-up-your-app-in-azure"></a>Realizar una copia de seguridad de la aplicación en Azure
 
@@ -50,6 +50,8 @@ Las siguientes soluciones de base de datos son compatibles con la característic
 * No se admiten las copias de seguridad de instancias de Azure Database for PostgreSQL habilitadas para TLS. Si se configura una copia de seguridad, se producirán errores de copia de seguridad.
 * Se hace una copia de datos automáticamente de las bases de datos MySQL en la aplicación sin ninguna configuración. Si realiza manualmente la configuración para las bases de datos MySQL en la aplicación, como agregar cadenas de conexión, es posible que las copias de seguridad no funcionen correctamente.
 * No se admite el uso de una cuenta de almacenamiento habilitada para firewall como destino para las copias de seguridad. Si se configura una copia de seguridad, se producirán errores de copia de seguridad.
+* Actualmente, no se puede usar la característica Copia de seguridad y restauración con la característica Integración con red virtual de Azure App Service. 
+* En la actualidad, no puede usar la característica Copia de seguridad y restauración con cuentas de Azure Storage configuradas para usar el punto de conexión privado.
 
 <a name="manualbackup"></a>
 

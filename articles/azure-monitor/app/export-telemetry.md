@@ -4,12 +4,12 @@ description: Exporte datos de diagnóstico y uso al almacenamiento en Microsoft 
 ms.topic: conceptual
 ms.date: 02/19/2021
 ms.custom: references_regions
-ms.openlocfilehash: e7831123834df9186310453106c50261373160ec
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8a302717ed962971069ee56a07d78747d82b00df
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101737042"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110455053"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportación de telemetría desde Application Insights
 ¿Desea mantener la telemetría durante más tiempo que el período de retención estándar? ¿O quiere procesarla de algún modo especializado? La exportación continua es lo más conveniente para ello. Los eventos que se ven en el portal de Application Insights pueden exportarse a almacenamiento en Microsoft Azure en formato JSON. Desde allí puede descargar los datos y escribir el código necesario para procesarlos.  
@@ -68,7 +68,7 @@ La exportación continua se admite en las siguientes regiones:
 * Japón Occidental
 
 > [!NOTE]
-> Las aplicaciones ya configuradas en **Oeste de Europa** y **Este de EE. UU.** son compatibles, pero no se admite la incorporación de nuevas aplicaciones en esas regiones.
+> La exportación continua seguirá funcionando para aplicaciones del **Este de EE. UU.** y **Oeste de Europa** si la exportación se configuró antes del 23 de febrero de 2021. Las nuevas reglas de exportación continua no se pueden configurar en ninguna aplicación del **Este de EE. UU.** u **Oeste de Europa**, independientemente de cuándo se creó la aplicación.
 
 ## <a name="continuous-export-advanced-storage-configuration"></a>Configuración avanzada del almacenamiento de exportación continua
 

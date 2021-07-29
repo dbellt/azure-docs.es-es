@@ -1,18 +1,18 @@
 ---
 title: 'Vista de las rutas eficaces de un centro de conectividad virtual: Azure Virtual WAN | Microsoft Docs'
-description: Visualización de las rutas eficaces de un concentrador virtual en Azure Virtual WAN
+description: Obtenga información sobre cómo ver las rutas eficaces de un concentrador virtual en Azure Virtual WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 05/26/2021
 ms.author: cherylmc
-ms.openlocfilehash: ad487aa7492abcf02988c78ccfa2ba7cd4798249
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 955bf9fb9881fcf5fb37b75352c25d2d639bfb3c
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90983649"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579844"
 ---
 # <a name="view-virtual-hub-effective-routes"></a>Visualización de rutas efectivas de centro virtual
 
@@ -51,7 +51,7 @@ Use la barra de desplazamiento de la parte inferior de la tabla para ver la "rut
 
 * Al ver las rutas vigentes en una NIC de máquina virtual, si ve el próximo salto como "Puerta de enlace de red virtual", esto hace referencia al enrutador del centro de conectividad virtual cuando la máquina virtual está en un radio conectado a un centro de conectividad de Virtual WAN.
 
-* Vista de rutas eficaces de una tabla de rutas de centro virtual solo se rellena si el centro virtual tiene al menos un tipo de conexión (VPN/ER/VNET) conectada a él.
+* **Ver las rutas efectivas** de una tabla de rutas de centro virtual solo se rellena si el centro virtual tiene al menos un tipo de conexión (VPN/ER/VNET) conectada a él.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

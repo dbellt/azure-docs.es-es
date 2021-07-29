@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 06/14/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94077a1c6329aa1fecf9593f2df41fa77afc8a44
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a46d77b088d854bdd6ee8781b545d1236f357853
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765924"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112071486"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funcionamiento: Autoservicio de restablecimiento de contraseña de Azure AD
 
-El autoservicio de restablecimiento de contraseña (SSPR) de Azure Active Directory (Azure AD) ofrece a los usuarios la posibilidad de cambiar o restablecer su contraseña sin necesidad de que intervenga el administrador o el departamento de soporte técnico. Si la cuenta de un usuario está bloqueada o se ha olvidado su contraseña, puede seguir las indicaciones para desbloquearse y volver al trabajo. Esta capacidad reduce las llamadas al departamento de soporte técnico y la pérdida de productividad cuando un usuario no puede iniciar sesión en su dispositivo o en una aplicación.
+El autoservicio de restablecimiento de contraseña (SSPR) de Azure Active Directory (Azure AD) ofrece a los usuarios la posibilidad de cambiar o restablecer su contraseña sin necesidad de que intervenga el administrador o el departamento de soporte técnico. Si la cuenta de un usuario está bloqueada o se ha olvidado su contraseña, puede seguir las indicaciones para desbloquearse y volver al trabajo. Esta capacidad reduce las llamadas al departamento de soporte técnico y la pérdida de productividad cuando un usuario no puede iniciar sesión en su dispositivo o en una aplicación. Recomendamos este vídeo sobre [cómo habilitar y configurar SSPR en Azure AD](https://www.youtube.com/watch?v=rA8TvhNcCvQ).
 
 > [!IMPORTANT]
 > Este artículo teórico explica al administrador cómo funciona el autoservicio de restablecimiento de contraseña. Si es un usuario final registrado para el autoservicio de restablecimiento de contraseña y necesita volver a su cuenta, visite [https://aka.ms/sspr](https://aka.ms/sspr).
@@ -105,7 +105,7 @@ Están disponibles los siguientes métodos de autenticación:
 * Código de aplicación móvil
 * Email
 * Teléfono móvil
-* Teléfono del trabajo
+* Teléfono de la oficina (disponible solo para inquilinos con suscripciones de pago)
 * Preguntas de seguridad
 
 Los usuarios solo pueden restablecer su contraseña si tienen registrado un método de autenticación que el administrador haya habilitado.

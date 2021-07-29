@@ -7,18 +7,18 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 01/31/2020
 ms.author: victorh
-ms.openlocfilehash: bdb115cf6d0f0aa2c55f6143015a323df6faa114
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b92b7ff4839bf2bf51c281942ed6d15d2dc1f86c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "83744300"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110455512"
 ---
 # <a name="geomatch-custom-rules-preview"></a>Reglas personalizadas de Geomatch (vista previa)
 
 Las reglas personalizadas permiten la creación de reglas adaptadas para satisfacer las necesidades precisas de las aplicaciones y las directivas de seguridad. Ahora, puede restringir el acceso a las aplicaciones web por país o región. Como con todas las reglas personalizadas, esta lógica se puede componer con otras reglas para satisfacer las necesidades de la aplicación.
 
-Para crear una regla personalizada de filtrado geográfico, simplemente seleccione *Geolocalización* como el tipo de coincidencia y, después, seleccione el país o región o los países o regiones que quiere permitir o bloquear desde la aplicación. Consulte el artículo sobre [cómo crear reglas personalizadas en PowerShell](configure-waf-custom-rules.md) y más ejemplos de reglas personalizadas (create-custom-waf-rules.md) para más información.
+Para crear una regla personalizada de filtrado geográfico en Azure Portal, simplemente seleccione *Geolocalización* como el tipo de coincidencia y, después, seleccione el país o región o los países o regiones que quiere permitir o bloquear desde la aplicación. Al crear reglas de coincidencia geográfica con Azure PowerShell o Azure Resource Manager, use la variable de coincidencia `RemoteAddr` y el operador `Geomatch`. Para más información, consulte el artículo sobre [cómo crear reglas personalizadas en PowerShell](configure-waf-custom-rules.md) y más [ejemplos de reglas personalizadas](create-custom-waf-rules.md).
 
 > [!IMPORTANT]
 > Esta versión preliminar pública se proporciona sin un acuerdo de nivel de servicio y no debe usarse para cargas de trabajo de producción. Puede que algunas características no se admitan, que tengan funcionalidades limitadas o que no estén disponibles en todas las ubicaciones de Azure. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

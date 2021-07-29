@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 05/08/2021
+ms.date: 06/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 6323a077596a7ed13384bfbaace929b270c2d3f5
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 66ff9018371de309b61824895492335e0d3bb763
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109754486"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112517661"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Uso del envío autoadministrado para Azure Data Box Disk en Azure Portal
 
@@ -64,7 +64,7 @@ Al realizar un pedido de Data Box Disk, puede elegir la opción de envío autoad
    - Order name
    - Company name
    - Company legal name (if different) 
-   - Tax ID 
+   - CNPJ (Business Tax ID, format: 00.000.000/0000-00) or CPF (Individual Tax ID, format: 000.000.000-00)
    - Address 
    - Country 
    - Phone number 
@@ -87,7 +87,7 @@ Al realizar un pedido de Data Box Disk, puede elegir la opción de envío autoad
 
    * El código de autorización. El número de referencia es exclusivo de una recogida o una entrega y se valida en el centro de datos.
 
-   * Documento de identidad con fotografía aprobado por el Gobierno. Este documento se validará en el centro de datos y se deben proporcionar el nombre y los detalles de la persona que recogerá el dispositivo cuando se programe la recogida.
+   * Identificador con fotografía aprobado por el Gobierno. El identificador se validará en el centro de datos y se deben proporcionar el nombre y los detalles de la persona que recogerá el dispositivo cuando se programe la recogida.
 
    > [!NOTE]
    > Si no se acude a una cita programada, deberá programar una nueva cita.

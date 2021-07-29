@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 05/18/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6b2b8e3374c362f937aa5cfe106e8da9f9aa39f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 47e3ea0a8ea5dc8dbb01d532a52436ed581311e7
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96548008"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110089904"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Configuración de la administración de grupos de autoservicio en Azure Active Directory 
 
@@ -43,14 +43,22 @@ Grupos creados en | Comportamiento predeterminado del grupo de seguridad | Compo
 
 ## <a name="make-a-group-available-for-user-self-service"></a>Puesta a disposición de un grupo para el autoservicio del usuario
 
-1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
-1. Seleccione **Grupos** y, a continuación, seleccione el valor **General**.
-1. Establezca **Los propietarios pueden administrar solicitudes de pertenencia a grupos en el Panel de acceso** en **Sí**.
-1. Establezca **Restringir el acceso a grupos en el Panel de acceso** en **No**.
-1. Si establece **Los usuarios pueden crear grupos de seguridad en los portales de Azure** o **Los usuarios pueden crear grupos de Microsoft 365 en los portales de Azure** en
+1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta a la que se haya asignado el rol Administrador global o Administrador de roles con privilegios para el directorio.
 
-    - **Sí**: todos los usuarios de la organización de Azure AD pueden crear nuevos grupos de seguridad y agregar miembros a estos grupos. Estos grupos nuevos también se muestran en el Panel de acceso para los restantes usuarios. Si la configuración de la directiva en el grupo lo permite, otros usuarios pueden crear solicitudes para unirse a estos grupos.
+1. Seleccione **Grupos** y, a continuación, seleccione el valor **General**.
+
+    ![Configuración general de grupos de Azure Active Directory](./media/groups-self-service-management/groups-settings-general.png)
+
+1. Establezca **Los propietarios pueden administrar solicitudes de pertenencia a grupos en el Panel de acceso** en **Sí**.
+
+1. Establezca **Restringir la capacidad del usuario para acceder a las características de grupos del panel de acceso** en **No**.
+
+1. Si establece **Los usuarios pueden crear grupos de seguridad en Azure Portal, la API o PowerShell** o **Los usuarios pueden crear grupos de Microsoft 365 en Azure Portal, la API o PowerShell** en
+
+    - **Sí**: todos los usuarios de la organización de Azure AD pueden crear nuevos grupos de seguridad y agregar miembros a estos grupos en Azure Portal, la API o PowerShell. Estos grupos nuevos también se muestran en el Panel de acceso para los restantes usuarios. Si la configuración de la directiva en el grupo lo permite, otros usuarios pueden crear solicitudes para unirse a dichos grupos.
     - **No**: los usuarios no pueden crear grupos ni cambiar los grupos existentes de los que sean propietarios. Sin embargo, pueden administrar la pertenencia a dichos grupos y aprobar las solicitudes de otros usuarios para unirse a ellos.
+
+    Esta configuración se cambió recientemente para agregar compatibilidad con la API y PowerShell. Para obtener más información sobre este cambio, vea la siguiente sección [Cambio de configuración de grupos](#groups-setting-change).
 
 También puede usar **Owners who can assign members as group owners in the Azure portal** (Los propietarios pueden asignar miembros como propietarios de grupos en Azure Portal) para conseguir un control más pormenorizado sobre la administración de grupos de autoservicio para los usuarios.
 
@@ -58,6 +66,37 @@ Cuando los usuarios puedan crear grupos, todos los usuarios de su organización 
 
 > [!NOTE]
 > Se requiere una licencia de Azure Active Directory Premium (P1 o P2) para que los usuarios puedan solicitar unirse a un grupo de seguridad o a un grupo de Microsoft 365 y para que los propietarios puedan aprobar o denegar las solicitudes de pertenencia. Sin una licencia de Azure Active Directory Premium, los usuarios todavía pueden administrar sus grupos en el Panel de acceso, pero no pueden crear un grupo que requiera la aprobación del propietario en el Panel de acceso y no podrán solicitar unirse a un grupo.
+
+## <a name="groups-setting-change"></a>Cambio de configuración de grupos
+
+La configuración de los grupos de seguridad actuales y los grupos de Microsoft 365 se están dejando en desuso y reemplazando. La configuración actual se está reemplazando porque solo controla la creación de grupos en Azure Portal y no se aplica a la API ni a PowerShell. La nueva configuración controla la creación de grupos en Azure Portal, así como en la API y en PowerShell.
+
+| Configuración en desuso | Nueva configuración |
+| --- | --- |
+| Los usuarios pueden crear grupos de seguridad en Azure Portal. | Los usuarios pueden crear grupos de seguridad en Azure Portal, la API o PowerShell. |
+| Los usuarios pueden crear grupos de Microsoft 365 en Azure Portal. | Los usuarios pueden crear grupos de Microsoft 365 en Azure Portal, la API o PowerShell. |
+
+Hasta que la configuración actual esté totalmente en desuso, ambas opciones aparecerán en Azure Portal. Debe configurar esta nueva opción antes de finales de **mayo de 2021**. Para configurar los grupos de seguridad, debe tener asignado el rol Administrador global o Administrador de roles con privilegios. 
+
+![Cambio de configuración de grupos de seguridad de Azure Active Directory](./media/groups-self-service-management/security-groups-setting.png)
+
+La tabla siguiente le ayudará a decidir qué valores elegir.
+
+| Si desea: | Elija estos valores |
+| --- | --- |
+| Los usuarios pueden crear grupos mediante Azure Portal, API o PowerShell | Establezca ambas opciones en **Sí**. Los cambios pueden tardar hasta 15 minutos en surtir efecto. |
+| Los usuarios **no pueden** crear grupos mediante Azure Portal, la API ni PowerShell | Establezca ambos valores en **No**. Los cambios pueden tardar hasta 15 minutos en surtir efecto. |
+| Los usuarios pueden crear grupos mediante Azure Portal, pero no mediante la API ni PowerShell | No compatible |
+| Los usuarios pueden crear grupos mediante la API o PowerShell, pero no mediante Azure Portal | No compatible |
+
+En la tabla siguiente se muestra lo que sucede para los distintos valores de esta configuración. No se recomienda tener la configuración en desuso y la nueva configuración establecidas en valores diferentes.
+
+| Los usuarios pueden crear grupos mediante Azure Portal | Los usuarios pueden crear grupos mediante Azure Portal, API o PowerShell | Efecto en el inquilino |
+| :---: | :---: | --- |
+| Sí | Sí | Los usuarios pueden crear grupos mediante Azure Portal, la API o PowerShell. Los cambios pueden tardar hasta 15 minutos en surtir efecto.|
+| No | No | Los usuarios **no pueden** crear grupos mediante Azure Portal, la API ni PowerShell. Los cambios pueden tardar hasta 15 minutos en surtir efecto. |
+| Sí | No | Los usuarios **no pueden** crear grupos mediante Azure Portal, la API ni PowerShell. No se recomienda establecer esta configuración en valores diferentes. Los cambios pueden tardar hasta 15 minutos en surtir efecto. |
+| No | Sí | Hasta que la opción **Los usuarios pueden crear grupos mediante Azure Portal** esté totalmente en desuso en **junio de 2021**, los usuarios pueden crear grupos mediante la API o PowerShell, pero no con Azure Portal. A partir de algún día indeterminado de **junio de 2021**, la opción **Los usuarios pueden crear grupos mediante Azure Portal, la API o PowerShell.** se hará efectiva y los usuarios podrán crear grupos mediante Azure Portal, la API o PowerShell. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,26 +1,27 @@
 ---
 title: Matriz de compatibilidad del sistema operativo para SAP HANA (instancias grandes) | Microsoft Docs
-description: La matriz de compatibilidad representa la compatibilidad de versiones diferentes del sistema operativo con distintos tipos de hardware (instancias grandes)
+description: La matriz de compatibilidad representa la compatibilidad de versiones diferentes del sistema operativo con distintos tipos de hardware (instancias grandes).
 services: virtual-machines-linux
 documentationcenter: ''
-author: sasarava
+author: Ajayan1008
 manager: hrushib
 editor: ''
 ms.service: virtual-machines-sap
+ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/21/2020
-ms.author: sasarava
+ms.date: 05/18/2021
+ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ccfdffc4e488de7f3cecb150305596743b3a9e44
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ad1eb1428493d8488e803560e0dc421765aab465
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101675414"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579452"
 ---
-# <a name="compatible-operating-systems-for-hana-large-instances"></a>Sistemas operativos compatibles con instancias grandes de HANA
+# <a name="compatible-operating-systems-for-hana-large-instances"></a>Sistemas operativos compatibles con HANA (instancias grandes)
 
 ## <a name="hana-large-instance-type-i"></a>Instancia grande de HANA tipo I     
   | Sistema operativo | Disponibilidad        | SKU                                                          |
@@ -34,6 +35,7 @@ ms.locfileid: "101675414"
 
   
 ### <a name="persistent-memory-skus"></a>SKU de memoria persistente
+
   | Sistema operativo | Disponibilidad | SKU                             |
   |------------------|--------------|----------------------------------|
   | SLES 12 SP4      | Disponible    | S224oo, S224om, S224ooo, S224oom |
@@ -48,11 +50,11 @@ ms.locfileid: "101675414"
   | SLES 15 SP1             | Disponible           | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S896m, S960m |
   | RHEL 7.6                | Disponible           | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S896m, S960m |
 
-## <a name="related-documents"></a>Documentos relacionados
+## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre las [SKU disponibles](hana-available-skus.md).
-- Más información sobre la [actualización del sistema operativo](os-upgrade-hana-large-instance.md).
-  
+Más información sobre:
 
-  
+- [SKU disponibles](hana-available-skus.md)
+- [Actualización del sistema operativo](os-upgrade-hana-large-instance.md)
+- [Escenarios admitidos para instancias grandes de HANA](hana-supported-scenario.md)
   

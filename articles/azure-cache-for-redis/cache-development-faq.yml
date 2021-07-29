@@ -1,0 +1,136 @@
+### YamlMime:FAQ
+metadata:
+  title: Preguntas frecuentes sobre el desarrollo para Azure Cache for Redis
+  description: Conozca las respuestas a preguntas comunes que le ayudarán a desarrollar para Azure Cache for Redis.
+  author: yegu-ms
+  ms.author: yegu
+  ms.service: cache
+  ms.topic: conceptual
+  ms.custom: devx-track-csharp
+  ms.date: 08/06/2020
+  ms.openlocfilehash: c8aeae13f22103cc895dffda497b71ac3129330c
+  ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 07/01/2021
+  ms.locfileid: "113137432"
+title: Preguntas frecuentes sobre el desarrollo para Azure Cache for Redis
+summary: En este artículo se proporcionan respuestas a preguntas habituales sobre cómo desarrollar para Azure Cache for Redis.
+sections:
+- name: Omitido
+  questions:
+  - question: >
+      ¿Cómo se empieza con Azure Cache for Redis?
+    answer: >
+      Hay varias maneras de empezar a utilizar Azure Cache for Redis.
+
+
+      * Puede consultar uno de los tutoriales disponibles para [.NET](cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.NET](cache-web-app-howto.md), [Java](cache-java-get-started.md), [Node.js](cache-nodejs-get-started.md) y [Python](cache-python-get-started.md).
+
+      * Puede ver el vídeo [How to Build High Performance Apps Using Microsoft Azure Cache for Redis](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/)(Procedimiento para compilar aplicaciones de alto rendimiento con Azure Cache for Redis).
+
+      * Puede consultar la documentación de los clientes de ejemplo que coincidan con el lenguaje de desarrollo que se utiliza en el proyecto. Hay muchos clientes de Redis que pueden utilizarse con Azure Cache for Redis. Para ver una lista de clientes de Redis, consulte [https://redis.io/clients](https://redis.io/clients).
+
+
+      Si no tiene una cuenta de Azure, siga estos pasos:
+
+
+      * [Abrir una cuenta de Azure gratis](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). Obtenga créditos que puede usar para probar los servicios de Azure de pago. Incluso después de que se agoten los créditos, puede mantener la cuenta y usar los servicios y características gratuitos de Azure.
+
+      * [Activar los beneficios de suscripción a Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Su suscripción a MSDN le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
+  - question: >
+      ¿Qué hacen las opciones de configuración de StackExchange.Redis?
+    answer: "StackExchange.Redis tiene muchas opciones. En esta sección se describen algunas de las configuraciones comunes. Para obtener más información acerca de las opciones de StackExchange.Redis, consulte [Configuración de StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/Configuration).\n\n| ConfigurationOptions | Descripción | Recomendación |\n| --- | --- | --- |\n| AbortOnConnectFail |Cuando se establece en true, la conexión no se puede volver a conectar después de un error de red. |Establézcalo en false y deje que StackExchange.Redis se vuelva a conectar automáticamente. |\n| ConnectRetry |El número de veces que se repiten los intentos de conexión durante la conexión inicial. |Consulte la siguiente imagen para obtener instrucciones. |\n| ConnectTimeout |Tiempo de espera en milisegundos para operaciones de conexión. |Consulte la siguiente imagen para obtener instrucciones. |\n\nHabitualmente, los valores predeterminados del cliente son suficientes. Ajuste las opciones en función de su carga de trabajo.\n\n* **Reintentos**\n  * Para ConnectRetry y ConnectTimeout, la regla general es fracasar y responder rápido a los errores y volver a intentarlo. Esta guía se basa en la carga de trabajo y en cuánto tiempo, como promedio, tarda el cliente en enviar un comando de Redis y recibir una respuesta.\n  * Permita que StackExchange.Redis se vuelva a conectar automáticamente en lugar de comprobar el estado de conexión y volver a conectarse. **Evite el uso de la propiedad ConnectionMultiplexer.IsConnected**.\n  * Efecto bola de nieve: a veces puede encontrarse con un problema cuando lo está intentando y este error aumenta y nunca se recupera. En este caso, considere la posibilidad de utilizar un algoritmo de reintento de retroceso exponencial, tal y como se describe en el artículo [Control de errores transitorios](/azure/architecture/best-practices/transient-faults) publicado por el grupo de patrones y procedimientos de Microsoft.\n  \n* **Valores de tiempo de expiración**\n  * Tenga en cuenta la carga de trabajo y establezca los valores para que coincidan. Si almacena valores grandes, establezca el tiempo de expiración en un valor superior.\n  * Establezca `AbortOnConnectFail` en False y deje que StackExchange.Redis se vuelva a conectar automáticamente.\n  * Utilice una única instancia de ConnectionMultiplexer para la aplicación. Puede usar LazyConnection para crear una instancia única que se devuelva por una propiedad de conexión, tal como se muestra en [Conexión a la caché mediante la clase ConnectionMultiplexer](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).\n  * Establezca la propiedad `ConnectionMultiplexer.ClientName` a un nombre único de la instancia de aplicación con fines de diagnóstico.\n  * Use varias instancias `ConnectionMultiplexer` para cargas de trabajo personalizadas.\n    * Puede seguir este modelo si tiene una carga variable en la aplicación. Por ejemplo:\n    * Puede tener un multiplexor para tratar con claves grandes.\n    * Puede tener un multiplexor para tratar con claves pequeñas.\n    * Puede establecer distintos valores para los tiempos de expiración de la conexión así como lógica de reintento para cada ConnectionMultiplexer que use.\n    * Establezca la propiedad `ClientName` en cada multiplexor para ayudar con el diagnóstico.\n    * Esta guía puede conducir a una latencia más simplificada por `ConnectionMultiplexer`.\n"
+  - question: >
+      ¿Qué clientes de Azure Cache for Redis puedo usar?
+    answer: >
+      Una de las grandes virtudes de Redis es que hay muchos clientes que admiten muchos lenguajes de desarrollo diferentes. Para obtener una lista de clientes, consulte [Redis clients](https://redis.io/clients)(Clientes de Redis). Para ver tutoriales que tratan sobre varios lenguajes y clientes diferentes, consulte [Inicio rápido: Uso de Azure Cache for Redis con .NET Framework](cache-dotnet-how-to-use-azure-redis-cache.md).
+
+
+      [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
+  - question: >
+      ¿Hay un emulador local para Azure Cache for Redis?
+    answer: >
+      No hay emulador local para Azure Cache for Redis. Puede ejecutar la versión de MSOpenTech de redis-server.exe desde las [herramientas de la línea de comandos de Redis](https://github.com/MSOpenTech/redis/releases/) en el equipo local. A continuación, conéctese a él para obtener una experiencia similar a un emulador de caché local, como se muestra en el ejemplo siguiente:
+
+
+      ```csharp
+
+      private static Lazy<ConnectionMultiplexer>
+          lazyConnection = new Lazy<ConnectionMultiplexer> (() =>
+          {
+              // Connect to a locally running instance of Redis to simulate
+              // a local cache emulator experience.
+              return ConnectionMultiplexer.Connect("127.0.0.1:6379");
+          });
+
+      public static ConnectionMultiplexer Connection
+
+      {
+          get
+          {
+              return lazyConnection.Value;
+          }
+      }
+
+      ```
+
+
+      Si lo desea, también puede configurar el archivo [redis.conf](https://redis.io/topics/config) para ajustarse con más precisión a la [configuración de caché predeterminada](cache-configure.md#default-redis-server-configuration) del servicio Azure Cache for Redis en línea.
+  - question: >
+      ¿Cómo puedo ejecutar comandos de Redis?
+    answer: >
+      Puede usar cualquiera de los comandos enumerados en el artículo de [Comandos de Redis](https://redis.io/commands#), salvo los comandos indicados en [Redis commands not supported in Azure Cache for Redis](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis) (Comandos de Redis no admitidos en Azure Cache for Redis). Para ejecutar comandos de Redis, tiene varias opciones.
+
+
+      * Si tiene una caché Estándar o Premium, puede ejecutar comandos de Redis mediante la [Consola de Redis](cache-configure.md#redis-console). La consola de Redis ofrece una manera segura de ejecutar comandos de Redis en Azure Portal.
+
+      * También puede usar las herramientas de línea de comandos de Redis. Para utilizarlas, siga estos pasos:
+
+      * Descargue las [herramientas de línea de comandos de Redis](https://github.com/MSOpenTech/redis/releases/).
+
+      * Conexión a la memoria caché mediante `redis-cli.exe`. Pase el punto de conexión de caché con el modificador -h y la clave con - a, tal como se muestra en el ejemplo siguiente:
+
+      * `redis-cli -h <Azure Cache for Redis name>.redis.cache.windows.net -a <key>`
+
+
+      > [!NOTE]
+
+      > Las herramientas de línea de comandos de Redis no funcionan con el puerto TLS, pero puede usar una utilidad como `stunnel` para conectar de forma segura las herramientas al puerto TLS si sigue las instrucciones del artículo [Uso de la herramienta de línea de comandos de Redis con Azure Cache for Redis](./cache-how-to-redis-cli-tool.md).
+
+      >
+
+      >
+  - question: >
+      ¿Por qué Azure Cache for Redis no tiene una referencia de biblioteca de clases MSDN?
+    answer: >
+      Microsoft Azure Cache for Redis se basa en Redis, el conocido almacén de datos en memoria de código abierto. Se puede acceder mediante una amplia variedad de [clientes de Redis](https://redis.io/clients) para muchos lenguajes de programación. Cada cliente tiene su propia API que realiza llamadas a la instancia de Azure Cache for Redis mediante los [comandos de Redis](https://redis.io/commands).
+
+
+      Dado que cada cliente es diferente, no puede encontrar una referencia de clase centralizada en MSDN. Cada cliente mantiene su propia documentación de referencia. Además de la documentación de referencia, hay varios tutoriales que muestran cómo empezar a trabajar con Azure Cache for Redis con distintos lenguajes y clientes de caché. Para acceder a estos tutoriales, consulte [Cómo usar Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) y los artículos relacionados de la tabla de contenido.
+  - question: >
+      ¿Puedo usar Azure Cache for Redis como caché de la sesión PHP?
+    answer: >
+      Sí, para usar Azure Cache for Redis como una memoria caché de sesión PHP, especifique la cadena de conexión a la instancia de Azure Cache for Redis en `session.save_path`.
+
+
+      > [!IMPORTANT]
+
+      > Al usar Azure Cache for Redis como una caché de sesión PHP, debe codificar como dirección URL la clave de seguridad que se usa para conectarse a la memoria caché, tal como se muestra en el ejemplo siguiente:
+
+      >
+
+      > `session.save_path = "tcp://mycache.redis.cache.windows.net:6379?auth=<url encoded primary or secondary key here>";`
+
+      >
+
+      > Si la clave no está codificada como dirección URL, puede recibir una excepción con un mensaje similar al siguiente: `Failed to parse session.save_path`
+
+      >
+
+
+      Para más información sobre el uso de Azure Cache for Redis como caché de la sesión PHP con el cliente de PhpRedis, consulte [PHP Session handler](https://github.com/phpredis/phpredis#php-session-handler) (Controlador de sesión de PHP).
+  - question: >
+      ¿Cuáles son las bases de datos de Redis?
+    answer: "Las bases de datos de Redis son simplemente una separación lógica de los datos en la misma instancia de Redis. La memoria caché se comparte entre todas las bases de datos y el consumo real de una base de datos depende de los pares clave-valor almacenados en esa base de datos. Por ejemplo, una caché de C6 tiene 53 GB de memoria y una de P5 tiene 120 GB. Puede elegir colocar los 53 GB o los 120 GB en una base de datos o dividirlos entre varias bases de datos. \n\n> [!NOTE]\n> Cuando se utiliza una instancia Prémium de Azure Cache for Redis con clústeres habilitados, solo está disponible la base de datos 0. Se trata de una limitación de Redis intrínseca y no es específica de Azure Cache for Redis. Para obtener más información, consulte [¿Es necesario realizar algún cambio en mi aplicación cliente para usar la agrupación en clústeres?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)\n"
+additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n   Más información sobre otras [preguntas frecuentes sobre Azure Cache for Redis](cache-faq.yml)."

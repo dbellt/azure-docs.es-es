@@ -1,6 +1,6 @@
 ---
-title: Administración de programaciones de ancho de banda en Azure Stack Edge Pro | Microsoft Docs
-description: En este artículo se explica cómo puede usar Azure Portal para administrar las programaciones de ancho de banda en Azure Stack Edge Pro.
+title: Administración de programaciones de ancho de banda de Azure Stack Edge Pro FPGA
+description: En este artículo se explica cómo usar Azure Portal para administrar las programaciones de ancho de banda en Azure Stack Edge Pro FPGA.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: e73a02c93807072e30c8ce2a1a7feb30e9d3c8c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a89b5359b48b1ad7d0e0a3c32f0e637ba5b2264
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91978975"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460812"
 ---
-# <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro"></a>Uso de Azure Portal para administrar las programaciones de ancho de banda en Azure Stack Edge Pro  
+# <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro-fpga"></a>Uso de Azure Portal para administrar las programaciones de ancho de banda en Azure Stack Edge Pro FPGA  
 
-En este artículo se explica cómo administrar los usuarios en Azure Stack Edge Pro. Las programaciones del ancho de banda le permiten configurar el uso del ancho de banda de red en programaciones en varias horas del día. Dichas programaciones se pueden aplicar a las operaciones de carga y descarga desde el dispositivo a la nube.
+En este artículo se explica cómo administrar usuarios en Azure Stack Edge Pro FPGA. Las programaciones del ancho de banda le permiten configurar el uso del ancho de banda de red en programaciones en varias horas del día. Dichas programaciones se pueden aplicar a las operaciones de carga y descarga desde el dispositivo a la nube.
 
-Puede agregar, modificar o eliminar las programaciones de ancho de banda de Azure Stack Edge Pro en Azure Portal.
+Puede agregar, modificar o eliminar las programaciones de ancho de banda de Azure Stack Edge Pro FPGA en Azure Portal.
 
 En este artículo aprenderá a:
 
@@ -71,7 +71,7 @@ Siga estos pasos para editar una programación del ancho de banda.
 
 ## <a name="delete-a-schedule"></a>Eliminación de una programación
 
-Siga estos pasos para eliminar una programación de ancho de banda asociada a un dispositivo Azure Stack Edge Pro.
+Siga estos pasos para eliminar una programación de ancho de banda asociada al dispositivo Azure Stack Edge Pro FPGA.
 
 1. En Azure Portal, vaya al recurso de Azure Stack Edge y luego a **Ancho de banda**.  
 

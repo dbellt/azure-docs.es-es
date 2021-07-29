@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 11/17/2020
-ms.openlocfilehash: 68c211608cfceedaa9d13a595be6d1e5de17f1d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/21/2021
+ms.openlocfilehash: aca49982cf6e25e95002c1fab40b46ef05c842e2
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94845013"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110454949"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Uso de patrones de columnas en el flujo de datos de asignación
 
@@ -33,7 +33,6 @@ Para agregar un patrón de columna a una columna derivada, de agregado o de tran
 
 Use el [generador de expresiones](concepts-data-flow-expression-builder.md) para escribir la condición de coincidencia. Cree una expresión booleana que busque la coincidencia con las columnas en función de los elementos `name`, `type`, `stream`, `origin` y `position` de la columna. El patrón afectará a cualquier columna, desfasada o definida, donde la condición devuelva true.
 
-Los dos cuadros de expresión situados debajo de la condición de coincidencia especifican los nuevos nombres y valores de las columnas afectadas. Use `$$` para hacer referencia al valor existente del campo coincidente. El cuadro de expresión de la izquierda define el nombre y el cuadro de expresión de la derecha define el valor.
 
 ![Captura de pantalla que muestra la pestaña Derived column's settings (Configuración de la columna derivada).](media/data-flow/edit-column-pattern.png "Patrones de columnas")
 
@@ -85,7 +84,7 @@ En el ejemplo anterior se hace coincidir con todas las subcolumnas de la columna
 
 * `$$` se traduce al nombre o valor de cada coincidencia en tiempo de ejecución. Piense en `$$` como equivalente a `this`.
 * `name` representa el nombre de cada columna de entrada
-* `type` representa el tipo de datos de cada columna de entrada
+* `type` representa el tipo de datos de cada columna de entrada. La lista de tipos de datos del sistema de tipos de flujo de datos se puede encontrar [aquí.](concepts-data-flow-overview.md#data-flow-data-types)
 * `stream` representa el nombre asociado a cada secuencia o transformación del flujo
 * `position` es la posición ordinal de las columnas en el flujo de datos
 * `origin` es la transformación en la que se ha originado o se ha actualizado por última vez una columna

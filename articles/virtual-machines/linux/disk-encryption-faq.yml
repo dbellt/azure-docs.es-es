@@ -10,12 +10,12 @@ metadata:
   ms.author: mbaldwin
   ms.date: 06/05/2019
   ms.custom: seodec18
-  ms.openlocfilehash: 2c16b3b0f75a00d045edbfebdeaf12216074b92f
-  ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+  ms.openlocfilehash: ad41c27a7a0c3c3de92938fafd9d05b119a52379
+  ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/14/2021
-  ms.locfileid: "112063791"
+  ms.lasthandoff: 06/21/2021
+  ms.locfileid: "112416470"
 title: Preguntas más frecuentes sobre Azure Disk Encryption para máquinas virtuales Linux
 summary: >
   En este artículo se ofrecen respuestas a las preguntas más frecuentes sobre Azure Disk Encryption para máquinas virtuales (VM) Linux. Para más información sobre este servicio, consulte [Introducción a Azure Disk Encryption](disk-encryption-overview.md).
@@ -148,6 +148,9 @@ sections:
 
 
       Solo se admite el cifrado de discos de datos XFS cuando se usa el parámetro EncryptFormatAll. Esto volverá a formatear el volumen, por lo que se borrarán todos los datos que contenga. Para obtener más información, consulte [Criterios de EncryptFormatAll](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
+  - question: >
+      ¿Se admite el cambio de tamaño de la partición del sistema operativo?
+    answer: "Actualmente no se admite el cambio de tamaño de un disco de sistema operativo cifrado con ADE.\n          \n"
   - question: "¿Puedo hacer una copia de seguridad de una VM cifrada y restaurarla? \n"
     answer: "Azure Backup proporciona un mecanismo para la copia de seguridad y restauración VM cifradas dentro de la misma suscripción y región.  Para obtener instrucciones, consulte [Copia de seguridad y restauración de máquinas virtuales cifradas con Azure Backup](../../backup/backup-azure-vms-encryption.md).  Actualmente, no se admite la restauración de una VM cifrada en una región diferente.  \n"
   - question: >

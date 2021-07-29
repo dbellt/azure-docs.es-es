@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 05/19/2021
 ms.author: phjensen
-ms.openlocfilehash: 16e758ac520c8584a11c88c0823fac7cfec43c0b
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 0eae929d60ce852e7a98f12430de796aa664d86f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108226307"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110481456"
 ---
 # <a name="install-azure-application-consistent-snapshot-tool"></a>Instalación de la herramienta Azure Application Consistent Snapshot
 
@@ -42,6 +42,12 @@ Siga las instrucciones para configurar y ejecutar los comandos de instantáneas 
 1. **HANA instalado**. Consulte las instrucciones de instalación de HANA en [Instalación de SAP NetWeaver en la base de datos de HANA](/archive/blogs/saponsqlserver/sap-netweaver-installation-on-hana-database).
 1. **[Comunicación habilitada con el almacenamiento](#enable-communication-with-storage)** (consulte la sección independiente para más detalles). El cliente debe configurar SSH con un par de claves pública y privada, y proporcionar la clave pública para cada nodo donde está previsto que se ejecuten las herramientas de instantáneas durante la configuración del back-end de almacenamiento de Microsoft Operations.
    1. **Para Azure NetApp Files (consulte la sección independiente para más detalles)** . El cliente debe generar el archivo de autenticación de la entidad de servicio.
+      
+      > [!IMPORTANT]
+      > Cuando se valida la comunicación con Azure NetApp Files, se puede producir un error o agotarse el tiempo de espera. Asegúrese de que las reglas de firewall no bloqueen el tráfico de salida del sistema que ejecuta AzAcSnap en las siguientes direcciones y puertos TCP/IP:
+      > - (https://)management.azure.com:443
+      > - (https://)login.microsoftonline.com:443
+      
    1. **Para Azure Large Instance (consulte la sección independiente para más detalles)** . El cliente debe configurar SSH con un par de claves pública y privada, y proporcionar la clave pública para cada nodo donde está previsto que se ejecuten las herramientas de instantáneas durante la configuración del back-end de almacenamiento de Microsoft Operations.
 
       Para probarlo, use SSH para conectarse a uno de los nodos (por ejemplo, `ssh -l <Storage UserName> <Storage IP Address>`).

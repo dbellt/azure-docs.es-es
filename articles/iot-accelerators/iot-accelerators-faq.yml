@@ -1,0 +1,116 @@
+### YamlMime:FAQ
+metadata:
+  title: 'Preguntas más frecuentes sobre los aceleradores de soluciones de IoT: Azure | Microsoft Docs'
+  description: Este artículo responde a las preguntas más frecuentes sobre los aceleradores de soluciones de IoT. Incluye vínculos a los repositorios de GitHub.
+  author: dominicbetts
+  manager: timlt
+  ms.service: iot-accelerators
+  services: iot-accelerators
+  ms.topic: conceptual
+  ms.date: 02/15/2018
+  ms.author: dobett
+  ms.openlocfilehash: e9f23e7a509e800a1481f2fd67675a16d3d185a2
+  ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 07/14/2021
+  ms.locfileid: "113799239"
+title: Preguntas más frecuentes acerca de los aceleradores de soluciones de IoT
+summary: >
+  Consulte también la sección [Preguntas frecuentes específicas de la factoría conectada](iot-accelerators-faq-cf.yml).
+sections:
+- name: Omitido
+  questions:
+  - question: >
+      ¿Dónde se puede encontrar el código fuente del acelerador de la solución?
+    answer: >
+      El código fuente se almacena en los siguientes repositorios de GitHub:
+
+
+      * [Acelerador de la solución de factoría conectada](https://github.com/Azure/azure-iot-connected-factory)
+  - question: >
+      ¿Dónde puedo encontrar los aceleradores de soluciones de supervisión remota y mantenimiento predictivo?
+    answer: >
+      A partir del 10 de diciembre de 2020, los aceleradores de supervisión remota y mantenimiento predictivo se han quitado del sitio de [aceleradores de soluciones de Azure IoT](https://www.azureiotsolutions.com/Accelerators) y ya no están disponibles para nuevas implementaciones. Los repositorios de GitHub de ambos aceleradores se han archivado. El código sigue estando disponible para todo aquel que quiera acceder a él, pero ya no se aceptan nuevas contribuciones a los repositorios.
+  - question: >
+      ¿Dónde puedo encontrar el acelerador de soluciones de simulación de dispositivos?
+    answer: >
+      Se ha archivado el repositorio de GitHub para el acelerador. El código sigue estando disponible para todo aquel que quiera acceder a él, pero ya no se aceptan nuevas contribuciones a los repositorios.
+  - question: >
+      ¿Qué ocurre con mis implementaciones existentes de supervisión remota y mantenimiento predictivo?
+    answer: >
+      Las implementaciones existentes no se verán afectadas por la eliminación de los aceleradores de soluciones de supervisión remota y mantenimiento predictivo y seguirán funcionando. Los repositorios bifurcados tampoco se verán afectados. Los repositorios maestros de GitHub se han archivado.
+  - question: >
+      ¿Dónde puedo encontrar información sobre los aceleradores de soluciones quitados?
+    answer: >
+      Consulte las siguientes páginas en el sitio de versiones anterior:
+
+
+      * [Supervisión remota](/previous-versions/azure/iot-accelerators/about-iot-accelerators)
+
+      * [Mantenimiento predictivo](/previous-versions/azure/iot-accelerators/about-iot-accelerators)
+
+      * [Simulación de dispositivo](/previous-versions/azure/iot-accelerators/about-iot-accelerators)
+  - question: >
+      ¿Qué SDK puedo usar para desarrollar clientes de dispositivo para los aceleradores de soluciones?
+    answer: >
+      En los repositorios de GitHub de los [SDK de IoT de Microsoft Azure](https://github.com/Azure/azure-iot-sdks) encontrará vínculos a los SDK de dispositivo IoT de los distintos lenguajes (C, .NET, Java, Node.js, Python).
+
+
+      Si utiliza el dispositivo DevKit, encontrará recursos y ejemplos en el repositorio de GitHub del [SDK de IoT DevKit](https://github.com/Microsoft/devkit-sdk).
+  - question: >
+      Soy administrador de servicios y quiero cambiar la asignación de directorios entre mi suscripción y un inquilino de Azure AD específico. ¿Cómo completo esta tarea?
+    answer: >
+      Vea [Adición de una suscripción existente al directorio de Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory).
+  - question: >
+      Quiero cambiar un administrador de servicios o coadministrador cuando haya iniciado sesión con una cuenta de la organización.
+    answer: >
+      Consulte el artículo de asistencia [Changing Service Administrator and Co-Administrator when logged in with an organizational account](https://azure.microsoft.com/support/changing-service-admin-and-co-admin) (Cambiar el administrador de servicios y el coadministrador cuando ha iniciado sesión con una cuenta organizativa).
+  - question: >
+      ¿Por qué veo este error? "Su cuenta no tiene los permisos adecuados para crear una solución. Póngase en contacto con el administrador de cuentas o inténtelo con otra cuenta."
+    answer: >
+      Observe el diagrama siguiente para obtener instrucciones:
+
+
+      ![Diagrama de flujo de permisos](media/iot-accelerators-faq/flowchart.png)
+
+
+      > [!NOTE]
+
+      > Si sigue viendo el error después de validar que usted es el administrador global del inquilino de Azure AD y el coadministrador de la suscripción, haga que el administrador de cuenta quite el usuario y vuelva a asignar los permisos necesarios en este orden. En primer lugar, agregue al usuario como administrador global y luego agregue a un usuario como coadministrador de la suscripción de Azure. Si los problemas persisten, póngase en contacto con [Ayuda y soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+  - question: >
+      ¿Por qué veo este error cuando tengo una suscripción de Azure? "Para crear soluciones preconfiguradas se requiere una suscripción de Azure. Puede crear una cuenta de evaluación gratuita en pocos minutos".
+    answer: >
+      Si está seguro de que tiene una suscripción a Azure, valide la asignación del inquilino de la suscripción y compruebe si se ha seleccionado el inquilino correcto en la lista desplegable. Si ha validado que el inquilino es correcto, siga el diagrama anterior y valide la asignación de la suscripción y de este inquilino de Azure AD.
+  - question: >
+      ¿Cuál es la diferencia entre eliminar un grupo de recursos en Azure Portal y hacer clic en Eliminar en un acelerador de soluciones en azureiotsolutions.com?
+    answer: >
+      * Si elimina el acelerador de soluciones en [azureiotsolutions.com](https://www.azureiotsolutions.com/), elimina todos los recursos implementados cuando se creó el acelerador de soluciones. Si agrega recursos adicionales al grupo de recursos, dichos recursos también se eliminan.
+
+      * Si elimina el grupo de recursos en [Azure Portal](https://portal.azure.com), solo se eliminan los recursos de ese grupo de recursos. También debe eliminar la aplicación de Azure Active Directory asociada al acelerador de la solución.
+  - question: >
+      ¿Puedo seguir aprovechando mi inversión en aceleradores de soluciones de Azure IoT?
+    answer: >
+      Sí. Cualquier solución que exista en la actualidad sigue funcionando en la suscripción a Azure y el código fuente sigue estando disponible en GitHub.
+  - question: >
+      ¿Cuántas instancias de IoT Hub se pueden aprovisionar en una suscripción?
+    answer: >
+      De forma predeterminada, puede aprovisionar [diez centros de IoT Hub por suscripción](../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-limits). Puede crear un [vale de soporte de Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar este límite. Como consecuencia, dado que cada acelerador de soluciones aprovisiona una nueva instancia de IoT Hub, solo puede aprovisionar hasta diez aceleradores de soluciones en una suscripción determinada.
+  - question: >
+      ¿Cuántas instancias de Azure Cosmos DB se pueden aprovisionar en una suscripción?
+    answer: >
+      Cincuenta. Puede crear un [vale de soporte de Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar este límite, pero de forma predeterminada solo se pueden aprovisionar 50 instancias de Cosmos DB por suscripción.
+  - question: >
+      ¿Puedo crear un acelerador de soluciones si tengo Microsoft Azure para DreamSpark?
+    answer: >
+      > [!NOTE]
+
+      > Microsoft Azure para DreamSpark ahora se conoce como Microsoft Imagine para estudiantes.
+
+
+      En este momento, no se puede crear un acelerador de soluciones con una cuenta de [Microsoft Azure para DreamSpark](https://azure.microsoft.com/pricing/member-offers/imagine/). Sin embargo, puede crear una [cuenta de evaluación gratuita de Azure](https://azure.microsoft.com/free/) en un par de minutos, lo que le permite crear un acelerador de soluciones.
+  - question: >
+      ¿Cómo puedo eliminar un inquilino de Azure AD?
+    answer: >
+      Consulte la entrada del blog de Eric Golpe [Walkthrough of Deleting an Azure AD Tenant](/archive/blogs/ericgolpe/walkthrough-of-deleting-an-azure-ad-tenant) (Tutorial para la eliminación de inquilinos de Azure AD).
+additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n\nTambién puede explorar algunas de las demás características y funcionalidades de los aceleradores de soluciones de IoT:\n\n* [Implementación del acelerador de soluciones de Connected Factory](quickstart-connected-factory-deploy.md)\n* [Seguridad de Internet de las cosas desde el principio](../iot-fundamentals/iot-security-ground-up.md)"

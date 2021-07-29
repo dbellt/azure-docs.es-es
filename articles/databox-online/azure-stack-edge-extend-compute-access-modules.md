@@ -1,6 +1,6 @@
 ---
-title: Administración de la red de proceso en Azure Stack Edge Pro para acceder a módulos | Microsoft Docs
-description: En este artículo se explica cómo extender la red de proceso en Azure Stack Edge Pro para acceder a los módulos por medio de una dirección IP externa.
+title: Administración de red de proceso de Azure Stack Edge Pro FPGA para acceder a los módulos
+description: En este artículo se explica cómo ampliar la red de proceso en Azure Stack Edge Pro FPGA para acceder a los módulos por medio de una dirección IP externa.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: alkohli
-ms.openlocfilehash: 19c92deb58ac51aa882e7123b9a90aa3eae627d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dbbd43d07bbb07e13f2e0301e15d73ee727a86fd
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90894118"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461245"
 ---
 # <a name="enable-compute-network-on-your-azure-stack-edge-pro"></a>Habilitación de la red de proceso en Azure Stack Edge Pro
 

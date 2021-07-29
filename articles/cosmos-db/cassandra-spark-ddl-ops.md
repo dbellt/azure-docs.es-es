@@ -8,46 +8,54 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 10/07/2020
-ms.openlocfilehash: 73d31fff362807937cbd87b8e1313cf601909802
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 54398620775b28f0c497a061f5ea4446a38a5ada
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93092184"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110464925"
 ---
 # <a name="ddl-operations-in-azure-cosmos-db-cassandra-api-from-spark"></a>Operaciones DDL en Cassandra API de Azure Cosmos DB de Spark
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 En este artículo se describe el espacio de claves y la tabla de operaciones DDL en Cassandra API de Azure Cosmos DB de Spark.
 
+## <a name="spark-context"></a>Contexto de Spark
+
+ El conector para Cassandra API requiere que los detalles de la conexión de Cassandra se inicialicen como parte del contexto de Spark. Cuando inicia un cuaderno, el contexto de Spark ya está inicializado y no es aconsejable pararlo y reiniciarlo. Una solución es agregar la configuración de la instancia de Cassandra API en un nivel de clúster, en la configuración de clúster de Spark. Esto se hace una sola vez por cada clúster. Agregue el código siguiente a la configuración de Spark como un par clave-valor separado por espacios:
+ 
+  ```scala
+  spark.cassandra.connection.host YOUR_COSMOSDB_ACCOUNT_NAME.cassandra.cosmosdb.azure.com
+  spark.cassandra.connection.port 10350
+  spark.cassandra.connection.ssl.enabled true
+  spark.cassandra.auth.username YOUR_COSMOSDB_ACCOUNT_NAME
+  spark.cassandra.auth.password YOUR_COSMOSDB_KEY
+  ```
+
 ## <a name="cassandra-api-related-configuration"></a>Configuración de Cassandra API 
 
 ```scala
 import org.apache.spark.sql.cassandra._
-
 //Spark connector
 import com.datastax.spark.connector._
 import com.datastax.spark.connector.cql.CassandraConnector
 
-//CosmosDB library for multiple retry
-import com.microsoft.azure.cosmosdb.cassandra
-
-//Connection-related
-spark.conf.set("spark.cassandra.connection.host","YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.com")
-spark.conf.set("spark.cassandra.connection.port","10350")
-spark.conf.set("spark.cassandra.connection.ssl.enabled","true")
-spark.conf.set("spark.cassandra.auth.username","YOUR_ACCOUNT_NAME")
-spark.conf.set("spark.cassandra.auth.password","YOUR_ACCOUNT_KEY")
-spark.conf.set("spark.cassandra.connection.factory", "com.microsoft.azure.cosmosdb.cassandra.CosmosDbConnectionFactory")
+//if using Spark 2.x, CosmosDB library for multiple retry
+//import com.microsoft.azure.cosmosdb.cassandra
+//spark.conf.set("spark.cassandra.connection.factory", "com.microsoft.azure.cosmosdb.cassandra.CosmosDbConnectionFactory")
 
 //Throughput-related...adjust as needed
 spark.conf.set("spark.cassandra.output.batch.size.rows", "1")
-spark.conf.set("spark.cassandra.connection.connections_per_executor_max", "10")
+//spark.conf.set("spark.cassandra.connection.connections_per_executor_max", "10") // Spark 2.x
+spark.conf.set("spark.cassandra.connection.remoteConnectionsPerExecutor", "10") // Spark 3.x
 spark.conf.set("spark.cassandra.output.concurrent.writes", "1000")
 spark.conf.set("spark.cassandra.concurrent.reads", "512")
 spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")
 spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 ```
+
+> [!NOTE]
+> Si usa Spark 3.0 o posterior, no es necesario instalar el asistente de Cosmos DB ni el generador de conexiones. También debe usar `remoteConnectionsPerExecutor` en lugar de `connections_per_executor_max` para el conector de Spark 3 (consulte más arriba).
 
 ## <a name="keyspace-ddl-operations"></a>Operaciones DDL de Keyspace
 
@@ -93,7 +101,7 @@ DESCRIBE keyspaces;
 ### <a name="create-a-table"></a>Creación de una tabla
 
 ```scala
-cdbConnector.withSessionDo(session => session.execute("CREATE TABLE IF NOT EXISTS books_ks1.books(book_id TEXT,book_author TEXT, book_name TEXT,book_pub_year INT,book_price FLOAT, PRIMARY KEY(book_id,book_pub_year)) WITH cosmosdb_provisioned_throughput=4000 , WITH default_time_to_live=630720000;"))
+cdbConnector.withSessionDo(session => session.execute("CREATE TABLE IF NOT EXISTS books_ks.books(book_id TEXT,book_author TEXT, book_name TEXT,book_pub_year INT,book_price FLOAT, PRIMARY KEY(book_id,book_pub_year)) WITH cosmosdb_provisioned_throughput=4000 , WITH default_time_to_live=630720000;"))
 ```
 
 #### <a name="validate-in-cqlsh"></a>Validar en cqlsh

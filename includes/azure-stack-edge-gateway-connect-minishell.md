@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 04/15/2021
 ms.author: alkohli
-ms.openlocfilehash: 9936d1f9ce99103a2217d4b6adcc1ded6c403811
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 6f732f7c59f76c99d82d5c4f7b062532c60a5a78
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109737256"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110165009"
 ---
 Dependiendo del sistema operativo del cliente, los procedimientos para conectarse de forma remota al dispositivo son diferentes.
 
@@ -82,7 +82,7 @@ Siga estos pasos para conectarse de forma remota desde un cliente de Windows.
     [1HXQG13.wdshcsso.com]: PS>
     ```
 
-Cuando se usa la opción `-UseSSL`, la comunicación remota se realiza a través de PowerShell a través de *https*. Se recomienda usar siempre *https* para conectarse de forma remota a través de PowerShell.
+Cuando se usa la opción `-UseSSL`, la comunicación remota se realiza a través de PowerShell a través de *https*. Se recomienda usar siempre *https* para conectarse de forma remota a través de PowerShell. En redes de confianza, la comunicación remota mediante PowerShell a través de HTTP es aceptable. En primer lugar, habilite PowerShell remoto a través de HTTP en la interfaz de usuario local. A continuación, puede conectarse a la interfaz de PowerShell del dispositivo mediante el procedimiento anterior sin la opción `-UseSSL`.
 
 Si no usa los certificados (se recomienda usarlos), puede omitir la comprobación de la validación de certificados mediante las opciones de sesión: `-SkipCACheck -SkipCNCheck -SkipRevocationCheck`.
 

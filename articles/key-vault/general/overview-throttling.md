@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7a215b53f673a7414f1b3662f519de5c26faaa9d
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: f9e3f2095e6fd7a744769c11209ed115767c3aed
+ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749543"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113492602"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Guía de las limitaciones de Azure Key Vault
 
@@ -36,21 +36,7 @@ Key Vault se creó originalmente con los límites especificados en [Límites de
 1. Si usa Key Vault para almacenar las credenciales de un servicio, compruebe si ese servicio admite la Autenticación de Azure AD para autenticarse directamente. Esto reduce la carga en Key Vault, mejora la confiabilidad y simplifica el código, ya que Key Vault ahora puede usar el token de Azure AD.  Muchos servicios se han pasado al uso de la Autenticación de Azure AD.  Consulte la lista actual en [Servicios que admiten identidades administradas para recursos de Azure](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources).
 1. Considere la posibilidad de escalonar la carga o la implementación durante un período de tiempo más largo para permanecer dentro de los límites actuales de RPS.
 1. Si la aplicación consta de varios nodos que necesitan leer los mismos secretos, considere la posibilidad de usar un patrón de distribución ramificada, donde una entidad lee el secreto de Key Vault y se distribuye a todos los nodos.   Almacene en caché los secretos recuperados solo en memoria.
-Si observa que lo anterior todavía no satisface sus necesidades, rellene la tabla siguiente y póngase en contacto con nosotros para determinar qué capacidad adicional se puede agregar (el ejemplo tiene únicamente fines ilustrativos).
 
-| Nombre del almacén | Región del almacén | Tipo de objeto (secreto, clave o certificado) | Operaciones* | Tipo de clave | Longitud o curva de la clave | ¿Clave HSM?| Necesario estado estable de RPS | Necesarios picos de RPS |
-|--|--|--|--|--|--|--|--|--|
-| https://mykeyvault.vault.azure.net/ | | Clave | Firma | EC | P-256 | No | 200 | 1000 |
-
-\* Para obtener una lista completa de los valores posibles, consulte [Operaciones de Azure Key Vault](/rest/api/keyvault/key-operations).
-
-Si se aprueba la capacidad adicional, tenga en cuenta lo siguiente como resultado del aumento de capacidad:
-1. Cambia el modelo de coherencia de datos. Una vez que un almacén se encuentra en la lista de permitidos con capacidad de rendimiento adicional, la garantía de coherencia de datos del servicio Key Vault cambia (es necesario para satisfacer un mayor volumen de RPS, ya que el servicio Azure Storage subyacente no lo alcanza).  En resumen:
-  1. **Sin inclusión en la lista de permitidos**: El servicio Key Vault reflejará los resultados de una operación de escritura (por ejemplo, SecretSet o CreateKey) inmediatamente en llamadas posteriores (por ejemplo, SecretGet o KeySign).
-  1. **Con inclusión en la lista de permitidos**: El servicio Key Vault reflejará los resultados de una operación de escritura (por ejemplo, SecretSet o CreateKey) en 60 segundos en llamadas posteriores (por ejemplo, SecretGet o KeySign).
-1. El código de cliente debe respetar la directiva de retroceso para los reintentos de errores 429. El código de cliente que llama al servicio Key Vault no debe reintentar inmediatamente las solicitudes a Key Vault cuando recibe un código de respuesta 429.  La guía de limitación de Azure Key Vault publicada aquí recomienda aplicar el retroceso exponencial al recibir un código de respuesta HTTP 429.
-
-Si tiene un caso empresarial válido para limitaciones superiores, póngase en contacto con nosotros.
 
 ## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>Limitación de la aplicación en respuesta a los límites de servicio
 

@@ -1,0 +1,129 @@
+### YamlMime:FAQ
+metadata:
+  title: 'Preguntas frecuentes: Azure Synapse Analytics'
+  description: Preguntas frecuentes sobre Azure Synapse Analytics
+  services: synapse-analytics
+  author: saveenr
+  ms.service: synapse-analytics
+  ms.topic: overview
+  ms.subservice: overview
+  ms.date: 10/25/2020
+  ms.author: saveenr
+  ms.reviewer: jrasnick
+  ms.openlocfilehash: b1fb4a033e0b501c25e2588e2dce6b7c1bce3d26
+  ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 06/22/2021
+  ms.locfileid: "112467925"
+title: Preguntas frecuentes sobre Azure Synapse Analytics
+summary: En esta guía, encontrará las preguntas más frecuentes sobre Azure Synapse Analytics.
+sections:
+- name: General
+  questions:
+  - question: >
+      ¿Cómo se pueden usar los roles RBAC para proteger un área de trabajo?
+    answer: >
+      Azure Synapse introduce varios roles y ámbitos para asignarlos, lo que simplificará la protección del área de trabajo.
+
+
+      Roles de Synapse RBAC:
+
+      * Administrador de Synapse
+
+      * Administrador de Synapse SQL
+
+      * Administrador de Synapse Spark
+
+      * Colaborador de Synapse (versión preliminar)
+
+      * Editor de artefactos de Synapse (versión preliminar)
+
+      * Usuario de artefactos de Synapse (versión preliminar)
+
+      * Operador de proceso de Synapse (versión preliminar)
+
+      * Usuario de credenciales Synapse (versión preliminar)
+
+
+      Para proteger el área de trabajo de Synapse, asigne los roles RBAC a estos ámbitos de RBAC:
+
+      * Áreas de trabajo
+
+      * Grupos de Spark
+
+      * Entornos de ejecución de integración
+
+      * Servicios vinculados
+
+      * Credenciales
+
+
+      Además, con los grupos de SQL dedicados tiene las mismas características de seguridad que conoce y tanto le gusta.
+  - question: >
+      ¿Cómo se controlan los grupos de SQL dedicados, los grupos de SQL sin servidor y los grupos de Spark sin servidor?
+    answer: "Como punto de partida, Azure Synapse funciona con las alertas de costos y el análisis de costos integrados disponibles en el nivel de suscripción de Azure.\n\n- Grupos de SQL dedicados: tiene visibilidad directa del costo y control sobre el costo, ya que crea y especifica los tamaños de los grupos de SQL dedicados. Puede controlar aún más qué usuarios que pueden crear o escalar grupos de SQL dedicados con roles de Azure RBAC.\n\n- Grupos de SQL sin servidor: tiene controles de supervisión y administración de costos que le permiten poner un tope de gasto a nivel diario, semanal y mensual. Para más información, [consulte Administración de costos para un grupo de SQL sin servidor](./sql/data-processed.md). \n\n- Grupos de Spark sin servidor: puede restringir quién puede crear grupos de Spark con roles de Synapse RBAC.  \n"
+  - question: >
+      ¿Admitirá el área de trabajo de Synapse la organización en carpeta de objetos y la granularidad en GA?
+    answer: >
+      Las áreas de trabajo de Synapse admiten carpetas definidas por el usuario.
+  - question: >
+      ¿Se puede vincular más de un área de trabajo de Power BI a una sola área de trabajo de Azure Synapse?
+    answer: "Actualmente, solo se puede vincular un área de trabajo de Power BI a un área de trabajo de Azure Synapse. \n"
+  - question: >
+      ¿Es Synapse Link a Cosmos DB GA?
+    answer: >
+      Synapse Link para Apache Spark es GA. Synapse Link para un grupo de SQL sin servidor está en versión preliminar pública.
+  - question: "¿Admite el área de trabajo de Azure Synapse CI/CD? \n"
+    answer: >
+      Sí. Todos los artefactos de canalización, cuadernos, scripts SQL y definiciones de trabajos de Spark residirán en Git. Todas las definiciones de grupo se almacenarán en Git como plantillas de Azure Resource Manager (ARM). Los objetos del grupo de SQL dedicado (esquemas, tablas, vistas, etc.) se administrarán con proyectos de base de datos con compatibilidad con CI/CD.
+- name: Procesos
+  questions:
+  - question: "¿Cómo me aseguro de que conozco qué credencial se usa para ejecutar una canalización? \n"
+    answer: >
+      Cada una de las actividades de una canalización de Synapse se ejecuta mediante la credencial especificada en el servicio vinculado.
+  - question: >
+      ¿Se admiten las instancias de IR de SSIS en Synapse Integrate?
+    answer: "De momento, no. \n"
+  - question: >
+      ¿Cómo se migran las canalizaciones existentes de Azure Data Factory a un área de trabajo de Azure Synapse?
+    answer: >
+      En este momento, es preciso volver a crear manualmente las canalizaciones de Azure Data Factory y los artefactos relacionados mediante la exportación del archivo JSON de la canalización original y su posterior importación en el área de trabajo de Synapse.
+- name: Spark de Apache
+  questions:
+  - question: >
+      ¿En qué se diferencian Apache Spark para Synapse y Apache Spark?
+    answer: "Apache Spark para Synapse es Apache Spark con compatibilidad agregada para las integraciones con otros servicios (AAD, AzureML, etc.) y bibliotecas adicionales (mssparktuils, Hummingbird) y configuraciones del rendimiento preajustadas.\n\nTodas las cargas de trabajo que se ejecuten actualmente en Apache Spark se ejecutarán en Apache Spark para Azure Synapse sin cambio alguno. \n"
+  - question: >
+      ¿Qué versiones de Spark están disponibles?
+    answer: >
+      Azure Synapse Apache Spark es totalmente compatible con Spark 2.4. Para ver una lista completa de los componentes principales y la versión compatible actualmente, consulte [Compatibilidad de las versiones de Apache Spark ](./spark/apache-spark-version-support.md).
+  - question: >
+      ¿Hay un equivalente de DButils en Azure Synapse Spark?
+    answer: >
+      Sí, Azure Synapse Apache Spark proporciona la biblioteca **mssparkutils**. Para obtener la documentación completa de la utilidad, consulte [Introducción a las utilidades Spark para Microsoft](./spark/microsoft-spark-utilities.md).
+  - question: >
+      ¿Cómo establecer los parámetros de sesión en Apache Spark?
+    answer: "Para establecer los parámetros de sesión, use %%configure magic available. Para que los parámetros surtan efecto, es preciso reiniciar la sesión. \n"
+  - question: >
+      ¿Cómo se establecen parámetros de nivel de clúster en un grupo de Spark sin servidor?
+    answer: "Para establecer parámetros de nivel de clúster, puede proporcionar un archivo spark.conf para el grupo de Spark. A continuación, este grupo respetará los parámetros que se han pasado en el archivo de configuración. \n"
+  - question: >
+      ¿Se puede ejecutar un clúster de Spark multiusuario en Azure Synapse Analytics?
+    answer: "Azure Synapse proporciona motores creados específicamente para casos de uso concretos. Apache Spark para Synapse está diseñado como un servicio de trabajo, no como un modelo de clúster. Hay dos escenarios en los que las personas solicitan un modelo de clúster multiusuario.\n\n**Escenario 1 : muchos usuarios acceden a un clúster para servir datos para la inteligencia empresarial.**\n\nLa forma más fácil de realizar esta tarea es preparar los datos con Spark y, luego, aprovechar las funcionalidades de servicio de Synapse SQL para que puedan conectarse Power BI a esos conjuntos de datos.\n\n**Escenario 2: tener varios desarrolladores en un solo clúster para ahorrar dinero.**\n \nPara satisfacer este escenario, debe proporcionar a cada desarrollador un grupo de Spark sin servidor que esté configurado para usar un reducido número de recursos de Spark. Dado que los grupos de Spark sin servidor no cuestan nada hasta que se usan activamente se minimiza el costo cuando hay varios desarrolladores. Los grupos comparten metadatos (tablas de Spark) para que puedan funcionar con facilidad entre sí.\n"
+  - question: >
+      ¿Cómo se incluyen, administran e instalan las bibliotecas?
+    answer: >
+      Puede instalar paquetes externos a través del archivo requirements.txt al crear el grupo de Spark tanto desde el área de trabajo de Synapse como desde Azure Portal. Consulte [Administración de bibliotecas para Apache Spark en Azure Synapse Analytics](./spark/apache-spark-azure-portal-add-libraries.md).
+- name: Grupos de SQL dedicados
+  questions:
+  - question: >
+      ¿Cuáles son las diferencias funcionales entre los grupos de SQL dedicados y los grupos sin servidor?
+    answer: >
+      Puede encontrar una lista completa de las diferencias en [Diferencias entre las características de T-SQL en Synapse SQL](./sql/overview-features.md).
+  - question: "Ahora que Azure Synapse está disponible de forma general, ¿cómo puedo trasladar grupos de SQL dedicados que anteriormente eran independientes en Azure Synapse? \n"
+    answer: >
+      No hay "movimiento" o "migración". Puede elegir habilitar nuevas características de área de trabajo en los grupos existentes. Si lo hace, no se producen cambios importantes, sino que podrá usar nuevas características como Synapse Studio, Spark y grupos de SQL sin servidor.
+  - question: "¿Cuál es la implementación predeterminada de los grupos de SQL dedicados ahora? \n"
+    answer: "De forma predeterminada, todos los nuevos grupos de SQL dedicados se implementarán en un área de trabajo; sin embargo, si lo necesita, puede crear un grupo de SQL dedicado (anteriormente SQL DW) en un factor de forma independiente. \n"
+additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n   * [Introducción a Azure Synapse Analytics](get-started.md)\n   * [Creación de un área de trabajo](quickstart-create-workspace.md)\n   * [Uso de grupos de SQL sin servidor](quickstart-sql-on-demand.md)"

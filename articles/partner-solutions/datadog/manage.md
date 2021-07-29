@@ -3,15 +3,15 @@ title: 'Administración de un recurso de Datadog: soluciones de asociados de Azu
 description: En este artículo se describe la administración de un recurso de Datadog en Azure Portal. Cómo configurar el inicio de sesión único, eliminar una organización de Confluent y obtener soporte técnico.
 ms.service: partner-services
 ms.topic: conceptual
-ms.date: 02/19/2021
+ms.date: 05/28/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: 04aef540bc134e5ec307be6a232ce47f0923e528
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e964fd436795e19cc77a25efa95de5f6fcac87ca
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046358"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110652458"
 ---
 # <a name="manage-the-datadog-resource"></a>Administración del recurso Datadog
 
@@ -130,6 +130,16 @@ El portal recupera la aplicación de Datadog adecuada desde Azure Active Directo
  
 :::image type="content" source="media/manage/reconfigure-single-sign-on.png" alt-text="Volver a configurar la aplicación de inicio de sesión único." border="true":::
  
+## <a name="change-plan"></a>Cambio de plan
+
+Para cambiar el plan de facturación de Datadog, vaya a **Información general** y seleccione **Cambiar plan**.
+
+:::image type="content" source="media/manage/datadog-select-change-plan.png" alt-text="Selección del cambio de plan de facturación de Datadog." border="true":::
+
+El portal recupera todos los planes de Datadog disponibles para el inquilino. Seleccione el plan adecuado y haga clic en **Cambiar plan**.
+
+:::image type="content" source="media/manage/datadog-change-plan.png" alt-text="Selección del plan de facturación de Datadog para cambiar." border="true":::
+  
 ## <a name="disable-or-enable-integration"></a>Deshabilitación o habilitación de la integración
 
 Puede dejar de enviar registros y métricas desde Azure a Datadog. Se le seguirán facturando otros servicios de Datadog que no estén relacionados con la supervisión de métricas y registros.
@@ -151,12 +161,6 @@ Vaya a **Overview** (Información general) en el panel izquierdo y seleccione **
 Si solo se asigna un recurso de Datadog a una organización de Datadog, los registros y las métricas ya no se envían a Datadog. Se detiene toda la facturación para Datadog mediante Azure Marketplace.
 
 Si se asigna más de un recurso de Datadog a la organización de Datadog, la eliminación del recurso de Datadog solo deja de enviar los registros y las métricas de ese recurso de Datadog. Dado que la organización de Datadog está vinculada a otros recursos de Azure, la facturación continúa mediante Azure Marketplace.
-
-## <a name="getting-support"></a>Obtención de soporte técnico
-
-Para ponerse en contacto con el departamento de soporte técnico sobre la integración de Datadog de Azure, seleccione **New Support request** (Nueva solicitud de soporte técnico) en el panel izquierdo. Seleccione el vínculo al portal de Datadog.
-
-:::image type="content" source="media/manage/support-request.png" alt-text="Creación de una nueva solicitud de soporte técnico de Datadog" border="true":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

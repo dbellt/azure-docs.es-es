@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 06/8/2020
 ms.author: chenyl
-ms.openlocfilehash: dee15977318eda7bcd0b1950286bb33f621221dd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7f39e209cf2f01abaf836924fc25dc64275f5fcb
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98731591"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110089819"
 ---
 # <a name="managed-identities-for-azure-signalr-service"></a>Identidades administradas para Azure SignalR Service
 
@@ -84,7 +84,7 @@ Proporcionamos bibliotecas y ejemplos de código que le muestran cómo controlar
 
 La configuración de la validación de token de acceso en la aplicación de funciones es fácil y eficaz sin que el código funcione.
 
-1. En la página **Autenticación/autorización**, cambie **Autenticación de App Service** a **Activado**.
+1. En la página **Autenticación (clásica)** , cambie **Autenticación de App Service** a **Activado**.
 
 2. Seleccione **Log in with Azure Active Directory** (Iniciar sesión con Azure Active Directory) en **Action to take when request is not authenticated** (Acción necesaria cuando la solicitud no está autenticada).
 
@@ -97,6 +97,10 @@ La configuración de la validación de token de acceso en la aplicación de func
 6. Adéntrese en la **configuración ascendente** de SignalR Service y elija **Uso de identidad administrada** y **Select from existing Applications** (Seleccionar una de las aplicaciones existentes). Seleccione la aplicación que ha creado anteriormente.
 
 Después de esta configuración, la aplicación de funciones rechazará las solicitudes sin un token de acceso en el encabezado.
+
+> [!Important] 
+> Para pasar la autenticación, la dirección *URL del emisor* debe coincidir con la notificación *iss* del token. Actualmente, solo se admite el punto de conexión v1 (vea [v1.0 y v2.0](../active-directory/develop/access-tokens.md#v10-and-v20)), por lo que la dirección *URL del emisor* debe parecerse a `https://sts.windows.net/<tenant-id>/`. Compruebe la dirección *URL del emisor* configurada en la instancia de Azure Functions. En **Autenticación**, vaya a *Proveedor de identidades* -> *Editar* -> *URL del emisor* y en **Autenticación (clásica)** , vaya a *Azure Active Directory* -> *Opciones avanzadas* -> *URL del emisor*.
+
 
 ## <a name="use-a-managed-identity-for-key-vault-reference"></a>Uso de una identidad administrada para la referencia de Key Vault
 

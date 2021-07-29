@@ -1,0 +1,94 @@
+### YamlMime:FAQ
+metadata:
+  title: Preguntas más frecuentes sobre la migración del método clásico al de Azure Resource Manager
+  description: Preguntas más frecuentes sobre la migración del método clásico al de Azure Resource Manager.
+  author: tanmaygore
+  manager: vashan
+  ms.service: virtual-machines
+  ms.subservice: classic-to-arm-migration
+  ms.workload: infrastructure-services
+  ms.topic: conceptual
+  ms.date: 02/06/2020
+  ms.author: tagore
+  ms.openlocfilehash: 95c97f37369e01c55fb7d4716e926dfe81542023
+  ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 06/17/2021
+  ms.locfileid: "112356490"
+title: Preguntas más frecuentes sobre la migración del método clásico al de Azure Resource Manager
+summary: >
+  > [!IMPORTANT]
+
+  > En la actualidad, aproximadamente el 90 % de las VM de IaaS usan [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). A partir del 28 de febrero de 2020, las máquinas virtuales clásicas han quedado en desuso y se van a retirar por completo el 1 de marzo de 2023. [Obtenga más información]( https://aka.ms/classicvmretirement) sobre esta caída en desuso y [cómo se verá afectado](./classic-vm-deprecation.md#how-does-this-affect-me).
+sections:
+- name: Omitido
+  questions:
+  - question: >
+      ¿Qué es Azure Service Manager y qué significa "clásica"?
+    answer: "La palabra \"clásica\" en la máquina virtual de IaaS (clásica) hace referencia a las máquinas virtuales administradas por Azure Service Manager (ASM). Azure Service Manager (ASM) es el plano de control anterior de Azure responsable de crear, administrar y eliminar máquinas virtuales, y de realizar otras operaciones de plano de control. \n"
+  - question: >
+      ¿Qué es Azure Resource Manager?
+    answer: "[Azure Resource Manager](../azure-resource-manager/management/overview.md) es el plano de control de Azure más reciente responsable de crear, administrar y eliminar máquinas virtuales, y de realizar otras operaciones de plano de control. \n"
+  - question: >
+      ¿Cuál es el tiempo necesario para la migración?
+    answer: "El planeamiento y la ejecución de la migración depende en gran medida de la complejidad de la arquitectura y puede tardar unos dos meses.  \n"
+  - question: >
+      ¿Cuál es la definición de un cliente nuevo en máquinas virtuales de IaaS (clásicas)?
+    answer: "Los clientes que no disponían de máquinas virtuales de IaaS (clásicas) en sus suscripciones durante el mes de febrero de 2020 (un mes antes de que entraran en desuso) se consideran clientes nuevos. \n"
+  - question: >
+      ¿Cuál es la definición de cliente existente en máquinas virtuales IaaS (clásicas)?
+    answer: "Aquel cliente con máquinas virtuales IaaS (clásicas) activas, o detenidas pero asignadas, en sus suscripciones en el mes de febrero de 2020 se considera un cliente existente. Únicamente estos clientes tienen hasta el 1 de marzo de 2023 para migrar sus máquinas virtuales de Azure Service Manager a Azure Resource Manager. \n"
+  - question: >
+      ¿Por qué me aparece un error que indica "NewClassicVMCreationNotAllowedForSubscription"?
+    answer: >
+      Como parte del proceso de retirada, las máquinas virtuales IaaS (clásicas) ya no están disponibles para nuevos clientes. Se le ha identificado como nuevo cliente y, por lo tanto, su operación no se ha autorizado. Sin ninguna duda, es recomendable usar Azure Resource Manager. Si no puede usar máquinas virtuales de Azure con Azure Resource Manager, póngase en contacto con el soporte técnico para agregar su suscripción a la lista de permitidos.
+  - question: "¿Afecta este plan de migración a alguno de los servicios o las aplicaciones existentes que se ejecutan en máquinas virtuales de Azure? \n"
+    answer: >
+      No hasta el 1 de marzo de 2023 para las máquinas virtuales de IaaS (clásicas). Las máquinas virtuales de IaaS (clásicas) son servicios totalmente compatibles en la disponibilidad general. Puede seguir usando estos recursos para expandir su huella en Microsoft Azure. El 1 de marzo de 2023, estas máquinas virtuales se retirarán completamente y todas las máquinas virtuales activas o asignadas se detendrán y desasignarán.
+
+
+      No habrá ningún impacto en otros recursos clásicos, como Cloud Services (clásico), cuentas de almacenamiento (clásicas), etc.
+  - question: "¿Qué ocurre con mis máquinas virtuales si por ahora no tengo planeado migrar? \n"
+    answer: "El 1 de marzo de 2023, las máquinas virtuales de IaaS (clásicas) se retirarán completamente y todas las máquinas virtuales activas o asignadas se detendrán y desasignarán. Para evitar el impacto en el negocio, le recomendamos encarecidamente que empiece a planear la migración hoy mismo y que la complete antes del 1 de marzo de 2023. Las API, Cloud Services y el modelo de recursos clásicos existentes no van a quedar en desuso. Queremos facilitar la migración, dadas las características avanzadas disponibles en el modelo de implementación de Resource Manager. Se recomienda empezar a planear la migración de estos recursos a Azure Resource Manager. \n"
+  - question: "¿Qué supone este plan de migración para las herramientas existentes? \n"
+    answer: >
+      La actualización de sus herramientas al modelo de implementación de Resource Manager es uno de los cambios más importantes que tendrá que considerar en sus planes de migración.
+  - question: "¿Cuánto tiempo durará el tiempo de inactividad del plano de administración? \n"
+    answer: >
+      Depende del número de recursos que se vayan a migrar. Para las implementaciones más pequeñas (unas decenas de máquinas virtuales), el proceso completo de migración debería tardar menos de una hora. Para implementaciones a gran escala (cientos de máquinas virtuales), la migración puede tardar unas horas.
+  - question: "¿Puedo revertir el proceso después de que la migración de los recursos esté confirmada en Resource Manager? \n"
+    answer: >
+      Puede anular la migración siempre que los recursos se encuentren en el estado preparado. No se puede revertir una vez que los recursos se hayan migrado correctamente mediante la operación de confirmación.
+  - question: "¿Puedo revertir la migración si se produce un error en la operación de confirmación? \n"
+    answer: >
+      No se puede anular la migración si se produce un error en la operación de confirmación. Todas las operaciones de migración, incluida la de confirmación, son idempotentes. Por consiguiente, se recomienda que vuelva a intentar la operación en breve. Si sigue experimentando un error, cree una incidencia de soporte técnico.
+  - question: "¿Tengo que comprar otro circuito de ExpressRoute para usar IaaS en Resource Manager? \n"
+    answer: >
+      No. Hace poco hemos habilitado la [transición de los circuitos ExpressRoute del modelo de implementación clásica al modelo de implementación de Resource Manager](../expressroute/expressroute-move.md). No hace falta que compre un nuevo circuito de ExpressRoute si ya tiene uno.
+  - question: "¿Qué ocurre si había configurado las directivas de control de acceso basado en rol de Azure para mis recursos IaaS clásicos? \n"
+    answer: >
+      Durante la migración, los recursos se transforman del modelo clásico al de Resource Manager. Por lo tanto, se recomienda que planee las actualizaciones de directiva de Azure RBAC que deben producirse después de la migración.
+  - question: >
+      He realizado copias de seguridad de mis máquinas virtuales clásicas en un almacén. ¿Puedo migrar mis máquinas virtuales del modo clásico al modo de Resource Manager y protegerlos en un almacén de Recovery Services?
+    answer: "Cuando traslade una máquina virtual del modo clásico al de Resource Manager, las copias de seguridad realizadas antes de la migración no migrarán a la máquina virtual de Resource Manager recién migrada. Sin embargo, si quiere mantener las copias de seguridad de las máquinas virtuales clásicas, siga estos pasos antes de la migración. \n\n1. En el almacén de Recovery Services, vaya a la hoja **Elementos de copia de seguridad** y seleccione la máquina virtual. \n2. Haga clic en Detener copia de seguridad. Seleccione \"Retener datos de copia de seguridad\" en el menú desplegable.\n\n> [!NOTE]\n> Esta opción detendrá la protección para todos los trabajos de copia de seguridad futuros de la máquina virtual. Sin embargo, el servicio Azure Backup conservará los puntos de recuperación de los que se ha realizado una copia de seguridad.  Deberá pagar para mantener los puntos de recuperación en el almacén (consulte [Precios de Azure Backup](https://azure.microsoft.com/pricing/details/backup/) para obtener detalles). Podrá restaurar la máquina virtual si es necesario. Si decide reanudar la protección de máquina virtual, podrá usar la opción *Reanudar copia de seguridad*.\n\n\nPara migrar la máquina virtual al modo de Resource Manager: \n\n1. Elimine la extensión de instantánea o copia de seguridad de la máquina virtual.\n2. Migre la máquina virtual del modo clásico al modo de Resource Manager. Asegúrese de que la información de almacenamiento y red correspondiente a la máquina virtual también se migra al modo de Resource Manager.\n\nAdemás, si quiere hacer una copia de seguridad de la máquina virtual migrada, vaya a la hoja Administración de máquina virtual para [habilitar la copia de seguridad](../backup/quick-backup-vm-portal.md#enable-backup-on-a-vm).\n"
+  - question: "¿Puedo validar mi suscripción o mis recursos para ver si son aptos para la migración? \n"
+    answer: >
+      Sí. En la opción de migración compatible con la plataforma, el primer paso para preparar la migración consiste en validar si los recursos pueden migrarse. Si se produce un error en la operación de validación, recibe todos los mensajes con todas las razones por las que no se puede completar la migración.
+  - question: "¿Qué ocurre si se produce un error de cuota mientras preparo los recursos IaaS para la migración? \n"
+    answer: >
+      Se recomienda que anule la migración y, a continuación, presente una solicitud de soporte técnico para que se aumenten las cuotas en la región donde vaya a migrar las máquinas virtuales. Una vez aprobada la solicitud de cuotas, puede empezar a ejecutar los pasos de la migración.
+  - question: "¿Cómo se informa de un problema? \n"
+    answer: >
+      Publique sus problemas y preguntas sobre la migración en nuestra [Página de preguntas y respuestas de Microsoft sobre VM](/answers/topics/azure-virtual-machines.html) con la palabra clave ClassicIaaSMigration. Se recomienda registrar todas sus preguntas en este foro. Si tiene un contrato de soporte técnico, también puede presentar una incidencia de soporte técnico.
+  - question: "¿Qué hago si no me gustan los nombres que eligió la plataforma para los recursos durante la migración? \n"
+    answer: >
+      Todos los recursos para los que se proporcionen nombres explícitamente en el modelo de implementación clásica se conservan durante la migración. En algunos casos, se crean recursos nuevos. Por ejemplo, se crea una interfaz de red para cada máquina virtual. Actualmente, no se admite la capacidad de controlar los nombres de estos recursos nuevos creados durante la migración. Registre sus votos para esta característica en el [foro de comentarios de Azure](https://feedback.azure.com).
+  - question: "¿Puedo migrar circuitos de ExpressRoute utilizados en las suscripciones con vínculos de autorización? \n"
+    answer: >
+      Los circuitos de ExpressRoute que usan vínculos de autorización entre suscripciones no se pueden migrar automáticamente sin tiempo de inactividad. Contamos con instrucciones sobre cómo se pueden migrar mediante pasos manuales. Para conocer los pasos que deben darse y obtener más información, consulte [Migración de circuitos ExpressRoute y las redes virtuales asociadas del modelo de implementación clásica a Resource Manager](../expressroute/expressroute-migration-classic-resource-manager.md).
+  - question: >
+      Aparece el mensaje "La máquina virtual notifica el estado de agente general No preparado. Por lo tanto, la VM no se puede migra. Asegúrese de que el agente de máquina virtual notifique el estado general de agente como Preparado" o "La máquina virtual contiene una extensión cuyo estado no se notifica desde la máquina virtual. Por lo tanto, esta máquina virtual no se puede migrar."
+    answer: >
+      Este mensaje se recibe cuando la máquina virtual no tiene conectividad saliente a Internet. El agente de VM utiliza conectividad saliente para llegar a la cuenta de almacenamiento de Azure a fin de actualizar el estado del agente cada cinco minutos.
+additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n\n* [Información general sobre la migración compatible con la plataforma de recursos de IaaS desde el modelo de implementación clásica a Azure Resource Manager](./migration-classic-resource-manager-overview.md)\n* [Profundización técnica en la migración compatible con la plataforma de la implementación clásica a la de Azure Resource Manager](migration-classic-resource-manager-deep-dive.md)\n* [Planning for migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-plan.md) (Planificación de la migración de recursos de IaaS del modelo clásico a Azure Resource Manager)\n* [Migración de recursos de IaaS de la implementación clásica a Resource Manager con Azure PowerShell](migration-classic-resource-manager-ps.md)\n* [Migración de recursos de IaaS de la implementación clásica a Azure Resource Manager con la CLI de Azure](migration-classic-resource-manager-cli.md)\n* [Herramientas de la comunidad para ayudar con la migración de recursos de IaaS del modelo de implementación clásica a Azure Resource Manager](migration-classic-resource-manager-community-tools.md)\n* [Revisión de los errores más comunes en la migración](migration-classic-resource-manager-errors.md)"

@@ -1,6 +1,6 @@
 ---
-title: Especificaciones técnicas y cumplimiento de Microsoft Azure Stack Edge Pro | Microsoft Docs
-description: Descubra las especificaciones técnicas y el cumplimiento de Azure Stack Edge Pro
+title: Especificaciones técnicas y cumplimiento de Azure Stack Edge Pro FPGA
+description: Descubra las especificaciones técnicas y el cumplimiento de Azure Stack Edge Pro FPGA
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,25 +8,25 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/12/2021
 ms.author: alkohli
-ms.openlocfilehash: 91bb558d47e56ebbcbdf25b0276c2a247ec81b47
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: f2d3541e3bf1e8c6045173ac4da9e40a0bc6a8b7
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107312644"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460435"
 ---
-# <a name="azure-stack-edge-pro-technical-specifications"></a>Especificaciones técnicas de Azure Stack Edge Pro
+# <a name="azure-stack-edge-pro-fpga-technical-specifications"></a>Especificaciones técnicas de Azure Stack Edge Pro FPGA
 
-Los componentes de hardware del dispositivo de Microsoft Azure Stack Edge Pro cumplen las especificaciones técnicas y los estándares reglamentarios descritos en este artículo. Las especificaciones técnicas describen las fuentes de alimentación, la capacidad de almacenamiento, los revestimientos y los estándares medioambientales.
+Los componentes de hardware del dispositivo de Microsoft Azure Stack Edge Pro FPGA cumplen las especificaciones técnicas y los estándares reglamentarios descritos en este artículo. Las especificaciones técnicas describen las fuentes de alimentación, la capacidad de almacenamiento, los revestimientos y los estándares medioambientales.
 
 ## <a name="compute-memory-specifications"></a>Especificaciones de memoria y proceso
 
-El dispositivo Azure Stack Edge Pro tiene las especificaciones de proceso y memoria siguientes:
+El dispositivo Azure Stack Edge Pro FPGA tiene las especificaciones de proceso y memoria siguientes:
 
 | Especificación           | Value                             |
 |-------------------------|-----------------------------------|
 | El tipo de CPU.                | Doble Intel Xeon Silver 4114 2,2 GHz |
-| CPU: bruta                | En total, 20 núcleos y 40 CPU virtuales    |
+| CPU: bruta                | 20 núcleos totales, 40 CPU virtuales en total    |
 | CPU: utilizable             | 32 CPU virtuales                          |
 | Tipo de memoria             | 8 RDIMM de 16 GB                   |
 | Memoria: bruta             | 128 GB de RAM (8 de 16 GB)           |
@@ -35,7 +35,7 @@ El dispositivo Azure Stack Edge Pro tiene las especificaciones de proceso y memo
 
 ## <a name="fpga-specifications"></a>Especificaciones de FPGA
 
-Se incluye una matriz de puertas programables (FPGA) en cada dispositivo de Azure Stack Edge Pro que permite escenarios de Machine Learning (ML).
+Se incluye una matriz de puertas programables (FPGA) en cada dispositivo Azure Stack Edge Pro FPGA que permite escenarios de Machine Learning (ML).
 
 | Especificación           | Value                      |
 |-------------------------|----------------------------|
@@ -43,7 +43,7 @@ Se incluye una matriz de puertas programables (FPGA) en cada dispositivo de Azur
 
 ## <a name="power-supply-unit-specifications"></a>Especificaciones de la fuente de alimentación
 
-El dispositivo Azure Stack Edge Pro tiene dos fuentes de alimentación (PSU) de 100-240 V con ventiladores de alto rendimiento. Las dos fuentes de alimentación proporcionan una configuración de alimentación redundante. Si se produce un error en una de ellas, el dispositivo sigue funcionando con normalidad en la otra hasta que se reemplaza el módulo con error. En la tabla siguiente se enumeran las especificaciones técnicas de las fuentes de alimentación.
+El dispositivo Azure Stack Edge Pro FPGA tiene dos fuentes de alimentación (PSU) de 100-240 V con ventiladores de alto rendimiento. Las dos fuentes de alimentación proporcionan una configuración de alimentación redundante. Si se produce un error en una de ellas, el dispositivo sigue funcionando con normalidad en la otra hasta que se reemplaza el módulo con error. En la tabla siguiente se enumeran las especificaciones técnicas de las fuentes de alimentación.
 
 | Especificación           | Fuente de alimentación de 750 W                  |
 |-------------------------|----------------------------|
@@ -52,18 +52,18 @@ El dispositivo Azure Stack Edge Pro tiene dos fuentes de alimentación (PSU) de 
 | Selección del intervalo de voltaje | Intervalo automático: 100-240 V CA |
 | Conectable en funcionamiento           | Sí                        |
 
-### <a name="azure-stack-edge-pro-power-cord-specifications-by-region"></a>Especificaciones de los cables de alimentación de Azure Stack Edge Pro por región
+### <a name="azure-stack-edge-pro-fpga-power-cord-specifications-by-region"></a>Especificaciones de los cables de alimentación de Azure Stack Edge Pro FPGA por región
 
-El dispositivo Azure Stack Edge Pro necesita un cable de alimentación que variará en función de la región de Azure.
-Para conocer las especificaciones técnicas de todos los cables de alimentación compatibles, vea [Especificaciones de cables de alimentación de Azure Stack Edge Pro por región](azure-stack-edge-technical-specifications-power-cords-regional.md).
+El dispositivo Azure Stack Edge Pro FPGA necesita un cable de alimentación que variará en función de la región de Azure.
+Para conocer las especificaciones técnicas de todos los cables de alimentación compatibles, vea [Especificaciones de cables de alimentación de Azure Stack Edge Pro FPGA por región](azure-stack-edge-technical-specifications-power-cords-regional.md).
 
 <!--## Power consumption statistics
 
-The following table lists the typical power consumption data (actual values may vary from the published) for the Azure Stack Edge Pro device.-->
+The following table lists the typical power consumption data (actual values may vary from the published) for the Azure Stack Edge Pro FPGA device.-->
 
 ## <a name="network-interface-specifications"></a>Especificaciones de la interfaz de red
 
-El dispositivo Azure Stack Edge Pro tiene seis interfaces de red: PORT1-PORT6.
+El dispositivo Azure Stack Edge Pro FPGA tiene seis interfaces de red: PORT1-PORT6.
 
 | Especificación           | Descripción                 |
 |-------------------------|----------------------------|
@@ -80,7 +80,7 @@ Consulte la lista de compatibilidad de hardware de Intel QLogic para averiguar e
 
 ## <a name="storage-specifications"></a>Especificaciones de almacenamiento
 
-Los dispositivos de Azure Stack Edge Pro tienen unidades de estado sólido (SSD) de NVMe de 9 X 2,5", cada una con una capacidad de 1,6 TB. De estas unidades SSD, una es un disco del sistema operativo y las otras 8 son discos de datos. La capacidad total utilizable para el dispositivo es de aproximadamente 12,5 TB. La tabla siguiente contiene los detalles de la capacidad de almacenamiento del dispositivo.
+Los dispositivos Azure Stack Edge Pro FPGA tienen nueve unidades de estado sólido (SSD) de NVMe de 2,5", cada una con una capacidad de 1,6 TB. De estas unidades SSD, una es un disco del sistema operativo y las otras 8 son discos de datos. La capacidad total utilizable para el dispositivo es de aproximadamente 12,5 TB. La tabla siguiente contiene los detalles de la capacidad de almacenamiento del dispositivo.
 
 |     Especificación                          |     Value             |
 |--------------------------------------------|-----------------------|

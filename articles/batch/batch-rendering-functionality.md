@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: 3dcb66c0659c8d76ab53c7537f1b9a4343bd17a1
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: c39417697dd88d3faa64ce47493ab5e7c08faa0d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107987477"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110481353"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Funcionalidades de representación de Azure Batch
 
@@ -37,7 +37,7 @@ Una imagen de VM de representación de Azure Marketplace puede especificarse en 
 
 Hay una imagen de Windows y una imagen de CentOS.  En [Azure Marketplace](https://azuremarketplace.microsoft.com), las imágenes de VM pueden encontrarse buscando "representación por lotes".
 
-Para obtener un ejemplo de configuración de grupo, consulte el [tutorial de representación de la CLI de Azure](./tutorial-rendering-cli.md).  Azure Portal y Batch Explorer proporcionan herramientas de GUI para seleccionar una imagen de VM de representación al crear un grupo.  Si usa una API de Batch, especifique los siguientes valores de propiedad para [ImageReference](/rest/api/batchservice/pool/add#imagereference) al crear un grupo:
+Azure Portal y Batch Explorer proporcionan herramientas de GUI para seleccionar una imagen de VM de representación al crear un grupo.  Si usa una API de Batch, especifique los siguientes valores de propiedad para [ImageReference](/rest/api/batchservice/pool/add#imagereference) al crear un grupo:
 
 | Publicador | Oferta | SKU | Versión |
 |---------|---------|---------|--------|
@@ -98,7 +98,5 @@ Cuando se usan las imágenes de VM de Azure Marketplace, la práctica recomendad
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para ver ejemplos de representación de Batch consulte los dos tutoriales siguientes:
-
-* [Representación mediante la CLI de Azure](./tutorial-rendering-cli.md)
-* [Representación mediante Batch Explorer](./tutorial-rendering-batchexplorer-blender.md)
+* Obtenga información sobre el [uso de aplicaciones de representación con Batch](batch-rendering-applications.md).
+* Obtenga información sobre las [opciones de almacenamiento y movimiento de datos para representar archivos de recursos y de salida](batch-rendering-storage-data-movement.md).
