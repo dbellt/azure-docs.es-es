@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/10/2021
 ms.author: xpouyat
-ms.openlocfilehash: 7eb406a7b584e72f1816c51f68597a38b79e2d08
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 5a0dd1c0e19d008d729b2c68d8fcae8ac17223e5
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714663"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111749216"
 ---
 # <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licencias del kit de portabilidad de cliente de Microsoft&reg; Smooth Streaming
 
@@ -81,44 +81,26 @@ Los licenciatarios de productos provisionales registrados pueden acceder al port
 Los licenciatarios de productos provisionales y finales del SSPK pueden enviar preguntas técnicas a [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com).
 
 ## <a name="microsoft-smooth-streaming-client-interim-product-agreement-licensees"></a>Licencias con contrato de producto provisional de Microsoft Smooth Streaming Client
-
-* Adroit Business Solutions, Inc
-* Advanced Digital Broadcast SA
-* AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
-* Albis Technologies Ltd.
-* Alticast Corporation
-* Amazon Digital Services, Inc.
-* Arion Technology, Inc.
-* AVC Multimedia Software Co., Ltd.
-* Cavium, Inc.
-* EchoStar Purchasing Corporation
 * Enseo, Inc.
 * Fluendo S.A.
+* Guangzhou Dimai Digital Limited Co.
 * Guangzhou Shikun Electronics., Ltd.
-* HANDAN BroadInfoCom Co., Ltd.
-* Infomir GMBH
-* Irdeto USA Inc.
-* Liberty Global Services BV
+* Hisilicon Technologies Co., Ltd.
+* LG Electronics, Inc.
 * MediaTek Inc.
-* MStar Co, Ltd
-* Nintendo Co., Ltd.
-* OpenTV, Inc.
-* Saffron Digital Limited
-* Sichuan Changhong Electric Co., Ltd
-* SoftAtHome
-* Sony Corporation
+* Montage LZ Technologies Hong Kong Limited
+* Panasonic Corporation
+* Synamedia Limited
 * Tatung Technology Inc.
 * Top Victory Investments, Ltd.
-* Vestel Elektronik Sanayi ve Ticaret A.S.
-* VisualOn, Inc.
 * ZTE Corporation
 
 ## <a name="microsoft-smooth-streaming-client-final-product-agreement-licensees"></a>Licencias con contrato de producto final de Microsoft Smooth Streaming Client
-* AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
 * AmTRAN Technology Co., Ltd 
 * Arcadyan Technology Corporation
 * Arcelik A.S
 * Compal Electronics, Inc.
+* Enseo, LLC
 * EXPRESS LUCK TECHNOLOGY LIMITED
 * Fluendo S.A.
 * FUNAI ELECTRIC CO., LTD.
@@ -129,15 +111,18 @@ Los licenciatarios de productos provisionales y finales del SSPK pueden enviar p
 * Hong Kong Konka Ltd
 * Innolux Corporation
 * Jinpin Electrical Company Ltd.Zhuhai.S.E.Z
-* K-Tronics (Suzhou) Technology Co., Ltd. 
-* Kaonmedia Co., Ltd.
+* KAONMEDIA CO., Ltd.
 * KDDI Corporation
+* K-Tronics (Suzhou) Technology Co., Ltd.
+* LG Electronics, Inc.
 * Mega Fame Electronics Co. Limited
+* MINGCAI NEW CENTURY (HK) CO., LIMITED
 * MIRC Electronics Limited
 * MOKA INTERNATIONAL LIMITED
 * ONEPLUS ELECTRONICS (SHENZHEN) CO., LTD.
 * Panasonic Corporation
 * Qingdao Haier Optronics Co., Ltd.
+* Sharp Consumer Electronics Poland Sp. z o.o.
 * Shenzhen ATEKO PHOTO Electricity Co.,Ltd.
 * Shenzhen Chuangwei-RGB Electronics Co.,Ltd.
 * Shenzhen Jiuzhou Electric Co., Ltd
@@ -146,16 +131,14 @@ Los licenciatarios de productos provisionales y finales del SSPK pueden enviar p
 * Shenzhen MTC Co., Ltd
 * Shenzhen Skyworth Digital Technology Co., Ltd
 * Sichuan Changhong Electric Co., Ltd.
-* Skardin Industrial Corp.
+* SKARDIN INDUSTRIAL CORP
 * Sky CP Ltd
 * SMARDTV GLOBAL SAS
 * SoftAtHome
-* Sony Corporation
 * Technicolor Delivery Technologies, SAS
 * Top Victory Investments, Ltd.
-* UMC Poland sp. z .o.o.
 * Vizio, Inc.
-* ZTE Corporation
+* ZTE CORPORATION
 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

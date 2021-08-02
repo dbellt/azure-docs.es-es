@@ -5,21 +5,19 @@ services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/04/2021
+ms.date: 06/02/2021
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 4162fe12ff54f16cd5f982f6a576905227c9a107
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: c0c170fefe85393fb3c8b443a96aaddbb98eb65e
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107821027"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111528338"
 ---
-## <a name="disk-level-bursting"></a>Expansión en el nivel de disco
-
 ### <a name="on-demand-bursting-preview"></a>Expansión a petición (versión preliminar)
 
-Los discos que usan el modelo de expansión a petición pueden expandirse más allá de los objetivos aprovisionados originales, con tanta frecuencia como sea necesario para su carga de trabajo, hasta el máximo del objetivo de expansión. Por ejemplo, en un disco P30 de 1 TiB, la E/S por segundo aprovisionada es de 5000 IOPS. Cuando se habilita la expansión en este disco, las cargas de trabajo pueden emitir entradas y salidas en este disco hasta alcanzar el rendimiento máximo de expansión de 30 000 IOPS y 1000 MBps.
+Los SSD prémium que usan el modelo de expansión a petición pueden expandirse más allá de los objetivos aprovisionados originales, con tanta frecuencia como sea necesario para su carga de trabajo, hasta el máximo del objetivo de expansión. Por ejemplo, en un disco P30 de 1 TiB, la E/S por segundo aprovisionada es de 5000 IOPS. Cuando se habilita la expansión en este disco, las cargas de trabajo pueden emitir entradas y salidas en este disco hasta alcanzar el rendimiento máximo de expansión de 30 000 IOPS y 1000 MBps.
 
 Si se cuenta con que las cargas de trabajo superarán con frecuencia el objetivo de rendimiento aprovisionado, la expansión de disco no resultará rentable. En este caso, se recomienda cambiar el rendimiento del disco a un [nivel superior](../articles/virtual-machines/disks-performance-tiers.md), para conseguir un mejor rendimiento de base. Revise los detalles de su facturación y evalúela teniendo en cuenta el patrón de tráfico de sus cargas de trabajo.
 
@@ -33,7 +31,7 @@ Antes de habilitar la expansión de disco a petición, debe comprender lo siguie
 
 #### <a name="billing"></a>Facturación
 
-Cuando se usan discos con el modelo de expansión a petición, se cobra una tarifa fija por hora de habilitación de expansión y se aplican costos de transacción por las transacciones de expansión que superen el objetivo aprovisionado. Los costos por transacción se cobran mediante el modelo de pago por uso, en función del número de E/S en discos sin caché, incluyendo tanto las lecturas como las escrituras que superen los objetivos aprovisionados. A continuación se incluye un ejemplo de patrones de tráfico de disco en una hora de facturación:
+Cuando se usan SSD prémium con el modelo de expansión a petición, se cobra una tarifa fija por hora de habilitación de expansión y se aplican costos de transacción por las transacciones de expansión que superen el objetivo aprovisionado. Los costos por transacción se cobran mediante el modelo de pago por uso, en función del número de E/S en discos sin caché, incluyendo tanto las lecturas como las escrituras que superen los objetivos aprovisionados. A continuación se incluye un ejemplo de patrones de tráfico de disco en una hora de facturación:
 
 Configuración de disco: SSD prémium de 1 TiB (P30) con la expansión de disco habilitada.
 
@@ -64,7 +62,7 @@ Para habilitar la expansión a petición, consulte [Habilitación de la expansi�
 
 ### <a name="credit-based-bursting"></a>Expansión basada en crédito
 
-La expansión basada en crédito está disponible en los tamaños de disco P20 e inferiores en todas las regiones de la nube pública de Azure, la nube de Azure Government y la nube de China. La expansión del disco está habilitada de forma predeterminada en las implementaciones nuevas y existentes de los tamaños del disco que la admiten. La expansión en el nivel de máquina virtual solo usa la opción basada en crédito.
+En el caso de los SSD prémium, la expansión basada en crédito está disponible para tamaños de disco P20 y menores. En el caso de los SSD estándar, la expansión basada en crédito está disponible para tamaños de disco E30 y menores. En el caso de los SSD tanto estándar como prémium, la expansión basada en crédito está disponible en todas las regiones de nubes públicas de Azure, Azure Government y Azure China. La expansión del disco está habilitada de forma predeterminada en las implementaciones nuevas y existentes de los tamaños del disco que la admiten. La expansión en el nivel de máquina virtual solo usa la opción basada en crédito.
 
 ## <a name="virtual-machine-level-bursting"></a>Expansión en el nivel de máquina virtual
 

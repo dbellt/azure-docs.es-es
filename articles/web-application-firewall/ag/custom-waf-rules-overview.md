@@ -7,12 +7,13 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 04/14/2020
 ms.author: victorh
-ms.openlocfilehash: 9a5f64687937479d65f94010bbe4f0a5f1cf5ca2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: dcce15618159b9d6a06a513435f0e091e02a2b2c
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102548230"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411259"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Personalización de reglas del Firewall de aplicaciones web v2 en Azure Application Gateway
 
@@ -22,7 +23,7 @@ Las reglas personalizadas permiten crear reglas propias que se evalúan en cada 
 
 Por ejemplo, puede bloquear todas las solicitudes de una dirección IP en el intervalo 192.168.5.4/24. En esta regla, el operador es *IPMatch*, matchValues es el intervalo de direcciones IP (192.168.5.4/24) y la acción es bloquear el tráfico. También se establecen el nombre y la prioridad de la regla.
 
-Las reglas personalizadas admiten el uso de lógica de composición para crear reglas más avanzadas que solucionen los requisitos de seguridad. Por ejemplo, (Condición 1 **y** Condición 2) **o** Condición 3). Esto significa que, si se cumplen la condición 1 **y** la condición 2, **o** si se cumple la condición 3, la solución WAF debe realizar la acción especificada en la regla personalizada.
+Las reglas personalizadas admiten el uso de lógica de composición para crear reglas más avanzadas que solucionen los requisitos de seguridad. Por ejemplo, ([Condición 1 **y** Condición 2] **o** Condición 3). Esto significa que, si se cumplen la condición 1 **y** la condición 2, **o** si se cumple la condición 3, la solución WAF debe realizar la acción especificada en la regla personalizada.
 
 En una misma regla, las condiciones de coincidencia diferentes siempre se combinan mediante **y**. Por ejemplo, bloquear el tráfico desde una dirección IP específica, y solo si se usa un explorador determinado.
 

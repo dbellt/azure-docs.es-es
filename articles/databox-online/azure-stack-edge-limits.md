@@ -1,6 +1,6 @@
 ---
-title: Límites de Azure Stack Edge Pro | Microsoft Docs
-description: Obtenga información sobre los límites y tamaños recomendados a medida que implementa y opera Azure Stack Edge Pro, incluidos los límites de servicio, dispositivos y almacenamiento.
+title: Límites de una matriz de puertas programables de Azure Stack Edge Pro | Microsoft Docs
+description: Obtenga información sobre los límites y tamaños recomendados cuando se implementa y opera una matriz de puertas programables de Azure Stack Edge Pro, incluidos los límites de servicio, dispositivos y almacenamiento.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/12/2020
 ms.author: alkohli
-ms.openlocfilehash: f1bb5662b48765c08ec58d1f7fa9d341de4937bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f10b6e1a621f9851ba5654f01a621551cf25f6e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91992754"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110080963"
 ---
-# <a name="azure-stack-edge-pro-limits"></a>Límites de Azure Stack Edge Pro
+# <a name="azure-stack-edge-pro-fpga-limits"></a>Límites de una matriz de puertas programables de Azure Stack Edge Pro
 
-Tenga en cuenta estos límites cuando implemente y use su solución de Microsoft Azure Stack Edge Pro. 
+Tenga en cuenta estos límites cuando implemente y use su solución matriz de puertas programables de Microsoft Azure Stack Edge Pro. 
 
 ## <a name="azure-stack-edge-service-limits"></a>Límites del servicio de Azure Stack Edge
 
@@ -25,7 +25,7 @@ Tenga en cuenta estos límites cuando implemente y use su solución de Microsoft
 
 ## <a name="azure-stack-edge-device-limits"></a>Límites del dispositivo Azure Stack Edge
 
-En la siguiente tabla se describen los límites de los dispositivos Azure Stack Edge Pro. 
+En la tabla siguiente se describen los límites del dispositivo matriz de puertas programables de Azure Stack Edge Pro. 
 
 En la tabla siguiente, se describen los límites de los dispositivos de Azure Stack Edge.
 
@@ -57,4 +57,4 @@ En la tabla siguiente, se describen los límites de los dispositivos de Azure St
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Preparación de la implementación de Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md)
+- [Preparación de la implementación de la matriz de puertas programables de Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md)

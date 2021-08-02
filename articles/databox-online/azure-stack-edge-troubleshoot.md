@@ -1,23 +1,23 @@
 ---
-title: Uso de Azure Portal para solucionar problemas de Azure Stack Edge Pro | Microsoft Docs
-description: Aprenda a solucionar problemas relacionados con Azure Stack Edge Pro. Puede ejecutar diagnósticos, recopilar información de soporte técnico y usar registros para solucionar problemas.
+title: Solución de problemas de FPGA de Azure Stack Edge Pro mediante Azure Portal
+description: Aprenda a solucionar problemas relacionados con FPGA de Azure Stack Edge Pro. Puede ejecutar diagnósticos, recopilar información de soporte técnico y usar registros para solucionar problemas.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 02/05/2021
+ms.date: 06/08/2021
 ms.author: alkohli
-ms.openlocfilehash: ff6d1f46299875354a72a6a93a828df7960169ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4f98e37d16e78e7fdb5578cf5747c34054c0fcd6
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99831553"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111986185"
 ---
-# <a name="troubleshoot-your-azure-stack-edge-pro-issues"></a>Solución de problemas de Azure Stack Edge Pro
+# <a name="troubleshoot-your-azure-stack-edge-pro-fpga-issues"></a>Solución de problemas de FPGA de Azure Stack Edge Pro
 
-En este artículo se describe cómo solucionar los problemas de Azure Stack Edge Pro. 
+En este artículo se describe cómo solucionar los problemas de FPGA de Azure Stack Edge Pro. 
 
 En este artículo aprenderá a:
 
@@ -66,7 +66,7 @@ Los errores encontrados durante los procesos de carga y actualización se incluy
 
       ![Conexión y visualización del contenido del recurso compartido](media/azure-stack-edge-troubleshoot/troubleshoot-logs-1.png)
 
-2. Seleccione la _carpeta de Microsoft Azure Stack Edge Pro_. Esta carpeta tiene dos subcarpetas:
+2. Seleccione la _carpeta de Microsoft Azure Stack Edge_. Esta carpeta tiene dos subcarpetas:
 
     * Cargue la que contiene los archivos de registro de errores de carga.
     * Actualice la carpeta para ver los errores durante la actualización.

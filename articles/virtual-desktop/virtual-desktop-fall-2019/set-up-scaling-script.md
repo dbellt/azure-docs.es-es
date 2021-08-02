@@ -1,26 +1,27 @@
 ---
-title: 'Escalado de hosts de sesión de Windows Virtual Desktop (clásico) mediante Azure Automation: Azure'
-description: Cómo escalar automáticamente los hosts de sesión de Windows Virtual Desktop (clásico) con Azure Automation.
+title: 'Escalado de hosts de sesión de Azure Virtual Desktop (clásico) mediante Azure Automation: Azure'
+description: Cómo escalar automáticamente los hosts de sesión de Azure Virtual Desktop (clásico) con Azure Automation.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
+ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 907871a85680202a4a8b5f73b4454a9b2f2fe103
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 781ac1e84fb742908ca020806b04135f35b3a65d
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106444316"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751836"
 ---
-# <a name="scale-windows-virtual-desktop-classic-session-hosts-using-azure-automation"></a>Escalado de hosts de sesión de Windows Virtual Desktop (clásico) mediante Azure Automation
+# <a name="scale-azure-virtual-desktop-classic-session-hosts-using-azure-automation"></a>Escalado de hosts de sesión de Azure Virtual Desktop (clásico) mediante Azure Automation
 
 >[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager.
+>Este contenido se aplica a Azure Virtual Desktop (clásico), que no admite objetos de Azure Resource Manager.
 
-Puede reducir el costo total de implementación de Windows Virtual Desktop mediante el escalado de las máquinas virtuales. Esto significa que se cierran y desasignan las máquinas virtuales del host de sesión durante las horas de menos uso y, posteriormente, se vuelven a activar y se reasignan durante las horas punta.
+Puede reducir el costo total de implementación de Azure Virtual Desktop mediante el escalado de las máquinas virtuales. Esto significa que se cierran y desasignan las máquinas virtuales del host de sesión durante las horas de menos uso y, posteriormente, se vuelven a activar y se reasignan durante las horas punta.
 
-En este artículo, obtendrá información sobre la herramienta de escalado creada con la cuenta de Azure Automation y Azure Logic Apps que escala automáticamente las máquinas virtuales del host de sesión en el entorno de Windows Virtual Desktop. Para más información sobre cómo usar la herramienta de escalado, consulte los [requisitos previos](#prerequisites).
+En este artículo, obtendrá información sobre la herramienta de escalado creada con la cuenta de Azure Automation y Azure Logic Apps que escala automáticamente las máquinas virtuales del host de sesión en el entorno de Azure Virtual Desktop. Para más información sobre cómo usar la herramienta de escalado, consulte los [requisitos previos](#prerequisites).
 
 ## <a name="how-the-scaling-tool-works"></a>Funcionamiento de la herramienta de escalado
 
@@ -48,7 +49,7 @@ Si establece el parámetro *LimitSecondsToForceLogOffUser* en cero, el trabajo p
 
 En cualquier momento, el trabajo también tiene en cuenta el elemento *MaxSessionLimit* del grupo de hosts para determinar si el número actual de sesiones es superior al 90 % de la capacidad máxima. Si es así, el trabajo iniciará máquinas virtuales de host de sesión adicionales.
 
-El trabajo se ejecuta periódicamente según un intervalo de periodicidad establecido. Puede cambiar este intervalo según el tamaño del entorno de Windows Virtual Desktop, pero recuerde que el inicio y el apagado de las VM pueden tardar algún tiempo, por lo que debe tener en cuenta el retraso. Se recomienda establecer el intervalo de periodicidad en 15 minutos.
+El trabajo se ejecuta periódicamente según un intervalo de periodicidad establecido. Puede cambiar este intervalo según el tamaño del entorno de Azure Virtual Desktop, pero recuerde que el inicio y el apagado de las VM pueden tardar algún tiempo, por lo que debe tener en cuenta el retraso. Se recomienda establecer el intervalo de periodicidad en 15 minutos.
 
 Sin embargo, la herramienta también tiene las siguientes limitaciones:
 
@@ -63,8 +64,8 @@ Sin embargo, la herramienta también tiene las siguientes limitaciones:
 
 Antes de empezar a configurar la herramienta de escalado, asegúrese de tener preparado lo siguiente:
 
-- Un [grupo de inquilinos y de hosts de Windows Virtual Desktop](create-host-pools-arm-template.md)
-- Máquinas virtuales del grupo de hosts de sesión configuradas y registradas en el servicio Windows Virtual Desktop
+- Un [grupo de inquilinos y de hosts de Azure Virtual Desktop](create-host-pools-arm-template.md).
+- Máquinas virtuales del grupo de hosts de sesión configuradas y registradas en el servicio Azure Virtual Desktop.
 - Un usuario con [acceso de colaborador](../../role-based-access-control/role-assignments-portal.md) en la suscripción de Azure
 
 La máquina que se usa para implementar la herramienta debe tener:
@@ -150,11 +151,11 @@ Para crear una cuenta de ejecución en la cuenta de Azure Automation:
 
 6. Cuando el proceso finaliza, crea un recurso denominado **AzureRunAsConnection** en la cuenta de Azure Automation especificada. Seleccione **Cuenta de ejecución de Azure**. El recurso de conexión contiene el identificador de la aplicación, el identificador del inquilino, el identificador de la suscripción y la huella digital del certificado. Recuerde el identificador de la aplicación, porque lo necesitará más adelante. También puede ver la misma información en la página **Conexiones**. Para ir a esta página, en el panel de la izquierda de la ventana, seleccione **Conexiones** en la sección **Recursos compartidos** y haga clic en el recurso de conexión denominado **AzureRunAsConnection**.
 
-### <a name="create-a-role-assignment-in-windows-virtual-desktop"></a>Creación de una asignación de roles en Windows Virtual Desktop
+### <a name="create-a-role-assignment-in-azure-virtual-desktop"></a>Creación de una asignación de roles en Azure Virtual Desktop
 
-A continuación, debe crear una asignación de roles para que **AzureRunAsConnection** pueda interactuar con Windows Virtual Desktop. Asegúrese de usar PowerShell para iniciar sesión con una cuenta que tenga permisos para crear la asignación de roles.
+A continuación, debe crear una asignación de roles para que **AzureRunAsConnection** pueda interactuar con Azure Virtual Desktop. Asegúrese de usar PowerShell para iniciar sesión con una cuenta que tenga permisos para crear la asignación de roles.
 
-En primer lugar y, si aún no lo ha hecho, descargue e importe el [módulo de PowerShell para Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/) que se usará en la sesión de PowerShell. Ejecute los siguientes cmdlets de PowerShell para conectarse a Windows Virtual Desktop y mostrar los inquilinos.
+En primer lugar y, si aún no lo ha hecho, descargue e importe el [módulo de PowerShell para Azure Virtual Desktop](/powershell/windows-virtual-desktop/overview/) que se usará en la sesión de PowerShell. Ejecute los siguientes cmdlets de PowerShell para conectarse a Azure Virtual Desktop y mostrar los inquilinos.
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
@@ -165,7 +166,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 Get-RdsTenant
 ```
 
-Cuando encuentre el inquilino con los grupos de hosts que quiere escalar, siga las instrucciones de [Creación de una cuenta de ejecución de Azure Automation](#create-an-azure-automation-run-as-account) para recopilar el id. de la aplicación de **AzureRunAsConnection** y use el nombre del inquilino de Windows Virtual Desktop que obtuvo del cmdlet anterior en el siguiente cmdlet para crear la asignación de roles:
+Cuando encuentre el inquilino con los grupos de hosts que quiere escalar, siga las instrucciones de [Creación de una cuenta de ejecución de Azure Automation](#create-an-azure-automation-run-as-account) para recopilar el id. de la aplicación de **AzureRunAsConnection** y use el nombre del inquilino de Azure Virtual Desktop que obtuvo del cmdlet anterior en el siguiente cmdlet para crear la asignación de roles:
 
 ```powershell
 New-RdsRoleAssignment -RoleDefinitionName "RDS Contributor" -ApplicationId "<applicationid>" -TenantName "<tenantname>"
@@ -193,7 +194,7 @@ Por último, deberá crear la aplicación lógica de Azure y configurar una prog
     Invoke-WebRequest -Uri $Uri -OutFile ".\CreateOrUpdateAzLogicApp.ps1"
     ```
 
-4. Ejecute el siguiente cmdlet para iniciar sesión en Windows Virtual Desktop con una cuenta que tenga permisos de propietario de RDS o de colaborador de RDS.
+4. Ejecute el siguiente cmdlet para iniciar sesión en Azure Virtual Desktop con una cuenta que tenga permisos de propietario de RDS o de colaborador de RDS.
 
     ```powershell
     Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"

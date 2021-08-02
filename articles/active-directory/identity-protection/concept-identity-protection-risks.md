@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 04/13/2021
+ms.date: 05/27/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87516ddcce32ab205b13139c057a2ab999146b74
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 3d13b1f515d5585c6378e48eb64feed59615cdef
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376365"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110616921"
 ---
 # <a name="what-is-risk"></a>¿Qué es el riesgo?
 
@@ -66,6 +66,7 @@ Estos riesgos se pueden calcular en tiempo real o sin conexión, usando orígene
 | Nuevo país | Sin conexión | Esta detección se debe a [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-infrequent-country). Esta detección tiene en cuenta las ubicaciones de actividad anteriores para determinar las ubicaciones nuevas e infrecuentes. El motor de detección de anomalías almacena información sobre las ubicaciones anteriores utilizadas por los usuarios de la organización. |
 | Actividad desde una dirección IP anónima | Sin conexión | Esta detección se debe a [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-anonymous-ip-addresses). Esta detección identifica que los usuarios estaban activos desde una dirección IP que se ha identificado como una dirección IP de proxy anónima. |
 | Reenvío sospechoso desde la bandeja de entrada | Sin conexión | Esta detección se debe a [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-forwarding). Esta detección busca reglas de reenvío de correo electrónico sospechosas, por ejemplo, si un usuario creó una regla de bandeja de entrada que reenvía una copia de todos los correos electrónicos a una dirección externa. |
+| Inteligencia de Azure AD sobre amenazas | Sin conexión | Este tipo de detección de riesgo indica una actividad de inicio de sesión poco común para el usuario en cuestión o que es coherente con patrones de ataque conocidos basados en orígenes de inteligencia sobre amenazas internas y externas de Microsoft. |
 
 ### <a name="other-risk-detections"></a>Otras detecciones de riesgo
 
@@ -109,6 +110,10 @@ Si no ha detectado ningún evento de riesgo de credenciales filtradas, se debe a
 #### <a name="how-often-does-microsoft-process-new-credentials"></a>¿Con qué frecuencia Microsoft procesa nuevas credenciales?
 
 Las credenciales se procesan inmediatamente después de que se han encontrado, normalmente varios lotes al día.
+
+### <a name="locations"></a>Ubicaciones
+
+La ubicación en las detecciones de riesgo viene determinada por la búsqueda de direcciones IP.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

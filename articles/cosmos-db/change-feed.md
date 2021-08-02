@@ -5,15 +5,15 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2020
+ms.date: 06/07/2021
 ms.reviewer: sngun
 ms.custom: seodec18, "seo-nov-2020"
-ms.openlocfilehash: c6856a0cb70123f1a3570b611c81660a592fdc1b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a8dd8e1da81d6c906e29caf155edc8c2b9e44ea9
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98027809"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111755544"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Fuente de cambios en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis-except-table](includes/appliesto-all-apis-except-table.md)]
@@ -78,9 +78,9 @@ La fuente de cambios está disponible para cada clave de partición lógica dent
 
 * La fuente de cambios incluye inserciones y operaciones de actualización realizadas en los elementos dentro del contenedor. Puede capturar las eliminaciones si establece un marcador de "eliminación temporal" dentro de los elementos (tales como documentos) en lugar de eliminaciones. También pude establecer un período finito de expiración para los elementos con la [funcionalidad de período de vida](time-to-live.md). Por ejemplo, puede elegir 24 horas y usar el valor de esa propiedad para capturar las eliminaciones. Con esta solución, tiene que procesar los cambios dentro de un intervalo de tiempo más corto que el período de expiración de TTL.
 
-* Cada cambio realizado en un elemento aparece exactamente una vez en la fuente de cambios y los clientes deben administrar la lógica de puntos de comprobación. Si quiere evitarse la complejidad de administrar los puntos de comprobación, el procesador de fuentes de cambio proporciona puntos de comprobación automáticos y semántica de "al menos una vez". Consulte [Usar la fuente de cambios con el procesador de fuente de cambios](change-feed-processor.md).
-
 * Solo el cambio más reciente en un elemento determinado se incluye en el registro de cambios. Puede que los cambios intermedios no estén disponibles.
+
+* Cada cambio incluido en el registro de cambios aparece exactamente una vez en la fuente de cambios, y los clientes deben administrar la lógica de puntos de comprobación. Si quiere evitarse la complejidad de administrar los puntos de comprobación, el procesador de fuentes de cambio proporciona puntos de comprobación automáticos y semántica de "al menos una vez". [Uso de una fuente de cambios con el procesador de fuente de cambios](change-feed-processor.md).
 
 * La fuente de cambios está organizada según el orden de modificación dentro de cada valor de clave de partición lógica. No hay ningún orden garantizado entre valores de clave de partición.
 

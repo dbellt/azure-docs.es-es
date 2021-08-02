@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: reference
 ms.date: 09/28/2020
 ms.author: yegu
-ms.openlocfilehash: b30e83b89b25e6400b8c7e0419406631fa1edcd0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 21ee51ac53147482210aa0bda410e11d12e5f479
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91491724"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111413796"
 ---
 # <a name="whats-new-in-azure-cache-for-redis"></a>Novedades de Azure Cache for Redis
 
@@ -37,7 +37,9 @@ En la siguiente tabla se proporciona información acerca de los certificados que
 
 ### <a name="what-actions-should-i-take"></a>¿Qué medidas debo tomar?
 
-Si la aplicación utiliza el almacén de certificados del sistema operativo o asigna la raíz de Baltimore entre otros, no es necesario realizar ninguna acción. Por otro lado, si la aplicación asigna cualquier certificado TLS intermedio o de hoja, se recomienda asignar las raíces siguientes:
+Si la aplicación utiliza el almacén de certificados del sistema operativo o asigna la raíz de Baltimore entre otros, no es necesario realizar ninguna acción. 
+
+Si la aplicación asigna cualquier certificado TLS intermedio o de hoja, se recomienda asignar las raíces siguientes:
 
 | Certificado | Huella digital |
 | ----- | ----- |
@@ -61,7 +63,7 @@ Para continuar con la asignación de certificados intermedios, agregue lo siguie
 | [Microsoft Azure TLS Issuing CA 05](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2005.cer) | 6c3af02e7f269aa73afd0eff2a88a4a1f04ed1e5 |
 | [Microsoft Azure TLS Issuing CA 06](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2006.cer) | 30e01761ab97e59a06b41ef20af6f2de7ef4f7b0 |
 
-Si la aplicación valida el certificado en el código, tendrá que modificarlo para que reconozca las propiedades (por ejemplo, emisores, huella digital) de los certificados recién asignados. Esta comprobación adicional debe cubrir todos los certificados asignados para que estén mejor preparados para el futuro.
+Si la aplicación valida el certificado en el código, tiene que modificarlo para que reconozca las propiedades (por ejemplo, emisores, huella digital) de los certificados recién asignados. Esta comprobación adicional debe cubrir todos los certificados asignados para que estén mejor preparados para el futuro.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

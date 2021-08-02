@@ -6,12 +6,13 @@ ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
 ms.date: 02/10/2021
-ms.openlocfilehash: e4be6e297fafb3184224806f0bde4db468ce3b79
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 92e7f2af175182886dbc5904c5a50b485ca87d64
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788196"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110681215"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creación y configuración de un entorno de ejecución de integración autohospedado
 
@@ -191,6 +192,9 @@ Estos son los detalles de las acciones y los argumentos de la aplicación:
     2. Si lo desea, seleccione **Show authentication key** (Mostrar clave de autenticación) para ver el texto de la clave.
 
     3. Seleccione **Registrar**.
+
+> [!NOTE]
+> Hay notas de la versión disponibles en la misma [página de descarga del entorno de ejecución de integración de Microsoft](https://www.microsoft.com/download/details.aspx?id=39717).
 
 ## <a name="service-account-for-self-hosted-integration-runtime"></a>Cuenta de servicio para el entorno de ejecución de integración autohospedado
 

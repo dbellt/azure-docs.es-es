@@ -3,12 +3,12 @@ title: Protección de un clúster de Azure Service Fabric
 description: Información acerca de los escenarios de seguridad para un clúster de Azure Service Fabric y las diferentes tecnologías que se pueden usar para implementarlos.
 ms.topic: conceptual
 ms.date: 08/14/2018
-ms.openlocfilehash: 6f7bb785184938fe5c1e20e3c915b0112c7723ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: feeb6bf0844dc9f0d835d934b148484010979441
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96573075"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112034056"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Escenarios de seguridad de los clústeres de Service Fabric
 
@@ -30,9 +30,9 @@ Los clústeres que se ejecutan en Azure y los independientes que se ejecutan en 
 
 ### <a name="node-to-node-certificate-security"></a>Seguridad basada en certificados de nodo a nodo
 
-Service Fabric usa certificados de servidor X.509 que se especifican como parte de las configuraciones del tipo de nodo al crear un clúster. Al final de este artículo se proporciona una introducción a estos certificados y a cómo se pueden adquirir o crear.
+Service Fabric usa certificados de servidor X.509 que se especifican como parte de las configuraciones del tipo de nodo al crear un clúster. Puede configurar la seguridad basada en certificados mediante Azure Portal, una plantilla de Azure Resource Manager o una plantilla JSON independiente. Al final de este artículo se proporciona una introducción a estos certificados y a cómo se pueden adquirir o crear.
 
-Configure la seguridad basada en certificados al crear el clúster, mediante Azure Portal, las plantillas de Azure Resource Manager o una plantilla JSON independiente. El comportamiento predeterminado del SDK de Service Fabric es implementar e instalar el certificado con la fecha que vaya a expirar más tarde; el comportamiento clásico posibilitaba definir los certificados principales y secundarios a fin de permitir las sustituciones iniciadas manualmente. No se recomienda usarse con la nueva funcionalidad. Los certificados principales que se usarán serán los que tengan una fecha de expiración más tardía y deberían ser diferentes de los certificados de cliente de solo lectura y de los de cliente de administración que establezca para la [seguridad de cliente a nodo](#client-to-node-security).
+El comportamiento predeterminado del SDK de Service Fabric es implementar e instalar el certificado con el plazo de validez mayor. Este certificado principal debe ser diferente de los certificados de cliente de solo lectura y de los de cliente de administración que determine para la [seguridad de cliente a nodo](#client-to-node-security). El comportamiento clásico del SDK posibilitaba definir los certificados principales y secundarios a fin de permitir las sustituciones iniciadas manualmente. No se recomienda su uso con la nueva funcionalidad. 
 
 Para aprender a configurar la seguridad basada en certificados en un clúster para Azure, consulte [Creación de un clúster de Service Fabric con Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
@@ -67,11 +67,9 @@ Para aprender a configurar la seguridad basada en certificados en los clústeres
 
 ### <a name="client-to-node-azure-active-directory-security-on-azure"></a>Seguridad de Azure Active Directory de cliente a nodo en Azure
 
-Azure AD permite a las organizaciones (conocidas como inquilinos) administrar el acceso de los usuarios a las aplicaciones. Las aplicaciones se dividen en las que tienen interfaz de usuario de inicio de sesión basada en web y las que tienen una experiencia de cliente nativa. En caso de que no haya creado un inquilino, lea [Obtención de un inquilino de Azure Active Directory][active-directory-howto-tenant].
+Azure Active Directory (Azure AD) permite a las organizaciones (conocidas como inquilinos) administrar el acceso de los usuarios a las aplicaciones. Las aplicaciones se dividen en las que tienen interfaz de usuario de inicio de sesión basada en web y las que tienen una experiencia de cliente nativa. En caso de que no haya creado un inquilino, lea [Obtención de un inquilino de Azure Active Directory][active-directory-howto-tenant].
 
-Un clúster de Service Fabric ofrece diversos puntos de entrada a su funcionalidad de administración, como [Service Fabric Explorer][service-fabric-visualizing-your-cluster] y [Visual Studio][service-fabric-manage-application-in-visual-studio] basados en web. Como resultado, creará dos aplicaciones de Azure AD para controlar el acceso al clúster, una aplicación web y otra nativa.
-
-Para los clústeres que se ejecutan en Azure también se puede proteger el acceso a los puntos de conexión de administración con Azure Active Directory (Azure AD). Para aprender a crear los artefactos de Azure AD y a rellenarlos al crear el clúster, consulte [Configuración de Azure AD para autenticar a los clientes](service-fabric-cluster-creation-setup-aad.md).
+En el caso de los clústeres que se ejecutan en Azure, también puede usar Azure AD para proteger el acceso a los puntos de conexión de administración. Un clúster de Service Fabric ofrece diversos puntos de entrada a su funcionalidad de administración, como [Service Fabric Explorer][service-fabric-visualizing-your-cluster] y [Visual Studio][service-fabric-manage-application-in-visual-studio] basados en web. Como consecuencia, para controlar el acceso al clúster creará dos aplicaciones de Azure AD: una aplicación web y una aplicación nativa. Para aprender a crear los artefactos de Azure AD y a rellenarlos al crear el clúster, consulte [Configuración de Azure AD para autenticar a los clientes](service-fabric-cluster-creation-setup-aad.md).
 
 ## <a name="security-recommendations"></a>Recomendaciones de seguridad
 

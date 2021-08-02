@@ -3,12 +3,12 @@ title: Cola de Storage como controlador de eventos para eventos de Azure Event G
 description: Aquí se describe cómo puede usar las colas de Azure Storage como controladores de eventos para eventos de Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 502b44f276253be69362424c9de0fd516d20ad9a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7c8b7a111c29fe11cc11ee191d78ae2a5f13610
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91270192"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111421741"
 ---
 # <a name="storage-queue-as-an-event-handler-for-azure-event-grid-events"></a>Cola de Storage como controlador de eventos para eventos de Azure Event Grid
 Un controlador de eventos es el lugar al que se envía el evento. El controlador realiza alguna acción adicional para procesar el evento. Varios servicios de Azure se configuran automáticamente para controlar eventos y **Azure Queue Storage** es uno de ellos. 
@@ -71,7 +71,7 @@ Consulte el siguiente tutorial para obtener un ejemplo del uso de Queue Storage 
 }
 ```
 
-### <a name="storage-queue-as-a-deadletter-destination"></a>Cola de almacenamiento como destino de mensajes fallidos
+### <a name="storage-queue-as-the-event-handler-with-a-deadletter-destination"></a>Cola de almacenamiento como el controlador de eventos con un destino de deadletter
 
 ```json
 {
@@ -101,7 +101,7 @@ Consulte el siguiente tutorial para obtener un ejemplo del uso de Queue Storage 
 }
 ```
 
-### <a name="storage-queue-as-a-deadletter-destination---managed-identity"></a>Cola de almacenamiento como destino de mensajes fallidos: identidad administrada
+### <a name="storage-queue-as-the-event-handler-with-a-deadletter-destination---managed-identity"></a>Cola de almacenamiento como el controlador de eventos con un destino de deadletter: identidad administrada
 
 ```json
 {

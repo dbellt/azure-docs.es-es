@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 22db4f95bacd926208ac7edf3306cd136d81b00e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2fa631e8ad3da1d40f68c9887b84e4ebd532240
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85565187"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111559077"
 ---
 # <a name="knowledge-store-projections-in-azure-cognitive-search"></a>"Proyecciones" en un almacén de conocimiento en Azure Cognitive Search
 
@@ -21,7 +21,7 @@ Azure Cognitive Search permite el enriquecimiento de contenido a través de apti
 
 Las proyecciones, un componente del [almacén de conocimiento](knowledge-store-concept-intro.md), son vistas de documentos enriquecidos que se pueden guardar en el almacenamiento físico para fines de minería de datos de conocimiento. Una proyección le permite "proyectar" los datos en una forma que se adapte a sus necesidades y manteniendo las relaciones para que herramientas como Power BI puedan leer los datos sin ningún trabajo adicional.
 
-Las proyecciones pueden ser tabulares, con los datos almacenados en filas y columnas en el almacenamiento de tablas de Azure, o bien objetos JSON almacenados en el almacenamiento de blobs de Azure. Puede definir varias proyecciones de los datos a medida que se enriquecen. Estas distintas proyecciones resultan útiles cuando quiere que los mismos datos tengan formas diferentes para casos de uso individuales.
+Las proyecciones pueden ser tabulares, con los datos almacenados en filas y columnas en Azure Table Storage, o bien objetos JSON almacenados en Azure Blob Storage. Puede definir varias proyecciones de los datos a medida que se enriquecen. Estas distintas proyecciones resultan útiles cuando quiere que los mismos datos tengan formas diferentes para casos de uso individuales.
 
 El almacén de conocimiento admite tres tipos de proyecciones:
 
@@ -196,7 +196,7 @@ Las proyecciones tienen un ciclo de vida que está asociado a los datos de orige
 
 Tras ejecutar el indexador, puede leer los datos proyectados en los contenedores o tablas que especificó a través de las proyecciones.
 
-En cuanto al análisis, la exploración en Power BI es tan sencilla como configurar el almacenamiento de Azure Table como origen de datos. Puede crear fácilmente un conjunto de visualizaciones en los datos usando las relaciones que contienen.
+En cuanto al análisis, la exploración en Power BI es tan sencilla como establecer Azure Table Storage como origen de datos. Puede crear fácilmente un conjunto de visualizaciones en los datos usando las relaciones que contienen.
 
 Como alternativa, si tiene que usar los datos enriquecidos en una canalización de ciencia de datos, podría [cargar los datos desde los blobs en un DataFrame de Pandas](../machine-learning/team-data-science-process/explore-data-blob.md).
 

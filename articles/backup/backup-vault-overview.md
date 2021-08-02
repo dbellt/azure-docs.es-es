@@ -3,12 +3,12 @@ title: Información general de los almacenes de Backup
 description: Información general de los almacenes de Backup.
 ms.topic: conceptual
 ms.date: 04/19/2021
-ms.openlocfilehash: e2d720da9474a35870de01559201d22c9e5b567f
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 6748121bd85fe6dc26a09c038ab305bcf06e3902
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739087"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111565972"
 ---
 # <a name="backup-vaults-overview"></a>Información general de los almacenes de Backup
 
@@ -48,21 +48,20 @@ Inicie sesión en Azure Portal en <https://portal.azure.com>.
 ### <a name="create-backup-vault"></a>Creación de un almacén de Backup
 
 1. Escriba **almacenes de copia de seguridad** en el cuadro de búsqueda.
-1. En **Servicios**, seleccione **Almacenes de Backup**.
-1. En la página **Almacenes de Backup**, seleccione **Agregar**.
-1. En la pestaña **Aspectos básicos**, en **Detalles del proyecto**, asegúrese de que esté seleccionada la suscripción correcta y, en Grupo de recursos, elija **Crear nuevo**. Escriba *myResourceGroup* para el nombre.
+2. En **Servicios**, seleccione **Almacenes de Backup**.
+3. En la página **Almacenes de Backup**, seleccione **Agregar**.
+4. En la pestaña **Aspectos básicos**, en **Detalles del proyecto**, asegúrese de que esté seleccionada la suscripción correcta y, en el grupo de recursos, elija **Crear nuevo**. Escriba *myResourceGroup* para el nombre.
 
-  ![Crear un grupo de recursos](./media/backup-vault-overview/new-resource-group.png)
+    ![Crear un grupo de recursos](./media/backup-vault-overview/new-resource-group.png)
 
-1. En **Detalles de instancia**, escriba *myVault* como **Nombre del almacén de Backup** y seleccione la región de su elección, en este caso, *Este de EE. UU.* como su **Región**.
-1. Ahora elija la **redundancia de almacenamiento**. La redundancia de almacenamiento no se puede cambiar después de proteger los elementos en el almacén.
-1. Se recomienda que, si usa Azure como punto de conexión del almacenamiento de copia de seguridad principal, siga utilizando la configuración **con redundancia geográfica** predeterminada.
-1. Si no utiliza Azure como punto de conexión de almacenamiento de copia de seguridad principal, elija **Redundancia local** para reducir los costes de almacenamiento de Azure.
-1. Obtenga más información sobre la redundancia [geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage) y [local](../storage/common/storage-redundancy.md#locally-redundant-storage).
+5. En **Detalles de instancia**, escriba *myVault* como **Nombre del almacén de Backup** y seleccione la región de su elección, en este caso, *Este de EE. UU.* como su **Región**.
+6. Ahora elija la **redundancia de almacenamiento**. La redundancia de almacenamiento no se puede cambiar después de proteger los elementos en el almacén.
+7. Se recomienda que, si usa Azure como punto de conexión del almacenamiento de copia de seguridad principal, siga utilizando la configuración **con redundancia geográfica** predeterminada.
+8. Si no usa Azure como punto de conexión de almacenamiento de copia de seguridad principal, elija **Redundancia local** para reducir los costos de almacenamiento de Azure. Obtenga más información sobre la redundancia [geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage) y [local](../storage/common/storage-redundancy.md#locally-redundant-storage).
 
-  ![Elección de la redundancia de almacenamiento](./media/backup-vault-overview/storage-redundancy.png)
+    ![Elección de la redundancia de almacenamiento](./media/backup-vault-overview/storage-redundancy.png)
 
-1. Seleccione el botón Revisar y crear de la parte inferior de la página.
+9. Seleccione el botón Revisar y crear de la parte inferior de la página.
 
     ![Selección de Revisar y crear](./media/backup-vault-overview/review-and-create.png)
 
@@ -80,6 +79,10 @@ No se puede eliminar un almacén de Backup que tenga alguna de las siguientes de
 Si intenta eliminar el almacén sin quitar las dependencias, se producirá uno de los siguientes mensajes de error:
 
 >No se puede eliminar el almacén de Backup porque existen instancias o directivas de copia de seguridad en el almacén. Elimine todas las instancias y directivas de copia de seguridad del almacén y vuelva a intentar eliminarlo.
+
+Asegúrese de recorrer las opciones de filtro de **Tipo de origen de datos** en el **Centro de copia de seguridad** para no perder ninguna directiva ni instancia de Backup existente que deba quitarse, antes de poder eliminar el almacén de Backup.
+
+![Tipos de orígenes de datos](./media/backup-vault-overview/datasource-types.png)
 
 ### <a name="proper-way-to-delete-a-vault"></a>Manera adecuada de eliminar un almacén
 

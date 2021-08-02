@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 91e75b60f5324288c9f1adac59e31b9c1a1b0e9e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ac260f2fa8cd4f1fd469e3529b7ad6d55a965538
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89289178"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111555724"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Conexión a un almacén de conocimiento con Power BI
 
@@ -37,7 +37,7 @@ Haga clic en **Obtener plantilla de Power BI** en la página **Agregar conocimi
 ![Plantilla de ejemplo de Power BI en Azure Cognitive Search](media/knowledge-store-connect-power-bi/powerbi-sample-template-portal-only.png "Plantilla de ejemplo de Power BI")
 
 > [!NOTE]
-> Aunque la plantilla se descarga mientras el asistente está en curso, tendrá que esperar a que el almacén de conocimiento se cree realmente en el almacenamiento de tablas de Azure antes de poder usarlo.
+> Aunque la plantilla se descarga mientras el asistente está en curso, tendrá que esperar a que el almacén de conocimiento se cree realmente en Azure Table Storage antes de poder usarlo.
 
 ## <a name="connect-with-power-bi"></a>Conexión con Power BI
 

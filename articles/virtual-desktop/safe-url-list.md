@@ -1,24 +1,24 @@
 ---
-title: 'Lista de direcciones URL requeridas de Windows Virtual Desktop: Azure'
-description: Una lista de direcciones URL que debe desbloquear para garantizar que su implementación de Windows Virtual Desktop funcione según lo previsto.
+title: 'Lista de direcciones URL requeridas de Azure Virtual Desktop: Azure'
+description: Una lista de direcciones URL que debe desbloquear para garantizar que su implementación de Azure Virtual Desktop funcione según lo previsto.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 183b956c0ec38101f7875fe01dd7c6ef9c8c8c8f
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 7206b035724027f346fe49c8834c2fd35ec83af9
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107891687"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111752970"
 ---
 # <a name="required-url-list"></a>Lista de direcciones URL requeridas
 
-Para implementar y usar Windows Virtual Desktop, debe desbloquear determinadas direcciones URL para que las máquinas virtuales (VM) puedan acceder a ellas en cualquier momento. En este artículo se enumeran las direcciones URL requeridas que se deben desbloquear para que Windows Virtual Desktop funcione correctamente. 
+Para implementar y usar Azure Virtual Desktop, debe desbloquear determinadas direcciones URL para que las máquinas virtuales (VM) puedan acceder a ellas en cualquier momento. En este artículo se enumeran las direcciones URL requeridas que se deben desbloquear para que Azure Virtual Desktop funcione correctamente. 
 
 >[!IMPORTANT]
->Windows Virtual Desktop no admite implementaciones que bloqueen las direcciones URL que se muestran en este artículo.
+>Azure Virtual Desktop no admite implementaciones que bloqueen las direcciones URL que se muestran en este artículo.
 
 ## <a name="required-url-check-tool"></a>Herramienta de comprobación de direcciones URL requeridas
 
@@ -68,7 +68,7 @@ Para usar la herramienta, siga estos pasos:
 
 ## <a name="virtual-machines"></a>Máquinas virtuales
 
-Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben tener acceso a las siguientes direcciones URL en la nube comercial de Azure:
+Las máquinas virtuales de Azure que cree para Azure Virtual Desktop deben tener acceso a las siguientes direcciones URL en la nube comercial de Azure:
 
 |Dirección|Puerto TCP de salida|Propósito|Etiqueta de servicio|
 |---|---|---|---|
@@ -87,11 +87,11 @@ Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben ten
 | 168.63.129.16 | 80 | [Seguimiento de estado del host de sesión](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/D |
 
 >[!IMPORTANT]
->Windows Virtual Desktop ahora admite la etiqueta FQDN. Para más información, consulte [Uso de Azure Firewall para proteger las implementaciones de Windows Virtual Desktop](../firewall/protect-windows-virtual-desktop.md).
+>Azure Virtual Desktop ahora admite la etiqueta FQDN. Para más información, consulte [Uso de Azure Firewall para proteger las implementaciones de Windows Virtual Desktop](../firewall/protect-windows-virtual-desktop.md).
 >
->Se recomienda usar etiquetas FQDN o etiquetas de servicio, en lugar de las direcciones URL, para evitar problemas de servicio. Las direcciones URL y etiquetas de la lista solo corresponden a sitios y recursos de Windows Virtual Desktop. No incluyen direcciones URL para otros servicios como Azure Active Directory.
+>Se recomienda usar etiquetas FQDN o etiquetas de servicio, en lugar de las direcciones URL, para evitar problemas de servicio. Las direcciones URL y etiquetas de la lista solo corresponden a sitios y recursos de Azure Virtual Desktop. No incluyen direcciones URL para otros servicios como Azure Active Directory.
 
-Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben tener acceso a las siguientes direcciones URL en la nube de Azure Government:
+Las máquinas virtuales de Azure que cree para Azure Virtual Desktop deben tener acceso a las siguientes direcciones URL en la nube de Azure Government:
 
 |Dirección|Puerto TCP de salida|Propósito|Etiqueta de servicio|
 |---|---|---|---|
@@ -123,7 +123,7 @@ En la tabla siguiente se enumeran las direcciones URL opcionales a las que puede
 |*.azure-dns.net|443|Resolución de Azure DNS|None|
 
 >[!NOTE]
->Windows Virtual Desktop actualmente no tiene una lista de intervalos de direcciones IP que puede desbloquear para permitir el tráfico de red. En este momento, solo se pueden desbloquear direcciones URL específicas.
+>Azure Virtual Desktop actualmente no tiene una lista de intervalos de direcciones IP que puede desbloquear para permitir el tráfico de red. En este momento, solo se pueden desbloquear direcciones URL específicas.
 >
 >Si usa un firewall de última generación (NGFW), tendrá que usar una lista dinámica específica creada específicamente para las direcciones IP, a fin de asegurarse de que puede conectarse.
 >
@@ -131,7 +131,7 @@ En la tabla siguiente se enumeran las direcciones URL opcionales a las que puede
 >
 >Debe usar el carácter comodín (*) para las direcciones URL que impliquen tráfico de servicio. Si prefiere no usar el carácter comodín (*) para el tráfico relacionado con el agente, aquí se muestra cómo buscar las direcciones URL sin estos caracteres:
 >
->1. Registre las máquinas virtuales en el grupo de hosts de Windows Virtual Desktop.
+>1. Registre las máquinas virtuales en el grupo de hosts de Azure Virtual Desktop.
 >2. Abra el **Visor de eventos** y, después, diríjase a **Registros de Windows** > **Aplicación** > **WVD-Agent** y busque el evento con el identificador 3701.
 >3. Desbloquee las direcciones URL que se encuentran en el identificador de evento 3701. Las direcciones URL del identificador de evento 3701 son específicas de una región. Deberá repetir el proceso de desbloqueo con las direcciones URL pertinentes de cada región en la que quiera implementar las máquinas virtuales.
 

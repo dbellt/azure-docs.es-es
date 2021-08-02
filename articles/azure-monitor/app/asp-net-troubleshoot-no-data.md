@@ -4,20 +4,20 @@ description: ¿No ve los datos en Azure Application Insights? Pruebe aquí.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: 3b550e434db5b616ffedef7ebe9891b36fa431a2
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 2a301efe2ea7c6c74d503fda4a9bbf63f8ce7f80
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311233"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112061585"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Solución de problemas cuando no hay datos: Application Insights para .NET/.NET Core
 
 ## <a name="some-of-my-telemetry-is-missing"></a>Falta parte de mi telemetría
 *En Application Insights, solo veo una fracción de los eventos generados por mi aplicación.*
 
-* Si observa la misma fracción constantemente, es probable que se deba al [muestreo](./sampling.md)adaptable. Para confirmarlo, abra Búsqueda (desde la hoja de información general) y examine una instancia de una solicitud u otro evento. En la parte inferior de la sección Propiedades, haga clic en "..." para obtener todos los detalles de la propiedad. Si Recuento de solicitudes > 1, hay un muestreo en curso.
-* De lo contrario, es posible que se esté aproximando a un [límite de velocidad de datos](./pricing.md#limits-summary) para su plan de precios. Estos límites se aplican por minuto.
+* Si observa la misma fracción constantemente, es probable que se deba al [muestreo](../../azure-monitor/app/sampling.md)adaptable. Para confirmarlo, abra Búsqueda (desde la hoja de información general) y examine una instancia de una solicitud u otro evento. Para ver los detalles completos de la propiedad, seleccione los puntos suspensivos ( **...** ) en la parte inferior de la sección **Propiedades**. Si Recuento de solicitudes > 1, hay un muestreo en curso.
+* Es posible que se esté aproximando a un [límite de velocidad de datos](../../azure-monitor/app/pricing.md#limits-summary) para su plan de precios. Estos límites se aplican por minuto.
 
 *Experimento una pérdida de datos aleatoria.*
 
@@ -34,17 +34,16 @@ ms.locfileid: "107311233"
 Internet Information Services (IIS) registra los recuentos de todas las solicitudes que llegan a IIS y, de forma inherente, podrían diferir del total de solicitudes que llegan a una aplicación. Debido a esto, no se garantiza que el recuento de solicitudes recopilado por los SDK coincidirá con el recuento total de registros de IIS. 
 
 ## <a name="no-data-from-my-server"></a>No hay datos de mi servidor
-*He instalado mi aplicación en el servidor web y ahora no veo ninguna telemetría procedente de ella. Funcionaba correctamente en mi equipo de desarrollo.*
-
-* Probablemente sea un problema de firewall. [Configure excepciones de firewall para que Application Insights envíe datos](./ip-addresses.md).
-* Es posible que falten algunos requisitos previos en el servidor IIS: Extensibilidad de .NET 4.5 y ASP.NET 4.5.
+* He instalado mi aplicación en el servidor web y ahora no veo ninguna telemetría procedente de ella. Funcionaba correctamente en mi equipo de desarrollo.*
+* Probablemente sea un problema de firewall. [Configure excepciones de firewall para que Application Insights envíe datos](../../azure-monitor/app/ip-addresses.md).
+* Es posible que falten algunos requisitos previos en el servidor IIS como extensibilidad de .NET 4.5 y ASP.NET 4.5.
 
 *He [instalado el monitor de estado](./monitor-performance-live-website-now.md) en el servidor web para supervisar las aplicaciones existentes. No se ve ningún resultado.*
 
 * Consulte [Solución de problemas del Monitor de estado](./monitor-performance-live-website-now.md#troubleshoot).
 
 > [!IMPORTANT]
-> Las nuevas regiones de Azure **requieren** el uso de cadenas de conexión en lugar de claves de instrumentación. La [cadena de conexión](./sdk-connection-string.md?tabs=net) identifica el recurso con el que se quieren asociar los datos de telemetría. También permite modificar los puntos de conexión que va a usar el recurso como destino de la telemetría. Tiene que copiar la cadena de conexión y agregarla al código de la aplicación o a una variable de entorno.
+> Se recomiendan las [cadenas de conexión](./sdk-connection-string.md?tabs=net) por encima de las claves de instrumentación. Las nuevas regiones de Azure **requieren** el uso de cadenas de conexión en lugar de claves de instrumentación. La cadena de conexión identifica el recurso con el que se quieren asociar los datos de telemetría. También permite modificar los puntos de conexión que va a usar el recurso como destino de la telemetría. Tiene que copiar la cadena de conexión y agregarla al código de la aplicación o a una variable de entorno.
 
 
 ## <a name="filenotfoundexception-could-not-load-file-or-assembly-microsoftaspnet-telemetrycorrelation"></a>FileNotFoundException: No se pudo cargar el archivo o ensamblado "Microsoft.AspNet TelemetryCorrelation".
@@ -186,7 +185,7 @@ Los datos proceden de los scripts de las páginas web.
 Consulte [telemetría de dependencias](./asp-net-dependencies.md) y [telemetría de excepciones](asp-net-exceptions.md).
 
 ## <a name="no-performance-data"></a>Sin datos de rendimiento
-Los datos de rendimiento (CPU, velocidad de E/S, etc.) están disponibles para [servicios web de Java](./java-collectd.md), [aplicaciones de escritorio de Windows](./windows-desktop.md), [servicios y aplicaciones web IIS si instala el Monitor de estado](./monitor-performance-live-website-now.md) y [Azure Cloud Services](./app-insights-overview.md). Los encontrará en la sección Configuración > Servidores.
+Los datos de rendimiento (CPU, velocidad de E/S, etc.) están disponibles para [servicios web de Java](java-2x-collectd.md), [aplicaciones de escritorio de Windows](./windows-desktop.md), [servicios y aplicaciones web IIS si instala el Monitor de estado](./monitor-performance-live-website-now.md) y [Azure Cloud Services](./app-insights-overview.md). Los encontrará en la sección Configuración > Servidores.
 
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>No hay datos (de servidor) desde que se publicó la aplicación en el servidor
 * Compruebe que realmente copió todas las DLL de Microsoft.ApplicationInsights en el servidor, junto con Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll.
@@ -282,7 +281,7 @@ Puede modificar estos parámetros según sea necesario:
 
 Para obtener más información,
 - [Registro de seguimientos de rendimiento con PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
-- [Orígenes de eventos de Application Insights](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/ETW)
+- [Orígenes de eventos de Application Insights](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/troubleshooting/ETW)
 
 ## <a name="collect-logs-with-dotnet-trace"></a>Recopilación de registros con dotnet-trace
 

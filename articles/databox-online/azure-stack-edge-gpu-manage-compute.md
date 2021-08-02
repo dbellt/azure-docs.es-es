@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 06/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 057f80049b13a265925f2d6f24a008d1e1e04c96
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eac9154d4308700eaa6ea8faf0bf94fabc80bce4
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102637405"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982527"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro-gpu"></a>Administración de procesos en Azure Stack Edge Pro con GPU
 
@@ -144,4 +144,4 @@ Las direcciones IP del servicio externo de Kubernetes se usan para llegar a los 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre cómo [solucionar problemas en Azure Stack Edge Pro](azure-stack-edge-gpu-troubleshoot.md).
+- Aprenda a [solucionar problemas de IoT Edge en el dispositivo GPU de Azure Stack Edge Pro](azure-stack-edge-gpu-troubleshoot-iot-edge.md).

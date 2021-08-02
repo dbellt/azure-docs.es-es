@@ -1,26 +1,26 @@
 ---
-title: 'Conexión a Windows Virtual Desktop (clásico) desde iOS: Azure'
-description: Conexión a Windows Virtual Desktop (clásico) mediante el cliente iOS.
+title: 'Conexión a Azure Virtual Desktop (clásico) desde iOS: Azure'
+description: Conexión a Azure Virtual Desktop (clásico) mediante el cliente iOS.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 297e2967c4e651c5b75ce232d56c51c07c872443
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 5f981e40d82a1f5b4d775832752d4b169ab73db0
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445285"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111750036"
 ---
-# <a name="connect-to-windows-virtual-desktop-classic-with-the-ios-client"></a>Conexión a Windows Virtual Desktop (clásico) con el cliente iOS
+# <a name="connect-to-azure-virtual-desktop-classic-with-the-ios-client"></a>Conexión a Azure Virtual Desktop (clásico) con el cliente iOS
 
 > Se aplica a: iOS 13.0 una versión posterior. Compatible con iPhone, iPad y iPod touch.
 
 >[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../connect-ios.md).
+>Este contenido se aplica a Azure Virtual Desktop (clásico), que no admite objetos de Azure Resource Manager. Si está intentando administrar objetos de Azure Virtual Desktop para Azure Resource Manager, consulte [este artículo](../connect-ios.md).
 
-Puede acceder a los recursos de Windows Virtual Desktop desde su dispositivo iOS con nuestro cliente, que se puede descargar. En esta guía se le indicará cómo configurar el cliente iOS.
+Puede acceder a los recursos de Azure Virtual Desktop desde su dispositivo iOS con nuestro cliente, que se puede descargar. En esta guía se le indicará cómo configurar el cliente iOS.
 
 ## <a name="install-the-ios-client"></a>Instalación del cliente de iOS
 

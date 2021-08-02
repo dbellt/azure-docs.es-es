@@ -1,5 +1,5 @@
 ---
-title: 'Lista de comprobación: procedimientos recomendados e instrucciones de rendimiento'
+title: 'Lista de comprobación: Procedimientos recomendados e instrucciones'
 description: Aquí se proporciona una lista de comprobación rápida para revisar los procedimientos recomendados y las instrucciones para optimizar el rendimiento de SQL Server en la máquina virtual (VM) de Azure.
 services: virtual-machines-windows
 documentationcenter: na
@@ -7,6 +7,7 @@ author: dplessMSFT
 editor: ''
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: performance
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -15,19 +16,19 @@ ms.date: 05/06/2021
 ms.author: dpless
 ms.custom: contperf-fy21q3
 ms.reviewer: jroth
-ms.openlocfilehash: 3649c593fcc7a0d27ed7326efa03b1325763649d
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: e658a2ceed031ea68bce17b87887fd42f24756d6
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110190898"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079938"
 ---
-# <a name="checklist-performance-best-practices-for-sql-server-on-azure-vms"></a>Lista de comprobación: procedimientos recomendados de rendimiento de SQL Server en VM de Azure
+# <a name="checklist-best-practices-for-sql-server-on-azure-vms"></a>Lista de comprobación: Procedimientos recomendados de SQL Server en máquinas virtuales de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 En este artículo se proporciona una lista de comprobación rápida como una serie de procedimientos recomendados e instrucciones para optimizar el rendimiento de SQL Server en máquinas virtuales (VM) de Azure. 
 
-Para obtener información detallada, vea los demás artículos de esta serie: [Tamaño de máquinas virtuales](performance-guidelines-best-practices-vm-size.md), [Almacenamiento](performance-guidelines-best-practices-storage.md) y [Línea de base de recopilación](performance-guidelines-best-practices-collect-baseline.md). 
+Para obtener detalles completos, consulte otros artículos de esta serie: [Lista de comprobación](performance-guidelines-best-practices-checklist.md), [Tamaño de máquina virtual](performance-guidelines-best-practices-vm-size.md), [Almacenamiento](performance-guidelines-best-practices-storage.md), [Seguridad](security-considerations-best-practices.md), [Configuración de HADR](hadr-cluster-best-practices.md) y [Recopilación de la base de referencia](performance-guidelines-best-practices-collect-baseline.md). 
 
 
 ## <a name="overview"></a>Información general
@@ -69,7 +70,10 @@ La siguiente es una lista de comprobación rápida de los procedimientos recomen
     - Detenga siempre el servicio de SQL Server antes de cambiar la configuración de la memoria caché del disco.
 - En las cargas de trabajo de desarrollo y pruebas, considere la posibilidad de usar almacenamiento estándar. No se recomienda usar HDD o SDD estándar para las cargas de trabajo de producción.
 - La [expansión de disco basada en crédito](../../../virtual-machines/disk-bursting.md#credit-based-bursting) (P1-P20) solo se debe tener en cuenta para cargas de trabajo de desarrollo y pruebas más pequeñas y sistemas departamentales.
+- Aprovisione la cuenta de almacenamiento en la misma región que la VM de SQL Server. 
+- Deshabilite el almacenamiento con redundancia geográfica de Azure (replicación geográfica) y use LRS (almacenamiento con redundancia local) en la cuenta de almacenamiento.
 - Formatee el disco de datos para que use un tamaño de unidad de asignación de 64 KB para todos los archivos de datos ubicados en una unidad que no sea la unidad temporal `D:\` (que tiene un valor predeterminado de 4 KB). Las VM de SQL Server implementadas a través de Azure Marketplace se ofrecen con discos de datos formateados con el tamaño de la unidad de asignación y la intercalación para el bloque de almacenamiento establecido en 64 KB. 
+
 
 Para obtener más información, vea los [procedimientos recomendados de almacenamiento](performance-guidelines-best-practices-storage.md) generales. 
 
@@ -108,20 +112,63 @@ La siguiente es una lista de comprobación rápida de los procedimientos recomen
 - Aproveche la mejor [estrategia de copia de seguridad y restauración](backup-restore.md#decision-matrix) para la carga de trabajo de SQL Server.
 - Asegúrese de que la opción [Redes aceleradas esté habilitada](../../../virtual-network/create-vm-accelerated-networking-cli.md#portal-creation) en la máquina virtual.
 - Aproveche [Azure Security Center](../../../security-center/index.yml) para mejorar la posición de seguridad general de la implementación de la máquina virtual.
-- Aproveche [Azure Defender](../../../security-center/azure-defender.md), integrado en [Azure Security Center](https://azure.microsoft.com/services/security-center/), para una [cobertura de VM de SQL Server](../../../security-center/defender-for-sql-introduction.md) específica, incluidas las evaluaciones de vulnerabilidades y el acceso Just-In-Time, lo que reduce el servicio de ataques y permite a los usuarios legítimos acceder a las máquinas virtuales cuando sea necesario. Para más información, consulte [evaluaciones de vulnerabilidades](../../../security-center/defender-for-sql-on-machines-vulnerability-assessment.md), [habilite evaluaciones de vulnerabilidades para VM de SQL Server](sql-vulnerability-assessment-enable.md) y [acceso Just-In-Time.](../../../security-center/just-in-time-explained.md) 
+- Aproveche [Azure Defender](../../../security-center/azure-defender.md), integrado en [Azure Security Center](https://azure.microsoft.com/services/security-center/), para una [cobertura de VM de SQL Server](../../../security-center/defender-for-sql-introduction.md) específica, incluidas las evaluaciones de vulnerabilidades y el acceso Just-In-Time, lo que reduce el servicio de ataques y permite a los usuarios legítimos acceder a las máquinas virtuales cuando sea necesario. Para más información, consulte [evaluaciones de vulnerabilidades](../../../security-center/defender-for-sql-on-machines-vulnerability-assessment.md), [habilite evaluaciones de vulnerabilidades para VM de SQL Server](../../../security-center/defender-for-sql-on-machines-vulnerability-assessment.md) y [acceso Just-In-Time.](../../../security-center/just-in-time-explained.md) 
 - Aproveche [Azure Advisor](../../../advisor/advisor-overview.md) para abordar las recomendaciones de [rendimiento](../../../advisor/advisor-performance-recommendations.md), [costo](../../../advisor/advisor-cost-recommendations.md), [confiabilidad](../../../advisor/advisor-high-availability-recommendations.md), [excelencia operativa](../../../advisor/advisor-operational-excellence-recommendations.md) y [seguridad](../../../advisor/advisor-security-recommendations.md).
 - Aproveche [Azure Monitor](../../../azure-monitor/vm/quick-monitor-azure-vm.md) para recopilar, analizar y actuar sobre los datos de telemetría del entorno de SQL Server. Esto incluye la detección de problemas de infraestructura con [VM Insights](../../../azure-monitor/vm/vminsights-overview.md) y la supervisión de datos con [Log Analytics](../../../azure-monitor/logs/log-query-overview.md) para un diagnóstico más profundo.
 - Habilite el [apagado automático](../../../automation/automation-solution-vm-management.md) para entornos de desarrollo y pruebas. 
 - Implemente una solución de alta disponibilidad y recuperación ante desastres (HADR) que cumpla los SLA de continuidad empresarial. Consulte las [opciones de HADR](business-continuity-high-availability-disaster-recovery-hadr-overview.md#deployment-architectures) disponibles para SQL Server en VM de Azure. 
 - Use Azure Portal (soporte técnico y solución de problemas) para evaluar el historial y el [estado de los recursos](../../../service-health/resource-health-overview.md), y enviar nuevas solicitudes de soporte técnico cuando sea necesario.
 
+## <a name="hadr-configuration"></a>Configuración de alta disponibilidad y recuperación ante desastres
+
+Las características de alta disponibilidad y recuperación ante desastres (HADR) como, por ejemplo, el [grupo de disponibilidad Always On](availability-group-overview.md) y la [instancia de clúster de conmutación por error](failover-cluster-instance-overview.md), se basan en la tecnología subyacente de [clúster de conmutación por error de Windows Server](hadr-windows-server-failover-cluster-overview.md). Revise los procedimientos recomendados para modificar la configuración de HADR para admitir mejor el entorno en la nube. 
+
+Para el clúster de Windows, tenga en cuenta estos procedimientos recomendados: 
+
+* Cambie el clúster a parámetros menos agresivos para evitar interrupciones inesperadas de errores de red transitorios o mantenimiento de la plataforma de Azure. Para más información, consulte la [configuración de latidos y umbrales](hadr-cluster-best-practices.md#heartbeat-and-threshold). Para Windows Server 2012 y versiones posteriores, utilice los siguientes valores recomendados: 
+   - **SameSubnetDelay**: 1 segundo
+   - **SameSubnetThreshold**: 40 latidos
+   - **CrossSubnetDelay**: 1 segundo
+   - **CrossSubnetThreshold**: 40 latidos
+* Coloque las máquinas virtuales en un conjunto de disponibilidad o en distintas zonas de disponibilidad.  Para más información, consulte [Configuración de disponibilidad de máquinas virtuales.](hadr-cluster-best-practices.md#vm-availability-settings) 
+* Use una sola NIC por nodo de clúster y una sola subred. 
+* Configure la [votación de cuórum](hadr-cluster-best-practices.md#quorum-voting) de clúster para usar 3 o más números de votos impares. No asigne votos a las regiones de recuperación ante desastres. 
+* Supervise detenidamente los [límites de recursos](hadr-cluster-best-practices.md#resource-limits) para evitar reinicios inesperados o conmutaciones por error debido a restricciones de recursos.
+   - Asegúrese de que el sistema operativo, controladores y SQL Server disponen de las versiones más recientes. 
+   - Optimice el rendimiento de SQL Server en las máquinas virtuales de Azure. Revise las demás secciones de este artículo para obtener más información. 
+   - Reduzca o extienda la carga de trabajo para evitar límites de recursos. 
+   - Cambie a una máquina virtual o disco cuyos límites sean más altos para evitar restricciones. 
+
+Para el grupo de disponibilidad SQL Server o la instancia de clúster de conmutación por error, tenga en cuenta estos procedimientos recomendados: 
+
+* Si experimenta errores inesperados con frecuencia, siga los procedimientos recomendados de rendimiento descritos en este artículo. 
+* Si la optimización del rendimiento de las máquinas virtuales SQL Server no resuelve las conmutaciones por error inesperadas, considere la posibilidad de [relajar la supervisión](hadr-cluster-best-practices.md#relaxed-monitoring) para el grupo de disponibilidad o la instancia de clúster de conmutación por error. Sin embargo, es posible que no se pueda solucionar el origen subyacente de la incidencia y podría enmascarar los síntomas al reducir la probabilidad de error. Es posible que tenga que investigar y abordar la causa principal subyacente. Para Windows Server 2012 y versiones posteriores, utilice los siguientes valores recomendados: 
+   - **Tiempo de espera de concesión**: use esta ecuación para calcular el valor máximo de tiempo de espera de concesión:   
+    `Lease timeout < (2 * SameSubnetThreshold * SameSubnetDelay)`.    
+    Comience con 40 segundos. Si usa los valores `SameSubnetThreshold` y `SameSubnetDelay` flexibles recomendados anteriormente, no supere los 80 segundos para el valor de tiempo de espera de concesión.    
+   - **Número máximo de errores en un período especificado**: establezca este valor en 6. 
+* Cuando use el nombre de red virtual (VNN) para conectarse a la solución HADR, especifique `MultiSubnetFailover = true` en la cadena de conexión, incluso si el clúster solo abarca una subred. 
+   - Si el cliente no admite `MultiSubnetFailover = True`, es posible que deba establecer `RegisterAllProvidersIP = 0` y `HostRecordTTL = 300` para copiar en caché las credenciales de cliente durante períodos más cortos. Sin embargo, esto puede provocar consultas adicionales en el servidor DNS. 
+- Para conectarse a la solución HADR mediante el nombre de red distribuida (DNN), tenga en cuenta lo siguiente:
+   - Debe usar un controlador cliente que admita `MultiSubnetFailover = True` y este parámetro debe estar en la cadena de conexión. 
+   - Use un puerto DNN único en la cadena de conexión al conectarse al cliente de escucha de DNN para un grupo de disponibilidad. 
+- Use una cadena de conexión de creación de reflejo de la base de datos para que un grupo de disponibilidad básico omita la necesidad de un equilibrador de carga o DNN. 
+- Valide el tamaño del sector de los discos duros virtuales antes de implementar la solución de alta disponibilidad para evitar tener E/S mal alineadas. Consulte [KB3009974](https://support.microsoft.com/topic/kb3009974-fix-slow-synchronization-when-disks-have-different-sector-sizes-for-primary-and-secondary-replica-log-files-in-sql-server-ag-and-logshipping-environments-ed181bf3-ce80-b6d0-f268-34135711043c) para más información. 
+
+
+Para obtener más información, consulte los [procedimientos recomendados de HADR](hadr-cluster-best-practices.md). 
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información, vea los demás artículos de esta serie:
+
 - [Tamaño de VM](performance-guidelines-best-practices-vm-size.md)
 - [Storage](performance-guidelines-best-practices-storage.md)
+- [Seguridad](security-considerations-best-practices.md)
+- [Configuración de HADR](hadr-cluster-best-practices.md)
 - [Recopilación de la línea base](performance-guidelines-best-practices-collect-baseline.md)
 
 Para ver los procedimientos recomendados de seguridad, consulte [Consideraciones de seguridad para SQL Server en Azure Virtual Machines](security-considerations-best-practices.md).
 
-Revise otros artículos sobre la máquina virtual de SQL Server en [Introducción a SQL Server en Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md). Si tiene alguna pregunta sobre las máquinas virtuales de SQL Server, consulte las [Preguntas más frecuentes](frequently-asked-questions-faq.md).
+Revise otros artículos sobre la máquina virtual de SQL Server en [Introducción a SQL Server en Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md). Si tiene alguna pregunta sobre las máquinas virtuales de SQL Server, consulte las [Preguntas más frecuentes](frequently-asked-questions-faq.yml).

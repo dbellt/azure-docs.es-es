@@ -1,20 +1,20 @@
 ---
 title: 'Azure Virtual WAN: Acerca de la aplicación virtual de red en el centro de conectividad'
-description: En este artículo, obtendrá información sobre las aplicaciones virtuales de red en el centro de conectividad de Virtual WAN.
+description: Obtenga más información sobre la aplicación virtual de red en el centro de conectividad de Virtual WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.author: scottnap
-ms.openlocfilehash: 36987789487e97f42a51ff509df58ee0ff2dd2ed
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 68e5216257fd32237f3d67f05f0e17a0b8e16dbd
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107951259"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411915"
 ---
-# <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Acerca de una aplicación virtual de red en un centro de conectividad de Azure Virtual WAN (versión preliminar)
+# <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub"></a>Información acerca de una aplicación virtual de red en un centro de conectividad de Azure Virtual WAN
 
 Azure Virtual WAN ha trabajado con asociados de red para crear una automatización que facilite la conexión de su equipo local del cliente (CPE) a una puerta de enlace de VPN de Azure que se encuentre en el centro de conectividad virtual. Azure trabaja con algunos asociados de red seleccionados para que los clientes implementen una aplicación virtual de red (NVA) de terceros directamente en el centro de conectividad virtual. Esto permite a los clientes conectar el CPE de su rama a la NVA de la misma marca en el centro de conectividad virtual para poder sacar provecho de todas las funcionalidades propias de SD-WAN.
 
@@ -73,7 +73,7 @@ Necesita crear conexiones del centro de conectividad a la red virtual para conec
 
 ## <a name="supported-regions"></a><a name="regions"></a>Regiones admitidas
 
-NVA en el centro de conectividad virtual está disponible en versión preliminar en las siguientes regiones:
+La NVA en el centro de conectividad virtual está disponible en las siguientes regiones:
 
 |Región geopolítica | Regiones de Azure|
 |---|---|
@@ -85,35 +85,10 @@ NVA en el centro de conectividad virtual está disponible en versión preliminar
 | Australia | Sudeste de Australia, Este de Australia, Centro de Australia, Centro de Australia 2|
 | África | Norte de Sudáfrica |
 | India | Sur de la India, India occidental, India central | 
-## <a name="faq"></a>Preguntas más frecuentes
 
-### <a name="i-am-a-network-appliance-partner-and-want-to-get-our-nva-in-the-hub--can-i-join-this-partner-program"></a>Soy asociado de dispositivos de red y quiero que nuestra NVA esté en el centro de conectividad.  ¿Puedo participar en este programa para asociados?
+## <a name="nva-faq"></a>Preguntas más frecuentes sobre NVA
 
-Desafortunadamente, no tenemos capacidad para incorporar nuevas ofertas para asociados en este momento. Vuelva a realizar la consulta en noviembre.
-
-### <a name="can-i-deploy-any-nva-from-azure-marketplace-into-the-virtual-wan-hub"></a>¿Puedo implementar cualquier NVA desde Azure Marketplace en el centro de conectividad de Virtual WAN?
-
-Actualmente, solo [Barracuda CloudGen WAN](https://aka.ms/BarracudaMarketPlaceOffer), [Cisco Cloud vWAN Application](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cisco.cisco_cloud_vwan_app?tab=Overview) y [VMware Sd-WAN](https://aka.ms/vmwareMarketplaceLink) son los únicos productos disponibles para implementarse en el centro de conectividad de Virtual WAN.
-
-### <a name="what-is-the-cost-of-the-nva"></a>¿Cuál es el costo de la NVA?
-
-Debe adquirir una licencia para la NVA del proveedor de la NVA.  Para la licencia de la NVA Barracuda CloudGen WAN, consulte la [página de Barracuda CloudGen WAN](https://www.barracuda.com/products/cloudgenwan). Actualmente, Cisco solo ofrece el modelo de licencia de BYOL (traiga su propia licencia), que debe ser adquirido directamente en Cisco. Además, Microsoft también puede cobrarle por las unidades de la infraestructura de la NVA que consuma, así como cualquier otro recurso que use. Para más información, consulte [Conceptos de precios](pricing-concepts.md).
-
-### <a name="can-i-deploy-an-nva-to-a-basic-hub"></a>¿Se puede implementar una NVA en un centro de conectividad Básico?
-
-No. Si desea implementar una NVA, debe usar un centro de conectividad Estándar.
-
-### <a name="can-i-deploy-an-nva-into-a-secure-hub"></a>¿Se puede implementar una NVA en un centro de conectividad Seguro?
-
-Sí. Se puede implementar una NVA de asociado en un centro de conectividad con Azure Firewall.
-
-### <a name="can-i-connect-any-cpe-device-in-my-branch-office-to-barracuda-cloudgen-wan-nva-in-the-hub"></a>¿Se pueden conectar todos los dispositivos CPE de una sucursal a la NVA Barracuda CloudGen WAN del centro de conectividad?
-
-No. Barracuda CloudGen WAN solo es compatible con dispositivos CPE de Barracuda. Para más información acerca de los requisitos de CloudGen WAN, consulte la [página de CloudGen WAN de Barracuda](https://www.barracuda.com/products/cloudgenwan). Para Cisco, hay varios dispositivos SD-WAN CPE que son compatibles. Consulte la documentación [Cisco Cloud OnRamp for Multi-Cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) para ver la compatibilidad con CPE.
-
-### <a name="what-routing-scenarios-are-supported-with-nva-in-the-hub"></a>¿Qué escenarios de enrutamiento son compatibles con NVA en el centro de conectividad?
-
-Todos los escenarios de enrutamiento compatibles con Virtual WAN son compatibles con las NVA del centro de conectividad.
+[!INCLUDE [NVA FAQ](../../includes/virtual-wan-nva-hub-faq.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

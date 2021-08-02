@@ -1,5 +1,5 @@
 ---
-title: 'Introducción a la conexión de aplicaciones en formato MSIX para Windows Virtual Desktop: Azure'
+title: 'Introducción a la conexión de aplicaciones en formato MSIX para Azure Virtual Desktop: Azure'
 description: ¿Qué es la asociación de aplicaciones en formato .MSIX? Obtenga más información en este artículo.
 services: virtual-desktop
 author: Heidilohr
@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: cdbb7574f9da5ea6cd0695b74c269d8e1b88b7f4
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 3da80de79490ce21ae99a4dd7dd36c08054cd666
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106444078"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751584"
 ---
 # <a name="what-is-msix-app-attach"></a>¿Qué es la asociación de aplicaciones en formato .MSIX?
 
 MSIX es un nuevo formato de empaquetado que ofrece muchas características destinadas a mejorar la experiencia de empaquetado para todas las aplicaciones de Windows. Para obtener más información sobre MSIX, consulte la información general sobre la [introducción a MSIX](/windows/msix/overview).
 
-La conexión de aplicaciones en formato MSIX es una manera de proporcionar aplicaciones en MSIX a máquinas virtuales y físicas. Sin embargo, la conexión de aplicaciones MSIX es diferente de MSIX normal porque se creó especialmente para Windows Virtual Desktop. En este artículo se describe lo que es la conexión de aplicaciones MSIX y lo que puede hacer por usted.
+La conexión de aplicaciones en formato MSIX es una manera de proporcionar aplicaciones en MSIX a máquinas virtuales y físicas. Sin embargo, la conexión de aplicaciones MSIX es diferente de MSIX normal porque se creó especialmente para Azure Virtual Desktop. En este artículo se describe lo que es la conexión de aplicaciones MSIX y lo que puede hacer por usted.
 
-## <a name="application-delivery-options-in-windows-virtual-desktop"></a>Opciones de entrega de aplicaciones en el Windows Virtual Desktop
+## <a name="application-delivery-options-in-azure-virtual-desktop"></a>Opciones de entrega de aplicaciones en Azure Virtual Desktop
 
-Puede proporcionar aplicaciones en Windows Virtual Desktop a través de uno de los métodos siguientes:
+Puede proporcionar aplicaciones en Azure Virtual Desktop a través de uno de los métodos siguientes:
 
 - Poner aplicaciones en una imagen maestra
 - Usar herramientas como SCCM o Intune para la administración central
@@ -32,7 +32,7 @@ Puede proporcionar aplicaciones en Windows Virtual Desktop a través de uno de l
 
 ## <a name="what-does-msix-app-attach-do"></a>¿Qué hace la conexión de aplicaciones MSIX?
 
-En una implementación de Windows Virtual Desktop, la conexión de aplicaciones MSIX puede:
+En una implementación de Azure Virtual Desktop, la conexión de aplicaciones MSIX puede:
 
 - Crear una separación entre los datos de usuario, el sistema operativo y las aplicaciones mediante [contenedores de MSIX](/windows/msix/msix-container).
 - Eliminar la necesidad de volver a empaquetar al entregar aplicaciones de forma dinámica.

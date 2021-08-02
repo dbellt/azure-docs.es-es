@@ -7,44 +7,44 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/12/2021
-ms.openlocfilehash: 9bb62544887e0bc0269b98cd98fbf97fc477352f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 05/27/2021
+ms.openlocfilehash: d0390bd70080ea0174a81cce9538396321dec658
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104722436"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111539345"
 ---
 # <a name="return-a-semantic-answer-in-azure-cognitive-search"></a>Devolución de una respuesta semántica en Azure Cognitive Search
 
 > [!IMPORTANT]
-> La búsqueda semántica está en versión preliminar pública, disponible solo a través de la API de REST de versión preliminar. Las características en versión preliminar se ofrecen tal cual, según las [Condiciones de uso complementarias](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), y no se garantiza que tengan la misma implementación en la disponibilidad general. Estas características son facturables. Para más información, consulte [Disponibilidad y precios](semantic-search-overview.md#availability-and-pricing).
+> La búsqueda semántica está en versión preliminar pública en los [términos de uso complementarios](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Está disponible a través de Azure Portal, la API REST en versión preliminar y los SDK en versión beta. Estas características son facturables. Para obtener más información, consulte [Disponibilidad y precios](semantic-search-overview.md#availability-and-pricing).
 
-Al formular una [consulta semántica](semantic-how-to-query-request.md), puede extraer el contenido de los documentos con una mayor coincidencia que "responden" directamente a la consulta. En la respuesta de la consulta se pueden incluir una o más respuestas, que posteriormente puede representar en una página de búsqueda para mejorar la experiencia del usuario de la aplicación.
+Al invocar una [clasificación semántica y leyendas semánticas](semantic-how-to-query-request.md), puede extraer el contenido de los documentos con mayor coincidencia que "respondan" directamente a la consulta. En la respuesta de la consulta se pueden incluir una o más respuestas, que posteriormente puede representar en una página de búsqueda para mejorar la experiencia del usuario de la aplicación.
 
-En este artículo, aprenderá a solicitar una respuesta semántica, desempaquetar la respuesta de la consulta y deducir qué características de contenido son más favorables para generar respuestas de alta calidad.
+En este artículo, aprenderá a solicitar una respuesta semántica, a desempaquetar la respuesta y a saber qué características de contenido son más favorables para generar respuestas de alta calidad.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Todos los requisitos previos que se aplican a las [consultas semánticas](semantic-how-to-query-request.md) también son aplicables a las respuestas, incluidos el nivel de servicio y la región.
+Todos los requisitos previos que se aplican a las [consultas semánticas](semantic-how-to-query-request.md#prerequisites) también son aplicables a las respuestas, incluidos el [nivel de servicio y la región](semantic-search-overview.md#availability-and-pricing).
 
-+ La lógica de consulta debe incluir los parámetros de consulta semántica, además del parámetro "answers". En este artículo se describen los parámetros necesarios.
++ La lógica de consulta debe incluir los parámetros de consulta semántica "queryType=semantic", además del parámetro "answers". En este artículo se describen los parámetros necesarios.
 
-+ Las cadenas de consulta introducidas por el usuario deben formularse en un lenguaje que tenga características de una pregunta (qué, dónde, cuándo, cómo).
++ Las cadenas de consulta que especifique el usuario deben ser reconocibles como pregunta (qué, dónde, cuándo, cómo).
 
-+ Los documentos de búsqueda deben contener texto que tenga las características de una respuesta y dicho texto debe existir en uno de los campos enumerados en "searchFields". Por ejemplo, dada una consulta "Qué es una tabla hash", si ninguno de los searchFields contiene pasajes que incluyen "Una tabla hash es...", no es probable que se devuelva una respuesta.
++ Los documentos de búsqueda del índice deben contener texto que tenga las características de una respuesta y dicho texto debe existir en uno de los campos enumerados en "searchFields". Por ejemplo, dada una consulta "Qué es una tabla hash", si ninguno de los campos searchField contiene pasajes que incluyan "Una tabla hash es...", es poco probable que se devuelva una respuesta.
 
 ## <a name="what-is-a-semantic-answer"></a>¿Qué es una respuesta semántica?
 
 Una respuesta semántica es una subestructura de una [respuesta de consulta semántica](semantic-how-to-query-request.md). Se compone de uno o varios pasajes textuales de un documento de búsqueda, formulados como una respuesta a una consulta que tiene el aspecto de una pregunta. Para que se devuelva una respuesta, deben existir frases u oraciones en un documento de búsqueda que presente las características del lenguaje de una respuesta y la propia consulta debe plantearse como una pregunta.
 
-Cognitive Search usa un modelo de comprensión de lectura automática para formular respuestas. El modelo genera un conjunto de posibles respuestas a partir de los documentos disponibles y, cuando llega a un nivel de confianza lo suficientemente alto, propone una respuesta.
+Cognitive Search usa un modelo de comprensión de lectura automática para formular respuestas. El modelo genera un conjunto de posibles respuestas a partir del contenido disponible y, cuando llega a un nivel de confianza lo suficientemente alto, propone una respuesta.
 
 Las respuestas se devuelven como un objeto de nivel superior e independiente en la carga de respuesta de la consulta, el cual puede elegir para su representación en páginas de búsqueda, junto con los resultados de búsqueda. Estructuralmente, es un elemento de matriz dentro de la respuesta que consta de texto, una clave de documento y una puntuación de confianza.
 
 <a name="query-params"></a>
 
-## <a name="how-to-request-semantic-answers-in-a-query"></a>Cómo solicitar respuestas semánticas en una consulta
+## <a name="how-to-specify-answers-in-a-query-request"></a>Cómo especificar "respuestas" en una solicitud de consulta
 
 Para devolver una respuesta semántica, la consulta debe tener el "queryType" semántica, "queryLanguage", "searchFields" y el parámetro "answers". El hecho de especificar el parámetro "answers" no garantiza que se vaya a obtener una respuesta, pero la solicitud debe incluirlo para que se invoque el procesamiento de respuestas.
 
@@ -61,11 +61,15 @@ El parámetro "searchFields" es fundamental para devolver una respuesta de alta 
 }
 ```
 
-+ Una cadena de consulta no debe ser NULL y debe formularse como una pregunta. En esta versión preliminar, los valores "queryType" y "queryLanguage" deben establecerse exactamente como se muestra en el ejemplo.
++ Una cadena de consulta no debe ser NULL y debe formularse como una pregunta.
 
-+ El parámetro "searchFields" determina qué campos de cadena proporcionan tokens al modelo de extracción. Los mismos campos que producen leyendas también generan respuestas. Para obtener una guía precisa sobre cómo establecer este campo para que funcione con títulos y respuestas, consulte [Configurar searchFields](semantic-how-to-query-request.md#searchfields). 
++ El valor de "queryType" debe establecerse en "semantic".
 
-+ En el caso de "answers", la construcción de parámetros es `"answers": "extractive"`, donde el número de respuestas predeterminado devuelto es uno. Puede aumentar el número de respuestas agregando un recuento como se muestra en el ejemplo anterior, hasta un máximo de cinco.  En función de la experiencia del usuario de la aplicación y de cómo quiera representar los resultados, podría necesitar más de una respuesta.
++ El elemento "queryLanguage" debe tener uno de los valores de la [lista de idiomas admitidos (API REST)](/rest/api/searchservice/preview-api/search-documents#queryLanguage).
+
++ El elemento "searchFields" determina qué campos de cadena proporcionan tokens al modelo de extracción. Los mismos campos que producen leyendas también generan respuestas. Para obtener una guía precisa sobre cómo establecer este campo para que funcione con títulos y respuestas, consulte [Configurar searchFields](semantic-how-to-query-request.md#searchfields). 
+
++ En el caso de "answers", la construcción de parámetros es `"answers": "extractive"`, donde el número de respuestas predeterminado devuelto es uno. Puede aumentar el número de respuestas si agrega un elemento `count` como se muestra en el ejemplo anterior, hasta un máximo de cinco.  En función de la experiencia del usuario de la aplicación y de cómo quiera representar los resultados, podría necesitar más de una respuesta.
 
 ## <a name="deconstruct-an-answer-from-the-response"></a>Deconstrucción de una respuesta a partir de la respuesta de la consulta
 
@@ -108,7 +112,10 @@ Dada la consulta "how do clouds form" ("¿Cómo se forman las nubes?"), se devue
                 "North America",
                 "Vancouver"
             ]
+    ]
         }
+}
+
 ```
 
 ## <a name="tips-for-producing-high-quality-answers"></a>Sugerencias para generar respuestas de alta calidad

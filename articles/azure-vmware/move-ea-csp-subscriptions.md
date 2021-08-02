@@ -4,12 +4,12 @@ description: En este artículo se describe cómo mover una suscripción de Azure
 ms.custom: subject-moving-resources
 ms.topic: how-to
 ms.date: 04/26/2021
-ms.openlocfilehash: 0cd06eb72f8ed93cc5a491070baded76f9dc9f6f
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 02f35efe90d4670c4ab38155f129ec0d61c1b03d
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108145572"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111966701"
 ---
 # <a name="move-azure-vmware-solution-subscription-to-another-subscription"></a>Movimiento de una suscripción de Azure VMware Solution a otra
 
@@ -64,9 +64,7 @@ La nueva suscripción aparece en la Información general de la nube privada.
 ## <a name="next-steps"></a>Pasos siguientes
 Más información sobre:
 
-- [Directrices para el traslado de recursos de red](/azure/azure-resource-manager/management/move-limitations/networking-move-limitations)
-- [Guía del traslado de máquinas virtuales](/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations)
-- [Orientaciones para el traslado de recursos de App Service](/azure/azure-resource-manager/management/move-limitations/app-service-move-limitations)
-
-
-
+- [Traslado de Azure VMware Solution entre regiones](move-azure-vmware-solution-across-regions.md)
+- [Directrices para el traslado de recursos de red](../azure-resource-manager/management/move-limitations/networking-move-limitations.md)
+- [Guía del traslado de máquinas virtuales](../azure-resource-manager/management/move-limitations/virtual-machines-move-limitations.md)
+- [Orientaciones para el traslado de recursos de App Service](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)

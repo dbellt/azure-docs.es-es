@@ -8,12 +8,13 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 39990a557315c3fcc79f2b9dab59f25f758ab2bd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 21cb737cf6168f44c1e71815d90139a04ba1d37b
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443121"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110697084"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro-gpu"></a>Administración del acceso, el encendido y el modo de conectividad de Azure Stack Edge Pro con GPU
 
@@ -37,7 +38,9 @@ En este artículo aprenderá a:
 
 El acceso al dispositivo de Azure Stack Edge Pro se controla mediante una contraseña del dispositivo. Puede cambiar la contraseña mediante la interfaz de usuario web local. También puede restablecer la contraseña del dispositivo en Azure Portal.
 
-El acceso a los datos en los discos del dispositivo también se controla mediante las claves de cifrado en reposo.
+El acceso a los datos en los discos del dispositivo también se controla mediante las claves de cifrado en reposo. 
+
+Para acceder al dispositivo, abra una sesión remota de PowerShell a través de HTTP o HTTPS desde la interfaz de usuario web local del dispositivo.
 
 ### <a name="change-device-password"></a>Cambiar la contraseña del dispositivo
 
@@ -96,6 +99,21 @@ Siga estos pasos para rotar las claves de cifrado en reposo.
     Guarde el archivo de clave `.json` en una ubicación segura. Recuerde que puede usar este archivo para que le sea más fácil recuperar los datos del dispositivo en un futuro.
 
     ![Captura de pantalla que muestra el cuadro de diálogo de restablecimiento de la contraseña del dispositivo.](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+
+## <a name="enable-device-access-via-remote-powershell-over-http"></a>Habilitación del acceso a dispositivos mediante PowerShell remoto a través de HTTP
+
+Puede abrir una sesión remota de PowerShell en el dispositivo a través de HTTP o HTTPS. De forma predeterminada, puede acceder al dispositivo mediante una sesión de PowerShell a través de HTTPS. Sin embargo, en redes de confianza, es aceptable habilitar PowerShell remoto a través de HTTP.
+
+Siga estos pasos en la interfaz de usuario local para habilitar PowerShell remoto a través de HTTP:
+
+1. En la interfaz de usuario local del dispositivo, vaya a **Configuración** en la esquina superior derecha de la página.
+1. Seleccione **Habilitar** para poder abrir una sesión remota de PowerShell para el dispositivo a través de HTTP. Esta configuración solo debe habilitarse en redes de confianza.
+
+    ![Captura de pantalla que muestra la opción de habilitar PowerShell remoto a través de HTTP.](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/enable-remote-powershell-http-1.png)
+
+1. Seleccione **Aplicar**.
+
+Ahora puede conectarse a la interfaz de PowerShell del dispositivo a través de HTTP. Para más información, consulte [Conexión a la interfaz de PowerShell del dispositivo](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
 ## <a name="manage-resource-access"></a>Administración del acceso a recursos
 

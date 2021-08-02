@@ -7,20 +7,23 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 02/04/2020
+ms.date: 04/04/2021
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: fb0ad93fb4a1269b4cca02b114c0427f0c44a31b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8fd628c649d379e60ddf8ec772e1cf708f3e50d1
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96455347"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111540288"
 ---
 # <a name="memory-and-concurrency-limits-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Límites de simultaneidad y memoria para el grupo de SQL dedicado en Azure Synapse Analytics
 
 Vea los límites de simultaneidad y memoria asignados a los distintos niveles de rendimiento y las clases de recursos en Azure Synapse Analytics.  
+
+> [!NOTE]
+> Los grupos de cargas de trabajo de administración de cargas de trabajo brindan más flexibilidad para configurar recursos por solicitud y simultaneidad que las clases de recursos dinámicos o estáticos.  Para más información, consulte [Grupos de cargas de trabajo](sql-data-warehouse-workload-isolation.md) y la sintaxis de [CREATE wORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql).
 
 ## <a name="data-warehouse-capacity-settings"></a>Configuración de la capacidad del almacenamiento de datos
 
@@ -131,5 +134,7 @@ Cuando no hay suficientes espacios de simultaneidad libres para iniciar la ejecu
 
 Para obtener más información sobre cómo aprovechar las clases de recursos para optimizar aún más la carga de trabajo, revise los artículos siguientes:
 
+* [Grupo de cargas de trabajo de administración de cargas de trabajo](sql-data-warehouse-workload-isolation.md)
+* [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql)
 * [Resource classes for workload management](resource-classes-for-workload-management.md) (Clases de recursos para la administración de cargas de trabajo)
 * [Analyzing your workload](analyze-your-workload.md) (Análisis de la carga de trabajo)

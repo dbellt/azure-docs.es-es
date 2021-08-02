@@ -1,5 +1,5 @@
 ---
-title: Creación de una versión de una imagen de una máquina virtual a partir de otra existente mediante Azure Image Builder (versión preliminar)
+title: Creación de una versión de una imagen de una máquina virtual a partir de otra existente mediante Azure Image Builder
 description: Creación de una nueva versión de una imagen de máquina virtual a partir de otra existente mediante Azure Image Builder en Linux.
 author: cynthn
 ms.author: cynthn
@@ -9,14 +9,14 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: danis
-ms.openlocfilehash: 0887051ffa396f1eac8bc00dc2437b8e92bec45a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e9508da2002035ee413d557c0cd48474b6e10e0d
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101695641"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112071252"
 ---
-# <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-linux"></a>Vista previa: Creación de una versión de una imagen de una máquina virtual a partir de otra existente mediante Azure Image Builder en Linux
+# <a name="create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-linux"></a>Creación de una versión de una imagen de una máquina virtual a partir de otra existente mediante Azure Image Builder en Linux
 
 En este artículo se muestra cómo tomar una versión de imagen existente en una [galería de imágenes compartidas](../shared-image-galleries.md), actualizarla y publicarla como una nueva versión de imagen en la galería.
 
@@ -24,17 +24,7 @@ Se usará una plantilla .json de ejemplo para configurar la imagen. El archivo .
 
 
 ## <a name="register-the-features"></a>Registro de las características
-Para usar el generador de imágenes de Azure durante la versión preliminar, tendrá que registrar la nueva característica.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
-```
-
-Compruebe el estado del registro de la característica.
-
-```azurecli-interactive
-az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
-```
+Para usar Azure Image Builder, debe registrar la característica.
 
 Compruebe el registro.
 

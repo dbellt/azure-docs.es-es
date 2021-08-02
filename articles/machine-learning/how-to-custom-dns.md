@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 04/01/2021
+ms.date: 06/04/2021
 ms.topic: how-to
-ms.custom: contperf-fy21q3
-ms.openlocfilehash: d0b62baf596250e75d9aa6c4a6210790a7211ce7
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.custom: contperf-fy21q3, devx-track-azurepowershell
+ms.openlocfilehash: 616354174f5eb4bdae8e4b76379106e309c0dd14
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108764856"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969094"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Uso de un área de trabajo con un servidor DNS personalizado
 
@@ -35,7 +35,7 @@ Al usar un área de trabajo de Azure Machine Learning con un punto de conexión 
 
 - Familiaridad con la [configuración de la zona DNS de puntos de conexión privados de Azure](../private-link/private-endpoint-dns.md).
 
-- Familiaridad con [DNS privado de Azure](/azure/dns/private-dns-privatednszone)
+- Familiaridad con [DNS privado de Azure](../dns/private-dns-privatednszone.md)
 
 - De manera opcional, la [CLI de Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/install-az-ps).
 
@@ -165,7 +165,10 @@ $workspaceDns.CustomDnsConfigs | format-table
 1. Seleccione el vínculo en la columna __Punto de conexión privado__ que se muestra.
 1. Al final de la página se muestra una lista de los nombres de dominio completos (FQDN) y las direcciones IP del punto de conexión privado del área de trabajo.
 
-:::image type="content" source="./media/how-to-custom-dns/private-endpoint-custom-dns.png" alt-text="Lista de los FQDN en el portal":::
+    :::image type="content" source="./media/how-to-custom-dns/private-endpoint-custom-dns.png" alt-text="Lista de los FQDN en el portal":::
+
+    > [!TIP]
+    > Si la configuración de DNS no aparece en la parte inferior de la página, use el vínculo __Configuración de DNS__ de la parte izquierda de la página para ver los FQDN.
 
 ---
 

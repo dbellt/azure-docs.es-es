@@ -7,12 +7,12 @@ ms.reviewer: estfan, logicappspm, azla
 ms.topic: how-to
 ms.date: 05/25/2021
 tags: connectors
-ms.openlocfilehash: 45c6945818016618252e69554c62391691d2fb6a
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 10c946010fa3caba14130c3c7055c711323ad93c
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110368862"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110498298"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Llamada a puntos de conexión de servicio mediante HTTP o HTTPS desde Azure Logic Apps
 
@@ -122,6 +122,82 @@ Aquí tiene más información acerca de las salidas de un desencadenador o una a
 | 500 | Error interno del servidor Error desconocido. |
 |||
 
+<a name="single-tenant-authentication"></a>
+
+## <a name="authentication-for-single-tenant-environment"></a>Autenticación para un entorno de inquilino único
+
+Si tiene un recurso de **Aplicación lógica (estándar)** en Azure Logic Apps de un solo inquilino y desea usar una operación HTTP con cualquiera de los siguientes tipos de autenticación, asegúrese de completar los pasos de configuración adicionales para el tipo de autenticación correspondiente. De lo contrario, se produce un error en la llamada.
+
+* [Certificado TSL/SSL](#tsl-ssl-certificate-authentication): agregue la configuración de la aplicación, `WEBSITE_LOAD_ROOT_CERTIFICATES`, y proporcione la huella digital del certificado TSL/SSL.
+
+* [Certificado de cliente o Azure Active Directory Open Authentication (Azure AD OAuth) con el tipo de credencial "Certificado"](#client-certificate-authentication): agregue la configuración de la aplicación, `WEBSITE_LOAD_USER_PROFILE`, y establezca el valor en `1`.
+
+<a name="tsl-ssl-certificate-authentication"></a>
+
+### <a name="tslssl-certificate-authentication"></a>Autenticación con certificados TLS/SSL
+
+1. En la configuración de la aplicación del recurso de aplicación lógica, [agregue o actualice la configuración de la aplicación](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings), `WEBSITE_LOAD_ROOT_CERTIFICATES`.
+
+1. Para el valor de configuración, proporcione la huella digital del certificado TLS/SSL como certificado raíz de confianza.
+
+   `"WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>"`
+
+Por ejemplo, si trabaja en Visual Studio Code, siga estos pasos:
+
+1. Abra el archivo **local.settings.json** del proyecto de aplicación lógica.
+
+1. En el objeto JSON `Values`, agregue o actualice la configuración `WEBSITE_LOAD_ROOT_CERTIFICATES`:
+
+   ```json
+   {
+      "IsEncrypted": false,
+      "Values": {
+         <...>
+         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+         "WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>",
+         <...>
+      }
+   }
+   ```
+
+Para más información, revise la siguiente documentación:
+
+* [Edición de la configuración de host y aplicación para aplicaciones lógicas en Azure Logic Apps de inquilino único](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings)
+* [Certificados y App Service aislado](../app-service/environment/certificates.md#private-client-certificate)
+
+<a name="client-certificate-authentication"></a>
+
+### <a name="client-certificate-or-azure-ad-oauth-with-certificate-credential-type-authentication"></a>Certificado de cliente o Azure AD OAuth con autenticación de tipo de credencial "Certificado"
+
+1. En la configuración de la aplicación del recurso de aplicación lógica, [agregue o actualice la configuración de la aplicación](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings), `WEBSITE_LOAD_USER_PROFILE`.
+
+1. Para el valor de configuración, especifique `1`.
+
+   `"WEBSITE_LOAD_USER_PROFILE": "1"`
+
+Por ejemplo, si trabaja en Visual Studio Code, siga estos pasos:
+
+1. Abra el archivo **local.settings.json** del proyecto de aplicación lógica.
+
+1. En el objeto JSON `Values`, agregue o actualice la configuración `WEBSITE_LOAD_USER_PROFILE`:
+
+   ```json
+   {
+      "IsEncrypted": false,
+      "Values": {
+         <...>
+         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+         "WEBSITE_LOAD_USER_PROFILE": "1",
+         <...>
+      }
+   }
+   ```
+
+Para más información, revise la siguiente documentación:
+
+* [Edición de la configuración de host y aplicación para aplicaciones lógicas en Azure Logic Apps de inquilino único](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings)
+* [Certificados y App Service aislado](../app-service/environment/certificates.md#private-client-certificate)
+
 ## <a name="content-with-multipartform-data-type"></a>Contenido con el tipo multipart/form-data
 
 Para controlar el contenido que tiene el tipo `multipart/form-data` en las solicitudes HTTP, puede agregar un objeto JSON que incluya los atributos `$content-type` y `$multipart` al cuerpo de la solicitud HTTP con este formato.
@@ -193,41 +269,6 @@ De forma predeterminada, todas las acciones basadas en HTTP de Azure Logic Apps 
      ![Opción de configuración "Modelo asincrónico"](./media/connectors-native-http/asynchronous-pattern-setting.png)
 
 * La definición de la notación de objetos JavaScript (JSON) subyacente de la acción HTTP sigue implícitamente el modelo asincrónico de operación.
-
-<a name="tsl-ssl-certificate-authentication"></a>
-
-## <a name="tslssl-certificate-authentication"></a>Autenticación con certificados TLS/SSL
-
-Si tiene un recurso de **aplicación lógica (Estándar)** en un inquilino único de Azure Logic Apps e intenta llamar a un punto de conexión HTTPS desde el flujo de trabajo mediante la operación HTTP y un certificado TLS/SSL para la autenticación, se produce un error en la llamada a menos que complete también estos pasos:
-
-1. En la configuración de la aplicación del recurso de aplicación lógica, [agregue o actualice la configuración de la aplicación](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings) `WEBSITE_LOAD_ROOT_CERTIFICATES`.
-
-1. Para el valor de configuración, proporcione la huella digital del certificado TLS/SSL como certificado raíz de confianza.
-
-   `"WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>"`
-
-Por ejemplo, si trabaja en Visual Studio Code, siga estos pasos:
-
-1. Abra el archivo **local.settings.json** del proyecto de aplicación lógica.
-
-1. En el objeto JSON `Values`, agregue o actualice la configuración `WEBSITE_LOAD_ROOT_CERTIFICATES`:
-
-   ```json
-   {
-      "IsEncrypted": false,
-      "Values": {
-         <...>
-         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-         "WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>",
-         <...>
-      }
-   }
-   ```
-
-Para más información, revise la siguiente documentación:
-
-* [Edición de la configuración de host y aplicación para aplicaciones lógicas en Azure Logic Apps de inquilino único](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings)
-* [Certificados y App Service aislado](../app-service/environment/certificates.md#private-client-certificate)
 
 <a name="disable-asynchronous-operations"></a>
 

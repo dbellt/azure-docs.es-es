@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 03/15/2021
 ms.author: zarhoads
-ms.openlocfilehash: e293d0c58f265b25f3df0a218f84888467468f59
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 248b91be60f4da3ce7dd10212a9db69377651ccb
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107767500"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110071549"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-helm"></a>Inicio rápido: Desarrollo en Azure Kubernetes Service (AKS) con Helm
 
@@ -88,7 +88,7 @@ Para conectar un clúster de Kubernetes de manera local, use [kubectl][kubectl],
 
 ## <a name="download-the-sample-application"></a>Descarga de la aplicación de ejemplo
 
-En esta guía de inicio rápido se usa [una aplicación de Node.js de ejemplo del repositorio de ejemplo de Azure Dev Spaces][example-nodejs]. Clone la aplicación desde GitHub y vaya al directorio `dev-spaces/samples/nodejs/getting-started/webfrontend`.
+En este inicio rápido se utiliza [una aplicación Node.js de ejemplo][example-nodejs]. Clone la aplicación desde GitHub y vaya al directorio `dev-spaces/samples/nodejs/getting-started/webfrontend`.
 
 ```console
 git clone https://github.com/Azure/dev-spaces

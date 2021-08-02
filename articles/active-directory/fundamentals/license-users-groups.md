@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6900647acf7182529f34c8cc065dbb039de38be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b1e8ea30ddfcaeff1a177a14a0b1d911d14b76b4
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97504413"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111526095"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Asignación o eliminación de licencias en el portal de Azure Active Directory
 
@@ -49,8 +49,6 @@ Puede ver los planes de servicio disponibles —incluidas las licencias individu
 
 1. Seleccione **Azure Active Directory** y luego seleccione **Licencias**.
 
-    :::image type="content" source="media/license-users-groups/license-details-blade.png" alt-text="Página Licencias, con el número de servicios comprados y licencias asignadas":::
-
 1. Seleccione **Todos los productos** para ver la página **Todos los productos** y ver los números en **Asignado**, **Disponible** y **Expira próximamente** para los planes de licencias.
 
     :::image type="content" source="media/license-users-groups/license-products-blade-with-products.png" alt-text="Página Servicios, con los planes de licencia de servicio y la información de licencia asociada":::
@@ -72,11 +70,9 @@ Asegúrese de que cualquier usuario que tenga que usar un servicio de Azure AD l
 
 1. En la página **Productos**, seleccione el nombre del plan de licencia que quiere asignar al usuario.
 
-    ![Página Servicios, con el plan de licencia de servicio resaltado](media/license-users-groups/license-products-blade-with-product-highlight.png)
+1. Después de seleccionar el plan de licencia, seleccione **Asignar**.
 
-1. En la página de información general del plan de licencia, seleccione **Asignar**.
-
-    ![Página Servicios, con la opción Asignar resaltada](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
+    ![página de servicios, con la selección del plan de licencia resaltada y las opciones de asignación](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
 
 1. En la página **Asignar**, seleccione **Usuarios y grupos** y, luego, busque y seleccione el usuario al que va a asignar la licencia.
 

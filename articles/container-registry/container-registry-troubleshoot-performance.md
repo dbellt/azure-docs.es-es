@@ -3,12 +3,12 @@ title: Solución de problemas de rendimiento del registro
 description: Síntomas, causas y resolución de problemas comunes con el rendimiento de un registro
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 15129ebe1da2e52fac106a34863f609c440549ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8557c8c342919073099a14be91c743b65c4d7fbc
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92148402"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110069083"
 ---
 # <a name="troubleshoot-registry-performance"></a>Solución de problemas de rendimiento del registro
 
@@ -99,11 +99,11 @@ Vínculos relacionados:
 
 Si los permisos para los recursos del registro lo permiten, [compruebe el estado del entorno del registro](container-registry-check-health.md). Si se notifican errores, revise la [referencia del error](container-registry-health-error-reference.md) para ver posibles soluciones.
 
-Si la [colección de registros de recursos](container-registry-diagnostics-audit-logs.md) está habilitada en el registro, revise el registro ContainterRegistryRepositoryEvents. Este registro almacena información de operaciones, como eventos de inserción o extracción. Consulte el registro para conocer los [errores de operación de nivel de repositorio](container-registry-diagnostics-audit-logs.md#repository-level-operation-failures). 
+Si la [colección de registros de recursos](monitor-service.md) está habilitada en el registro, revise el registro ContainterRegistryRepositoryEvents. Este registro almacena información de operaciones, como eventos de inserción o extracción. Consulte el registro para conocer los [errores de operación de nivel de repositorio](monitor-service.md#repository-level-operation-failures). 
 
 Vínculos relacionados:
 
-* [Registros para la evaluación y auditoría de diagnóstico](container-registry-diagnostics-audit-logs.md)
+* [Supervisión de Azure Container Registry](monitor-service.md)
 * [Preguntas frecuentes sobre Container Registry](container-registry-faq.md)
 * [Procedimientos recomendados para Azure Container Registry](container-registry-best-practices.md)
 

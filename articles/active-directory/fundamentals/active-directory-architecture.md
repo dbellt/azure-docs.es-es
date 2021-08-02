@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 476cf8013f5dc8b5d54efb573cf305d81fc690b1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0fcbf6cd22b67f2e3776c78b166da5733e606542
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95996719"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078355"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>¿Qué es la arquitectura de Azure Active Directory?
 
@@ -105,11 +105,11 @@ Las operaciones de escritura de la aplicación que utilizan Microsoft Graph API 
  >[!NOTE]
  >Las operaciones de escritura se replican inmediatamente a la réplica secundaria en la que se emitieron las operaciones de lectura de la sesión lógica.
 
-#### <a name="backup-protection"></a>Protección de copia de seguridad
+#### <a name="service-level-backup"></a>Copia de seguridad de nivel de servicio
 
-El directorio implementa eliminaciones temporales, en lugar de eliminaciones permanentes, para usuarios e inquilinos para una recuperación fácil en el caso de eliminaciones accidentales realizadas por un cliente. Si el administrador de inquilinos elimina accidentalmente usuarios, pueden deshacer esta operación con facilidad y restaurar a los usuarios eliminados.
-
-Azure AD implementa copias de seguridad diarias de todos los datos y, por tanto, puede restaurar de forma autoritativa los datos en el caso de eliminaciones lógicas o daños. La capa de datos emplea códigos de corrección de errores, por lo que se puede comprobar si hay errores y corregir automáticamente determinados tipos de errores de disco.
+Azure AD implementa una copia de seguridad diaria de los datos de directorio y puede usar estas copias de seguridad para restaurar los datos en caso de que haya problemas en todo el servicio.
+ 
+El directorio también implementa eliminaciones temporales en lugar de eliminaciones permanentes para los tipos de objeto seleccionados. El administrador de inquilinos puede deshacer cualquier eliminación accidental de estos objetos en un plazo de 30 días. Para más información, consulte la [API para restaurar objetos eliminados](/graph/api/directory-deleteditems-restore).
 
 #### <a name="metrics-and-monitors"></a>Métricas y supervisiones
 

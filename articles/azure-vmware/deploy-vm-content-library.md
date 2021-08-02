@@ -3,12 +3,12 @@ title: Creación de una biblioteca de contenido para implementar máquinas virtu
 description: Cree una biblioteca de contenido para implementar una máquina virtual en una nube privada de Azure VMware Solution.
 ms.topic: how-to
 ms.date: 02/03/2021
-ms.openlocfilehash: f8a45ce301d250aa30ec08617e0ae11bcbfbafaf
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 5ebd60b3c2fc8350478125e756413d0ba750a0ed
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110086885"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756840"
 ---
 # <a name="create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Creación de una biblioteca de contenido para implementar máquinas virtuales en Azure VMware Solution
 
@@ -18,7 +18,7 @@ En este artículo, le guiaremos por el procedimiento de creación de una bibliot
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para realizar este tutorial, se necesita un segmento NSX-T (conmutador lógico) y un servicio DHCP administrado.  Para más información, consulte el artículo [Administración de DHCP en Azure VMware Solution](configure-dhcp-azure-vmware-solution.md).
+Para realizar este tutorial, se necesita un segmento NSX-T (conmutador lógico) y un servicio DHCP administrado.  Para más información, consulte el artículo sobre cómo [configurar DHCP para Azure VMware Solution](configure-dhcp-azure-vmware-solution.md).  
 
 ## <a name="create-a-content-library"></a>Crear una biblioteca de contenido
 
@@ -95,7 +95,7 @@ Ahora que se ha creado la biblioteca de contenido, puede agregar una imagen ISO 
 Ahora que se ha explicado la creación de una biblioteca de contenido para implementar máquinas virtuales en Azure VMware Solution, puede que desee obtener información sobre:
 
 - [Procedimiento de migración de las cargas de trabajo de VM a la nube privada](tutorial-deploy-vmware-hcx.md)
-- [Supervisión y administración de máquinas virtuales de Azure VMware Solution](lifecycle-management-of-azure-vmware-solution-vms.md)
+- [Integración de servicios nativos de Azure en Azure VMware Solution](integrate-azure-native-services.md)
 
 <!-- LINKS - external-->
 

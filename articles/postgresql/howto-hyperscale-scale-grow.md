@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 04/07/2021
-ms.openlocfilehash: 905224119b9df4e4003b1736443406e9548a49e3
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 9746c6509673d3268a4afa15bcbeee9fa676d8c1
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012536"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111554415"
 ---
 # <a name="scale-a-hyperscale-citus-server-group"></a>Escalado de un grupo de servidores Hiperescala (Citus)
 
@@ -42,6 +42,15 @@ Haga clic en el botón **Guardar** para que el valor cambiado surta efecto.
 Además de agregar nodos nuevos, puede aumentar las capacidades de los nodos existentes. Ajustar la capacidad de proceso hacia arriba y hacia abajo puede ser útil en los experimentos de rendimiento, así como en el caso de cambios a corto o largo plazo en las demandas de tráfico.
 
 Para cambiar los núcleos virtuales de todos los nodos de trabajo, ajuste el control deslizante **Núcleos virtuales** en **Configuración (por nodo de trabajo)** . Los núcleos virtuales del nodo de coordinación se pueden ajustar de forma independiente. Ajuste el control deslizante **Núcleos virtuales** en **Configuración (nodo de coordinación)** .
+
+## <a name="increase-storage-on-nodes"></a>Aumento del almacenamiento en los nodos
+
+Además de agregar nuevos nodos, puede aumentar el espacio en disco de los nodos existentes. Aumentar el espacio en disco puede permitirle hacer más cosas con los nodos de trabajo existentes antes de necesitar agregar otros.
+
+Para cambiar el almacenamiento de todos los nodos de trabajo, ajuste el control deslizante de **almacenamiento** en **Configuración (por nodo de trabajo)** . El almacenamiento del nodo de coordinación se puede ajustar de forma independiente. Ajuste el control deslizante de **almacenamiento** en **Configuración (nodo de coordinación)** .
+
+> [!NOTE]
+> Una vez que se ha aumentado y guardado, el almacenamiento por nodo no se puede reducir con el control deslizante.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

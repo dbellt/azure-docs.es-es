@@ -1,6 +1,6 @@
 ---
-title: Crea una oferta de prueba
-description: Cómo crear una oferta de desarrollo independiente para probar la oferta de producción en el programa de Marketplace comercial en el Centro de partners de Microsoft.
+title: Creación de una oferta de SaaS de prueba
+description: Cree una oferta de desarrollo independiente para probar la oferta de producción en Azure Marketplace.
 author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
@@ -8,14 +8,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 04/20/2021
-ms.openlocfilehash: 318eebcca3053be2164a1fc52905f36f26b11a6d
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 3c71dc08f58c73cf1fe35d4c2b42d30b30867a1e
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331131"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111559041"
 ---
-# <a name="create-a-test-offer"></a>Crea una oferta de prueba
+# <a name="create-a-test-saas-offer"></a>Creación de una oferta de SaaS de prueba
 
 Para desarrollar en un entorno independiente de la oferta de producción, creará una oferta de prueba y desarrollo (DEV) independiente y una oferta de producción independiente (PROD). Para obtener información sobre las ventajas de usar una oferta de desarrollo independiente, consulte [Plan de una oferta de SaaS](plan-saas-offer.md#test-offer).
 

@@ -5,12 +5,12 @@ ms.date: 03/01/2021
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: contperf-fy21q3, devx-track-azurecli
-ms.openlocfilehash: 69f8518482830f143776dc9d11480a1c818f2fc6
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 76c18d7b11a4ac48a7ebaa77f0ae683b8de9ca44
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107886210"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111422217"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Implementación del consorcio Hyperledger Fabric en Azure Kubernetes Service
 
@@ -20,6 +20,11 @@ Después de leer este artículo, habrá aprendido lo siguiente:
 
 - Conocimiento práctico de Hyperledger Fabric y de los componentes que forman los bloques de creación de una red de la cadena de bloques de Hyperledger Fabric.
 - Cómo implementar y configurar una red del consorcio de Hyperledger Fabric en Azure Kubernetes Service para sus escenarios de producción.
+
+>[!IMPORTANT] 
+>
+>La plantilla solo admite Azure Kubernetes Service versión 1.18.x y versiones inferiores. Debido a la [actualización reciente en Kubernetes](https://kubernetes.io/blog/2020/12/02/dont-panic-kubernetes-and-docker/) para el entorno en tiempo de ejecución subyacente de docker a "contenedor", los contenedores de código de cadena no serán funcionales y los clientes tendrán que pasar a ejecutar código de cadena externo como servicio, lo que solo es posible en HLF 2.2x. Hasta que Azure admita AKS v1.18.x, se podrá implementar esta plantilla siguiendo los pasos que se indican [aquí.](https://github.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service)
+
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
@@ -80,7 +85,7 @@ Para empezar a trabajar con la implementación de componentes de red de Hyperled
     - **Disco administrado**: instancia del servicio Azure Managed Disks que proporciona un almacén persistente para el libro de contabilidad y para la base de datos de estado global del nodo del mismo nivel.
     - **Dirección IP pública**: punto de conexión del clúster de AKS implementado para comunicarse con el clúster.
 
-    Escriba la siguiente información: 
+    Escriba la siguiente información:
 
     ![Captura de pantalla que muestra la pestaña de configuración del clúster AKS.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-aks-cluster-settings-1.png)
 
@@ -113,7 +118,7 @@ Para compilar el consorcio de la cadena de bloques que implementa el servicio de
 > El script se proporciona solo como ayuda en los escenarios de demostración, desarrollo y prueba. El canal y el consorcio que crea este script tiene directivas básicas de Hyperledger Fabric para simplificar los escenarios de demostración, desarrollo y prueba. Para la configuración de producción, se recomienda actualizar las directivas de canal/consorcio de Hyperledger Fabric de acuerdo con las necesidades de cumplimiento de su organización mediante las API nativas de Hyperledger Fabric.
 
 
-Todos los comandos para ejecutar el script de Azure Hyperledger Fabric se pueden ejecutar a través de la interfaz de la línea de comandos (CLI) de Azure Bash. Puede iniciar sesión en Azure Cloud Shell a través de la opción ![plantilla de Hyperledger Fabric en Azure Kubernetes Service](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) en la esquina superior derecha de Azure Portal. En el símbolo del sistema, escriba `bash` y seleccione la tecla Entrar para cambiar a la CLI de Bash o seleccione **Bash** en la barra de herramientas de Cloud Shell.
+Todos los comandos para ejecutar el script de Azure Hyperledger Fabric se pueden ejecutar a través de la interfaz de la línea de comandos (CLI) de Azure Bash. Puede iniciar sesión en Azure Cloud Shell a través de la opción ![Plantilla de Hyperledger Fabric en Azure Kubernetes Service](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) ubicada en la esquina superior derecha de Azure Portal. En el símbolo del sistema, escriba `bash` y seleccione la tecla Entrar para cambiar a la CLI de Bash o seleccione **Bash** en la barra de herramientas de Cloud Shell.
 
 Para más información, consulte [Azure Cloud Shell](../../cloud-shell/overview.md).
 
@@ -124,7 +129,7 @@ En la imagen siguiente se muestra el proceso paso a paso para crear el consorcio
 
 ![Diagrama del proceso para crear un consorcio.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/process-to-build-consortium-flow-chart.png)
 
-Después de finalizar la configuración inicial, use la aplicación cliente para realizar las siguientes operaciones:
+Después de finalizar la configuración inicial, use la aplicación cliente para realizar las operaciones siguientes:
 
 - Administración de canales
 - Administración de consorcios
@@ -149,7 +154,7 @@ Todas las variables de entorno siguen la convención de nomenclatura de recursos
 
 #### <a name="set-environment-variables-for-the-orderer-organizations-client"></a>Configuración de las variables de entorno para el cliente de la organización solicitante
 
-```bash
+```azurecli
 ORDERER_ORG_SUBSCRIPTION=<ordererOrgSubscription>
 ORDERER_ORG_RESOURCE_GROUP=<ordererOrgResourceGroup>
 ORDERER_ORG_NAME=<ordererOrgName>
@@ -159,7 +164,7 @@ CHANNEL_NAME=<channelName>
 
 #### <a name="set-environment-variables-for-the-peer-organizations-client"></a>Configuración de las variables de entorno para el cliente de la organización del mismo nivel
 
-```bash
+```azurecli
 PEER_ORG_SUBSCRIPTION=<peerOrgSubscritpion>
 PEER_ORG_RESOURCE_GROUP=<peerOrgResourceGroup>
 PEER_ORG_NAME=<peerOrgName>
@@ -171,7 +176,7 @@ Según el número de organizaciones del mismo nivel en el consorcio, es posible 
 
 #### <a name="set-environment-variables-for-an-azure-storage-account"></a>Establecimiento de variables de entorno para una cuenta de almacenamiento de Azure predeterminada
 
-```bash
+```azurecli
 STORAGE_SUBSCRIPTION=<subscriptionId>
 STORAGE_RESOURCE_GROUP=<azureFileShareResourceGroup>
 STORAGE_ACCOUNT=<azureStorageAccountName>
@@ -181,7 +186,7 @@ STORAGE_FILE_SHARE=<azureFileShareName>
 
 Use los siguientes comandos para crear una cuenta de almacenamiento de Azure. Si ya tiene una cuenta de almacenamiento de Azure, omita este paso.
 
-```bash
+```azurecli
 az account set --subscription $STORAGE_SUBSCRIPTION
 az group create -l $STORAGE_LOCATION -n $STORAGE_RESOURCE_GROUP
 az storage account create -n $STORAGE_ACCOUNT -g  $STORAGE_RESOURCE_GROUP -l $STORAGE_LOCATION --sku Standard_LRS
@@ -189,14 +194,14 @@ az storage account create -n $STORAGE_ACCOUNT -g  $STORAGE_RESOURCE_GROUP -l $ST
 
 Use los siguientes comandos para crear un recurso compartido de archivos en una cuenta de almacenamiento de Azure. Si ya tiene un recurso compartido de archivos, omita este paso.
 
-```bash
+```azurecli
 STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
 az storage share create  --account-name $STORAGE_ACCOUNT  --account-key $STORAGE_KEY  --name $STORAGE_FILE_SHARE
 ```
 
 Use los comandos siguientes para generar una cadena de conexión para un recurso compartido de archivos de Azure.
 
-```bash
+```azurecli
 STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
 SAS_TOKEN=$(az storage account generate-sas --account-key $STORAGE_KEY --account-name $STORAGE_ACCOUNT --expiry `date -u -d "1 day" '+%Y-%m-%dT%H:%MZ'` --https-only --permissions lruwd --resource-types sco --services f | tr -d '"')
 AZURE_FILE_CONNECTION_STRING=https://$STORAGE_ACCOUNT.file.core.windows.net/$STORAGE_FILE_SHARE?$SAS_TOKEN
@@ -209,15 +214,15 @@ Use los siguientes comandos para capturar el perfil de conexión de la organizac
 
 Para la organización solicitante:
 
-```bash
+```azurecli
 ./azhlf adminProfile import fromAzure -o $ORDERER_ORG_NAME -g $ORDERER_ORG_RESOURCE_GROUP -s $ORDERER_ORG_SUBSCRIPTION
-./azhlf connectionProfile import fromAzure -g $ORDERER_ORG_RESOURCE_GROUP -s $ORDERER_ORG_SUBSCRIPTION -o $ORDERER_ORG_NAME   
+./azhlf connectionProfile import fromAzure -g $ORDERER_ORG_RESOURCE_GROUP -s $ORDERER_ORG_SUBSCRIPTION -o $ORDERER_ORG_NAME
 ./azhlf msp import fromAzure -g $ORDERER_ORG_RESOURCE_GROUP -s $ORDERER_ORG_SUBSCRIPTION -o $ORDERER_ORG_NAME
 ```
 
 Para la organización del mismo nivel:
 
-```bash
+```azurecli
 ./azhlf adminProfile import fromAzure -g $PEER_ORG_RESOURCE_GROUP -s $PEER_ORG_SUBSCRIPTION -o $PEER_ORG_NAME
 ./azhlf connectionProfile import fromAzure -g $PEER_ORG_RESOURCE_GROUP -s $PEER_ORG_SUBSCRIPTION -o $PEER_ORG_NAME
 ./azhlf msp import fromAzure -g $PEER_ORG_RESOURCE_GROUP -s $PEER_ORG_SUBSCRIPTION -o $PEER_ORG_NAME
@@ -225,41 +230,41 @@ Para la organización del mismo nivel:
 
 ### <a name="create-a-channel"></a>Crear un canal
 
-Desde el cliente de la organización solicitante, use el siguiente comando para crear un canal que contenga solo la organización solicitante.  
+Desde el cliente de la organización solicitante, use el siguiente comando para crear un canal que contenga solo la organización solicitante.
 
-```bash
+```azurecli
 ./azhlf channel create -c $CHANNEL_NAME -u $ORDERER_ADMIN_IDENTITY -o $ORDERER_ORG_NAME
 ```
 
 ### <a name="add-a-peer-organization-for-consortium-management"></a>Adición de una organización del mismo nivel para la administración de consorcio
 
 >[!NOTE]
-> Antes de comenzar con las operaciones de consorcio, asegúrese de que ha finalizado la configuración inicial de la aplicación cliente.  
+> Antes de comenzar con las operaciones de consorcio, asegúrese de que ha finalizado la configuración inicial de la aplicación cliente.
 
-Ejecute los comandos siguientes en el orden indicado para agregar una organización del mismo nivel en un canal y consorcio: 
+Ejecute los comandos siguientes en el orden indicado para agregar una organización del mismo nivel en un canal y consorcio:
 
-1.  Desde el cliente de la organización del mismo nivel, cargue el MSP de la organización del mismo nivel en Azure Storage.
+1.    Desde el cliente de la organización del mismo nivel, cargue el MSP de la organización del mismo nivel en Azure Storage.
 
-      ```bash
+      ```azurecli
       ./azhlf msp export toAzureStorage -f  $AZURE_FILE_CONNECTION_STRING -o $PEER_ORG_NAME
       ```
-2.  Desde el cliente de la organización solicitante, descargue el MSP de la organización del mismo nivel de Azure Storage. A continuación, emita el comando para agregar la organización del mismo nivel al canal y consorcio.
+2.    Desde el cliente de la organización solicitante, descargue el MSP de la organización del mismo nivel de Azure Storage. A continuación, emita el comando para agregar la organización del mismo nivel al canal y consorcio.
 
-      ```bash
+      ```azurecli
       ./azhlf msp import fromAzureStorage -o $PEER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
       ./azhlf channel join -c  $CHANNEL_NAME -o $ORDERER_ORG_NAME  -u $ORDERER_ADMIN_IDENTITY -p $PEER_ORG_NAME
       ./azhlf consortium join -o $ORDERER_ORG_NAME  -u $ORDERER_ADMIN_IDENTITY -p $PEER_ORG_NAME
       ```
 
-3.  Desde el cliente de la organización solicitante, cargue el perfil de conexión del solicitante en Azure Storage. De este modo, la organización del mismo nivel puede conectarse a los nodos solicitantes con dicho perfil de conexión.
+3.    Desde el cliente de la organización solicitante, cargue el perfil de conexión del solicitante en Azure Storage. De este modo, la organización del mismo nivel puede conectarse a los nodos solicitantes con dicho perfil de conexión.
 
-      ```bash
+      ```azurecli
       ./azhlf connectionProfile  export toAzureStorage -o $ORDERER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
       ```
 
-4.  Desde el cliente de la organización del mismo nivel, descargue el perfil de conexión del solicitante de Azure Storage. A continuación, ejecute el comando para agregar nodos del mismo nivel al canal.
+4.    Desde el cliente de la organización del mismo nivel, descargue el perfil de conexión del solicitante de Azure Storage. A continuación, ejecute el comando para agregar nodos del mismo nivel al canal.
 
-      ```bash
+      ```azurecli
       ./azhlf connectionProfile  import fromAzureStorage -o $ORDERER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
       ./azhlf channel joinPeerNodes -o $PEER_ORG_NAME  -u $PEER_ADMIN_IDENTITY -c $CHANNEL_NAME --ordererOrg $ORDERER_ORG_NAME
       ```
@@ -273,7 +278,7 @@ Desde el cliente de la organización del mismo nivel, ejecute el comando para es
 >[!NOTE]
 > Antes de ejecutar este comando, asegúrese de que la organización del mismo nivel se agrega en el canal mediante los comandos de administración del consorcio.
 
-```bash
+```azurecli
 ./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY --ordererOrg $ORDERER_ORG_NAME
 ```
 
@@ -285,48 +290,48 @@ Desde el cliente de la organización del mismo nivel, ejecute el comando para es
 ## <a name="chaincode-management-commands"></a>Comandos de administración de código de cadena
 
 >[!NOTE]
-> Antes de comenzar con las operaciones de código de cadena, asegúrese de que ha finalizado la configuración inicial de la aplicación cliente.  
+> Antes de comenzar con las operaciones de código de cadena, asegúrese de que ha finalizado la configuración inicial de la aplicación cliente.
 
 ### <a name="set-the-chaincode-specific-environment-variables"></a>Establecimiento de variables de entorno específicas de código de cadena
 
-```bash
+```azurecli
 # Peer organization name where the chaincode operation will be performed
 ORGNAME=<PeerOrgName>
-USER_IDENTITY="admin.$ORGNAME"  
-# If you are using chaincode_example02 then set CC_NAME=â€œchaincode_example02â€
-CC_NAME=<chaincodeName>  
-# If you are using chaincode_example02 then set CC_VERSION=â€œ1â€ for validation
+USER_IDENTITY="admin.$ORGNAME"
+# If you are using chaincode_example02 then set CC_NAME="chaincode_example02"
+CC_NAME=<chaincodeName>
+# If you are using chaincode_example02 then set CC_VERSION="1" for validation
 CC_VERSION=<chaincodeVersion>
-# Language in which chaincode is written. Supported languages are 'node', 'golang', and 'java'  
-# Default value is 'golang'  
-CC_LANG=<chaincodeLanguage>  
+# Language in which chaincode is written. Supported languages are 'node', 'golang', and 'java'
+# Default value is 'golang'
+CC_LANG=<chaincodeLanguage>
 # CC_PATH contains the path where your chaincode is placed. This is the absolute path to the chaincode project root directory.
-# If you are using chaincode_example02 to validate then CC_PATH=â€œ/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/goâ€
-CC_PATH=<chaincodePath>  
-# Channel on which chaincode will be instantiated/invoked/queried  
-CHANNEL_NAME=<channelName>  
+# If you are using chaincode_example02 to validate then CC_PATH="/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/go"
+CC_PATH=<chaincodePath>
+# Channel on which chaincode will be instantiated/invoked/queried
+CHANNEL_NAME=<channelName>
 ```
 
-### <a name="install-chaincode"></a>Instalación del código de cadena  
+### <a name="install-chaincode"></a>Instalación del código de cadena
 
-Ejecute el comando siguiente para instalar el código de cadena en la organización del mismo nivel.  
+Ejecute el comando siguiente para instalar el código de cadena en la organización del mismo nivel.
 
-```bash
-./azhlf chaincode install -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -l $CC_LANG -v $CC_VERSION  
+```azurecli
+./azhlf chaincode install -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -l $CC_LANG -v $CC_VERSION
 
 ```
-El comando instalará el código de cadena en todos los nodos del mismo nivel de la organización del mismo nivel que estén establecidos en la variable de entorno `ORGNAME`. Si hay dos o más organizaciones del mismo nivel en el canal y quiere instalar el código de cadena en todas ellas, ejecute este comando por separado para cada organización del mismo nivel.  
+El comando instalará el código de cadena en todos los nodos del mismo nivel de la organización del mismo nivel que estén establecidos en la variable de entorno `ORGNAME`. Si hay dos o más organizaciones del mismo nivel en el canal y quiere instalar el código de cadena en todas ellas, ejecute este comando por separado para cada organización del mismo nivel.
 
-Siga estos pasos:  
+Siga estos pasos:
 
-1.  Establezca `ORGNAME` y `USER_IDENTITY` según `peerOrg1` y ejecute el comando `./azhlf chaincode install`.  
-2.  Establezca `ORGNAME` y `USER_IDENTITY` según `peerOrg2` y ejecute el comando `./azhlf chaincode install`.  
+1.    Establezca `ORGNAME` y `USER_IDENTITY` según `peerOrg1` y ejecute el comando `./azhlf chaincode install`.
+2.    Establezca `ORGNAME` y `USER_IDENTITY` según `peerOrg2` y ejecute el comando `./azhlf chaincode install`.
 
-### <a name="instantiate-chaincode"></a>Creación de instancia del código de cadena  
+### <a name="instantiate-chaincode"></a>Creación de instancia del código de cadena
 
-Desde la aplicación cliente del mismo nivel, ejecute el comando siguiente para crear una instancia de código de cadena en el canal.  
+Desde la aplicación cliente del mismo nivel, ejecute el comando siguiente para crear una instancia de código de cadena en el canal.
 
-```bash
+```azurecli
 ./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>
 ```
 
@@ -336,7 +341,7 @@ También puede pasar el archivo JSON de configuración de la recopilación media
 
 Por ejemplo:
 
-```bash
+```azurecli
 ./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath>
 ./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath> -t <transientArgs>
 ```
@@ -345,34 +350,34 @@ La parte `<collectionConfigJSONFilePath>` es la ruta de acceso al archivo JSON q
 Pase `<transientArgs>` como JSON válido en formato de cadena. Aplique escape a cualquier carácter especial. Por ejemplo: `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
 
 > [!NOTE]
-> Ejecute el comando una vez desde una organización del mismo nivel en el canal. Después de enviar correctamente la transacción al solicitante, este la distribuye a todas las organizaciones del mismo nivel del canal. A continuación, se crea una instancia del código de cadena en todos los nodos del mismo nivel en todas las organizaciones del mismo nivel del canal.  
+> Ejecute el comando una vez desde una organización del mismo nivel en el canal. Después de enviar correctamente la transacción al solicitante, este la distribuye a todas las organizaciones del mismo nivel del canal. A continuación, se crea una instancia del código de cadena en todos los nodos del mismo nivel en todas las organizaciones del mismo nivel del canal.
 
-### <a name="invoke-chaincode"></a>Invocación del código de cadena  
+### <a name="invoke-chaincode"></a>Invocación del código de cadena
 
-Desde el cliente de la organización del mismo nivel, ejecute el siguiente comando para invocar la función del código de cadena:  
+Desde el cliente de la organización del mismo nivel, ejecute el siguiente comando para invocar la función del código de cadena:
 
-```bash
-./azhlf chaincode invoke -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <invokeFunc> -a <invokeFuncArgs>  
+```azurecli
+./azhlf chaincode invoke -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <invokeFunc> -a <invokeFuncArgs>
 ```
 
-Pase el nombre de la función de invocación y la lista de argumentos separados por espacios en `<invokeFunction>` y `<invokeFuncArgs>`, respectivamente. Para continuar con el ejemplo de código de cadena chaincode_example02.go, a fin de realizar una operación de invocación, establezca `<invokeFunction>` en `invoke` y `<invokeFuncArgs>` en `"a" "b" "10"`.  
+Pase el nombre de la función de invocación y la lista de argumentos separados por espacios en `<invokeFunction>` y `<invokeFuncArgs>`, respectivamente. Siguiendo con el ejemplo de código de cadena chaincode_example02.go, para realizar una operación de invocación, establezca `<invokeFunction>` en `invoke` y `<invokeFuncArgs>` en `"a" "b" "10"`.
 
 >[!NOTE]
-> Ejecute el comando una vez desde una organización del mismo nivel en el canal. Después de enviar correctamente la transacción al solicitante, este la distribuye a todas las organizaciones del mismo nivel del canal. A continuación, el estado global se actualiza en todos los nodos del mismo nivel de todas las organizaciones del mismo nivel del canal.  
+> Ejecute el comando una vez desde una organización del mismo nivel en el canal. Después de enviar correctamente la transacción al solicitante, este la distribuye a todas las organizaciones del mismo nivel del canal. A continuación, el estado global se actualiza en todos los nodos del mismo nivel de todas las organizaciones del mismo nivel del canal.
 
 
-### <a name="query-chaincode"></a>Consulta del código de cadena  
+### <a name="query-chaincode"></a>Consulta del código de cadena
 
-Ejecute el siguiente comando para consultar el código de cadena:  
+Ejecute el siguiente comando para consultar el código de cadena:
 
-```bash
-./azhlf chaincode query -o $ORGNAME -p <endorsingPeers> -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs> 
+```azurecli
+./azhlf chaincode query -o $ORGNAME -p <endorsingPeers> -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs>
 ```
 Los pares de aprobación son pares en los que se instala el código de cadena y se le llama para la ejecución de transacciones. Debe establecer el elemento `<endorsingPeers>` para que contenga los nombres de nodo del mismo nivel de la organización del mismo nivel actual. Enumere los pares de aprobación para una combinación de canal y código de cadena determinada separados por espacios. Por ejemplo: `-p "peer1" "peer3"`.
 
-Si usa *azhlfTool* para instalar el código de cadena, pase los nombres de nodo del mismo nivel como un valor al argumento del par de aprobación. El código de cadena se instala en todos los nodos del mismo nivel para esa organización. 
+Si usa *azhlfTool* para instalar el código de cadena, pase los nombres de nodo del mismo nivel como un valor al argumento del par de aprobación. El código de cadena se instala en todos los nodos del mismo nivel para esa organización.
 
-Pase el nombre de la función de consulta y la lista de argumentos separados por espacios en `<queryFunction>` y `<queryFuncArgs>`, respectivamente. De nuevo, con el código de cadena chaincode_example02.go como referencia, para consultar el valor "a" en el estado global, establezca `<queryFunction>` en `query` y `<queryArgs>` en `"a"`.  
+Pase el nombre de la función de consulta y la lista de argumentos separados por espacios en `<queryFunction>` y `<queryFuncArgs>`, respectivamente. De nuevo, con el código de cadena chaincode_example02.go como referencia, para consultar el valor "a" en el conjunto de estado global, establezca `<queryFunction>` en `query` y `<queryArgs>` en "a".
 
 ## <a name="troubleshoot"></a>Solución de problemas
 
@@ -380,7 +385,7 @@ Pase el nombre de la función de consulta y la lista de argumentos separados por
 
 Ejecute los siguientes comandos para buscar la versión de implementación de la plantilla. Establezca las siguientes variables de entorno según el grupo de recursos en el que haya implementado la plantilla.
 
-```bash
+```azurecli
 SWITCH_TO_AKS_CLUSTER $AKS_CLUSTER_RESOURCE_GROUP $AKS_CLUSTER_NAME $AKS_CLUSTER_SUBSCRIPTION
 kubectl describe pod fabric-tools -n tools | grep "Image:" | cut -d ":" -f 3
 ```
@@ -417,8 +422,8 @@ Para proporcionar comentarios sobre el producto o solicitar nuevas característi
 
 Interactúe con los ingenieros de Microsoft y con expertos de la comunidad de Azure Blockchain:
 
-- [Página de preguntas y respuestas de Microsoft](/answers/topics/azure-blockchain-workbench.html) 
-   
+- [Página de preguntas y respuestas de Microsoft](/answers/topics/azure-blockchain-workbench.html)
+
   El soporte técnico para plantillas con cadena de bloques se limita a los problemas de implementación.
 - [Comunidad tecnológica de Microsoft](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)

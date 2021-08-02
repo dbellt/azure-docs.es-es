@@ -4,15 +4,15 @@ description: Aprenda a configurar Azure Private Link para acceder a una cuenta d
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/26/2021
+ms.date: 06/08/2021
 ms.author: thweiss
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 034eb35eeef975be23cc318aa797282008d71728
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 633148279332c8d2b30cae525dfa7cc6b14f849e
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105936910"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111744312"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configuración de Azure Private Link para una cuenta de Azure Cosmos
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -651,7 +651,7 @@ Las situaciones y resultados que se muestran a continuación son posibles cuando
 
 Tal como se describe en la sección anterior y, a menos que se hayan establecido reglas de firewall específicas, la adición de un punto de conexión privado hace que su cuenta de Azure Cosmos sea accesible solo a través de puntos de conexión privados. Esto significa que se puede acceder a la cuenta de Azure Cosmos desde el tráfico público una vez creada y antes de que se agregue un punto de conexión privado. Para asegurarse de que el acceso a la red pública esté deshabilitado incluso antes de la creación de puntos de conexión privados, puede establecer la marca `publicNetworkAccess` en `Disabled` durante la creación de la cuenta. Tenga en cuenta que esta marca tiene prioridad sobre cualquier regla de red virtual o IP; todo el tráfico público y de la red virtual se bloquea cuando la marca se establece en `Disabled`, aunque la dirección IP de origen o la red virtual se permitan en la configuración del firewall.
 
-Consulte [esta plantilla de Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/) para obtener un ejemplo que muestra cómo usar esta marca.
+Consulte [esta plantilla de Azure Resource Manager](https://azure.microsoft.com/resources/templates/cosmosdb-private-endpoint/) para obtener un ejemplo que muestra cómo usar esta marca.
 
 ## <a name="adding-private-endpoints-to-an-existing-cosmos-account-with-no-downtime"></a>Incorporación de puntos de conexión privados a una cuenta de Cosmos existente sin tiempo de inactividad
 
@@ -688,7 +688,7 @@ Al usar Private Link con una cuenta de Azure Cosmos se aplican las siguientes li
 
 * Al usar Private Link con una cuenta de Azure Cosmos a través de una conexión de modo directo, solo puede usar el protocolo TCP. Actualmente no se admite el protocolo HTTP.
 
-* Cuando se usa la API de Azure Cosmos DB para las cuentas de MongoDB, solo se admite un punto de conexión privado para las cuentas en el servidor versión 3.6 (es decir, las cuentas que usan el punto de conexión con el formato `*.mongo.cosmos.azure.com`). Private Link no se admite para cuentas en el servidor versión 3.2 (es decir, cuentas que usan el punto de conexión con el formato `*.documents.azure.com`). Para usar Private Link, debe migrar las cuentas anteriores a la nueva versión.
+* Cuando se usa la API de Azure Cosmos DB para las cuentas de MongoDB, solo se admite un punto de conexión privado para las cuentas en el servidor versión 3.6 (es decir, las cuentas que usan el punto de conexión con el formato `*.mongo.cosmos.azure.com`). Private Link no se admite para cuentas en el servidor versión 3.2 (es decir, cuentas que usan el punto de conexión con el formato `*.documents.azure.com`). Para usar Private Link, debe migrar las cuentas anteriores a la nueva versión.
 
 * Cuando se usa una cuenta de API de Azure Cosmos DB para MongoDB que tiene una instancia de Private Link, las herramientas o bibliotecas deben admitir la identificación del nombre de servicio (SNI) o pasar el parámetro `appName` de la cadena de conexión para conectarse correctamente. Es posible que algunas bibliotecas o herramientas anteriores no sean compatibles para usar la característica de Private Link.
 

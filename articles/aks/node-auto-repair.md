@@ -4,12 +4,12 @@ description: Obtenga información sobre la funcionalidad de reparación automát
 services: container-service
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: 341aef394a3784edbc0acd91dad396c9794da3d0
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 95783000739fd42e39ef1bbce88c3b8e62d4a8dc
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105211"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110073205"
 ---
 # <a name="azure-kubernetes-service-aks-node-auto-repair"></a>Reparación automática de nodos de Azure Kubernetes Service (AKS)
 
@@ -45,6 +45,11 @@ Si AKS identifica un nodo incorrecto que permanece de este modo durante 10 minu
 Los ingenieros de AKS están investigando correcciones alternativas si la reparación automática no se realiza correctamente. 
 
 Si AKS encuentra varios nodos incorrectos durante una comprobación de estado, cada nodo se repara individualmente antes de que comience otra reparación.
+
+
+## <a name="limitations"></a>Limitaciones
+
+En muchos casos, AKS puede determinar si un nodo está en un estado incorrecto e intentar reparar el problema, pero hay casos en los que AKS no puede reparar el problema o no puede detectar que hay un problema. Por ejemplo, AKS no puede detectar problemas si no se notifica el estado de un nodo debido a un error en la configuración de red.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

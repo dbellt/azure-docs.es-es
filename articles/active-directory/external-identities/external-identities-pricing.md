@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/05/2021
+ms.date: 05/24/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2083df29754a8791848fd125136b04d1d7a06fb3
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 86a055bade77f92912134a295f7576e545fe7124
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109713223"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467155"
 ---
 # <a name="billing-model-for-azure-ad-external-identities"></a>Modelo de facturación para Azure AD for External Identities
 
@@ -64,7 +64,9 @@ Se debe vincular un inquilino de Azure AD a una suscripción de Azure para una 
 7. En el panel Vinculación de una suscripción, seleccione una **suscripción** y un **grupo de recursos**. Luego, seleccione **Aplicar**.
 
    > [!NOTE]
-   > Si no aparecen suscripciones, puede [asociar una suscripción al inquilino](../fundamentals/active-directory-how-subscriptions-associated-directory.md). También puede agregar una nueva suscripción seleccionando el vínculo **.Si aún no tiene una suscripción, puede crear una aquí**.
+   >
+   > * Los primeros 50 000 MAU al mes son gratuitos para las características Premium P1 y Premium P2. Para determinar el número total de MAU, combinamos los MAU de todos los inquilinos (tanto de Azure AD como de Azure AD B2C) que están vinculados a la misma suscripción.
+    >* Si no aparecen suscripciones, puede [asociar una suscripción al inquilino](../fundamentals/active-directory-how-subscriptions-associated-directory.md). También puede agregar una nueva suscripción seleccionando el vínculo **.Si aún no tiene una suscripción, puede crear una aquí**.
 
     ![Selección de una suscripción y un grupo de recursos](media/external-identities-pricing/link-subscription-resource.png)
 

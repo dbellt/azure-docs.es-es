@@ -9,12 +9,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: ebf04531f29e18f9d120ca2efa17244c4282084c
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 910d6196228315fa8bcb86ef2be113e542a2bf8e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107503276"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110478729"
 ---
 # <a name="azcopy-load-clfs"></a>azcopy load clfs
 

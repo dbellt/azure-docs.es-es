@@ -6,12 +6,12 @@ author: yossi-y
 ms.author: yossiy
 ms.date: 04/21/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: dff35243db327d2b224855e1f65e8e98296d8c8e
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: fc66f79e09021a10c2dde3cc973cd608baeedc32
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109752272"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112061621"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Clave administrada por el cliente de Azure Monitor 
 
@@ -261,7 +261,7 @@ Siga el procedimiento que se muestra en el [artículo Clústeres dedicados](./lo
 
 > [!IMPORTANT]
 > - La manera recomendada para revocar el acceso a los datos es deshabilitar la clave o eliminar la directiva de acceso de su instancia de Key Vault.
-> - Al establecer `identity` `type` del clúster en "None", también se revoca el acceso a los datos, pero no se recomienda este enfoque, ya que no se puede revertir la revocación al redefinir `identity` en el clúster sin abrir la solicitud de soporte técnico.
+> - Al establecer la opción `identity` `type` del clúster en `None`, también se revoca el acceso a los datos, pero no se recomienda este enfoque, ya que no se puede revertir sin contactar con el soporte técnico.
 
 El almacenamiento de clúster siempre respetará los cambios en los permisos de las claves en el plazo de una hora (normalmente antes), y Storage dejará de estar disponible. Los datos nuevos que se ingieren en áreas de trabajo vinculadas al clúster se quitan y no se podrán recuperar, los datos dejan de estar accesibles y las consultas a estas áreas de trabajo generan un error. Los datos ingeridos anteriormente permanecerán en el almacenamiento siempre que se no se eliminen el clúster ni las áreas de trabajo. Los datos inaccesibles se rigen por la directiva de retención de datos y se purgarán cuando se alcance la retención. Los datos ingeridos en los últimos 14 días también se conservan en la memoria caché activa (respaldada por SSD) para un funcionamiento eficaz del motor de consultas. Esto se elimina en la operación de revocación de claves y se convierte en inaccesible.
 
@@ -427,7 +427,7 @@ La clave administrada por el cliente se proporciona en un clúster dedicado, y s
   - Si crea un clúster y recibe un error que dice que la región no admite el cifrado doble para clústeres, puede crear el clúster sin cifrado doble agregando `"properties": {"isDoubleEncryptionEnabled": false}` en el cuerpo de la solicitud REST.
   - La configuración de cifrado doble no se puede cambiar después de crear el clúster.
 
-  - Si el clúster se establece con la identidad administrada asignada por el usuario, el establecimiento de `UserAssignedIdentities` con `None` suspende el clúster e impide el acceso a los datos, pero no se puede revertir la revocación ni activar el clúster sin abrir la solicitud de soporte técnico. Esta limitación no se aplica a la identidad administrada asignada por el sistema.
+  - Al establecer la opción `identity` `type` del clúster en `None`, también se revoca el acceso a los datos, pero no se recomienda este enfoque, ya que no se puede revertir sin contactar con el soporte técnico. La forma recomendada de revocar el acceso a sus datos es la [revocación de la clave](#key-revocation).
 
   - No se puede usar una clave administrada por el cliente con una identidad administrada asignada por el usuario si su instancia de Key Vault está en un vínculo privado (vNet). En este escenario puede usar la identidad administrada asignada por el sistema.
 

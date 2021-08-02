@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fddb3b171e5a26273cb2e0045f11e3a4dbb48c5f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd47a623700c495a571bc4ca6b949d1a2229178a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97655108"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110469167"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Aprobación o denegación de solicitudes de acceso en la administración de derechos de Azure AD
 
@@ -85,9 +85,9 @@ Después de abrir una solicitud de acceso pendiente de aprobación, puede ver lo
 
 1. Haga clic en **Enviar** para enviar su decisión.
 
-    Si se configura una directiva con varios aprobadores, solo un aprobador tiene que tomar una decisión sobre la aprobación pendiente. Una vez que un aprobador haya enviado su decisión sobre la solicitud de acceso, la solicitud se completa y ya no está disponible para que los otros aprobadores la aprueben o denieguen. Los otros aprobadores pueden consultar la decisión sobre la solicitud y el aprobador que tomó la decisión en su portal Mi acceso. En este momento, solo se admite la aprobación de fase única.
+    Si una directiva se configura con varios aprobadores en una fase, solo un aprobador debe tomar una decisión sobre la aprobación pendiente. Una vez que un aprobador haya enviado su decisión sobre la solicitud de acceso, la solicitud se completa y ya no está disponible para que los otros aprobadores la aprueben o denieguen. Los otros aprobadores pueden consultar la decisión sobre la solicitud y el aprobador que tomó la decisión en su portal Mi acceso.
 
-    Si ninguno de los aprobadores configurados puede aprobar o denegar la solicitud de acceso, la solicitud expira tras la duración de la solicitud configurada. El usuario recibe una notificación que le indica que su solicitud de acceso ha expirado y que debe volver a enviar la solicitud de acceso.
+    Si ninguno de los aprobadores configurados en una fase puede aprobar o denegar la solicitud de acceso, la solicitud expira después de la duración de la solicitud configurada. El usuario recibe una notificación que le indica que su solicitud de acceso ha expirado y que debe volver a enviar la solicitud de acceso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

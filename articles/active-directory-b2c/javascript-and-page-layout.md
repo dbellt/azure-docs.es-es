@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 06/07/2021
 ms.custom: project-no-code, devx-track-js
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d234e57f7c11b0d9f2cd212bde93a8b8e478ef41
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 652551635b84c18020bf928194923d0e6ca86149
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104781371"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111565293"
 ---
 # <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>JavaScript y versiones de diseño de página en Azure Active Directory B2C
 
@@ -63,7 +63,7 @@ Para especificar una versión de diseño de página para las páginas de flujo d
 
 1. En el inquilino de Azure AD B2C, seleccione **Flujos de usuario**.
 1. Haga clic en la directiva (por ejemplo, "B2C_1_SignupSignin") para abrirla.
-1. Seleccione **Diseños de página**. Elija un **Nombre de diseño** y, a continuación, elija la **Versión de Diseño de página (versión preliminar)** .
+1. Seleccione **Diseños de página**. Elija un **Nombre de diseño** y, a continuación, elija la **Versión de Diseño de página**.
 
 Para información sobre los distintos diseños de página, consulte el [registro de cambios en los diseños de página](page-layout.md).
 

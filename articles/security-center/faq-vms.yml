@@ -1,0 +1,48 @@
+### YamlMime:FAQ
+metadata:
+  title: 'Preguntas frecuentes sobre Azure Security Center: preguntas sobre máquinas virtuales'
+  description: Preguntas más frecuentes sobre máquinas virtuales en Azure Security Center, un producto que ayuda a evitar, detectar y responder a amenazas.
+  services: security-center
+  documentationcenter: na
+  author: memildin
+  manager: rkarlin
+  ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
+  ms.service: security-center
+  ms.devlang: na
+  ms.topic: conceptual
+  ms.tgt_pltfrm: na
+  ms.workload: na
+  ms.date: 02/25/2020
+  ms.author: memildin
+  ms.openlocfilehash: 099ff550f215a6f16ed0ddf8f845419131d5ebda
+  ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 06/07/2021
+  ms.locfileid: "111907930"
+title: 'Preguntas frecuentes: preguntas sobre máquinas virtuales'
+summary: ''
+sections:
+- name: Omitido
+  questions:
+  - question: >
+      ¿Qué tipos de máquinas virtuales se admiten?
+    answer: >
+      La funcionalidad de supervisión y las recomendaciones están disponibles para las máquinas virtuales creadas con los [modelos de implementación clásica y de Resource Manager](../azure-resource-manager/management/deployment-models.md).
+
+
+      Consulte [Plataformas compatibles con Azure Security Center](security-center-os-coverage.md) para ver una lista de plataformas compatibles.
+  - question: >
+      ¿Por qué Azure Security Center no reconoce la solución antimalware que se ejecuta en mi máquina virtual de Azure?
+    answer: >
+      Azure Security Center solo tiene visibilidad del antimalware instalado mediante extensiones de Azure. Por ejemplo, Security Center no puede detectar antimalware instalado previamente en una imagen que haya proporcionado o si instaló este tipo de herramienta en máquinas virtuales con sus propios procesos (como sistemas de administración de configuración).
+  - question: >
+      ¿Por qué recibo el mensaje Faltan los datos de detección en mi máquina virtual?
+    answer: >
+      Este mensaje aparece cuando no hay datos de examen de una máquina virtual. Los datos de detección pueden tardar algún tiempo (menos de una hora) en rellenarse después de habilitar la recolección de datos en Azure Security Center. Tras el rellenado inicial de los datos de examen, se puede recibir este mensaje porque no hay ningún dato de examen o porque no hay ninguno que sea reciente. Estos análisis no se rellenan para las máquinas virtuales que estén detenidas. Este mensaje también podría aparecer si no se han rellenado datos de examen recientemente (de acuerdo con la directiva de retención del agente de Windows, que tiene un valor predeterminado de 30 días).
+  - question: >
+      ¿Con qué frecuencia Security Center analiza las vulnerabilidades del sistema operativo, las actualizaciones del sistema y los problemas de Endpoint Protection?
+    answer: "A continuación se muestran los tiempos de latencia para los exámenes de vulnerabilidades, actualizaciones y problemas de Security Center:\n\n- Configuraciones de seguridad del sistema operativo: los datos se actualizan en un plazo de 48 horas\n- Actualizaciones del sistema: los datos se actualizan en un plazo de 24 horas.\n- Problemas de Endpoint Protection: los datos se actualizan en un plazo de 8 horas.\n\nNormalmente, Security Center busca nuevos datos cada hora y actualiza las recomendaciones en consecuencia. \n\n> [!NOTE]\n> Security Center usa el agente de Log Analytics para recopilar y almacenar datos. Para obtener más información, consulte [Migración de la plataforma de Azure Security Center](./security-center-enable-data-collection.md).\n"
+  - question: >
+      ¿Por qué recibo el mensaje Falta el agente de máquina virtual?
+    answer: El agente de VM debe instalarse en VM para habilitar la recopilación de datos. De manera predeterminada, el agente de máquina virtual está instalado en las máquinas virtuales que se implementan desde Azure Marketplace. La entrada de blog sobre [las extensiones y el agente de máquina virtual](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)proporciona información sobre cómo instalar el Agente de máquina virtual.

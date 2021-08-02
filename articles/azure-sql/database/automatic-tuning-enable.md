@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: how-to
-author: danimir
-ms.author: danil
-ms.reviewer: wiassaf, sstein
+author: NikaKinska
+ms.author: nnikolic
+ms.reviewer: mathoma, wiassaf
 ms.date: 03/03/2021
-ms.openlocfilehash: 1362d8c1f15b64b9d76b28fd354cdae8919504b0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 77dfee73496dda4bf1f6f3616fe9ac5846e6766c
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558285"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591753"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Habilitación del ajuste automático en Azure Portal para supervisar las consultas y mejorar el rendimiento de las cargas de trabajo
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -30,7 +30,7 @@ El ajuste automático se puede habilitar en el nivel de servidor o de base de da
 - Comandos de [T-SQL](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true)
 
 > [!NOTE]
-> Para Instancia administrada de Azure SQL, la opción admitida FORCE_LAST_GOOD_PLAN se puede configurar mediante [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) solamente. La configuración basada en Azure Portal y las opciones de ajuste automático de índices que se describen en este artículo no se aplican a Instancia administrada de Azure SQL.
+> Para Azure SQL Managed Instance, la opción admitida FORCE_LAST_GOOD_PLAN se puede configurar mediante [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management). La configuración basada en Azure Portal y las opciones de ajuste automático de índices que se describen en este artículo no se aplican a Instancia administrada de Azure SQL.
 
 > [!NOTE]
 > En este momento no se admite la configuración de opciones de ajuste automático a través de la plantilla de ARM (Azure Resource Manager).

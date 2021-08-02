@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2021
 ms.author: Zhchia
-ms.openlocfilehash: 385a61b3bda6c75b6fb87a5655fadb45080b7f08
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: c302f7731c111c0718ac7c4d5889208020cc09a8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124156"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110067598"
 ---
 # <a name="tutorial-configure-jostle-for-automatic-user-provisioning"></a>Tutorial: Configuración de Jostle para aprovisionar usuarios automáticamente
 
@@ -96,6 +96,9 @@ El servicio de aprovisionamiento de Azure AD le permite definir quién se aprov
 
 Esta sección le guía por los pasos necesarios para configurar el servicio de aprovisionamiento de Azure AD para crear, actualizar y deshabilitar usuarios y grupos en Jostle en función de las asignaciones de grupos y usuarios de Azure AD.
 
+> [!NOTE]
+> Para más información sobre el aprovisionamiento automático de usuarios en Jostle, consulte el artículo sobre el [aprovisionamiento de usuarios en la integración con Azure](https://forum.jostle.us/hc/en-us/articles/360056368534-User-Provisioning-Azure-Integration).
+
 ### <a name="to-configure-automatic-user-provisioning-for-jostle-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para Jostle en Azure AD:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones**.
@@ -106,7 +109,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Vínculo a Jostle en la lista de aplicaciones](common/all-applications.png)
 
-1. Seleccione la pestaña **Aprovisionamiento**.
+1. Seleccione la pestaña **Aprovisionamiento** y haga clic en **Introducción**.
 
     ![Pestaña Aprovisionamiento](common/provisioning.png)
 
@@ -118,13 +121,13 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
-1. En el campo **Dirección de correo electrónico para notificaciones**, escriba la dirección de correo electrónico de la persona o grupo que deben recibir las notificaciones de error de aprovisionamiento. Seleccione la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+1. En el campo **Dirección de correo electrónico para notificaciones**, escriba la dirección de correo electrónico de la persona o grupo que deben recibir las notificaciones de error de aprovisionamiento. Seleccione la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**. Pero hay que tener en cuenta que Jostle también enviará notificaciones de error de aprovisionamiento, por lo que esto es opcional.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
 1. Seleccione **Guardar**.
 
-1. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Jostle** (Sincronizar usuarios de Azure Active Directory con Jostle).
+1. En la sección **Asignaciones**, seleccione **Aprovisionar usuarios de Azure Active Directory en Jostle**.
 
 1. Examine los atributos de usuario que se sincronizan entre Azure AD y Jostle en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Jostle con el objetivo de realizar operaciones de actualización. Si decide cambiar el [atributo de destino coincidente](../app-provisioning/customize-application-attributes.md), deberá asegurarse de que la API de Jostle admite el filtrado de usuarios basado en ese atributo. Para confirmar los cambios, seleccione **Guardar**.
 
@@ -147,7 +150,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-1. Seleccione los valores que quiera usar en **Ámbito** en la sección **Configuración** para definir los usuarios o grupos que quiere aprovisionar en Jostle.
+1. Para definir los usuarios o grupos que desea aprovisionar en Jostle, seleccione los valores deseados en la opción **Ámbito** de la sección **Configuración**. Para Jostle, en **Ámbito** se debe seleccionar "Sincronizar solo los usuarios y grupos asignados".
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

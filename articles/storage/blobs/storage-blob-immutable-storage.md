@@ -5,20 +5,20 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 05/17/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: d1d77e508e627520878dcc27b5a643473d11dd1d
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 1495fa3751a77d5dfd26192ded4f35403ed932ef
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104800727"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110098315"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Almacenamiento de datos de blobs críticos para la empresa con almacenamiento inmutable
 
-El almacenamiento inmutable para Azure Blob Storage permite a los usuarios almacenar objetos de datos críticos para la empresa en un estado WORM (escribir una vez, leer muchas). En este estado, los usuarios no pueden borrar ni modificar los datos durante el intervalo de tiempo especificado por el usuario. Mientras dure el intervalo de retención, se pueden crear y leer blobs, pero no modificar ni eliminar. El almacenamiento inmutable está disponible en las cuentas de uso general v1, de uso general v2, BlobStorage y BlockBlobStorage de todas las regiones de Azure.
+El almacenamiento inmutable para Azure Blob Storage permite a los usuarios almacenar objetos de datos críticos para la empresa en un estado WORM (escribir una vez, leer muchas). En este estado, los usuarios no pueden borrar ni modificar los datos durante el intervalo de tiempo especificado por el usuario. Mientras dure el intervalo de retención, se pueden crear y leer blobs, pero no modificar ni eliminar. El almacenamiento inmutable está disponible en las cuentas de uso general v1, de uso general v2, blob en bloques prémium y blob heredado de todas las regiones de Azure.
 
 Para obtener información sobre cómo establecer y borrar las suspensiones legales o crear una directiva de retención basada en el tiempo mediante Azure Portal, PowerShell o la CLI de Azure, vea [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](storage-blob-immutability-policies-manage.md).
 
@@ -140,7 +140,7 @@ El almacenamiento inmutable se puede usar con cualquier tipo de blob cuando se e
 
 **¿Es necesario crear una cuenta de almacenamiento para usar esta característica?**
 
-No, puede usar el almacenamiento inmutable con cualquier cuenta de uso general v1, uso general v2, BlobStorage o BlockBlobStorage existente o recién creada. Se admiten las cuentas de almacenamiento de uso general v1, pero se recomienda actualizar a las de uso general v2 para poder aprovechar otras características. Para obtener información sobre la actualización de una cuenta de almacenamiento de uso general v1 existente, vea [Actualización de una cuenta de almacenamiento](../common/storage-account-upgrade.md).
+No, puede usar el almacenamiento inmutable con cualquier cuenta de uso general v1, uso general v2, blob en bloques prémium y blob heredado. Se admiten las cuentas de almacenamiento de uso general v1, pero se recomienda actualizar a las de uso general v2 para poder aprovechar otras características. Para obtener información sobre la actualización de una cuenta de almacenamiento de uso general v1 existente, vea [Actualización de una cuenta de almacenamiento](../common/storage-account-upgrade.md).
 
 **¿Se puede aplicar una suspensión legal y una directiva de retención con duración definida a la vez?**
 

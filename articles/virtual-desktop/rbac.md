@@ -1,6 +1,6 @@
 ---
-title: 'Roles integrados de Windows Virtual Desktop: Azure'
-description: Información general sobre los roles integrados de Windows Virtual Desktop disponibles para el control de acceso basado en roles de Azure.
+title: 'Roles integrados de Azure Virtual Desktop: Azure'
+description: Información general sobre los roles integrados de Azure Virtual Desktop disponibles para el control de acceso basado en roles de Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a1094004bc523a59c3fcf7eb77c6f11bc4554080
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: f19035ea08e95d5535903467ddbc11fc53c0deb7
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445863"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753114"
 ---
-# <a name="built-in-roles-for-windows-virtual-desktop"></a>Roles integrados de Windows Virtual Desktop
+# <a name="built-in-roles-for-azure-virtual-desktop"></a>Roles integrados de Azure Virtual Desktop
 
-Windows Virtual Desktop usa controles de acceso basado en roles (RBAC) de Azure para asignar roles a usuarios y administradores. Estos roles proporcionan permisos de administrador para llevar a cabo determinadas tareas. Para más información sobre los roles integrados de RBAC de Azure, consulte [Roles integrados de Azure](../role-based-access-control/built-in-roles.md).
+Azure Virtual Desktop usa controles de acceso basado en roles (RBAC) de Azure para asignar roles a usuarios y administradores. Estos roles proporcionan permisos de administrador para llevar a cabo determinadas tareas. Para más información sobre los roles integrados de RBAC de Azure, consulte [Roles integrados de Azure](../role-based-access-control/built-in-roles.md).
 
-Los roles integrados estándar de Azure son Propietario, Colaborador y Lector. Sin embargo, Windows Virtual Desktop tiene roles adicionales que le permiten separar roles de administración para grupos de hosts, grupos de aplicaciones y áreas de trabajo. Esta separación le permite tener un control más preciso sobre las tareas administrativas. Estos roles se denominan conforme a los roles estándar de Azure y a la metodología de privilegios mínimos.
+Los roles integrados estándar de Azure son Propietario, Colaborador y Lector. Sin embargo, Azure Virtual Desktop tiene roles adicionales que le permiten separar roles de administración para grupos de hosts, grupos de aplicaciones y áreas de trabajo. Esta separación le permite tener un control más preciso sobre las tareas administrativas. Estos roles se denominan conforme a los roles estándar de Azure y a la metodología de privilegios mínimos.
 
-Windows Virtual Desktop no tiene un rol Propietario específico. Sin embargo, puede usar un rol Propietario estándar para los objetos de servicio.
+Azure Virtual Desktop no tiene un rol Propietario específico. Sin embargo, puede usar un rol Propietario estándar para los objetos de servicio.
 
 ## <a name="desktop-virtualization-contributor"></a>Colaborador de virtualización del escritorio
 

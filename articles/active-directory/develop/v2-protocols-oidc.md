@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 82e9901c4bea8de7e5fee37ff4f2b7374f67e0ca
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: a01566341a1c5aa1700b68938410ee0c08c17ddd
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110467243"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111747552"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plataforma de identidad de Microsoft y protocolo OpenID Connect
 
@@ -126,7 +126,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `nonce` | Obligatorio | Un valor incluido en la solicitud, generado por la aplicación, que se incluirá en el valor id_token resultante como una notificación. La aplicación puede comprobar este valor para mitigar los ataques de reproducción de token. Habitualmente, el valor es una cadena única aleatoria que se puede usar para identificar el origen de la solicitud. |
 | `response_mode` | Recomendado | Especifica el método que se debe usar para enviar el código de autorización resultante de nuevo a la aplicación. Puede ser `form_post` o `fragment`. En el caso de las aplicaciones web, se recomienda usar `response_mode=form_post` para asegurar la transferencia más segura de tokens a la aplicación. |
 | `state` | Recomendado | Un valor incluido en la solicitud que también se devolverá en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. Se usa normalmente un valor único generado de forma aleatoria para [evitar los ataques de falsificación de solicitudes entre sitios](https://tools.ietf.org/html/rfc6749#section-10.12). El estado también se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, como la página o la vista en la que estaba el usuario. |
-| `prompt` | Opcional | Indica el tipo de interacción necesaria con el usuario. Los únicos valores válidos en este momento son `login`, `none` y `consent`. La notificación `prompt=login` obliga al usuario a escribir sus credenciales en esa solicitud, lo que niega el inicio de sesión único. La notificación `prompt=none` es lo contrario. Esta notificación garantiza que al usuario no se le presente ninguna solicitud interactiva. Si la solicitud no se puede completar sin notificaciones mediante el inicio de sesión único, la plataforma de identidad de Microsoft devolverá un error. La notificación `prompt=consent` desencadena el cuadro de diálogo de consentimiento de OAuth después de que el usuario inicia sesión. El cuadro de diálogo le pide al usuario que conceda permisos a la aplicación. |
+| `prompt` | Opcional | Indica el tipo de interacción necesaria con el usuario. Los únicos valores válidos en este momento son `login`, `none`, `consent` y `select_account`. La notificación `prompt=login` obliga al usuario a escribir sus credenciales en esa solicitud, lo que niega el inicio de sesión único. El parámetro `prompt=none` es lo contrario y se debe emparejar con `login_hint` para indicar qué usuario debe haber iniciado sesión. Estos parámetros garantizan que al usuario no se le presente ninguna solicitud interactiva. Si la solicitud no se puede completar sin notificaciones mediante el inicio de sesión único (porque ningún usuario inició sesión, el usuario sugerido no inició sesión o porque varios usuarios iniciaron sesión y no se proporcionó ninguna sugerencia), la plataforma de identidad de Microsoft devuelve un error. La notificación `prompt=consent` desencadena el cuadro de diálogo de consentimiento de OAuth después de que el usuario inicia sesión. El cuadro de diálogo le pide al usuario que conceda permisos a la aplicación. Por último, `select_account` muestra al usuario un selector de cuenta, lo que niega un SSO silencioso pero permite al cliente elegir con qué cuenta quiere iniciar sesión, sin necesidad de ingresar ninguna credencial. No es posible utilizar `login_hint` y `select_account` juntos.|
 | `login_hint` | Opcional | Puede usar este parámetro para rellenar previamente el campo de nombre de usuario y dirección de correo electrónico de la página de inicio de sesión del usuario, si sabe el nombre de usuario con anticipación. A menudo, las aplicaciones usan este parámetro durante la reautenticación, una vez que ya se extrajo el nombre de usuario de un inicio de sesión anterior mediante la notificación `preferred_username`. |
 | `domain_hint` | Opcional | El dominio del usuario en un directorio federado.  Se omite el proceso de detección basado en correo electrónico por el que pasa el usuario de la página de inicio de sesión, para obtener una experiencia de usuario ligeramente más sencilla. En el caso de los inquilinos que se federan mediante un directorio local como AD FS, con frecuencia se produce un inicio de sesión completo debido a la sesión de inicio de sesión existente. |
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2021
 ms.author: yelevin
-ms.openlocfilehash: 5ef5f465cbb8dfd044482bfad1eb72f1aa78df39
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 869693765463589c3e94aef9a1cee17867117c5d
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783736"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072689"
 ---
 # <a name="automate-incident-handling-in-azure-sentinel-with-automation-rules"></a>Automatización del control de incidentes en Azure Sentinel con las reglas de automatización
 
@@ -42,7 +42,7 @@ Las reglas de automatización están conformadas por varios componentes:
 
 La creación de un incidente desencadena reglas de automatización. 
 
-Tema de revisión: las reglas de análisis crean los incidentes a partir de las alertas, de las cuales hay cuatro tipos, como se explica en el tutorial [Detección de amenazas con reglas de análisis integradas en Azure Sentinel](tutorial-detect-threats-built-in.md).
+Tema de revisión: las reglas de análisis crean los incidentes a partir de las alertas. Hay varios tipos de reglas de análisis, como se explica en el tutorial [Detección de amenazas con reglas de análisis integradas en Azure Sentinel](tutorial-detect-threats-built-in.md).
 
 ### <a name="conditions"></a>Condiciones
 
@@ -62,7 +62,7 @@ Se pueden definir acciones para que se ejecuten cuando se cumplan las condicione
 
 - Agregar una etiqueta a un incidente: resulta útil para clasificar incidentes por asunto, por atacante o por cualquier otro denominador común.
 
-Además, puede definir una acción para ejecutar un [cuaderno de estrategias](tutorial-respond-threats-playbook.md) a fin de realizar acciones de respuesta más complejas, incluidas las que impliquen sistemas externos. En las reglas de automatización solo se pueden usar los cuadernos de estrategias que se activan a través del [desencadenador de incidentes](automate-responses-with-playbooks.md#azure-logic-apps-basic-concepts). Puede definir una acción para que incluya varios cuadernos de estrategias, o combinaciones de cuadernos de estrategias y otras acciones, así como el orden en que se ejecutarán.
+Además, puede definir una acción para [**ejecutar un cuaderno de estrategias**](tutorial-respond-threats-playbook.md) con el fin de realizar acciones de respuesta más complejas, incluidas las que impliquen sistemas externos. **Solo** los cuadernos de estrategias que activa el [**desencadenador de incidentes**](automate-responses-with-playbooks.md#azure-logic-apps-basic-concepts) están disponibles para usarlos en las reglas de automatización. Puede definir una acción para que incluya varios cuadernos de estrategias, o combinaciones de cuadernos de estrategias y otras acciones, así como el orden en que se ejecutarán.
 
 ### <a name="expiration-date"></a>Fecha de expiración
 
@@ -132,12 +132,27 @@ Para que una regla de automatización ejecute un cuaderno de estrategias, se deb
 
 Al configurar una regla de automatización y agregar una acción para **ejecutar un cuaderno de estrategias**, aparecerá una lista desplegable de cuadernos. Los cuadernos de estrategias en los que Azure Sentinel no tiene permisos se mostrarán como no disponibles ("atenuados"). Puede conceder permiso a Azure Sentinel para acceder a los grupos de recursos de los cuadernos de estrategias en ese momento si selecciona el vínculo **Manage playbook permissions** (administrar permisos del cuaderno de estrategias).
 
-> [!NOTE]
-> **Permisos en una arquitectura de varios inquilinos**
->
-> Las reglas de automatización son totalmente compatibles con las implementaciones en varias áreas de trabajo y multiinquilino (en el caso de varios inquilinos, mediante [Azure Lighthouse](extend-sentinel-across-workspaces-tenants.md#managing-workspaces-across-tenants-using-azure-lighthouse)).
->
-> Por lo tanto, si la implementación de Azure Sentinel usa una arquitectura multiinquilino (por ejemplo, si es un MSSP), una regla de automatización en un inquilino puede ejecutar un cuaderno de estrategias ubicado en un inquilino diferente. No obstante, los permisos de Sentinel para ejecutar los cuadernos de estrategias deben definirse en el inquilino en el que se encuentran los cuadernos de estrategias, no en el inquilino en el que están definidas las reglas.
+#### <a name="permissions-in-a-multi-tenant-architecture"></a>Permisos en una arquitectura de varios inquilinos
+
+Las reglas de automatización son totalmente compatibles con las [implementaciones multiinquilino](extend-sentinel-across-workspaces-tenants.md#managing-workspaces-across-tenants-using-azure-lighthouse) (mediante [Azure Lighthouse](../lighthouse/index.yml)) y en varias áreas de trabajo.
+
+Por tanto, si la implementación de Azure Sentinel usa una arquitectura multiinquilino, puede hacer que una regla de automatización en un inquilino ejecute un cuaderno de estrategias que se encuentre en otro inquilino, pero los permisos de Sentinel para ejecutar el cuaderno de estrategias deben definirse en el inquilino donde se encuentre el cuaderno, no en el inquilino donde se definan las reglas.
+
+En el caso específico de un proveedor de servicios de seguridad administrada (MSSP), cuando un inquilino del proveedor de servicios administra un área de trabajo de Azure Sentinel en un inquilino de un cliente, hay dos escenarios concretos que requieren atención:
+
+- **Una regla de automatización creada en el inquilino del cliente se configura para ejecutar un cuaderno de estrategias que se encuentra en el inquilino del proveedor de servicios.** 
+
+    Este enfoque se usa, normalmente, para proteger la propiedad intelectual del cuaderno de estrategias. No se requiere nada especial para que este escenario funcione. Cuando define una acción de un cuaderno de estrategias en una regla de automatización y llega a la fase en la que concede permisos de Azure Sentinel en el grupo de recursos correspondiente donde se encuentra el cuaderno de estrategias (mediante el panel **Administrar permisos**), ve los grupos de recursos que pertenecen al inquilino del proveedor de servicios entre los que puede elegir. [Aquí puede ver una breve explicación de todo el proceso](tutorial-respond-threats-playbook.md#respond-to-incidents).
+
+- **Una regla de automatización creada en el área de trabajo del cliente (mientras está conectado al inquilino del proveedor de servicios) se configura para ejecutar un cuaderno de estrategias que se encuentra en el inquilino del cliente**.
+
+    Esta configuración se usa cuando no es necesario proteger la propiedad intelectual. Para que este escenario funcione, es necesario conceder permisos para ejecutar el cuaderno de estrategias a Azure Sentinel en ***ambos inquilinos** _. En el inquilino del cliente, se conceden en el panel _ *Administrar permisos**, como en el escenario anterior. Para conceder los permisos pertinentes en el inquilino del proveedor de servicios, debe agregar una delegación de Azure Lighthouse adicional que conceda derechos de acceso a la aplicación **Azure Security Insights**, con el rol **Colaborador de automatización de Azure Sentinel**, en el grupo de recursos donde reside el cuaderno de estrategias.
+
+    El escenario se parecería a este:
+
+    :::image type="content" source="./media/automate-incident-handling-with-automation-rules/automation-rule-multi-tenant.png" alt-text="Arquitectura de reglas de automatización multiinquilino":::
+
+    Consulte [las instrucciones](tutorial-respond-threats-playbook.md#permissions-to-run-playbooks) de configuración.
 
 ## <a name="creating-and-managing-automation-rules"></a>Creación y administración de reglas de automatización
 

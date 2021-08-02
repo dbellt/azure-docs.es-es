@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 54bee74fcab02a487b9e950d0ea8f8a45a38601a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: fb9c9f460b46f8dec741f4c22460cbe9d44c6a0e
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108760917"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110791117"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Conexión a Azure IoT Central
 
@@ -182,7 +182,7 @@ IoT Central asocia automáticamente un dispositivo a una plantilla de dispositiv
 1. Si la plantilla de dispositivo todavía no está publicada en la aplicación IoT Central, esta busca el modelo del dispositivo en el [repositorio de modelos público](https://github.com/Azure/iot-plugandplay-models). Si IoT Central encuentra el modelo, lo utiliza para generar una plantilla de dispositivo básica.
 1. Si IoT Central no encuentra el modelo en el repositorio de modelos público, el dispositivo se marca como **Sin asociar**. Un operador puede crear una plantilla de dispositivo para el dispositivo y, a continuación, migrar el dispositivo sin asociar a la nueva plantilla de dispositivo.
 
-En la captura de pantalla siguiente se muestra cómo ver el identificador de modelo de una plantilla de dispositivo en IoT Central. En una plantilla de dispositivo, seleccione un componente y luego **Ver identidad**:
+En la captura de pantalla siguiente se muestra cómo ver el identificador de modelo de una plantilla de dispositivo en IoT Central. En una plantilla de dispositivo, seleccione un componente y luego **Editar identidad**:
 
 :::image type="content" source="media/concepts-get-connected/model-id.png" alt-text="Captura de pantalla que muestra el identificador de modelo de la plantilla de dispositivo thermostat.":::
 

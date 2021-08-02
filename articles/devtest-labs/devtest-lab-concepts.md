@@ -2,13 +2,13 @@
 title: Conceptos de DevTest Labs | Microsoft Docs
 description: Aprenda los conceptos básicos de DevTest Labs y cómo puede facilitar la creación, la administración y la supervisión de máquinas virtuales de Azure
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: b184f835ee99d47ddb843e5b02136299c26bfcdc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/13/2021
+ms.openlocfilehash: e505ecb8ce4dc070b4ed79cd55514c4ef8ba0ead
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92327865"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954097"
 ---
 # <a name="devtest-labs-concepts"></a>Conceptos de DevTest Labs
 ## <a name="overview"></a>Información general
@@ -28,7 +28,7 @@ Una máquina virtual reclamable de Azure Claimable es una que está disponible p
 Una máquina virtual reclamable no se asigna inicialmente a ningún usuario concreto, pero se mostrará en la lista de todos los usuarios en "Claimable virtual machines" (Máquinas virtuales reclamables). Después de que un usuario reclame una máquina virtual, se mueve hasta su área "Mis máquinas virtuales" y ya no podrá reclamarla otro usuario.
 
 ## <a name="environment"></a>Entorno
-En DevTest Labs, un entorno hace referencia a una colección de recursos de Azure en un laboratorio. [Esta entrada de blog](./devtest-lab-faq.md#blog-post) describe cómo crear entornos de varias máquinas virtuales a partir de las plantillas de Azure Resource Manager.
+En DevTest Labs, un entorno hace referencia a una colección de recursos de Azure en un laboratorio. En [este artículo](./devtest-lab-create-environment-from-arm.md) se describe cómo crear entornos de varias máquinas virtuales a partir de las plantillas de Azure Resource Manager.
 
 ## <a name="base-images"></a>Imágenes base
 Las imágenes base son imágenes de máquina virtual con todas las herramientas y los valores de configuración preinstalados y configurados para crear rápidamente una máquina virtual. Puede aprovisionar una máquina virtual seleccionando una base existente y agregando un artefacto para instalar su agente de prueba. Luego puede guardar la máquina virtual aprovisionada como base para que esta pueda utilizarse sin que sea necesario volver a instalar al agente de prueba para cada aprovisionamiento de la máquina virtual.
@@ -74,7 +74,7 @@ Puesto que los ámbitos son jerárquicos, cuando un usuario tiene permisos en un
 ## <a name="azure-resource-manager-templates"></a>Plantillas del Administrador de recursos de Azure
 Todos los conceptos tratados en este artículo pueden configurarse mediante el uso de plantillas de Azure Resource Manager, que permiten definir la configuración y la infraestructura de la solución de Azure e implementarla varias veces en un estado coherente.
 
-[Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md#template-format) describe la estructura de una plantilla de Azure Resource Manager y las propiedades que están disponibles en las diferentes secciones de ella.
+[Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/syntax.md#template-format) describe la estructura de una plantilla de Azure Resource Manager y las propiedades que están disponibles en las diferentes secciones de ella.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

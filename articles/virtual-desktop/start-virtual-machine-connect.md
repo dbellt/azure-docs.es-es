@@ -3,15 +3,15 @@ title: Iniciar máquina virtual al establecer la conexión - Azure
 description: Cómo configurar la característica Iniciar máquina virtual al establecer la conexión.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/23/2021
+ms.date: 05/21/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 05500ded7512b54446d153e37233e4889b3107ff
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 7e4ca9a6cfc87844bf74131b145c19aecd964554
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107949195"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111752142"
 ---
 # <a name="start-virtual-machine-on-connect-preview"></a>Iniciar máquina virtual al establecer la conexión (versión preliminar)
 
@@ -22,11 +22,11 @@ ms.locfileid: "107949195"
 La característica Iniciar máquina virtual (VM) al establecer conexión (versión preliminar) permite ahorrar costos al permitir que los usuarios finales activen sus máquinas virtuales solo cuando las necesiten. A continuación, puede desactivar las máquinas virtuales cuando no se necesiten.
 
 >[!NOTE]
->Windows Virtual Desktop (clásico) no admite esta característica.
+>Tenga en cuenta que Azure Virtual Desktop (clásico) no admite esta característica.
 
 ## <a name="requirements-and-limitations"></a>Limitaciones y requisitos
 
-Solo puede habilitar la característica Iniciar VM al establecer la conexión para grupos de host personales. Para obtener más información sobre los entornos de host personales, consulte [Entorno de Windows Virtual Desktop](environment-setup.md#host-pools).
+Puede habilitar la característica Iniciar máquina virtual al establecer la conexión para grupos de hosts personales o agrupados mediante PowerShell y Azure Portal.
 
 Los siguientes clientes de Escritorio remoto admiten la característica Iniciar VM al establecer la conexión:
 
@@ -37,11 +37,9 @@ Los siguientes clientes de Escritorio remoto admiten la característica Iniciar 
 
 Puede buscar anuncios sobre actualizaciones y asistencia al cliente en el [foro Tech Community](https://aka.ms/wvdtc).
 
-Actualmente, la nube de Azure Government no admite Start VM on Connect (Iniciar VM al conectar).
-
 ## <a name="create-a-custom-role-for-start-vm-on-connect"></a>Creación de un rol personalizado para Iniciar VM al establecer la conexión
 
-Antes de poder configurar la característica Iniciar VM al establecer la conexión, deberá asignar a la VM un rol de RBAC (control de acceso basado en roles) personalizado. Este rol permitirá que Windows Virtual Desktop administre las VM de su suscripción. También puede usar este rol para activar VM, comprobar su estado y notificar información de diagnóstico. Si quiere saber más sobre lo que hace cada rol, eche un vistazo a [Roles personalizados de Azure](../role-based-access-control/custom-roles.md).
+Antes de poder configurar la característica Iniciar VM al establecer la conexión, deberá asignar a la VM un rol de RBAC (control de acceso basado en roles) personalizado. Este rol permitirá que Azure Virtual Desktop administre las VM de su suscripción. También puede usar este rol para activar VM, comprobar su estado y notificar información de diagnóstico. Si quiere saber más sobre lo que hace cada rol, eche un vistazo a [Roles personalizados de Azure](../role-based-access-control/custom-roles.md).
 
 ### <a name="use-the-azure-portal"></a>Uso de Azure Portal
 
@@ -63,7 +61,7 @@ Para usar Azure Portal para asignar un rol personalizado para Iniciar VM al esta
 
 5. Cuando haya finalizado, seleccione **Aceptar**.
 
-Después de esto, deberá asignar el rol para conceder acceso a Windows Virtual Desktop.
+Después de esto, deberá asignar el rol para conceder acceso a Azure Virtual Desktop.
 
 Para asignar el rol personalizado:
 
@@ -71,13 +69,13 @@ Para asignar el rol personalizado:
 
 2. Seleccione el rol que acaba de crear.
 
-3. En la barra de búsqueda, escriba y seleccione **Windows Virtual Desktop**.
+3. En la barra de búsqueda, escriba y seleccione **Azure Virtual Desktop**.
 
       >[!NOTE]
-      >Es posible que vea dos aplicaciones si ha implementado Windows Virtual Desktop (clásico). Asigne el rol a las dos aplicaciones que vea.
+      >Es posible que vea dos aplicaciones si ha implementado Azure Virtual Desktop (clásico). Asigne el rol a las dos aplicaciones que vea.
       >
       > [!div class="mx-imgBorder"]
-      > ![Captura de pantalla de la pestaña Control de acceso (IAM). En la barra de búsqueda, tanto Windows Virtual Desktop como Windows Virtual Desktop (clásico) están resaltados en rojo.](media/add-role-assignment.png)
+      > ![Captura de pantalla de la pestaña Control de acceso (IAM). En la barra de búsqueda, tanto Azure Virtual Desktop como Azure Virtual Desktop (clásico) están resaltados en rojo.](media/add-role-assignment.png)
 
 ### <a name="create-a-custom-role-with-a-json-file-template"></a>Creación de un rol personalizado con una plantilla de archivo JSON
 
@@ -114,6 +112,8 @@ Ahora que ha asignado el rol a la suscripción, es momento de configurar la cara
 
 Iniciar VM al establecer la conexión es una configuración de grupo de hosts. Si solo quiere que un cierto grupo de usuarios use esta característica, asegúrese de solo asignar el rol necesario a los usuarios que quiere agregar.
 
+En el caso de los escritorios personales, la característica solo activará una máquina virtual existente que el servicio ya haya asignado o que asignará a un usuario. En un escenario de grupo de hosts agrupados, el servicio solo activará una máquina virtual cuando no haya ninguna activada. La característica solo activará máquinas virtuales adicionales cuando la primera máquina virtual alcance el límite de sesión.
+
 >[!IMPORTANT]
 > Solo puede configurar esta característica en grupos de hosts existentes. Esta característica no está disponible cuando se crea un nuevo grupo de hosts.
 
@@ -123,12 +123,9 @@ Para usar Azure Portal para configurar Start VM on Connect (Iniciar VM al conect
 
 1. Abra el explorador y vaya a [Azure Portal](https://portal.azure.com).
 
-2. Inicie sesión en Azure Portal y vaya a **Windows Virtual Desktop**.
+2. Inicie sesión en Azure Portal y vaya a **Azure Virtual Desktop**.
 
-3. Seleccione **Grupos de host** y, después, busque el grupo de hosts que contiene los escritorios personales a los que asignó el rol.
-
-   >[!NOTE]
-   > El grupo de hosts en el que se configura esta característica debe tener escritorios personales con asignaciones de roles directas. Si los escritorios del grupo de hosts no están configurados correctamente, el proceso de configuración no funcionará.
+3. Seleccione **Grupos de hosts** y, a continuación, vaya al grupo de hosts donde desea habilitar la configuración.
 
 4. En el grupo de hosts, seleccione **Propiedades**. En **Start VM on connect** (Iniciar VM al conectar), seleccione **Sí** y, a continuación, seleccione **Guardar** para aplicar la configuración al instante.
 
@@ -161,9 +158,11 @@ En las sesiones típicas, el tiempo necesario para que un usuario se conecte a u
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
-Si la característica tiene algún problema, se recomienda usar la [característica de diagnóstico](diagnostics-log-analytics.md) de Windows Virtual Desktop para comprobar si hay errores. Si recibe un mensaje de error, asegúrese de prestar mucha atención al contenido del mensaje y de copiar el nombre del error para tenerlo como referencia.
+Si la característica tiene algún problema, se recomienda usar la [característica de diagnóstico](diagnostics-log-analytics.md) de Azure Virtual Desktop para comprobar si hay errores. Si recibe un mensaje de error, asegúrese de prestar mucha atención al contenido del mensaje y de copiar el nombre del error para tenerlo como referencia.
 
-También puede usar [Azure Monitor para Windows Virtual Desktop](azure-monitor.md) para obtener sugerencias sobre cómo resolver los problemas.
+También puede usar [Azure Monitor para Azure Virtual Desktop](azure-monitor.md) para obtener sugerencias sobre cómo resolver los problemas.
+
+Si la máquina virtual no se activa, deberá comprobar el estado de la máquina virtual que intentó activar antes de cualquier otra acción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

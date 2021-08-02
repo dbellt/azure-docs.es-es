@@ -1,21 +1,22 @@
 ---
-title: 'Preguntas frecuentes acerca de Windows Virtual Desktop: Azure'
-description: Preguntas frecuentes y procedimientos recomendados para Windows Virtual Desktop.
+title: 'Preguntas frecuentes de Azure Virtual Desktop: Azure'
+description: Preguntas frecuentes y procedimientos recomendados para Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: helohr
+ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 1f5e4cb0d2db30c6b07370be137506f3fe26837f
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 604f7ac3d06ceb9ea981deb6aba4e9f208f06e20
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106505304"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757722"
 ---
-# <a name="windows-virtual-desktop-faq"></a>Preguntas frecuentes acerca de Windows Virtual Desktop
+# <a name="azure-virtual-desktop-faq"></a>Preguntas frecuentes de Azure Virtual Desktop
 
-En este artículo se responden preguntas frecuentes y se explican procedimientos recomendados para Windows Virtual Desktop.
+En este artículo se responden preguntas frecuentes y se explican procedimientos recomendados para Azure Virtual Desktop.
 
 ## <a name="what-are-the-minimum-admin-permissions-i-need-to-manage-objects"></a>¿Cuáles son los permisos de administrador mínimos necesarios para administrar objetos?
 
@@ -40,7 +41,7 @@ Para impedir que un administrador solo administre las sesiones de usuario, como 
 }
 ```
 
-## <a name="does-windows-virtual-desktop-support-split-azure-active-directory-models"></a>¿Admite Windows Virtual Desktop los modelos divididos de Azure Active Directory?
+## <a name="does-azure-virtual-desktop-support-split-azure-active-directory-models"></a>¿Admite Azure Virtual Desktop los modelos divididos de Azure Active Directory?
 
 Cuando se asigna un usuario a un grupo de aplicaciones, el servicio realiza una simple asignación de roles de Azure. Como consecuencia, la instancia de Azure Active Directory (AD) del usuario y la instancia de Azure AD del grupo de aplicaciones deben estar en la misma ubicación. Todos los objetos de servicio, como los grupos de hosts, los grupos de aplicaciones y las áreas de trabajo, también deben estar en el mismo Azure AD que el usuario.
 
@@ -84,23 +85,23 @@ Get-AzWvdHostPool -Name demohp -ResourceGroupName 0414rg |fl CustomRdpProperty
 CustomRdpProperty : audiocapturemode:i:0;audiomode:i:0;drivestoredirect:s:;redirectclipboard:i:1;redirectcomports:i:0;redirectprinters:i:1;redirectsmartcards:i:1;screen modeid:i:2;
 ```
 
-## <a name="does-windows-virtual-desktop-support-guest-users"></a>¿Admite Windows Virtual Desktop los usuarios invitados?
+## <a name="does-azure-virtual-desktop-support-guest-users"></a>¿Admite Azure Virtual Desktop los usuarios invitados?
 
-Windows Virtual Desktop no admite cuentas de usuario invitado de Azure AD. Por ejemplo, supongamos que un grupo de usuarios invitados tiene licencias de Microsoft 365 E3 por usuario, Windows E3 por usuario o WIN VDA en su propia empresa, pero son usuarios invitados en la instancia de Azure AD de otra empresa. La otra empresa administraría los objetos de usuario de los usuarios invitados tanto en Azure AD como en Active Directory como cuentas locales.
+Azure Virtual Desktop no admite cuentas de usuario invitado de Azure AD. Por ejemplo, supongamos que un grupo de usuarios invitados tiene licencias de Microsoft 365 E3 por usuario, Windows E3 por usuario o WIN VDA en su propia empresa, pero son usuarios invitados en la instancia de Azure AD de otra empresa. La otra empresa administraría los objetos de usuario de los usuarios invitados tanto en Azure AD como en Active Directory como cuentas locales.
 
-No puede usar sus propias licencias en beneficio de un tercero. Además, Windows Virtual Desktop no es compatible actualmente con las cuentas de Microsoft (MSA).
+No puede usar sus propias licencias en beneficio de un tercero. Además, Azure Virtual Desktop no es compatible actualmente con las cuentas de Microsoft (MSA).
 
 ## <a name="why-dont-i-see-the-client-ip-address-in-the-wvdconnections-table"></a>¿Por qué no se ve la dirección IP del cliente en la tabla WVDConnections?
 
 Actualmente no hay una manera confiable de recopilar las direcciones IP del cliente web, por lo que no se incluye ese valor en la tabla.
 
-## <a name="how-does-windows-virtual-desktop-handle-backups"></a>¿Cómo controla Windows Virtual Desktop las copias de seguridad?
+## <a name="how-does-azure-virtual-desktop-handle-backups"></a>¿Cómo controla Azure Virtual Desktop las copias de seguridad?
 
 Hay varias opciones en Azure para controlar las copias de seguridad. Puede usar Azure Backup, Site Recovery e instantáneas.
 
-## <a name="does-windows-virtual-desktop-support-third-party-collaboration-apps"></a>¿Admite Windows Virtual Desktop aplicaciones de colaboración de terceros?
+## <a name="does-azure-virtual-desktop-support-third-party-collaboration-apps"></a>¿Admite Azure Virtual Desktop aplicaciones de colaboración de terceros?
 
-Actualmente, Windows Virtual Desktop está optimizado para Teams. En este momento, Microsoft no admite aplicaciones de colaboración de terceros, como Zoom. Las organizaciones externas son responsables de proporcionar las instrucciones de compatibilidad a sus clientes. Además, Windows Virtual Desktop no admite Skype Empresarial.
+Actualmente, Azure Virtual Desktop está optimizado para Teams. En este momento, Microsoft no admite aplicaciones de colaboración de terceros, como Zoom. Las organizaciones externas son responsables de proporcionar las instrucciones de compatibilidad a sus clientes. Además, Azure Virtual Desktop no admite Skype Empresarial.
 
 ## <a name="can-i-change-from-pooled-to-personal-host-pools"></a>¿Se puede cambiar de grupos de hosts agrupados a personales?
 
@@ -129,21 +130,21 @@ Los factores siguientes pueden afectar al límite de escala de los grupos de hos
 
 - El nombre del prefijo de la VM y el número de VM tiene menos de 15 caracteres. Para obtener más información, consulte [Reglas y restricciones de nomenclatura para los recursos de Azure](../azure-resource-manager/management/resource-name-rules.md#microsoftcompute).
 
-## <a name="can-i-manage-windows-virtual-desktop-environments-with-azure-lighthouse"></a>¿Puedo administrar entornos de Windows Virtual Desktop con Azure Lighthouse?
+## <a name="can-i-manage-azure-virtual-desktop-environments-with-azure-lighthouse"></a>¿Puedo administrar entornos de Azure Virtual Desktop con Azure Lighthouse?
 
-Azure Lighthouse no es totalmente compatible con la administración de entornos de Windows Virtual Desktop. Dado que Lighthouse actualmente no admite la administración de usuarios inquilinos entre instancias de Azure AD, los clientes de Lighthouse aún tienen que iniciar sesión en la instancia de Azure AD que los clientes usan para administrar usuarios.
+Azure Lighthouse no es totalmente compatible con la administración de entornos de Azure Virtual Desktop. Dado que Lighthouse actualmente no admite la administración de usuarios inquilinos entre instancias de Azure AD, los clientes de Lighthouse aún tienen que iniciar sesión en la instancia de Azure AD que los clientes usan para administrar usuarios.
 
-Tampoco puede usar las suscripciones de espacio aislado de CSP con el servicio Windows Virtual Desktop. Para obtener más información, consulte [Cuenta de espacio aislado de integración](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account).
+Tampoco puede usar las suscripciones de espacio aislado de CSP con el servicio Azure Virtual Desktop. Para obtener más información, consulte [Cuenta de espacio aislado de integración](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account).
 
 Por último, si ha habilitado el proveedor de recursos de la cuenta de propietario de CSP, las cuentas de cliente de CSP no podrán modificar el proveedor de recursos.
 
 ## <a name="how-often-should-i-turn-my-vms-on-to-prevent-registration-issues"></a>¿Con qué frecuencia debo activar mis máquinas virtuales para evitar problemas de registro?
 
-Después de registrar una máquina virtual en un grupo de hosts en el servicio Windows Virtual Desktop, el agente actualiza periódicamente el token de la máquina virtual cada vez que la máquina virtual está activa. El certificado para el token de registro es válido durante 90 días. Debido a este límite de 90 días, se recomienda que las máquinas virtuales estén en línea durante 20 minutos cada 90 días, a fin de que puedan pueda actualizar sus tokens y actualizar el agente y los componentes de la pila en paralelo. La activación de la máquina virtual en este límite de tiempo impedirá que su token de registro expire o deje de ser válido. Si ha iniciado la máquina virtual después de 90 días y está experimentando problemas de registro, siga las instrucciones de la [guía de solución de problemas del agente de Windows Virtual Desktop](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) para quitar la máquina virtual del grupo de hosts, reinstalar el agente y volver a registrarlo en el grupo.
+Después de registrar una máquina virtual en un grupo de hosts en el servicio Azure Virtual Desktop, el agente actualiza periódicamente el token de la máquina virtual cada vez que la máquina virtual está activa. El certificado para el token de registro es válido durante 90 días. Debido a este límite de 90 días, se recomienda que las máquinas virtuales estén en línea durante 20 minutos cada 90 días, a fin de que puedan pueda actualizar sus tokens y actualizar el agente y los componentes de la pila en paralelo. La activación de la máquina virtual en este límite de tiempo impedirá que su token de registro expire o deje de ser válido. Si ha iniciado la máquina virtual después de 90 días y está experimentando problemas de registro, siga las instrucciones de la [guía de solución de problemas del agente de Azure Virtual Desktop](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) para quitar la máquina virtual del grupo de hosts, reinstalar el agente y volver a registrarlo en el grupo.
 
 ## <a name="can-i-set-availability-options-when-creating-host-pools"></a>¿Se pueden establecer las opciones de disponibilidad al crear grupos de hosts?
 
-Sí. Los grupos hosts de Windows Virtual Desktop tienen una opción para seleccionar el conjunto de disponibilidad o las zonas de disponibilidad cuando se crea una máquina virtual. Estas opciones de disponibilidad son las mismas que usa Azure Compute. Si selecciona una zona para la máquina virtual que crea en un grupo de hosts, la configuración se aplica automáticamente a todas las máquinas virtuales que cree en esa zona. Si prefiere distribuir las máquinas virtuales del grupo de hosts en varias zonas, deberá seguir las instrucciones de [Agregar máquinas virtuales con el Azure Portal](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal) para seleccionar manualmente una zona nueva para cada nueva máquina virtual que cree.
+Sí. Los grupos de hosts de Azure Virtual Desktop tienen una opción para seleccionar el conjunto de disponibilidad o las zonas de disponibilidad cuando se crea una máquina virtual. Estas opciones de disponibilidad son las mismas que usa Azure Compute. Si selecciona una zona para la máquina virtual que crea en un grupo de hosts, la configuración se aplica automáticamente a todas las máquinas virtuales que cree en esa zona. Si prefiere distribuir las máquinas virtuales del grupo de hosts en varias zonas, deberá seguir las instrucciones de [Agregar máquinas virtuales con el Azure Portal](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal) para seleccionar manualmente una zona nueva para cada nueva máquina virtual que cree.
 
 ## <a name="which-availability-option-is-best-for-me"></a>¿Qué opción de disponibilidad es la más adecuada para mí?
 

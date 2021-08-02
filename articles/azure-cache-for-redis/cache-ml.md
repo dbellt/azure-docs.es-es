@@ -1,29 +1,30 @@
 ---
 title: Implementación de un modelo de Machine Learning en Azure Functions con Azure Cache for Redis
-description: En este artículo, implementará un modelo desde Azure Machine Learning como aplicación de funciones en Azure Functions mediante una instancia de Azure Cache for Redis. Azure Cache for Redis es extremadamente eficaz y escalable (cuando se empareja con un modelo de Azure Machine Learning, obtiene baja latencia y un rendimiento elevado en la aplicación).
+description: En este artículo, implementará un modelo desde Azure Machine Learning como aplicación de funciones en Azure Functions mediante una instancia de Azure Cache for Redis. Azure Cache for Redis es eficaz y escalable (cuando se empareja con un modelo de Azure Machine Learning, obtiene baja latencia y un rendimiento elevado en la aplicación).
 author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: ec8943bc73cac2020350dd4916f040f031cd842b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0541b626168fb680daa2fc5c0c14df5bc8a4ea7c
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102499703"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111904182"
 ---
-# <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Implementación de un modelo de Machine Learning en Azure Functions con Azure Cache for Redis 
+# <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Implementación de un modelo de Machine Learning en Azure Functions con Azure Cache for Redis
 
 En este artículo, implementará un modelo desde Azure Machine Learning como aplicación de funciones en Azure Functions mediante una instancia de Azure Cache for Redis.  
 
-Azure Cache for Redis es extremadamente eficaz y escalable (cuando se empareja con un modelo de Azure Machine Learning, obtiene baja latencia y un rendimiento elevado en la aplicación). Un par de escenarios en los que una memoria caché es especialmente beneficiosa es cuando se infieren los datos y para los resultados de la inferencia de modelos reales. En cualquiera de los dos, los metadatos o resultados se almacenan en memoria, lo que genera un aumento del rendimiento. 
+Azure Cache for Redis es eficaz y escalable. Cuando se empareja con un modelo de Azure Machine Learning, obtiene baja latencia y un rendimiento elevado en la aplicación. Un par de escenarios en los que una memoria caché es beneficiosa: cuando se infieren los datos y para los resultados de la inferencia de modelos reales. En cualquiera de los dos, los metadatos o resultados se almacenan en memoria, lo que genera un aumento del rendimiento.
 
 > [!NOTE]
 > Aunque tanto Azure Machine Learning como Azure Functions están disponibles con carácter general, la posibilidad de empaquetar un modelo desde Machine Learning Service en Functions está en versión preliminar.  
 >
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/).
 * Un área de trabajo de Azure Machine Learning. Para más información, consulte el artículo [Crear un área de trabajo](../machine-learning/how-to-manage-workspace.md).
 * [Azure CLI](/cli/azure/install-azure-cli).
@@ -38,44 +39,45 @@ Azure Cache for Redis es extremadamente eficaz y escalable (cuando se empareja c
 >
 > Para más información sobre la definición de estas variables, consulte [Implementación de modelos con Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md).
 
-## <a name="create-an-azure-cache-for-redis-instance"></a>Creación de una instancia de Azure Redis Cache 
+## <a name="create-an-azure-cache-for-redis-instance"></a>Creación de una instancia de Azure Redis Cache
+
 Podrá implementar un modelo de Machine Learning en Azure Functions con cualquier instancia de caché Básica, Estándar o Premium. Para crear una instancia de caché, siga estos pasos.  
 
-1. Vaya a la página principal de Azure Portal o abra el menú de barra lateral y seleccione **Crear un recurso**. 
-   
+1. Vaya a la página principal de Azure Portal o abra el menú de barra lateral y seleccione **Crear un recurso**.
+
 1. En la página **Nuevo**, seleccione **Base de datos** y, a continuación, seleccione **Azure Cache for Redis**.
 
     :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Selección de Azure Cache for Redis.":::
-   
+
 1. En la página **Nueva instancia de Redis Cache**, configure las opciones de la nueva caché.
-   
+
    | Configuración      | Valor sugerido  | Descripción |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Nombre DNS** | Escriba un nombre único global. | El nombre de la memoria caché debe ser una cadena de entre 1 y 63 caracteres, y solo puede contener números, letras o guiones. El nombre debe comenzar y terminar por un número o una letra y no puede contener guiones consecutivos. El *nombre de host* de la instancia de caché será *\<DNS name>.redis.cache.windows.net*. | 
-   | **Suscripción** | Desplácese hacia abajo y seleccione su suscripción. | La suscripción en la que se creará esta nueva instancia de Azure Cache for Redis. | 
-   | **Grupos de recursos** | Desplácese hacia abajo y seleccione un grupo de recursos o **Crear nuevo** y escriba un nombre nuevo para el grupo de recursos. | Nombre del grupo de recursos en el que se van a crear la caché y otros recursos. Al colocar todos los recursos de la aplicación en un grupo de recursos, puede administrarlos o eliminarlos fácilmente. | 
+   | **Nombre DNS** | Escriba un nombre único global. | El nombre de caché debe ser una cadena comprendida entre 1 y 63 caracteres. La cadena puede contener números, letras o guiones. El nombre debe comenzar y terminar por un número o una letra y no puede contener guiones consecutivos. El *nombre de host* de la instancia de caché será *\<DNS name>.redis.cache.windows.net*. |
+   | **Suscripción** | Desplácese hacia abajo y seleccione su suscripción. | La suscripción en la que se creará esta nueva instancia de Azure Cache for Redis. |
+   | **Grupos de recursos** | Desplácese hacia abajo y seleccione un grupo de recursos o **Crear nuevo** y escriba un nombre nuevo para el grupo de recursos. | Nombre del grupo de recursos en el que se van a crear la caché y otros recursos. Al colocar todos los recursos de la aplicación en un grupo de recursos, puede administrarlos o eliminarlos fácilmente. |
    | **Ubicación** | Desplácese hacia abajo y seleccione una ubicación. | Seleccione una [región](https://azure.microsoft.com/regions/) cerca de otros servicios que vayan a usar la memoria caché. |
    | **Plan de tarifa** | Desplácese hacia abajo y seleccione un [plan de tarifa](https://azure.microsoft.com/pricing/details/cache/). |  El plan de tarifa determina el tamaño, el rendimiento y las características disponibles para la memoria caché. Para más información, consulte la [introducción a Azure Redis Cache](cache-overview.md). |
 
-1. Seleccione la pestaña **Redes** o haga clic en el botón **Redes** de la parte inferior de la página.
+1. Seleccione la pestaña **Redes** o elija el botón **Redes** situado en la parte inferior de la página.
 
 1. En la pestaña **Redes**, seleccione el método de conectividad.
 
-1. Seleccione el botón **Siguiente: Opciones avanzadas** o haga clic en el botón **Siguiente: Opciones avanzadas** de la parte inferior de la página.
+1. Seleccione la pestaña **Siguiente: Opciones avanzadas** o seleccione el botón **Siguiente: Opciones avanzadas** en la parte inferior de la página.
 
 1. En la pestaña **Opciones avanzadas** de una instancia de caché básica o estándar, seleccione el botón de alternancia de habilitación si desea habilitar un puerto que no sea TLS.
 
 1. En la pestaña **Opciones avanzadas** de la instancia de caché Premium, configure el puerto no TLS, la agrupación en clústeres y la persistencia de datos.
 
-1. Seleccione el botón **Siguiente: Etiquetas** o haga clic en el botón **Siguiente: Etiquetas** situado en la parte inferior de la página.
+1. Seleccione el botón **Siguiente: Opciones avanzadas** o elija el botón **Siguiente: Etiquetas** situado en la parte inferior de la página.
 
-1. Opcionalmente, en la pestaña **Etiquetas**, escriba el nombre y el valor si desea clasificar el recurso. 
+1. Opcionalmente, en la pestaña **Etiquetas**, escriba el nombre y el valor si desea clasificar el recurso.
 
 1. Seleccione **Revisar + crear**. Pasará a la pestaña Revisar y crear, donde Azure validará la configuración.
 
 1. Tras aparecer el mensaje verde Validación superada, seleccione **Crear**.
 
-La caché tarda un tiempo en crearse. Puede supervisar el progreso en la página **Información general** de Azure Cache for Redis. Cuando **Estado** se muestra como **En ejecución**, la memoria caché está lista para su uso. 
+La caché tarda un tiempo en crearse. Puede supervisar el progreso en la página **Información general** de Azure Cache for Redis. Cuando **Estado** se muestra como **En ejecución**, la memoria caché está lista para su uso.
 
 ## <a name="prepare-for-deployment"></a>Preparar la implementación
 
@@ -161,7 +163,7 @@ pip install azureml-contrib-functions
 
 ## <a name="create-the-image"></a>Crear la imagen
 
-Para crear la imagen de Docker que se implementa en Azure Functions, use [azureml.comtrib.functions.package](/python/api/azureml-contrib-functions/azureml.contrib.functions) o la función de paquete específica del desencadenador que le interese usar. El siguiente fragmento de código muestra cómo crear un paquete con un desencadenador HTTP a partir del modelo y la configuración de inferencia:
+Para crear la imagen de Docker que se implementa en Azure Functions, use [azureml.comtrib.functions.package](/python/api/azureml-contrib-functions/azureml.contrib.functions) o la función de paquete específica del desencadenador que desea usar. El siguiente fragmento de código muestra cómo crear un paquete con un desencadenador HTTP a partir del modelo y la configuración de inferencia:
 
 > [!NOTE]
 > En el fragmento de código se da por supuesto que `model` contiene un modelo registrado y que `inference_config` contiene la configuración del entorno de inferencia. Para más información, consulte [Implementación de modelos con Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md).
@@ -185,7 +187,7 @@ Si `show_output=True`, se muestra la salida del proceso de compilación de Docke
 
 ## <a name="deploy-image-as-a-web-app"></a>Implementación de la imagen como una aplicación web
 
-1. Use el siguiente comando para obtener las credenciales de inicio de sesión del registro de contenedor de Azure que contiene la imagen. Reemplace `<myacr>` por el valor devuelto anteriormente de `package.location`: 
+1. Use el siguiente comando para obtener las credenciales de inicio de sesión del registro de contenedor de Azure que contiene la imagen. Reemplace `<myacr>` por el valor devuelto anteriormente de `package.location`:
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -228,6 +230,7 @@ Si `show_output=True`, se muestra la salida del proceso de compilación de Docke
     ```azurecli-interactive
     az storage account create --name <webjobStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
     ```
+
     ```azurecli-interactive
     az storage account show-connection-string --resource-group myresourcegroup --name <webJobStorage> --query connectionString --output tsv
     ```
@@ -239,7 +242,7 @@ Si `show_output=True`, se muestra la salida del proceso de compilación de Docke
     ```
 
     > [!IMPORTANT]
-    > Llegado este punto, la aplicación de funciones ya se ha creado, pero como no hemos proporcionado la cadena de conexión del desencadenador HTTP ni las credenciales a la instancia de Azure Container Registry que contiene la imagen, la aplicación de funciones no está activa. En los siguientes pasos, facilitaremos la información de autenticación y de cadena de conexión del registro de contenedor. 
+    > Llegado este punto, la aplicación de funciones ya se ha creado, pero como no hemos proporcionado la cadena de conexión del desencadenador HTTP ni las credenciales a la instancia de Azure Container Registry que contiene la imagen, la aplicación de funciones no está activa. En los siguientes pasos, facilitaremos la información de autenticación y de cadena de conexión del registro de contenedor.
 
 1. Use el siguiente comando para proporcionar a la aplicación de funciones las credenciales necesarias para acceder al registro de contenedor. Reemplace `<app-name>` por el nombre de la aplicación de funciones. Reemplace `<acrinstance>` y `<imagetag>` por los valores de la llamada de CLI de Azure del paso anterior. Reemplace `<username>` y `<password>` por la información de inicio de sesión de ACR recuperada anteriormente:
 
@@ -283,14 +286,14 @@ En este momento, la aplicación de funciones comienza a cargar la imagen.
 > [!IMPORTANT]
 > Pueden transcurrir varios minutos hasta que se cargue la imagen. Puede supervisar el progreso en Azure Portal.
 
-## <a name="test-azure-functions-http-trigger"></a>Prueba del desencadenador HTTP de Azure Functions 
+## <a name="test-azure-functions-http-trigger"></a>Prueba del desencadenador HTTP de Azure Functions
 
 Ahora ejecutaremos y probaremos nuestro desencadenador HTTP de Azure Functions.
 
 1. Vaya a la aplicación de función en Azure Portal.
-1. En el desarrollador, seleccione **Código + prueba**. 
-1. En el lado derecho, seleccione la pestaña **Entrada**. 
-1. Haga clic en el botón **Ejecutar** para probar el desencadenador HTTP de Azure Functions. 
+1. En el desarrollador, seleccione **Código + prueba**.
+1. En el lado derecho, seleccione la pestaña **Entrada**.
+1. Seleccione el botón **Ejecutar** para probar el desencadenador HTTP de Azure Functions.
 
 Ahora ha implementado correctamente un modelo desde Azure Machine Learning como aplicación de funciones mediante una instancia de Azure Cache for Redis. Obtenga más información sobre Azure Cache for Redis yendo a los vínculos de la sección siguiente.
 
@@ -298,7 +301,7 @@ Ahora ha implementado correctamente un modelo desde Azure Machine Learning como 
 
 Si va a seguir con el tutorial siguiente, puede mantener los recursos creados en esta guía de inicio rápido y volverlos a utilizar.
 
-En caso contrario, si ya ha terminado con la guía de inicio rápido, puede eliminar los recursos de Azure creados en esta guía para evitar cargos. 
+En caso contrario, si ya ha terminado con la guía de inicio rápido, puede eliminar los recursos de Azure creados en esta guía para evitar cargos.
 
 > [!IMPORTANT]
 > La eliminación de un grupo de recursos es irreversible. Cuando elimine un grupo de recursos, todos los recursos contenidos en él se eliminan permanentemente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados. Si ha creado los recursos para hospedar este ejemplo dentro de un grupo de recursos existente que contiene recursos que desea mantener, puede eliminar cada recurso individualmente de sus hojas respectivas, en lugar de eliminar el grupo de recursos.
@@ -313,9 +316,9 @@ Se le pedirá que confirme la eliminación del grupo de recursos. Escriba el nom
 
 Transcurridos unos instantes, el grupo de recursos y todos sus recursos se eliminan.
 
-## <a name="next-steps"></a>Pasos siguientes 
+## <a name="next-steps"></a>Pasos siguientes
 
 * Más información sobre [Azure Cache for Redis](./cache-overview.md)
 * Obtenga información sobre cómo configurar la aplicación de Functions en la documentación de [Functions](../azure-functions/functions-create-function-linux-custom-image.md).
-* [Referencia de API](/python/api/azureml-contrib-functions/azureml.contrib.functions) 
+* [Referencia de API](/python/api/azureml-contrib-functions/azureml.contrib.functions)
 * Creación de una [aplicación de Python que use Azure Cache for Redis](./cache-python-get-started.md)

@@ -1,19 +1,19 @@
 ---
-title: CI/CD para Azure Spring Cloud
-description: CI/CD para Azure Spring Cloud
+title: Automatización de implementaciones de aplicaciones en Azure Spring Cloud
+description: Describe cómo usar la tarea de Azure Spring Cloud para Azure Pipelines.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 05/12/2021
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 3335dbb749369129889f132a68be0270a1016f1c
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 2df1c8f0e091e553e045efb8aea5665d29bbc53f
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790800"
+ms.locfileid: "109839336"
 ---
 # <a name="automate-application-deployments-to-azure-spring-cloud"></a>Automatización de implementaciones de aplicaciones en Azure Spring Cloud
 

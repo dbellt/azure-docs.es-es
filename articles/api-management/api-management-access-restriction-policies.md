@@ -4,17 +4,16 @@ description: Aprenda sobre las directivas de restricción de acceso disponibles 
 services: api-management
 documentationcenter: ''
 author: vladvino
-ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
 ms.topic: article
-ms.date: 02/26/2021
+ms.date: 06/02/2021
 ms.author: apimpm
-ms.openlocfilehash: 65916782d12a293226a164869264953572d2b04a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 55e87d6f0e2708e94beb1e2f9391bfa7aff44ceb
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108760200"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111814087"
 ---
 # <a name="api-management-access-restriction-policies"></a>Directivas de restricción de acceso de API Management
 
@@ -29,6 +28,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 -   [Establecer cuota de uso por suscripción](#SetUsageQuota) : le permite aplicar un volumen de llamadas renovables o permanentes o una cuota de ancho de banda por suscripción.
 -   [Establecer cuota de uso por clave](#SetUsageQuotaByKey) : le permite aplicar un volumen de llamadas renovables o permanentes o una cuota de ancho de banda por clave.
 -   [Validar JWT](#ValidateJWT) : aplica la existencia y la validez de un JWT extraído de un encabezado HTTP especificado o un parámetro de consulta especificado.
+-  [Validar el certificado de cliente](#validate-client-certificate) : exige que un certificado presentado por un cliente a una instancia de API Management coincida con notificaciones y reglas de validación especificadas.
 
 > [!TIP]
 > Puede usar las directivas de restricción de acceso en distintos ámbitos para distintos propósitos. Por ejemplo, puede proteger toda la API con la autenticación de AAD si aplica la directiva `validate-jwt` en el nivel de API, o bien puede aplicarla en el nivel de operación de API y usar `claims` para un control más detallado.
@@ -576,6 +576,95 @@ En este ejemplo se muestra cómo usar la directiva de [validación de JWT](api-m
 | separador                       | Cadena Especifica el separador (por ejemplo: ",") que se va a usar para extraer un conjunto de valores de una notificación con varios valores.                                                                                                                                                                                                                                                                                                                                          | No                                                                               | N/D                                                                               |
 | url                             | Dirección URL de punto de conexión de configuración de OpenID desde donde se pueden obtener los metadatos de configuración de OpenID. La respuesta debe ser acorde a las especificaciones definidas en la dirección URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`. En Azure Active Directory, utilice la dirección URL `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` y sustituya tenant-name por el nombre del inquilino de directorio, por ejemplo, `contoso.onmicrosoft.com`. | Sí                                                                              | N/D                                                                               |
 | output-token-variable-name      | String. Nombre de la variable de contexto que recibirá el valor del token como un objeto de tipo [`Jwt`](api-management-policy-expressions.md) tras la validación correcta del token.                                                                                                                                                                                                                                                                                     | No                                                                               | N/D                                                                               |
+
+### <a name="usage"></a>Uso
+
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
+
+-   **Secciones de la directiva:** inbound (entrada)
+-   **Ámbitos de la directiva:** todos los ámbitos
+
+
+## <a name="validate-client-certificate"></a>Validación del certificado de cliente
+
+Use la directiva `validate-client-certificate` para exigir que un certificado presentado por un cliente a una instancia de API Management coincida con notificaciones y reglas de validación especificadas como un firmante o un emisor de certificado para una o varias identidades de certificación.
+
+Para considerarlo válido, un certificado de cliente debe coincidir con todas las reglas de validación que se definen en los atributos en el elemento de nivel superior y coincidir con todas las notificaciones definidas para, al menos, una de las identidades definidas. 
+
+Use esta directiva para comprobar las propiedades del certificado entrante con respecto a las propiedades deseadas. Use esta directiva también para invalidar la validación predeterminada de los certificados de cliente en estos casos:
+
+* Si cargó certificados de entidades de certificación personalizados para validar solicitudes de cliente en la puerta de enlace administrada.
+* Si configuró entidades de certificación personalizadas para validar solicitudes de cliente en una puerta de enlace autoadministrada.
+
+Para más información sobre las entidades de certificación y los certificados de entidades de certificación personalizadas, consulte [Incorporación de un certificado de entidad de certificación personalizado a Azure API Management](api-management-howto-ca-certificates.md). 
+
+### <a name="policy-statement"></a>Instrucción de la directiva
+
+```xml
+<validate-client-certificate> 
+    validate-revocation="true|false" 
+    validate-trust="true|false" 
+    validate-not-before="true|false" 
+    validate-not-after="true|false" 
+    ignore-error="true|false"> 
+    <identities> 
+        <identity  
+            thumbprint="certificate thumbprint"  
+            serial-number="certificate serial number" 
+            common-name="certificate common name"  
+            subject="certificate subject string"  
+            dns-name="certificate DNS name" 
+            issuer="certificate issuer" 
+            issuer-thumbprint="certificate issuer thumbprint"  
+            issuer-certificate-id="certificate identifier" /> 
+    </identities> 
+</validate-client-certificate> 
+```
+
+### <a name="example"></a>Ejemplo
+
+En el ejemplo siguiente se valida un certificado de cliente para que coincida con las reglas de validación predeterminadas de la directiva y se comprueba si el firmante y el emisor coinciden con los valores especificados.
+
+```xml
+<validate-client-certificate> 
+    validate-revocation="true" 
+    validate-trust="true" 
+    validate-not-before="true" 
+    validate-not-after="true" 
+    ignore-error="false"
+    <identities> 
+        <identity 
+            subject="C=US, ST=Illinois, L=Chicago, O=Contoso Corp., CN=*.contoso.com"
+            issuer="C=BE, O=FabrikamSign nv-sa, OU=Root CA, CN=FabrikamSign Root CA" />
+    </identities> 
+</validate-client-certificate> 
+```
+
+### <a name="elements"></a>Elementos
+
+| Elemento             | Descripción                                  | Requerido |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| validate-client-certificate        | Elemento raíz.      | Sí      |
+|   Identidades      |  Contiene una lista de identidades con notificaciones definidas en el certificado de cliente.       |    No        |
+
+### <a name="attributes"></a>Atributos
+
+| Nombre                            | Descripción      | Obligatorio |  Valor predeterminado    |
+| ------------------------------- |   ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| validate-revocation  | booleano. Especifica si el certificado se valida con la lista de revocación en línea.  | No   | True  |
+| validate-trust | booleano. Especifica si se debe generar un error de validación en caso de que la cadena no se pueda crear correctamente en una entidad de certificación de confianza. | No | True |
+| validate-not-before | booleano. Valida el valor con respecto a la hora actual. | No | True | 
+| validate-not-after  | booleano. Valida el valor con respecto a la hora actual. | No | True| 
+| ignore-error  | booleano. Especifica si la directiva debe continuar con el controlador siguiente o pasar al error si se genera un error en la validación. | n°. | False |  
+| identidad | String. Combinación de valores de notificaciones de certificado que hacen que el certificado sea válido. | sí | N/D | 
+| thumbprint | Huella digital del certificado. | No | N/D |
+| serial-number | Número de serie del certificado. | No | N/D |
+| common-name | Nombre común del certificado (parte de la cadena del firmante). | No | N/D |
+| subject | Cadena del firmante. Debe seguir el formato de nombre distintivo (DN). | No | N/D |
+| dns-name | Valor de la entrada dnsName dentro de la notificación Nombre alternativo del firmante. | No | N/D | 
+| issuer | Firmante del emisor. Debe seguir el formato de nombre distintivo (DN). | No | N/D | 
+| issuer-thumbprint | Huella digital del emisor. | No | N/D | 
+| issuer-certificate-id | Identificador de la entidad de certificación existente que representa la clave pública del emisor. | No | N/D | 
 
 ### <a name="usage"></a>Uso
 

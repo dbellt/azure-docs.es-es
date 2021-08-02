@@ -2,13 +2,13 @@
 title: Administración de copias de seguridad de recursos compartidos de archivos de Azure con la CLI de Azure
 description: Obtenga información sobre cómo usar la CLI de Azure para administrar y supervisar los recursos compartidos de archivos de Azure de los que Azure Backup ha realizado una copia de seguridad.
 ms.topic: conceptual
-ms.date: 01/15/2020
-ms.openlocfilehash: e389f5cde12734ef4bf0be4ecfba69ba33f5e030
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 06/10/2021
+ms.openlocfilehash: 9ddee7e0e7595d4606d077f33362344fe582d9a8
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773610"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111902994"
 ---
 # <a name="manage-azure-file-share-backups-with-the-azure-cli"></a>Administración de copias de seguridad de recursos compartidos de archivos de Azure con la CLI de Azure
 
@@ -88,6 +88,98 @@ az backup job list --resource-group azurefiles --vault-name azurefilesvault
     "type": "Microsoft.RecoveryServices/vaults/backupJobs"
   }
 ]
+```
+## <a name="create-policy"></a>Creación de directiva
+
+Puede crear una directiva de copia de seguridad mediante la ejecución del comando [az backup policy create](/cli/azure/backup/policy?view=azure-cli-latest&preserve-view=true#az_backup_policy_create) con los parámetros siguientes:
+
+- --backup-management-type – Azure Storage
+- --workload-type - AzureFileShare
+- --name: nombre de la directiva
+- --policy: archivo JSON con la información adecuada para la programación y la retención
+- --resource-group: grupo de recursos del almacén
+- --vault-name: nombre del almacén
+
+**Ejemplo**
+
+```azurecli-interactive
+az backup policy create --resource-group azurefiles --vault-name azurefilesvault --name schedule20 --backup-management-type AzureStorage --policy samplepolicy.json --workload-type AzureFileShare
+
+```
+
+**JSON de ejemplo (samplepolicy.json)**
+
+```json
+{
+  "eTag": null,
+  "id": "/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupPolicies/schedule20",
+  "location": null,
+  "name": "schedule20",
+  "properties": {
+    "backupManagementType": "AzureStorage",
+    "protectedItemsCount": 0,
+    "retentionPolicy": {
+      "dailySchedule": {
+        "retentionDuration": {
+          "count": 30,
+          "durationType": "Days"
+        },
+        "retentionTimes": [
+          "2020-01-05T08:00:00+00:00"
+        ]
+      },
+      "monthlySchedule": null,
+      "retentionPolicyType": "LongTermRetentionPolicy",
+      "weeklySchedule": null,
+      "yearlySchedule": null
+    },
+    "schedulePolicy": {
+      "schedulePolicyType": "SimpleSchedulePolicy",
+      "scheduleRunDays": null,
+      "scheduleRunFrequency": "Daily",
+      "scheduleRunTimes": [
+        "2020-01-05T08:00:00+00:00"
+      ],
+      "scheduleWeeklyFrequency": 0
+    },
+    "timeZone": "UTC",
+    "workLoadType": “AzureFileShare”
+  },
+  "resourceGroup": "azurefiles",
+  "tags": null,
+  "type": "Microsoft.RecoveryServices/vaults/backupPolicies"
+}
+```
+
+Una vez que la directiva se crea correctamente, la salida del comando mostrará el JSON de la directiva que pasó como parámetro al ejecutar el comando.
+
+Puede modificar la sección de programación y retención de la directiva según sea necesario.
+
+**Ejemplo**
+
+Si desea conservar la copia de seguridad del primer domingo de cada mes durante dos meses, actualice la programación mensual como se indica a continuación:
+
+```json
+"monthlySchedule": {
+        "retentionDuration": {
+          "count": 2,
+          "durationType": "Months"
+        },
+        "retentionScheduleDaily": null,
+        "retentionScheduleFormatType": "Weekly",
+        "retentionScheduleWeekly": {
+          "daysOfTheWeek": [
+            "Sunday"
+          ],
+          "weeksOfTheMonth": [
+            "First"
+          ]
+        },
+        "retentionTimes": [
+          "2020-01-05T08:00:00+00:00"
+        ]
+      }
+
 ```
 
 ## <a name="modify-policy"></a>Modificación de directivas

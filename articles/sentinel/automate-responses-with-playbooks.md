@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/17/2021
 ms.author: yelevin
-ms.openlocfilehash: 0158c9f5b9debf0c47978e816951e25634621645
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0687b3bf486d2496763237164536be34f504f7ed
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608835"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112070892"
 ---
 # <a name="automate-threat-response-with-playbooks-in-azure-sentinel"></a>Automatización de la respuesta a amenazas con cuadernos de estrategias en Azure Sentinel
 
@@ -32,7 +32,7 @@ Los equipos de SIEM y SOC normalmente se sobrecargan con alertas e incidentes de
 
 Muchas de estas alertas e incidentes, si no la mayoría, se ajustan a patrones recurrentes que se pueden resolver mediante conjuntos de acciones de corrección específicas y definidas.
 
-Un cuaderno de estrategias es una colección de estas acciones correctivas que se puede ejecutar desde Azure Sentinel de forma rutinaria. Un cuaderno de estrategias puede ayudarle a automatizar y organizar la respuesta a las amenazas; se puede ejecutar manualmente o establecer para que se ejecute automáticamente en respuesta a alertas o incidentes específicos, cuando se desencadena mediante una regla de análisis o una regla de automatización, respectivamente.
+Un cuaderno de estrategias es una colección de estas acciones correctivas que se puede ejecutar desde Azure Sentinel de forma rutinaria. Un cuaderno de estrategias puede ayudarle a [**automatizar y organizar la respuesta a las amenazas**](tutorial-respond-threats-playbook.md); se puede ejecutar manualmente o establecer para que se ejecute automáticamente en respuesta a alertas o incidentes específicos, cuando se desencadena mediante una regla de análisis o una regla de automatización, respectivamente.
 
 Los cuadernos de estrategias se crean y se aplican en el nivel de suscripción, pero en la pestaña **Playbooks** (Cuadernos de estrategias) (en la hoja nueva **Automation** [Automatización]) se muestran todos los cuadernos de estrategias disponibles en todas las suscripciones seleccionadas.
 
@@ -210,13 +210,17 @@ En el caso de los cuadernos de estrategias desencadenados por la creación de in
 - En la pestaña **Automation rules** (Reglas de automatización) de la hoja **Automation** (Automatización), cree una nueva regla de automatización y especifique las condiciones adecuadas y las acciones deseadas. Esta regla de automatización se aplicará a cualquier regla de análisis que cumpla las condiciones especificadas.
 
     > [!NOTE]
+    > **Las reglas de automatización de Azure Sentinel requieren permisos para ejecutar los cuadernos de estrategias.**
+    >
     > Para ejecutar un cuaderno de estrategias desde una regla de automatización, Azure Sentinel usa una cuenta de servicio específicamente autorizada para ello. El uso de esta cuenta (en contraposición a su cuenta de usuario) aumenta el nivel de seguridad del servicio y permite que la API de reglas de automatización admita los casos de uso de CI/CD.
     >
-    > A esta cuenta se le deben conceder permisos explícitos en el grupo de recursos en el que reside el cuaderno de estrategias. En ese momento, cualquier regla de automatización podrá ejecutar cualquier cuaderno de estrategias de ese grupo de recursos.
+    > A esta cuenta se le deben conceder permisos explícitos (con la forma del rol **Colaborador de automatización de Azure Sentinel**) en el grupo de recursos donde reside el cuaderno de estrategias. En ese momento, cualquier regla de automatización podrá ejecutar cualquier cuaderno de estrategias de ese grupo de recursos.
     >
-    > Al agregar la acción **Ejecutar cuaderno de estrategias** a una regla de automatización, aparecerá una lista desplegable de cuadernos de estrategias. Los cuadernos de estrategias en los que Azure Sentinel no tiene permisos se mostrarán como no disponibles ("atenuados"). Puede conceder permisos a Azure Sentinel aquí mismo; para ello, seleccione el vínculo **Manage playbook permissions** (Administrar permisos del cuaderno de estrategias).
+    > Al agregar la acción **Ejecutar cuaderno de estrategias** a una regla de automatización, aparecerá una lista desplegable de cuadernos de estrategias para su selección. Los cuadernos de estrategias en los que Azure Sentinel no tiene permisos se mostrarán como no disponibles ("atenuados"). Puede conceder permisos a Azure Sentinel aquí mismo; para ello, seleccione el vínculo **Manage playbook permissions** (Administrar permisos del cuaderno de estrategias).
     >
     > En un escenario de varios inquilinos ([Lighthouse](extend-sentinel-across-workspaces-tenants.md#managing-workspaces-across-tenants-using-azure-lighthouse)), debe definir los permisos en el inquilino en el que reside el cuaderno de estrategias, incluso si la regla de automatización que llama al cuaderno de estrategias está en otro inquilino. Para ello, debe tener permisos de **Propietario** en el grupo de recursos del cuaderno de estrategias.
+    >
+    > Hay un escenario único al que se enfrenta un **proveedor de servicios de seguridad administrada (MSSP)** , en el que un proveedor de servicios, que ha iniciado sesión en su propio inquilino, crea una regla de automatización en el área de trabajo de un cliente mediante [Azure Lighthouse](../lighthouse/index.yml). A continuación, esta regla de automatización llama a un cuaderno de estrategias que pertenece al inquilino del cliente. En este caso, se debe conceder permisos a Azure Sentinel en **_ambos inquilinos_ *. En el inquilino del cliente, se conceden en el panel* Manage playbook permissions** (Administrar permisos del cuaderno de estrategias), al igual que en el escenario multiinquilino normal. Para conceder los permisos pertinentes en el inquilino del proveedor de servicios, debe agregar una delegación de Azure Lighthouse adicional que conceda derechos de acceso a la aplicación de **Azure Security Insights**, con el rol **Colaborador de Azure Sentinel Automation**, en el grupo de recursos donde reside el cuaderno de estrategias. [Más información sobre cómo agregar esta delegación](tutorial-respond-threats-playbook.md#permissions-to-run-playbooks).
 
 Consulte las [instrucciones completas para crear reglas de automatización](tutorial-respond-threats-playbook.md#respond-to-incidents).
 

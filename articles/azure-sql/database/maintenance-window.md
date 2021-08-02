@@ -3,19 +3,19 @@ title: Ventana de mantenimiento
 description: Aprenda a configurar la ventana de mantenimiento de Azure SQL Database y Managed Instance.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: service-overview
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
-ms.date: 04/28/2021
-ms.openlocfilehash: ab3da3ba8764ced53f3dcd936d56a24e73cfd8a2
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 05/02/2021
+ms.openlocfilehash: 765c6c79bf28ad01ab0253e85affd5d4cd95ed78
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108736458"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031914"
 ---
 # <a name="maintenance-window-preview"></a>Ventana de mantenimiento (versión preliminar)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -45,7 +45,7 @@ Para ajustar aún más el horario de las actualizaciones de mantenimiento a sus 
 * Ventana de día de la semana: de 22:00 a 6:00 (hora local) de lunes a jueves.
 * Ventana de fin de semana: de 22:00 a 6:00 (hora local) de viernes a domingo.
 
-Una vez seleccionada la ventana de mantenimiento y completada la configuración del servicio, el mantenimiento planeado solo se producirá durante la ventana que haya elegido.   
+Una vez seleccionada la ventana de mantenimiento y completada la configuración del servicio, el mantenimiento planeado solo se producirá durante la ventana que haya elegido. Aunque los eventos de mantenimiento normalmente se completan dentro de una sola ventana, algunos de ellos pueden abarcar dos o más ventanas adyacentes.   
 
 > [!Important]
 > En circunstancias muy poco habituales en las que cualquier aplazamiento de acción podría tener un impacto grave, como aplicar una revisión de seguridad crítica, es posible que la ventana de mantenimiento configurada se invalide temporalmente. 
@@ -84,12 +84,14 @@ La elección de una ventana de mantenimiento que no sea la predeterminada está 
 - Este de EE. UU.
 - Este de EE. UU. 2
 - Este de Asia
+- Centro-oeste de Alemania
 - Japón Oriental
 - Centro-Norte de EE. UU.
 - Norte de Europa
 - Centro-Sur de EE. UU.
 - Sudeste de Asia
 - Sur de Reino Unido 2
+- Oeste de Reino Unido
 - Oeste de Europa
 - Oeste de EE. UU.
 - Oeste de EE. UU. 2
@@ -108,7 +110,7 @@ Para obtener más información sobre la directiva de conexión de cliente en Azu
 
 ## <a name="considerations-for-azure-sql-managed-instance"></a>Consideraciones sobre Azure SQL Managed Instance
 
-Azure SQL Managed Instance está formado por componentes de servicio hospedados en un conjunto dedicado de máquinas virtuales aisladas que se ejecutan dentro de la subred de la red virtual del cliente. Estas máquinas virtuales forman [clústeres virtuales](../managed-instance/connectivity-architecture-overview.md#high-level-connectivity-architecture) que pueden hospedar varias instancias administradas. La ventana de mantenimiento configurada en instancias de una subred puede influir en el número de clústeres virtuales dentro de la subred y en la distribución de instancias entre clústeres virtuales. Esto puede requerir la consideración de algunos efectos.
+Azure SQL Managed Instance está formado por componentes de servicio hospedados en un conjunto dedicado de máquinas virtuales aisladas que se ejecutan dentro de la subred de la red virtual del cliente. Estas máquinas virtuales forman [clústeres virtuales](../managed-instance/connectivity-architecture-overview.md#high-level-connectivity-architecture) que pueden hospedar varias instancias administradas. La ventana de mantenimiento configurada en instancias de una subred puede influir en el número de clústeres virtuales dentro de la subred, en la distribución de instancias entre clústeres virtuales y en las operaciones de administración de estos clústeres. Esto puede requerir la consideración de algunos efectos.
 
 ### <a name="maintenance-window-configuration-is-long-running-operation"></a>La configuración de la ventana de mantenimiento es una operación de larga duración 
 Todas las instancias hospedadas en un clúster virtual comparten la ventana de mantenimiento. De forma predeterminada, todas las instancias administradas se hospedan en el clúster virtual con la ventana de mantenimiento predeterminada. Especificar otra ventana de mantenimiento para la instancia administrada durante su creación o después significa que debe colocarse en un clúster virtual con la ventana de mantenimiento correspondiente. Si no hay ningún clúster virtual en la subred, primero se debe crear uno para acomodar la instancia. Para acomodar una instancia adicional en el clúster virtual existente, es posible que se deba cambiar el tamaño del clúster. Ambas operaciones contribuyen a la duración de la configuración de la ventana de mantenimiento para una instancia administrada.
@@ -125,6 +127,10 @@ La configuración y el cambio de la ventana de mantenimiento provoca un cambio d
 
 > [!Important]
 >  Asegúrese de que el grupo de seguridad de red y las reglas de firewall no bloquearán el tráfico de datos después de cambiar la dirección IP. 
+
+### <a name="serialization-of-virtual-cluster-management-operations"></a>Serialización de operaciones de administración de clústeres virtuales
+Las operaciones que afectan a los clústeres virtuales, como las actualizaciones de servicio y el cambio de tamaño de los clústeres (mediante la incorporación de nodos de proceso nuevos o la eliminación de los nodos de proceso innecesarios) se serializan. En otras palabras, una nueva operación de administración de clústeres virtuales no se puede iniciar hasta que se completa la anterior. En caso de que la ventana de mantenimiento se cierre antes de que se complete la operación de actualización o mantenimiento del servicio en curso, cualquier otra operación de administración de clúster virtual enviada mientras tanto se pondrá en espera hasta que se abra la siguiente ventana de mantenimiento y se complete la operación de actualización o mantenimiento del servicio. No es habitual que una operación de mantenimiento lleve más tiempo que el que dura una sola ventana por clúster virtual, pero puede ocurrir en el caso de operaciones de mantenimiento muy complejas.
+La serialización de las operaciones de administración de clústeres virtuales es un comportamiento general que también se aplica a la directiva de mantenimiento predeterminada. Con una programación de ventana de mantenimiento configurada, el período entre dos ventanas adyacentes puede ser de unos días. Las operaciones enviadas también pueden estar en espera durante unos días si la operación de mantenimiento abarca dos ventanas. Este es un caso muy poco frecuente, pero la creación de nuevas instancias o el cambio de tamaño de las instancias existentes (si se necesitan nodos de proceso adicionales) se puede bloquear durante este período.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

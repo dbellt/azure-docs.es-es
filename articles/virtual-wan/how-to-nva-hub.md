@@ -5,22 +5,22 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.author: cherylmc
-ms.openlocfilehash: be8a8dbe94404141781af4abf6cc8ec5bb9c2712
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 0119d9b1938698ed27d9c1539c1366859d0fc7f9
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060625"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411960"
 ---
-# <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Creación de una aplicación virtual de red en un centro de conectividad de Azure Virtual WAN (versión preliminar)
+# <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub"></a>Creación de una aplicación virtual de red en un centro de conectividad de Azure Virtual WAN
 
 En este artículo se muestra cómo usar Virtual WAN para conectarse a recursos de Azure mediante una **aplicación virtual de red** (NVA) en Azure. Este tipo de conexión requiere un dispositivo VPN local que tenga una dirección IP pública asignada. Para obtener más información sobre Virtual WAN, consulte [¿Qué es Virtual WAN?](virtual-wan-about.md).
 
 Los pasos que se describen en este artículo le ayudarán a crear una aplicación virtual de red **Barracuda CloudGen WAN** en el centro de conectividad de Virtual WAN. Para completar este ejercicio, debe tener un dispositivo local de la nube de Barracuda Cloud Premise (CPE) y una licencia de la aplicación Barracuda CloudGen WAN que implementará en el centro antes de empezar.
 
-Para obtener documentación de implementación de **Cisco SD-WAN** en Azure virtual WAN, consulte [Cisco Cloud OnRamp for Multi-Cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701). 
+Para encontrar la documentación de implementación de **Cisco SD-WAN** en Azure Virtual WAN, consulte [Cisco Cloud OnRamp for Multi-Cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701). 
 
 Para encontrar la documentación de implementación de **VMware SD-WAN** en Azure Virtual WAN, consulte [Guía de implementación de VMware SD-WAN en el centro de conectividad de Virtual WAN](https://kb.vmware.com/s/article/82746).
 
@@ -34,7 +34,7 @@ Antes de comenzar con la configuración, compruebe que se cumplen los criterios 
 
 * Su red virtual no tiene ninguna puerta de enlace de red virtual. Si la red virtual tiene alguna puerta de enlace (ya sea VPN o ExpressRoute), tiene que quitarla. Esta configuración requiere que las redes virtuales estén conectadas a la puerta de enlace del centro de conectividad de Virtual WAN.
 
-* Obtenga un intervalo de direcciones IP para la región del concentrador. El centro de conectividad es una red virtual que Virtual WAN crea y usa. El intervalo de direcciones que especifique para el centro de conectividad no se puede superponer a ninguna de las redes virtuales existentes a las que ya esté conectado. Igualmente no se puede superponer a los intervalos de direcciones con las que esté conectadas en el entorno local. Si no está familiarizado con los intervalos de direcciones IP ubicados en la configuración de la red local, póngase de acuerdo con alguien que pueda proporcionarle estos detalles.
+* Obtenga un intervalo de direcciones IP para la región del concentrador. El centro de conectividad es una red virtual que Virtual WAN crea y usa. El intervalo de direcciones que especifique para el centro de conectividad no se puede superponer a ninguna de las redes virtuales existentes a las que ya esté conectado. Tampoco puede superponerse con los intervalos de direcciones a los que se conecta en los sitios locales. Si no está familiarizado con los intervalos de direcciones IP ubicados en la configuración de la red local, póngase de acuerdo con alguien que pueda proporcionarle estos detalles.
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -99,4 +99,4 @@ En este paso, creará una aplicación virtual de red en el centro de conectivida
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener más información sobre Virtual WAN, consulte la página [¿Qué es Virtual WAN?](virtual-wan-about.md).
-* Para más información sobre las NVA de un centro de conectividad de Virtual WAN, consulte el artículo [Acerca de la aplicación virtual de red en el centro de conectividad de Virtual WAN (versión preliminar)](about-nva-hub.md).
+* Para más información sobre las NVA de un centro de conectividad de Virtual WAN, consulte el artículo [Acerca de la aplicación virtual de red en el centro de conectividad de Virtual WAN](about-nva-hub.md).

@@ -5,15 +5,15 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 04/28/2021
+ms.date: 06/02/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 7269309a3ed682da4d67e2509508276a3133601e
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 9f80b91695af6350376d5fcd97732e1a056278a9
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109516873"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111413094"
 ---
 # <a name="configure-and-optimize-vms"></a>Configuración y optimización de máquinas virtuales
 
@@ -22,13 +22,14 @@ En este artículo se incluyen algunas instrucciones sobre la configuración y op
 ## <a name="vm-images"></a>Imágenes de VM
 En las VM habilitadas para InfiniBand (IB), se necesitan los controladores adecuados para habilitar RDMA.
 - Las [imágenes de las VM de la versión de CentOS-HPC](#centos-hpc-vm-images) en Marketplace se configuran previamente con los controladores de IB adecuados.
+  - La imagen de VM de CentOS-HPC versión 7.9 también viene preconfigurada con los controladores de GPU de Nvidia. 
 - Las [imágenes de las VM de la versión de Ubuntu-HPC](#ubuntu-hpc-vm-images) en Marketplace se configuran previamente con los controladores de IB y de GPU adecuados.
 
 Estas imágenes de VM (VMI) se basan en las imágenes de VM base de CentOS y Ubuntu en Marketplace. Los scripts usados en la creación de imágenes de VM a partir de su imagen base de CentOS en Marketplace se encuentran en el [repositorio azhpc-images](https://github.com/Azure/azhpc-images/tree/master/centos).
 
 En las VM de la [serie N](../../sizes-gpu.md) habilitadas para GPU, también se requieren los controladores de GPU adecuados. Pueden estar disponibles mediante los métodos siguientes:
-- Use las [imágenes de VM de Ubuntu-HPC](#ubuntu-hpc-vm-images) que vienen preconfiguradas con los controladores de GPU de Nvidia y la pila de software de proceso de GPU (CUDA, NCCL).
-- Adición de los controladores de GPU a través de las [extensiones de VM](../../extensions/hpccompute-gpu-linux.md)
+- Use las [imágenes de VM de Ubuntu-HPC](#ubuntu-hpc-vm-images) y la [imagen de VM de CentOS-HPC](#centos-hpc-vm-images) versión 7.9 que vienen preconfiguradas con los controladores de GPU de Nvidia y la pila de software de proceso de GPU (CUDA, NCCL).
+- Incorporación de los controladores de GPU a través de las [extensiones de VM](../../extensions/hpccompute-gpu-linux.md).
 - Instale los controladores de GPU [manualmente](../../linux/n-series-driver-setup.md).
 - Algunas otras imágenes de VM de Marketplace también vienen preinstaladas con los controladores de GPU de Nvidia, incluidas algunas imágenes VM de Nvidia.
 
@@ -36,18 +37,25 @@ En función de las necesidades de distribución y versión de Linux de las carga
 También se recomienda crear [imágenes de VM personalizadas](../../linux/tutorial-custom-images.md) con personalización y configuración específicas de las cargas de trabajo, y reutilizarlas de forma periódica.
 
 ### <a name="vm-sizes-supported-by-the-hpc-vm-images"></a>Tamaños de VM admitidos por las imágenes de VM de HPC
+
+#### <a name="infiniband-ofed-support"></a>Compatibilidad con InfiniBand OFED
 Las imágenes HPC de Azure Marketplace más recientes vienen con OFED 5.1 de Mellanox y versiones posteriores, que no admiten tarjetas InfiniBand ConnectX3-Pro. Estas imágenes de VM solo admiten tarjetas InfiniBand ConnextX-5 y versiones más recientes. Esto implica la siguiente matriz de compatibilidad de tamaño de VM para InfiniBand OFED en estas imágenes de VM de HPC:
 - [Serie H](../../sizes-hpc.md): HB, HC, HBv2, HBv3
 - [Serie N](../../sizes-gpu.md): NDv2, NDv4
 
-Tenga en cuenta que para la compatibilidad con GPU en los tamaños de VM de la serie N, NDv2 y NDv4, actualmente solo las [imágenes de VM de Ubuntu-HPC](#ubuntu-hpc-vm-images) vienen preconfiguradas con los controladores de GPU de Nvidia y la pila de software de proceso de GPU (CUDA, NCCL). 
+#### <a name="gpu-driver-support"></a>Compatibilidad con el controlador de GPU
+Actualmente, solo las [imágenes de VM de Ubuntu-HPC](#ubuntu-hpc-vm-images) y la [imagen de VM de CentOS-HPC](#centos-hpc-vm-images) versión 7.9 vienen preconfiguradas con los controladores de GPU de Nvidia y la pila de software de proceso de GPU (CUDA, NCCL).
 
-Además, tenga en cuenta que todos los tamaños de VM anteriores admiten VM de "Gen 2", aunque algunas más antiguas también admiten VM de "Gen 1".
+La matriz de compatibilidad del tamaño de VM para los controladores de GPU en las imágenes de VM de HPC admitidas es la siguiente:
+- [Serie N](../../sizes-gpu.md): los tamaños de VM NDv2 y NDv4 son compatibles con los controladores de GPU de Nvidia y la pila de software de proceso de GPU (CUDA, NCCL).
+- Los otros tamaños de VM "NC" y "ND" de la [serie N](../../sizes-gpu.md) se admiten con los controladores de GPU de Nvidia.
+
+Además, tenga en cuenta que todos los tamaños de VM anteriores admiten VM de "Gen 2", aunque algunas más antiguas también admiten VM de "Gen 1". La compatibilidad con "Gen 2" también se indica con un "01" al final del URN de VMI o la versión.
 
 ### <a name="centos-hpc-vm-images"></a>Imágenes de máquina virtual de CentOS-HPC
 
 #### <a name="sr-iov-enabled-vms"></a>Máquinas virtuales habilitadas para SR-IOV
-Para las [VM habilitadas para RDMA con SR-IOV](../../sizes-hpc.md#rdma-capable-instances), las imágenes de VM de CentOS-HPC versión 7.6 y posteriores son adecuadas. Estas imágenes de VM vienen optimizadas y cargadas previamente con los controladores OFED de Mellanox para RDMA, y con varias bibliotecas de MPI y paquetes de informática científica más usados.
+Para las [VM habilitadas para RDMA con SR-IOV](../../sizes-hpc.md#rdma-capable-instances), las imágenes de VM de CentOS-HPC versión 7.6 y posteriores son adecuadas. Estas imágenes de VM vienen optimizadas y cargadas previamente con los controladores OFED de Mellanox para RDMA, y con varias bibliotecas de MPI y paquetes de informática científica más usados. Consulte la [matriz de compatibilidad de tamaño de VM](#vm-sizes-supported-by-the-hpc-vm-images) anterior.
 - Las versiones disponibles o más recientes de las imágenes de VM se pueden enumerar con la siguiente información mediante la [CLI](/cli/azure/vm/image#az_vm_image_list) o [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview).
    ```bash
    "publisher": "OpenLogic",
@@ -55,6 +63,9 @@ Para las [VM habilitadas para RDMA con SR-IOV](../../sizes-hpc.md#rdma-capable-i
    ```
 - Los Scripts usados en la creación de imágenes de máquina virtual de la versión 7.6 y posterior de CentOS-HPC a partir de una imagen base de Marketplace de CentOS base en el [repositorio azhpc-images](https://github.com/Azure/azhpc-images/tree/master/centos).
 - Además, los detalles sobre lo que se incluye en la versión 7.6 y posteriores de las imágenes de VM de CentOS-HPC y cómo implementarlas se encuentran en un [artículo de TechCommunity](https://techcommunity.microsoft.com/t5/azure-compute/azure-hpc-vm-images/ba-p/977094).
+
+> [!NOTE] 
+> Entre las imágenes de VM de CentOS-HPC, actualmente solo la versión 7.9 de la imagen de VM viene preconfigurada con los controladores de GPU de Nvidia y la pila de software de proceso de GPU (CUDA, NCCL).
 
 > [!NOTE] 
 > Los tamaños de máquina virtual de la serie N habilitados para SR-IOV con FDR InfiniBand (por ejemplo, NCv3) podrán usar las siguientes versiones de imagen de máquina virtual CentOS-HPC o anteriores de Marketplace:
@@ -72,7 +83,7 @@ En el caso de las [máquinas virtuales compatibles con RDMA](../../sizes-hpc.md#
 > En las imágenes de HPC basadas en CentOS para máquinas virtuales no habilitadas para SR-IOV, las actualizaciones del kernel están deshabilitadas en el archivo de configuración **yum**. Esto se debe a que los controladores RDMA de Linux de Network Direct se distribuyen en forma de paquete RPM y sus actualizaciones de estos podrían no funcionar si se actualiza el kernel.
 
 ### <a name="ubuntu-hpc-vm-images"></a>Imágenes de VM de Ubuntu-HPC
-Para las [VM compatibles con RDMA](../../sizes-hpc.md#rdma-capable-instances) habilitadas para SR-IOV, las imágenes de VM de Ubuntu-HPC, versión 18.04 y posteriores, son adecuadas. Estas imágenes de VM vienen optimizadas y cargadas previamente con los controladores OFED de Mellanox para RDMA, controladores de GPU de Nvidia, la pila de software de proceso de GPU (CUDA, NCCL), y varias bibliotecas de MPI y paquetes de informática científica más usados.
+Para las [VM compatibles con RDMA](../../sizes-hpc.md#rdma-capable-instances) habilitadas para SR-IOV, las imágenes de VM de Ubuntu-HPC, versiones 18.04 y 20.04, son adecuadas. Estas imágenes de VM vienen optimizadas y cargadas previamente con los controladores OFED de Mellanox para RDMA, controladores de GPU de Nvidia, la pila de software de proceso de GPU (CUDA, NCCL), y varias bibliotecas de MPI y paquetes de informática científica más usados. Consulte la [matriz de compatibilidad de tamaño de VM](#vm-sizes-supported-by-the-hpc-vm-images) anterior.
 - Las versiones disponibles o más recientes de las imágenes de VM se pueden enumerar con la siguiente información mediante la [CLI](/cli/azure/vm/image#az_vm_image_list) o [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-hpc?tab=overview).
    ```bash
    "publisher": "Microsoft-DSVM",

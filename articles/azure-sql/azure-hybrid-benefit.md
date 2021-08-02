@@ -4,19 +4,19 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Use licencias de SQL Server existentes para los descuentos de Azure SQL Database e Instancia administrada de SQL.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: features
+ms.subservice: service-overview
 ms.custom: sqldbrb=4
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: sashan, moslake
 ms.date: 02/16/2021
-ms.openlocfilehash: b5f85e0dcb8ca70d5773b8f1c3b53e0b449ef013
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: d8557c24b1f6ef46559f57d09c6e273dd4041272
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779208"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112018178"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Ventaja híbrida de Azure: Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -33,8 +33,8 @@ En el nivel de proceso aprovisionado del modelo de compra basado en núcleo virt
 Con la Ventaja híbrida de Azure, puede elegir pagar solo por la infraestructura subyacente de Azure mediante su licencia existente de SQL Server para el motor de base de datos de SQL Server (precios de proceso básicos), o pagar tanto por la infraestructura subyacente como por la licencia de SQL Server (precio con licencia incluida).
 
 Puede elegir o cambiar el modelo de licencias en Azure Portal: 
-- En el caso de las bases de datos nuevas, seleccione **Configurar base de datos** durante el proceso de creación en la pestaña **Conceptos básicos** y seleccione la opción para ahorrar dinero.
-- En el caso de las bases de datos existentes, seleccione **Configurar** en el menú **Configuración** y seleccione la opción para ahorrar dinero.
+- En el caso de las bases de datos nuevas, seleccione **Configurar base de datos** durante el proceso de creación en la pestaña **Conceptos básicos** y seleccione la opción para **ahorrar dinero**.
+- En el caso de las bases de datos existentes, seleccione **Configurar** en el menú **Configuración** y seleccione la opción para **ahorrar dinero**.
 
 También puede configurar una base de datos nueva o existente mediante una de las siguientes API:
 

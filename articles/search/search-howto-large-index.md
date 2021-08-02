@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: b4f54aff78526ba52e56ed9f4cf1feddf40fa69b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c754c47bda03987c00b763d39c608f9de3d84deb
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94358399"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111558820"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Indexación de grandes conjuntos de datos en Azure Cognitive Search
 
@@ -98,7 +98,7 @@ Los [indexadores](search-indexer-overview.md) sirven para rastrear en los oríge
 
 + Los programadores le permiten empaquetar la indexación en intervalos regulares para que se pueda distribuir con el tiempo.
 + Puede reanudar la indexación programada en el último punto de detención conocido. Si un origen de datos no se rastrea completamente en un plazo de 24 horas, el indizador reanudará la indexación en el segundo día donde se quedó.
-+ Particionar los datos en orígenes de datos individuales más pequeños permite realizar procesamientos en paralelo. Puede dividir los datos de origen en componentes más pequeños, por ejemplo, en varios contenedores en Azure Blob Storage y, luego, crear [varios orígenes de datos](/rest/api/searchservice/create-data-source) correspondientes en Azure Cognitive Search que se puedan indexar en paralelo.
++ Particionar los datos en orígenes de datos individuales más pequeños permite realizar procesamientos en paralelo. Puede dividir los datos de origen en componentes más pequeños, por ejemplo, en varios contenedores en Azure Blob Storage y, luego, crear varios [objetos de orígenes de datos](/rest/api/searchservice/create-data-source) correspondientes en Azure Cognitive Search que se puedan indexar en paralelo.
 
 > [!NOTE]
 > Los indizadores son específicos del origen de datos, por lo que un enfoque con indizadores solo es posible para algunos orígenes de datos en Azure: [SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Blob Storage](search-howto-indexing-azure-blob-storage.md), [Table Storage](search-howto-indexing-azure-tables.md) y [Cosmos DB](search-howto-index-cosmosdb.md).
@@ -144,7 +144,7 @@ En el caso de los indexadores, la capacidad de procesamiento se basa parcialment
 
 2. Puede ejecutar tantos indexadores en paralelo como el número de unidades de búsqueda del servicio. En **Configuración** > **Escala**, [aumente las réplicas](search-capacity-planning.md) o las particiones para el procesamiento paralelo: una réplica o partición adicional para cada carga de trabajo de indexador. Deje un número suficiente para el volumen de consultas existente. No se recomienda sacrificar las cargas de trabajo por la indexación.
 
-3. Distribuya los datos en varios contenedores en un nivel que puedan alcanzar los indizadores de Azure Cognitive Search. Esto podría tratarse de varias tablas en Azure SQL Database, varios contenedores en Azure Blob Storage o varias colecciones. Defina un objeto de origen de datos para cada tabla o contenedor.
+3. Distribuya los datos en varios contenedores en un nivel que puedan alcanzar los indizadores de Azure Cognitive Search. Esto podría tratarse de varias tablas en Azure SQL Database, varios contenedores en Azure Blob Storage o varias colecciones. Defina un objeto de origen de datos para cada tabla o contenedor.
 
 4. Cree y programe varios indexadores para que se ejecuten en paralelo:
 

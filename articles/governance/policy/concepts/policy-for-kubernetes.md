@@ -1,15 +1,15 @@
 ---
 title: Información sobre Azure Policy para Kubernetes
 description: Obtenga información sobre cómo Azure Policy usa Rego y Open Policy Agent para administrar clústeres que ejecutan Kubernetes en Azure o en el entorno local.
-ms.date: 03/22/2021
+ms.date: 05/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2610d788c18883d7aaffc3f7cae3ab7774eed1fa
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 5a479c6f6bf22f416b3508c08dff5d60a8297d1a
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752604"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111985029"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Descripción de Azure Policy para clústeres de Kubernetes (versión preliminar)
 
@@ -130,16 +130,6 @@ Una vez que se han completado los pasos anteriores de requisitos previos, instal
 
   1. En la página principal, seleccione el botón **Enable add-on** (Habilitar complemento).
 
-     <a name="migrate-from-v1"></a>
-     > [!NOTE]
-     > Si el botón **Deshabilitar complemento** está habilitado y se muestra un mensaje de advertencia de migración a v2, el complemento v1 está instalado y se debe quitar antes de asignar las definiciones de directiva v2. El complemento _en desuso_ v1 se reemplazará automáticamente por el complemento v2 a partir del 24 de agosto.
-     > 2020. A partir de entonces, se deben asignar las nuevas versiones v2 de las definiciones de directiva. Para actualizar ahora, siga estos pasos:
-     >
-     > 1. Para validar que el clúster de AKS tiene instalado el complemento v1, visite la página de **Directivas** en el clúster de AKS, y que tenga el mensaje "The current cluster uses Azure Policy add-on v1…" (El clúster actual utiliza el complemento de Azure Policy v1…).
-     > 1. [Quite el complemento](#remove-the-add-on-from-aks).
-     > 1. Seleccione el botón **Habilitar complemento** para instalar la versión v2 del complemento.
-     > 1. [Asignación de versiones V2 de las definiciones de directiva integradas v1](#assign-a-built-in-policy-definition)
-
 - Azure CLI
 
   ```azurecli-interactive
@@ -158,17 +148,13 @@ kubectl get pods -n kube-system
 kubectl get pods -n gatekeeper-system
 ```
 
-Por último, para comprobar que el complemento más reciente está instalado, ejecute este comando de la CLI de Azure y reemplace `<rg>` por el nombre del grupo de recursos y `<cluster-name>` por el nombre del clúster de AKS: `az aks show --query addonProfiles.azurepolicy -g <rg> -n <cluster-name>`. El resultado debe ser similar al siguiente y **config.version** debe ser `v2`:
+Por último, para comprobar que el complemento más reciente está instalado, ejecute este comando de la CLI de Azure y reemplace `<rg>` por el nombre del grupo de recursos y `<cluster-name>` por el nombre del clúster de AKS: `az aks show --query addonProfiles.azurepolicy -g <rg> -n <cluster-name>`. La resultado tiene que ser similar a la siguiente salida:
 
 ```output
-"addonProfiles": {
-    "azurepolicy": {
-        "config": {
-            "version": "v2"
-        },
+{
+        "config": null,
         "enabled": true,
         "identity": null
-    },
 }
 ```
 

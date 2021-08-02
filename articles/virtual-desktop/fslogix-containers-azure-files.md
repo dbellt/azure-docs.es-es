@@ -1,21 +1,21 @@
 ---
-title: 'Archivos de contenedores de perfiles de FSLogix para Windows Virtual Desktop: Azure'
-description: Este artículo describe los contenedores de perfiles de FSLogix dentro de Windows Virtual Desktop y Azure Files.
+title: 'Archivos de contenedores de perfiles de FSLogix para Azure Virtual Desktop: Azure'
+description: En este artículo se describen los contenedores de perfiles de FSLogix dentro de Azure Virtual Desktop y Azure Files.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 01/04/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 945bf806a813943d02fb4db1245dfb74eb7fb1f9
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: c7b8b400d2f927fa4b5d6f713b29dbda34eec959
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106446900"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757686"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contenedores de perfiles de FSLogix y archivos de Azure
 
-El servicio Windows Virtual Desktop recomienda contenedores de perfiles de FSLogix como solución para los perfiles de usuario. FSLogix está diseñado para itinerar perfiles en entornos informáticos remotos, como Windows Virtual Desktop. Almacena un perfil de usuario completo en un único contenedor. Al iniciar sesión, este contenedor se adjunta dinámicamente al entorno informático mediante el disco duro virtual (VHD) compatible de forma nativa y el disco duro virtual de Hyper-V (VHDX). El perfil de usuario está disponible inmediatamente y aparece en el sistema exactamente como un perfil de usuario nativo. En este artículo se describe cómo se usan los contenedores de perfiles de FSLogix con la función de Azure Files en Windows Virtual Desktop.
+El servicio Azure Virtual Desktop recomienda contenedores de perfiles de FSLogix como solución para los perfiles de usuario. FSLogix está diseñado para utilizar perfiles itinerantes en entornos informáticos remotos, como Azure Virtual Desktop. Almacena un perfil de usuario completo en un único contenedor. Al iniciar sesión, este contenedor se adjunta dinámicamente al entorno informático mediante el disco duro virtual (VHD) compatible de forma nativa y el disco duro virtual de Hyper-V (VHDX). El perfil de usuario está disponible inmediatamente y aparece en el sistema exactamente como un perfil de usuario nativo. En este artículo se describe cómo se usan los contenedores de perfiles de FSLogix con la función de Azure Files en Azure Virtual Desktop.
 
 >[!NOTE]
 >Si está buscando material de comparación sobre las diferentes opciones de almacenamiento del contenedor de perfiles de FSLogix en Azure, consulte [Opciones de almacenamiento para contenedores de perfiles de FSLogix](store-fslogix-profile.md).
@@ -77,13 +77,13 @@ Desde su adquisición, Microsoft comenzó a reemplazar las soluciones de perfile
 
 ## <a name="azure-files-integration-with-azure-active-directory-domain-service"></a>Integración de Azure Files con Azure Active Directory Domain Service
 
-El rendimiento y las características de los contenedores de perfiles de FSLogix aprovechan las ventajas de la nube. El 7 de agosto de 2019, Microsoft Azure Files anunció la disponibilidad general de la autenticación de [Azure files con Azure Active Directory Domain Services (AD DS)](../storage/files/storage-files-active-directory-overview.md). Al resolver tanto la sobrecarga administrativa como la de costos, Azure Files con autenticación de Azure AD DS es una solución premium para perfiles de usuario en el nuevo servicio Windows Virtual Desktop.
+El rendimiento y las características de los contenedores de perfiles de FSLogix aprovechan las ventajas de la nube. El 7 de agosto de 2019, Microsoft Azure Files anunció la disponibilidad general de la autenticación de [Azure files con Azure Active Directory Domain Services (AD DS)](../storage/files/storage-files-active-directory-overview.md). Al resolver tanto la sobrecarga administrativa como la de costos, Azure Files con autenticación de Azure AD DS es una solución premium para perfiles de usuario en el nuevo servicio Azure Virtual Desktop.
 
-## <a name="best-practices-for-windows-virtual-desktop"></a>Procedimientos recomendados para Windows Virtual Desktop
+## <a name="best-practices-for-azure-virtual-desktop"></a>Procedimientos recomendados para Azure Virtual Desktop
 
-Windows Virtual Desktop ofrece un control total sobre el tamaño, el tipo y el número de máquinas virtuales que utilizan los clientes. Para más información, consulte [¿Qué es Windows Virtual Desktop?](overview.md).
+Azure Virtual Desktop ofrece un control total sobre el tamaño, el tipo y el número de máquinas virtuales que utilizan los clientes. Para más información, consulte [¿Qué es Azure Virtual Desktop?](overview.md).
 
-Para asegurarse de que su entorno de Windows Virtual Desktop sigue los procedimientos recomendados:
+Para asegurarse de que su entorno de Azure Virtual Desktop sigue los procedimientos recomendados:
 
 - La cuenta de almacenamiento de Azure Files debe estar en la misma región que las máquinas virtuales del host de sesión.
 - Los permisos de Azure Files deben coincidir con los permisos descritos en [Requisitos - Contenedores de perfiles](/fslogix/fslogix-storage-config-ht).
@@ -94,11 +94,11 @@ Para asegurarse de que su entorno de Windows Virtual Desktop sigue los procedimi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Utilice las siguientes instrucciones para configurar un entorno de Windows Virtual Desktop.
+Siga estas guías para configurar un entorno de Azure Virtual Desktop.
 
-- Para empezar a compilar su solución de virtualización de escritorio, consulte [Creación de un inquilino en Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
-- Para crear un grupo host dentro de su inquilino de Windows Virtual Desktop, consulte [Creación de un grupo host con Azure Marketplace](create-host-pools-azure-marketplace.md).
+- Para empezar a compilar su solución de virtualización de escritorio, consulte [Creación de un inquilino en Azure Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
+- Para crear un grupo de hosts dentro de su inquilino de Azure Virtual Desktop, consulte [Creación de un grupo de hosts con Azure Marketplace](create-host-pools-azure-marketplace.md).
 - Para configurar recursos compartidos de archivos totalmente administrados en la nube, consulte [Configuración de recurso compartido de Azure Files](/azure/storage/files/storage-files-active-directory-enable/).
 - Para configurar contenedores de perfiles de FSLogix, consulte [Creación de un contenedor de perfiles para un grupo host mediante un recurso compartido de archivos](create-host-pools-user-profile.md).
-- Para asignar usuarios a un grupo host, consulte [Administración de grupos de aplicaciones de Windows Virtual Desktop](manage-app-groups.md).
-- Para acceder a los recursos de Windows Virtual Desktop desde un explorador web, consulte [Conexión a Windows Virtual Desktop](connect-web.md).
+- Para asignar usuarios a un grupo de hosts, consulte [Administración de grupos de aplicaciones de Azure Virtual Desktop](manage-app-groups.md).
+- Para acceder a los recursos de Azure Virtual Desktop desde un explorador web, consulte [Conexión a Azure Virtual Desktop](connect-web.md).

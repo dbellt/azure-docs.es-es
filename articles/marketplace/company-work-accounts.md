@@ -1,18 +1,18 @@
 ---
 title: Cuentas profesionales y el Centro de partners
-description: Cómo comprobar si su empresa tiene una cuenta profesional configurada con Microsoft, crear una nueva cuenta profesional o configurar varias cuentas profesionales para usar con el Centro de partners.
+description: Cómo comprobar si su empresa tiene una cuenta profesional configurada con Microsoft, crear una nueva cuenta profesional o configurar varias cuentas profesionales para usar con el Centro de partners (Azure Marketplace).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
-ms.date: 05/30/2019
-ms.openlocfilehash: c4433572f503ca086b88e6e42600fff623f34a11
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 06/08/2021
+ms.openlocfilehash: d40bce42d687f546b5944a845ce8f7963e1c1258
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108133212"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982002"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>Cuentas profesionales y el Centro de partners
 
@@ -23,6 +23,7 @@ El Centro de partners usa cuentas profesionales de empresa, también conocidas c
 Si su empresa se ha suscrito a un servicio en la nube de Microsoft, como Azure, Microsoft Intune o Microsoft 365, ya tiene un dominio de cuenta de correo electrónico profesional (también denominada inquilino de Azure Active Directory) que se puede usar con el Centro de partners.
 
 Siga estos pasos para comprobar:
+
 1. Inicie sesión en Azure Portal en https://portal.azure.com.
 2. Seleccione **Azure Active Directory** en el menú de navegación a la izquierda y, a continuación, seleccione **Nombres de dominio personalizados**.
 3. Si ya tiene una cuenta profesional, su nombre de dominio se mostrará en la lista.
@@ -38,11 +39,11 @@ Antes de decidirse a usar una cuenta profesional existente, considere cuántos u
 Para crear una nueva cuenta profesional para su empresa, siga los pasos a continuación. Es posible que tenga que solicitar asistencia de la persona que tenga permisos administrativos en la cuenta de Microsoft Azure de su compañía.
 
 1. Inicie sesión en el [Portal de Microsoft Azure](https://portal.azure.com).
-2. En la barra de navegación de la izquierda, seleccione **Azure Active Directory** -> **Usuarios**.
-3. Seleccione **Nuevo usuario** y cree una nueva cuenta profesional de Azure escribiendo un nombre y una dirección de correo electrónico. Asegúrese de que el **Rol del directorio** está establecido en **Usuario**, seleccione la casilla **Mostrar contraseña** en la parte inferior para ver la contraseña generada automáticamente y tome nota de la misma.
-4. Seleccione **Crear** para guardar el nuevo usuario.
+2. En la barra de navegación de la izquierda, seleccione **Azure Active Directory** > **Usuarios**.
+3. Seleccione **Nuevo usuario** y cree una nueva cuenta profesional de Azure escribiendo un nombre y una dirección de correo electrónico del trabajo. Asegúrese de que el **Rol del directorio** está establecido según el requisito del usuario y active la casilla **Mostrar contraseña** en la parte inferior para ver la contraseña generada automáticamente y tome nota de la misma.
+4. Complete los demás campos obligatorios y seleccione **Crear** para guardar el nuevo usuario. 
 
-La dirección de correo electrónico para la cuenta de usuario tiene que ser un nombre de dominio comprobado en el directorio. Puede ver una lista de todos los dominios comprobados en el directorio seleccionando **Azure Active Directory** -> **Nombres de dominio personalizados** en el menú de navegación de la izquierda.
+La dirección de correo electrónico para la cuenta de usuario tiene que ser un nombre de dominio comprobado en el directorio. Puede ver una lista de todos los dominios comprobados en el directorio seleccionando **Azure Active Directory** > **Nombres de dominio personalizados** en el menú de navegación de la izquierda.
 
 Para más información sobre cómo agregar dominios personalizados en Azure Active Directory, consulte [Incorporación o asociación de un dominio en Azure AD](../active-directory/fundamentals/add-custom-domain.md).
 
@@ -50,7 +51,7 @@ Para más información sobre cómo agregar dominios personalizados en Azure Acti
 
 Si tiene problemas para iniciar sesión en la cuenta profesional (también conocida como inquilino de Azure AD), busque el escenario del diagrama siguiente que mejor se ajuste a su situación y siga los pasos recomendados.
 
-![Diagrama de solución de problemas de inicio de sesión de cuenta profesional](./media/manage-accounts/onboarding-aad-flow.png)
+[![Diagrama de solución de problemas de inicio de sesión de cuenta profesional](media/manage-accounts/onboarding-aad-flow.png)](media/manage-accounts/onboarding-aad-flow.png#lightbox)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

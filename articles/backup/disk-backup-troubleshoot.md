@@ -2,13 +2,13 @@
 title: Solución de problemas de errores de copia de seguridad en Azure Disk Backup
 description: Obtenga información sobre cómo solucionar errores de copia de seguridad en Azure Disk Backup
 ms.topic: conceptual
-ms.date: 01/07/2021
-ms.openlocfilehash: f6e9bcbbd618cf820ce91f8a3092d5be4aa045cb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 06/08/2021
+ms.openlocfilehash: a749c87949d53781dc810148d01cc5d179d70f77
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105107251"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111754122"
 ---
 # <a name="troubleshooting-backup-failures-in-azure-disk-backup"></a>Solución de problemas de errores de copia de seguridad en Azure Disk Backup
 
@@ -172,6 +172,12 @@ Mensaje de error: No se puede iniciar la operación porque se ha alcanzado el n�
 
 Acción recomendada: Espere hasta que se complete la copia de seguridad en ejecución anterior.
 
+### <a name="error-code-usererrormissingsubscriptionregistration"></a>Código de error: UserErrorMissingSubscriptionRegistration
+
+Mensaje de error: la suscripción no está registrada para usar el espacio de nombres "Microsoft.Compute".
+
+Acción recomendada: el proveedor de recursos necesario no se ha registrado para la suscripción. Registre ambos espacios de nombres (_Microsoft.Compute_ y _Microsoft.Storage_) mediante los pasos descritos en la [solución 3](../azure-resource-manager/templates/error-register-resource-provider.md#solution-3---azure-portal).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Matriz de compatibilidad de Azure Disk Backup](disk-backup-support-matrix.md)
+[Matriz de compatibilidad de Azure Disk Backup](disk-backup-support-matrix.md)

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: 7983a80da8a5ca9d900e44515b5e078cc9d70d79
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a8d8d83441e77e1d3bb7153fb5af9071310e82ec
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98684193"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110086111"
 ---
 # <a name="what-is-azure-private-link-service"></a>¿Qué es el servicio Azure Private Link?
 
@@ -28,6 +28,12 @@ El servicio Azure Private Link es la referencia a su propio servicio que usa la 
 
 
 *Ilustración: Flujo de trabajo del servicio Azure Private Link.*
+
+### <a name="rbac-permissions"></a>Permisos de RBAC
+
+Los siguientes son permisos de RBAC específicos que el usuario necesita para poder crear un servicio Private Link. Para más información sobre los roles personalizados, consulte [Pasos para crear un rol personalizado](/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role).
+
+Microsoft.Resources/subscriptions/resourcegroups/resources/read Microsoft.Network/virtualNetworks/read Microsoft.Network/virtualNetworks/subnets/read Microsoft.Network/virtualNetworks/subnets/write Microsoft.Network/virtualNetworks/subnets/join/action Microsoft.Network/privateEndpoints/read Microsoft.Network/privateEndpoints/write Microsoft.Network/locations/availablePrivateEndpointTypes/read Microsoft.Network/privateLinkServices/read Microsoft.Network/privateLinkServices/write Microsoft.Network/privateLinkServices/privateEndpointConnections/read Microsoft.Network/privateLinkServices/privateEndpointConnections/write Microsoft.Network/networkSecurityGroups/join/action Microsoft.Network/loadBalancers/read Microsoft.Network/loadBalancers/write
 
 ### <a name="create-your-private-link-service"></a>Creación de su servicio Private Link
 
@@ -124,9 +130,11 @@ Detalles del TLV personalizado:
 ## <a name="limitations"></a>Limitaciones
 
 A continuación se muestran las limitaciones conocidas al usar el servicio Private Link:
-- Solo se admite en Standard Load Balancer 
+- Solo se admite en Standard Load Balancer. No se admite en la instancia básica de Load Balancer.  
+- Solo se admite en Standard Load Balancer donde el grupo de back-end se configura mediante NIC cuando se usan máquinas virtuales o conjuntos de escalado de máquinas virtuales.
 - Solo admite el tráfico IPv4
 - Solo admite el tráfico TCP y UDP
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Creación de un servicio Private Link mediante Azure PowerShell](create-private-link-service-powershell.md)

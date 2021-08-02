@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 69ac47296cb4624de6cdf05ddb3e72973751f631
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8b2acc37efb497748abe5f63bd58e96b16171b21
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102519629"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110538402"
 ---
 # <a name="troubleshooting-with-a-local-model-deployment"></a>Solución de problemas con una implementación de modelo local
 
@@ -33,6 +33,31 @@ Pruebe una implementación de modelo local como primer paso para la solución de
    * La [extensión de la CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
    * Disponga de una instalación de Docker en funcionamiento en el sistema local. 
    * Para comprobar la instalación de Docker, use el comando `docker run hello-world` desde un símbolo del sistema o terminal. Para obtener información sobre la instalación de Docker o la solución de problemas de Docker, consulte la [Documentación de Docker](https://docs.docker.com/).
+* Opción C: habilitar la depuración local con el servidor HTTP de inferencia de Azure Machine Learning.
+    * El servidor HTTP de inferencia de Azure Machine Learning [(versión preliminar)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) es un paquete de Python que permite validar fácilmente el script de entrada (`score.py`) en un entorno de desarrollo local. Si hay un problema con el script de puntuación, el servidor devolverá un error. También devolverá la ubicación en la que se produjo el error.
+    * El servidor también se puede usar al crear puertas de validación en una canalización de integración e implementación continuas. Puede, por ejemplo, iniciar el servidor con el script candidato y ejecutar el conjunto de pruebas en el punto de conexión local.
+
+## <a name="azure-machine-learning-inference-http-server"></a>Servidor HTTP de inferencia de Azure Machine Learning
+
+El servidor de inferencia local permite depurar rápidamente el script de entrada (`score.py`). En caso de que el script de puntuación subyacente tenga un error, el servidor no podrá inicializar ni atender el modelo. Se producirá una excepción con la ubicación donde se produjeron los problemas. [Más información sobre el servidor HTTP de inferencia de Azure Machine Learning](how-to-inference-server-http.md)
+
+1. Instale el paquete `azureml-inference-server-http` desde la fuente [pypi](https://pypi.org/):
+
+    ```bash
+    python -m pip install azureml-inference-server-http
+    ```
+
+2. Inicie el servidor y establezca `score.py` como script de entrada:
+
+    ```bash
+    azmlinfsrv --entry_script score.py
+    ```
+
+3. Envíe una solicitud de puntuación al servidor mediante `curl`:
+
+    ```bash
+    curl -p 127.0.0.1:5001/score
+    ```
 
 ## <a name="debug-locally"></a>Depuración local
 
@@ -128,6 +153,7 @@ Puede solucionar el error aumentando el valor de `memory_gb` en `deployment_conf
 Más información acerca de la implementación:
 
 * [Solución de problemas de implementación remota](how-to-troubleshoot-deployment.md)
+* [Servidor HTTP de inferencia de Azure Machine Learning](how-to-inference-server-http.md)
 * [Cómo implementar y dónde](how-to-deploy-and-where.md)
 * [Tutorial: Entrenamiento e implementación de modelos](tutorial-train-models-with-aml.md)
 * [Ejecución y depuración de experimentos en el entorno local](./how-to-debug-visual-studio-code.md)

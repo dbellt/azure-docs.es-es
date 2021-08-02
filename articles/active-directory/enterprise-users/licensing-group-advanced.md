@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/05/2021
+ms.date: 05/28/2021
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d55412ebc8d5b0d8d52b9f010937200838166f98
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: ffe851cc39ab8856133a5ac24508bc9b6df53a8f
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108794203"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110782337"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Escenarios, limitaciones y problemas conocidos del uso de grupos para administrar las licencias en Azure Active Directory
 
@@ -76,23 +76,21 @@ Un usuario puede ser miembro de varios grupos con licencias. Estos son algunos a
 
 ## <a name="direct-licenses-coexist-with-group-licenses"></a>Coexistencia de licencias directas con licencias de grupo
 
-Cuando un usuario hereda una licencia de un grupo, no se puede quitar ni modificar esa asignación de licencias en las propiedades del usuario. Los cambios se deben realizar en el grupo y, después, propagarse para todos los usuarios.
+Cuando un usuario hereda una licencia de un grupo, no se puede quitar ni modificar esa asignación de licencias en las propiedades del usuario. Puede cambiar la asignación de licencias solo en el grupo y los cambios se propagan a todos los usuarios. Sin embargo, es posible asignar la misma licencia de producto al usuario directamente y por asignación de licencia de grupo. De esta manera, puede habilitar servicios adicionales del producto solo para un usuario, sin que afecten a otros.
 
-Sin embargo, es posible asignar la misma licencia de producto directamente al usuario además de la licencia heredada. Puede habilitar servicios adicionales del producto solo para un usuario, sin que afecten a otros.
-
-Las licencias asignadas directamente se pueden quitar sin que afecten a las licencias heredadas. Considere un usuario que hereda una licencia de Office 365 Enterprise E3 de un grupo.
+Las licencias asignadas directamente se pueden quitar y no afectan a las licencias heredadas de un usuario. Considere un usuario que hereda una licencia de Office 365 Enterprise E3 de un grupo.
 
 Inicialmente, el usuario hereda la licencia solo del grupo *E3: servicios básicos*, lo que habilita cuatro planes de servicio.
 
-1. Seleccione **Asignar** para asignar directamente una licencia E3 al usuario. En este caso, deshabilitará todos los planes de servicio, excepto Yammer Enterprise.
+1. Seleccione **Asignar** para asignar directamente una licencia E3 al usuario. Por ejemplo, si desea deshabilitar todos los planes de servicio excepto Yammer Enterprise.
 
-    Como resultado, el usuario sigue usando una sola licencia del producto E3, pero la asignación directa habilita el servicio de Yammer Enterprise solo para ese usuario. Puede ver qué servicios se habilitan por la pertenencia al grupo frente a la asignación directa.
+   Como resultado, el usuario sigue usando una sola licencia del producto E3, pero la asignación directa habilita el servicio de Yammer Enterprise solo para ese usuario. Puede ver qué servicios se habilitan por la pertenencia al grupo frente a la asignación directa.
 
 1. Cuando usa la asignación directa se permiten las siguientes operaciones:
 
-   - Yammer Enterprise puede desactivarse en el recurso de usuario directamente. El botón de alternancia **Activado/Desactivado** de la ilustración se habilitó en este servicio, al revés de lo que ocurre con los botones de alternancia de otros servicios. Dado que el servicio se habilitó directamente en el usuario, se puede modificar.
+   - Yammer Enterprise se puede desactivar para un usuario individual. Dado que el servicio se asigna directamente al usuario, se puede cambiar.
    - Otros servicios pueden estar habilitados también, como parte de la licencia asignada directamente.
-   - El botón **Quitar** puede utilizarse para quitar la licencia directa del usuario. Puede ver que el usuario ahora solo tiene la licencia de grupo heredada y solo los servicios originales permanecen habilitados:
+   - El botón **Quitar** puede utilizarse para quitar la licencia directa del usuario. Puede ver que el usuario tiene la licencia de grupo heredada y solo los servicios originales permanecen habilitados.
 
 ## <a name="managing-new-services-added-to-products"></a>Administración de servicios nuevos agregados a productos
 

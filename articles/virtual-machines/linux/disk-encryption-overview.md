@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 11ddb2e76123c1181efffea3ef66a517bb5124a2
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 5b84526f6f3193fc47bc211fcdec71bb5e27390f
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108207382"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110077687"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption para VM Linux 
 
@@ -102,9 +102,13 @@ Las distribuciones de servidores Linux que no están aprobadas por Azure no admi
 | SUSE | SLES HPC 12-SP3 | 12-SP3 | SUSE:SLES-HPC:12-SP3:latest | Solo el disco de datos |
 
 > [!NOTE]
-> La nueva implementación de Azure Disk Encryption se admite para el sistema operativo RHEL y el disco de datos para las imágenes de Pago por uso de RHEL7.  
+> La nueva implementación de Azure Disk Encryption se admite para el sistema operativo RHEL y el disco de datos para las imágenes de Pago por uso de RHEL7.
 >
 > ADE también es compatible con las imágenes Gold de tipo Traiga su propia suscripción de RHEL, pero solo **después** de registrar la suscripción. Para más información, consulte [Imágenes Gold de tipo Traiga su propia suscripción (BYOS) de Red Hat Enterprise Linux en Azure](../workloads/redhat/byos.md#encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images).
+> 
+> La compatibilidad de ADE con un tipo de oferta determinado no se extiende más allá de la fecha de finalización del ciclo de vida proporcionada por el editor. 
+> 
+> La solución ADE heredada (con credenciales de AAD) no se recomienda para las nuevas máquinas virtuales y no es compatible con versiones de RHEL posteriores a RHEL 7.8.
 
 ## <a name="additional-vm-requirements"></a>Requisitos adicionales de VM
 

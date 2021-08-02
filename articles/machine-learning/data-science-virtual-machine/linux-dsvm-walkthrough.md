@@ -4,16 +4,16 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Aprenda a completar varias tareas comunes de ciencia de datos mediante Data Science Virtual Machine de Linux.
 services: machine-learning
 ms.service: data-science-vm
-author: lobrien
-ms.author: laobri
+author: timoklimmer
+ms.author: tklimmer
 ms.topic: conceptual
-ms.date: 09/17/2020
-ms.openlocfilehash: 42136d0d58dbc318aab0e111fcef46f80751ca88
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/10/2021
+ms.openlocfilehash: 453b7558ac4f26395186a6aabc54ce831b5ef9b5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100517678"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110071891"
 ---
 # <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Ciencia de datos con una instancia de Data Science Virtual Machine de Ubuntu en Azure
 
@@ -21,7 +21,7 @@ En este tutorial se muestra cómo realizar varias tareas comunes de ciencia de d
 
 En este tutorial analizamos el conjunto de datos [spambase](https://archive.ics.uci.edu/ml/datasets/spambase). Spambase es un conjunto de correos electrónicos que se marcan como correo no deseado o ham (no es correo no deseado). Spambase también contiene algunas estadísticas sobre el contenido de los correos electrónicos. Hablaremos sobre las estadísticas más adelante en el tutorial.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de usar una instancia de DSVM de Linux, debe cumplir los siguientes requisitos previos:
 
@@ -29,7 +29,6 @@ Antes de usar una instancia de DSVM de Linux, debe cumplir los siguientes requis
 
 * [**Data Science Virtual Machine para Ubuntu**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) Para más información sobre el aprovisionamiento de la máquina virtual, consulte [Aprovisionamiento de una instancia de Data Science Virtual Machine de Ubuntu](./release-notes.md).
 * [**X2Go**](https://wiki.x2go.org/doku.php) instalado en su equipo con una sesión abierta de XFCE. Para más información, consulte [Instalación y configuración del cliente X2Go](dsvm-ubuntu-intro.md#x2go).
-* Para obtener una experiencia de desplazamiento más fluida, en el explorador web de Firefox de DSVM, alterne la marca `gfx.xrender.enabled` en `about:config`. [Más información](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Considere también la posibilidad de establecer `mousewheel.enable_pixel_scrolling` en `False`. [Más información](https://support.mozilla.org/questions/981140).
 
 ## <a name="download-the-spambase-dataset"></a>Descarga del conjunto de datos spambase
 
@@ -70,7 +69,7 @@ El conjunto de datos tiene varios tipos de estadísticas para cada correo electr
 
 ## <a name="explore-the-dataset-by-using-r-open"></a>Exploración del conjunto de datos mediante R Open
 
-Vamos a examinar los datos y a realizar algunas tareas básicas de aprendizaje automático con R. DSVM viene preinstalado con [Microsoft R Open](https://mran.revolutionanalytics.com/open/). Las bibliotecas matemáticas multiproceso de esta versión preinstalada de R ofrecen un rendimiento mejor que las versiones de un único subproceso. R Open proporciona también reproducibilidad a través de una instantánea del repositorio de paquetes CRAN.
+Vamos a examinar los datos y a realizar algunas tareas básicas de aprendizaje automático con R. DSVM viene preinstalado con CRAN R.
 
 Para obtener copias de los ejemplos de código usados en este tutorial, clone el repositorio Azure-Machine-Learning-Data-Science. Git está preinstalado en DSVM. En la línea de comandos de Git, ejecute:
 

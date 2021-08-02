@@ -10,12 +10,12 @@ ms.date: 03/27/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7e951de46b5220e5c2edde2fcd84673c9a16cebc
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: bdd0c8a3ddacd3a99627bfc29c41e61a165350c6
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110477712"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111812375"
 ---
 # <a name="manage-and-restore-soft-deleted-blobs"></a>Administración y restauración de blobs eliminados temporalmente
 
@@ -78,7 +78,7 @@ La llamada a **Undelete Blob** en un blob que no se ha eliminado no tiene ningú
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverDeletedBlobs":::
 
-Para restaurar una versión específica, primero llame a la operación **Undelete Blob** en la versión o el blob base y, a continuación, copie la versión deseada en el blob base. En el ejemplo siguiente se restaura un blob en bloques a la última versión guardada:
+Para restaurar una instantánea específica que se eliminó de manera temporal, primero llame a la operación **Undelete Blob** en el blob base y, a continuación, copie la instantánea deseada en el blob base. En el ejemplo siguiente se restaura un blob en bloques a la última instantánea generada:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverSpecificBlobSnapshot":::
 
@@ -96,7 +96,7 @@ foreach (CloudBlob blob in container.ListBlobs(useFlatBlobListing: true, blobLis
 }
 ```
 
-Para restaurar una instantánea específica, primero llame a la operación **Undelete Blob** en el blob base y, a continuación, copie la instantánea deseada en el blob base. En el ejemplo siguiente se restaura un blob en bloques a su última instantánea generada:
+Para restaurar una instantánea específica que se eliminó de manera temporal, primero llame a la operación **Undelete Blob** en el blob base y, a continuación, copie la instantánea deseada en el blob base. En el ejemplo siguiente se restaura un blob en bloques a su última instantánea generada:
 
 ```csharp
 // Restore the block blob.
@@ -130,6 +130,6 @@ No es aplicable. El control de versiones de blobs solo se admite en la versión�
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Eliminación temporal para Blob Storage](./soft-delete-blob-overview.md)
+- [Eliminación temporal para Blob Storage](soft-delete-blob-overview.md)
 - [Habilitación de la eliminación temporal para blobs](soft-delete-blob-enable.md)
 - [Control de versiones de blobs](versioning-overview.md)

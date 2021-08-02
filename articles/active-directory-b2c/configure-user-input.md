@@ -8,29 +8,26 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/10/2021
+ms.date: 06/03/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 257ba16cf015705b8f6da264d9c25f28cef2ebb1
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: eb700a4432082f75cf1ddf1ce007cee801597948
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106443447"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111409458"
 ---
 #  <a name="add-user-attributes-and-customize-user-input-in-azure-active-directory-b2c"></a>Adición de atributos de usuario y personalización de entradas de usuario en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-::: zone pivot="b2c-custom-policy"
-
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
-
-::: zone-end
-
 En este artículo, recopilará un nuevo atributo durante el recorrido de registro en Azure Active Directory B2C (Azure AD B2C). Obtendrá la ciudad de los usuarios, la configurará como una lista desplegable y definirá si es necesario proporcionarla.
+
+> [!IMPORTANT]
+> En este ejemplo se usa una notificación "city" integrada. En su lugar, puede elegir uno de los [atributos integrados de Azure AD B2C](user-profile-attributes.md) admitidos o un atributo personalizado. Para usar un atributo personalizado, [habilite los atributos personalizados](user-flow-custom-attributes.md). Para usar otro atributo integrado o personalizado, reemplace "city" por el atributo que prefiera; por ejemplo, el atributo integrado *jobTitle* o uno personalizado como *extension_loyaltyId*.  
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -89,7 +86,7 @@ Para proporcionar una lista establecida de valores para el atributo de ciudad:
       "ElementType": "ClaimType",
       "ElementId": "city",
       "TargetCollection": "Restriction",
-      "Override": false,
+      "Override": true,
       "Items": [
         {
           "Name": "Berlin",
@@ -129,10 +126,9 @@ Para proporcionar una lista establecida de valores para el atributo de ciudad:
 
 ::: zone pivot="b2c-custom-policy"
 
-> [!NOTE]
-> En este ejemplo se usa una notificación "city" integrada. En su lugar, puede elegir uno de los [atributos integrados de Azure AD B2C](user-profile-attributes.md) admitidos o un atributo personalizado. Para usar un atributo personalizado, [habilite los atributos personalizados](user-flow-custom-attributes.md). Para usar otro atributo integrado o personalizado, reemplace "city" por el atributo que prefiera; por ejemplo, el atributo integrado *jobTitle* o uno personalizado como *extension_loyaltyId*.  
+## <a name="overview"></a>Información general
 
-Para recopilar los datos iniciales de los usuarios, utilice el recorrido del usuario de registro o inicio de sesión. Las reclamaciones posteriores se pueden recopilar mediante el recorrido de edición de perfil del usuario. Siempre que Azure AD B2C recopila información del usuario de forma directa e interactiva, Identity Experience Framework utiliza su [perfil técnico autoafirmado](self-asserted-technical-profile.md). En este ejemplo:
+Para recopilar los datos iniciales de los usuarios, utilice el recorrido del usuario de registro o inicio de sesión. Las reclamaciones posteriores se pueden recopilar mediante el recorrido de edición de perfil del usuario. Siempre que Azure AD B2C recopila información del usuario de forma directa e interactiva, utiliza el [perfil técnico autoafirmado](self-asserted-technical-profile.md). En este ejemplo:
 
 1. Define una notificación de "ciudad". 
 1. Pide al usuario que especifique su ciudad.
@@ -149,7 +145,7 @@ Una notificación proporciona un almacenamiento temporal de datos durante la eje
 - **UserHelpText**: ayuda al usuario a entender los requisitos.
 - [UserInputType](claimsschema.md#userinputtype): tipo de control de entrada, como cuadro de texto, botón de selección, lista desplegable o selecciones múltiples.
 
-Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`**</em>.
+Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 
 1. Busque el elemento [BuildingBlocks](buildingblocks.md). Si el elemento no existe, agréguelo.
 1. Busque el elemento [ClaimsSchema](claimsschema.md). Si el elemento no existe, agréguelo.
@@ -164,14 +160,24 @@ Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocal
       <DataType>string</DataType>
       <UserInputType>DropdownSingleSelect</UserInputType>
       <Restriction>
-        <Enumeration Text="Bellevue" Value="bellevue" SelectByDefault="false" />
-        <Enumeration Text="Redmond" Value="redmond" SelectByDefault="false" />
-        <Enumeration Text="Kirkland" Value="kirkland" SelectByDefault="false" />
+        <Enumeration Text="Berlin" Value="berlin" />
+        <Enumeration Text="London" Value="bondon" />
+        <Enumeration Text="Seattle" Value="seattle" />
       </Restriction>
     </ClaimType>
   <!-- 
   </ClaimsSchema>
 </BuildingBlocks>-->
+```
+
+Incluya el atributo [SelectByDefault](claimsschema.md#enumeration) en un elemento `Enumeration` para que se seleccione de forma predeterminada cuando se cargue la página por primera vez. Por ejemplo, para seleccionar previamente el elemento *London*, cambie el elemento `Enumeration` como el ejemplo siguiente:
+
+```xml
+<Restriction>
+  <Enumeration Text="Berlin" Value="berlin" />
+  <Enumeration Text="London" Value="bondon" SelectByDefault="true" />
+  <Enumeration Text="Seattle" Value="seattle" />
+</Restriction>
 ```
 
 ## <a name="add-a-claim-to-the-user-interface"></a>Incorporación de una notificación a la interfaz de usuario
@@ -314,15 +320,20 @@ Para devolver la notificación de ciudad a la aplicación de usuario de confianz
 </RelyingParty>
 ```
 
-## <a name="test-the-custom-policy"></a>Prueba de la directiva personalizada
+## <a name="upload-and-test-your-updated-custom-policy"></a>Carga y prueba de la directiva personalizada actualizada
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD. Para ello, seleccione el filtro **Directorio y suscripción** que se encuentra en el menú superior y elija el directorio que contiene el inquilino de Azure AD.
-3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Registros de aplicaciones**.
-4. Seleccione **Marco de experiencia de identidad**.
-5. Seleccione **Cargar directiva personalizada** y cargue los dos archivos de directiva modificados.
-2. Seleccione la directiva de registro o inicio de sesión que cargó y haga clic en el botón **Ejecutar ahora**.
-3. Debe poder registrarse con una dirección de correo electrónico.
+1. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
+1. Busque y seleccione **Azure AD B2C**.
+1. En **Directivas**, seleccione **Identity Experience Framework**.
+1. Seleccione **Cargar directiva personalizada**.
+1. Cargue los archivos de directiva que ha cambiado anteriormente.
+
+### <a name="test-the-custom-policy"></a>Prueba de la directiva personalizada
+
+1. Seleccione la directiva de usuarios de confianza, por ejemplo `B2C_1A_signup_signin`.
+1. En **Aplicación**, seleccione la aplicación web que [registró anteriormente](tutorial-register-applications.md). La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
+1. Seleccione el botón **Ejecutar ahora**.
+1. Desde la página de registro o inicio de sesión, seleccione **Registrarse ahora** para registrarse. Termine de escribir la información del usuario, incluido el nombre de la ciudad, y haga clic en **Crear**. Debería ver el contenido del token que se devolvió.
 
 ::: zone-end
 
@@ -351,12 +362,69 @@ El token enviado de vuelta a la aplicación contiene la notificación `city`.
   "email": "joe@outlook.com",
   "given_name": "Emily",
   "family_name": "Smith",
-  "city": "Bellevue"
+  "city": "Berlin"
   ...
 }
 ```
 
 ::: zone pivot="b2c-custom-policy"
+
+## <a name="optional-localize-the-ui"></a>[Opcional] Localización de la interfaz de usuario
+
+Azure AD B2C le permite adaptar su directiva a diferentes idiomas. Para más información, [obtenga información sobre cómo personalizar la experiencia de idioma](language-customization.md). Para encontrar la página de registro, [configure la lista de idiomas admitidos](language-customization.md#set-up-the-list-of-supported-languages) y [proporcione etiquetas específicas del idioma](language-customization.md#provide-language-specific-labels).
+
+> [!NOTE]
+> Cuando `LocalizedCollection` se usa con las etiquetas específicas del idioma, puede quitar la colección `Restriction` de la [definición de notificación](#define-a-claim).
+
+En el ejemplo siguiente se muestra cómo proporcionar la lista de ciudades para inglés y español. Ambos establecen la colección `Restriction` de la notificación *city* con una lista de elementos para inglés y español. [SelectByDefault](claimsschema.md#enumeration) selecciona un elemento de forma predeterminada cuando se carga la página por primera vez.
+   
+```xml
+<!-- 
+<BuildingBlocks>-->
+  <Localization Enabled="true">
+    <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
+      <SupportedLanguage>en</SupportedLanguage>
+      <SupportedLanguage>es</SupportedLanguage>
+    </SupportedLanguages>
+    <LocalizedResources Id="api.localaccountsignup.en">
+      <LocalizedCollections>
+        <LocalizedCollection ElementType="ClaimType" ElementId="city" TargetCollection="Restriction">
+          <Item Text="Berlin" Value="Berlin"></Item>
+          <Item Text="London" Value="London" SelectByDefault="true"></Item>
+          <Item Text="Seattle" Value="Seattle"></Item>
+        </LocalizedCollection>
+      </LocalizedCollections>
+    </LocalizedResources>
+    <LocalizedResources Id="api.localaccountsignup.es">
+      <LocalizedCollections>
+        <LocalizedCollection ElementType="ClaimType" ElementId="city" TargetCollection="Restriction">
+          <Item Text="Berlina" Value="Berlin"></Item>
+          <Item Text="Londres" Value="London" SelectByDefault="true"></Item>
+          <Item Text="Seattle" Value="Seattle"></Item>
+        </LocalizedCollection>
+      </LocalizedCollections>
+    </LocalizedResources>
+  </Localization>
+<!-- 
+</BuildingBlocks>-->
+```
+
+Después de agregar el elemento de localización, [edite la definición de contenido con la localización](language-customization.md#edit-the-content-definition-with-the-localization). En el ejemplo siguiente, los recursos localizados personalizados inglés (en) y español (es) se agregan a la página de registro:
+   
+```xml
+<!-- 
+<BuildingBlocks>
+  <ContentDefinitions> -->
+   <ContentDefinition Id="api.localaccountsignup">
+    <LocalizedResourcesReferences MergeBehavior="Prepend">
+        <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
+        <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountsignup.es" />
+    </LocalizedResourcesReferences>
+   </ContentDefinition>
+  <!-- 
+  </ContentDefinitions>
+</BuildingBlocks>-->
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

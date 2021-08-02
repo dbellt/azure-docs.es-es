@@ -6,14 +6,14 @@ author: duongau
 ms.service: frontdoor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 02/18/2021
+ms.date: 06/10/2021
 ms.author: amsriva
-ms.openlocfilehash: 5b14ac194d3cf08a11edc47a84825f447be79e34
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 0e8c597037ac769c293a2f04cb2e300658db93b4
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109516603"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112005238"
 ---
 # <a name="configure-https-on-a-front-door-standardpremium-sku-preview-custom-domain-using-the-azure-portal"></a>Configuración de HTTPS en un dominio personalizado de la SKU de Front Door Estándar/Prémium (versión preliminar) mediante Azure Portal
 
@@ -49,11 +49,11 @@ Azure Front Door Estándar/Prémium admite tanto certificados administrados por
 
 1. Para validar y asociar el dominio personalizado a un punto de conexión, siga los pasos que se describen en la habitación de un [dominio personalizado](how-to-add-custom-domain.md).
 
-1. Una vez que el dominio personalizado se asocia correctamente al punto de conexión, un certificado administrado por Azure se implementa en Front Door. Este proceso puede tardar varios minutos en completarse.
+1. Una vez que el dominio personalizado se asocia correctamente al punto de conexión, un certificado administrado por Azure se implementa en Front Door. Este proceso puede tardar de varios minutos a una hora en completarse.
 
 ## <a name="using-your-own-certificate"></a>Uso de su propio certificado
 
-También puede elegir usar su propio certificado TLS. Este certificado se debe importar a una instancia de Azure Key Vault a fin de poder usarlo con Azure Front Door Estándar/Prémium. Consulte cómo [importar un certificado](../../key-vault/certificates/tutorial-import-certificate.md) a Azure Key Vault. 
+También puede elegir usar su propio certificado TLS.  Al crear el certificado TLS/SSL, tiene que crear una cadena de certificados completa con una entidad de certificación (CA) permitida que forme parte de la [lista de CA de confianza de Microsoft](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). Si usa una CA no permitida, la solicitud se rechazará.  El certificado debe tener una cadena de certificados completa con certificados de hoja e intermedios, y la CA raíz debe formar parte de la [lista de CA de confianza de Microsoft](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). Si se presenta un certificado sin una cadena completa, no se garantiza que las solicitudes que involucran ese certificado funcionen según lo previsto. Este certificado se debe importar a una instancia de Azure Key Vault a fin de poder usarlo con Azure Front Door Estándar/Prémium. Consulte cómo [importar un certificado](../../key-vault/certificates/tutorial-import-certificate.md) a Azure Key Vault.
 
 #### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Preparación de la cuenta y el certificado de Azure Key Vault
  
@@ -65,7 +65,7 @@ También puede elegir usar su propio certificado TLS. Este certificado se debe i
 1. Si ya tiene un certificado, puede cargarlo directamente en su cuenta de Azure Key Vault. De lo contrario, cree un certificado directamente a través de Azure Key Vault a partir de una de las entidades de certificación de asociado con que se integra Azure Key Vault. Cargue el certificado como un objeto de **certificado** en lugar de como un **secreto**.
 
     > [!NOTE]
-    > Para su propio certificado TLS/SSL, Front Door no admite certificados con algoritmos de criptografía de EC.
+    > Para su propio certificado TLS/SSL, Front Door no admite certificados con algoritmos de criptografía de EC. El certificado debe tener una cadena de certificados completa con certificados de hoja e intermedios, y la CA raíz debe formar parte de la [lista de CA de confianza de Microsoft](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). 
 
 #### <a name="register-azure-front-door"></a>Registro en Azure Front Door
 

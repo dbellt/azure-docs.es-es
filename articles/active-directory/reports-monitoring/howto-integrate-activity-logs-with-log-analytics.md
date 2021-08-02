@@ -4,7 +4,7 @@ description: Aprenda a integrar registros de Azure Active Directory con registro
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
+ms.date: 06/11/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f328ed44252f7fb314552d6d05df9806f59d972
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c29b631d3002f0c79fb2dd1b1f26dfa65051368c
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100591136"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112018982"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integración de registros de Azure AD con registros de Azure Monitor
 
@@ -63,7 +63,11 @@ Para usar esta característica, necesita:
 
 ## <a name="licensing-requirements"></a>Requisitos de concesión de licencia
 
-Necesita una licencia de Azure AD Premium P1 o P2 para usar esta característica. Para obtener la licencia correcta para sus requisitos, consulte [Comparación de las características con disponibilidad general de las ediciones Gratis, Básico y Premium](https://azure.microsoft.com/pricing/details/active-directory/).
+Necesita un inquilino de Azure AD Premium P1 o P2 para usar esta característica. Puede encontrar el tipo de licencia del inquilino en la página **[Información general](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)** en **Azure Active Directory**.
+
+![Información del inquilino](./media/howto-integrate-activity-logs-with-log-analytics/tenant-information.png)
+ 
+Si desea saber durante cuánto tiempo se almacenan los datos de actividad en un inquilino prémium, consulte [¿Durante cuánto tiempo Azure AD almacena los datos?](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data)
 
 ## <a name="send-logs-to-azure-monitor"></a>Envío de registros a Azure Monitor
 

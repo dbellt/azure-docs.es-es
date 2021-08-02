@@ -1,23 +1,23 @@
 ---
 title: 'Escalado de hosts de sesión con Azure Automation: Azure'
-description: Escalado automático de hosts de sesión de Windows Virtual Desktop con Azure Automation
+description: Escalado automático de hosts de sesión de Azure Virtual Desktop con Azure Automation
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/09/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 80bcf647ee63242bfe60b63ed400b8d3b3dc1d9e
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: b3ac4074dd4c49933924e39e20d7dbf703525324
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445676"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111755994"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Escalado de hosts de sesión con Azure Automation
 
-Puede reducir el costo total de implementación de Windows Virtual Desktop mediante el escalado de las máquinas virtuales. Esto significa que se cierran y desasignan las máquinas virtuales del host de sesión durante las horas de menos uso y, posteriormente, se vuelven a activar y se reasignan durante las horas punta.
+Puede reducir el costo total de implementación de Azure Virtual Desktop mediante el escalado de las máquinas virtuales. Esto significa que se cierran y desasignan las máquinas virtuales del host de sesión durante las horas de menos uso y, posteriormente, se vuelven a activar y se reasignan durante las horas punta.
 
-En este artículo, obtendrá información sobre la herramienta de escalado creada con la cuenta de Azure Automation y Azure Logic Apps que escala automáticamente las máquinas virtuales del host de sesión en el entorno de Windows Virtual Desktop. Para más información sobre cómo usar la herramienta de escalado, consulte los [requisitos previos](#prerequisites).
+En este artículo, obtendrá información sobre la herramienta de escalado creada con la cuenta de Azure Automation y Azure Logic Apps que escala automáticamente las máquinas virtuales del host de sesión en el entorno de Azure Virtual Desktop. Para más información sobre cómo usar la herramienta de escalado, consulte los [requisitos previos](#prerequisites).
 
 ## <a name="how-the-scaling-tool-works"></a>Funcionamiento de la herramienta de escalado
 
@@ -45,7 +45,7 @@ Si establece el parámetro *LimitSecondsToForceLogOffUser* en cero, el trabajo p
 
 En cualquier momento, el trabajo también tiene en cuenta el elemento *MaxSessionLimit* del grupo de hosts para determinar si el número actual de sesiones es superior al 90 % de la capacidad máxima. Si es así, el trabajo iniciará máquinas virtuales de host de sesión adicionales.
 
-El trabajo se ejecuta periódicamente según un intervalo de periodicidad establecido. Puede cambiar este intervalo según el tamaño del entorno de Windows Virtual Desktop, pero recuerde que el inicio y el apagado de las VM pueden tardar algún tiempo, por lo que debe tener en cuenta el retraso. Se recomienda establecer el intervalo de periodicidad en 15 minutos.
+El trabajo se ejecuta periódicamente según un intervalo de periodicidad establecido. Puede cambiar este intervalo según el tamaño del entorno de Azure Virtual Desktop, pero recuerde que el inicio y el apagado de las VM pueden tardar algún tiempo, por lo que debe tener en cuenta el retraso. Se recomienda establecer el intervalo de periodicidad en 15 minutos.
 
 Sin embargo, la herramienta también tiene las siguientes limitaciones:
 
@@ -63,8 +63,8 @@ Sin embargo, la herramienta también tiene las siguientes limitaciones:
 
 Antes de empezar a configurar la herramienta de escalado, asegúrese de tener preparado lo siguiente:
 
-- Un [grupo de hosts de Windows Virtual Desktop](create-host-pools-azure-marketplace.md)
-- Máquinas virtuales del grupo de hosts de sesión configuradas y registradas en el servicio Windows Virtual Desktop
+- Un [grupo de hosts de Azure Virtual Desktop](create-host-pools-azure-marketplace.md)
+- Máquinas virtuales del grupo de hosts de sesión configuradas y registradas en el servicio Azure Virtual Desktop
 - Un usuario con [acceso de colaborador](../role-based-access-control/role-assignments-portal.md) en la suscripción de Azure
 
 La máquina que se usa para implementar la herramienta debe tener:

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c00090ec6b63f41a92beb485433d4667fc85860
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 357a9f7e3e498a477d6cadf3742e11696eafa896
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108766023"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110786563"
 ---
 # <a name="identity-protection-and-b2b-users"></a>Protección de identidades y usuarios de Colaboración B2B
 
@@ -65,8 +65,8 @@ El riesgo del usuario para los usuarios de Colaboración B2B se evalúa en su di
 Existen limitaciones en la implementación de Identity Protection para los usuarios de Colaboración B2B en un directorio de recursos debido a su identidad existente en su directorio particular. Las principales limitaciones son las siguientes:
 
 - Si un usuario invitado desencadena la directiva de riesgo de usuario de Identity Protection para forzar el restablecimiento de la contraseña, **se bloqueará**. Este bloqueo se debe a la imposibilidad de restablecer contraseñas en el directorio de recursos.
-- **Los usuarios invitados no aparecen en el informe de usuarios de riesgo**. Esta pérdida de visibilidad se debe a la evaluación del riesgo que se produce en el directorio particular del usuario de B2B.
-- Los administradores **no pueden descartar ni corregir un usuario de Colaboración B2B de riesgo** en su directorio de recursos. Esta pérdida de funcionalidad se debe a que los administradores del directorio de recursos no tienen acceso al directorio particular del usuario de B2B.
+- **Los usuarios invitados no aparecen en el informe de usuarios de riesgo**. Esta limitación se debe a la evaluación del riesgo que se produce en el directorio particular del usuario de B2B.
+- Los administradores **no pueden descartar ni corregir un usuario de Colaboración B2B de riesgo** en su directorio de recursos. Esta limitación se debe a que los administradores del directorio de recursos no tienen acceso al directorio particular del usuario de B2B.
 
 ### <a name="why-cant-i-remediate-risky-b2b-collaboration-users-in-my-directory"></a>¿Por qué no puedo corregir a los usuarios de Colaboración B2B de riesgo en mi directorio?
 

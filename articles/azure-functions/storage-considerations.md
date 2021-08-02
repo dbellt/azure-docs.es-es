@@ -3,12 +3,12 @@ title: Consideraciones de almacenamiento de Azure Functions
 description: Conozca los requisitos de almacenamiento de Azure Functions y aprenda a cifrar los datos almacenados.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: 8c7f5ef6e1e9c354806994e5116e40523d660e9e
-ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
+ms.openlocfilehash: 41e78acf37f2f5b9cc0346384fc4964187945386
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109627715"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112026460"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Consideraciones de almacenamiento de Azure Functions
 
@@ -18,7 +18,7 @@ Azure Functions necesita una cuenta de Azure Storage para crear una instancia de
 |Servicio de Storage  | Uso de Functions  |
 |---------|---------|
 | [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)     | Mantener el estado de los enlaces y las teclas de función.  <br/>También se utiliza en la [central de tareas de Durable Functions](durable/durable-functions-task-hubs.md). |
-| [Archivos de Azure](../storage/files/storage-files-introduction.md)  | Recurso compartido de archivos que se utiliza para almacenar y ejecutar el código de la aplicación de funciones en un [plan de consumo](consumption-plan.md) y un [plan prémium](functions-premium-plan.md). |
+| [Archivos de Azure](../storage/files/storage-files-introduction.md)  | Recurso compartido de archivos que se utiliza para almacenar y ejecutar el código de la aplicación de funciones en un [plan de consumo](consumption-plan.md) y un [plan prémium](functions-premium-plan.md). <br/>Azure Files está configurado de forma predeterminada, pero puede crear una [aplicación sin Azure Files](#create-an-app-without-azure-files) en determinadas condiciones. |
 | [Azure Queue Storage](../storage/queues/storage-queues-introduction.md)     | Se utiliza en la [central de tareas de Durable Functions](durable/durable-functions-task-hubs.md).   |
 | [Azure Table Storage](../storage/tables/table-storage-overview.md)  |  Se utiliza en la [central de tareas de Durable Functions](durable/durable-functions-task-hubs.md).       |
 
@@ -66,6 +66,19 @@ Una misma cuenta de almacenamiento puede estar compartida entre varias aplicacio
 Cuando todos los datos del cliente deban permanecer dentro de una única región, la cuenta de almacenamiento asociada a la aplicación de funciones debe ser una que tenga [redundancia en la región](../storage/common/storage-redundancy.md). También se debe usar una cuenta de almacenamiento con redundancia en la región con [Azure Durable Functions](./durable/durable-functions-perf-and-scale.md#storage-account-selection).
 
 Otros datos de clientes administrados por la plataforma solo se almacenan dentro de la región cuando se hospedan en una instancia de App Service Environment (ASE) con equilibrio de carga interno. Para más información, consulte [Redundancia de zona de ASE](../app-service/environment/zone-redundancy.md#in-region-data-residency).
+
+## <a name="create-an-app-without-azure-files"></a>Creación de una aplicación sin Azure Files
+
+Azure Files está configurado de forma predeterminada para planes Premium y Consumo para no Linux que sirvan como un sistema de archivos compartido en escenarios de gran escala. La plataforma usa el sistema de archivos para algunas características, como el streaming de registros, pero garantiza principalmente la coherencia de la carga útil de la función implementada. Cuando una aplicación se [implementa mediante una dirección URL de paquete externo](./run-functions-from-deployment-package.md), el contenido de la aplicación se sirve desde un sistema de archivos de solo lectura independiente, por lo que Azure Files se puede omitir si se desea. En tales casos, se proporciona un sistema de archivos que se puede escribir, pero no se garantiza que se comparta con todas las instancias de la aplicación de función.
+
+Si Azure Files no se usa, debe tener en cuenta lo siguiente:
+
+* Debe implementar desde una dirección URL del paquete externo.
+* La aplicación no puede basarse en un sistema de archivos que se pueda escribir compartido
+* La aplicación no puede usar el runtime de Functions v1
+* Las experiencias de streaming de registros en clientes como Azure Portal tienen como valor predeterminado los registros del sistema de archivos. En su lugar, deben basarse en registros de Application Insights.
+
+Si lo anterior se tiene en cuenta correctamente, puede crear la aplicación sin Azure Files. Cree la aplicación de función sin especificar la configuración de la aplicación `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` y `WEBSITE_CONTENTSHARE`.
 
 ## <a name="mount-file-shares"></a>Montaje de recursos compartidos de archivos
 

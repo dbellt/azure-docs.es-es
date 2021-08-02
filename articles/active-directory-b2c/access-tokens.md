@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 05/26/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a633a7656a287c0b8df050b6d14afb73c27a7460
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: df14f8fef3c5f71d5d80756eb629fc3ce5f16a74
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106382150"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110534571"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Solicitud de token de acceso en Azure Active Directory B2C
 
@@ -25,9 +25,9 @@ Un *token de acceso* contiene notificaciones que puede usar en Azure Active Di
 Este artículo muestra cómo solicitar un token de acceso para una aplicación web y una API web. Para más información sobre los tokens en Azure AD B2C, consulte [Información general de tokens de Azure Active Directory B2C](tokens-overview.md).
 
 > [!NOTE]
-> **Las cadenas de la API web (en nombre de) no son compatibles con Azure AD B2C.** - Muchas arquitecturas incluyen una API web que necesita llamar a otra API web de nivel inferior, ambas protegidas mediante Azure AD B2C. Este escenario es común en clientes que tienen un back-end de API web, que a su vez llama a otro servicio. Este escenario de API web encadenadas puede admitirse mediante la concesión de credenciales de portador JWT de OAuth 2.0, también conocido como flujo "en nombre de". Sin embargo, el flujo "en nombre de" no está implementado actualmente en Azure AD B2C.
+> **Las cadenas de la API web (en nombre de) no son compatibles con Azure AD B2C.** - Muchas arquitecturas incluyen una API web que necesita llamar a otra API web de nivel inferior, ambas protegidas mediante Azure AD B2C. Este escenario es común en clientes que tienen un back-end de API web, que a su vez llama a otro servicio. Este escenario de API web encadenadas puede admitirse mediante la concesión de credenciales de portador JWT de OAuth 2.0, también conocido como flujo "en nombre de". Sin embargo, el flujo "en nombre de" no está implementado actualmente en Azure AD B2C. Aunque "en nombre de" funciona para las aplicaciones registradas en Azure AD, no funciona para las aplicaciones registradas en Azure AD B2C, independientemente del inquilino (Azure AD o Azure AD B2C) que emita los tokens.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - [Cree un flujo de usuario](tutorial-create-user-flows.md) para permitir a los usuarios registrarse e iniciar sesión en la aplicación.
 - Si aún no lo ha hecho, [agregue una aplicación de API web al inquilino de Azure Active Directory B2C](add-web-api-application.md).

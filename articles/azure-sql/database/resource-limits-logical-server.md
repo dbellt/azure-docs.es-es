@@ -3,20 +3,20 @@ title: Límites de recursos para los servidores lógicos en Azure
 description: En este artículo se proporciona información general sobre los límites de recursos para los servidores lógicos de Azure que usan Azure SQL Database y Azure Synapse Analytics. También se proporciona información acerca de lo qué ocurre cuando se alcanzan o superan dichos límites.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: service-overview
 ms.custom: ''
 ms.devlang: ''
 ms.topic: reference
-author: stevestein
-ms.author: sstein
-ms.reviewer: sashan,moslake,josack
-ms.date: 03/25/2021
-ms.openlocfilehash: 08b2d3ec205e22c85188a718a12b13aff04f311e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma
+ms.date: 04/16/2021
+ms.openlocfilehash: fa5e8bc8ec3e0ebbc93d682d8ff9988f110ffe69
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108771710"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110708358"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Límites de recursos para los servidores de Azure SQL Database y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -28,7 +28,7 @@ En este artículo se proporciona información general sobre los límites de recu
 
 ## <a name="maximum-resource-limits"></a>Límites de recursos máximos
 
-| Resource | Límite |
+| Recurso | Límite |
 | :--- | :--- |
 | Bases de datos por servidor lógico | 5000 |
 | Número predeterminado de servidores lógicos por suscripción en una región | 20 |
@@ -49,7 +49,7 @@ En este artículo se proporciona información general sobre los límites de recu
 
 ### <a name="storage-size"></a>Tamaño de almacenamiento
 
-Para información sobre los tamaños de almacenamiento de recursos de bases de datos únicas, consulte los [límites de recursos basados en DTU](resource-limits-dtu-single-databases.md) o los [límites de recursos basados en núcleo virtual](resource-limits-vcore-single-databases.md) para conocer los límites de tamaño de almacenamiento por plan de tarifa.
+Para información sobre los tamaños de almacenamiento de recursos de bases de datos únicas, consulte los [límites de recursos basados en DTU](resource-limits-dtu-single-databases.md) o los [límites de recursos basados en núcleo virtual](resource-limits-vcore-single-databases.md) para conocer los límites de tamaño de almacenamiento por plan de tarifa (también conocido como objetivo de servicio).
 
 ## <a name="what-happens-when-database-resource-limits-are-reached"></a>¿Qué ocurre cuando se alcanzan los límites de recursos de base de datos?
 
@@ -63,14 +63,17 @@ Al encontrar un uso de proceso elevado, las opciones de mitigación incluyen:
 
 ### <a name="storage"></a>Storage
 
-Cuando el espacio de la base de datos alcanza el límite de tamaño máximo, las inserciones y actualizaciones de la base de datos que aumentan el tamaño de los datos producen un error y los clientes reciben un [mensaje de error](troubleshoot-common-errors-issues.md). Las instrucciones SELECT y DELETE se siguen ejecutando correctamente.
+Cuando el espacio de base de datos utilizado alcanza el límite máximo de tamaño de datos, se produce un error en las inserciones y actualizaciones de base de datos que aumentan el tamaño de los datos y los clientes reciben un [mensaje de error](troubleshoot-common-errors-issues.md). Las instrucciones SELECT y DELETE no se ven afectadas.
+
+En los niveles de servicio Premium y Crítico para la empresa, los clientes también reciben un mensaje de error si el consumo combinado de almacenamiento por datos, registro de transacciones y tempdb supera el tamaño máximo de almacenamiento local. Para más información, consulte la sección [Gobernanza del espacio de almacenamiento](#storage-space-governance).
 
 Al encontrar un uso elevado de espacio, las opciones de mitigación incluyen:
 
-- Aumentar el tamaño máximo de la base de datos o del grupo elástico, o agregar más almacenamiento. Consulte [Scale single database resources](single-database-scale.md) (Escala de recursos de bases de datos únicas) y [Scale elastic pool resources](elastic-pool-scale.md) (Escala de recursos de grupos elásticos).
+- Aumente el tamaño máximo de los datos de la base de datos o el grupo elástico, o bien escale verticalmente a un objetivo de servicio con un límite de tamaño máximo de datos mayor. Consulte [Scale single database resources](single-database-scale.md) (Escala de recursos de bases de datos únicas) y [Scale elastic pool resources](elastic-pool-scale.md) (Escala de recursos de grupos elásticos).
 - Si la base de datos está en un grupo elástico, se puede mover fuera del grupo para que su espacio de almacenamiento no se comparta con otras bases de datos.
-- Reduzca una base de datos para reclamar el espacio no utilizado. Para obtener más información, consulte [Administración del espacio de archivo en Azure SQL Database](file-space-manage.md).
+- Reduzca una base de datos para reclamar el espacio no utilizado. En los grupos elásticos, la reducción de una base de datos proporciona más almacenamiento para otras bases de datos del grupo. Para obtener más información, consulte [Administración del espacio de archivo en Azure SQL Database](file-space-manage.md).
 - Compruebe si el uso elevado de espacio se debe a un pico en el tamaño del almacén de versiones persistentes (PVS). PVS es una parte de cada base de datos y se utiliza para implementar la [recuperación acelerada de la base de datos](../accelerated-database-recovery.md). Para determinar el tamaño actual del PVS, consulte [Solución de problemas de PVS](/sql/relational-databases/accelerated-database-recovery-management#troubleshooting). Un motivo común para un tamaño grande de PVS es una transacción abierta durante mucho tiempo (horas), lo que impide la limpieza de versiones anteriores en PVS.
+- En el caso de las bases de datos de gran tamaño en los niveles de servicio Premium y Crítico para la empresa, puede recibir el error de espacio insuficiente aunque el espacio usado en la base de datos esté por debajo de su límite de tamaño máximo. Esto puede ocurrir si tempdb o el registro de transacciones consumen una gran cantidad de almacenamiento hacia el límite máximo de almacenamiento local. [Conmute por error](high-availability-sla.md#testing-application-fault-resiliency) la base de datos o el grupo elástico para restablecer tempdb a su tamaño más pequeño inicial o [reduzca](file-space-manage.md#shrinking-transaction-log-file) el registro de transacciones para reducir el consumo de almacenamiento local.
 
 ### <a name="sessions-and-workers-requests"></a>Sesiones y trabajos (solicitudes)
 
@@ -132,7 +135,7 @@ La regulación de recursos de Azure SQL Database es jerárquica por naturaleza. 
 
 La regulación de E/S de los datos es un proceso de Azure SQL Database que se usa para limitar la E/S física de lectura y escritura en los archivos de datos de una base de datos. Para cada nivel de servicio se establecen límites de IOPS con el fin de minimizar el efecto "vecino ruidoso", para proporcionar igualdad en la asignación de recursos en el servicio multiinquilino y para permanecer dentro de las capacidades del hardware y el almacenamiento subyacentes.
 
-En el caso de bases de datos únicas, los límites del grupo de cargas de trabajo se aplican a toda la E/S de almacenamiento de la base de datos, mientras que los límites del grupo de recursos se aplican a toda la E/S de almacenamiento de todas las bases de datos del mismo grupo de recursos, incluida la base de datos `tempdb`. En el caso de grupos elásticos, los límites del grupo de cargas de trabajo se aplican a cada base de datos del grupo, mientras que el límite del grupos de recursos se aplica a todo el grupo elástico, incluida la base de datos `tempdb`, que se comparte entre todas las bases de datos del grupo. En general, es posible que la carga de trabajo no pueda lograr los límites del grupo de recursos de una base de datos (sola o agrupada), porque los límites del grupo de cargas de trabajo son inferiores a los límites del grupo de recursos y limitan antes el número de IOPS y el rendimiento. Aunque la carga de trabajo combinada puede alcanzar los límites del grupo en varias bases de datos del mismo grupo.
+En el caso de bases de datos únicas, los límites del grupo de cargas de trabajo se aplican a toda la E/S de almacenamiento de la base de datos, mientras que los límites del grupo de recursos se aplican a toda la E/S de almacenamiento de todas las bases de datos del mismo grupo de SQL dedicado, incluida la base de datos tempdb. En el caso de grupos elásticos, los límites del grupo de cargas de trabajo se aplican a cada base de datos del grupo, mientras que el límite del grupos de recursos se aplica a todo el grupo elástico, incluida la base de datos tempdb, que se comparte entre todas las bases de datos del grupo. En general, es posible que la carga de trabajo no pueda lograr los límites del grupo de recursos de una base de datos (sola o agrupada), porque los límites del grupo de cargas de trabajo son inferiores a los límites del grupo de recursos y limitan antes el número de IOPS y el rendimiento. Aunque la carga de trabajo combinada puede alcanzar los límites del grupo en varias bases de datos del mismo grupo.
 
 Por ejemplo, si una consulta genera 1000 IOPS sin gobernanza de recursos de E/S, pero el límite máximo de IOPS del grupo de cargas de trabajo se establece en 900 IOPS, la consulta no podrá generar más de 900 IOPS. No obstante, si el límite máximo de IOPS del grupo de recursos se establece en 1500 IOPS y la E/S total de todos los grupos de cargas de trabajo asociados con el grupo de recursos supera los 1500 IOPS, la E/S de la misma consulta puede reducirse por debajo del límite del grupo de trabajo de 900 IOPS.
 
@@ -177,11 +180,40 @@ Cuando encuentre un límite para las tasas de registros que dificulte la alcanza
 
 ### <a name="storage-space-governance"></a>Gobernanza del espacio de almacenamiento
 
-En los niveles de servicio Premium y Crítico para la empresa, los archivos de datos y de registro de transacciones se almacenan en el volumen de SSD local de la máquina que hospeda la base de datos o el grupo elástico. El resultado es un número elevado IOPS y un alto rendimiento, así como una baja latencia de E/S. El tamaño de este volumen local depende de las capacidades de hardware y es finito. En una máquina determinada, las bases de datos del cliente, como `tempdb`, el sistema operativo, el software de administración, los datos de supervisión, los registros, etc., consumen espacio de volumen local. A medida que se crean o eliminan las bases de datos y aumentan o reducen su uso del espacio, el consumo de espacio local en una máquina fluctúa con el tiempo. 
+En los niveles de servicio Premium y Crítico para la empresa, los datos del cliente, incluidos los *archivos de datos*, los *archivos de registro de transacciones* y los *archivos tempdb*, se guardan en el almacenamiento SSD local de la máquina que hospeda la base de datos o el grupo elástico. El almacenamiento SSD local proporciona un número elevado de IOPS y un alto rendimiento, así como una baja latencia de E/S. Además de los datos del cliente, el almacenamiento local se usa para el sistema operativo, el software de administración, los datos y registros de supervisión y otros archivos necesarios para el funcionamiento del sistema.
 
-Si el sistema detecta que el espacio libre disponible en una máquina es bajo y una base de datos o un grupo elástico corren el riesgo de quedarse sin espacio, moverá la base de datos o el grupo elástico a otra máquina con suficiente espacio libre, lo que permite que crezcan hasta alcanzar los límites máximos del objetivo de servicio configurado. Este movimiento se produce en línea, de forma similar a una operación de escalado de bases de datos, y tiene un [efecto](single-database-scale.md#impact) parecido, por ejemplo, se produce una conmutación por error de corta duración (segundos) al final de la operación. Esta conmutación por error finaliza las conexiones abiertas y revierte las transacciones, lo que puede afectar a las aplicaciones que usan la base de datos en ese momento.
+El tamaño del almacenamiento local es finito y depende de las funcionalidades de hardware, que determinan el límite de **almacenamiento local máximo**, o el almacenamiento local reservado para los datos del cliente. Este límite se establece para maximizar el almacenamiento de datos del cliente, a la vez que se garantiza un funcionamiento seguro y confiable del sistema. Para encontrar el valor **máximo de almacenamiento local** para cada objetivo de servicio, consulte la documentación sobre los límites de recursos para [bases de datos únicas](resource-limits-vcore-single-databases.md) y [grupos elásticos](resource-limits-vcore-elastic-pools.md).
 
-Dado que los datos se copian físicamente en una máquina diferente, mover bases de datos de mayor tamaño puede requerir una cantidad considerable de tiempo. Durante ese tiempo, si el consumo de espacio local por una base de datos de usuarios o un grupo elástico grandes, o por la base de datos `tempdb`, crece con mucha rapidez, el riesgo de quedarse sin espacio aumenta. El sistema inicia el movimiento de la base de datos de manera equilibrada para evitar errores de espacio insuficiente y conmutaciones por error innecesarias.
+También puede encontrar este valor y la cantidad de almacenamiento local que usa actualmente una base de datos determinada o un grupo elástico mediante la consulta siguiente:
+
+```tsql
+SELECT server_name, database_name, slo_name, user_data_directory_space_quota_mb, user_data_directory_space_usage_mb
+FROM sys.dm_user_db_resource_governance
+WHERE database_id = DB_ID();
+```
+
+|Columna|Descripción|
+| :----- | :----- |
+|`server_name`|Nombre del servidor lógico|
+|`database_name`|Nombre de la base de datos|
+|`slo_name`|Nombre del objetivo de servicio, incluida la generación de hardware|
+|`user_data_directory_space_quota_mb`|**Almacenamiento local máximo**, en MB|
+|`user_data_directory_space_usage_mb`|Consumo de almacenamiento local actual por archivos de datos, archivos de registro de transacciones y archivos tempdb, en MB. Se actualiza cada cinco minutos.|
+|||
+
+Esta consulta debe ejecutarse en la base de datos de usuario, no en la base de datos maestra. En el caso de los grupos elásticos, la consulta se puede ejecutar en cualquier base de datos del grupo. Los valores notificados se aplican a todo el grupo.
+
+> [!IMPORTANT]
+> En los niveles de servicio Premium y Crítico para la empresa, si la carga de trabajo intenta aumentar el consumo de almacenamiento local combinado por archivos de datos, archivos de registro de transacciones y archivos tempdb por encima del límite **máximo de almacenamiento local**, se producirá un error de espacio insuficiente.
+
+A medida que se crean y se eliminan las bases de datos y aumentan o reducen su tamaño, el consumo de almacenamiento local en una máquina fluctúa con el tiempo. Si el sistema detecta que el almacenamiento local disponible en una máquina es bajo y una base de datos o un grupo elástico corren el riesgo de quedarse sin espacio, moverá la base de datos o el grupo elástico a otra máquina con suficiente espacio de almacenamiento local.
+
+Este movimiento se produce en línea, de forma similar a una operación de escalado de bases de datos, y tiene un [efecto](single-database-scale.md#impact) parecido, por ejemplo, se produce una conmutación por error de corta duración (segundos) al final de la operación. Esta conmutación por error finaliza las conexiones abiertas y revierte las transacciones, lo que puede afectar a las aplicaciones que usan la base de datos en ese momento.
+
+Dado que todos los datos se copian en un volumen de almacenamiento local en una máquina diferente, mover bases de datos de mayor tamaño puede requerir una cantidad considerable de tiempo. Durante ese tiempo, si el consumo de espacio local por una base de datos de usuarios o un grupo elástico, o por la base de datos tempdb, crece con rapidez, el riesgo de quedarse sin espacio aumenta. El sistema inicia el movimiento de la base de datos de manera equilibrada para minimizar errores de espacio insuficiente mientras se evitan las conmutaciones por error innecesarias.
+
+> [!NOTE]
+> El movimiento de la base de datos debido a un almacenamiento local insuficiente solo se produce en los niveles de servicio Premium o Crítico para la empresa. No se produce en los niveles de servicio Hiperescala, De uso general, Estándar y Básico, porque en esos niveles los archivos de datos no se guardan en el almacenamiento local.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

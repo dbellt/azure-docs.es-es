@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0033b6985313de351ffdaf7028d2c1e9bd76ba72
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 47898b1708ebecc43ace9888dfd237fa72079c6b
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97963526"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111590367"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-ad-multi-factor-authentication"></a>Optimice los avisos de reautenticación y comprenda la duración de la sesión en Multi-Factor Authentication de Azure AD.
 
@@ -41,7 +41,7 @@ Para ofrecer a los usuarios el equilibrio adecuado entre seguridad y facilidad d
     * Mantenga habilitada la opción *Remain signed-in* (Permanecer conectado) y guíe a los usuarios para que la acepten.
 * Para escenarios con dispositivos móviles, asegúrese de que los usuarios utilizan la aplicación Microsoft Authenticator. Esta aplicación se usa como agente para otras aplicaciones federadas de Azure AD y reduce los avisos de autenticación en el dispositivo.
 
-Nuestra investigación muestra que estos valores son adecuados para la mayoría de los inquilinos. Algunas combinaciones de estas opciones, como *Recordar Multi-Factor Authentication* y *Remain singed-in* (Permanecer conectado), pueden dar lugar a que los usuarios se autentiquen con demasiada frecuencia. Los mensajes de reautenticación periódicos son perjudiciales para la productividad del usuario y pueden hacerlos más vulnerables frente a los ataques.
+Nuestra investigación muestra que estos valores son adecuados para la mayoría de los inquilinos. Algunas combinaciones de estas opciones, como *Recordar Multi-Factor Authentication* y *Permanecer conectado*, pueden dar lugar a la aparición frecuente de mensajes de autenticación para los usuarios. Los mensajes de reautenticación periódicos son perjudiciales para la productividad del usuario y pueden hacerlos más vulnerables frente a los ataques.
 
 ## <a name="azure-ad-session-lifetime-configuration-settings"></a>Opciones de configuración de duración de sesión de Azure AD
 

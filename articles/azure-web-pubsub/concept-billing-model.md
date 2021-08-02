@@ -6,12 +6,12 @@ ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ms.date: 03/29/2021
-ms.openlocfilehash: 0d1ba3de5686e161fbd118f78bd4734034dbc1bb
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: c7a7aaa47d40c9d49065f71bc9bebc998adbfc12
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108167124"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111410484"
 ---
 # <a name="billing-model-of-azure-web-pubsub-service"></a>Modelo de facturación del servicio Azure Web PubSub
 
@@ -60,7 +60,7 @@ A efectos de facturación, solo se contabiliza el tráfico saliente.
 
 Por ejemplo, imagine que tiene una aplicación con el servicio Azure Web PubSub y Azure Functions. Un usuario ha difundido 4 KB de datos a 10 conexiones de un grupo. El resultado son 4 KB para la conexión ascendente del servicio a la función y 40 KB de la transmisión del servicio a 10 conexiones.
 
-> Tráfico saliente a efectos de facturación = 4 KB + 40 KB = 44 KB
+> Tráfico saliente para facturación = 4 KB (tráfico ascendente) + 4 KB * 10 (tráfico de difusión de servicios a clientes) = 44 KB
 
 > Recuento de mensajes equivalente = 44 KB / 2 KB = 22
 

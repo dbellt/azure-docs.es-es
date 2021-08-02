@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.openlocfilehash: 7b986ad444ac62f8e42230df6e994ead1827b0bd
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: e9d29b4e71221ca072699967d4af8fbaa7061467
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107887770"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111754032"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Azure Migrate Server Migration: Preguntas frecuentes
 
@@ -71,7 +71,7 @@ Aunque puede crear evaluaciones para varias regiones en un proyecto de Azure Mig
 
 ## <a name="can-we-use-the-same-azure-migrate-project-to-migrate-to-multiple-subscriptions"></a>¿Se puede usar el mismo proyecto de Azure Migrate para migrar a varias suscripciones? 
 
-Sí, puede migrar a varias suscripciones de la misma región de destino con un proyecto de Azure Migrate. Puede seleccionar la suscripción de destino al habilitar la replicación de una máquina o de un conjunto de máquinas. La región de destino se bloquea después de la primera replicación para las migraciones de VMware sin agente y durante la instalación del dispositivo de replicación y del proveedor de Hyper-V para las migraciones basadas en agentes y para las migraciones de Hyper-V sin agente, respectivamente.
+Sí, puede migrar a varias suscripciones (mismo inquilino de Azure) de la misma región de destino con un proyecto de Azure Migrate. Puede seleccionar la suscripción de destino al habilitar la replicación de una máquina o de un conjunto de máquinas. La región de destino se bloquea después de la primera replicación para las migraciones de VMware sin agente y durante la instalación del dispositivo de replicación y del proveedor de Hyper-V para las migraciones basadas en agentes y para las migraciones de Hyper-V sin agente, respectivamente.
 
 ## <a name="what-are-the-migration-options-in-azure-migrate-server-migration"></a>¿Cuáles son las opciones de migración en Azure Migrate: Server Migration?
 

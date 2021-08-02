@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 99a36eec959fc3f0c669f50b77d7707011e8dac0
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 797b7e376774f0295fa0d7e158cd9ea3df68d25d
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108165108"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110575979"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicación de escritorio que llama a API web: Adquisición de un token
 
@@ -286,7 +286,7 @@ La clase define las constantes siguientes:
 - ``ForceLogin`` permite que el desarrollador de la aplicación obligue al servicio a solicitar las credenciales al usuario, incluso si este mensaje de usuario no es necesario. Esta opción puede ser útil para permitir que el usuario vuelva a iniciar sesión si se produce un error al adquirir un token. En este caso, MSAL envía `prompt=login` al proveedor de identidades. A veces se usa en aplicaciones centradas en la seguridad donde la gobernanza de la organización exige que el usuario vuelva a iniciar sesión cada vez que accede a determinadas partes de una aplicación.
 - ``Create`` desencadena una experiencia de inicio de sesión, que se usa con External Identities, mediante el envío de `prompt=create` al proveedor de identidades. Este aviso no se debe enviar en el caso de aplicaciones de Azure AD B2C. Para más información, consulte [Incorporación de un flujo de usuario de registro de autoservicio a una aplicación](../external-identities/self-service-sign-up-user-flow.md).
 - ``Never`` (solo para .NET 4.5 y WinRT) no pregunta al usuario, sino que, en su lugar, intenta usar la cookie almacenada en la vista web insertada oculta. Para más información, consulte las vistas web de MSAL.NET. Se puede producir un error al usar esta opción. En ese caso, `AcquireTokenInteractive` produce una excepción para notificar que se necesita una interacción de la interfaz de usuario. Debe usar otro parámetro `Prompt`.
-- ``NoPrompt`` no envía ningún símbolo del sistema al proveedor de identidades. Esta opción solo es útil para directivas de perfil de edición de Azure Active Directory (Azure AD) B2C. Para más información, consulte [Información específica sobre Azure AD B2C](https://aka.ms/msal-net-b2c-specificities).
+- ``NoPrompt`` no enviará ningún aviso al proveedor de identidades que, por lo tanto, decide presentar la mejor experiencia de inicio de sesión al usuario (inicio de sesión único o seleccionar cuenta). Esta opción también es obligatoria para las directivas de edición de perfiles de Azure Active Directory (Azure AD) B2C. Para más información, consulte [Información específica sobre Azure AD B2C](https://aka.ms/msal-net-b2c-specificities).
 
 #### <a name="withuseembeddedwebview"></a>WithUseEmbeddedWebView
 
@@ -513,7 +513,7 @@ pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Python de MSAL no proporciona ningún método de adquisición de tokens interactivo directamente, sino que exige que la aplicación envíe una solicitud de autorización en su implementación del flujo de interacción del usuario a fin de obtener un código de autorización. Luego, este código se puede pasar al método `acquire_token_by_authorization_code` a fin de obtener el token.
+MSAL Python 1.7+ proporciona un método interactivo de adquisición de tokens.
 
 ```python
 result = None
@@ -524,8 +524,7 @@ if accounts:
     result = app.acquire_token_silent(config["scope"], account=accounts[0])
 
 if not result:
-    result = app.acquire_token_by_authorization_code(
-         request.args['code'],
+    result = app.acquire_token_interactive(  # It automatically provides PKCE protection
          scopes=config["scope"])
 ```
 
@@ -538,7 +537,6 @@ Para iniciar la sesión de un usuario de dominio en un equipo unido a un dominio
 ### <a name="constraints"></a>Restricciones
 
 - La autenticación integrada de Windows solo es útil para usuarios *federados*, es decir, los usuarios creados en Active Directory y respaldados por Azure AD. Los usuarios creados directamente en Azure AD sin el respaldo de Active Directory, conocidos como usuarios *administrados*, no pueden usar este flujo de autenticación. Esta limitación no afecta al flujo de nombre de usuario y contraseña.
-- IWA es para aplicaciones escritas para las plataformas .NET Framework, .NET Core y Plataforma universal de Windows (UPW).
 - IWA no omite [la autenticación multifactor (MFA)](../authentication/concept-mfa-howitworks.md). Si se ha configurado MFA, IWA podría producir un error si es necesario un desafío de MFA, porque MFA necesita interacción del usuario.
 
     IWA no es interactiva, pero MFA requiere interactividad del usuario. El usuario no es quien controla si el proveedor de identidades solicita que se realice MFA, sino el administrador de inquilinos. Por lo que se ha observado, MFA se requiere al iniciar sesión desde otro país o región, cuando no se está conectado a través de VPN a una red corporativa y, a veces, incluso cuando se está. No espere un conjunto determinista de reglas. Azure AD usa inteligencia artificial para aprender continuamente si se requiere MFA. Si se produce un error de IWA, recurra a un mensaje de usuario como la autenticación interactiva o el flujo de código de dispositivo.

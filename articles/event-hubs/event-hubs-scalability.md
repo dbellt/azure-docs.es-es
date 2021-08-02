@@ -2,19 +2,19 @@
 title: Escalabilidad - Azure Event Hubs | Microsoft Docs
 description: En este artículo se proporciona información sobre cómo escalar Azure Event Hubs mediante el uso de particiones y unidades de procesamiento.
 ms.topic: article
-ms.date: 03/16/2021
-ms.openlocfilehash: acfc300ff7e6bd77c570c68bda50a731df10409c
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 05/26/2021
+ms.openlocfilehash: ef894e0f14c140691b43da121a1983017ab03150
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110367098"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110616468"
 ---
 # <a name="scaling-with-event-hubs"></a>Escalado con Event Hubs
 
 Hay dos factores que influyen en el escalado con Event Hubs.
-*   Unidades de procesamiento
-*   Particiones
+* Unidades de rendimiento (nivel estándar) o unidades de procesamiento (nivel prémium) 
+* Particiones
 
 ## <a name="throughput-units"></a>Unidades de procesamiento
 
@@ -42,7 +42,10 @@ Para más información sobre la característica de inflado automático, consulte
 
 Lo que se pueda ingerir y transmitir con una unidad de procesamiento depende de varios factores, como los productores, los consumidores, la velocidad a la que se ingiere y procesa, etc. Una unidad de procesamiento puede ofrecer aproximadamente una capacidad principal de entrada de ~5-10 MB/s y de salida de 10-20 MB/s, dado que hay suficientes particiones para que el almacenamiento no sea un factor de limitación.  
 
+Para saber cómo configurar las unidades de procesamiento para un espacio de nombres de nivel prémium, consulte [Configuración de unidades de procesamiento](configure-processing-units-premium-namespace.md).
 
+> [!NOTE]
+> Para más información sobre las cuotas y los límites, consulte [Cuotas y límites de Azure Event Hubs](event-hubs-quotas.md).
 
 ## <a name="partitions"></a>Particiones
 [!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
@@ -53,5 +56,5 @@ Lo que se pueda ingerir y transmitir con una unidad de procesamiento depende de 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información acerca de Event Hubs, visite los vínculos siguientes:
 
-- [Escalado automático de las unidades de rendimiento](event-hubs-auto-inflate.md)
-- [Información general sobre el servicio Event Hubs](./event-hubs-about.md)
+- [Escalado automático de unidades de procesamiento para un espacio de nombres de nivel estándar](event-hubs-auto-inflate.md)
+- [Configuración de unidades de procesamiento para un espacio de nombres de nivel prémium](configure-processing-units-premium-namespace.md)

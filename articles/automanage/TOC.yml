@@ -13,8 +13,12 @@
     - name: "Automanage para Windows\_Server"
       href: automanage-windows-server.md
       items:
+        - name: Automanage para servicios de Windows Server (versión preliminar)
+          href: automanage-windows-server-services-overview.md
         - name: Revisión en caliente para nuevas máquinas virtuales
           href: automanage-hotpatch.md
+    - name: Automanage para servidores habilitados para Azure Arc
+      href: automanage-arc.md
     - name: Cuenta de Automanage
       href: automanage-account.md
 - name: Procedimientos

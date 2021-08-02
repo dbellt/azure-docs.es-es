@@ -7,14 +7,14 @@ author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/02/2020
-ms.custom: references_regions
-ms.openlocfilehash: 9679157e7871b043711fff688a8cbb69cf9bb4d8
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.date: 05/28/2021
+ms.custom: references_regions, devx-track-azurepowershell
+ms.openlocfilehash: 3e45a2ff5db3a3ebbc0f9e2c5d9c66af43915463
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107813621"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110786845"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Configuración de claves administradas por el cliente para el cifrado de datos en Azure Cognitive Search
 
@@ -31,15 +31,18 @@ No es necesario que todas las claves estén en el mismo almacén de claves. Un s
 
 ## <a name="double-encryption"></a>Doble cifrado
 
-En el caso de los servicios creados después del 1 de agosto de 2020 y en regiones específicas, el ámbito del cifrado con clave administrada por el cliente incluye discos temporales y se consigue un [doble cifrado completo](search-security-overview.md#double-encryption), disponible actualmente en estas regiones: 
+El cifrado doble es una extensión de claves administradas por el cliente (CMK). Se entiende que se trata de un cifrado doble (una vez mediante CMK y otra mediante claves administradas por el servicio) y de ámbito general, que engloba el almacenamiento a largo plazo que se escribe en un disco de datos, así como el almacenamiento a corto plazo escrito en discos temporales. No es necesario realizar ninguna configuración. Cuando se aplica CMK a objetos, se invoca automáticamente el cifrado doble.
 
-+ Oeste de EE. UU. 2
-+ Este de EE. UU.
-+ Centro-sur de EE. UU.
-+ US Gov - Virginia
-+ US Gov: Arizona
+Aunque el cifrado doble está disponible en todas las regiones, la compatibilidad se ha implantado en dos fases. La primera implementación se realizó en agosto de 2020 e incluyó las cinco regiones enumeradas a continuación. La segunda implementación de mayo de 2021 extendió el cifrado doble a todas las regiones restantes. Si usa CMK en un servicio anterior y desea un cifrado doble, deberá crear un nuevo servicio de búsqueda en la región que prefiera.
 
-Si usa una región diferente o un servicio creado antes del 1 de agosto, el cifrado con claves administradas se limita solo al disco de datos y se excluyen los discos temporales que usa el servicio.
+| Region | Fecha de creación del servicio |
+|--------|-----------------------|
+| Oeste de EE. UU. 2 | Después del 1 de agosto de 2020 |
+| Este de EE. UU. | Después del 1 de agosto de 2020 |
+| Centro-sur de EE. UU.  | Después del 1 de agosto de 2020 |
+| US Gov - Virginia  | Después del 1 de agosto de 2020 |
+| US Gov: Arizona  | Después del 1 de agosto de 2020 |
+| [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=search#select-product) | Después del 13 de mayo de 2021 |
 
 ## <a name="prerequisites"></a>Requisitos previos
 

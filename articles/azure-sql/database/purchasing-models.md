@@ -1,23 +1,23 @@
 ---
 title: Modelos de compra
-titleSuffix: Azure SQL Database & Azure SQL Managed Instance
+titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Información acerca de los modelos de compra que están disponibles para Azure SQL Database e Instancia administrada de Azure SQL.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: features
+ms.subservice: service-overview
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: ''
 ms.date: 05/28/2020
-ms.openlocfilehash: 8883263d6ddb2fb8ddc809f464288fcd282531bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a0c499ad15618d874a99be65f6d3af8d11fd88ec
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92788832"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111408954"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>Elección entre los modelos de compra de núcleo virtual y DTU: Azure SQL Database y SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -156,7 +156,7 @@ Sin embargo, en el amplio espectro de cargas de trabajo de clientes que se ejecu
 
 Por ejemplo, una aplicación que es sensible a la latencia de red puede experimentar un mejor rendimiento en el hardware de Gen5 frente a Gen4 debido al uso de redes aceleradas en Gen5; pero una aplicación que use E/S de lectura intensiva puede experimentar un mejor rendimiento en hardware de Gen4 frente a Gen5 debido a una mejor relación de memoria por núcleo en Gen4.
 
-Los clientes con cargas de trabajo que son sensibles a los cambios de hardware, o los clientes que desean controlar la opción de generación de hardware para su base de datos pueden usar el modelo de [núcleo virtual](service-tiers-vcore.md) para elegir su generación de hardware preferida durante la creación y el escalado de las bases de datos. En el modelo de núcleo virtual, los límites de recursos de cada objetivo de servicio en cada generación de hardware están documentados, tanto para las [bases de datos únicas](resource-limits-vcore-single-databases.md) como para los [grupos elásticos](resource-limits-vcore-elastic-pools.md). Para más información sobre las generaciones de hardware en el modelo de núcleo virtual, consulte [Generaciones de hardware](./service-tiers-vcore.md#hardware-generations).
+Los clientes con cargas de trabajo que son sensibles a los cambios de hardware, o los clientes que desean controlar la opción de generación de hardware para su base de datos pueden usar el modelo de [núcleo virtual](service-tiers-vcore.md) para elegir su generación de hardware preferida durante la creación y el escalado de las bases de datos. En el modelo de núcleo virtual, los límites de recursos de cada objetivo de servicio en cada generación de hardware están documentados, tanto para las [bases de datos únicas](resource-limits-vcore-single-databases.md) como para los [grupos elásticos](resource-limits-vcore-elastic-pools.md). Para obtener más información sobre las generaciones de hardware en el modelo de núcleo virtual, vea [Generaciones de hardware para SQL Database](./service-tiers-sql-database-vcore.md#hardware-generations) o [Generaciones de hardware para SQL Managed Instance](../managed-instance/service-tiers-managed-instance-vcore.md#hardware-generations).
 
 ## <a name="frequently-asked-questions-faqs"></a>Preguntas más frecuentes (P+F)
 

@@ -1,17 +1,17 @@
 ---
 title: 'Instalación de Office en la imagen de un disco duro virtual maestro: Azure'
-description: Cómo instalar y personalizar Office en una imagen maestra de Windows Virtual Desktop en Azure.
+description: Cómo instalar y personalizar Office en una imagen maestra de Azure Virtual Desktop en Azure.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: ce4eb3d556b6dff833129d11b26d439066b63f2e
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 09dda24d7bd177764f9d715256762e25cb4729a3
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106446853"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757578"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Instalación de Office en la imagen de un disco duro virtual principal
 
@@ -22,7 +22,7 @@ En este artículo se da por supuesto que ya ha creado una máquina virtual (VM).
 En este artículo también se da por supuesto que ha concedido privilegios de acceso elevados sobre la máquina virtual sin importar si está aprovisionada en Azure o en Hyper-V Manager. Si no es así, consulte [Elevación de los privilegios de acceso para administrar todas las suscripciones y los grupos de administración de Azure](../role-based-access-control/elevate-access-global-admin.md).
 
 >[!NOTE]
->Estas instrucciones son específicas de una configuración de Windows Virtual Desktop concreta que se puede usar con los procesos existentes de su organización.
+>Estas instrucciones son específicas de una configuración de Azure Virtual Desktop concreta que se puede usar con los procesos existentes de su organización.
 
 ## <a name="install-office-in-shared-computer-activation-mode"></a>Instalación de Office en modo de activación en equipos compartidos
 
@@ -44,7 +44,7 @@ Este archivo XML de configuración de ejemplo que hemos proporcionado hará lo s
    - Habilitar la activación en equipos compartidos.
 
 >[!NOTE]
->Es posible que la característica de búsqueda de la galería de símbolos de Visio no funcione como se esperaba en Windows Virtual Desktop.
+>Es posible que la característica de búsqueda de la galería de símbolos de Visio no funcione como se esperaba en Azure Virtual Desktop.
 
 Esto es lo que el archivo XML de configuración de ejemplo no hará:
 
@@ -157,9 +157,9 @@ Aquí se indica cómo instalar OneDrive en modo por máquina:
 
 ## <a name="microsoft-teams-and-skype-for-business"></a>Microsoft Teams y Skype Empresarial
 
-Windows Virtual Desktop no admite Skype Empresarial ni Teams.
+Azure Virtual Desktop no admite Skype Empresarial ni Teams.
 
-Para obtener ayuda con la instalación de Microsoft Teams, consulte [Uso de Microsoft Teams en Windows Virtual Desktop](teams-on-wvd.md). La optimización multimedia para Microsoft Teams en Windows Virtual Desktop está disponible en versión preliminar.
+Para ayuda con la instalación de Microsoft Teams, consulte [Uso de Microsoft Teams en Azure Virtual Desktop](teams-on-wvd.md). La optimización multimedia para Microsoft Teams en Azure Virtual Desktop está disponible en versión preliminar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

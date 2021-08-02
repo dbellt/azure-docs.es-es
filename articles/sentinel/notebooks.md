@@ -9,15 +9,17 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
-ms.date: 09/06/2020
-ms.openlocfilehash: 43d7a697b3cb013a73a0b14db8ec1758244ae3b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/19/2021
+ms.openlocfilehash: 1746398147e8f504b9e0c6aafd65507ef6a4b464
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97092200"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111749604"
 ---
 # <a name="use-jupyter-notebook-to-hunt-for-security-threats"></a>Uso de Jupyter Notebook para buscar amenazas de seguridad
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 La base de Azure Sentinel es el almacén de datos; combina consultas de alto rendimiento y esquemas dinámicos, y tiene capacidad para escalar a volúmenes de datos masivos. Azure Portal y todas las herramientas de Azure Sentinel emplean una API común para acceder a este almacén de datos. Esta misma API está disponible también para herramientas externas, como los cuadernos de [Jupyter](https://jupyter.org/) y Python. Mientras que muchas tareas comunes pueden llevarse a cabo en el portal, Jupyter amplía las posibilidades de lo que se puede hacer con estos datos. Combina una programación completa con una vasta colección de bibliotecas pensadas para el análisis de datos, la visualización y Machine Learning. Estas características hacen que Jupyter sea una herramienta fascinante para la búsqueda e investigación relacionadas con cuestiones de seguridad.
 
@@ -41,7 +43,7 @@ Los cuadernos de Azure Sentinel usan muchas bibliotecas de Python conocidas, com
 - Estadísticas y computación numérica
 - Aprendizaje automático y aprendizaje profundo
 
-También hemos lanzado una serie de herramientas de seguridad de Jupyter de código abierto en un paquete denominado [msticpy](https://github.com/Microsoft/msticpy/). Este paquete se usa en muchos de los cuadernos incluidos en el producto. Las herramientas de Msticpy están diseñadas expresamente para ayudar a crear cuadernos que se puedan usar en búsquedas e investigaciones, y estamos trabajando activamente en nuevas características y mejoras.
+También hemos lanzado una serie de herramientas de seguridad de Jupyter de código abierto en un paquete denominado [msticpy](https://github.com/Microsoft/msticpy/). Este paquete se usa en muchos de los cuadernos incluidos en el producto. Las herramientas de Msticpy están diseñadas expresamente para ayudar a crear cuadernos que se puedan usar en búsquedas e investigaciones, y estamos trabajando activamente en nuevas características y mejoras. Para más información, consulte la [documentación de MSTIC Jupyter y Python Security Tools](https://msticpy.readthedocs.io/).
 
 El [repositorio de la comunidad GitHub de Azure Sentinel](https://github.com/Azure/Azure-Sentinel) es la ubicación de los futuros cuadernos de Azure Sentinel creados por Microsoft o procedentes de contribuciones de la comunidad.
 
@@ -111,15 +113,20 @@ Una vez que se haya completado la implementación, puede iniciar cuadernos en la
     > ![iniciar cuaderno](./media/notebooks/sentinel-azure-notebooks-launch.png)
 
 1. Seleccione una instancia de proceso. Si no tiene una instancia de proceso, siga estos pasos:
-    1. Seleccione el signo más (+) para iniciar el asistente **Nueva instancia de proceso**.
+    1. Seleccione el signo más (+) para iniciar el asistente **Creación de instancia de proceso**.
 
         > [!div class="mx-imgBorder"]
         > ![Inicio del asistente para instancia de proceso](./media/notebooks/sentinel-azure-notebooks-compute-wizard.png)
 
-    1. En la página **Nueva instancia de proceso**, proporcione la información necesaria y, después, seleccione **Crear**.
+    1. En la página **Selección de máquina virtual**, proporcione la información necesaria y, a continuación, seleccione **Siguiente**.
 
         > [!div class="mx-imgBorder"]
-        > ![Creación de la instancia de proceso](./media/notebooks/sentinel-azure-notebooks-compute-create.png)
+        > ![Seleccione una máquina virtual de instancia de proceso](./media/notebooks/sentinel-azure-notebooks-compute-create.png)
+
+    1. En la página **Opciones de configuración**, proporcione la información necesaria y, después, seleccione **Crear**.
+    
+        > [!div class="mx-imgBorder"]
+        > ![Configuración de la instancia de proceso](./media/notebooks/sentinel-azure-notebooks-compute-settings.png)
 
 1. Una vez que se ha creado el servidor de cuaderno, seleccione en cada celda el icono Ejecutar para ejecutar el código en los cuadernos.
 
@@ -144,3 +151,4 @@ En este artículo, ha comenzado a usar Jupyter Notebook en Azure Sentinel. Para 
 
 - [Búsqueda de amenazas con Azure Sentinel, versión preliminar](hunting.md)
 - [Realizar un seguimiento de los datos durante una búsqueda](bookmarks.md)
+- [Jupyter, msticpy y Azure Sentinel](https://msticpy.readthedocs.io/en/latest/getting_started/JupyterAndAzureSentinel.html)

@@ -1,6 +1,6 @@
 ---
-title: 'Preguntas frecuentes sobre la asociación de aplicaciones en formato MSIX de Windows Virtual Desktop: Azure'
-description: Preguntas más frecuentes sobre la asociación de aplicaciones en formato MSIX para Windows Virtual Desktop.
+title: 'Preguntas frecuentes sobre la asociación de aplicaciones en formato MSIX de Azure Virtual Desktop: Azure'
+description: Preguntas más frecuentes sobre la asociación de aplicaciones en formato MSIX para Azure Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 1277e053e9a9eb6e54eb11a9ede42ca28d99d073
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: cf9770fd58a7cbd75d4647284d3ee84042c7e187
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108141314"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111754626"
 ---
 # <a name="msix-app-attach-faq"></a>Preguntas frecuentes sobre la asociación de aplicaciones en formato MSIX
 
-En este artículo se responden las preguntas más frecuentes sobre la asociación de aplicaciones en formato MSIX para Windows Virtual Desktop.
+En este artículo se responden las preguntas más frecuentes sobre la asociación de aplicaciones en formato MSIX para Azure Virtual Desktop.
 
 ## <a name="whats-the-difference-between-msix-and-msix-app-attach"></a>¿Cuál es la diferencia entre MSIX y la conexión de aplicaciones en formato MSIX ?
 
@@ -27,9 +27,9 @@ MSIX es un formato de empaquetado de aplicaciones, mientras que la conexión de 
 
 La asociación de aplicaciones en formato MSIX no utiliza FSLogix. Sin embargo, la asociación de aplicaciones en formato MSIX y FSLogix están diseñados para trabajar conjuntamente con el fin de proporcionar una experiencia de usuario sin problemas.
 
-## <a name="can-i-use-the-msix-app-attach-outside-of-windows-virtual-desktop"></a>¿Puedo usar la asociación de aplicaciones con formato MSIX fuera de Windows Virtual Desktop?
+## <a name="can-i-use-the-msix-app-attach-outside-of-azure-virtual-desktop"></a>¿Puedo usar la asociación de aplicaciones con formato MSIX fuera de Azure Virtual Desktop?
 
-Las API que permiten el funcionamiento de la conexión de aplicaciones en formato MSIX están disponibles para Windows 10 Enterprise. Estas se pueden usar fuera de Windows Virtual Desktop. Sin embargo, no hay ningún plano de administración para la asociación de aplicaciones en formato MSIX fuera de Windows Virtual Desktop.
+Las API que permiten el funcionamiento de la conexión de aplicaciones en formato MSIX están disponibles para Windows 10 Enterprise. Estas se pueden usar fuera de Azure Virtual Desktop. Sin embargo, no hay ningún plano de administración para la asociación de aplicaciones en formato MSIX fuera de Azure Virtual Desktop.
 
 ## <a name="how-do-i-get-an-msix-package"></a>¿Cómo se obtiene un paquete MSIX?
 
@@ -43,9 +43,9 @@ Windows 10 Enterprise y sesión múltiple de Windows 10 Enterprise, versión 
 
 La conexión de aplicaciones en formato MSIX forma parte de Windows 10 Enterprise y la sesión múltiple de Windows 10 Enterprise, versión 2004 o una posterior. Ambos sistemas operativos están disponibles actualmente con carácter general. 
 
-## <a name="can-i-use-msix-app-attach-outside-of-windows-virtual-desktop"></a>¿Puedo usar la asociación de aplicaciones con formato MSIX fuera de Windows Virtual Desktop?
+## <a name="can-i-use-msix-app-attach-outside-of-azure-virtual-desktop"></a>¿Puedo usar la asociación de aplicaciones con formato MSIX fuera de Azure Virtual Desktop?
 
-Las API de la conexión de aplicaciones en formato MSIX y MSIX forman parte de Windows 10 Enterprise y la sesión múltiple de Windows 10 Enterprise, versión 2004 y las posteriores. Actualmente, no ofrecemos ningún software de administración para la conexión de aplicaciones en formato MSIX fuera de Windows Virtual Desktop.
+Las API de la conexión de aplicaciones en formato MSIX y MSIX forman parte de Windows 10 Enterprise y la sesión múltiple de Windows 10 Enterprise, versión 2004 y las posteriores. Actualmente, no ofrecemos ningún software de administración para la conexión de aplicaciones en formato MSIX fuera de Azure Virtual Desktop.
 
 ## <a name="can-i-run-two-versions-of-the-same-application-at-the-same-time"></a>¿Puedo ejecutar dos versiones de la misma aplicación al mismo tiempo?
 
@@ -58,6 +58,10 @@ Sí. La conexión de aplicaciones en formato MSIX no admite la actualización au
 ## <a name="how-do-permissions-work-with-msix-app-attach"></a>¿Cómo funcionan los permisos con la conexión de aplicaciones en formato MSIX?
 
 Todas las máquinas virtuales (VM) de un grupo de hosts que usa la conexión de aplicaciones en formato MSIX deben tener permisos de lectura en el recurso compartido de archivos en el que se almacenan las imágenes de MSIX. Si también usa Azure Files, deberán tener permisos de control de acceso basado en rol (RBAC) y de New Technology File System (NTFS).
+
+## <a name="how-many-users-can-use-an-msix-image-handle"></a>¿Cuántos usuarios pueden usar un identificador de imagen de MSIX?
+
+La asociación de aplicaciones con formato MSIX monta imágenes de MSIX por máquina, no por usuario. La cantidad de usuarios que pueden usar un identificador de imagen de MSIX se basa en el tamaño del sistema de archivos de la máquina y el rendimiento de la red. Además, Azure Files un límite de 2000 identificadores abiertos por archivo. 
 
 ## <a name="can-i-use-azure-active-directory-domain-services-azure-ad-ds-with-msix-app-attach"></a>¿Puedo usar Azure Active Directory Domain Services (Azure AD DS) con la asociación de aplicaciones en formato MSIX?
 
@@ -73,7 +77,7 @@ Sí. Puede realizar una copia intermedia de las aplicaciones para las que ya la 
 
 ## <a name="does-msix-app-attach-support-self-signed-certificates"></a>¿La conexión de aplicaciones en formato MSIX admite certificados autofirmados?
 
-Sí. Debe instalar el certificado autofirmado en todas las máquinas virtuales de host de sesión donde se usa la asociación de aplicaciones en formato MSIX para hospedar la aplicación autofirmada.
+Sí. Debe instalar el certificado autofirmado en todas las máquinas virtuales de host de sesión donde se usa la asociación de aplicaciones en formato MSIX para hospedar la aplicación autofirmada. Para aprender a crear un certificado autofirmado, consulte el artículo sobre cómo [crear un certificado para la firma de un paquete](/windows/msix/package/create-certificate-package-signing).
 
 ## <a name="what-applications-can-i-repackage-to-msix"></a>¿Qué aplicaciones puedo volver a empaquetar en MSIX?
 

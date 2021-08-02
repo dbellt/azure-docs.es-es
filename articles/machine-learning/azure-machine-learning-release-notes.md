@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: 332be773bca07acf178bd0754d3dad12f4879f51
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 3d7ba65e6965ff488ead6094376bea7142eb5ec9
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371142"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111590601"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de la versión de Azure Machine Learning
 
@@ -27,6 +27,28 @@ __Fuente RSS__: reciba notificaciones cuando esta página se actualice copiando 
 ### <a name="announcing-the-20-cli-preview-for-azure-machine-learning"></a>Anuncio de la CLI 2.0 (versión preliminar) para Azure Machine Learning
 
 La extensión `ml` de la CLI de Azure es la interfaz de próxima generación de Azure Machine Learning. Permite entrenar e implementar modelos desde la línea de comandos, e incluye características que aceleran el escalado vertical y horizontal de la ciencia de datos al tiempo que se hace un seguimiento del ciclo de vida del modelo. [Instalación e introducción](how-to-configure-cli.md).
+
+## <a name="2021-06-07"></a>07-06-2021
+
+### <a name="azure-machine-learning-sdk-for-python-v1300"></a>SDK de Azure Machine Learning para Python v1.30.0
++ **Mejoras y correcciones de errores**
+  + **azureml-core**
+    + Anclaje de dependencia de `ruamel-yaml` a < 0.17.5 porque se publicó un cambio importante en la versión 0.17.5.
+    + La propiedad `aml_k8s_config` se reemplaza por los parámetros `namespace`, `default_instance_type` e `instance_types` para la asociación de `KubernetesCompute`.
+    + Las claves de sincronización del área de trabajo se cambiaron a una operación de larga duración.
+  + **azureml-automl-runtime**
+    + Se han corregido problemas por los que las ejecuciones con macrodatos pueden generar errores de tipo `Elements of y_test cannot be NaN`.
+  + **azureml-mlflow**
+    + Corrección de errores del complemento de implementación de MLFlow para modelos sin firma.
+  + **azureml-pipeline-steps**
+    + ParallelRunConfig: documento de actualización para process_count_per_node.
+  + **azureml-train-automl-runtime**
+    + Compatibilidad con cuantiles definidos por el usuario durante la inferencia de MM
+    + Compatibilidad con forecast_quantiles durante la inferencia por lotes.
+  + **azureml-contrib-automl-pipeline-steps**
+    + Compatibilidad con cuantiles definidos por el usuario durante la inferencia de MM
+    + Compatibilidad con forecast_quantiles durante la inferencia por lotes.
+
 
 ### <a name="azure-machine-learning-sdk-for-python-v1290"></a>SDK de Azure Machine Learning para Python v1.29.0
 + **Mejoras y correcciones de errores**
@@ -2262,7 +2284,7 @@ En el momento en que se publica este artículo, se admiten los siguientes explor
   + El rendimiento de `read_parquet` ha mejorado cuando se ejecuta en Spark.
   + Se ha corregido un problema en que se producía un error `column_type_builder` en el caso de una sola columna con formatos de fecha ambiguos.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 + **Característica en vista previa**
   + El streaming de archivos de registro y de salida ahora está disponible para las páginas de detalles de la ejecución. Los archivos transmitirán las actualizaciones en tiempo real cuando se active la alternancia de la vista previa.
   + Se ofrece en versión preliminar la capacidad de establecer la cuota en el nivel de área de trabajo. Las cuotas de AmlCompute se asignan en el nivel de suscripción, pero ahora puede distribuir esa cuota entre las áreas de trabajo y asignarla con el fin de conseguir un uso compartido y una gobernanza equitativos. Solo tiene que hacer clic en la hoja **Usages+Quotas** (Usos y cuotas) de la barra de navegación izquierda del área de trabajo y seleccionar la pestaña **Configure Quotas** (Configurar cuotas). Debe ser administrador de la suscripción para poder establecer cuotas en el nivel de área de trabajo, ya que se trata de una operación entre áreas de trabajo.
@@ -2541,7 +2563,7 @@ SDK de Azure Machine Learning para Python v1.0.30.
 
 ## <a name="2019-04-15"></a>2019-04-15
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
   + Ahora puede volver a enviar un ciclo de script existente de un clúster de proceso remoto existente.
   + Ahora puede ejecutar una canalización publicada con parámetros nuevos en la pestaña Canalizaciones.
   + Los detalles de la ejecución ahora admiten un nuevo visor de archivos de instantánea. Puede ver una instantánea del directorio cuando envió una ejecución concreta. También puede descargar el cuaderno que se envió para iniciar la ejecución.
@@ -2599,7 +2621,7 @@ SDK de Azure Machine Learning para Python v1.0.30.
 + **Mejoras y correcciones de errores**
   + Se ha agregado compatibilidad en las canalizaciones de Azure Machine Learning con el establecimiento de la propiedad source_directory_data_store en un almacén de datos deseado (como un almacenamiento de blobs) en [RunConfigurations](/python/api/azureml-core/azureml.core.runconfig.runconfiguration) que se suministran a [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep). De forma predeterminada los pasos utilizan el almacén de Azure File como el almacén de datos de respaldo, lo que provocar problemas de limitación cuando un gran número de pasos se ejecutan simultáneamente.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 + **Nuevas características:**
   + Nueva experiencia de arrastrar y soltar el editor de tablas en informes. Los usuarios pueden arrastrar una columna desde el cuadro al área de la tabla en la que se mostrará una vista previa de la tabla. Las columnas se pueden reorganizar.

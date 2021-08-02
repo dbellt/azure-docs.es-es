@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: wellee
-ms.openlocfilehash: 82a5e90221a77b891df78984c7fddfd63b6532aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d1aae5620f32b5680badc073d74d360b70b68a3b
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585424"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579878"
 ---
 # <a name="connect-cross-tenant-vnets-to-a-virtual-wan-hub"></a>Conexión de redes virtuales entre inquilinos a un centro de conectividad de Virtual Wan
 
@@ -54,7 +54,7 @@ Para que la suscripción primaria con el centro de conectividad virtual pueda mo
 1. Ahora agregue la suscripción del inquilino remoto y la del inquilino primario a la sesión actual de PowerShell. Ejecute el siguiente comando: Si ha iniciado sesión en el inquilino primario, solo tiene que ejecutar el comando para el inquilino remoto.
 
    ```azurepowershell-interactive
-   Add-AzAccount -SubscriptionId "xxxxx-b34a-4df9-9451-4402dcaecc5b"
+   Connect-AzAccount -SubscriptionId "[subscription ID]" -TenantId "[tenant ID]"
    ```
 
 1. Inicie sesión en Azure PowerShell con las credenciales primarias y ejecute el siguiente comando para comprobar que la asignación de roles se ha realizado correctamente:
@@ -63,7 +63,7 @@ Para que la suscripción primaria con el centro de conectividad virtual pueda mo
    Get-AzSubscription
    ```
 
-1. Si los permisos se han propagado correctamente al inquilino primario y se han agregado a la sesión, la suscripción propiedad del inquilino remoto se muestra en la salida del comando.
+1. Si los permisos se han propagado correctamente al inquilino principal y se han agregado a la sesión, la suscripción propiedad de dicho inquilino **y** del inquilino remoto se mostrará en la salida del comando.
 
 ## <a name="connect-vnet-to-hub"></a><a name="connect"></a>Conexión de una red virtual a un centro de conectividad
 

@@ -12,16 +12,16 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: fa3a2366f007ff1481e7c84f049e606586392037
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b95286169df2960d8e7297a493354b8f01e2f667
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96742959"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112029700"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-ad-multi-factor-authentication"></a>Resolución de mensajes de error de la extensión NPS de Multi-Factor Authentication de Azure AD
 
-Si se encuentra con errores en la extensión NPS de Multi-Factor Authentication de Azure AD, use este artículo para lograr una resolución más rápida. Los registros de la extensión de NPS se encuentran en el Visor de eventos en **Vistas personalizadas** > **Roles de servidor** > **Servicios de acceso y directivas de redes** en el servidor donde está instalada la extensión de NPS.
+Si se encuentra con errores en la extensión NPS de Multi-Factor Authentication de Azure AD, use este artículo para lograr una resolución más rápida. Los registros de la extensión de NPS se encuentran en el Visor de eventos en **Registros de aplicaciones y servicios** > **Microsoft** > **AzureMfa** > **AuthN** > **AuthZ** en el servidor donde está instalada la extensión de NPS.
 
 ## <a name="troubleshooting-steps-for-common-errors"></a>Pasos para la solución de errores comunes
 

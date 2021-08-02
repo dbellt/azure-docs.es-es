@@ -1,18 +1,18 @@
 ---
 title: Ejecución de Azure Stream Analytics en Azure Stack
-description: Cree un trabajo perimetral de Azure Stream Analytics e impleméntelo en Azure Stack Hub mediante el entorno de ejecución de IoT Edge.
+description: Cree un trabajo perimetral de Azure Stream Analytics e impleméntelo en Azure Stack Hub mediante el runtime de IoT Edge.
 ms.service: stream-analytics
 author: an-emma
 ms.author: raan
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.custom: seodec18
-ms.openlocfilehash: 315b2efa042721a19fa779794c4921f9ced1fc83
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e1d639d65752e777fca04035863dbc78c94062e4
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104589810"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110089261"
 ---
 # <a name="run-azure-stream-analytics-on-azure-stack"></a>Ejecución de Azure Stream Analytics en Azure Stack 
 
@@ -58,7 +58,7 @@ Cuando se crea un trabajo de Azure Stream Analytics para ejecutarse en un dispos
 1. En Azure Portal, vaya a **Crear un recurso > Almacenamiento > Cuenta de almacenamiento: blob, archivo, tabla, cola**.
 2. Especifique los siguientes valores para crear una cuenta de almacenamiento:
 
-   | Campo | Value |
+   | Campo | Valor |
    | --- | --- |
    | Nombre | Especifique un nombre único para la cuenta de almacenamiento. |
    | Location | Elija una ubicación cercana a usted.|

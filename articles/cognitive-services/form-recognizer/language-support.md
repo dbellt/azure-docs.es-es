@@ -135,7 +135,7 @@ Los recibos compilados previamente y las tarjetas de visita admiten todas las ta
 |Inglés (Canadá)|`en-ca`|
 |Inglés (Reino Unido)|`en-gb`|
 |Inglés (India)|`en-in`|
-|Spanish (Traditional Sort) - Spain| `en-us`|
+|Inglés (Estados Unidos)| `en-us`|
 
 ### <a name="v20"></a>[v2.0](#tab/v2-0)
 
@@ -150,7 +150,7 @@ Los recibos compilados previamente y las tarjetas de visita admiten todas las ta
 
 Lenguaje| Código de configuración regional |
 |:-----|:----:|
-|Spanish (Traditional Sort) - Spain|es-es|
+|Inglés (Estados Unidos)|es-es|
 
 ### <a name="v20"></a>[v2.0](#tab/v2-0)
 

@@ -1,35 +1,35 @@
 ---
-title: 'Entorno de Windows Virtual Desktop: Azure'
-description: Obtenga información sobre los elementos básicos de un entorno de Windows Virtual Desktop, como los grupos de hosts y los grupos de aplicaciones.
+title: 'Entorno de Azure Virtual Desktop: Azure'
+description: Obtenga información sobre los elementos básicos de un entorno de Azure Virtual Desktop, como los grupos de hosts y los grupos de aplicaciones.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 2c598be641ee09773e4d56ebc485e6a2fbe49191
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: bc854669c5d724da92c19c19a01f56ebe91f78ee
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106446882"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757794"
 ---
-# <a name="windows-virtual-desktop-environment"></a>Entorno de Windows Virtual Desktop
+# <a name="azure-virtual-desktop-environment"></a>Entorno de Azure Virtual Desktop
 
 >[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop con objetos de Windows Virtual Desktop de Azure Resource Manager. Si usa Windows Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/environment-setup-2019.md).
+>Este contenido se aplica a Azure Virtual Desktop con objetos de Azure Resource Manager. Si usa Azure Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/environment-setup-2019.md).
 
-Windows Virtual Desktop es un servicio que ofrece a los usuarios un acceso fácil y seguro a sus escritorios virtualizados y a RemoteApps. Este tema le proporcionará más información sobre la estructura general del entorno de Windows Virtual Desktop.
+Azure Virtual Desktop es un servicio que ofrece a los usuarios un acceso fácil y seguro a sus escritorios virtualizados y a RemoteApps. Este tema le proporcionará más información sobre la estructura general del entorno de Azure Virtual Desktop.
 
 ## <a name="host-pools"></a>Grupos de host
 
-Un grupo de hosts es una colección de máquinas virtuales de Azure que se registran en Windows Virtual Desktop como hosts de sesión cuando ejecuta el agente de Windows Virtual Desktop. Todas las máquinas virtuales de host de sesión en un grupo de hosts deben provenir de la misma imagen para poder obtener una experiencia de usuario consistente.
+Un grupo de hosts es una colección de máquinas virtuales de Azure que se registran en Azure Virtual Desktop como hosts de sesión cuando ejecuta el agente de Azure Virtual Desktop. Todas las máquinas virtuales de host de sesión en un grupo de hosts deben provenir de la misma imagen para poder obtener una experiencia de usuario consistente.
 
 Un grupo de hosts puede ser uno de estos dos tipos:
 
 - Personal, donde cada host de sesión se asigna a usuarios individuales.
 - Agrupado, donde los hosts de sesión pueden aceptar conexiones de cualquier usuario autorizado a un grupo de aplicaciones dentro del grupo de hosts.
 
-Puede configurar propiedades adicionales en el grupo de hosts para cambiar el comportamiento de equilibrio de carga, cuántas sesiones puede tener cada host de sesión y lo que el usuario puede hacer con los hosts de sesión en el grupo de hosts mientras inicia sesión en Windows Virtual Desktop. Puede controlar los recursos publicados a los usuarios a través de grupos de aplicaciones.
+Puede configurar propiedades adicionales en el grupo de hosts para cambiar el comportamiento de equilibrio de carga, cuántas sesiones puede tener cada host de sesión y lo que el usuario puede hacer con los hosts de sesión en el grupo de hosts mientras inicia sesión en Azure Virtual Desktop. Puede controlar los recursos publicados a los usuarios a través de grupos de aplicaciones.
 
 ## <a name="app-groups"></a>Grupos de aplicaciones
 
@@ -47,19 +47,19 @@ Para publicar recursos para los usuarios, debe asignarlos a grupos de aplicacion
 
 ## <a name="workspaces"></a>Áreas de trabajo
 
-Un área de trabajo es una agrupación lógica de grupos de aplicaciones de Windows Virtual Desktop. Cada grupo de aplicaciones de Windows Virtual Desktop debe estar asociado a un área de trabajo para que los usuarios vean las aplicaciones remotas y los escritorio publicados en ellos.
+Un área de trabajo es una agrupación lógica de grupos de aplicaciones de Azure Virtual Desktop. Cada grupo de aplicaciones de Azure Virtual Desktop debe estar asociado a un área de trabajo para que los usuarios vean las aplicaciones remotas y los escritorio publicados en ellos.
 
 ## <a name="end-users"></a>Usuarios finales
 
-Después de asignar usuarios a sus grupos de aplicaciones, pueden conectarse a una implementación de Windows Virtual Desktop con cualquiera de los clientes de Windows Virtual Desktop.
+Después de asignar usuarios a sus grupos de aplicaciones, pueden conectarse a una implementación de Azure Virtual Desktop con cualquiera de los clientes de Azure Virtual Desktop.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre el acceso delegado y cómo asignar roles a los usuarios en [Acceso delegado en Windows Virtual Desktop](delegated-access-virtual-desktop.md).
+Obtenga más información sobre el acceso delegado y cómo asignar roles a los usuarios en [Acceso delegado en Azure Virtual Desktop](delegated-access-virtual-desktop.md).
 
-Para información sobre cómo configurar el grupo de hosts de Windows Virtual Desktop, consulte [Creación de un grupo de hosts con Azure Portal](create-host-pools-azure-marketplace.md).
+Para información sobre cómo configurar el grupo de hosts de Azure Virtual Desktop, consulte [Creación de un grupo de hosts con Azure Portal](create-host-pools-azure-marketplace.md).
 
-Para obtener información sobre cómo conectarse a Windows Virtual Desktop, consulte uno de los siguientes artículos:
+Para información sobre cómo conectarse a Azure Virtual Desktop, consulte uno de los artículos siguientes:
 
 - [Conexión con Windows 10 o Windows 7](connect-windows-7-10.md)
 - [Conexión con un explorador web](connect-web.md)

@@ -5,13 +5,13 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 01/04/2021
-ms.openlocfilehash: 4dc718f21f2ef3beabc31821bd60b571ac07be05
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/07/2021
+ms.openlocfilehash: c0f81c5abdffe307550d2b0b3e1f86f67f867f5a
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98018758"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591303"
 ---
 # <a name="use-managed-identities-to-access-event-hubfrom-an-azure-stream-analytics-job-preview"></a>Uso de identidades administradas para acceder a Event Hubs desde un trabajo de Azure Stream Analytics (versión preliminar)
 
@@ -63,6 +63,9 @@ Para que el trabajo de Stream Analytics tenga acceso al centro de eventos con un
 1. Seleccione **Guardar** y espere que los cambios se propaguen.
 
 También puede conceder este rol en el nivel de espacio de nombres del centro de eventos, que propagará de forma natural los permisos a todos los centros de eventos creados en él. Es decir, todos los centros de eventos de un espacio de nombres se pueden usar como recurso de autenticación de identidad administrada en el trabajo de Stream Analytics.
+
+> [!NOTE]
+> Debido a la replicación global o la latencia de almacenamiento en caché, puede haber un retraso cuando se revocan o se conceden permisos. Los cambios deben reflejarse en un plazo de ocho minutos.
 
 ## <a name="create-anevent-hub-input-or-output"></a>Creación de una entrada o salida del centro de eventos  
 

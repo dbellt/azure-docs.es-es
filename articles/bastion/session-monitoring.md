@@ -1,18 +1,18 @@
 ---
-title: Supervisión y administración de sesiones de Azure Bastion | Microsoft Docs
-description: En este artículo, aprenderá a seleccionar una sesión en curso y forzar su desconexión o eliminación.
+title: Supervisión y administración de sesiones de Azure Bastion
+description: Aprenda a seleccionar una sesión en curso y forzar su desconexión o eliminación.
 services: bastion
-author: charwen
+author: cherylmc
 ms.service: bastion
 ms.topic: how-to
 ms.date: 05/21/2020
-ms.author: charwen
-ms.openlocfilehash: beb4f8fc5b9e22bc3e2bdd4732c8321dfcd70780
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: cherylmc
+ms.openlocfilehash: 6b0df7ae98c3718ddfadf9e13354b4f961585c98
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90980731"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110540442"
 ---
 # <a name="session-monitoring-and-management-for-azure-bastion"></a>Supervisión y administración de sesiones de Azure Bastion
 

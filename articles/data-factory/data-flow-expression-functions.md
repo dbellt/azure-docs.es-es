@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/01/2021
-ms.openlocfilehash: fdf7f52bf781d0e8da21f0b36bacc3f4ade52e8c
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: deabcc9170e8b025e91dace47ce9e6a70bd385bb
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581881"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109809281"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expresiones de transformación de datos en Asignación de Data Flow
 
@@ -558,7 +558,7 @@ ___
 ### <code>normalize</code>
 <code><b>normalize(<i>&lt;String to normalize&gt;</i> : string) => string</b></code><br/><br/>
 Normaliza el valor de la cadena para separar caracteres Unicode acentuados.  
-* ``regexReplace(normalize('bo²s'), `\p{M}`, '') -> 'boys'``  
+* ``regexReplace(normalize('bo²s'), `\p{M}`, '') -> 'boys'``
 ___
 ### <code>not</code>
 <code><b>not(<i>&lt;value1&gt;</i> : boolean) => boolean</b></code><br/><br/>
@@ -886,16 +886,19 @@ ___
 En función de los criterios, obtiene la covarianza de muestra de dos columnas.  
 * ``covarianceSampleIf(region == 'West', sales, profit)``  
 ___
+
 ### <code>first</code>
 <code><b>first(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : boolean]) => any</b></code><br/><br/>
 Obtiene el primer valor de un grupo de columnas. Si el segundo parámetro ignoreNulls se omite, se supone que es falso.  
 * ``first(sales)``  
 * ``first(sales, false)``  
 ___
+
 ### <code>isDistinct</code>
 <code><b>isDistinct(<i>&lt;value1&gt;</i> : any , <i>&lt;value1&gt;</i> : any) => boolean</b></code><br/><br/>
-Busca si una columna o un conjunto de columnas es distinto. No cuenta NULL como valor distinto *   ``isDistinct(custId, custName) => boolean``
-*   ___
+Busca si una columna o un conjunto de columnas es distinto. No cuenta NULL como valor distinto *    ``isDistinct(custId, custName) => boolean``
+___
+
 ### <code>kurtosis</code>
 <code><b>kurtosis(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Obtiene la curtosis de una columna.  
@@ -1105,8 +1108,8 @@ ___
 * ``map(['a', 'b', 'c', 'd'], #item + '_processed') -> ['a_processed', 'b_processed', 'c_processed', 'd_processed']``  
 ___
 ### <code>mapIf</code>
-<code><b>mapIf (<value1> : array, <value2> : binaryfunction, <value3>: binaryFunction) => any</b></code><br/><br/> Conditionally maps an array to another array of same or smaller length. The values can be of any datatype including structTypes. It takes a mapping function where you can address the item in the array as #item and current index as #index. For deeply nested maps you can refer to the parent maps using the ``#item_[n](#item_1, #index_1...)`` notation.
-*   ``mapIf([10, 20, 30], #item > 10, #item + 5) -> [25, 35]``
+<code><b>mapIf (<i>\<value1\></i> : array, <i>\<value2\></i> : binaryfunction, \<value3\>: binaryFunction) => any</b></code><br/><br/> Conditionally maps an array to another array of same or smaller length. The values can be of any datatype including structTypes. It takes a mapping function where you can address the item in the array as #item and current index as #index. For deeply nested maps you can refer to the parent maps using the ``#item_[n](#item_1, #index_1...)`` notation.
+*    ``mapIf([10, 20, 30], #item > 10, #item + 5) -> [25, 35]``
 * ``mapIf(['icecream', 'cake', 'soda'], length(#item) > 4, upper(#item)) -> ['ICECREAM', 'CAKE']``
 ___
 ### <code>mapIndex</code>
@@ -1114,8 +1117,8 @@ ___
 * ``mapIndex([1, 2, 3, 4], #item + 2 + #index) -> [4, 6, 8, 10]``  
 ___
 ### <code>mapLoop</code>
-<code><b>mapLoop(<value1> : integer, <value2> : unaryfunction) => any</b></code><br/><br/> Loops through from 1 to length to create an array of that length. It takes a mapping function where you can address the index in the array as #index. For deeply nested maps you can refer to the parent maps using the #index_n(#index_1, #index_2...) notation.
-*   ``mapLoop(3, #index * 10) -> [10, 20, 30]``
+<code><b>mapLoop(<i>\<value1\></i> : integer, <i>\<value2\></i> : unaryfunction) => any</b></code><br/><br/> Loops through from 1 to length to create an array of that length. It takes a mapping function where you can address the index in the array as #index. For deeply nested maps you can refer to the parent maps using the #index_n(#index_1, #index_2...) notation.
+*    ``mapLoop(3, #index * 10) -> [10, 20, 30]``
 ___
 ### <code>reduce</code>
 <code><b>reduce(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : any, <i>&lt;value3&gt;</i> : binaryfunction, <i>&lt;value4&gt;</i> : unaryfunction) => any</b></code><br/><br/> Accumulates elements in an array. Reduce expects a reference to an accumulator and one element in the first expression function as #acc and #item and it expects the resulting value as #result to be used in the second expression function.  
@@ -1161,9 +1164,9 @@ Maps each element of the array to a new element using the provided expression. M
 * ``map(['a', 'b', 'c', 'd'], #item + '_processed') -> ['a_processed', 'b_processed', 'c_processed', 'd_processed']``  
 ___
 ### <code>mapIf</code>
-<code><b>mapIf (<value1> : array, <value2> : binaryfunction, <value3>: binaryFunction) => any</b></code><br/><br/>
+<code><b>mapIf (<i>\<value1\></i> : array, <i>\<value2\></i> : binaryfunction, \<value3\>: binaryFunction) => any</b></code><br/><br/>
 Conditionally maps an array to another array of same or smaller length. The values can be of any datatype including structTypes. It takes a mapping function where you can address the item in the array as #item and current index as #index. For deeply nested maps you can refer to the parent maps using the ``#item_[n](#item_1, #index_1...)`` notation.
-*   ``mapIf([10, 20, 30], #item > 10, #item + 5) -> [25, 35]``
+*    ``mapIf([10, 20, 30], #item > 10, #item + 5) -> [25, 35]``
 * ``mapIf(['icecream', 'cake', 'soda'], length(#item) > 4, upper(#item)) -> ['ICECREAM', 'CAKE']``
 ___
 ### <code>mapIndex</code>
@@ -1172,9 +1175,9 @@ Maps each element of the array to a new element using the provided expression. M
 * ``mapIndex([1, 2, 3, 4], #item + 2 + #index) -> [4, 6, 8, 10]``  
 ___
 ### <code>mapLoop</code>
-<code><b>mapLoop(<value1> : integer, <value2> : unaryfunction) => any</b></code><br/><br/>
+<code><b>mapLoop(<i>\<value1\></i> : integer, <i>\<value2\></i> : unaryfunction) => any</b></code><br/><br/>
 Loops through from 1 to length to create an array of that length. It takes a mapping function where you can address the index in the array as #index. For deeply nested maps you can refer to the parent maps using the #index_n(#index_1, #index_2...) notation.
-*   ``mapLoop(3, #index * 10) -> [10, 20, 30]``
+*    ``mapLoop(3, #index * 10) -> [10, 20, 30]``
 ___
 ### <code>reduce</code>
 <code><b>reduce(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : any, <i>&lt;value3&gt;</i> : binaryfunction, <i>&lt;value4&gt;</i> : unaryfunction) => any</b></code><br/><br/>
@@ -1231,75 +1234,75 @@ ___.
 Las funciones de conversión se usan para convertir datos y probar tipos de datos.
 
 ### <code>isBitSet</code>
-<code><b>isBitSet (<value1> : array, <value2>:integer ) => boolean</b></code><br/><br/>
+<code><b>isBitSet (<i><i>\<value1\></i></i> : array, <i>\<value2\></i>:integer ) => boolean</b></code><br/><br/>
 Comprueba si se establece una posición de bit en este conjunto de bits * ``isBitSet(toBitSet([10, 32, 98]), 10) => true``
 ___
 ### <code>setBitSet</code>
-<code><b>setBitSet (<value1> : array, <value2>:array) => array</b></code>.<br/><br/>
+<code><b>setBitSet (<i>\<value1\></i>: array, <i>\<value2\></i>:array) => array</b></code>.<br/><br/>
 Establece las posiciones de bit en este conjunto de bits * ``setBitSet(toBitSet([10, 32]), [98]) => [4294968320L, 17179869184L]``
 ___  
 ### <code>isBoolean</code>
-<code><b>isBoolean(<value1> : string) => boolean</b></code>.<br/><br/>
+<code><b>isBoolean(<i>\<value1\></i>: string) => boolean</b></code>.<br/><br/>
 Permite comprobar si el valor de la cadena es booleano según las reglas de ``toBoolean()``
 * ``isBoolean('true') -> true``
 * ``isBoolean('no') -> true``
 * ``isBoolean('microsoft') -> false``
 ___
 ### <code>isByte</code>
-<code><b>isByte(<value1> : string) => boolean</b></code>.<br/><br/>
+<code><b>isByte(<i>\<value1\></i> : string) => boolean</b></code>.<br/><br/>
 Permite comprobar si el valor de la cadena es un byte con un formato opcional según las reglas de ``toByte()``
 * ``isByte('123') -> true``
 * ``isByte('chocolate') -> false``
 ___
 ### <code>isDate</code>
-<code><b>isDate (<value1> : string, [<format>: string]) => boolean</b></code>.<br/><br/>
+<code><b>isDate (<i>\<value1\></i> : string, [<format>: string]) => boolean</b></code>.<br/><br/>
 Permite comprobar si la cadena de fecha de entrada es una fecha con un formato de fecha de entrada opcional. Consulte SimpleDateFormat de Java para conocer los formatos disponibles. Si se omite el formato de fecha de entrada, el formato predeterminado es ``yyyy-[M]M-[d]d``. Los formatos aceptados son ``[ yyyy, yyyy-[M]M, yyyy-[M]M-[d]d, yyyy-[M]M-[d]dT* ]``
 * ``isDate('2012-8-18') -> true``
 * ``isDate('12/18--234234' -> 'MM/dd/yyyy') -> false``
 ___
 ### <code>isShort</code>
-<code><b>isShort (<value1> : string, [<format>: string]) => boolean</b></code>.<br/><br/>
+<code><b>isShort (<i>\<value1\></i> : string, [<format>: string]) => boolean</b></code>.<br/><br/>
 Permite comprobar si el valor de la cadena es un elemento corto con un formato opcional según las reglas de ``toShort()``
 * ``isShort('123') -> true``
 * ``isShort('$123' -> '$###') -> true``
 * ``isShort('microsoft') -> false``
 ___
 ### <code>isInteger</code>
-<code><b>isInteger (<value1> : string, [<format>: string]) => boolean</b></code>.<br/><br/>
+<code><b>isInteger (<i>\<value1\></i> : string, [<format>: string]) => boolean</b></code>.<br/><br/>
 Permite comprobar si el valor de la cadena es un elemento entero con un formato opcional según las reglas de ``toInteger()``
 * ``isInteger('123') -> true``
 * ``isInteger('$123' -> '$###') -> true``
 * ``isInteger('microsoft') -> false``
 ___
 ### <code>isLong</code>
-<code><b>isLong (<value1> : string, [<format>: string]) => boolean</b></code>.<br/><br/>
+<code><b>isLong (<i>\<value1\></i> : string, [<format>: string]) => boolean</b></code>.<br/><br/>
 Permite comprobar si el valor de la cadena es un elemento largo con un formato opcional según las reglas de ``toLong()``
 * ``isLong('123') -> true``
 * ``isLong('$123' -> '$###') -> true``
 * ``isLong('gunchus') -> false``
 ___
 ### <code>isFloat</code>
-<code><b>isFloat (<value1> : string, [<format>: string]) => boolean</b></code>.<br/><br/>
+<code><b>isFloat (<i>\<value1\></i> : string, [<format>: string]) => boolean</b></code>.<br/><br/>
 Permite comprobar si el valor de la cadena es un elemento flotante con un formato opcional según las reglas de ``toFloat()``
 * ``isFloat('123') -> true``
 * ``isFloat('$123.45' -> '$###.00') -> true``
 * ``isFloat('icecream') -> false``
 ___
 ### <code>isDouble</code>
-<code><b>isDouble (<value1> : string, [<format>: string]) => boolean</b></code>.<br/><br/>
+<code><b>isDouble (<i>\<value1\></i> : string, [<format>: string]) => boolean</b></code>.<br/><br/>
 Permite comprobar si el valor de la cadena es un elemento doble con un formato opcional según las reglas de ``toDouble()``
 * ``isDouble('123') -> true``
 * ``isDouble('$123.45' -> '$###.00') -> true``
 * ``isDouble('icecream') -> false``
 ___
 ### <code>isDecimal</code>
-<code><b>isDecimal (<value1> : string) => boolean</b></code>.<br/><br/>
+<code><b>isDecimal (<i>\<value1\></i> : string) => boolean</b></code>.<br/><br/>
 Permite comprobar si el valor de la cadena es un elemento decimal con un formato opcional según las reglas de ``toDecimal()``
 * ``isDecimal('123.45') -> true``
 * ``isDecimal('12/12/2000') -> false``
 ___
 ### <code>isTimestamp</code>
-<code><b>isTimestamp (<value1> : string, [<format>: string]) => boolean</b></code>.<br/><br/>
+<code><b>isTimestamp (<i>\<value1\></i> : string, [<format>: string]) => boolean</b></code>.<br/><br/>
 Permite comprobar si la cadena de fecha de entrada es una marca de tiempo con un formato de marca de tiempo de entrada opcional. Consulte la clase SimpleDateFormat de Java para conocer los formatos disponibles. Si la marca de tiempo se omite, se usa el patrón predeterminado ``yyyy-[M]M-[d]d hh:mm:ss[.f...]``. Puede pasar una zona horaria opcional en forma de "GMT", "PST", "UTC", "America/Cayman". La marca de tiempo admite una precisión de hasta milisegundos con un valor de 999. Consulte la clase SimpleDateFormat de Java para conocer los formatos disponibles.
 * ``isTimestamp('2016-12-31 00:12:00') -> true``
 * ``isTimestamp('2016-12-31T00:12:00' -> 'yyyy-MM-dd\\'T\\'HH:mm:ss' -> 'PST') -> true``
@@ -1472,13 +1475,13 @@ Comprueba si existe una determinada ruta de acceso jerárquica por nombre en la 
 * ``hasPath('grandpa.parent.child') => boolean``
 ___
 ### <code>hex</code>
-<code><b>hex(<value1>: binary) => string</b></code><br/><br/>
+<code><b>hex(<i>\<value1\></i>: binary) => string</b></code><br/><br/>
 Devuelve una representación de cadena hexa de un valor binario * ``hex(toBinary([toByte(0x1f), toByte(0xad), toByte(0xbe)])) -> '1fadbe'``
 ___
 ### <code>unhex</code>
-<code><b>unhex(<value1>: string) => binary</b></code>.<br/><br/>
-Deshace la representación hexa de un valor binario de su representación de cadena. Se puede usar junto con SHA2, MD5 para convertir de cadena a representación binaria *   ``unhex('1fadbe') -> toBinary([toByte(0x1f), toByte(0xad), toByte(0xbe)])``
-*   ``unhex(md5(5, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4'))) -> toBinary([toByte(0x4c),toByte(0xe8),toByte(0xa8),toByte(0x80),toByte(0xbd),toByte(0x62),toByte(0x1a),toByte(0x1f),toByte(0xfa),toByte(0xd0),toByte(0xbc),toByte(0xa9),toByte(0x05),toByte(0xe1),toByte(0xbc),toByte(0x5a)])``.
+<code><b>unhex(<i>\<value1\></i>: string) => binary</b></code>.<br/><br/>
+Deshace la representación hexa de un valor binario de su representación de cadena. Se puede usar junto con SHA2, MD5 para convertir de cadena a representación binaria *    ``unhex('1fadbe') -> toBinary([toByte(0x1f), toByte(0xad), toByte(0xbe)])``
+*    ``unhex(md5(5, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4'))) -> toBinary([toByte(0x4c),toByte(0xe8),toByte(0xa8),toByte(0x80),toByte(0xbd),toByte(0x62),toByte(0x1a),toByte(0x1f),toByte(0xfa),toByte(0xd0),toByte(0xbc),toByte(0xa9),toByte(0x05),toByte(0xe1),toByte(0xbc),toByte(0x5a)])``.
 
 ## <a name="window-functions"></a>Funciones de ventana
 Las siguientes funciones solo están disponibles en las transformaciones de ventana.

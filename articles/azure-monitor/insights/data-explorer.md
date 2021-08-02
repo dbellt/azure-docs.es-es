@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/05/2021
 author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: a8aae2dc03ba87e9782cdf3952be1bfc4a1aae75
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 274d907c4fd8d09e444b938447365a4df64af3e4
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107767048"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112061639"
 ---
 # <a name="azure-data-explorer-insights-preview"></a>Azure Data Explorer Insights (versión preliminar)
 
@@ -114,7 +114,7 @@ La pestaña **Uso** permite a los usuarios profundizar en el rendimiento de los 
 
 En la pestaña **Tablas** se muestran las propiedades históricas y más recientes de las tablas del clúster. Puede ver qué tablas consumen más espacio, realizar un seguimiento del historial de crecimiento por tamaño de tabla, los datos de acceso frecuente y el número de filas a lo largo del tiempo.
 
-La pestaña **Caché** permite a los usuarios analizar los patrones de recuperación de las consultas reales y compararlos con la directiva de caché configurada (para cada tabla). Puede identificar las tablas que usan la mayoría de las consultas y aquellas que no se consultan nunca, y adaptar la directiva de caché en consecuencia. Puede obtener recomendaciones específicas de la directiva de caché sobre tablas concretas de Azure Advisor (actualmente, las recomendaciones de caché solo están disponibles en el [panel principal de Azure Advisor](/azure/data-explorer/azure-advisor#use-the-azure-advisor-recommendations)) basadas en la recuperación de las consultas reales en los últimos 30 días y una directiva de caché no optimizada para al menos el 95 % de las consultas. Existen recomendaciones de reducción de la caché en Azure Advisor para los clústeres que están "enlazados por datos" (lo que significa que el clúster tiene un uso bajo de CPU y de ingesta, pero que, debido a su elevada capacidad de datos, no ha podido escalarse ni reducirse verticalmente).
+La pestaña **Caché** permite a los usuarios analizar los patrones de la ventana de recuperación de las consultas reales y compararlos con la directiva de caché configurada (para cada tabla). Puede identificar las tablas que usan la mayoría de las consultas y aquellas que no se consultan nunca, y adaptar la directiva de caché en consecuencia. Puede obtener recomendaciones específicas de la directiva de caché sobre tablas concretas de Azure Advisor (actualmente, las recomendaciones de caché solo están disponibles en el [panel principal de Azure Advisor](https://docs.microsoft.com/azure/data-explorer/azure-advisor#use-the-azure-advisor-recommendations)) basadas en la ventana de recuperación de las consultas reales en los últimos 30 días y una directiva de caché no optimizada para al menos el 95 % de las consultas. Existen recomendaciones de reducción de la caché en Azure Advisor para los clústeres que están "enlazados por datos" (lo que significa que el clúster tiene un uso bajo de CPU y de ingesta, pero que, debido a su elevada capacidad de datos, no ha podido escalarse ni reducirse verticalmente).
 
 [![Captura de pantalla de detalles de la caché](./media/data-explorer/cache-tab.png)](./media/data-explorer/cache-tab.png#lightbox)
 

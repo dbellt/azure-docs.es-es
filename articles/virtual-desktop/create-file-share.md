@@ -1,21 +1,21 @@
 ---
 title: 'Creación de un recurso compartido de archivos de Azure Files con un controlador de dominio: Azure'
-description: Configure un contenedor de perfil de FSLogix en un recurso compartido de archivos de Azure, en un grupo host de escritorio virtual de Windows existente, con su dominio de Active Directory.
+description: Configure un contenedor de perfil de FSLogix en un recurso compartido de archivos de Azure, en un grupo de hosts de Azure Virtual Desktop existente, con su dominio de Active Directory.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: e859da6b3ac38ddb89c998d172c39f2549455aaa
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: ab9a70dccdeff6ed16eb3f25e9dc78fb274b2449
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447937"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746940"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Creación de un contenedor de perfiles con Azure Files y AD DS
 
-En este artículo, aprenderá a crear un recurso compartido de archivos de Azure autenticado por un controlador de dominio, en un grupo host de escritorio virtual de Windows existente. Puede usar este recurso compartido de archivos para almacenar los perfiles de almacenamiento.
+En este artículo, aprenderá a crear un recurso compartido de archivos de Azure autenticado por un controlador de dominio, en un grupo de hosts de Azure Virtual Desktop. Puede usar este recurso compartido de archivos para almacenar los perfiles de almacenamiento.
 
 Este proceso usa Active Directory Domain Services (AD DS), que es un servicio de directorio local. Si busca información sobre cómo crear un contenedor de perfil de FSLogix con Azure AD DS, consulte [Creación de un contenedor de perfiles de FSLogix con Azure Files](create-profile-container-adds.md).
 
@@ -39,8 +39,8 @@ Para configurar una cuenta de almacenamiento:
 
     - Cree un nuevo grupo de recursos.
     - Escriba un nombre único para la cuenta de almacenamiento.
-    - En **Ubicación**, se recomienda elegir la misma ubicación que el grupo host de Windows Virtual Desktop.
-    - En **Rendimiento**, seleccione **Estándar**. (En función de los requisitos de IOPS. Para más información, consulte [Opciones de almacenamiento para los contenedores de perfiles de FSLogix de Windows Virtual Desktop](store-fslogix-profile.md)).
+    - En **Ubicación**, se recomienda elegir la misma ubicación que el grupo de hosts de Azure Virtual Desktop.
+    - En **Rendimiento**, seleccione **Estándar**. (En función de los requisitos de IOPS. Para más información, consulte [Opciones de almacenamiento para los contenedores de perfiles de FSLogix de Azure Virtual Desktop](store-fslogix-profile.md)).
     - En **Tipo de cuenta**, seleccione **StorageV2** o **FileStorage** (solo disponible si el nivel de rendimiento es Premium).
     - En **Replicación**, seleccione **Almacenamiento con redundancia local (LRS)** .
 
@@ -75,11 +75,11 @@ Después, deberá habilitar la autenticación de Active Directory (AD). Para ha
      > [!div class="mx-imgBorder"]
      > ![Captura de pantalla de la página Configuración con Azure Active Directory (AD) habilitado](media/active-directory-enabled.png)
 
-## <a name="assign-azure-rbac-permissions-to-windows-virtual-desktop-users"></a>Asignación de permisos de RBAC de Azure a los usuarios de Windows Virtual Desktop
+## <a name="assign-azure-rbac-permissions-to-azure-virtual-desktop-users"></a>Asignación de permisos de Azure RBAC a los usuarios de Azure Virtual Desktop
 
 A todos los usuarios que necesiten tener perfiles de FSLogix almacenados en la cuenta de almacenamiento se les debe asignar el rol de colaborador de recursos compartidos de SMB de datos de archivos de almacenamiento.
 
-Los usuarios que inician sesión en los hosts de sesión de Windows Virtual Desktop necesitan permisos de acceso para acceder al recurso compartido de archivos. Conceder acceso a un recurso compartido de archivos de Azure implica configurar permisos tanto en el nivel de recurso compartido como en el nivel de NTFS, de forma similar a un recurso compartido de Windows tradicional.
+Los usuarios que inician sesión en los hosts de sesión de Azure Virtual Desktop necesitan permisos de acceso para acceder al recurso compartido de archivos. Conceder acceso a un recurso compartido de archivos de Azure implica configurar permisos tanto en el nivel de recurso compartido como en el nivel de NTFS, de forma similar a un recurso compartido de Windows tradicional.
 
 Para configurar los permisos de nivel de recurso compartido, asigne a cada usuario un rol con los permisos de acceso adecuados. Los permisos se pueden asignar a usuarios individuales o a un grupo de Azure AD. Para más información, consulte [Parte dos: Asignación de permisos de nivel de recurso compartido a una identidad](../storage/files/storage-files-identity-ad-ds-assign-permissions.md).
 
@@ -167,7 +167,7 @@ Para configurar los permisos NTFS:
 
     Tanto *NT AUTHORITY\Usuarios autenticados* como *BUILTIN\Usuarios* tienen determinados permisos de forma predeterminada. Estos permisos predeterminados permiten a los usuarios leer los contenedores de perfil de otros usuarios. Sin embargo, los permisos descritos en [Configuración de permisos de almacenamiento para su uso con contenedores de perfiles y contenedores de Office](/fslogix/fslogix-storage-config-ht) no permiten a los usuarios leer los contenedores de perfiles de los demás.
 
-4. Ejecute los siguientes comandos para permitir que los usuarios de Windows Virtual Desktop creen sus propios contenedores de perfiles mientras bloquean el acceso a sus contenedores de perfiles de otros usuarios.
+4. Ejecute los comandos siguientes para permitir que los usuarios de Azure Virtual Desktop creen sus propios contenedores de perfiles mientras bloquean el acceso a sus contenedores de perfiles de otros usuarios.
 
      ```cmd
      icacls <mounted-drive-letter>: /grant <user-email>:(M)
@@ -194,7 +194,7 @@ En esta sección se muestra cómo configurar una máquina virtual con FSLogix. D
 
 Para configurar FSLogix en la máquina virtual del host de sesión:
 
-1. Ejecución de RDP en la máquina virtual del host de sesión del grupo host de Windows Virtual Desktop.
+1. Ejecución de RDP en la máquina virtual del host de sesión del grupo de hosts de Azure Virtual Desktop
 
 2. [Descarga e instalación de FSLogix](/fslogix/install-ht)
 
@@ -220,7 +220,7 @@ Si el usuario ha iniciado sesión antes, tendrá un perfil local existente que s
 
 Para comprobar los permisos de la sesión:
 
-1. Inicie una sesión en Windows Virtual Desktop.
+1. Inicie una sesión en Azure Virtual Desktop.
 
 2. Abra Azure Portal.
 

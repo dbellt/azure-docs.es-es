@@ -5,12 +5,12 @@ ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 12/11/2020
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 0a5b0a576e2994bd852ee5b0a356543882601fc0
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 6b58b73235bba53bb174ebb17a63ad76cf71bcf1
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108076246"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110787807"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configuración de la autenticación mutua de TLS en Azure App Service
 
@@ -60,7 +60,71 @@ En ASP.NET, el certificado de cliente está disponible mediante la propiedad **H
 
 En otras pilas de aplicación (Node.js, PHP, etc.), el certificado de cliente está disponible en la aplicación mediante un valor codificado en base64 en el encabezado de solicitud `X-ARR-ClientCert`.
 
-## <a name="aspnet-sample"></a>Ejemplo de ASP.NET
+## <a name="aspnet-5-aspnet-core-31-sample"></a>Ejemplo de ASP.NET 5+, ASP.NET Core 3.1
+
+Para ASP.NET Core, se proporciona middleware para analizar los certificados reenviados. Se proporciona middleware independiente para usar los encabezados de protocolo reenviados. Ambos deben estar presentes para que se acepten los certificados reenviados. Puede colocar la lógica de validación de certificados personalizada en las [opciones de CertificateAuthentication](/aspnet/core/security/authentication/certauth).
+
+```csharp
+public class Startup
+{
+    public Startup(IConfiguration configuration)
+    {
+        Configuration = configuration;
+    }
+
+    public IConfiguration Configuration { get; }
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddControllersWithViews();
+        // Configure the application to use the protocol and client ip address forwared by the frontend load balancer
+        services.Configure<ForwardedHeadersOptions>(options =>
+        {
+            options.ForwardedHeaders =
+                ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+        });       
+        
+        // Configure the application to client certificate forwarded the frontend load balancer
+        services.AddCertificateForwarding(options => { options.CertificateHeader = "X-ARR-ClientCert"; });
+
+        // Add certificate authentication so when authorization is performed the user will be created from the certificate
+        services.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme).AddCertificate();
+    }
+
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        if (env.IsDevelopment())
+        {
+            app.UseDeveloperExceptionPage();
+        }
+        else
+        {
+            app.UseExceptionHandler("/Home/Error");
+            app.UseHsts();
+        }
+        
+        app.UseForwardedHeaders();
+        app.UseCertificateForwarding();
+        app.UseHttpsRedirection();
+
+        app.UseAuthentication()
+        app.UseAuthorization();
+
+        app.UseStaticFiles();
+
+        app.UseRouting();
+        
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");
+        });
+    }
+}
+```
+
+## <a name="aspnet-webforms-sample"></a>Ejemplo de WebForms de ASP.NET
 
 ```csharp
     using System;

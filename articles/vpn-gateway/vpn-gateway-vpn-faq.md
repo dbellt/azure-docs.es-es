@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 06/07/2021
 ms.author: yushwang
-ms.openlocfilehash: 2c2730025d39f03824489c6f46ae625de49ea0cf
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 56f10ec6178281deaa529e5c94f1cd4b565a381c
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109753550"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746616"
 ---
 # <a name="vpn-gateway-faq"></a>Preguntas más frecuentes sobre VPN Gateway
 
@@ -57,6 +57,12 @@ Las configuraciones **de sitio a sitio** (túnel de VPN sobre IPsec/IKE) se encu
 Las configuraciones **de punto a sitio** (VPN sobre SSTP) le permiten conectarse desde una única máquina y desde cualquier lugar con cualquier dispositivo de la red virtual. Usa el cliente VPN incluido en Windows. Como parte de la configuración de punto a sitio, instala un certificado y un paquete de configuración de cliente VPN, que contiene la configuración que permite al equipo conectarse a cualquier máquina virtual o instancia de rol dentro de la red virtual. Es ideal si desea conectarse a una red virtual pero no se encuentra en una ubicación local. También es una buena opción cuando no tenga acceso a un hardware VPN o una dirección IPv4 con orientación externa, ya que ambos son necesarios para una conexión de sitio a sitio.
 
 Puede configurar la red virtual para utilizar las conexiones de sitio a sitio y de punto a sitio simultáneamente, siempre que cree la conexión de sitio a sitio mediante un tipo de VPN basada en enrutamiento para la puerta de enlace. Los tipos de VPN basada en enrutamiento se denominan puertas de enlace dinámicas en el modelo de implementación clásico.
+
+## <a name="privacy"></a><a name="privacy"></a>Privacidad
+
+### <a name="does-the-vpn-service-store-customer-data"></a>¿Almacena el servicio VPN datos de los clientes?
+
+No.
 
 ## <a name="virtual-network-gateways"></a><a name="gateways"></a>Puertas de enlace de red virtual
 
@@ -176,17 +182,13 @@ Para la configuración de sitio a sitio entre locales se admiten los servidores 
 
 Otras soluciones VPN de software deben funcionar con nuestra puerta de enlace siempre que se ajusten a las implementaciones IPsec estándar de la industria. Póngase en contacto con el proveedor del software para obtener instrucciones de configuración y soporte técnico.
 
-## <a name="how-do-i-change-the-authentication-type-for-my-point-to-site-connections"></a>¿Cómo cambiar el tipo de autenticación para las conexiones de punto a sitio?
-
-Para cambiar el método de autenticación para las conexiones de punto a sitio, vaya a la sección **Configuración de punto a sitio** en la VPN Gateway y active el botón de radio que desee. Las opciones actuales son **Certificado de Azure, Autenticación RADIUS y Azure Active Directory**. Tenga en cuenta que es posible que los clientes actuales **no puedan conectarse** después del cambio hasta que el nuevo perfil se haya descargado y configurado en el cliente.
-
-## <a name="point-to-site-using-native-azure-certificate-authentication"></a><a name="P2S"></a>Punto a sitio mediante la autenticación de certificados de Azure nativa
+## <a name="point-to-site---certificate-authentication"></a><a name="P2S"></a>Punto a sitio: autenticación de certificados
 
 Esta sección se aplica al modelo de implementación de Resource Manager.
 
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="point-to-site-using-radius-authentication"></a><a name="P2SRADIUS"></a>Punto a sitio mediante la autenticación RADIUS
+## <a name="point-to-site---radius-authentication"></a><a name="P2SRADIUS"></a>Punto a sitio: autenticación RADIUS
 
 Esta sección se aplica al modelo de implementación de Resource Manager.
 

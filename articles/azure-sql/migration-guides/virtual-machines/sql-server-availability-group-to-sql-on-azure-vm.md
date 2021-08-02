@@ -8,12 +8,12 @@ manager: bsiva
 ms.topic: how-to
 ms.date: 4/25/2021
 ms.author: rahugup
-ms.openlocfilehash: 96ee2422bad6e15e37e01c33d2724300a7a8f230
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 2819a5a927562d92153e5ef08a73a976c91a9363
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108777027"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954619"
 ---
 # <a name="migrate-availability-group-to-sql-server-on-azure-vm"></a>Migración de grupos de disponibilidad a SQL Server en máquinas virtuales de Azure
 
@@ -29,7 +29,7 @@ En este artículo aprenderá a:
 > * Volver a configurar el grupo de disponibilidad AlwaysOn. 
 
 
-En esta guía se usa el enfoque de migración basado en agente de Azure Migrate, que trata cualquier servidor o máquina virtual como un servidor físico. Al migrar máquinas físicas, Azure Migrate: Server Migration emplea la misma arquitectura de replicación que la recuperación ante desastres basada en agente del servicio Azure Site Recovery, y algunos componentes comparten el mismo código base. Puede que algún contenido se vincule a la documentación de Site Recovery.
+En esta guía se usa el enfoque de migración basado en agente de Azure Migrate, que trata cualquier servidor o máquina virtual como un servidor físico. Al migrar máquinas físicas, Azure Migrate:Server Migration emplea la misma arquitectura de replicación que la recuperación ante desastres basada en agente del servicio Azure Site Recovery, y algunos componentes comparten el mismo código base. Puede que algún contenido se vincule a la documentación de Site Recovery.
 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -37,9 +37,9 @@ En esta guía se usa el enfoque de migración basado en agente de Azure Migrate,
 
 Antes de comenzar este tutorial, debe cumplir los siguientes requisitos previos:
 
-1. Suscripción a Azure. Crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/), en caso necesario. 
-1. Instalar el [módulo `Az` de Azure PowerShell](/powershell/azure/install-az-ps). 
-1. Descargar los [scripts de ejemplos de PowerShell](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/SQL%20Migration) del repositorio de GitHub.
+1. Suscripción a Azure. Cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/), si es necesario. 
+1. Instale el [módulo `Az` de Azure PowerShell](/powershell/azure/install-az-ps). 
+1. Descargue los [scripts de ejemplos de PowerShell](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/SQL%20Migration) desde el repositorio de GitHub.
 
 ## <a name="prepare-azure"></a>Preparación de Azure
 
@@ -48,14 +48,14 @@ Prepare Azure para la migración con la herramienta [Server Migration](../../../
 |**Task** | **Detalles**|
 |--- | ---
 |**Crear un proyecto de Azure Migrate** | La cuenta de Azure necesita permisos de colaborador o propietario para [crear un proyecto](../../../migrate/create-manage-projects.md).|
-|**Comprobación de los permisos de la cuenta de Azure** | La cuenta de Azure necesita permisos de colaborador o propietario en la suscripción de Azure, permisos para registrar aplicaciones de Azure Active Directory (AAD) y permisos de administrador de acceso de usuarios en la suscripción de Azure para crear un almacén de claves, crear una máquina virtual y escribir en un disco administrado de Azure. |
-|**Configuración de una red virtual de Azure** | [Configure](/virtual-network/manage-virtual-network.md#create-a-virtual-network) una red virtual de Azure. Al realizar la replicación en Azure, se crean máquinas virtuales de Azure y se unen a la red virtual de Azure que se especifica al configurar la migración.|
+|**Comprobación de los permisos de la cuenta de Azure** | La cuenta de Azure necesita permisos de colaborador o propietario en la suscripción de Azure, permisos para registrar aplicaciones de Azure Active Directory (AAD) y permisos de administrador de acceso de usuarios en la suscripción de Azure para crear una instancia de Key Vault, crear una máquina virtual y escribir en un disco administrado de Azure. |
+|**Configuración de una red virtual de Azure** | [Configure](../../../virtual-network/virtual-networks-overview.md) una red virtual de Azure (VNet). Al realizar la replicación en Azure, se crean máquinas virtuales de Azure y se unen a la red virtual de Azure que se especifica al configurar la migración.|
 
 
 Para comprobar que tiene los permisos adecuados, siga estos pasos: 
 
 1. En Azure Portal, abra la suscripción y seleccione **Control de acceso (IAM)** .
-2. En **Comprobar acceso**, busque la cuenta correspondiente y selecciónela para ver los permisos.
+2. En **Comprobar acceso**, busque la cuenta correspondiente y, después, selecciónela para ver los permisos.
 3. Debe tener permisos de **Colaborador** o **Propietario**.
     - Si acaba de crear una cuenta de Azure gratuita, es el propietario de la suscripción.
     - Si no es el propietario, trabaje con él para asignar el rol.
@@ -79,7 +79,7 @@ Asegúrese de que las máquinas de origen cumplen los requisitos para migrar a A
 
 ### <a name="prepare-for-replication"></a>Preparación para la replicación 
 
-Azure Migrate: Server Migration usa un dispositivo de replicación para replicar máquinas en Azure. Este dispositivo de replicación ejecuta los siguientes componentes: 
+Azure Migrate: Server Migration usa un dispositivo de replicación para replicar máquinas en Azure. Este dispositivo ejecuta los siguientes componentes: 
 
 - **Servidor de configuración**: El servidor de configuración coordina la comunicación entre el entorno local y Azure, además de administrar la replicación de datos.
 - **Servidor de proceso**: El servidor de procesos actúa como puerta de enlace de replicación. Recibe los datos de la replicación; los optimiza mediante el almacenamiento en la caché, la compresión y el cifrado, y los envía a una cuenta de almacenamiento en Azure. 
@@ -98,7 +98,7 @@ Para prepararse para la implementación del dispositivo, siga estos pasos:
 
 Para descargar el instalador del dispositivo de replicación, siga estos pasos: 
 
-1. En el proyecto de Azure Migrate, en **Servidores**, en **Azure Migrate: Server Migration**, seleccione **Detectar**.
+1. En el proyecto de Azure Migrate > **Servidores**, en **Azure Migrate: Server Migration**, seleccione **Detectar**.
 
     ![Detectar máquinas virtuales](../../../migrate/media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
 
@@ -116,29 +116,29 @@ Para descargar el instalador del dispositivo de replicación, siga estos pasos:
     ![Descarga del proveedor](../../../migrate/media/tutorial-migrate-physical-virtual-machines/download-provider.png)
 
 1. Copie el archivo de instalación y el archivo de clave del dispositivo en el equipo con Windows Server 2016 que creó para el dispositivo.
-1. Una vez finalizada la instalación, el asistente para la configuración de dispositivos se iniciará automáticamente (también puede iniciarlo manualmente mediante el método abreviado cspsconfigtool que se crea en el escritorio de la máquina de dispositivo). Use la pestaña **Administrar cuentas** del asistente para crear una cuenta ficticia con los detalles siguientes:
+1. Una vez finalizada la instalación, el asistente para la configuración de dispositivos se iniciará automáticamente (también puede iniciarlo manualmente mediante el acceso directo cspsconfigtool que se crea en el escritorio de la máquina del dispositivo). Use la pestaña **Administrar cuentas** del asistente para crear una cuenta ficticia con los detalles siguientes:
 
-   -  "guest" como nombre descriptivo.
-   -  "username" como nombre de usuario.
-   -  "password" como contraseña de la cuenta. 
+   -  "guest" como nombre descriptivo
+   -  "username" como nombre de usuario
+   -  "password" como contraseña de la cuenta 
    
    Esta cuenta ficticia la usará en la fase de habilitación de la replicación. 
 
-1. Después de finalizar la configuración, y una vez que se ha reiniciado el dispositivo, en **Detectar máquinas**, seleccione el nuevo dispositivo en **Seleccionar servidor de configuración** y haga clic en **Finalizar el registro**. El paso de finalización del registro realiza un par de tareas finales para preparar el dispositivo de replicación.
+1. Una vez que se haya completado la configuración y reiniciado el dispositivo, en **Detectar máquinas**, seleccione el nuevo dispositivo en **Seleccionar servidor de configuración** y seleccione **Finalizar registro**. El paso de finalización del registro realiza un par de tareas finales para preparar el dispositivo de replicación.
 
     ![Finalizar el registro](../../../migrate/media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
 
 ## <a name="install-mobility-service"></a>Instalación del servicio Mobility
 
-Instale el agente del servicio Mobility en los servidores que quiera migrar. Los instaladores del agente están disponibles en el dispositivo de replicación. Encuentre el instalador correcto e instale el agente en cada máquina que quiera migrar. 
+Instale el agente del servicio Mobility en los servidores que quiera migrar. Los instaladores del agente están disponibles en el dispositivo de replicación. Debe encontrar el instalador correcto e instalar el agente en cada máquina que desee migrar. 
 
 
 Para instalar el servicio Mobility, siga estos pasos: 
 
 1. Inicie sesión en el dispositivo de replicación.
 1. Vaya a **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository**.
-1. Busque el instalador correspondiente al sistema operativo y la versión del equipo. Revise los [sistemas operativos compatibles](/site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines). 
+1. Busque el instalador correspondiente al sistema operativo y la versión del equipo. Revise los [sistemas operativos compatibles](../../../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines). 
 1. Copie el archivo de instalación en el equipo que desea migrar.
 1. Asegúrese de que tiene la frase de contraseña que se generó al implementar el dispositivo.
     - Almacene el archivo en un archivo de texto temporal de la máquina.
@@ -189,7 +189,7 @@ Para crear el equilibrador de carga, siga estos pasos:
 
 **Encabezado de columna** | **Descripción**
 --- | ---
-NewIP | Especifique la dirección IP en la red virtual (o subred) de Azure para cada recurso del archivo CSV.
+NewIP | Especifique la dirección IP en la red virtual de Azure (o subred) para cada recurso del archivo CSV.
 ServicePort | Especifique el puerto de servicio que usará cada recurso en el archivo CSV. En el recurso en clúster de SQL, use el mismo valor para el puerto de servicio que para el puerto de sondeo en el archivo CSV. Con otros roles de clúster, los valores predeterminados usados son 1433, pero puede seguir usando los números de puerto configurados en la configuración actual. 
 
 
@@ -200,8 +200,8 @@ ServicePort | Especifique el puerto de servicio que usará cada recurso en el ar
 ConfigFilePath | Mandatory| Especifique la ruta de acceso del archivo `Cluster-Config.csv` que ha rellenado en el paso anterior.
 ResourceGroupName | Mandatory|Especifique el nombre del grupo de recursos en el que se va a crear el equilibrador de carga. 
 VNetName | Mandatory|Especifique el nombre de la red virtual de Azure a la que se asociará el equilibrador de carga. 
-SubnetName | Mandatory|Especifique el nombre de la subred en la red virtual de Azure a la que se asociará el equilibrador de carga. 
-VNetResourceGroupName | Mandatory|Especifique el nombre del grupo de recursos de la red virtual de Azure a la que se asociará el equilibrador de carga. 
+SubnetName | Mandatory|Especifique el nombre de la subred de la red virtual de Azure a la que se asociará el equilibrador de carga. 
+VNetResourceGroupName | Mandatory|Especifique el nombre del grupo de recursos de la red virtual de Azure al que se asociará el equilibrador de carga. 
 Location | Mandatory|Especifique la ubicación en la que se debe crear el equilibrador de carga. 
 LoadBalancerName | Mandatory|Especifique el nombre del equilibrador de carga que se va a crear. 
 
@@ -246,7 +246,7 @@ Para replicar máquinas, siga estos pasos:
     - Cifrado doble con claves administradas por el cliente y por la plataforma
 
     > [!NOTE]
-    > Para replicar máquinas virtuales con CMK, será necesario [crear un conjunto de cifrado de disco](https://go.microsoft.com/fwlink/?linkid=2151800) en el grupo de recursos de destino. Un objeto de conjunto de cifrado de disco asigna instancias de Managed Disks a una instancia de Key Vault que contiene las claves CMK que se van a usar para SSE.
+    > Para replicar máquinas virtuales con CMK, será necesario [crear un conjunto de cifrado de disco](../../../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) en el grupo de recursos de destino. Un objeto de conjunto de cifrado de disco asigna instancias de Managed Disks a una instancia de Key Vault que contiene las claves CMK que se van a usar para SSE.
   
 1. En **Ventaja híbrida de Azure**:
 
@@ -297,7 +297,7 @@ Una vez replicadas las máquinas, están listas para la migración. Para migrar 
 
     ![Replicando servidores](../../../migrate/media/tutorial-migrate-physical-virtual-machines/replicate-servers.png)
 
-2. Para asegurarse de que el servidor migrado está sincronizado con el servidor de origen, detenga el servicio SQL Server en todas las réplicas del grupo de disponibilidad, empezando por las réplicas secundarias (en **Administrador de configuración de SQL Server** > Servicios) y asegúrese de que los discos que hospedan datos SQL están en línea.   
+2. Para asegurarse de que el servidor migrado está sincronizado con el servidor de origen, detenga el servicio SQL Server en todas las réplicas del grupo de disponibilidad, empezando por las réplicas secundarias (en **Administrador de configuración de SQL Server** > **Servicios**) y asegúrese de que los discos que hospedan datos SQL están en línea.   
 3. En **Replicación de máquinas** > seleccione el nombre del servidor > **Información general**, compruebe que la última marca de tiempo sincronizada sea posterior a la acción de haber detenido el servicio SQL Server en los servidores que se van a migrar antes de continuar con el paso siguiente. Esto solo tardará unos minutos. 
 2. En **Replicación de máquinas**, haga clic con el botón derecho en la máquina virtual > **Migrar**.
 3. En **Migrar** > **Shut down virtual machines and perform a planned migration with no data loss** (¿Apagar las máquinas virtuales y realizar una migración planeada sin pérdida de datos?), seleccione **No** > **Aceptar**.
@@ -328,7 +328,7 @@ El grupo de disponibilidad AlwaysOn está listo.
     - Detiene la replicación en la máquina local.
     - Quita la máquina del recuento de **Servidores en replicación** en Azure Migrate: Server Migration.
     - Limpia la información del estado de replicación de la máquina.
-2. Instale el agente de [Windows](/virtual-machines/extensions/agent-windows.md) de la máquina virtual de Azure en las máquinas migradas.
+2. Instale el agente de [Windows](../../../virtual-machines/extensions/agent-windows.md) de la máquina virtual de Azure en las máquinas migradas.
 3. Realice los ajustes de la aplicación posteriores a la migración, como actualizar las cadenas de conexión de la base de datos y las configuraciones del servidor web.
 4. Realice las pruebas finales de la aplicación y la aceptación de la migración en la aplicación migrada que ahora se ejecuta en Azure.
 5. Pase el tráfico a la instancia de máquina virtual de Azure migrada.
@@ -340,10 +340,10 @@ El grupo de disponibilidad AlwaysOn está listo.
 
 - En SQL Server:
     -  Instale la [extensión del agente de IaaS de SQL Server](../../virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md) para automatizar las tareas de administración. 
-    - [Optimice](../../virtual-machines/windows/performance-guidelines-best-practices-checklist.md) el rendimiento de SQL Server en las máquinas virtuales de Azure. 
-    - Conozca los [precios](../../virtual-machines/windows/pricing-guidance.md#free-licensed-sql-server-editions) de SQL Server en Azure. 
+    - [Optimice](../../virtual-machines/windows/performance-guidelines-best-practices-checklist.md) el rendimiento de SQL Server en máquinas virtuales de Azure. 
+    - Entienda los [precios](../../virtual-machines/windows/pricing-guidance.md#free-licensed-sql-server-editions) de SQL Server en Azure. 
 - Para aumentar la resistencia:
-    - Proteja los datos mediante la copia de seguridad de máquinas virtuales de Azure con el [servicio Azure Backup](../../../backup/quick-backup-vm-portal.md). 
+    - Proteja los datos mediante la copia de seguridad de máquinas virtuales de Azure mediante el [servicio Azure Backup](../../../backup/quick-backup-vm-portal.md). 
     - Mantenga las cargas de trabajo en ejecución y disponibles continuamente mediante la replicación de máquinas virtuales de Azure en una región secundaria con [Site Recovery](../../../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - Para aumentar la seguridad:
     - Bloquee y limite el acceso de tráfico de entrada con la [administración Just-In-Time de Azure Security Center](../../../security-center/security-center-just-in-time.md).

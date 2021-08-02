@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/25/2021
+ms.date: 05/27/2021
 ms.author: alkohli
-ms.openlocfilehash: ac5ed0e5941c6251d632d029fe4c9f80bbcf12df
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5fd8dad44aa085530426168961280c4a84162ecb
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612558"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110617679"
 ---
 # <a name="update-your-azure-stack-edge-pro-gpu"></a>Actualización de la GPU de Azure Stack Edge Pro 
 
@@ -24,17 +24,17 @@ En este artículo, se describen los pasos necesarios para instalar actualizacion
 El procedimiento descrito en este artículo se realizó con una versión de software diferente, pero el proceso sigue siendo el mismo para la versión de software actual.
 
 > [!IMPORTANT]
-> - La actualización **2103** es la actualización actual y corresponde a:
->   - Versión de software del dispositivo: **2.2.1540.2890**
->   - Versión del servidor de Kubernetes: **v1.17.3**
->   - Versión de IoT Edge: **0.1.0-beta13**
+> - La actualización **2105** es la actualización actual y corresponde a:
+>   - Versión de software del dispositivo: **2.2.1606.3320**
+>   - Versión del servidor de Kubernetes: **v1.20.2**
+>   - Versión de IoT Edge: **0.1.0-beta14**
 >   - Versión del controlador de GPU: **460.32.03**
 >   - Versión de CUDA: **11.2**
 >    
->    Para obtener más información sobre cuáles son las novedades de esta actualización, vaya a las [Notas de la versión](azure-stack-edge-gpu-2103-release-notes.md).
-> - Para aplicar la actualización 2103, el dispositivo debe ejecutar la versión 2010. Si no ejecuta la versión mínima admitida, verá un error que dice que *no se puede instalar el paquete de actualización porque no se cumplen sus dependencias*.
+>    Para obtener más información sobre cuáles son las novedades de esta actualización, vaya a las [Notas de la versión](azure-stack-edge-gpu-2105-release-notes.md).
+> - Para aplicar la actualización 2105, el dispositivo debe ejecutar la versión 2010. Si no ejecuta la versión mínima admitida, verá un error que dice que *no se puede instalar el paquete de actualización porque no se cumplen sus dependencias*.
 > - Esta actualización necesita que se apliquen dos actualizaciones seguidas. Primero deben aplicarse las actualizaciones de software del dispositivo y, después, las de Kubernetes.
-> - Tenga en cuenta que al instalar una actualización o revisión, se reiniciará el dispositivo. Esta actualización contiene las actualizaciones de software del dispositivo y las actualizaciones de Kubernetes. Como Azure Stack Edge Pro es un dispositivo de un solo nodo, cualquier operación de E/S en curso se interrumpirá y el dispositivo experimenta un tiempo de inactividad de hasta 1,5 horas durante la actualización.
+> - Tenga en cuenta que al instalar una actualización o revisión, se reiniciará el dispositivo. Esta actualización contiene las actualizaciones de software del dispositivo y las actualizaciones de Kubernetes. Como la GPU de Azure Stack Edge Pro es un dispositivo de un solo nodo, cualquier operación de E/S en curso se interrumpirá y el dispositivo experimenta un tiempo de inactividad de hasta una hora y media durante la actualización.
 
 Para instalar actualizaciones en el dispositivo, primero tiene que configurar la ubicación del servidor donde se encuentran las actualizaciones. Una vez configurado el servidor, puede aplicar las actualizaciones utilizando la interfaz de usuario de Azure Portal o la interfaz de usuario web local.
 
@@ -155,13 +155,13 @@ Realice los pasos siguientes para descargar la actualización desde el Catálogo
 
     ![Catálogo de búsqueda](./media/azure-stack-edge-gpu-install-update/download-update-1.png)
 
-2. En el cuadro de búsqueda del Catálogo de Microsoft Update, escriba el número de Knowledge Base (KB) correspondiente a la revisión o los términos de la actualización que quiera descargar. Por ejemplo, escriba **Azure Stack Edge Pro** y luego haga clic en **Buscar**.
+2. En el cuadro de búsqueda del Catálogo de Microsoft Update, escriba el número de Knowledge Base (KB) correspondiente a la revisión o los términos de la actualización que quiera descargar. Por ejemplo, escriba **Azure Stack Edge** y haga clic en **Buscar**.
    
-    La lista de actualizaciones aparece como **Azure Stack Edge Update 2103**.
+    La lista de actualizaciones aparece como **Azure Stack Edge Update 2105**.
    
     <!--![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2-b.png)-->
 
-4. Seleccione **Descargar**. Hay dos paquetes para descargar: KB 4613486 y KB 46134867, que corresponden a las actualizaciones de software del dispositivo (*SoftwareUpdatePackage.exe*) y actualizaciones de Kubernetes (*Kubernetes_Package.exe*), respectivamente. Descargue los paquetes en una carpeta del sistema local. También puede copiar la carpeta en un recurso compartido de red que sea accesible desde el dispositivo.
+4. Seleccione **Descargar**. Hay dos paquetes para descargar: <!--KB 4616970 and KB 4616971--> uno para las actualizaciones de software del dispositivo (*SoftwareUpdatePackage.exe*) y otro para las actualizaciones de Kubernetes (*Kubernetes_Package.exe*) respectivamente. Descargue los paquetes en una carpeta del sistema local. También puede copiar la carpeta en un recurso compartido de red que sea accesible desde el dispositivo.
 
 ### <a name="install-the-update-or-the-hotfix"></a>Instalar la actualización o la revisión
 
@@ -192,7 +192,7 @@ Este procedimiento tarda aproximadamente 20 minutos en completarse. Realice los
 
 5. Se inicia la actualización. Una vez que el dispositivo se actualice correctamente, este se reiniciará. La interfaz de usuario local no será accesible durante este tiempo.
    
-6. Una vez completado el reinicio, se le llevará a la página de **inicio de sesión** . Para comprobar que el software del dispositivo se ha actualizado, en la interfaz de usuario de web local, vaya a **Mantenimiento** > **Actualización de software**. Con la versión actual, la versión de software que aparece debe ser **Azure Stack Edge 2103**. 
+6. Una vez completado el reinicio, se le llevará a la página de **inicio de sesión** . Para comprobar que el software del dispositivo se ha actualizado, en la interfaz de usuario de web local, vaya a **Mantenimiento** > **Actualización de software**. Con el lanzamiento actual, la versión de software que aparece debe ser **Azure Stack Edge 2105**. 
 
    <!--![update device 6](./media/azure-stack-edge-gpu-install-update/local-ui-update-6.png)-->
 

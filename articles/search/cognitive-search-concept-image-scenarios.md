@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2e77bbd6e82d0d4a48b72e13e60b60608f2d7674
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68186c5294c0a3a2f376a93ef1902307780f48bb
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103419598"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111538296"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Procesamiento y extracción de información de imágenes en escenarios de enriquecimiento con IA
 
@@ -90,7 +90,7 @@ Cuando *imageAction* se establece en un valor distinto de "none", el nuevo campo
 
 ## <a name="image-related-skills"></a>Habilidades relacionadas con la imagen
 
-Hay dos habilidades cognitivas integradas que se usan para tomar imágenes como entrada: [OCR](cognitive-search-skill-ocr.md) y [Análisis de imágenes](cognitive-search-skill-image-analysis.md). 
+Para aceptar imágenes como entradas, puede usar una aptitud personalizada o aptitudes integradas. Entre las aptitudes integradas se incluyen [OCR](cognitive-search-skill-ocr.md) y [Análisis de imágenes](cognitive-search-skill-image-analysis.md). 
 
 Actualmente, estas habilidades solo funcionan con imágenes generadas a partir del paso de averiguación de documentos. Por lo tanto, la única entrada compatible es `"/document/normalized_images"`.
 
@@ -102,6 +102,21 @@ La [habilidad de Análisis de imágenes](cognitive-search-skill-image-analysis.m
 
 La [habilidad de OCR](cognitive-search-skill-ocr.md) extrae el texto de los archivos de imagen, como JPG, PNG y mapas de bits. Puede extraer el texto, así como información de diseño. La información de diseño proporciona rectángulos delimitadores para cada una de las cadenas identificadas.
 
+### <a name="custom-skills"></a>Aptitudes personalizadas
+
+Las imágenes también se pueden pasar y devolver desde aptitudes personalizadas. El conjunto de aptitudes codifica en base64 la imagen que se pasa a la aptitud personalizada. Para usar la imagen dentro de la aptitud personalizada, establezca `/document/normalized_images/*/data` como entrada para la aptitud personalizada. Dentro del código de la aptitud personalizada, descodifique la cadena en base64 antes de convertirla en imagen. Para devolver una imagen al conjunto de aptitudes, codifique en base64 la imagen antes de devolverla al conjunto de aptitudes.
+
+ La imagen se devuelve como objeto con las siguientes propiedades.
+
+```json
+ { 
+  "$type": "file", 
+  "data": "base64String" 
+ }
+```
+
+El repositorio de [ejemplos de Python de Azure Search](https://github.com/Azure-Samples/azure-search-python-samples) tiene una muestra completa implementada en Python de una aptitud personalizada que enriquece las imágenes.
+
 ## <a name="embedded-image-scenario"></a>Escenario de imagen incrustada
 
 Un escenario común implica la creación de una única cadena que contenga todo el contenido del archivo, tanto texto como texto originado en imágenes, a través de los pasos siguientes:  
@@ -112,7 +127,8 @@ Un escenario común implica la creación de una única cadena que contenga todo 
 
 El conjunto de habilidades de ejemplo siguiente crea un campo *merged_text* con el contenido textual del documento. También incluye el texto procesado con OCR de cada una de las imágenes incrustadas. 
 
-#### <a name="request-body-syntax"></a>Sintaxis del cuerpo de la solicitud
+### <a name="request-body-syntax"></a>Sintaxis del cuerpo de la solicitud
+
 ```json
 {
   "description": "Extract text from images and merge with content text to produce merged_text",
@@ -213,13 +229,15 @@ Como ayuda adicional, si tiene que transformar las coordenadas normalizadas al e
             return original;
         }
 ```
+
 ## <a name="passing-images-to-custom-skills"></a>Paso de imágenes a habilidades personalizadas
 
 En los casos en los que se requiera que una habilidad personalizada trabaje con imágenes, se pueden pasar imágenes a la habilidad personalizada y hacer que esta devuelva texto o imágenes. En el procesamiento de imágenes del [ejemplo de Python](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing) se muestra el flujo de trabajo. El siguiente conjunto de habilidades es del ejemplo.
 
 El siguiente conjunto de habilidades toma la imagen normalizada (obtenida durante el descifrado de documentos) y genera los segmentos de la imagen.
 
-#### <a name="sample-skillset"></a>Conjunto de habilidades de ejemplo
+### <a name="sample-skillset"></a>Conjunto de habilidades de ejemplo
+
 ```json
 {
   "description": "Extract text from images and merge with content text to produce merged_text",
@@ -253,7 +271,7 @@ El siguiente conjunto de habilidades toma la imagen normalizada (obtenida durant
 }
 ```
 
-#### <a name="custom-skill"></a>Habilidad personalizada
+### <a name="custom-skill"></a>Habilidad personalizada
 
 La habilidad personalizada en sí es externa al conjunto de habilidades. En este caso, se trata de código de Python que primero recorre en iteración el lote de registros de solicitud en el formato de habilidad personalizada y, después, convierte la cadena con codificación en base64 en una imagen.
 
@@ -268,6 +286,7 @@ for value in values:
   jpg_as_np = np.frombuffer(inputBytes, dtype=np.uint8)
   # you now have an image to work with
 ```
+
 Del mismo modo, para devolver una imagen, devuelve una cadena codificada en base64 dentro de un objeto JSON con una propiedad `$type` de `file`.
 
 ```python
@@ -286,6 +305,7 @@ def base64EncodeImage(image):
 ```
 
 ## <a name="see-also"></a>Consulte también
+
 + [Create indexer (REST)](/rest/api/searchservice/create-indexer)
 + [Aptitud de análisis de imágenes](cognitive-search-skill-image-analysis.md)
 + [Habilidad de OCR](cognitive-search-skill-ocr.md)

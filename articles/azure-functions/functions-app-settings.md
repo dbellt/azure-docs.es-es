@@ -3,12 +3,12 @@ title: Referencia de configuración de aplicación para Azure Functions
 description: Documentación de referencia para la configuración de la aplicación de Azure Functions o de variables de entorno.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: b1a3563d766f0f4636086024a1f23d157e8e9a06
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: eb595d666641003c813573a70ab7365732e0a386
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108228611"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111983157"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referencia de configuración de aplicación para Azure Functions
 
@@ -18,12 +18,12 @@ La configuración de la aplicación en una aplicación de función contiene opci
 
 Hay otras opciones de configuración global en el archivo [host.json](functions-host-json.md) y en [local.settings.json](functions-run-local.md#local-settings-file).
 
-> [!NOTE]  
+> [!NOTE]
 > Puede usar la configuración de la aplicación para reemplazar los valores de la configuración de host.json sin tener que cambiar el propio archivo host.json. Esto es algo que resulta útil cuando hace falta configurar o modificar valores de host.json concretos para un entorno específico. También permite cambiar la configuración de host.json sin tener que volver a publicar el proyecto. Para más información, consulte el [artículo de referencia de host.json](functions-host-json.md#override-hostjson-values). Para aplicar los cambios realizados en la configuración de la aplicación de funciones, es necesario reiniciar la aplicación de funciones.
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
-Clave de instrumentación de Application Insights. Use solo uno entre `APPINSIGHTS_INSTRUMENTATIONKEY` y `APPLICATIONINSIGHTS_CONNECTION_STRING`. Cuando Application Insights se ejecuta en una nube soberana, use `APPLICATIONINSIGHTS_CONNECTION_STRING`. Para obtener más información, consulte [Configuración de la supervisión para Azure Functions](configure-monitoring.md). 
+Clave de instrumentación de Application Insights. Use solo uno entre `APPINSIGHTS_INSTRUMENTATIONKEY` y `APPLICATIONINSIGHTS_CONNECTION_STRING`. Cuando Application Insights se ejecuta en una nube soberana, use `APPLICATIONINSIGHTS_CONNECTION_STRING`. Para obtener más información, consulte [Configuración de la supervisión para Azure Functions](configure-monitoring.md).
 
 |Clave|Valor de ejemplo|
 |---|------------|
@@ -33,10 +33,10 @@ Clave de instrumentación de Application Insights. Use solo uno entre `APPINSIGH
 
 Cadena de conexión para Application Insights. Use `APPLICATIONINSIGHTS_CONNECTION_STRING` en lugar de `APPINSIGHTS_INSTRUMENTATIONKEY` en los casos siguientes:
 
-+ Cuando la aplicación de funciones requiera las personalizaciones agregadas admitidas mediante el uso de la cadena de conexión. 
++ Cuando la aplicación de funciones requiera las personalizaciones agregadas admitidas mediante el uso de la cadena de conexión.
 + Cuando la instancia de Application Insights se ejecute en una nube soberana, lo que requiere un punto de conexión personalizado.
 
-Para obtener más información, consulte [Cadenas de conexión](../azure-monitor/app/sdk-connection-string.md). 
+Para obtener más información, consulte [Cadenas de conexión](../azure-monitor/app/sdk-connection-string.md).
 
 |Clave|Valor de ejemplo|
 |---|------------|
@@ -46,16 +46,16 @@ Para obtener más información, consulte [Cadenas de conexión](../azure-monitor
 
 De forma predeterminada, [Functions Proxies](functions-proxies.md) usará accesos directos para enviar llamadas API desde servidores proxy directamente a funciones en la misma aplicación de funciones. Se usa este acceso directo en lugar de crear una nueva solicitud HTTP. Esta configuración le permite deshabilitar el comportamiento de ese acceso directo.
 
-|Clave|Value|Descripción|
+|Clave|Valor|Descripción|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Las llamadas con una dirección URL de back-end que apunte a una función en la aplicación de funciones local se no se envará directamente a la función. En su lugar, las solicitudes se devuelven al front-end HTTP para la aplicación de funciones.|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Las llamadas con una dirección URL de back-end que apunte a una función en la aplicación de funciones local se reenvían directamente a la función. Este es el valor predeterminado. |
 
 ## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
 
-Esta configuración controla si se descodifican los caracteres `%2F` como barras diagonales en los parámetros de ruta cuando se insertan en la dirección URL de back-end. 
+Esta configuración controla si se descodifican los caracteres `%2F` como barras diagonales en los parámetros de ruta cuando se insertan en la dirección URL de back-end.
 
-|Clave|Value|Descripción|
+|Clave|Valor|Descripción|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|Los parámetros de ruta con barras diagonales codificadas se descodifican. |
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|Todos los parámetros de ruta se pasan sin cambios, que es el comportamiento predeterminado. |
@@ -159,7 +159,7 @@ Determina si está habilitada la edición en Azure Portal. Los valores válidos 
 
 ## <a name="functions_extension_version"></a>VERSIÓN DE LA \_EXTENSIÓN\_ DE FUNCTIONS
 
-Versión del tiempo de ejecución de Functions que hospeda la aplicación de funciones. Una tilde (`~`) con la versión principal significa que se utiliza la versión más reciente de esa versión principal (por ejemplo, "~3"). Cuando haya disponibles versiones nuevas de la misma versión principal, se instalarán automáticamente en la aplicación de función. Para anclar la aplicación a una versión específica, use el número completo de la versión (por ejemplo, "3.0.12345"). El valor predeterminado es "~3". Un valor de `~1` ancla la aplicación a la versión 1.x del tiempo de ejecución. Para más información, consulte [Selección de un destino para versiones de runtime de Azure Functions](functions-versions.md).
+Versión del tiempo de ejecución de Functions que hospeda la aplicación de funciones. Una tilde (`~`) con la versión principal significa que se utiliza la versión más reciente de esa versión principal (por ejemplo, "~3"). Cuando haya disponibles versiones nuevas de la misma versión principal, se instalarán automáticamente en la aplicación de función. Para anclar la aplicación a una versión específica, use el número completo de la versión (por ejemplo, "3.0.12345"). El valor predeterminado es "~3". Un valor de `~1` ancla la aplicación a la versión 1.x del tiempo de ejecución. Para más información, consulte [Selección de un destino para versiones de runtime de Azure Functions](functions-versions.md). Un valor de `~4` le permite ejecutar una versión preliminar de Azure Functions para usar la versión preliminar de .NET 6.0. Para más información, consulte la página de la [primera versión preliminar de Azure Functions v4](https://aka.ms/functions-dotnet6earlypreview-wiki).
 
 |Clave|Valor de ejemplo|
 |---|------------|
@@ -167,7 +167,7 @@ Versión del tiempo de ejecución de Functions que hospeda la aplicación de fun
 
 ## <a name="functions_v2_compatibility_mode"></a>FUNCTIONS\_V2\_COMPATIBILITY\_MODE
 
-Esta opción permite que la aplicación de funciones se ejecute en un modo compatible con la versión 2.x en el tiempo de ejecución de la versión 3.x. Use esta opción solo si se encuentra con problemas al [actualizar la aplicación de funciones de la versión 2.x a la 3.x del tiempo de ejecución](functions-versions.md#migrating-from-2x-to-3x). 
+Esta opción permite que la aplicación de funciones se ejecute en un modo compatible con la versión 2.x en el tiempo de ejecución de la versión 3.x. Use esta opción solo si se encuentra con problemas al [actualizar la aplicación de funciones de la versión 2.x a la 3.x del tiempo de ejecución](functions-versions.md#migrating-from-2x-to-3x).
 
 >[!IMPORTANT]
 > Esta opción está pensada solo como una solución alternativa a corto plazo mientras actualiza la aplicación para que se ejecute correctamente en la versión 3.x. Esta opción se admite siempre que [se admita el tiempo de ejecución 2.x](functions-versions.md). Si encuentra problemas que impiden que la aplicación se ejecute en la versión 3.x sin usar esta configuración, [informe de su problema](https://github.com/Azure/azure-functions-host/issues/new?template=Bug_report.md).
@@ -188,7 +188,7 @@ Especifica el número máximo de procesos de trabajo de lenguaje, con un valor p
 
 ## <a name="functions_worker_runtime"></a>FUNCTIONS\_WORKER\_RUNTIME
 
-Tiempo de ejecución del trabajo del lenguaje que se cargará en la aplicación de función.  Esto corresponde al lenguaje usado en la aplicación (por ejemplo, `dotnet`). A partir de la versión 2.x del entorno de ejecución de Azure Functions, una aplicación de funciones determinada solo puede admitir un único lenguaje.   
+Tiempo de ejecución del trabajo del lenguaje que se cargará en la aplicación de función.  Esto corresponde al lenguaje usado en la aplicación (por ejemplo, `dotnet`). A partir de la versión 2.x del entorno de ejecución de Azure Functions, una aplicación de funciones determinada solo puede admitir un único lenguaje.
 
 |Clave|Valor de ejemplo|
 |---|------------|
@@ -205,11 +205,11 @@ Valores válidos:
 | `powershell` | [PowerShell](functions-reference-powershell.md) |
 | `python` | [Python](functions-reference-python.md) |
 
-## <a name="mdmaxbackgroundupgradeperiod"></a>MDMaxBackgroundUpgradePeriod 
+## <a name="mdmaxbackgroundupgradeperiod"></a>MDMaxBackgroundUpgradePeriod
 
-Controla el período de actualización en segundo plano de las dependencias administradas para las aplicaciones de función de PowerShell, con un valor predeterminado `7.00:00:00` de (semanal). 
+Controla el período de actualización en segundo plano de las dependencias administradas para las aplicaciones de función de PowerShell, con un valor predeterminado `7.00:00:00` de (semanal).
 
-Cada proceso de trabajo de PowerShell inicia la comprobación de las actualizaciones de módulo en la Galería de PowerShell en el inicio del proceso y, después, cada `MDMaxBackgroundUpgradePeriod`. Cuando hay disponible una nueva versión de módulo en la Galería de PowerShell, se instala en el sistema de archivos y se pone a disposición de los trabajadores de PowerShell. Si se reduce este valor, la aplicación de funciones obtiene versiones más recientes de los módulos, pero también aumenta el uso de recursos de la aplicación (E/S de red, CPU, almacenamiento). Al aumentar este valor, se reduce el uso de recursos de la aplicación, pero también se puede retrasar la entrega de nuevas versiones de módulos a la aplicación. 
+Cada proceso de trabajo de PowerShell inicia la comprobación de las actualizaciones de módulo en la Galería de PowerShell en el inicio del proceso y, después, cada `MDMaxBackgroundUpgradePeriod`. Cuando hay disponible una nueva versión de módulo en la Galería de PowerShell, se instala en el sistema de archivos y se pone a disposición de los trabajadores de PowerShell. Si se reduce este valor, la aplicación de funciones obtiene versiones más recientes de los módulos, pero también aumenta el uso de recursos de la aplicación (E/S de red, CPU, almacenamiento). Al aumentar este valor, se reduce el uso de recursos de la aplicación, pero también se puede retrasar la entrega de nuevas versiones de módulos a la aplicación.
 
 |Clave|Valor de ejemplo|
 |---|------------|
@@ -219,11 +219,11 @@ Para obtener más información, consulte [Administración de dependencias](funct
 
 ## <a name="mdnewsnapshotcheckperiod"></a>MDNewSnapshotCheckPeriod
 
-Especifica la frecuencia con la que cada trabajo de PowerShell comprueba si se han instalado actualizaciones de dependencias administradas. La frecuencia predeterminada es `01:00:00` (cada hora). 
+Especifica la frecuencia con la que cada trabajo de PowerShell comprueba si se han instalado actualizaciones de dependencias administradas. La frecuencia predeterminada es `01:00:00` (cada hora).
 
-Una vez instaladas las nuevas versiones del módulo en el sistema de archivos, se debe reiniciar cada proceso de trabajo de PowerShell. Reiniciar los trabajos de PowerShell afecta la disponibilidad de la aplicación, ya que puede interrumpir la ejecución de la función actual. Hasta que se reinicien todos los procesos de trabajo de PowerShell, las invocaciones de función pueden usar las versiones de módulos anteriores o nuevas. El reinicio de todos los trabajos de PowerShell se completa dentro del período `MDNewSnapshotCheckPeriod`. 
+Una vez instaladas las nuevas versiones del módulo en el sistema de archivos, se debe reiniciar cada proceso de trabajo de PowerShell. Reiniciar los trabajos de PowerShell afecta la disponibilidad de la aplicación, ya que puede interrumpir la ejecución de la función actual. Hasta que se reinicien todos los procesos de trabajo de PowerShell, las invocaciones de función pueden usar las versiones de módulos anteriores o nuevas. El reinicio de todos los trabajos de PowerShell se completa dentro del período `MDNewSnapshotCheckPeriod`.
 
-En cada `MDNewSnapshotCheckPeriod`, el trabajo de PowerShell comprueba si se han instalado actualizaciones de dependencias administradas. Cuando se han instalado las actualizaciones, se inicia un reinicio. Al aumentar este valor, se reduce la frecuencia de interrupciones debido a los reinicios. Sin embargo, el aumento también podría incrementar el tiempo durante el que las invocaciones de función podrían usar las versiones anteriores o nuevas del módulo, de forma no determinista. 
+En cada `MDNewSnapshotCheckPeriod`, el trabajo de PowerShell comprueba si se han instalado actualizaciones de dependencias administradas. Cuando se han instalado las actualizaciones, se inicia un reinicio. Al aumentar este valor, se reduce la frecuencia de interrupciones debido a los reinicios. Sin embargo, el aumento también podría incrementar el tiempo durante el que las invocaciones de función podrían usar las versiones anteriores o nuevas del módulo, de forma no determinista.
 
 |Clave|Valor de ejemplo|
 |---|------------|
@@ -234,9 +234,9 @@ Para obtener más información, consulte [Administración de dependencias](funct
 
 ## <a name="mdminbackgroundupgradeperiod"></a>MDMinBackgroundUpgradePeriod
 
-Período de tiempo después de una comprobación de actualización de dependencia administrada anterior antes de iniciar otra comprobación de actualización, con un valor predeterminado de `1.00:00:00` (diariamente). 
+Período de tiempo después de una comprobación de actualización de dependencia administrada anterior antes de iniciar otra comprobación de actualización, con un valor predeterminado de `1.00:00:00` (diariamente).
 
-Para evitar que se actualicen excesivamente los módulos en los reinicios frecuentes de los trabajos, no se realizará la comprobación de las actualizaciones de los módulos si ya se inició algún trabajo en el último `MDMinBackgroundUpgradePeriod`. 
+Para evitar que se actualicen excesivamente los módulos en los reinicios frecuentes de los trabajos, no se realizará la comprobación de las actualizaciones de los módulos si ya se inició algún trabajo en el último `MDMinBackgroundUpgradePeriod`.
 
 |Clave|Valor de ejemplo|
 |---|------------|
@@ -246,13 +246,31 @@ Para obtener más información, consulte [Administración de dependencias](funct
 
 ## <a name="pip_extra_index_url"></a>PIP\_EXTRA\_INDEX\_URL
 
-El valor de esta configuración indica una dirección URL de índice de paquetes personalizado para las aplicaciones de Python. Use esta configuración cuando necesite ejecutar una compilación remota mediante dependencias personalizadas que se encuentran en un índice de paquetes adicional.   
+El valor de esta configuración indica una dirección URL de índice de paquetes personalizado para las aplicaciones de Python. Use esta configuración cuando necesite ejecutar una compilación remota mediante dependencias personalizadas que se encuentran en un índice de paquetes adicional.
 
 |Clave|Valor de ejemplo|
 |---|------------|
 |PIP\_EXTRA\_INDEX\_URL|http://my.custom.package.repo/simple |
 
 Para más información, vea [Dependencias personalizadas](functions-reference-python.md#remote-build-with-extra-index-url) en la referencia para desarrolladores de Python.
+
+## <a name="python_isolate_worker_dependencies"></a>PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES
+
+La configuración es específica de las aplicaciones de funciones de Python. Define la prioridad del orden de carga del módulo. Cuando las aplicaciones de funciones de Python se enfrentan a problemas relacionados con la colisión de módulos (por ejemplo, cuando se usa protobuf, tensorflow o grpcio en el proyecto), establecer estos valores de la aplicación en `1` debe resolver el problema. De forma predeterminada, este valor está establecido en `0`.
+
+|Key|Valor|Descripción|
+|---|-----|-----------|
+|PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|0| Priorice la carga de las bibliotecas de Python de las dependencias internas del trabajo de Python. Las bibliotecas de terceros definidas en requirements.txt se pueden reemplazar. |
+|PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|1| Priorice la carga de las bibliotecas de Python desde el paquete de la aplicación definido en requirements.txt. Esto evita que las bibliotecas entren en conflicto con las bibliotecas internas del trabajo de Python. |
+
+## <a name="python_enable_worker_extensions"></a>PYTHON\_ENABLE\_WORKER\_EXTENSIONS
+
+La configuración es específica de las aplicaciones de funciones de Python. Si se establece en `1`, el trabajo se puede cargar en las [extensiones de trabajo de Python](functions-reference-python.md#python-worker-extensions) definidas en requirements.txt. Permite que la aplicación de funciones acceda a las nuevas características proporcionadas por paquetes de terceros. También puede cambiar el comportamiento de la carga de funciones y la invocación en la aplicación. Asegúrese de que la extensión que elija sea de confianza, ya que corre el riesgo de usarla. Azure Functions no ofrece ninguna garantía expresa a ninguna extensión. Para más información sobre cómo usar una extensión, visite la página manual de la extensión o el documento léame. De forma predeterminada, este valor se establece en `0`.
+
+|Key|Valor|Descripción|
+|---|-----|-----------|
+|PYTHON\_ENABLE\_WORKER\_EXTENSIONS|0| Deshabilite cualquier extensión de trabajo de Python. |
+|PYTHON\_ENABLE\_WORKER\_EXTENSIONS|1| Permita que el trabajo de Python cargue extensiones de requirements.txt. |
 
 ## <a name="python_threadpool_thread_count"></a>PYTHON\_THREADPOOL\_THREAD\_COUNT
 
@@ -264,7 +282,7 @@ Especifica el número máximo de subprocesos que un trabajo de lenguaje Python u
 
 ## <a name="scale_controller_logging_enabled"></a>SCALE\_CONTROLLER\_LOGGING\_ENABLED
 
-_Esta configuración se encuentra actualmente en versión preliminar_.  
+_Esta configuración se encuentra actualmente en versión preliminar_.
 
 Esta configuración controla el registro del controlador de escala de Azure Functions. Para más información, vea [Registros del controlador de escala](functions-monitoring.md#scale-controller-logs).
 
@@ -284,7 +302,7 @@ Cadena de conexión para la cuenta de almacenamiento donde se almacenan el códi
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[nombre];AccountKey=[clave]|
 
-Solo se usa cuando se implementa en un plan prémium o en un plan de consumo que se ejecuta en Windows. No se admite para los planes de consumo que se ejecutan en Linux. El cambio o la eliminación de esta configuración puede hacer que la aplicación de funciones no se inicie. Para más información, consulte [este artículo de solución de problemas](functions-recover-storage-account.md#storage-account-application-settings-were-deleted). 
+Solo se usa cuando se implementa en un plan prémium o en un plan de consumo que se ejecuta en Windows. No se admite para los planes de consumo que se ejecutan en Linux. El cambio o la eliminación de esta configuración puede hacer que la aplicación de funciones no se inicie. Para más información, consulte [este artículo de solución de problemas](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
 ## <a name="website_contentovervnet"></a>WEBSITE\_CONTENTOVERVNET
 
@@ -304,19 +322,19 @@ La ruta de acceso del archivo al código y la configuración de la aplicación d
 
 Solo se usa cuando se implementa en un plan prémium o en un plan de consumo que se ejecuta en Windows. No se admite para los planes de consumo que se ejecutan en Linux. El cambio o la eliminación de esta configuración puede hacer que la aplicación de funciones no se inicie. Para más información, consulte [este artículo de solución de problemas](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
-Al usar una plantilla de Azure Resource Manager para crear una aplicación de funciones durante la implementación, no incluya WEBSITE_CONTENTSHARE en la plantilla. Esta configuración de aplicación se genera durante la implementación. Para más información, consulte [Automatización de la implementación de recursos para una aplicación de funciones](functions-infrastructure-as-code.md#windows).   
+Al usar una plantilla de Azure Resource Manager para crear una aplicación de funciones durante la implementación, no incluya WEBSITE_CONTENTSHARE en la plantilla. Esta configuración de aplicación se genera durante la implementación. Para más información, consulte [Automatización de la implementación de recursos para una aplicación de funciones](functions-infrastructure-as-code.md#windows).
 
 ## <a name="website_dns_server"></a>SERVIDOR \_DNS\_ DEL SITIO WEB
 
-Establece el servidor DNS que usa una aplicación al resolver direcciones IP. Esta configuración suele ser necesaria cuando se usa cierta funcionalidad de red, como [ zonas privadas de Azure DNS](functions-networking-options.md#azure-dns-private-zones) y [puntos de conexión privados](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).   
+Establece el servidor DNS que usa una aplicación al resolver direcciones IP. Esta configuración suele ser necesaria cuando se usa cierta funcionalidad de red, como [ zonas privadas de Azure DNS](functions-networking-options.md#azure-dns-private-zones) y [puntos de conexión privados](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).
 
 |Clave|Valor de ejemplo|
 |---|------------|
 |SERVIDOR \_DNS\_ DEL SITIO WEB|168.63.129.16|
 
-## <a name="website_enable_brotli_encoding"></a>WEBSITE\_ENABLE\_BROTLI\_ENCODING 
+## <a name="website_enable_brotli_encoding"></a>WEBSITE\_ENABLE\_BROTLI\_ENCODING
 
-Controla si se usa la codificación Brotli para la compresión en lugar de la compresión gzip predeterminada. Cuando `WEBSITE_ENABLE_BROTLI_ENCODING` se establece en `1`, se usa la codificación Brotli; de lo contrario, se usa la codificación gzip. 
+Controla si se usa la codificación Brotli para la compresión en lugar de la compresión gzip predeterminada. Cuando `WEBSITE_ENABLE_BROTLI_ENCODING` se establece en `1`, se usa la codificación Brotli; de lo contrario, se usa la codificación gzip.
 
 ## <a name="website_max_dynamic_application_scale_out"></a>ESCALABILIDAD\_HORIZONTAL\_MÁXIMA\_DE LA\_APLICACIÓN\_DINÁMICA
 
@@ -331,8 +349,8 @@ Número máximo de instancias al que se puede escalar horizontalmente la aplicac
 
 ## <a name="website_node_default_version"></a>DEFAULT_VERSION\_DEL NODO\_DEL SITIO WEB
 
-_Solo Windows._  
-Establece la versión de Node.js que se usará al ejecutar la aplicación de funciones en Windows. Debe usar una tilde (~) para que el entorno de ejecución use la última versión disponible de la versión principal de destino. Por ejemplo, cuando se establece en `~10`, se usa la versión más reciente de Node.js 10. Cuando se especifica una versión principal con una tilde, no es necesario actualizar manualmente la versión secundaria. 
+_Solo Windows._
+Establece la versión de Node.js que se usará al ejecutar la aplicación de funciones en Windows. Debe usar una tilde (~) para que el entorno de ejecución use la última versión disponible de la versión principal de destino. Por ejemplo, cuando se establece en `~10`, se usa la versión más reciente de Node.js 10. Cuando se especifica una versión principal con una tilde, no es necesario actualizar manualmente la versión secundaria.
 
 |Clave|Valor de ejemplo|
 |---|------------|
@@ -350,7 +368,7 @@ Los valores válidos son una dirección URL que se resuelve en la ubicación de 
 
 ## <a name="website_time_zone"></a>WEBSITE\_TIME\_ZONE
 
-Permite establecer la zona horaria para la aplicación de funciones. 
+Permite establecer la zona horaria para la aplicación de funciones.
 
 |Clave|SO|Valor de ejemplo|
 |---|--|------------|
@@ -361,7 +379,7 @@ Permite establecer la zona horaria para la aplicación de funciones.
 
 ## <a name="website_vnet_route_all"></a>SITIO WEB\_VNET\_ROUTE\_ALL
 
-Indica si todo el tráfico saliente de la aplicación se enruta a través de la red virtual. Un valor de configuración de `1` indica que todo el tráfico se enruta a través de la red virtual. Debe usar esta opción al usar las características de [Integración de red virtual regional](functions-networking-options.md#regional-virtual-network-integration). También se usa cuando [se usa una puerta de enlace NAT de red virtual para definir una dirección IP de salida estática](functions-how-to-use-nat-gateway.md). 
+Indica si todo el tráfico saliente de la aplicación se enruta a través de la red virtual. Un valor de configuración de `1` indica que todo el tráfico se enruta a través de la red virtual. Debe usar esta opción al usar las características de [Integración de red virtual regional](functions-networking-options.md#regional-virtual-network-integration). También se usa cuando [se usa una puerta de enlace NAT de red virtual para definir una dirección IP de salida estática](functions-how-to-use-nat-gateway.md).
 
 |Clave|Valor de ejemplo|
 |---|------------|

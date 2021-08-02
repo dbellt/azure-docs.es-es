@@ -1,23 +1,24 @@
 ---
-title: 'Establecimiento del modo de purga de Windows Virtual Desktop: Azure'
-description: Cómo configurar y usar el modo de purga en Windows Virtual Desktop.
+title: 'Establecimiento del modo de purga de Azure Virtual Desktop: Azure'
+description: Cómo configurar y usar el modo de purga en Azure Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/14/2021
 ms.author: helohr
+ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 19ef7d520800ac703ed77dc0520e5b860306c4bd
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 2ff90e2800da857dd5c82cd3b9402fa2454575ac
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107509001"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757848"
 ---
 # <a name="set-drain-mode"></a>Establecimiento del modo de purga
 
-El modo de purga aísla un host de sesión cuando desea aplicar revisiones y realizar tareas de mantenimiento sin interrumpir las sesiones de usuario. Cuando está aislado, el host de sesión no acepta nuevas sesiones de usuario. Las nuevas conexiones se redirigirán al siguiente host de sesión disponible. Las conexiones existentes en el host de sesión seguirán funcionando hasta que el usuario cierre la sesión o el administrador la finalice. Cuando el host de sesión está en modo de purga, los administradores también pueden conectarse de forma remota al servidor sin necesidad del servicio Windows Virtual Desktop. Puede aplicar esta configuración a escritorios tanto agrupados como personales.
+El modo de purga aísla un host de sesión cuando desea aplicar revisiones y realizar tareas de mantenimiento sin interrumpir las sesiones de usuario. Cuando está aislado, el host de sesión no acepta nuevas sesiones de usuario. Las nuevas conexiones se redirigirán al siguiente host de sesión disponible. Las conexiones existentes en el host de sesión seguirán funcionando hasta que el usuario cierre la sesión o el administrador la finalice. Cuando el host de sesión está en modo de purga, los administradores también pueden conectarse de forma remota al servidor sin necesidad del servicio Azure Virtual Desktop. Puede aplicar esta configuración a escritorios tanto agrupados como personales.
 
 ## <a name="set-drain-mode-using-the-azure-portal"></a>Establecimiento del modo de purga mediante Azure Portal
 
@@ -52,6 +53,6 @@ Update-AzWvdSessionHost -ResourceGroupName <resourceGroupName> -HostPoolName <ho
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si desea obtener más información sobre Azure Portal para Windows Virtual Desktop, consulte [nuestros tutoriales](create-host-pools-azure-marketplace.md). Si ya está familiarizado con los conceptos básicos, consulte algunas de las demás características que puede usar con Azure Portal, como la [asociación de aplicaciones en formato .MSIX](app-attach-azure-portal.md) y [Azure Advisor](azure-advisor.md).
+Si desea obtener más información sobre Azure Portal para Azure Virtual Desktop, consulte [nuestros tutoriales](create-host-pools-azure-marketplace.md). Si ya está familiarizado con los conceptos básicos, consulte algunas de las demás características que puede usar con Azure Portal, como la [asociación de aplicaciones en formato .MSIX](app-attach-azure-portal.md) y [Azure Advisor](azure-advisor.md).
 
-Si usa el método de PowerShell y quiere ver qué más puede hacer el módulo, consulte [Configuración del módulo de PowerShell para Windows Virtual Desktop](powershell-module.md) y la [referencia de PowerShell](/powershell/module/az.desktopvirtualization/).
+Si usa el método de PowerShell y quiere ver qué más puede hacer el módulo, consulte [Configuración del módulo de PowerShell para Azure Virtual Desktop](powershell-module.md) y la [referencia de PowerShell](/powershell/module/az.desktopvirtualization/).

@@ -5,23 +5,23 @@ author: anthonychu
 ms.author: antchu
 ms.date: 12/1/2020
 ms.topic: article
-ms.openlocfilehash: dd112c74ea9f013a0e14bddd735060ddbf73c14e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82166ca69db6dc2dc1b7562e23078609b01cb2ed
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100578532"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756030"
 ---
 # <a name="azure-functions-custom-handlers"></a>Controladores personalizados de Azure Functions
 
-Cada aplicación de Functions se ejecuta mediante un controlador específico de lenguaje. Aunque Azure Functions admite muchos [controladores de lenguajes](./supported-languages.md) de forma predeterminada, hay casos en los que es posible que desee usar otros lenguajes o runtimes.
+Cada aplicación de Functions se ejecuta mediante un controlador específico de lenguaje. Aunque Azure Functions incluye muchos [controladores de lenguajes](./supported-languages.md) de manera predeterminada, hay casos en los que es posible que desee usar otros lenguajes o runtimes.
 
 Los controladores personalizados son servidores web ligeros que reciben eventos del host de Functions. Cualquier lenguaje que admita primitivas de HTTP puede implementar un controlador personalizado.
 
 Los controladores personalizados son más adecuados para las situaciones en las que desea:
 
-- Implemente una aplicación de funciones en un lenguaje que no se admite actualmente, como Go o Rust.
-- Implemente una aplicación de funciones en un runtime que no se admite actualmente, como Deno.
+- Implemente una aplicación de funciones en un lenguaje que actualmente no se ofrece de manera inmediata, como Go o Rust.
+- Implemente una aplicación de funciones en un runtime que actualmente no se incluye de manera predeterminada, como Deno.
 
 Con los controladores personalizados, puede usar [desencadenadores y enlaces de entrada y salida](./functions-triggers-bindings.md) mediante [conjuntos de extensiones](./functions-bindings-register.md).
 

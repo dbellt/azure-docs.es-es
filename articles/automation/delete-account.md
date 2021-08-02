@@ -4,15 +4,15 @@ description: En este artículo se explica cómo eliminar la cuenta de Automation
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-ms.date: 04/15/2021
+ms.date: 06/04/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fe2d99a610be3877b4a347e4bd0dd17df53ba326
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 00401c7afd4fff1fcea7c5097d31ccf440e09049
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107834163"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111572498"
 ---
 # <a name="how-to-delete-your-azure-automation-account"></a>Eliminación de la cuenta de Azure Automation
 
@@ -31,8 +31,11 @@ La eliminación de la cuenta de Automation puede realizarse mediante uno de los 
 
 En este artículo se explica cómo quitar completamente la cuenta de Automation mediante Azure Portal, Azure PowerShell, la CLI de Azure o la API REST.
 
+## <a name="prerequisite"></a>Requisito previo
+Compruebe que no haya ningún [bloqueo de Resource Manager](../azure-resource-manager/management/lock-resources.md) aplicado a la suscripción, el grupo de recursos o el recurso que impida la eliminación o la modificación accidentales de recursos críticos. Si ha implementado la solución Start/Stop VMs during off-hours, se establece el nivel de bloqueo en **CanNotDelete** en varios recursos dependientes de la cuenta de Automation (en concreto, sus runbooks y variables). Quite los bloqueos antes de eliminar la cuenta de Automation.
+
 > [!NOTE]
-> Antes de continuar, compruebe que no hay ningún [bloqueo de Resource Manager](../azure-resource-manager/management/lock-resources.md) aplicado a la suscripción, el grupo de recursos o el recurso, que impida la eliminación o la modificación accidentales de recursos críticos. Al implementar la solución Start/Stop VMs during off-hours, se establece el nivel de bloqueo en **CanNotDelete** en varios recursos dependientes de la cuenta de Automation (específicamente sus runbooks y variables). Los bloqueos deben quitarse para poder eliminar la cuenta de Automation.
+> Si recibe un mensaje de error similar a "`The link cannot be updated or deleted because it is linked to Update Management and/or ChangeTracking Solutions`", la cuenta de Automation se vincula a un área de trabajo de Log Analytics con las características Update Management o Seguimiento de cambios e inventario habilitadas. Para obtener más información, consulte [Eliminación de una cuenta de Automation de capacidad compartida](#delete-a-shared-capability-automation-account) a continuación.
 
 ## <a name="delete-the-dedicated-resource-group"></a>Eliminación del grupo de recursos dedicado
 
@@ -40,7 +43,7 @@ Para eliminar la cuenta de Automation (y también el área de trabajo de Log Ana
 
 ## <a name="delete-a-standalone-automation-account"></a>Eliminación de una cuenta de Automation independiente
 
-Si la cuenta de Automation no está vinculada a un área de trabajo de Log Analytics, siga estos pasos para eliminarla.
+Si la cuenta de Automation no está vinculada a un área de trabajo de Log Analytics, realice los pasos siguientes para eliminarla.
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
@@ -106,7 +109,7 @@ Para eliminar la cuenta de Automation vinculada a un área de trabajo de Log Ana
 
 3. Seleccione **Ir al área de trabajo**.
 
-4. Haga clic en **Soluciones** en **General**.
+4. En **General**, seleccione **Soluciones**.
 
 5. En la página Soluciones, seleccione una de las siguientes opciones en función de las características implementadas en la cuenta:
 

@@ -6,12 +6,12 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/25/2021
-ms.openlocfilehash: 146a1dba3e13ac594e3b4d9edc358d46b0d54201
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 26858ca04af7a96896229c44757fa963ae362f1c
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378497"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110534178"
 ---
 # <a name="azure-cosmos-db-serverless"></a>Azure Cosmos DB sin servidor
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -41,12 +41,12 @@ Consulte el artículo sobre la [elección entre el rendimiento aprovisionado y e
 
 ## <a name="using-serverless-resources"></a>Uso de recursos sin servidor
 
-Sin servidor es un nuevo tipo de cuenta de Azure Cosmos, lo que significa que tiene que elegir entre el **rendimiento aprovisionado** y el modo **sin servidor** al crear una nueva cuenta. Debe crear una nueva cuenta sin servidor para empezar a trabajar sin servidor. Durante la versión preliminar, la única manera admitida para crear una nueva cuenta sin servidor es mediante [Azure Portal](create-cosmosdb-resources-portal.md). Actualmente no se admite la migración de las cuentas existentes a o desde el modo sin servidor.
+Sin servidor es un nuevo tipo de cuenta de Azure Cosmos, lo que significa que tiene que elegir entre el **rendimiento aprovisionado** y el modo **sin servidor** al crear una nueva cuenta. Debe crear una nueva cuenta sin servidor para empezar a trabajar sin servidor. Actualmente no se admite la migración de las cuentas existentes a o desde el modo sin servidor.
 
 Cualquier contenedor que se cree en una cuenta sin servidor será un contenedor sin servidor. Los contenedores sin servidor exponen las mismas funcionalidades que los contenedores creados en el modo de rendimiento aprovisionado, por lo que puede leer, escribir y consultar los datos de la misma manera. Sin embargo, las cuentas y los contenedores sin servidor también tienen características específicas:
 
 - Una cuenta sin servidor solo puede ejecutarse en una única región de Azure. No es posible agregar más regiones de Azure a una cuenta sin servidor después de crearla.
-- No es posible habilitar la [Característica en vista previa (GB) de Synapse Link](synapse-link.md) en una cuenta sin servidor.
+- No es posible habilitar la [característica de Synapse Link](synapse-link.md) en una cuenta sin servidor.
 - El aprovisionamiento de rendimiento no es necesario en los contenedores sin servidor, por lo que se aplican las siguientes instrucciones:
     - No se puede pasar ningún rendimiento al crear un contenedor sin servidor y, si se hace, se devuelve un error.
     - No se puede leer ni actualizar el rendimiento en un contenedor sin servidor y, si se hace, se devuelve un error.

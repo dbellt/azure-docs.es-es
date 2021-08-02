@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: 0fe1470661c006399ea176af1112d271524b2a1f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cb3a7b66d27fcf7669d3d2f863f104a46387e90f
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100390970"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111902490"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolerancia a errores de la actividad de copia en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -246,7 +246,7 @@ En el archivo de registro de ejemplo anterior, puede ver que se ha omitido una f
 
 ## <a name="copying-tabular-data-legacy"></a>Copia de datos tabulares (heredado):
 
-A continuación se presenta la manera heredada de habilitar la tolerancia a errores para copiar solo los datos tabulares. Si va a crear una nueva canalización o actividad, le recomendamos que comience desde [aquí](#copying-tabular-data) en su lugar.
+El siguiente enfoque es la manera heredada de habilitar la tolerancia a errores para copiar solo los datos tabulares. Si va a crear una nueva canalización o actividad, le recomendamos que comience desde [aquí](#copying-tabular-data) en su lugar.
 
 ### <a name="configuration"></a>Configuración
 En el ejemplo siguiente se proporciona una definición JSON para configurar la omisión de las filas incompatibles en la actividad de copia:

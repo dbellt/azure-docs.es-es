@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: mqtt, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 774a8fa05dd5044a07450deb675a6761de9869a3
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 8d551de4e467d602c40fc40889bfc36e5cf69a1d
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107890643"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112075608"
 ---
 # <a name="get-started-with-device-management-nodejs"></a>Introducción a la administración de dispositivos (Node.js)
 

@@ -1,19 +1,19 @@
 ---
-title: 'Preparación de imágenes de conexión de aplicaciones MSIX para Windows Virtual Desktop: Azure'
-description: Creación de una imagen de conexión de aplicaciones MSIX para un grupo de hosts de Windows Virtual Desktop.
+title: 'Preparación de imágenes de conexión de aplicaciones MSIX para Azure Virtual Desktop: Azure'
+description: Creación de una imagen de conexión de aplicaciones MSIX para un grupo de hosts de Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 443f117907381862639564dfbf9752562f4a3564
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: f80d123a96a24ef9e9402cc2b142e94448468ea1
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107363672"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745644"
 ---
-# <a name="prepare-an-msix-image-for-windows-virtual-desktop"></a>Preparación de una imagen de MSIX para Windows Virtual Desktop
+# <a name="prepare-an-msix-image-for-azure-virtual-desktop"></a>Preparación de una imagen de MSIX para Azure Virtual Desktop
 
 La conexión de aplicaciones MSIX es una solución de aplicaciones en capas que le permite conectar dinámicamente las aplicaciones de un paquete MSIX a una sesión de usuario. El sistema de paquetes MSIX separa las aplicaciones del sistema operativo, lo que facilita la creación de imágenes para las máquinas virtuales. Los paquetes MSIX también proporcionan un mayor control sobre las aplicaciones a las que los usuarios pueden acceder en sus máquinas virtuales. Incluso puede separar las aplicaciones de la imagen maestra y proporcionarlas a los usuarios posteriormente.
 
@@ -99,9 +99,9 @@ Después de crear el paquete MSIX, deberá cargar el archivo VHD, VHDX o CIM res
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Pregunte a la comunidad sobre esta característica en el espacio de [TechCommunity sobre Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
+Pregunte a la comunidad sobre esta característica en el espacio de [TechCommunity sobre Azure Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 
-También puede dejar comentarios sobre Windows Virtual Desktop en el [Concentrador de comentarios de Windows Virtual Desktop](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
+También puede dejar comentarios sobre Azure Virtual Desktop en el [Centro de opiniones de Azure Virtual Desktop](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
 
 Estos son algunos otros artículos que pueden resultarle útiles:
 

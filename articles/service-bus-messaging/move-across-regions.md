@@ -2,14 +2,14 @@
 title: Traslado de un espacio de nombres de Service Bus a otra región | Microsoft Docs
 description: En este artículo se muestra cómo trasladar un espacio de nombres de Azure Service Bus desde la región actual a otra región.
 ms.topic: how-to
-ms.date: 06/23/2020
+ms.date: 06/08/2021
 ms.custom: subject-moving-resources
-ms.openlocfilehash: 573ea96437cf6cb76854ffa417fd3ad3fb86138b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9a752e845cf4b819e327bc922fc13199b79ab8d3
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88860486"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111811457"
 ---
 # <a name="move-an-azure-service-bus-namespace-to-another-region"></a>Traslado de un espacio de nombres de Azure Service Bus a otra región
 Existen varios escenarios en los que puede que deba trasladar su espacio de nombres de Service Bus existente de una región a otra. Por ejemplo, si desea crear un espacio de nombres con la misma configuración para realizar pruebas. También es posible que desee mover un espacio de nombres secundario a otra región como parte del [planeamiento de recuperación ante desastres](service-bus-geo-dr.md).
@@ -30,7 +30,7 @@ Para empezar, exporte una plantilla de Resource Manager. Esta plantilla contiene
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione **Todos los recursos** y, después, seleccione su espacio de nombres de Service Bus.
-3. Seleccione > **Configuración** > **Exportar plantilla**.
+3. En la página **Espacio de nombres de Service Bus**, seleccione **Exportar plantilla** en **Automatización** en el menú izquierdo. 
 4. Elija **Descargar** en la página **Exportar plantilla**.
 
     :::image type="content" source="./media/move-across-regions/download-template.png" alt-text="Descarga de la plantilla de Resource Manager":::

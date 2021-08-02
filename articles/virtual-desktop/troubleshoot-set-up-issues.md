@@ -1,29 +1,29 @@
 ---
-title: 'Creación de entornos y grupos de hosts de Windows Virtual Desktop: Azure'
-description: Cómo solucionar problemas de grupos de inquilinos y de hosts durante la instalación de un entorno de Windows Virtual Desktop.
+title: 'Creación de entornos y grupos de hosts de Azure Virtual Desktop: Azure'
+description: Cómo solucionar problemas de grupos de inquilinos y de hosts durante la instalación de un entorno de Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
 ms.custom: references_regions
 ms.date: 02/17/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 4d515e75aba9b3912507da07267c3dcb31f1ee34
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: a18d78fdc6714894a9ce038f1e67e72e0acc0b87
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445506"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111744546"
 ---
 # <a name="host-pool-creation"></a>Creación de grupos de hosts
 
 >[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop con objetos de Windows Virtual Desktop de Azure Resource Manager. Si usa Windows Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/troubleshoot-set-up-issues-2019.md).
+>Este contenido se aplica a Azure Virtual Desktop con objetos de Azure Resource Manager. Si usa Azure Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/troubleshoot-set-up-issues-2019.md).
 
-En este artículo se tratan problemas que se producen durante la instalación inicial del inquilino de Windows Virtual Desktop y la infraestructura del grupo de host de la sesión relacionada.
+En este artículo se tratan problemas que se producen durante la instalación inicial del inquilino de Azure Virtual Desktop y la infraestructura del grupo de hosts de la sesión relacionada.
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 
-Visite la [Comunidad técnica de Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para hablar sobre Windows Virtual Desktop con el equipo de producto y los miembros activos de la comunidad.
+Visite la [comunidad técnica de Azure Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para analizar el servicio Azure Virtual Desktop con el equipo de producto y los miembros activos de la comunidad.
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Adquisición de la imagen de sesión múltiple de Windows 10 Enterprise
 
@@ -56,7 +56,7 @@ Si la operación supera el límite de cuota, puede realizar una de las siguiente
 
 ### <a name="i-only-see-us-when-setting-the-location-for-my-service-objects"></a>Solo veo "US" (EE. UU.) al establecer la ubicación de los objetos de servicio
 
-**Causa**: Azure actualmente no admite esa región para el servicio Windows Virtual Desktop. Para más información sobre las zonas geográficas admitidas, consulte [Ubicaciones de datos](data-locations.md). Si Windows Virtual Desktop admite la ubicación pero todavía no aparece cuando está intentando seleccionar una ubicación, significa que el proveedor de recursos todavía no se ha actualizado.
+**Causa**: Azure actualmente no admite esa región para el servicio Azure Virtual Desktop. Para más información sobre las zonas geográficas admitidas, consulte [Ubicaciones de datos](data-locations.md). Si Azure Virtual Desktop admite la ubicación pero todavía no aparece cuando está intentando seleccionar una ubicación, significa que el proveedor de recursos todavía no se ha actualizado.
 
 **Corrección**: para obtener la lista más reciente de regiones, vuelva a registrar el proveedor de recursos:
 
@@ -122,11 +122,11 @@ Para corregirlo, siga estos pasos:
 > [!div class="mx-imgBorder"]
 > ![Captura de pantalla de error de implementación con error de estado de aprovisionamiento terminal.](media/failure-vmextensionprovisioning.png)
 
-**Causa 1:** Error transitorio del entorno de Windows Virtual Desktop.
+**Causa 1:** Error transitorio del entorno de Azure Virtual Desktop.
 
 **Causa 2:** Error transitorio de conexión.
 
-**Solución:** Inicie sesión con PowerShell para confirmar que el entorno de Windows Virtual Desktop es correcto. Finalice manualmente el registro de la máquina virtual en [Creación de un grupo de host con PowerShell](create-host-pools-powershell.md).
+**Corrección:** Inicie sesión con PowerShell para confirmar que el entorno de Azure Virtual Desktop es correcto. Finalice manualmente el registro de la máquina virtual en [Creación de un grupo de host con PowerShell](create-host-pools-powershell.md).
 
 ### <a name="error-the-admin-username-specified-isnt-allowed"></a>Error: El nombre de usuario de administrador especificado no está permitido
 
@@ -280,13 +280,13 @@ the VM.\\\"
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información general sobre cómo solucionar problemas de Windows Virtual Desktop y las pistas de escalación, consulte [Introducción, comentarios y soporte técnico para solucionar problemas](troubleshoot-set-up-overview.md).
-- Para solucionar problemas al configurar una máquina virtual (VM) en Windows Virtual Desktop, consulte [Configuración de la máquina virtual del host de sesión](troubleshoot-vm-configuration.md).
-- Para solucionar problemas relacionados con el agente de Windows Virtual Desktop o la conectividad de sesión, consulte [Solución de problemas comunes del agente de Windows Virtual Desktop](troubleshoot-agent.md).
-- Para solucionar problemas con conexiones de cliente de Windows Virtual Desktop, consulte [Conexiones de servicios de Windows Virtual Desktop](troubleshoot-service-connection.md).
+- Para información general sobre la solución de problemas de Azure Virtual Desktop y las pistas de escalación, consulte [Introducción a la solución de problemas, comentarios y soporte técnico](troubleshoot-set-up-overview.md).
+- Para solucionar problemas al configurar una máquina virtual (VM) en Azure Virtual Desktop, consulte [Configuración de la máquina virtual del host de sesión](troubleshoot-vm-configuration.md).
+- Para solucionar problemas relacionados con el agente de Azure Virtual Desktop o la conectividad de sesión, consulte [Solución de problemas comunes del agente de Azure Virtual Desktop](troubleshoot-agent.md).
+- Para solucionar problemas con conexiones de cliente de Azure Virtual Desktop, consulte [Conexiones de servicios de Azure Virtual Desktop](troubleshoot-service-connection.md).
 - Para solucionar problemas con los clientes de Escritorio remoto, consulte [Solución de problemas del cliente de Escritorio remoto](troubleshoot-client.md).
-- Para solucionar problemas al usar PowerShell con Windows Virtual Desktop, consulte [PowerShell para Windows Virtual Desktop](troubleshoot-powershell.md).
-- Para más información sobre el servicio, consulte [Entorno de Windows Virtual Desktop](environment-setup.md).
+- Para solucionar problemas al usar PowerShell con Azure Virtual Desktop, consulte [PowerShell para Azure Virtual Desktop](troubleshoot-powershell.md).
+- Para más información sobre el servicio, consulte [Entorno de Azure Virtual Desktop](environment-setup.md).
 - Para realizar un tutorial de solución de problemas, consulte [Tutorial: Solución de problemas de las implementaciones de plantillas de Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
 - Para más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
 - Si desea conocer más detalles sobre las acciones que permiten determinar los errores durante la implementación, consulte [Visualización de operaciones de implementación con el Portal de Azure](../azure-resource-manager/templates/deployment-history.md).

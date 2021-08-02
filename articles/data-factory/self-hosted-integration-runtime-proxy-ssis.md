@@ -5,14 +5,14 @@ ms.service: data-factory
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
-ms.custom: seo-lt-2019
-ms.date: 04/29/2021
-ms.openlocfilehash: 68a15e14b585184bd956c3ac8f79cdd5eac5d76c
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.date: 05/19/2021
+ms.openlocfilehash: dde4c234a6a0459441a601813f4f4a42dfbbff1c
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788074"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110665474"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configuración de IR autohospedado como proxy para Azure-SSIS IR en Azure Data Factory
 
@@ -22,7 +22,7 @@ En este artículo se describe cómo ejecutar paquetes de SQL Server Integration 
 
 Con esta característica, puede acceder a los datos y ejecutar tareas en el entorno local sin tener que [unir la instancia de Azure-SSIS IR a una red virtual](./join-azure-ssis-integration-runtime-virtual-network.md). La característica resulta útil cuando la configuración de la red corporativa es demasiado compleja o una directiva es demasiado restrictiva para que pueda insertar la instancia de Azure-SSIS IR en ella.
 
-Esta característica solo se puede habilitar en las tareas Flujo de datos y Ejecutar SQL de SSIS por el momento. 
+Esta característica solo se puede habilitar por el momento en las tareas de SSIS de flujo de datos y de ejecución de SQL o procesos. 
 
 Cuando se habilita en la tarea Flujo de datos, esta característica la dividirá en dos tareas de almacenamiento provisional siempre que sea aplicable: 
 * **Tarea de almacenamiento provisional en el entorno local**: esta tarea ejecuta el componente de flujo de datos que se conecta a un almacén de datos local en el IR autohospedado. Migra los datos del almacén de datos local a un área de almacenamiento provisional en su instancia de Azure Blob Storage o viceversa.
@@ -30,7 +30,7 @@ Cuando se habilita en la tarea Flujo de datos, esta característica la dividirá
 
 Si la tarea Flujo de datos migra datos del entorno local a la nube, la primera y la segunda tarea de almacenamiento provisional serán una tarea de almacenamiento provisional en el entorno local y una en la nube, respectivamente. Si la tarea Flujo de datos migra datos de la nube al entorno local, la primera y la segunda tarea de almacenamiento provisional serán una tarea de almacenamiento provisional en la nube y una en el entorno local, respectivamente. Si la tarea Flujo de datos migra datos de un entorno local a otro, la primera y la segunda tarea de almacenamiento provisional serán ambas en el entorno local. Si la tarea Flujo de datos migra datos de una instancia en la nube a otra, esta característica no aplica.
 
-Si se habilita en la tarea Ejecutar SQL, esta característica la ejecutará en el entorno de ejecución de integración autohospedado. 
+Habilitada en las tareas de ejecución de SQL o procesos, esta característica las ejecutará en su entorno de ejecución de integración autohospedado. 
 
 Otras ventajas y funcionalidades de esta característica permiten, por ejemplo, configurar IR autohospedado en regiones que Azure-SSIS IR todavía no admite y permitir la dirección IP estática pública de la instancia del entorno de ejecución de integración autohospedado en el firewall de los orígenes de datos.
 
@@ -40,8 +40,8 @@ Para usar esta característica, primero debe crear una factoría de datos y conf
 
 A continuación, configure la instancia de IR autohospedado en la misma factoría de datos en la que está configurada la instancia de Azure-SSIS IR. Para ello, consulte [Creación de un entorno de ejecución de integración autohospedado](./create-self-hosted-integration-runtime.md).
 
-Por último, descargue e instale la versión más reciente de IR autohospedado, así como los controladores y el entorno de ejecución adicionales, en la máquina virtual de Azure o en el equipo local, tal como se indica a continuación:
-- Descargue e instale la versión más reciente de [IR autohospedado](https://www.microsoft.com/download/details.aspx?id=39717).
+Por último, descargue e instale la versión más reciente del entorno de ejecución de integración autohospedado, así como los controladores y el entorno de ejecución adicionales, en la máquina local o en la máquina virtual de Azure, de la manera siguiente:
+- Descargue e instale la versión más reciente del [entorno de ejecución de integración autohospedado](https://www.microsoft.com/download/details.aspx?id=39717).
 - Si usa conectores de base de datos de vinculación e incrustación de objetos (OLEDB), de conectividad abierta de bases de datos (ODBC) o de ADO.NET en los paquetes, descargue e instale los controladores apropiados en el mismo equipo en el que está instalada la instancia de IR autohospedado, si aún no lo ha hecho.  
 
   Si usa la versión anterior del controlador OLEDB para SQL Server (SQL Server Native Client [SQLNCLI]), [descargue la versión de 64 bits](https://www.microsoft.com/download/details.aspx?id=50402).  
@@ -49,13 +49,14 @@ Por último, descargue e instale la versión más reciente de IR autohospedado, 
   Si usa la versión más reciente del controlador OLEDB para SQL Server (MSOLEDBSQL), [descargue la versión de 64 bits](https://www.microsoft.com/download/details.aspx?id=56730).  
   
   Si usa controladores OLEDB/ODBC/ADO.NET para otros sistemas de base de datos, como PostgreSQL, MySQL, Oracle, etc., puede descargar las versiones de 64 bits de sus sitios web.
+- Si usa componentes de flujo de datos de Azure Feature Pack de los paquetes, [descargue e instale Azure Feature Pack para SQL Server 2017](https://www.microsoft.com/download/details.aspx?id=54798) en la misma máquina en la que está instalado el entorno de ejecución de integración autohospedado, si aún no lo ha hecho.
 - Si aún no lo ha hecho, [descargue e instale la versión de 64 bits del entorno de ejecución de Visual C++ (VC)](https://www.microsoft.com/download/details.aspx?id=40784) en la misma máquina en la que está instalada la instancia de IR autohospedado.
 
 ### <a name="enable-windows-authentication-for-on-premises-tasks"></a>Habilitación de la autenticación de Windows en tareas del entorno local
 
-Si las tareas de almacenamiento provisional en el entorno local o las tareas Ejecutar SQL en el IR autohospedado requieren la autenticación de Windows, también debe [configurar la característica autenticación de Windows en la instancia de Azure-SSIS IR](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth). 
+Si las tareas de almacenamiento provisional en el entorno local y las tareas de ejecución de SQL o procesos en el entorno de ejecución de integración autohospedado requieren la autenticación de Windows, también debe [configurar la característica de autenticación de Windows en la instancia de Azure-SSIS IR](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth). 
 
-Las tareas de almacenamiento provisional en el entorno local o las tareas Ejecutar SQL se invocarán con la cuenta de servicio de IR autohospedado (*NT SERVICE\DIAHostService* de manera predeterminada) y se accederá a los almacenes de datos con la cuenta de autenticación de Windows. Ambas cuentas requieren que se les asignen determinadas directivas de seguridad. En el equipo de IR autohospedado, vaya a **Directiva de seguridad local** > **Directivas locales** > **Asignación de derechos de usuario** y haga lo siguiente:
+Las tareas de almacenamiento provisional en el entorno local o las tareas de ejecución de SQL o procesos se invocarán con la cuenta del servicio IR autohospedado (*NT SERVICE\DIAHostService* de manera predeterminada) y el acceso a los almacenes de datos se realizará con la cuenta de autenticación de Windows. Ambas cuentas requieren que se les asignen determinadas directivas de seguridad. En el equipo de IR autohospedado, vaya a **Directiva de seguridad local** > **Directivas locales** > **Asignación de derechos de usuario** y haga lo siguiente:
 
 1. Asigne las directivas *Ajustar las cuotas de la memoria para un proceso* y *Reemplazar un símbolo (token) de nivel de proceso* a la cuenta del servicio de IR autohospedado. Esto debe producirse automáticamente al instalar el IR autohospedado con la cuenta de servicio predeterminada. Si no es así, asigne esas directivas de forma manual. Si utiliza una cuenta de servicio diferente, asígnele las mismas directivas.
 
@@ -129,36 +130,36 @@ Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
 
 ## <a name="enable-ssis-packages-to-use-a-proxy"></a>Habilitación de paquetes SSIS para usar un proxy
 
-Mediante el uso de SSDT más reciente, ya sea como extensión de proyectos SSIS para Visual Studio o un instalador independiente, puede encontrar la nueva propiedad `ConnectByProxy` en los administradores de conexiones para los componentes de flujo de datos compatibles y la propiedad `ExecuteOnProxy` en la tarea Ejecutar SQL.
+Mediante el uso del SSDT más reciente, ya sea como extensión de proyectos SSIS para Visual Studio o como instalador independiente, puede encontrar la nueva propiedad `ConnectByProxy` en los administradores de conexiones para componentes de flujo de datos admitidos y la propiedad `ExecuteOnProxy` en las tareas de ejecución de SQL o procesos.
 * [Descargar la extensión de proyectos SSIS para Visual Studio](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects)
 * [Descargar el instalador independiente](/sql/ssdt/download-sql-server-data-tools-ssdt#ssdt-for-vs-2017-standalone-installer)   
 
 Al diseñar paquetes nuevos que contienen tareas Flujo de datos con componentes para acceder a datos en el entorno local, puede habilitar la propiedad `ConnectByProxy` si la establece en *True* en el panel **Propiedades** de los administradores de conexiones correspondientes.
 
-Al diseñar paquetes nuevos que contienen tareas Ejecutar SQL que se ejecutan en el entorno local, puede habilitar la propiedad `ExecuteOnProxy` si la establece en *True* en el panel **Propiedades** de las tareas correspondientes.
+Al diseñar paquetes nuevos que contienen tareas de ejecución de SQL o procesos que se ejecutan en el entorno local, puede habilitar la propiedad `ExecuteOnProxy` si la establece en *True* en el panel **Propiedades** de las tareas correspondientes.
 
-![Habilitación de la propiedad ConnectByProxy](media/self-hosted-integration-runtime-proxy-ssis/shir-proxy-properties.png)
+![Habilitación de la propiedad ConnectByProxy/ExecuteOnProxy](media/self-hosted-integration-runtime-proxy-ssis/shir-proxy-properties.png)
 
 También puede habilitar las propiedades `ConnectByProxy`/`ExecuteOnProxy` al ejecutar paquetes existentes sin tener que cambiarlos manualmente uno a uno. Hay dos opciones:
 - **Opción A**: Abrir, recompilar y volver a implementar el proyecto que contiene los paquetes con la extensión SSDT más reciente para ejecutarla en Azure-SSIS IR. A continuación, puede habilitar la propiedad `ConnectByProxy` si la establece en *True* para los administradores de conexiones correspondientes que aparecen en la pestaña **Administradores de conexiones** de la ventana emergente **Ejecutar paquete** al ejecutar paquetes de SSMS.
 
-  ![Habilitación de la propiedad ConnectByProxy 2](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssms.png)
+  ![Habilitación de la propiedad ConnectByProxy/ExecuteOnProxy2](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssms.png)
 
   También puede habilitar la propiedad `ConnectByProxy` si la establece en *True* para los administradores de conexiones correspondientes que aparecen en la pestaña **Administradores de conexiones** de la actividad [Ejecutar paquete de SSIS](./how-to-invoke-ssis-package-ssis-activity.md) al ejecutar paquetes en las canalizaciones de Data Factory.
   
-  ![Habilitación de la propiedad ConnectByProxy 3](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssis-activity.png)
+  ![Habilitación de la propiedad ConnectByProxy/ExecuteOnProxy3](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssis-activity.png)
 
-- **Opción B:** Volver a implementar el proyecto que contiene los paquetes que se van a ejecutar en el entorno de ejecución de integración de SSIS. A continuación, puede habilitar las propiedades `ConnectByProxy`/`ExecuteOnProxy` si especifica sus rutas de acceso de propiedad `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`/`\Package\YourExecuteSQLTaskName.Properties[ExecuteOnProxy]` y las establece en *True* como una invalidación de propiedad en la pestaña **Avanzadas** de la ventana emergente **Ejecutar paquete** cuando ejecute paquetes de SSMS.
+- **Opción B:** Volver a implementar el proyecto que contiene los paquetes que se van a ejecutar en el entorno de ejecución de integración de SSIS. Para habilitar las propiedades `ConnectByProxy`/`ExecuteOnProxy`, puede proporcionar sus rutas de acceso, `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`/`\Package\YourExecuteSQLTaskName.Properties[ExecuteOnProxy]`/`\Package\YourExecuteProcessTaskName.Properties[ExecuteOnProxy]` y establecerlas en *True*, dado que la propiedad se invalida en la pestaña **Avanzadas** de la ventana emergente **Ejecutar paquete** cuando se ejecutan paquetes desde SSMS.
 
-  ![Habilitación de la propiedad ConnectByProxy 4](media/self-hosted-integration-runtime-proxy-ssis/shir-advanced-tab-ssms.png)
+  ![Habilitación de la propiedad ConnectByProxy/ExecuteOnProxy4](media/self-hosted-integration-runtime-proxy-ssis/shir-advanced-tab-ssms.png)
 
-  También puede habilitar las propiedades `ConnectByProxy`/`ExecuteOnProxy` si especifica sus rutas de acceso de propiedad`\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`/`\Package\YourExecuteSQLTaskName.Properties[ExecuteOnProxy]` y las establece en *True* como una invalidación de propiedad en la pestaña **Invalidaciones de propiedad** de la [actividad Ejecutar paquete de SSIS](./how-to-invoke-ssis-package-ssis-activity.md) cuando ejecute paquetes en las canalizaciones de Data Factory.
+  Otra manera de habilitar las propiedades `ConnectByProxy`/`ExecuteOnProxy` es proporcionar sus rutas de acceso, `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`/`\Package\YourExecuteSQLTaskName.Properties[ExecuteOnProxy]`/`\Package\YourExecuteProcessTaskName.Properties[ExecuteOnProxy]`, y establecerlas en *True*, dado que la propiedad se invalida en la pestaña **Invalidaciones de propiedad** de la actividad [Ejecutar paquete de SSIS](./how-to-invoke-ssis-package-ssis-activity.md) al ejecutar paquetes en canalizaciones de Data Factory.
   
-  ![Habilitación de la propiedad ConnectByProxy 5](media/self-hosted-integration-runtime-proxy-ssis/shir-property-overrides-tab-ssis-activity.png)
+  ![Habilitación de la propiedad ConnectByProxy/ExecuteOnProxy5](media/self-hosted-integration-runtime-proxy-ssis/shir-property-overrides-tab-ssis-activity.png)
 
 ## <a name="debug-the-on-premises-tasks-and-cloud-staging-tasks"></a>Depuración de tareas en el entorno local y tareas de almacenamiento provisional en la nube
 
-En la instancia de IR autohospedado, puede encontrar los registros del entorno de ejecución en la carpeta *C:\ProgramData\SSISTelemetry* y los registros de ejecución de las tareas de almacenamiento provisional en el entorno local o de las tareas Ejecutar SQL en la carpeta *C:\ProgramData\SSISTelemetry\ExecutionLog*. Puede encontrar los registros de ejecución de las tareas de almacenamiento provisional en la nube en la instancia de SSISDB, en las rutas de acceso de registro especificadas o en Azure Monitor, en función de si los paquetes se almacenan en SSISDB, si se habilita la [integración de Azure Monitor](./monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor), etc. También puede encontrar los identificadores únicos de las tareas de almacenamiento provisional en el entorno local en los registros de ejecución de las tareas de almacenamiento provisional en la nube. 
+En el entorno de ejecución de integración autohospedado, puede encontrar los registros del entorno de ejecución en la carpeta *C:\ProgramData\SSISTelemetry* y los registros de ejecución de las tareas de almacenamiento provisional local o de las tareas de ejecución de SQL o procesos en la carpeta *C:\ProgramData\SSISTelemetry\ExecutionLog*. Puede encontrar los registros de ejecución de las tareas de almacenamiento provisional en la nube en la instancia de SSISDB, en las rutas de acceso de registro especificadas o en Azure Monitor, en función de si los paquetes se almacenan en SSISDB, si se habilita la [integración de Azure Monitor](./monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor), etc. También puede encontrar los identificadores únicos de las tareas de almacenamiento provisional en el entorno local en los registros de ejecución de las tareas de almacenamiento provisional en la nube. 
 
 ![Identificador único de la primera tarea de almacenamiento provisional](media/self-hosted-integration-runtime-proxy-ssis/shir-first-staging-task-guid.png)
 
@@ -166,7 +167,7 @@ Si ha generado incidencias de soporte técnico, puede seleccionar el botón **En
 
 ## <a name="billing-for-the-on-premises-tasks-and-cloud-staging-tasks"></a>Facturación de las tareas en el entorno local y tareas de almacenamiento provisional en la nube
 
-Las tareas de almacenamiento provisional en el entorno local o las tareas Ejecutar SQL que se ejecutan en la instancia de IR autohospedado se facturan por separado, de la misma forma que se facturan las actividades de movimiento de datos que se ejecutan en una instancia de IR autohospedado. Esto se especifica en el artículo [Azure Data Factory: Precios de las canalizaciones de datos](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/).
+Las tareas de almacenamiento provisional local o las tareas de ejecución de SQL o procesos que se ejecutan en el entorno de ejecución de integración autohospedado se facturan por separado, de la misma forma que se facturan las actividades de movimiento de datos que se ejecutan en dicho entorno. Esto se especifica en el artículo [Azure Data Factory: Precios de las canalizaciones de datos](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/).
 
 Las tareas de almacenamiento provisional en la nube que se ejecutan en la instancia de Azure-SSIS IR no se facturan por separado, pero la instancia de Azure-SSIS IR en ejecución se factura tal como se especifica en el artículo sobre [Precios de Azure-SSIS IR](https://azure.microsoft.com/pricing/details/data-factory/ssis/).
 

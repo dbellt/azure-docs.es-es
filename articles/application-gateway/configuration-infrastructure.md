@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 06/14/2021
 ms.author: surmb
-ms.openlocfilehash: f214b0b0751f44ea1357f569fd814a7621af61ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 785741c029fa3b44fffca5140906689f478fb247
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93397627"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081234"
 ---
 # <a name="application-gateway-infrastructure-configuration"></a>Configuración de la infraestructura de Azure Application Gateway
 
@@ -35,7 +35,13 @@ Ahora imagine una subred que tiene 27 instancias de Application Gateway y una di
 
 La SKU de Application Gateway (Estándar o WAF) puede admitir hasta 32 instancias (32 instancias de direcciones IP + 1 dirección IP de front-end privada + 5 instancias reservadas de Azure), por lo que se recomienda un tamaño de subred mínimo de /26.
 
-Application Gateway (SKU Standard_v2 o WAF_v2) puede admitir hasta 125 instancias (125 instancias de direcciones IP + 1 dirección IP de front-end privada + 5 instancias reservadas de Azure), por lo que se recomienda un tamaño de subred mínimo de /24.
+Application Gateway (SKU Standard_v2 o WAF_v2) puede admitir hasta 125 instancias (125 instancias de direcciones IP + 1 dirección IP de front-end privada + 5 instancias reservadas de Azure). Se recomienda un tamaño mínimo de subred de /24.
+
+> [!IMPORTANT]
+> Aunque no se requiere una subred /24 por cada implementación de SKU v2 de Application Gateway, se recomienda encarecidamente. Esto es así para asegurarse de que Application Gateway v2 tenga suficiente espacio para la expansión del escalado automático y las actualizaciones de mantenimiento. Debe asegurarse de que la subred Application Gateway v2 tenga suficiente espacio de direcciones para dar cabida al número de instancias necesarias para atender el tráfico máximo esperado. Si especifica el recuento de instancias máximo, la subred debe tener capacidad cómo mínimo para ese número de direcciones. Para planear la capacidad según el recuento de instancias, consulte [detalles del recuento de instancias](understanding-pricing.md#instance-count).
+
+> [!TIP]
+> Es posible cambiar la subred de una instancia de Application Gateway dentro de la misma red virtual. Puede hacerlo con Azure PowerShell o la CLI de Azure. Para más información, consulte las [preguntas más frecuentes sobre Application Gateway](application-gateway-faq.yml#can-i-change-the-virtual-network-or-subnet-for-an-existing-application-gateway).
 
 ## <a name="network-security-groups"></a>Grupos de seguridad de red
 

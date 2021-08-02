@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: 65883d34a6161a0bd0faf2a11a0ab528c7e12191
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 80976d3c73a20f7f152f33a8d70cbbd4687a7bd9
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107883965"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111810362"
 ---
 # <a name="manage-public-ip-addresses"></a>Administración de direcciones IP públicas
 
@@ -97,7 +97,7 @@ Para obtener detalles adicionales sobre los atributos específicos de una direcc
 
 ## <a name="virtual-machine-scale-sets"></a>Virtual Machine Scale Sets
 
-Al usar un conjunto de escalado de máquinas virtuales con direcciones IP públicas, no hay objetos de IP pública independientes asociados a las instancias de máquina virtual individuales. Sin embargo, se puede usar un objeto de prefijo de dirección IP pública [para generar las direcciones IP de la instancia](https://azure.microsoft.com/resources/templates/101-vmms-with-public-ip-prefix/).
+Al usar un conjunto de escalado de máquinas virtuales con direcciones IP públicas, no hay objetos de IP pública independientes asociados a las instancias de máquina virtual individuales. Sin embargo, se puede usar un objeto de prefijo de dirección IP pública [para generar las direcciones IP de la instancia](https://azure.microsoft.com/resources/templates/vmms-with-public-ip-prefix/).
 
 Para enumerar las direcciones IP públicas de un conjunto de escalado de máquinas virtuales, puede usar PowerShell ([Get-AzPublicIpAddress -VirtualMachineScaleSetName](/powershell/module/az.network/get-azpublicipaddress)) o la CLI ([az vmss list-instance-public-ips](/cli/azure/vmss#az_vmss_list_instance_public_ips)).
 
