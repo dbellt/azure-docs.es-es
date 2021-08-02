@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 4ece05601efb515b3eab0f884aeff3d8add1bed0
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 7371bc023cc13278c0d1382ac1ac60ee42a39f0b
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128908"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109809147"
 ---
-# <a name="source-control-in-azure-synapse-studio"></a>Control de código fuente en Azure Synapse Studio
+# <a name="source-control-in-synapse-studio"></a>Control de código fuente en Synapse Studio
 
-De forma predeterminada, Azure Synapse Studio crea directamente en el servicio Synapse. Si necesita colaboración al usar Git para el control de código fuente, Synapse Studio permite asociar el área de trabajo a un repositorio de Git, Azure DevOps o GitHub. 
+De forma predeterminada, Synapse Studio crea directamente en el servicio Synapse. Si necesita colaboración al usar Git para el control de código fuente, Synapse Studio permite asociar el área de trabajo a un repositorio de Git, Azure DevOps o GitHub. 
 
 En este artículo se describe cómo configurar un área de trabajo de Synapse y trabajar con él con el repositorio de Git habilitado. Además, destacamos algunos procedimientos recomendados y una guía de solución de problemas.
 
 > [!NOTE]
-> La integración de Git de Azure Synapse Studio no está disponible en la nube de Azure Government.
+> La integración de Git de Synapse Studio no está disponible en la nube de Azure Government.
 
 ## <a name="configure-git-repository-in-synapse-studio"></a>Configuración del repositorio de Git en Synapse Studio 
 
@@ -176,7 +176,7 @@ De forma predeterminada, Synapse Studio genera las plantillas del área de traba
 }
 ```
 
-Azure Synapse Studio solo puede tener una rama de publicación cada vez. Al especificar una nueva rama de publicación, la rama de publicación anterior no se elimina. Si quiere quitar la rama de publicación anterior, tiene que hacerlo manualmente.
+Synapse Studio no puede tener varias ramas de publicación simultaneas. Al especificar una nueva rama de publicación, la rama de publicación anterior no se elimina. Si quiere quitar la rama de publicación anterior, tiene que hacerlo manualmente.
 
 
 ### <a name="publish-code-changes"></a>Cambios de código publicando

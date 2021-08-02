@@ -1,5 +1,5 @@
 ---
-title: Uso del módulo Indoor Maps de Azure Maps con los servicios de Microsoft Creator (versión preliminar)
+title: Uso del módulo Indoor Maps de Azure Maps con los servicios de Microsoft Creator
 description: Obtenga información sobre cómo usar el módulo de mapas de Microsoft Azure Maps Indoor para representar mapas mediante la inserción de las bibliotecas de JavaScript del módulo.
 author: anastasia-ms
 ms.author: v-stharr
@@ -9,25 +9,21 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: e527cf5fa6a7caaeaf56ea19d684dd0830d5ca8a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 59521aa0be652ef37c39f45bb323fbc49a93b99d
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708686"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112030420"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Uso del módulo de mapas de Azure Maps Indoor
 
-> [!IMPORTANT]
-> Los servicios de Azure Maps Creator se encuentran actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+El SDK web de Azure Maps incluye el módulo de *Azure Maps Indoor*. El módulo *Indoor de Azure Maps* permite representar mapas de interiores creados en servicios de Azure Maps Creator.
 
-El SDK web de Azure Maps incluye el módulo de *Azure Maps Indoor*. El módulo *Indoor Maps de Azure Maps* permite representar mapas de interiores creados en servicios de Azure Maps Creator (versión preliminar) 
-
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 1. [Cree una cuenta de Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account).
-2. [Cree un recurso de Creator (versión preliminar)](how-to-manage-creator.md)
+2. [Cree un recurso de Creator](how-to-manage-creator.md).
 3. [Obtenga una clave de suscripción principal](quick-demo-map-app.md#get-the-primary-key-for-your-account), también conocida como clave principal o clave de suscripción.
 4. Complete el [tutorial de creación de planos interiores](tutorial-creator-indoor-maps.md) para obtener `tilesetId` y `statesetId`.
  Deberá utilizar estos identificadores para representar planos interiores con el módulo de mapas de Azure Maps Indoor.
@@ -151,7 +147,7 @@ En este ejemplo se muestra cómo usar el módulo de *Azure Maps Indoor* en la ap
 4. Inicialice un *objeto de mapa*. El *objeto de mapa* admite las siguientes opciones:
     - `Subscription key` es la clave de suscripción principal de Azure Maps.
     - `center` define la latitud y la longitud de la ubicación del centro del plano interior. Proporcione un valor para `center` si no quiere proporcionar un valor para `bounds`. El formato debe mostrarse como `center`: [-122.13315, 47.63637].
-    - `bounds` es la forma rectangular más pequeña que incluye los datos del mapa de conjunto de mosaicos. Establezca un valor para `bounds` si no quiere establecer un valor para `center`. Puede buscar los límites del mapa mediante una llamada a [Tileset List API](/rest/api/maps/tileset/listpreview). Tileset List API devuelve `bbox`, que puede analizar y asignar a `bounds`. El formato debe aparecer como `bounds`: [# west, # south, # east, # north].
+    - `bounds` es la forma rectangular más pequeña que incluye los datos del mapa de conjunto de mosaicos. Establezca un valor para `bounds` si no quiere establecer un valor para `center`. Puede buscar los límites del mapa mediante una llamada a [Tileset List API](/rest/api/maps/v2/tileset/list). Tileset List API devuelve `bbox`, que puede analizar y asignar a `bounds`. El formato debe aparecer como `bounds`: [# west, # south, # east, # north].
     - `style` le permite establecer el color del fondo. Para mostrar un fondo blanco, defina `style` como "en blanco".
     - `zoom` permite especificar los niveles mínimo y máximo de zoom para el mapa.
 
@@ -255,7 +251,7 @@ Obtenga información acerca de las API relacionadas con el módulo de *Azure Map
 > [Requisitos de paquetes de dibujos](drawing-requirements.md)
 
 >[!div class="nextstepaction"]
-> [Creator (versión preliminar) para mapas de interiores](creator-indoor-maps.md)
+> [Creator para planos interiores](creator-indoor-maps.md)
 
 Obtenga más información sobre cómo agregar más datos al mapa:
 

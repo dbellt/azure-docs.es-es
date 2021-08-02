@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
 ms.date: 03/30/2021
-ms.openlocfilehash: 90ee8ad1113f3c62ff5a1a40440d1b4e9a7a66eb
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 71a8dc9c72672ae0bee18be159631daba3d88a39
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108133518"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110062009"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guía de referencia para usar las funciones en las expresiones para Azure Logic Apps y Power Automate
 
@@ -2591,7 +2591,7 @@ Y devuelve este resultado:
 
 En este ejemplo se usan las funciones `json()` y `xml()` para convertir XML que tiene un único elemento secundario en el elemento raíz en un objeto JSON denominado `person` para ese elemento secundario:
 
-`json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))`
+`json(xml('<?xml version="1.0"?> <root> <person id="1"> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))`
 
 Y devuelve este resultado:
 
@@ -2614,7 +2614,7 @@ Y devuelve este resultado:
 
 En este ejemplo se usan las funciones `json()` y `xml()` para convertir XML que tiene varios elementos secundarios en el elemento raíz en una matriz denominada `person` que contiene objetos JSON para esos elementos secundarios:
 
-`json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> <person id='2'> <name>John Doe</name> <occupation>Engineer</occupation> </person> </root>'))`
+`json(xml('<?xml version="1.0"?> <root> <person id="1"> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> <person id="2"> <name>John Doe</name> <occupation>Engineer</occupation> </person> </root>'))`
 
 Y devuelve este resultado:
 
@@ -4754,9 +4754,9 @@ xml('<value>')
 
 *Ejemplo 1*
 
-Este ejemplo crea la versión XML de esta cadena, que contiene un objeto JSON:
+Este ejemplo convierte la cadena en XML:
 
-`xml(json('{ \"name\": \"Sophia Owen\" }'))`
+`xml('<name>Sophia Owen</name>')`
 
 Y devuelve este código XML resultante:
 
@@ -4765,6 +4765,18 @@ Y devuelve este código XML resultante:
 ```
 
 *Ejemplo 2*
+
+Este ejemplo crea la versión XML de esta cadena, que contiene un objeto JSON:
+
+`xml(json('{ "name": "Sophia Owen" }'))`
+
+Y devuelve este código XML resultante:
+
+```xml
+<name>Sophia Owen</name>
+```
+
+*Ejemplo 3*
 
 Suponga que tiene este objeto JSON:
 
@@ -4779,7 +4791,7 @@ Suponga que tiene este objeto JSON:
 
 Este ejemplo crea código XML de una cadena que contiene este objeto JSON:
 
-`xml(json('{\"person\": {\"name\": \"Sophia Owen\", \"city\": \"Seattle\"}}'))`
+`xml(json('{"person": {"name": "Sophia Owen", "city": "Seattle"}}'))`
 
 Y devuelve este código XML resultante:
 

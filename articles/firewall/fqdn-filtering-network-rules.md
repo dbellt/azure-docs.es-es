@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/06/2020
+ms.date: 06/11/2021
 ms.author: victorh
-ms.openlocfilehash: f7196c7715ad5d2c02759040b780b96218e1655e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f28092c050e58c6ef90a3faf07034be21198008a
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94695952"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112017206"
 ---
 # <a name="use-fqdn-filtering-in-network-rules"></a>Uso del filtrado de FQDN en reglas de red
 
@@ -32,8 +32,9 @@ Cuando se produce una nueva resolución DNS, se agregan nuevas direcciones IP a 
 - El filtrado de FQDN en reglas de aplicación para HTTP/S y MSSQL se basa en un proxy transparente de nivel de aplicación y el encabezado SNI. Como tal, puede distinguir entre dos FQDN que se resuelven en la misma dirección IP. Este no es el caso del filtrado de FQDN en reglas de red. 
 
    Use siempre reglas de aplicación cuando sea posible:
-     - Si el protocolo es HTTP/S o MSSQL, use reglas de aplicación para el filtrado de FQDN.
-   - Para cualquier otro protocolo además de HTTP/HTTPS o MSSQL, puede usar reglas de aplicación o de red para el filtrado de FQDN.
+  - Si el protocolo es HTTP/S o MSSQL, use reglas de aplicación para el filtrado de FQDN.
+  - Para servicios como AzureBackup, HDInsight, etc., use reglas de aplicación con etiquetas FQDN.
+  - Para cualquier otro protocol, puede usar reglas de aplicación o de red para el filtrado de FQDN.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

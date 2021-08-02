@@ -7,12 +7,12 @@ ms.topic: article
 author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: 4be063342a6c46d73c86f2d9dff1da5395328389
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b82fb574b134065f3c0f1a7dc5a4742258914ff6
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102583584"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112017422"
 ---
 # <a name="custom-query-specification"></a>Especificación de consulta personalizada
 
@@ -60,10 +60,10 @@ Estas son algunas consultas de ejemplo que muestran cómo extraer varios tipos d
 
 | Consultar | Descripción |
 | ------------ | ------------- |
-| **SELECT** MarketplaceSubscriptionId,CustomerId **FROM** ISVUsage **TIMESPAN LAST_MONTH** | Esta consulta obtendrá todos los `MarketplaceSubscriptionId` únicos y su correspondiente `CustomerId` del último mes. |
+| **SELECT** MarketplaceSubscriptionId,CustomerId **FROM** ISVUsage **TIMESPAN LAST_MONTH** | Esta consulta obtiene cada `MarketplaceSubscriptionId` y su correspondiente `CustomerId` en el último mes. |
 | **SELECT** MarketplaceSubscriptionId, EstimatedExtendedChargeCC **FROM** ISVUsage **ORDER BY** EstimatedExtendedChargeCC **LIMIT** 10 | Esta consulta obtendrá las 10 principales suscripciones en orden decreciente de las licencias vendidas de cada suscripción. |
-| **SELECT** CustomerId, NormalizedUsage, RawUsage **FROM** ISVUsage **ORDER BY** NormalizedUsage **WHERE** NormalizedUsage > 100000 **ORDER BY** NormalizedUsage **TIMESPAN** LAST_6_MONTHS | Esta consulta obtendrá los elementos NormalizedUsage y RawUsage de todos los clientes cuyo elemento NormalizedUsage es mayor que 100 000. |
-| **SELECT** MarketplaceSubscriptionId, MonthStartDate, NormalizedUsage **FROM** ISVUsage **WHERE** CustomerId IN (‘2a31c234-1f4e-4c60-909e-76d234f93161’, ‘80780748-3f9a-11eb-b378-0242ac130002’) | Esta consulta obtendrá el `MarketplaceSubscriptionId` y los ingresos generados para cada mes por los dos valores de `CustomerId`: `2a31c234-1f4e-4c60-909e-76d234f93161` y `80780748-3f9a-11eb-b378-0242ac130002` . |
+| **SELECT** CustomerId, NormalizedUsage, RawUsage **FROM** ISVUsage **WHERE** NormalizedUsage > 100000 **ORDER BY** NormalizedUsage **TIMESPAN** LAST_6_MONTHS | Esta consulta obtendrá los elementos NormalizedUsage y RawUsage de todos los clientes cuyo elemento NormalizedUsage es mayor que 100 000. |
+| **SELECT** MarketplaceSubscriptionId, MonthStartDate, NormalizedUsage **FROM** ISVUsage **WHERE** CustomerId IN (‘2a31c234-1f4e-4c60-909e-76d234f93161’, ‘80780748-3f9a-11eb-b378-0242ac130002’) | Esta consulta obtiene `MarketplaceSubscriptionId` y el uso normalizado de cada mes por los dos valores `CustomerId`: `2a31c234-1f4e-4c60-909e-76d234f93161` y `80780748-3f9a-11eb-b378-0242ac130002`. |
 |||
 
 ## <a name="query-specification"></a>Especificación de consulta
@@ -118,10 +118,17 @@ A continuación, se describe cada uno de los elementos.
 
 #### <a name="select"></a>SELECT
 
-Este elemento de la consulta especifica las columnas que se exportarán. Las columnas que se pueden seleccionar son los campos enumerados en las secciones `selectableColumns` y `availableMetrics` de un conjunto de datos. Las filas exportadas finales siempre contendrán valores distintos en las columnas seleccionadas. Por ejemplo, no habrá filas duplicadas en el archivo exportado. Se calcularán las métricas para cada combinación distinta de las columnas seleccionadas.
+Este elemento de la consulta especifica las columnas que se exportarán. Las columnas que se pueden seleccionar son los campos enumerados en las secciones `selectableColumns` y `availableMetrics` de un conjunto de datos. Si hay una columna de métricas incluida en la lista de campos seleccionados, las métricas se calcularán para cada combinación distinta de las columnas que no son métricas. 
 
 **Ejemplo**:
 - **SELECT** `OfferName`, `NormalizedUsage`
+
+#### <a name="distinct"></a>DISTINCT
+
+Agregar la palabra clave DISTINCT después de SELECT garantiza que los datos exportados finales no tendrán filas duplicadas. La palabra clave DISTINCT funciona independientemente de si se selecciona o no una columna de métrica.
+
+**Ejemplo**:
+- **SELECT DISTINCT** `MarketplaceSubscriptionId, OfferType`
 
 #### <a name="from"></a>FROM
 

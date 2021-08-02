@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/28/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 0997c74b8b99638771152620743f23e0816e178e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: e766b2aba1aef47b16b4351c7852bb2f457475fa
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108756762"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111887607"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos del sistema de Azure Import/Export
 
@@ -46,7 +46,7 @@ El servicio Azure Import/Export admite los siguientes tipos de cuentas de almace
 - Cuentas de almacenamiento de uso general v1 (implementación clásica o de Azure Resource Manager)
 
 > [!IMPORTANT]
-> La compatibilidad con el protocolo Network File System (NFS) 3.0 en Azure Blob Storage no se admite con Azure Import/Export.
+> La compatibilidad con el protocolo Network File System (NFS) 3.0 en Azure Blob Storage no se admite con Azure Import/Export.
 
 Para más información sobre las cuentas de almacenamiento, vea [Información general acerca de las cuentas de Azure Storage](../storage/common/storage-account-overview.md).
 
@@ -62,7 +62,7 @@ La siguiente lista muestra los tipos de almacenamiento que se admiten con el ser
 
 |Trabajo  |Servicio de almacenamiento |Compatible  |No compatible  |
 |---------|---------|---------|---------|
-|Importar     |  Azure Blob Storage <br><br> Almacenamiento de archivos de Azure       | Blobs en bloques y blobs en páginas admitidos <br><br> Archivos admitidos          |
+|Importar     |  Azure Blob Storage <br><br> Almacenamiento de Azure Files       | Blobs en bloques y blobs en páginas admitidos <br><br> Archivos admitidos          |
 |Exportación     |   Azure Blob Storage       | Blobs en bloques, blobs en páginas y blobs en anexos admitidos         | No se admite Azure Files<br>No se admite la exportación desde el nivel de acceso de archivo|
 
 

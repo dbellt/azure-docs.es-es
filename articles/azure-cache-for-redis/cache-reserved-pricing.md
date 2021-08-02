@@ -6,18 +6,18 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 2f3472aa495042749410bc0b9635f0924a02e1fd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d9fcb8567d9f7593a059567df6edc279b6fa701c
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98598559"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110782951"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>Pago por adelantado de recursos de proceso de Azure Cache for Redis con capacidad reservada
 
-Ahora Azure Cache for Redis le ayuda a ahorrar mediante el pago por adelantado de los recursos de proceso en comparación con los precios de pago por uso. Con la capacidad reservada de Azure Cache for Redis, se realiza un compromiso inicial en la caché durante un periodo de uno o tres años con el fin de obtener un descuento importante en los costos de proceso. Para comprar capacidad reservada de Azure Cache for Redis, debe especificar la región de Azure, el nivel de servicio y el período.
+Ahora Azure Cache for Redis le ayuda a ahorrar mediante el pago por adelantado de los recursos de proceso en comparación con los precios de pago por uso. Con la capacidad reservada de Azure Cache for Redis, se realiza un compromiso inicial en la caché durante uno o tres años con el fin de obtener un descuento importante en los costos de proceso. Para comprar capacidad reservada de Azure Cache for Redis, debe especificar la región de Azure, el nivel de servicio y el período.
 
-No es necesario asignar la reserva a instancias específicas de Azure Cache for Redis. Una instancia de Azure Cache for Redis que ya está en ejecución o las que se han implementado recientemente obtendrán de forma automática la ventaja de los precios reservados, hasta el tamaño de caché reservado. Al comprar una reserva, se adelanta el pago de los costos de proceso durante un período de uno a tres años. En cuanto se compra una reserva, los cargos de proceso de Azure Cache for Redis que coincidan con los atributos de reserva dejan de pagarse según las tarifas de pago por uso. Una reserva no cubre los cargos de red ni de almacenamiento asociados con la caché. Al final del período de reserva, la ventaja en la facturación expira y la instancia de Azure Cache for Redis se factura según el precio de pago por uso. Las reservas no se renuevan automáticamente. Para obtener información sobre precios, vea [Oferta de capacidad reservada de Azure Cache for Redis](https://azure.microsoft.com/pricing/details/cache).
+No es necesario asignar la reserva a instancias específicas de Azure Cache for Redis. Una instancia de Azure Cache for Redis que ya está en ejecución o las que se han implementado recientemente obtendrán de forma automática la ventaja de los precios reservados, hasta el tamaño de caché reservado. Al comprar una reserva, se adelanta el pago de los costos de proceso durante uno o tres años. En cuanto se compra una reserva, los cargos de proceso de Azure Cache for Redis que coincidan con los atributos de reserva dejan de pagarse según las tarifas de pago por uso. Una reserva no cubre los cargos de red ni de almacenamiento asociados con la caché. Al final del período de reserva, la ventaja en la facturación expira y la instancia de Azure Cache for Redis se factura según el precio de pago por uso. Las reservas no se renuevan automáticamente. Para obtener información sobre precios, vea [Oferta de capacidad reservada de Azure Cache for Redis](https://azure.microsoft.com/pricing/details/cache).
 
 Puede comprar capacidad reservada de Azure Cache for Redis en [Azure Portal](https://portal.azure.com/). Para comprar capacidad reservada:
 
@@ -32,7 +32,7 @@ Para más información sobre cómo se les cobran a los clientes de empresa y a l
 
 El tamaño de la reserva se debe basar en la cantidad total de memoria que usa la caché existente o que se va a implementar pronto en una región específica y con el mismo nivel de servicio.
 
-Por ejemplo, supongamos que está ejecutando dos memorias caché (una en 13 GB y la otra en 26 GB). Necesitará ambas durante al menos un año. Además, supongamos que planea escalar las cachés existentes de 13 GB a 26 GB durante un mes para satisfacer la demanda estacional y, después, volver a escalar. En este caso, puede adquirir una caché P2 y una caché P3, o bien tres cachés P2 en una reserva de un año para maximizar el ahorro. Recibirá un descuento en la cantidad total de memoria caché que reserva, independientemente de cómo se asigne esa cantidad a través de las cachés.
+Por ejemplo, supongamos que está ejecutando dos memorias caché, una en 13 GB y la otra en 26 GB. Necesitará ambas durante al menos un año. Además, supongamos que planea escalar las cachés existentes de 13 GB a 26 GB durante un mes para satisfacer la demanda estacional y, después, volver a escalar. En este caso, puede comprar una caché P2 y una caché P3 o tres cachés P2 en una reserva de un año para maximizar el ahorro. Recibirá un descuento en la cantidad total de memoria caché que reserva, independientemente de cómo se asigne esa cantidad a través de las cachés.
 
 
 ## <a name="buy-azure-cache-for-redis-reserved-capacity"></a>Compra de capacidad reservada de Azure Cache for Redis
@@ -57,7 +57,7 @@ En la siguiente tabla se describen los campos obligatorios.
 | Region | Región de Azure que abarca la reserva de capacidad reservada de Azure Cache for Redis.
 | Plan de tarifa | Nivel de servicio de los servidores de Azure Cache for Redis.
 | Término | Uno o tres años.
-| Cantidad | Número de recursos de proceso que se compran dentro de la reserva de capacidad reservada de Azure Cache for Redis. La cantidad es un número de cachés de la región de Azure y el nivel de servicio seleccionados que se están reservando y obtendrán el descuento de facturación. Por ejemplo, si ejecuta o planea ejecutar servidores de Azure Cache for Redis con la capacidad total de caché de 26 GB en la región Este de EE. UU., deberá especificar la cantidad que le otorgue el equivalente a 26 GB para maximizar las ventajas de todas las cachés. Podrían ser una caché P3 o dos P2.
+| Cantidad | Número de recursos de proceso que se compran dentro de la reserva de capacidad reservada de Azure Cache for Redis. La cantidad es un número de cachés de la región de Azure y el nivel de servicio seleccionados que se están reservando y obtendrán el descuento de facturación. Por ejemplo, si ejecuta o planea ejecutar servidores de Azure Cache for Redis con la capacidad total de caché de 26 GB en la región Este de EE. UU., deberá especificar la cantidad que le otorgue el equivalente a 26 GB para maximizar las ventajas de todas las cachés. La cantidad podría ser una caché P3 o dos cachés P2.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelación, intercambio o reembolso de reservas
 

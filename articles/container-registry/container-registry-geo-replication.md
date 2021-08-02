@@ -3,14 +3,14 @@ title: Replicación geográfica de un registro
 description: Introducción a la creación y administración de un registro de contenedor de Azure con replicación geográfica, que permite que el registro atienda varias regiones con réplicas regionales de varios maestros. La replicación geográfica es una característica del nivel de servicio Premium.
 author: stevelas
 ms.topic: article
-ms.date: 07/21/2020
+ms.date: 06/09/2021
 ms.author: stevelas
-ms.openlocfilehash: d36cf1c5ed8c916962ae0b621548a593d2fe0a97
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: b60de8dd9dc4ba5b66594fe6d75caa43ef0017b5
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331851"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112029664"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replicación geográfica en Azure Container Registry
 
@@ -25,8 +25,8 @@ Un registro con replicación geográfica le proporciona las siguientes ventajas:
 * Resistencia del registro si se produce una interrupción regional
 
 > [!NOTE]
-> Si necesita mantener copias de las imágenes de contenedor en más de un registro de contenedor de Azure, Azure Container Registry también admite la [importación de imágenes](container-registry-import-images.md). Por ejemplo, en un flujo de trabajo de DevOps, puede importar una imagen desde un registro de desarrollo a un registro de producción, sin necesidad de usar comandos de Docker.
->
+> * Si necesita mantener copias de las imágenes de contenedor en más de un registro de contenedor de Azure, Azure Container Registry también admite la [importación de imágenes](container-registry-import-images.md). Por ejemplo, en un flujo de trabajo de DevOps, puede importar una imagen desde un registro de desarrollo a un registro de producción, sin necesidad de usar comandos de Docker.
+> * Si quiere mover un registro a otra región de Azure en lugar de replicarlo geográficamente, consulte [Traslado manual de un registro de contenedor a otra región](manual-regional-move.md).
 
 ## <a name="example-use-case"></a>Ejemplo de caso de uso
 Contoso ejecuta un sitio web de presencia pública ubicado en los Estados Unidos, Canadá y Europa. Para poder atender a estos mercados con contenido local y cercano a la red, Contoso ejecuta los clústeres de [Azure Kubernetes Service](../aks/index.yml) (AKS) en el Este y Oeste de EE. UU, Centro de Canadá y Oeste de Europa. La aplicación del sitio web se implementa como una imagen de Docker y utiliza el mismo código e imagen en todas las regiones. El contenido (que es local en esa región) se recupera de una base de datos que se aprovisiona de forma única en cada región. Cada implementación regional tiene su configuración única para recursos tales como la base de datos local.
@@ -58,15 +58,18 @@ Al usar la característica de replicación geográfica de Azure Container Regist
 
 * Podrá administrar un registro único en todas las regiones: `contoso.azurecr.io`.
 * Podrá administrar una única configuración de las implementaciones de imagen, ya que todas las regiones usan la misma dirección URL de imagen: `contoso.azurecr.io/public/products/web:1.2`.
-* Mientras ACR administra la replicación geográfica, realice la inserción en un único registro. ACR solo replica capas únicas, lo que reduce la transferencia de datos entre regiones. 
+* Inserción en un único registro, mientras ACR administra automáticamente la replicación geográfica. ACR solo replica capas únicas, lo que reduce la transferencia de datos entre regiones. 
 * Configure [webhooks](container-registry-webhook.md) regionales para recibir notificaciones sobre los eventos de réplicas específicas.
 * Proporcione un registro de alta disponibilidad que sea resistente a las interrupciones regionales.
 
 Azure Container Registry también admite [zonas de disponibilidad](zone-redundancy.md) para crear un registro de contenedor de Azure de alta disponibilidad y resistente en una región de Azure. La combinación de zonas de disponibilidad para la redundancia dentro de una región y la replicación geográfica en varias regiones mejora la confiabilidad y el rendimiento de un registro.
 
+> [!IMPORTANT]
+> Un registro con replicación geográfica puede no estar disponible si se producen ciertas interrupciones en la región principal del registro, es decir, la región donde se implementó originalmente el registro.
+
 ## <a name="configure-geo-replication"></a>Configuración de la replicación geográfica
 
-Configurar la replicación geográfica es tan fácil como hacer clic en las regiones de un mapa. También puede administrar la replicación geográfica mediante herramientas como los comandos [az acr replication](/cli/azure/acr/replication) de la CLI de Azure, o implementar un registro habilitado para la replicación geográfica con una [plantilla de Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/).
+Configurar la replicación geográfica es tan fácil como hacer clic en las regiones de un mapa. También puede administrar la replicación geográfica mediante herramientas como los comandos [az acr replication](/cli/azure/acr/replication) de la CLI de Azure, o implementar un registro habilitado para la replicación geográfica con una [plantilla de Azure Resource Manager](https://azure.microsoft.com/resources/templates/container-registry-geo-replication/).
 
 La replicación geográfica es una característica de los [registros Premium](container-registry-skus.md). Si el registro no es Premium, puede cambiarlo de Básico y Estándar a Premium en [Azure Portal](https://portal.azure.com):
 

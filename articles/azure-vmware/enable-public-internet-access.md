@@ -3,21 +3,22 @@ title: Habilitar el acceso público a Internet en Azure VMware Solution
 description: En este artículo se explica cómo usar la funcionalidad de IP pública en Azure Virtual WAN.
 ms.topic: how-to
 ms.date: 02/04/2021
-ms.openlocfilehash: e5d4d73bf65842946e9c0f0c16869779e2e6f787
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: c3900462862bea94bbad4f21cb2dcd7e439ba674
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108777000"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954380"
 ---
-# <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>Uso de la funcionalidad de dirección IP pública en Azure VMware Solution
+# <a name="enable-public-internet-access-in-azure-vmware-solution"></a>Habilitar el acceso público a Internet en Azure VMware Solution
 
-La dirección IP pública es una característica nueva de la conectividad de Azure VMware Solution. Hace que recursos tales como los servidores web, las máquinas virtuales (VM) y los hosts sean accesibles a través de una red pública. 
+La dirección IP pública es una característica de conectividad de Azure VMware Solution. Hace que recursos tales como los servidores web, las máquinas virtuales (VM) y los hosts sean accesibles a través de una red pública. 
 
 Puede habilitar el acceso público a Internet de dos maneras. 
 
 - Las aplicaciones se pueden hospedar y publicar en el equilibrador de carga de Application Gateway para el tráfico HTTP/HTTPS.
-- Publicado mediante las características de IP públicas de Azure Virtual WAN.
+
+- Publique mediante las características de IP públicas de Azure Virtual WAN.
 
 Como parte de la implementación de la nube privada de Azure VMware Solution, al habilitar la funcionalidad de IP pública, los componentes necesarios se crean y habilitan automáticamente:
 
@@ -32,7 +33,9 @@ En este artículo se describe cómo puede usar la funcionalidad de IP pública e
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Entorno de Azure VMware Solution
+
 - Un servidor web que se ejecute en el entorno de Azure VMware Solution.
+
 - Un nuevo intervalo de direcciones IP no superpuestas para la implementación del concentrador de Virtual WAN, normalmente un valor `/24`.
 
 ## <a name="reference-architecture"></a>Arquitectura de referencia
@@ -162,4 +165,4 @@ Puede tener 100 direcciones IP públicas por nube privada.
 Ahora que ha visto cómo usar la funcionalidad de IP pública de Azure VMware Solution, puede que quiera obtener información sobre:
 
 - Uso de direcciones IP públicas con [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md).
-- [Creación de un túnel IPSec en Azure VMware Solution](create-ipsec-tunnel.md).
+- [Creación de un túnel IPSec en Azure VMware Solution](./configure-site-to-site-vpn-gateway.md).

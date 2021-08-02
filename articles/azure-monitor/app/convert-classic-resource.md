@@ -4,12 +4,12 @@ description: Obtenga información sobre los pasos necesarios para actualizar un 
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 329cfed646a2dbc2a417c1468895de62088058f6
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 3d6092d694d1c99ff7755dfcbec5c0edbfb7567f
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108316702"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110077309"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Migración a recursos de Application Insights basados en áreas de trabajo
 
@@ -41,7 +41,7 @@ El proceso de migración es **permanente y no se puede deshacer**. Una vez que s
 
 Si no tiene que migrar un recurso existente y quiere crear un nuevo recurso de Application Insights basado en áreas de trabajo, use la [guía de creación de recursos basados en áreas de trabajo](create-workspace-resource.md).
 
-## <a name="pre-requisites"></a>Requisitos previos 
+## <a name="pre-requisites"></a>Requisitos previos
 
 - Un área de trabajo de Log Analytics con el modo de control de acceso establecido en el valor **`use resource or workspace permissions`** . 
 
@@ -76,6 +76,9 @@ Una vez migrado el recurso, se ve la información del área de trabajo correspon
 ![Nombre del área de trabajo](./media/create-workspace-resource/workspace-name.png)
 
 Al hacer clic en el texto del vínculo azul, se le lleva al área de trabajo de Log Analytics asociada, donde puede aprovechar el nuevo entorno de consultas unificado del área de trabajo.
+
+> [!NOTE]
+> Después de migrar un recurso de Application Insights basado en el área de trabajo, se recomienda usar el [límite diario del área de trabajo](../logs/manage-cost-storage.md#manage-your-maximum-daily-data-volume) para limitar la ingesta y los costos, en lugar del límite de Application Insights.
 
 ## <a name="understanding-log-queries"></a>Descripción de las consultas de registro
 

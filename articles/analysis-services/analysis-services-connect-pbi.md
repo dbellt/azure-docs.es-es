@@ -4,15 +4,15 @@ description: Aprenda a conectarse a un servidor de Azure Analysis Services media
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 4/20/2021
+ms.date: 5/25/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c5a430c5bb24032a2665ad078311dcb5137d2bb9
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 579f97deaadf8005d7a7986ff3b032909c28972e
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816041"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110496567"
 ---
 # <a name="connect-with-power-bi"></a>Conexión con Power BI
 
@@ -33,7 +33,9 @@ Una vez que se ha creado un servidor en Azure y se ha implementado un modelo tab
 
 4. Seleccione una opción de conexión y presione **Conectar**. 
 
-    Se admiten las opciones **Conectar en directo** e **Importar**. Sin embargo, se recomienda usar conexiones en directo porque el modo de importación tiene algunas limitaciones. En particular, durante la importación se puede afectar el rendimiento del servidor. Además, si el modelo se actualizará en el servicio Power BI, la configuración **Allow access from Power BI** (Permitir el acceso desde Power BI) solo se aplica cuando se elige **Conectar en directo**.
+    Se admiten las opciones **Conectar en directo** e **Importar**. Sin embargo, se recomienda usar conexiones en directo porque el modo de importación tiene algunas limitaciones. En particular, durante la importación se puede afectar el rendimiento del servidor.
+    
+    Si tiene un modelo Power BI en [modo de almacenamiento mixto](/power-bi/transform-model/desktop-composite-models), la opción **Conectarse en directo** se reemplaza por la opción **[DirectQuery](/power-bi/connect-data/desktop-directquery-datasets-azure-analysis-services)** . Las conexiones dinámicas también se actualizan automáticamente a DirectQuery si el modelo cambia del modo de importación al modo de almacenamiento mixto.
 
 5. Escriba sus credenciales de inicio de sesión, si se le solicitan. 
 
@@ -48,6 +50,17 @@ Una vez que se ha creado un servidor en Azure y se ha implementado un modelo tab
 
 1. Cree un archivo de Power BI Desktop que tenga una conexión en directo con el modelo del servidor.
 2. En [Power BI](https://powerbi.microsoft.com), haga clic en **Obtener datos** > **Archivos**, busque el archivo .pbix y selecciónelo.
+
+## <a name="request-memory-limit"></a>Límite de memoria de solicitud
+
+Para proteger el rendimiento del sistema, se aplica un límite de memoria para todas las consultas emitidas por informes de Power BI en Azure Analysis Services, independientemente del [límite de memoria de consulta](/analysis-services/server-properties/memory-properties?view=azure-analysis-services-current&preserve-view=true) configurado en el servidor Azure Analysis Services. Los usuarios deben considerar la posibilidad de simplificar la consulta o sus cálculos si la consulta tiene un uso intensivo de memoria.
+
+|                                                           | Límite de memoria de solicitud |
+|-----------------------------------------------------------|----------------------|
+| Conexión en vivo desde Power BI                            | 10 GB  |
+| DirectQuery desde el informe de Power BI en el área de trabajo Compartida  | 1 GB   |
+| DirectQuery desde el informe de Power BI en el área de trabajo Premium | 10 GB  |
+| Preguntas y respuestas de Power BI | 100 MB |
 
 ## <a name="see-also"></a>Consulte también
 [Conexión a Azure Analysis Services](analysis-services-connect.md)   

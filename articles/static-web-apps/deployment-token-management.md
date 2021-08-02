@@ -1,5 +1,5 @@
 ---
-title: Restablecimiento de tokens de implementación en Azure Static Web Apps (versión preliminar)
+title: Restablecimiento de tokens de implementación en Azure Static Web Apps
 description: Restablecimiento de tokens en un sitio de Azure Static Web Apps
 services: static-web-apps
 author: webmaxru
@@ -7,14 +7,14 @@ ms.author: masalnik
 ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 1/31/2021
-ms.openlocfilehash: fe1edb2693993d02a705039c18b04c8d1b7b9725
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8d516a448240e32f58318689d985bc0aad906b9f
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101743771"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109814017"
 ---
-# <a name="reset-deployment-tokens-in-azure-static-web-apps-preview"></a>Restablecimiento de tokens de implementación en Azure Static Web Apps (versión preliminar)
+# <a name="reset-deployment-tokens-in-azure-static-web-apps"></a>Restablecimiento de tokens de implementación en Azure Static Web Apps
 
 Cuando se crea un nuevo sitio de Azure Static Web Apps, Azure genera un token que se usa para identificar la aplicación durante la implementación. Durante el aprovisionamiento, este token se almacena como un secreto en el repositorio de GitHub. En este artículo se explica cómo usar y administrar este token.
 

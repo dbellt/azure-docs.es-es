@@ -7,12 +7,12 @@ ms.date: 04/01/2021
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: d9827eab8c9d6187c78a979591f2c7ee0cad99e7
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: aaaa9f2e82bb8db0ce4851359d7fb97d475f4e98
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108741894"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111812759"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Solución de problemas relacionados con orquestaciones y desencadenadores de canalizaciones en Azure Data Factory
 
@@ -190,6 +190,16 @@ Los mensajes de error de colas largas pueden aparecer por varias razones.
 * Si recibe un mensaje de error sobre el flujo de datos de asignación, que puede generar una cola larga, consulte la [guía de solución de problemas de flujos de datos](./data-flow-troubleshoot-guide.md).
 * Si recibe un mensaje de error sobre otras actividades, como Databricks, las actividades personalizadas o HDI, que pueden generar una cola larga, vaya a la [guía de solución de problemas de actividades](./data-factory-troubleshoot-guide.md).
 * Si recibe un error al ejecutar paquetes de SSIS, que pueden generar una cola larga, vaya a la [guía de solución de problemas de ejecución de paquetes de Azure-SSIS](./ssis-integration-runtime-ssis-activity-faq.md) y a la [guía de solución de problemas de administración de Integration Runtime](./ssis-integration-runtime-management-troubleshoot.md).
+
+### <a name="error-message---codebadrequest-messagenull"></a>Mensaje de error: "code":"BadRequest", "message":"null"
+
+**Causa**
+
+Es un error de usuario porque la carga JSON que llega a management.azure.com está dañada. No se almacenará ningún registro porque la llamada de usuario no llegó al nivel de servicio de ADF.
+
+**Resolución**
+
+Realice el seguimiento de red de la llamada API desde el portal de ADF mediante las **herramientas para desarrolladores** del explorador Edge o Chrome. Verá una carga JSON infractora, lo cual podría deberse a un carácter especial (por ejemplo, $), espacios y otros tipos de entradas de usuario. Una vez que corrija la expresión de cadena, podrá continuar con el resto de llamadas de uso de ADF en el explorador.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/27/2021
-ms.openlocfilehash: 85a4d6390087100d8d9521f6ac20dbace3a711eb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/11/2021
+ms.openlocfilehash: 073095d590e61d9e7e561339c17501f0ccee844d
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104955948"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112018664"
 ---
 # <a name="javascript-code-samples-for-azure-cognitive-search"></a>Ejemplos de código de JavaScript para Azure Cognitive Search
 
@@ -57,9 +57,10 @@ Los ejemplos de código del equipo de Cognitive Search muestran características
 | Ejemplos | Artículo |
 |---------|---------|
 | [quickstart](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) | Código fuente de [Inicio rápido: Creación de un índice de búsqueda en JavaScript](search-get-started-javascript.md). En este artículo se habla del flujo de trabajo básico para crear, cargar y consultar un índice de búsqueda con datos de ejemplo. |
+| [search-website](https://github.com/azure-samples/azure-search-javascript-samples/tree/master/search-website) | Código fuente de [Tutorial: Incorporación de la funcionalidad de búsqueda a las aplicaciones web](tutorial-javascript-overview.md). Muestra una aplicación de búsqueda de un extremo a otro que incluye un cliente enriquecido más componentes para hospedar la aplicación y controlar las solicitudes de búsqueda.|
 
 > [!Tip]
-> Pruebe el [Explorador de ejemplos](/samples/browse/?languages=javascript&products=azure-cognitive-search) para buscar ejemplos de código de Microsoft en Github, filtrados por producto, servicio y lenguaje.
+> Pruebe el [Explorador de ejemplos](/samples/browse/?languages=javascript&products=azure-cognitive-search) para buscar ejemplos de código de Microsoft en GitHub, filtrados por producto, servicio y lenguaje.
 
 ## <a name="other-samples"></a>Otros ejemplos
 

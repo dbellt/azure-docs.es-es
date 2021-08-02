@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28847ece3c08e93d14d381b35fc93fb16dad95a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de370b133e5938d3838f1968691b475e8d6fdd40
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95973905"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110478777"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Incorporación del nombre de dominio personalizado mediante el portal de Azure Active Directory
 
@@ -98,7 +98,9 @@ Después de comprobar su nombre de dominio personalizado, puede eliminar el arch
 
 Si Azure AD no puede comprobar un nombre de dominio personalizado, pruebe las sugerencias siguientes:
 
-- **Espere al menos una hora y vuelva a intentarlo**. Los registros de DNS deben propagarse antes de que Azure AD compruebe el dominio. Este proceso puede tardar una hora o más.
+- **Espere al menos una hora y vuelva a intentarlo.** Los registros de DNS deben propagarse antes de que Azure AD compruebe el dominio. Este proceso puede tardar una hora o más.
+ 
+- **Si está intentando comprobar un dominio secundario, compruebe primero el dominio primario.** Asegúrese de que el dominio primario se crea y comprueba antes de intentar comprobar el dominio secundario.
 
 - **Asegúrese de que el registro de DNS es correcto.** Vuelva al sitio del registrador de nombres de dominio. Asegúrese de que exista la entrada y que coincida con la información de la entrada DNS proporcionada por Azure AD.
 

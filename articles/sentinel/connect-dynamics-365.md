@@ -12,22 +12,20 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2020
+ms.date: 06/03/2021
 ms.author: yelevin
-ms.openlocfilehash: 018368b6284cf39edec01f0a9a943b8ea15c85d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7d2a9c69108211b1342c553731c28785e1f2cc79
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98103885"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111421803"
 ---
 # <a name="connect-dynamics-365-activity-logs-to-azure-sentinel"></a>Conexión de los registros de actividad de Dynamics 365 a Azure Sentinel
 
 El conector de actividades de [Dynamics 365](/office365/servicedescriptions/microsoft-dynamics-365-online-service-description) Common Data Service (CDS) proporciona información sobre las actividades de administración, usuario y soporte técnico, así como eventos de registro de Microsoft Social Engagement. Si conecta los registros de Dynamics 365 CRM a Azure Sentinel, puede ver estos datos en libros, usarlos para crear alertas personalizadas y aprovecharlos para mejorar el proceso de investigación. Este nuevo conector de Azure Sentinel recopila los datos de Dynamics CDS de la API de Administración de Office. Para obtener más información acerca de las actividades de Dynamics CDS auditadas en Power Platform, visite [Habilitación y uso del registro de actividad](/power-platform/admin/enable-use-comprehensive-auditing).
 
-> [!IMPORTANT]
->
-> El conector de actividades de Dynamics 365 Common Data Service (CDS) está actualmente en **versión preliminar**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 

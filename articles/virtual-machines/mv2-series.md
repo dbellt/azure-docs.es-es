@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: b15fdc3826a72e9cfb039b6b2994179ab9565404
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bafae485c16923f3a4f7f5db6db0456f4b2f3bf7
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102562527"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109844959"
 ---
 # <a name="mv2-series"></a>Serie Mv2
 
@@ -34,8 +34,8 @@ Las máquinas virtuales de la serie Mv2 cuentan con la tecnología Hyper-Threadi
 |---|---|---|---|---|---|---|---|---|
 | Standard_M208ms_v2<sup>1</sup> | 208 | 5700 | 4096 | 64 | 80000/800 (7040) | 40000/1000 | 8 | 16000 |
 | Standard_M208s_v2<sup>1</sup> | 208 | 2850 | 4096 | 64 | 80000/800 (7040) | 40000/1000 | 8 | 16000 |
-| Standard_M416ms_v2<sup>1</sup> | 416 | 11 400 | 8192 | 64 | 250 000 / 1600 (14 080) | 80000 / 2000 | 8 | 32000 |
-| Standard_M416s_v2<sup>1</sup> | 416 | 5700 | 8192 | 64 | 250 000 / 1600 (14 080) | 80000 / 2000 | 8 | 32000 |
+| Standard_M416ms_v2<sup>1,2</sup> | 416 | 11 400 | 8192 | 64 | 250 000 / 1600 (14 080) | 80000 / 2000 | 8 | 32000 |
+| Standard_M416s_v2<sup>1,2</sup> | 416 | 5700 | 8192 | 64 | 250 000 / 1600 (14 080) | 80000 / 2000 | 8 | 32000 |
 
 <sup>1</sup> Las máquinas virtuales de la serie Mv2 solo son de generación 2 y admiten un subconjunto de imágenes admitidas de la generación 2. A continuación puede encontrar la lista completa de imágenes admitidas de la serie Mv2. Si usa Linux, consulte [Compatibilidad para máquinas virtuales de generación 2 en Azure](./generation-2.md) para obtener instrucciones sobre cómo buscar y seleccionar una imagen. Si usa Windows, consulte [Compatibilidad para máquinas virtuales de generación 2 en Azure](./generation-2.md) para obtener instrucciones sobre cómo buscar y seleccionar una imagen. 
 
@@ -44,6 +44,7 @@ Las máquinas virtuales de la serie Mv2 cuentan con la tecnología Hyper-Threadi
 - Red Hat Enterprise Linux 7.6, 7.7, 8.1 o posterior 
 - Oracle Enterprise Linux 7.7 o posterior
 
+<sup>2</sup> [Tamaños de núcleos restringidos disponibles](./constrained-vcpu.md).
 
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]

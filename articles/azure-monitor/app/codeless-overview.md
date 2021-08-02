@@ -4,14 +4,14 @@ description: 'Información general de la instrumentación automática para Azure
 ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
-ms.date: 05/31/2020
+ms.date: 05/17/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: df6271f8c036d708b93d7312076f3eee585cfcba
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 1c9d3e10ebf02016a0188617567cb2e4e2eeb036
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108287291"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110092717"
 ---
 # <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>¿Qué es la instrumentación automática o la conexión sin código de Azure Monitor Application Insights?
 
@@ -25,12 +25,13 @@ A medida que agregamos integraciones adicionales, la matriz de funcionalidades d
 
 |Entorno/proveedor de recursos          | .NET            | .NET Core       | Java            | Node.js         | Python          |
 |---------------------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|
-|Azure App Service en Windows           | Disponibilidad general, OnBD*       | Disponibilidad general, opcional      | En curso     | En curso     | No compatible   |
-|Azure App Service en Linux             | N/D             | No compatible   | En curso     | Vista previa pública  | No compatible   |
+|Azure App Service en Windows           | Disponibilidad general, OnBD*       | Disponibilidad general, opcional      | Vista previa pública  | Vista previa pública  | No compatible   |
+|Azure App Service en Linux             | N/D             | No compatible   | Vista previa pública  | Vista previa pública  | No compatible   |
 |Azure Functions: básico                | Disponibilidad general, OnBD*       | Disponibilidad general, OnBD*       | Disponibilidad general, OnBD*       | Disponibilidad general, OnBD*       | Disponibilidad general, OnBD*       |
 |Azure Functions en Windows: dependencias | No compatible   | No compatible   | Vista previa pública  | No compatible   | No compatible   |
+|Azure Spring Cloud                     | No compatible   | No compatible   | Vista previa pública  | No compatible   | No compatible   |
 |Azure Kubernetes Service               | N/D             | En diseño       | Mediante el agente   | En diseño       | No compatible   |
-|VM de Azure con Windows                      | Vista previa pública  | No compatible   | No compatible   | No compatible   | No compatible   |
+|VM de Azure con Windows                      | Vista previa pública  | No compatible   | Mediante el agente | No compatible   | No compatible   |
 |VM locales con Windows                | Disponibilidad general, opcional      | No compatible   | Mediante el agente   | No compatible   | No compatible   |
 |Agente independiente: cualquier ent.            | No compatible   | No compatible   | Disponibilidad general              | No compatible   | No compatible   |
 
@@ -40,35 +41,24 @@ A medida que agregamos integraciones adicionales, la matriz de funcionalidades d
 
 ### <a name="windows"></a>Windows
 
-#### <a name="net"></a>.NET
-La supervisión de aplicaciones de Azure App Service en Windows está disponible para las [aplicaciones .NET](./azure-web-apps.md?tabs=net) y está habilitada de forma predeterminada.
+La supervisión de aplicaciones en Azure App Service en Windows está disponible para aplicaciones **[.NET](./azure-web-apps.md?tabs=net)** (habilitado de forma predeterminada), **[.NET Core](./azure-web-apps.md?tabs=netcore)** , **[Java](./azure-web-apps.md?tabs=java)** (en versión preliminar pública) y **[Node.js](./azure-web-apps.md?tabs=nodejs)** . Para supervisar una aplicación de Python, agregue el [SDK](./opencensus-python.md) al código.
 
-#### <a name="netcore"></a>.NETCore
-La supervisión de las [aplicaciones .NETCore](./azure-web-apps.md?tabs=netcore) se puede habilitar con un solo clic.
-
-#### <a name="java"></a>Java
-La integración del portal para la supervisión de aplicaciones Java de App Service en Windows no está disponible actualmente. Sin embargo, puede agregar el [agente independiente de Java 3.0](./java-in-process-agent.md) de Application Insights a la aplicación sin realizar ningún cambio de código antes de implementar las aplicaciones en App Service. El agente de Java 3.0 de Application Insights se encuentra disponible con carácter general.
-
-#### <a name="nodejs"></a>Node.js
-Actualmente no se puede habilitar la supervisión de aplicaciones Node.js en Windows desde el portal. Para supervisar aplicaciones Node.js, use el [SDK](./nodejs.md).
+> [!NOTE]
+> La supervisión de aplicaciones está disponible actualmente para las aplicaciones basadas en código de Windows en App Service. La supervisión de aplicaciones en contenedores de Windows en App Service todavía no se admite mediante la integración con Application Insights.
 
 ### <a name="linux"></a>Linux
+Puede habilitar la supervisión de aplicaciones **[Java](./azure-web-apps.md?tabs=java)** y **[Node.js](./azure-web-apps.md?tabs=nodejs)** que se ejecutan en Linux en App Service mediante el portal; la experiencia de ambos lenguajes está en versión preliminar pública y está disponible en todas las regiones. 
 
-#### <a name="netcore"></a>.NETCore
-Para supervisar las aplicaciones .NETCore que se ejecutan en Linux, use el [SDK](./asp-net-core.md).
-
-#### <a name="java"></a>Java 
-La habilitación de la supervisión de aplicaciones Java para App Service en Linux desde el portal no está disponible, pero puede agregar el [agente de Java 3.0 de Application Insights](./java-in-process-agent.md) a la aplicación antes de implementar las aplicaciones en App Service. El agente de Java 3.0 de Application Insights se encuentra disponible con carácter general.
-
-#### <a name="nodejs"></a>Node.js
-La [supervisión de las aplicaciones Node.js en App Service en Linux](./azure-web-apps.md?tabs=nodejs) se encuentra en versión preliminar pública y se puede habilitar en Azure Portal, y está disponible en todas las regiones. 
-
-#### <a name="python"></a>Python
-Use el SDK para [supervisar la aplicación Python](./opencensus-python.md). 
+Para otros lenguajes, como [.NET Core](./asp-net-core.md) y [Python](./opencensus-python.md), use el SDK.
 
 ## <a name="azure-functions"></a>Azure Functions
 
 La supervisión básica de Azure Functions está habilitada de forma predeterminada para recopilar el registro, el rendimiento, los datos de error y las solicitudes HTTP. En el caso de las aplicaciones Java, puede habilitar una supervisión más completa con seguimiento distribuido y obtener los detalles de la transacción de un extremo a otro. Esta funcionalidad de Java está en versión preliminar pública y puede [habilitarla en Azure Portal](./monitor-functions.md).
+
+## <a name="azure-spring-cloud"></a>Azure Spring Cloud
+
+### <a name="java"></a>Java 
+La supervisión de aplicaciones Java que se ejecutan en Azure Spring Cloud está integrada en el portal; puede habilitar Application Insights directamente desde Azure Portal, tanto para los recursos de Azure Spring Cloud recién creados como para los ya existentes.  
 
 ## <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
 

@@ -1,18 +1,18 @@
 ---
-title: ¿Qué es una versión de prueba? Marketplace comercial de Microsoft
-description: Explicación de la característica de versión de prueba del marketplace
+title: ¿Qué es una versión de prueba en Microsoft AppSource?
+description: Explicación de la característica de versión de prueba de Microsoft AppSource
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 06/19/2020
-ms.openlocfilehash: e44d5d94a8dc172962a26f3e0dae9ccbb7f8a865
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.date: 12/08/2020
+ms.openlocfilehash: 5fba64beff10f59be42776cc87cf6f37922295dd
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107818897"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949065"
 ---
 # <a name="what-is-a-test-drive"></a>¿Qué es una versión de prueba?
 
@@ -61,7 +61,7 @@ Esta plantilla de implementación contiene todos los recursos de Azure que compo
 Una versión de prueba hospedada elimina la complejidad de la configuración ya que deja que Microsoft hospede y mantenga el servicio que realiza las tareas de aprovisionamiento y desaprovisionamiento de los usuarios de la versión de prueba. Si tiene una oferta en Microsoft AppSource, compile la versión de prueba para conectarse con una instancia de Dynamics AX/CRM. Puede usar los siguientes tipos de oferta de AppSource:
 
 - Use [Dynamics 365 for Customer Engagement y Power Apps](dynamics-365-customer-engage-offer-setup.md) para un sistema de involucración del cliente como los de ventas, servicio, servicio de proyecto y servicio de campo.
-- Use [Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md) para un sistema de planeamiento de recursos empresariales de finanzas y operaciones, como finanzas, operaciones y fabricación, cadena de suministro.
+- Use [Dynamics 365 for Operations](./dynamics-365-operations-offer-setup.md) para un sistema de planeamiento de recursos empresariales de finanzas y operaciones, como finanzas, operaciones y fabricación, cadena de suministro.
 
 ### <a name="logic-app-test-drive"></a>Versión de prueba de aplicación lógica
 
@@ -94,6 +94,6 @@ Recursos adicionales de la versión de prueba:
 - [Prácticas recomendadas de la versión de prueba](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Información general](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF, asegúrese de que el bloqueador de elementos emergentes está desactivado)
 
-## <a name="next-step"></a>Paso siguiente
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Configuración técnica de la versión de prueba](test-drive-technical-configuration.md)

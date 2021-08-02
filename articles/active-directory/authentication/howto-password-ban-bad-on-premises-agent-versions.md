@@ -11,14 +11,20 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32ad7199360ca0acc8674f7a4e34bd206f8b335f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0698d07268c416b0a10055ec5480971fc10c142c
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101648775"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854385"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Historial de versiones del agente de protección con contraseña de Azure AD
+
+## <a name="121760"></a>1.2.176.0
+
+Fecha de lanzamiento: 4 de junio de 2021
+
+* Correcciones de errores menores para problemas que impidieron que el proxy y los agentes de controlador de dominio se ejecutaran correctamente en determinados entornos.
 
 ## <a name="121720"></a>1.2.172.0
 
@@ -41,7 +47,7 @@ Se admite la ejecución de versiones anteriores y recientes del agente del contr
 
 ## <a name="121250"></a>1.2.125.0
 
-Fecha de lanzamiento: 22 de marzo de 2019
+Fecha de lanzamiento: 2 de marzo de 2019
 
 * Corregir pequeños errores tipográficos en los mensajes de registro de eventos
 * Actualizar el contrato CLUF a la versión final de disponibilidad general
@@ -51,7 +57,7 @@ Fecha de lanzamiento: 22 de marzo de 2019
 
 ## <a name="121160"></a>1.2.116.0
 
-Fecha de lanzamiento: 13/3/2019
+Fecha de lanzamiento: 3 de marzo de 2019
 
 * Los cmdlets Get-AzureADPasswordProtectionProxy y Get-AzureADPasswordProtectionDCAgent ahora informan de la versión de software y del inquilino actual de Azure con las siguientes limitaciones:
   * La versión de software y los datos del inquilino de Azure solo están disponibles para los agentes de controlador de dominio y servidores proxy que ejecuten la versión 1.2.116.0 o posterior.
@@ -69,7 +75,7 @@ Fecha de lanzamiento: 13/3/2019
 
 ## <a name="12650"></a>1.2.65.0
 
-Fecha de la versión: 1 de febrero de 2019
+Fecha de lanzamiento: 1 de febrero de 2019
 
 Cambios:
 
@@ -107,7 +113,7 @@ Cambios:
 
 ## <a name="12250"></a>1.2.25.0
 
-Fecha de publicación: 1 de noviembre de 2018
+Fecha de lanzamiento: 1 de noviembre de 2018
 
 Correcciones:
 
@@ -149,7 +155,7 @@ Correcciones:
 
 ## <a name="11103"></a>1.1.10.3
 
-Fecha de lanzamiento: 15 de junio 2018
+Fecha de lanzamiento: 15 de junio de 2018
 
 Versión preliminar pública inicial
 

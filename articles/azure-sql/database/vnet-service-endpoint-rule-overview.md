@@ -10,13 +10,13 @@ ms.topic: how-to
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
-ms.date: 11/14/2019
-ms.openlocfilehash: 67e807e948caf1fec014457814c1b7f105630f9f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/26/2021
+ms.openlocfilehash: b1748de761ad5180e2ddb670f31874620e4c5ae8
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784432"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111972003"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Uso de reglas y puntos de conexión de servicio de red virtual para servidores de Azure SQL Database
 
@@ -182,7 +182,7 @@ PolyBase y la instrucción COPY se suelen usar para cargar datos en Azure Synaps
 
 ### <a name="sql-database-blob-auditing"></a>Auditoría de blobs de SQL Database
 
-La auditoría de blobs inserta los registros de auditoría en su propia cuenta de almacenamiento. Si esta cuenta de almacenamiento usa la característica de puntos de conexión de servicio de red virtual, la conectividad entre SQL Database y la cuenta de almacenamiento se interrumpirá.
+La auditoría de Azure SQL puede escribir registros de auditoría de SQL en su propia cuenta de almacenamiento. Si esta cuenta de almacenamiento usa la característica de puntos de conexión de servicio de red virtual, consulte cómo [escribir una auditoría en una cuenta de almacenamiento situada detrás de la red virtual y un firewall](./audit-write-storage-account-behind-vnet-firewall.md).
 
 ## <a name="add-a-virtual-network-firewall-rule-to-your-server"></a>Incorporación de una regla de firewall de red virtual al servidor
 

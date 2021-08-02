@@ -2,14 +2,14 @@
 title: Secreto de Key Vault con plantilla
 description: Muestra cómo pasar un secreto de un almacén de claves como un parámetro durante la implementación.
 ms.topic: conceptual
-ms.date: 04/23/2021
+ms.date: 05/17/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: f91c45792843ab62361bf47628a45529758b4029
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 1cf3b1f3433b47d029876e9676b85c5de776d455
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109754198"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110795709"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación
 
@@ -67,7 +67,7 @@ $secret = Set-AzKeyVaultSecret -VaultName ExampleVault -Name 'ExamplePassword' -
 
 ---
 
-Como propietario del almacén de claves, tiene acceso de forma automática a la creación de secretos. Si el usuario que trabaja con los secretos no es el propietario del almacén de claves, conceda acceso con:
+Como propietario del almacén de claves, tiene acceso de forma automática a la creación de secretos. Si necesita permitir que otro usuario cree secretos, use:
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -91,6 +91,8 @@ Set-AzKeyVaultAccessPolicy `
 
 ---
 
+Las directivas de acceso no son necesarias si el usuario está implementando una plantilla que recupera un secreto. Agregue un usuario a las directivas de acceso solo si el usuario necesita trabajar directamente con los secretos. Los permisos de implementación se definen en la sección siguiente.
+
 Para más información sobre cómo crear almacenes de claves y agregar secretos, vea:
 
 - [Establecimiento y recuperación de un secreto mediante la CLI](../../key-vault/secrets/quick-create-cli.md)
@@ -99,11 +101,13 @@ Para más información sobre cómo crear almacenes de claves y agregar secretos,
 - [Establecimiento y recuperación de un secreto mediante .NET](../../key-vault/secrets/quick-create-net.md)
 - [Establecimiento y recuperación de un secreto mediante Node.js](../../key-vault/secrets/quick-create-node.md)
 
-## <a name="grant-access-to-the-secrets"></a>Concesión de acceso a los secretos
+## <a name="grant-deployment-access-to-the-secrets"></a>Concesión de acceso de implementación a los secretos
 
-El usuario que implementa la plantilla debe tener el permiso `Microsoft.KeyVault/vaults/deploy/action` en el ámbito del grupo de recursos y el almacén de claves. Los roles [Propietario](../../role-based-access-control/built-in-roles.md#owner) y [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) conceden este acceso. Si creó el almacén de claves, es el propietario y tiene el permiso.
+El usuario que implementa la plantilla debe tener el permiso `Microsoft.KeyVault/vaults/deploy/action` en el ámbito del grupo de recursos y el almacén de claves. Al comprobar este acceso, Azure Resource Manager evita que un usuario no aprobado acceda al secreto pasando el identificador de recurso para el almacén de claves. Puede conceder acceso de implementación a los usuarios sin conceder acceso de escritura a los secretos.
 
-El siguiente procedimiento muestra cómo crear un rol con los permisos mínimos y cómo asignar el usuario.
+Los roles [Propietario](../../role-based-access-control/built-in-roles.md#owner) y [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) conceden este acceso. Si creó el almacén de claves, es el propietario y tiene el permiso.
+
+Para otros usuarios, conceda el permiso `Microsoft.KeyVault/vaults/deploy/action`. El siguiente procedimiento muestra cómo crear un rol con los permisos mínimos y cómo asignarlo a un usuario.
 
 1. Creación de un archivo JSON de definición de rol personalizado
 
@@ -164,8 +168,6 @@ Con este enfoque, se hace referencia al almacén de claves del archivo de parám
 
 En la plantilla siguiente se implementa un servidor SQL que incluye una contraseña de administrador. El parámetro de contraseña se establece en una cadena segura. No obstante, en la plantilla no se especifica de dónde procede ese valor.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -199,29 +201,6 @@ En la plantilla siguiente se implementa un servidor SQL que incluye una contrase
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param adminLogin string
-
-@secure()
-param adminPassword string
-
-param sqlServerName string
-
-resource sqlServer 'Microsoft.Sql/servers@2020-11-01-preview' = {
-  name: sqlServerName
-  location: resourceGroup().location
-  properties: {
-    administratorLogin: adminLogin
-    administratorLoginPassword: adminPassword
-    version: '12.0'
-  }
-}
-```
-
----
 
 Ahora, cree un archivo de parámetros para la plantilla anterior. En el archivo de parámetros, especifique un parámetro que coincida con el nombre del parámetro de la plantilla. Para el valor del parámetro, haga referencia al secreto del almacén de claves. Se hace referencia al secreto pasando el identificador de recurso de almacén de claves y el nombre del secreto:
 
@@ -400,9 +379,6 @@ La siguiente plantilla crea dinámicamente el identificador de almacén de clave
   }
 }
 ```
-
-> [!NOTE]
-> A partir de la versión 0.3.255 de Bicep, se necesita un archivo de parámetros para recuperar un secreto del almacén de claves porque no se admite la palabra clave `reference`. Estamos trabajando para agregar compatibilidad. Para más información, consulte el [problema de GitHub 1028](https://github.com/Azure/bicep/issues/1028).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

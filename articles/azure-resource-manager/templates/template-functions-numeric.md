@@ -2,13 +2,13 @@
 title: 'Funciones de plantillas: numérico'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager (plantilla de ARM) para trabajar con números.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: f3687581d94f80cc923614a0655da1813bd5c97b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/13/2021
+ms.openlocfilehash: 9f9959c07f936fc800fac836553fb0f37f4f4e83
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97359717"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959654"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>Funciones numéricas para plantillas de ARM
 
@@ -25,13 +25,13 @@ Resource Manager ofrece las siguientes funciones para trabajar con enteros en la
 * [mul](#mul)
 * [sub](#sub)
 
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
-
 ## <a name="add"></a>add
 
 `add(operand1, operand2)`
 
-Devuelve la suma de los dos enteros especificados. La función `add` no se admite en Bicep. En su lugar, utilice el operador `+`.
+Devuelve la suma de los dos enteros especificados.
+
+La función `add` no se admite en Bicep. En su lugar, utilice el [operador `+`](../bicep/operators-numeric.md#add-).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -47,8 +47,6 @@ Un entero que contiene la suma de los parámetros.
 ### <a name="example"></a>Ejemplo
 
 La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/add.json) siguiente agrega dos parámetros.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -80,17 +78,6 @@ La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param first int = 5
-param second int = 3
-
-output addResult int = first + second
-```
-
----
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -128,8 +115,6 @@ Para más información sobre el uso de la copia, consulte:
 
 En el ejemplo siguiente se muestra un bucle de copia y el valor de índice incluido en el nombre.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -161,13 +146,6 @@ En el ejemplo siguiente se muestra un bucle de copia y el valor de índice inclu
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-> [!NOTE]
-> Los bucles y `copyIndex` no se han implementado todavía en Bicep.  Consulte [Bucles](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md).
-
----
-
 ### <a name="return-value"></a>Valor devuelto
 
 Un entero que representa el índice actual de la iteración.
@@ -176,7 +154,9 @@ Un entero que representa el índice actual de la iteración.
 
 `div(operand1, operand2)`
 
-Devuelve la división de enteros de los dos enteros especificados. La función `div` no se admite en Bicep. En su lugar, utilice el operador `/`.
+Devuelve la división de enteros de los dos enteros especificados.
+
+La función `div` no se admite en Bicep. En su lugar, utilice el [operador `/`](../bicep/operators-numeric.md#divide-).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -192,8 +172,6 @@ Un entero que representa la división.
 ### <a name="example"></a>Ejemplo
 
 En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/div.json) siguiente se divide un parámetro entre otro.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -226,17 +204,6 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param first int = 8
-param second int = 3
-
-output addResult int = first / second
-```
-
----
-
 La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Value |
@@ -247,7 +214,9 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 `float(arg1)`
 
-Convierte el valor en un número de punto flotante. Solo use esta función al pasar parámetros personalizados a una aplicación, como una aplicación lógica. La función `float` no se admite en Bicep.  Consulte [Compatibilidad con tipos numéricos distintos de enteros de 32 bits](https://github.com/Azure/bicep/issues/486).
+Convierte el valor en un número de punto flotante. Solo use esta función al pasar parámetros personalizados a una aplicación, como una aplicación lógica.
+
+La función `float` no se admite en Bicep.
 
 ### <a name="parameters"></a>Parámetros
 
@@ -263,8 +232,6 @@ Un número de punto flotante.
 
 En el ejemplo siguiente se muestra cómo usar float para pasar parámetros a una aplicación lógica:
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "type": "Microsoft.Logic/workflows",
@@ -278,13 +245,6 @@ En el ejemplo siguiente se muestra cómo usar float para pasar parámetros a una
         "value": "[float(3)]"
       },
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-> [!NOTE]
-> La función `float` no se admite en Bicep.  Consulte [Compatibilidad con tipos numéricos distintos de enteros de 32 bits](https://github.com/Azure/bicep/issues/486).
-
----
 
 ## <a name="int"></a>int
 
@@ -306,8 +266,6 @@ Un entero del valor convertido.
 
 En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/int.json) siguiente se convierte el valor del parámetro proporcionado por el usuario en entero.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -328,16 +286,6 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param stringToConvert string = '4'
-
-output inResult int = int(stringToConvert)
-```
-
----
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -365,8 +313,6 @@ Un entero que representa el valor máximo de la colección.
 
 En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json) siguiente se muestra cómo utilizar max con una matriz y una lista de enteros:
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -390,23 +336,6 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param arrayToTest array = [
-  0
-  3
-  2
-  5
-  4
-]
-
-output arrayOutPut int = max(arrayToTest)
-output intOutput int = max(0,3,2,5,4)
-```
-
----
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -435,8 +364,6 @@ Un entero que representa el valor mínimo de la colección.
 
 En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json) siguiente se muestra cómo utilizar min con una matriz y una lista de enteros:
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -461,23 +388,6 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param arrayToTest array = [
-  0
-  3
-  2
-  5
-  4
-]
-
-output arrayOutPut int = min(arrayToTest)
-output intOutput int = min(0,3,2,5,4)
-```
-
----
-
 La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Value |
@@ -489,7 +399,9 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 `mod(operand1, operand2)`
 
-Devuelve el resto de la división de enteros de los dos enteros especificados. La función `mod` no se admite en Bicep. En su lugar, utilice el operador `%`.
+Devuelve el resto de la división de enteros de los dos enteros especificados.
+
+La función `mod` no se admite en Bicep. En su lugar, utilice el [operador %](../bicep/operators-numeric.md#modulo-).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -505,8 +417,6 @@ Un entero que representa el resto.
 ### <a name="example"></a>Ejemplo
 
 En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mod.json) siguiente se devuelve el resultado de dividir un parámetro por otro.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -539,17 +449,6 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param first int = 7
-param second int = 3
-
-output modResult int = first % second
-```
-
----
-
 La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Value |
@@ -560,7 +459,9 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 `mul(operand1, operand2)`
 
-Devuelve la multiplicación de los dos enteros especificados. La función `mul` no se admite en Bicep. En su lugar, utilice el operador `*`.
+Devuelve la multiplicación de los dos enteros especificados.
+
+La función `mul` no se admite en Bicep. En su lugar, utilice el [operador *](../bicep/operators-numeric.md#multiply-).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -576,8 +477,6 @@ Un entero que representa la multiplicación.
 ### <a name="example"></a>Ejemplo
 
 En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mul.json) siguiente se multiplica un parámetro por otro.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -610,17 +509,6 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param first int = 5
-param second int = 3
-
-output mulResult int = first * second
-```
-
----
-
 La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Value |
@@ -631,7 +519,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 `sub(operand1, operand2)`
 
-Devuelve la resta de los dos enteros especificados. La función `sub` no se admite en Bicep. En su lugar, utilice el operador `-`.
+Devuelve la resta de los dos enteros especificados.
 
 ### <a name="parameters"></a>Parámetros
 
@@ -647,8 +535,6 @@ Un entero que representa la resta.
 ### <a name="example"></a>Ejemplo
 
 En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/sub.json) siguiente se resta un parámetro de otro.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -681,17 +567,6 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param first int = 7
-param second int = 3
-
-output subResult int = first - second
-```
-
----
-
 La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Value |
@@ -700,5 +575,5 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Puede encontrar una descripción de las secciones de una plantilla de Azure Resource Manager en [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+* Puede encontrar una descripción de las secciones de una plantilla de Azure Resource Manager en [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](./syntax.md).
 * Para iterar un número especificado de veces al crear un tipo de recurso, consulte [Iteración de recursos en las plantillas de ARM](copy-resources.md).

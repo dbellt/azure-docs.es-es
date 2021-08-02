@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 09/24/2020
 author: palma21
-ms.openlocfilehash: 2d3c946bc2f98b0c06fe33dcaaa77a5399f6d56b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 734986d2c9b372214a54c1308e4ca445940c5f65
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107782736"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111808932"
 ---
 # <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster"></a>Inicio y detención de un clúster de Azure Kubernetes Service (AKS)
 
@@ -27,6 +27,7 @@ Cuando se usa la característica de inicio o detención del clúster, se aplican
 - Esta característica solo se admite para clústeres respaldados por Virtual Machine Scale Sets.
 - El estado de clúster de un clúster de AKS detenido se conserva durante un máximo de 12 meses. Si el clúster se detiene durante más de 12 meses, no se puede recuperar su estado. Para obtener más información, vea [Directivas de soporte técnico para AKS](support-policies.md).
 - Solo puede iniciar o eliminar un clúster de AKS detenido. Para realizar cualquier operación, como escalado o actualización, primero inicie el clúster.
+- Los puntos de conexión privados aprovisionados por el cliente y vinculados al clúster privado deben eliminarse y volver a crearse al iniciar un clúster de AKS detenido.
 
 ## <a name="stop-an-aks-cluster"></a>Detención de un clúster de AKS
 
@@ -83,6 +84,9 @@ Para comprobar que el clúster se ha iniciado, use el comando [az aks show][az-a
 ```
 
 Si `provisioningState` muestra `Starting`, significa que el clúster aún no se ha iniciado por completo.
+
+> [!NOTE]
+> Si usa el escalador automático de clústeres, al iniciar la copia de seguridad del clúster, es posible que el número de nodos actual no esté entre los valores de intervalo mínimo y máximo establecidos. Este comportamiento es normal. El clúster comienza con el número de nodos que necesita para ejecutar sus cargas de trabajo, que no se verá afectados por la configuración del escalador automático. Cuando el clúster realiza operaciones de escalado, los valores mínimo y máximo afectarán al número de nodos actual y el clúster finalmente entrará y permanecerá en ese intervalo deseado hasta que detenga el clúster.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

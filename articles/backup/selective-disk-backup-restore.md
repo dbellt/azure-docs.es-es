@@ -2,14 +2,14 @@
 title: Copia de seguridad y restauración selectivas de discos para máquinas virtuales de Azure
 description: En este artículo, se describen la copia de seguridad y la restauración selectivas de discos mediante la solución de copia de seguridad de máquinas virtuales de Azure.
 ms.topic: conceptual
-ms.date: 05/03/2021
-ms.custom: references_regions , devx-track-azurecli
-ms.openlocfilehash: 296aea2e11dede1cd0eeaeb222e954c40cb99d3f
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 05/13/2021
+ms.custom: references_regions , devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: cee95941aa091f77fe128457434a66398188a0a4
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108745656"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110678208"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Copia de seguridad y restauración selectivas de discos para máquinas virtuales de Azure
 
@@ -22,7 +22,7 @@ Esta solución es especialmente útil en los escenarios siguientes:
 1. Si tiene datos críticos de los que se va a realizar una copia de seguridad en un solo disco o un subconjunto de discos, y no desea realizar copias de seguridad del resto de los discos conectados a una máquina virtual para minimizar los costos de almacenamiento de copia de seguridad.
 2. Si tiene otras soluciones de copia de seguridad para parte de la máquina virtual o los datos. Por ejemplo, si realiza una copia de seguridad de las bases de datos o los datos con una solución de copia de seguridad de carga de trabajo diferente y desea usar la copia de seguridad en el nivel de máquina virtual de Azure para el resto de los discos o datos para crear un sistema eficaz y sólido con las mejores funcionalidades disponibles.
 
-Con PowerShell o la CLI de Azure, puede configurar la copia de seguridad selectiva de discos de la máquina virtual de Azure.  Mediante un script, puede incluir o excluir discos de datos con sus números LUN.  Actualmente, la capacidad de configurar la copia de seguridad selectiva de discos mediante Azure Portal está limitada a la opción **Backup OS Disk only** (Copia de seguridad solo de disco de SO). Por lo tanto, puede configurar la copia de seguridad de la máquina virtual de Azure con el disco del sistema operativo y excluir todos los discos de datos que tiene conectados.
+Con PowerShell o la CLI de Azure, puede configurar la copia de seguridad selectiva de discos de la máquina virtual de Azure. Mediante un script, puede incluir o excluir discos de datos con sus números LUN. Actualmente, la capacidad de configurar la copia de seguridad selectiva de discos mediante Azure Portal está limitada a la opción **Backup OS Disk only** (Copia de seguridad solo de disco de SO). Por lo tanto, puede configurar la copia de seguridad de la máquina virtual de Azure con el disco del sistema operativo y excluir todos los discos de datos que tiene conectados.
 
 >[!NOTE]
 > El disco del sistema operativo se agrega de forma predeterminada a la copia de seguridad de la máquina virtual y no se puede excluir.
@@ -322,6 +322,8 @@ La funcionalidad de copia de seguridad selectiva de discos no se admite para má
 Las opciones de restauración **Create new VM** (Crear nueva máquina virtual) y **Replace existing** (Reemplazar existente) no se admiten para la máquina virtual para la que está habilitada la funcionalidad de copia de seguridad selectiva de discos.
 
 Actualmente, la copia de seguridad de VM de Azure no admite VM con discos Ultra o discos compartidos conectados. No se puede usar la copia de seguridad de disco selectiva en estos casos, ya que se excluye el disco y la copia de seguridad de la máquina virtual.
+
+Si usa la exclusión de disco o discos selectivos durante la copia de seguridad de máquinas virtuales de Azure, _[detenga la protección y conserve los datos de copia de seguridad](backup-azure-manage-vms.md#stop-protection-and-retain-backup-data)_ . Al reanudar la copia de seguridad de este recurso, debe volver a configurar la configuración de exclusión de disco.
 
 ## <a name="billing"></a>Facturación
 

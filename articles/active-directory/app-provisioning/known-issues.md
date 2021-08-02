@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 05/11/2021
+ms.date: 05/28/2021
 ms.reviewer: arvinh
-ms.openlocfilehash: d45c64a75da4acb0be3efacc73ebf51d3fec2b3e
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 1674e3aae978c16b8ef736dc6605bd30e7201e10
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109782836"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111962030"
 ---
 # <a name="known-issues-for-application-provisioning-in-azure-active-directory"></a>Problemas conocidos del aprovisionamiento de aplicaciones en Azure Active Directory
 Problemas conocidos que se deben tener en cuenta al trabajar con el aprovisionamiento de aplicaciones. Puede proporcionar comentarios sobre el servicio de aprovisionamiento de aplicaciones en UserVoice; vea [Aprovisionamiento de aplicaciones de Azure AD en UserVoice](https://aka.ms/appprovisioningfeaturerequest). Supervisamos UserVoice muy de cerca para poder mejorar el servicio. 
@@ -98,6 +98,40 @@ Cuando un grupo está dentro del ámbito y un miembro está fuera, se aprovision
 **El administrador no está aprovisionado**
 
 Si un usuario y su administrador están ambos en el ámbito para el aprovisionamiento, el servicio aprovisionará al usuario y luego actualizará el administrador. Sin embargo, si en el día el usuario está en el ámbito y el administrador está fuera del ámbito, se aprovisionará al usuario sin la referencia del administrador. Cuando el administrador entre en el ámbito, la referencia del administrador no se actualizará hasta que se reinicie el aprovisionamiento y que el servicio vuelva a evaluar a todos los usuarios. 
+
+## <a name="on-premises-application-provisioning"></a>Aprovisionamiento de aplicaciones locales
+La siguiente información es una lista actual de limitaciones conocidas con el host del conector ECMA de Azure AD y el aprovisionamiento de aplicaciones locales.
+
+### <a name="application-and-directories"></a>Aplicación y directorios
+Todavía no se admiten las siguientes aplicaciones y directorios.
+
+**AD DS: (escritura diferida de grupos o usuarios desde Azure AD, mediante la versión preliminar del aprovisionamiento local)**
+   - Cuando un usuario se administra mediante Azure AD Connect, el origen de autoridad es Active Directory local. Por lo tanto, los atributos de usuario no se pueden cambiar en Azure AD. Esta versión preliminar no cambia el origen de autoridad para los usuarios administrados por Azure AD Connect.
+   - El intento de usar Azure AD Connect y el aprovisionamiento local para aprovisionar grupos o usuarios en AD DS puede dar lugar a la creación de un bucle, donde Azure AD Connect puede sobrescribir un cambio realizado por el servicio de aprovisionamiento en la nube. Microsoft trabaja en una funcionalidad dedicada para la escritura diferida de grupos o usuarios.  Vote a favor de los comentarios de UserVoice [aquí](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/16887037-enable-user-writeback-to-on-premise-ad-from-azure) para realizar un seguimiento del estado de la versión preliminar. Como alternativa, puede usar [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) para la escritura diferida de grupos o usuarios desde Azure AD en AD.
+
+**Conectores distintos de SQL**
+   - El host del conector ECMA de Azure AD se admite oficialmente para el conector genérico de SQL (GSQL). Aunque es posible usar otros conectores, como el conector de servicios web o los conectores ECMA personalizados, **aún no se admite**.
+
+**Azure Active Directory**
+   - El aprovisionamiento local le permite tomar un usuario que ya está Azure AD y aprovisionarlo en una aplicación de terceros. **No le permite llevar a un usuario al directorio desde una aplicación de terceros.** Los clientes tendrán que confiar en nuestras integraciones nativas de RR. UU., Azure AD Connect, MIM o Microsoft Graph para llevar a los usuarios al directorio.
+
+### <a name="attributes-and-objects"></a>Atributos y objetos 
+No se admiten los siguientes atributos y objetos:
+   - Atributos con varios valores
+   - Atributos de referencia (por ejemplo, administrador).
+   - Grupos
+   - Delimitadores complejos (por ejemplo, ObjectTypeName+UserName).
+   - A veces, las aplicaciones locales no están federadas con Azure AD y requieren contraseñas locales. La versión preliminar de aprovisionamiento local **no admite el aprovisionamiento de contraseñas de un solo uso ni la sincronización de contraseñas** entre Azure AD y aplicaciones de terceros.
+   - El atributo virtual export_password' y las operaciones SetPassword y ChangePassword no se admiten
+
+#### <a name="ssl-certificates"></a>Certificados SSL
+   - El host del conector ECMA de Azure AD requiere actualmente que el certificado SSL sea de confianza para Azure o que el agente de aprovisionamiento se use. El asunto del certificado debe coincidir con el nombre de host en el que está instalado el host del conector ECMA de Azure AD.
+
+#### <a name="anchor-attributes"></a>Atributos de delimitador
+   - El host del conector ECMA de Azure AD no admite actualmente cambios de atributo de delimitador (cambios de nombre) ni sistemas de destino, que requieren varios atributos para formar un delimitador. 
+
+#### <a name="attribute-discovery-and-mapping"></a>Detección y asignación de atributos
+   - Los atributos que admite la aplicación de destino se detectan y exponen en Azure Portal en Asignaciones de atributos. Los atributos recién agregados se seguirán detectando. Sin embargo, si un tipo de atributo ha cambiado (por ejemplo, de cadena a booleano) y el atributo forma parte de las asignaciones, el tipo no cambiará automáticamente en Azure Portal. Los clientes tendrán que adoptar la configuración avanzada en las asignaciones y actualizar manualmente el tipo de atributo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Funcionamiento del aprovisionamiento](how-provisioning-works.md)

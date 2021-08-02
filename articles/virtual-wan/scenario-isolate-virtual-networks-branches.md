@@ -8,18 +8,18 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: wellee
-ms.openlocfilehash: 024d3c34094ac82e158198e569e0b6f3b12bdf4c
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: c5c85d2d24a6e1c49dd2787eeb14caabd0e3f941
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108162030"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579248"
 ---
 # <a name="scenario-custom-isolation-for-virtual-networks-and-branches"></a>Escenario: Aislamiento personalizado para redes virtuales y sucursales
 
-Al trabajar con el enrutamiento de centros virtuales de Virtual WAN, hay bastantes escenarios disponibles. En un escenario de aislamiento personalizado para redes virtuales (VNet) y sucursales, el objetivo es evitar que un conjunto específico de redes virtuales se comunique con otro conjunto de redes virtuales. Del mismo modo, solo se permite que las sucursales (VPN/ER/VPN de usuario) se comuniquen con determinados conjuntos de redes virtuales.
+Al trabajar con el enrutamiento de centros virtuales de Virtual WAN, hay bastantes escenarios disponibles. En un escenario de aislamiento personalizado para redes virtuales (VNet) y sucursales, el objetivo es evitar que un conjunto específico de redes virtuales se comunique con otro. Del mismo modo, solo se permite que las sucursales (VPN/ER/VPN de usuario) se comuniquen con determinados conjuntos de redes virtuales.
 
-También se presenta el requisito adicional de que Azure Firewall debe inspeccionar el tráfico de sucursales a redes virtuales y de redes virtuales a sucursales, pero **no** el tráfico de red virtual a red virtual.  
+También se presenta el requisito adicional de que Azure Firewall debe inspeccionar el tráfico entre sucursales y redes virtuales, pero **no** el tráfico entre redes virtuales.  
 
 Para obtener más información sobre el enrutamiento de centros virtuales, vea [Acerca del enrutamiento de centros virtuales](about-virtual-hub-routing.md).
 
@@ -57,7 +57,7 @@ En consecuencia, este es el diseño final:
     * **RT_BLUE**: 0.0.0.0/0 con el próximo salto Azure Firewall
 * Reglas de red de firewall:
     * **REGLA DE PERMISO** **Prefijo de origen**: prefijos de dirección de sucursales azules **Prefijo de destino**: Prefijos de redes virtuales azules 
-    * **REGLA DE PERMISO** **Prefijo de origen**: prefijos de dirección de sucursales rojas **Prefijo de destino**: Prefijos de redes virtuales rojas
+    * **REGLA DE PERMISO** **Prefijo de origen**: prefijos de dirección de sucursales rojas **Prefijo de destino**: prefijos de redes virtuales rojas
 
 > [!NOTE]
 > Como todas las ramas deben estar asociadas a la tabla de enrutamiento Predeterminada, así como propagarse al mismo conjunto de tablas de enrutamiento, todas las ramas tendrán el mismo perfil de conectividad. En otras palabras, el concepto Rojo/Azul para redes virtuales no se puede aplicar a ramas. Sin embargo, para lograr el enrutamiento personalizado para las sucursales, podemos reenviar el tráfico desde las sucursales a Azure Firewall.
@@ -93,7 +93,7 @@ Tenga en cuenta los siguientes pasos al configurar el enrutamiento.
     * Ejemplo: **Prefijo de destino**: 0.0.0.0/0 **Próximo salto**: Azure Firewall
 
     > [!NOTE]
-    > El enrutamiento se realiza mediante la coincidencia de prefijo más larga (LPM). Como resultado, las rutas estáticas 0.0.0.0/0 **no** se preferirán por sobre los prefijos exactos que existen en **BLUE_RT** y **RED_RT**. Como consecuencia, Azure Firewall no inspeccionará el tráfico dentro de la red virtual.
+    > El enrutamiento se realiza mediante la coincidencia de prefijo más larga (LPM). Como resultado, las rutas estáticas 0.0.0.0/0 **no** se preferirán por sobre los prefijos exactos que existen en **BLUE_RT** y **RED_RT**. Como consecuencia, Azure Firewall no inspeccionará el tráfico de la red virtual.
 
 Esto hará que la configuración de enrutamiento cambie como se muestra en la figura siguiente.
 

@@ -1,22 +1,22 @@
 ---
 title: Configuración de clientes de OpenVPN para Azure Virtual WAN
-description: Este artículo lo ayuda a configurar clientes de OpenVPN para Azure Virtual WAN. Incluye los pasos de configuración de los clientes Windows, Mac, iOS y Linux.
+description: Aprenda a configurar clientes de OpenVPN para Azure Virtual WAN. En este artículo se incluyen los pasos de configuración de los clientes Windows, Mac, iOS y Linux.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: cherylmc
-ms.openlocfilehash: 91b4a9a69912f7a5980348cc2b9a874673fa0eb2
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 83c70aca81eaa888186807d43fff5a7bbaccb700
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108163398"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579621"
 ---
 # <a name="configure-an-openvpn-client-for-azure-virtual-wan"></a>Configuración de un cliente de OpenVPN para Azure virtual WAN
 
-Este artículo le ayuda a configurar clientes del **protocolo &reg;OpenVPN**. También puede usar el cliente VPN de Azure para Windows 10 para conectarse a través del protocolo OpenVPN. Si necesita más instrucciones, las encontrará [aquí](openvpn-azure-ad-client.md).
+Este artículo le ayuda a configurar clientes del **protocolo &reg;OpenVPN**. También puede usar el cliente VPN de Azure para Windows 10 para conectarse a través del protocolo OpenVPN. Para más información, consulte [Configuración de un cliente VPN para conexiones P2S OpenVPN](openvpn-azure-ad-client.md).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 

@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 12/09/2020
+ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 8b3304c673e8606667246a7d0df9ad8f3be11d9b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ad0fbacdfe8b6205dd32ecd75e5291b504adcac
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101686706"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111407784"
 ---
 # <a name="back-up-and-restore-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Copia de seguridad y restauración de grupos de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc
 
@@ -90,6 +90,9 @@ La columna Timestamp indica la hora UTC a la que se realizó la copia de segurid
 
 ## <a name="restore-a-backup"></a>Restaurar una copia de seguridad
 En esta sección se muestra cómo realizar una restauración completa o una restauración a un momento dado. Al restaurar una copia de seguridad completa, se restaura todo su contenido. Cuando la restauración es a un momento dado, se restaura hasta el momento dado que se indique. Las transacciones que se realizaron a partir de ahí no se restauran.
+
+> [!CAUTION]
+> Solo puede restaurar en un grupo de servidores que tenga el mismo número de nodos de trabajo que tenía cuando se tomó la copia de seguridad. Si ha aumentado o reducido el número de nodos de trabajo desde que se ha realizado la copia de seguridad, antes de realizar la restauración, debe aumentar o reducir dicho número (o crear un nuevo grupo de servidores) para que coincida con el contenido de la copia de seguridad. Se producirá un error en la restauración cuando el número de nodos de trabajo no coincida.
 
 ### <a name="restore-a-full-backup"></a>Restauración de una copia de seguridad completa
 Para restaurar todo el contenido de una copia de seguridad, ejecute el comando:
@@ -215,5 +218,5 @@ azdata arc postgres backup delete --help
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Obtenga información sobre el [escalado horizontal (adición de nodos de trabajo)](scale-out-postgresql-hyperscale-server-group.md) del grupo de servidores.
+- Obtenga información sobre el [escalado horizontal (adición de nodos de trabajo)](scale-out-in-postgresql-hyperscale-server-group.md) del grupo de servidores.
 - Obtenga información sobre [cómo escalar o reducir verticalmente (aumentar o reducir la memoria o los núcleos virtuales)](scale-up-down-postgresql-hyperscale-server-group-using-cli.md) el grupo de servidores.

@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 7d64684b5e8e73e82b6d778a193de617301a14eb
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 8f11c6d02649f85eddc39aa151ab7df3d8b72ab6
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106123283"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110797688"
 ---
 # <a name="live-event-types-comparison"></a>Comparación de tipos de objetos LiveEvent
 
@@ -45,7 +45,7 @@ En la tabla siguiente se comparan las características de los tipos de LiveEvent
 | Ancho de banda agregado máximo de la fuente de contribución|60 Mbps|N/D|
 | Velocidad de bits máxima para una sola capa de la contribución |20 Mbps|20 Mbps|
 | Compatibilidad con pistas de audio de varios idiomas|Sí|No|
-| Códecs compatibles de vídeo de entrada |H.264/AVC y H.265/HEVC|H.264/AVC|
+| Códecs compatibles de vídeo de entrada |H.264/AVC (RTMP y Smooth) o H.265/HEVC (solo ingesta de Smooth Streaming)|H.264/AVC (ingesta de RTMP y de Smooth Streaming)|
 | Códecs compatibles de vídeo de salida|Igual que la entrada|H.264/AVC|
 | Profundidad de bits, entrada y salida de vídeo compatibles|Hasta 10 bits incluido HDR 10/HLG|8 bits|
 | Códecs de audio de entrada compatibles|AAC-LC, HE-AAC v1, HE-AAC v2|AAC-LC, HE-AAC v1, HE-AAC v2|

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 2595dc95e4e7f489553548b7cfbf4f64bb9c82af
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 1355f6e6120f77ead063bb9246bf1c2864341373
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166134"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112007578"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Uso de los controladores de interfaz de almacenamiento de contenedores (CSI) de Azure Files en Azure Kubernetes Service (AKS) (versión preliminar)
 
@@ -198,36 +198,7 @@ Filesystem                                                                      
 
  Esta opción está optimizada para cargas de trabajo de acceso aleatorio con actualizaciones de datos en contexto y proporciona compatibilidad completa con el sistema de archivos POSIX. En esta sección se muestra cómo usar recursos compartidos de archivos NFS con el controlador CSI de Azure Files en un clúster de AKS.
 
-Asegúrese de comprobar las [limitaciones](../storage/files/storage-files-compare-protocols.md#limitations) y la [disponibilidad de las regiones](../storage/files/storage-files-compare-protocols.md#regional-availability) durante la fase de versión preliminar.
-
-### <a name="register-the-allownfsfileshares-preview-feature"></a>Registro de la característica en vista previa (GB) `AllowNfsFileShares`
-
-Para crear un recurso compartido de archivos que aprovecha NFS 4.1, debe habilitar la marca de características `AllowNfsFileShares` en su suscripción.
-
-Registre la marca de la característica `AllowNfsFileShares` con el comando [az feature register][az-feature-register], como se muestra en el siguiente ejemplo:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.Storage" --name "AllowNfsFileShares"
-```
-
-Tarda unos minutos en que el estado muestre *Registrado*. Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.Storage/AllowNfsFileShares')].{Name:name,State:properties.state}"
-```
-
-Cuando haya terminado, actualice el registro del proveedor de recursos *Microsoft.ContainerService* con el comando [az provider register][az-provider-register]:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Storage
-```
-
-### <a name="create-a-storage-account-for-the-nfs-file-share"></a>Creación de una cuenta de almacenamiento para el recurso compartido de archivos NFS
-
-[Cree una cuenta de almacenamiento de Azure `Premium_LRS`](../storage/files/storage-how-to-create-file-share.md) con las siguientes configuraciones para admitir recursos compartidos de archivos NFS:
-- Tipo de cuenta: FileStorage
-- Se requiere transferencia segura (habilite solo el tráfico HTTPS): false.
-- Seleccione la red virtual de los nodos de agente en firewalls y redes virtuales, por lo que es posible que prefiera crear la cuenta de almacenamiento en el grupo MC_resource.
+Asegúrese de comprobar las [limitaciones](../storage/files/storage-files-compare-protocols.md#limitations) y la [disponibilidad de las regiones](../storage/files/storage-files-compare-protocols.md#regional-availability).
 
 ### <a name="create-nfs-file-share-storage-class"></a>Creación de una clase de almacenamiento de recursos compartidos de archivos NFS
 
@@ -240,8 +211,6 @@ metadata:
   name: azurefile-csi-nfs
 provisioner: file.csi.azure.com
 parameters:
-  resourceGroup: EXISTING_RESOURCE_GROUP_NAME  # optional, required only when storage account is not in the same resource group as your agent nodes
-  storageAccount: EXISTING_STORAGE_ACCOUNT_NAME
   protocol: nfs
 ```
 
@@ -250,15 +219,15 @@ Después de editar y guardar el archivo, cree la clase de almacenamiento con el 
 ```console
 $ kubectl apply -f nfs-sc.yaml
 
-storageclass.storage.k8s.io/azurefile-csi created
+storageclass.storage.k8s.io/azurefile-csi-nfs created
 ```
 
 ### <a name="create-a-deployment-with-an-nfs-backed-file-share"></a>Creación de una implementación con un recurso compartido de archivos con copia de seguridad NFS
 
-Puede implementar un [conjunto con estado](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) de ejemplo que guarde marcas de tiempo en el archivo `data.txt` mediante la implementación del comando siguiente con el comando [kubectl apply][kubectl-apply]:
+Puede implementar un [conjunto con estado](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/nfs/statefulset.yaml) de ejemplo que guarde marcas de tiempo en el archivo `data.txt` mediante la implementación del comando siguiente con el comando [kubectl apply][kubectl-apply]:
 
 ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/statefulset.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/nfs/statefulset.yaml
 
 statefulset.apps/statefulset-azurefile created
 ```

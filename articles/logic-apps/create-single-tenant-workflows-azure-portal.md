@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 05/25/2021
-ms.openlocfilehash: 8058f6a912981f44205a6a2739fe2be54141d3dd
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 63b3de255269d921f38374adc246fb923fdda100
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110368219"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110497126"
 ---
 # <a name="create-an-integration-workflow-using-single-tenant-azure-logic-apps-and-the-azure-portal"></a>Creación de un flujo de trabajo de integración mediante Azure Logic Apps de un solo inquilino y Azure Portal
 
@@ -76,11 +76,11 @@ A medida que avance, completará estas tareas de alto nivel:
    | **Suscripción** | Sí | <*Azure-subscription-name*> | La suscripción de Azure que se usa para la aplicación lógica. |
    | **Grupo de recursos** | Sí | <*nombre del grupo de recursos de Azure*> | El grupo de recursos de Azure en el que se crea la aplicación lógica y los recursos relacionados. El nombre del recurso debe ser único entre las regiones y solo puede contener letras, números, guiones ( **-** ), caracteres de subrayado ( **_** ), paréntesis ( **()** ) y puntos ( **.** ). <p><p>En este ejemplo se crea un grupo de recursos denominado `Fabrikam-Workflows-RG`. |
    | **Nombre de la aplicación lógica** | Sí | <*nombre-de-la-aplicación-lógica*> | Nombre que se va a usar para la aplicación lógica. El nombre del recurso debe ser único entre las regiones y solo puede contener letras, números, guiones ( **-** ), caracteres de subrayado ( **_** ), paréntesis ( **()** ) y puntos ( **.** ). <p><p>En este ejemplo se crea una aplicación lógica denominada `Fabrikam-Workflows`. <p><p>**Nota**: El nombre de la aplicación lógica obtiene automáticamente el sufijo `.azurewebsites.net`, ya que el recurso **Logic Apps (estándar)** se basa en Azure Functions, que usa la misma convención de nomenclatura de la aplicación. |
-   | **Publicar** | Sí | <*entorno-de-implementación*> | El destino de implementación de la aplicación lógica. De forma predeterminada, **Workflow** es la única opción del portal disponible actualmente y se implementa en Azure Logic Apps de un solo inquilino. <p><p>**Nota**: Azure crea un recurso de aplicación lógica vacío donde tiene que agregar el primer flujo de trabajo. |
-   | **Región** | Sí | <*Azure-region*> | Región de Azure que se va a usar al crear el grupo de recursos y los recursos. <p><p>En este ejemplo se usa **West US**. |
+   | **Publicar** | Sí | <*entorno-de-implementación*> | El destino de implementación de la aplicación lógica. De forma predeterminada, se selecciona **Flujo de trabajo** para la implementación en Azure Logic Apps de un solo inquilino. Azure crea un recurso de aplicación lógica vacío donde tiene que agregar el primer flujo de trabajo. <p><p>**Nota**: Actualmente, la opción **Contenedor de Docker** requiere una [*ubicación personalizada*](../azure-arc/kubernetes/conceptual-custom-locations.md) en un clúster de Kubernetes habilitado para Azure Arc, que puede utilizar con [instancias de Logic Apps habilitadas para Azure Arc (versión preliminar)](azure-arc-enabled-logic-apps-overview.md). Las ubicaciones del recurso de la aplicación lógica, la ubicación personalizada y el clúster deben tener los mismos valores. |
+   | **Región** | Sí | <*Azure-region*> | Ubicación que se usará para crear el grupo de recursos y los recursos. Si seleccionó **Contenedor de Docker**, seleccione la ubicación personalizada. <p><p>En este ejemplo se implementa la aplicación lógica de ejemplo en Azure y se usa **Oeste de EE. UU.** |
    |||||
 
-   Este es un ejemplo:
+   En el ejemplo siguiente se muestra la página para **crear una aplicación lógica (estándar)** :
 
    ![Captura de pantalla que muestra Azure Portal y la página "Crear aplicación lógica".](./media/create-single-tenant-workflows-azure-portal/create-logic-app-resource-portal.png)
 

@@ -5,19 +5,19 @@ description: Aprenda a conectarse a SQL Database, una Instancia administrada de 
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
-ms.custom: azure-synapse, has-adal-ref, sqldbrb=2
+ms.custom: azure-synapse, has-adal-ref, sqldbrb=2, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
-ms.date: 08/17/2020
-ms.openlocfilehash: c75364f2565611b6738996c082610229db0cb2a8
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/11/2021
+ms.openlocfilehash: 4d06ec600f71e682c9faadf3760ee76bb41c40b2
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762234"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112021004"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configuración y administración de la autenticación de Azure AD con Azure SQL
 
@@ -48,7 +48,13 @@ Para obtener más información sobre las identidades híbridas de Azure AD, la 
 
 Cree una instancia de Azure AD y rellénela con usuarios y grupos. Azure AD puede ser el dominio administrado de Azure AD inicial. Azure AD también puede ser una instancia local de Active Directory Domain Services que se federa con Azure AD.
 
-Para obtener más información, consulte [Integrating your on-premises identities with Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md) (Integración de sus identidades locales con Azure Active Directory), [Incorporación de su nombre de dominio personalizado a Azure Active Directory](../../active-directory/fundamentals/add-custom-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/) (Microsoft Azure admite ahora Windows Server Active Directory), [Administración de su directorio de Azure AD](../../active-directory/fundamentals/active-directory-whatis.md), [Administrar Azure AD mediante Windows PowerShell](/powershell/azure/) y [Hybrid Identity Required Ports and Protocols](../../active-directory/hybrid/reference-connect-ports.md) (Puertos y protocolos requeridos para la identidad híbrida).
+Para más información, consulte:
+- [Integración de las identidades locales con Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md)
+- [Incorporación del nombre de dominio personalizado mediante el portal de Azure Active Directory](../../active-directory/fundamentals/add-custom-domain.md)
+- [Microsoft Azure ahora admite la federación con Windows Server AD](https://azure.microsoft.com/blog/windows-azure-now-supports-federation-with-windows-server-active-directory/)
+- [¿Qué es Azure Active Directory?](../../active-directory/fundamentals/active-directory-whatis.md)
+- [Administrar Azure AD mediante Windows PowerShell](/powershell/module/azuread)
+- [La identidad híbrida requería puertos y protocolos](../../active-directory/hybrid/reference-connect-ports.md)
 
 ## <a name="associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Asociación o adición de una suscripción de Azure a Azure Active Directory
 
@@ -338,6 +344,19 @@ Para más información sobre los comandos de la CLI, consulte [az sql server](/c
 > [!NOTE]
 > También puede aprovisionar un administrador de Azure Active Directory mediante las API de REST. Para más información, consulte [Service Management REST API Reference and Operations for Azure SQL Databases](/rest/api/sql/) (Referencia de la API REST de administración de servicio y operaciones para bases de datos de Azure SQL).
 
+## <a name="set-or-unset-the-azure-ad-admin-using-service-principals"></a>Establecimiento o anulación del administrador de Azure AD mediante entidades de servicio
+
+Si planea establecer la entidad de servicio o anular la configuración de un administrador de Azure AD para Azure SQL, se necesita un permiso de API adicional. El permiso de API de aplicación [Directory.Read.All](/graph/permissions-reference#application-permissions-18) se deberá agregar a la aplicación en Azure AD.
+
+> [!NOTE]
+> Esta sección sobre cómo establecer el administrador de Azure AD solo se aplica al uso de PowerShell o comandos de la CLI, ya que no se puede usar el Azure Portal como entidad de servicio de Azure AD.
+
+:::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="Permisos de Directory.Reader.All en Azure AD":::
+
+La entidad de servicio también necesitará el rol de [**colaborador de SQL Server**](../../role-based-access-control/built-in-roles.md#sql-server-contributor) para SQL Database, o el rol de [**colaborador de SQL Managed Instance**](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) para SQL Managed Instance.
+
+Para obtener más información, consulte [Entidades de servicio (aplicaciones de Azure AD).](authentication-aad-service-principal.md)
+
 ## <a name="configure-your-client-computers"></a>Configurar los equipos cliente.
 
 En todas las máquinas cliente, desde las que las aplicaciones o los usuarios se conectan a SQL Database o a Azure Synapse mediante identidades de Azure AD, debe instalar el software siguiente:
@@ -420,7 +439,7 @@ Para confirmar que el administrador de Azure AD está correctamente configurado,
 Para aprovisionar un usuario de base de datos independiente basada en un directorio de Azure AD (que no sea el administrador del servidor que es el propietario de la base de datos), conéctese a la base de datos con una identidad de Azure AD que tenga acceso a la base de datos.
 
 > [!IMPORTANT]
-> La autenticación de Azure Active Directory es compatible con [SQL Server 2016 Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) y [SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt) en Visual Studio 2015. La versión de agosto de 2016 de SSMS también incluye compatibilidad con la autenticación universal de Active Directory, que permite a los administradores requerir Multi-Factor Authentication con una llamada de teléfono, un mensaje de texto, tarjetas inteligentes con PIN o una notificación de aplicación móvil.
+> La autenticación de Azure Active Directory es compatible con [SQL Server 2016 Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) y [SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt) en 2015. La versión de agosto de 2016 de SSMS también incluye compatibilidad con la autenticación universal de Active Directory, que permite a los administradores requerir Multi-Factor Authentication con una llamada de teléfono, un mensaje de texto, tarjetas inteligentes con PIN o una notificación de aplicación móvil.
 
 ## <a name="using-an-azure-ad-identity-to-connect-using-ssms-or-ssdt"></a>Uso de una identidad de Azure AD para conectarse mediante SQL Server Management Studio o SQL Server Database Tools
 

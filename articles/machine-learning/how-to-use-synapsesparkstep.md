@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 03/04/2021
 ms.topic: how-to
 ms.custom: synapse-azureml
-ms.openlocfilehash: a54a78bebe6dc0a1fc49a32aa2d82203b7da5028
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 046a38da67db86592e91f103f3139b425e59f6a0
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110077111"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110578904"
 ---
 # <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>Uso de Apache Spark (con tecnología de Azure Synapse Analytics) en la canalización de aprendizaje automático (versión preliminar)
 
@@ -35,21 +35,23 @@ En este artículo, aprenderá a usar grupos de Apache Spark con tecnología de A
 
 Los grupos de Apache Spark se crean y administran en las áreas de trabajo de Azure Synapse Analytics. Para integrar un grupo de Apache Spark en un área de trabajo de Azure Machine Learning, debe [crear un vínculo al área de trabajo de Azure Synapse Analytics](how-to-link-synapse-ml-workspaces.md). 
 
-Puede conectar un grupo de Apache Spark a través de la interfaz de usuario de Estudio de Azure Machine Learning mediante la página **Servicios vinculados**. También puede hacerlo a través de la página **Proceso** con la opción **Attach compute** (Asociar proceso).
-
-Asimismo, puede conectar un grupo de Apache Spark a través del SDK (como se muestra a continuación) o a través de una plantilla de ARM (consulte esta [plantilla de ARM de ejemplo](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json)). 
-
-Puede usar la línea de comandos para seguir la plantilla de ARM, agregar el servicio vinculado y conectar el grupo de Apache Spark con el código siguiente:
-
-```azurecli
-az deployment group create --name --resource-group <rg_name> --template-file "azuredeploy.json" --parameters @"azuredeploy.parameters.json"
-```
+Una vez que el área de trabajo de Azure Machine Learning y las áreas de trabajo de Azure Synapse Analytics están vinculadas, puede asociar un grupo de Apache Spark mediante: 
+* [Azure Machine Learning Studio](how-to-link-synapse-ml-workspaces.md#attach-a-pool-via-the-studio)
+* SDK para Python ([como se detalla a continuación](#attach-your-apache-spark-pool-as-a-compute-target-for-azure-machine-learning))
+* Plantilla de Azure Resource Manager (ARM) (consulte esta [plantilla de ARM de ejemplo](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json)). 
+    * Puede usar la línea de comandos para seguir la plantilla de ARM, agregar el servicio vinculado y conectar el grupo de Apache Spark con el código siguiente:
+    ```azurecli
+    az deployment group create --name --resource-group <rg_name> --template-file "azuredeploy.json" --parameters @"azuredeploy.parameters.json"
+    ```
 
 > [!Important]
 > Para vincular correctamente el área de trabajo de Azure Synapse Analytics, hay que tener el rol de propietario en el recurso de dicha área de trabajo. Compruebe el acceso en Azure Portal.
-> El servicio vinculado recibirá una identidad asignada por el sistema (SAI) al crearlo. A esta SAI del servicio vinculado se le debe asignar el rol "Administrador de Apache Spark de Synapse" desde Synapse Studio para que pueda enviar el trabajo de Spark (consulte [Administración de asignaciones de roles de RBAC de Synapse en Synapse Studio](../synapse-analytics/security/how-to-manage-synapse-rbac-role-assignments.md)). También debe proporcionar al usuario del área de trabajo de Azure Machine Learning el rol "colaborador" desde el portal de administración de recursos de Azure.
+>
+> El servicio vinculado recibirá una identidad asignada por el sistema (SAI) al crearlo. A esta SAI del servicio vinculado se le debe asignar el rol "Administrador de Apache Spark de Synapse" desde Synapse Studio para que pueda enviar el trabajo de Spark (consulte [Administración de asignaciones de roles de RBAC de Synapse en Synapse Studio](../synapse-analytics/security/how-to-manage-synapse-rbac-role-assignments.md)). 
+> 
+> También debe proporcionar al usuario del área de trabajo de Azure Machine Learning el rol "colaborador" desde el portal de administración de recursos de Azure.
 
-## <a name="create-or-retrieve-the-link-between-your-azure-synapse-analytics-workspace-and-your-azure-machine-learning-workspace"></a>Creación o recuperación del vínculo entre el área de trabajo de Azure Synapse Analytics y el área de trabajo de Azure Machine Learning
+## <a name="retrieve-the-link-between-your-azure-synapse-analytics-workspace-and-your-azure-machine-learning-workspace"></a>Recuperación del vínculo entre el área de trabajo de Azure Synapse Analytics y el área de trabajo de Azure Machine Learning
 
 Puede recuperar los servicios vinculados del área de trabajo con código como el siguiente:
 

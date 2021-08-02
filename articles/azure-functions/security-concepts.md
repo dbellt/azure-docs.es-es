@@ -3,12 +3,12 @@ title: Protección de Azure Functions
 description: Obtenga información sobre cómo hacer que el código de función que se ejecuta en Azure sea más seguro frente a ataques comunes.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4e667cd8509e73624d7ef14d978480897d6636f0
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: c8649c342b237a321c3c47510644451ceb3581fe
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108202324"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467929"
 ---
 # <a name="securing-azure-functions"></a>Protección de Azure Functions
 
@@ -28,7 +28,7 @@ Security Center se integra con la aplicación de funciones en el portal. Proporc
 
 ### <a name="log-and-monitor"></a>Registro y supervisión
 
-Una forma de detectar ataques es a través de la supervisión de actividades y el análisis de registro. Functions se integra con Application Insights para recopilar datos de registro, rendimiento y errores para la aplicación de funciones. Application Insights detecta automáticamente anomalías en el rendimiento e incluye herramientas de análisis eficaces que ayudan a diagnosticar problemas y comprender cómo se usan las funciones. Para más información, consulte [Supervisión de Azure Functions](functions-monitoring.md).
+Una forma de detectar ataques es a través de la supervisión de actividades y el análisis del registro. Functions se integra con Application Insights para recopilar datos de registro, rendimiento y errores para la aplicación de funciones. Application Insights detecta automáticamente anomalías en el rendimiento e incluye herramientas de análisis eficaces que ayudan a diagnosticar problemas y comprender cómo se usan las funciones. Para más información, consulte [Supervisión de Azure Functions](functions-monitoring.md).
 
 Functions también se integra con los registros de Azure Monitor para que pueda consolidar los registros de la aplicación de funciones con eventos del sistema para facilitar el análisis. Puede usar la configuración de diagnóstico para configurar la exportación de streaming de registros y métricas de la plataforma para las funciones al destino que elija, como un área de trabajo de Log Analytics. Para obtener más información, vea [Supervisión de Azure Functions con registros de Azure Monitor](functions-monitor-log-analytics.md). 
 
@@ -76,7 +76,7 @@ Para obtener más información sobre las claves de acceso, vea el [artículo sob
 
 De forma predeterminada, las claves se almacenan en un contenedor de Blob Storage en la cuenta proporcionada por el valor `AzureWebJobsStorage`. Puede usar la configuración de la aplicación específica para invalidar este comportamiento y almacenar las claves en una ubicación distinta.
 
-|Location  |Configuración | Value | Descripción  |
+|Location  |Configuración | Valor | Descripción  |
 |---------|---------|---------|---------|
 |Cuenta de almacenamiento distinta     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL` | Almacena claves en Blob Storage de una segunda cuenta de almacenamiento, según la dirección URL de SAS proporcionada. Las claves se cifran antes de almacenarse con un secreto único para la aplicación de funciones. |
 |Sistema de archivos   | `AzureWebJobsSecretStorageType`   |  `files`       | Las claves se conservan en el sistema de archivos y se cifran antes del almacenamiento con un secreto único para la aplicación de funciones. |

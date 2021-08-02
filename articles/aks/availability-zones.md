@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 03/16/2021
-ms.openlocfilehash: 6123b040be8076c3b05f0dc81e6ac707dc38d0ed
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 13a14854f373ca7297e454ddbdc9f475849dc0b8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108017859"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110100547"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Creación de un clúster de Azure Kubernetes Service (AKS) que use zonas de disponibilidad
 
@@ -57,6 +57,12 @@ Las siguientes limitaciones se aplican cuando crea un clúster de AKS mediante z
 Los volúmenes que usan discos administrados de Azure actualmente no son recursos con redundancia de zona. Los volúmenes no se pueden conectar entre zonas y deben estar ubicados en la misma zona que el nodo concreto que hospeda al pod de destino.
 
 Kubernetes tiene en cuenta las zonas de disponibilidad de Azure desde la versión 1.12. Puede implementar un objeto PersistentVolumeClaim que haga referencia a un disco administrado de Azure en un clúster de AKS de varias zonas y [Kubernetes se encargará de programar](https://kubernetes.io/docs/setup/best-practices/multiple-zones/#storage-access-for-zones) cualquier pod que reclame este objeto PVC en la zona de disponibilidad correcta.
+
+### <a name="azure-resource-manager-templates-and-availability-zones"></a>Plantillas de Azure Resource Manager y zonas de disponibilidad
+
+Al *crear* un clúster de AKS, si define explícitamente un [valor NULL en una plantilla][arm-template-null] con una sintaxis de tipo `"availabilityZones": null`, la plantilla de Resource Manager trata la propiedad como si no existiera, lo que significa que el clúster no tendrá habilitadas las zonas de disponibilidad. Además, si crea un clúster con una plantilla de Resource Manager que omite la propiedad availability zones, las zonas de disponibilidad se deshabilitan.
+
+No se puede actualizar la configuración de zonas de disponibilidad en un clúster existente, por lo que el comportamiento es diferente al actualizar un clúster de AKS con plantillas de Resource Manager.  Si establece explícitamente un valor NULL en la plantilla para las zonas de disponibilidad y *actualiza* el clúster, no se realizan cambios en el clúster para las zonas de disponibilidad. Sin embargo, si omite la propiedad availability zones con una sintaxis de tipo `"availabilityZones": []`, la implementación intenta deshabilitar las zonas de disponibilidad en el clúster de AKS existente y **produce un error**.
 
 ## <a name="overview-of-availability-zones-for-aks-clusters"></a>Introducción a las zonas de disponibilidad para los clústeres de AKS
 
@@ -205,6 +211,7 @@ En este artículo se detalla cómo crear un clúster de AKS que usa zonas de dis
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [vmss-zone-balancing]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing
+[arm-template-null]: ../azure-resource-manager/templates/template-expressions.md#null-values
 
 <!-- LINKS - external -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe

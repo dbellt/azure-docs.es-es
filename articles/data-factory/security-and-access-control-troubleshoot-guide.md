@@ -4,14 +4,14 @@ description: Aprenda a solucionar problemas de seguridad y control de acceso en 
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 02/24/2021
+ms.date: 05/31/2021
 ms.author: lle
-ms.openlocfilehash: 5e94ea989002d3d3c6d0e96123d5b8ddb5f078c3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ff95f5c3f8d978d58146529825adee94f82eaf07
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105568049"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110782899"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Solución de problemas de seguridad y control de acceso de Azure Data Factory
 
@@ -188,6 +188,18 @@ ADF todavía puede usar IR de red virtual administrada, pero podría encontrar e
 
 - Habilite el punto de conexión privado en el origen y también el lado del receptor cuando se use IR de la red virtual administrada.
 - Si todavía quiere usar el punto de conexión público, puede cambiar a solo IR público en lugar de usar IR de red virtual administrada para el origen y el receptor. Incluso si cambia de nuevo a IR público, ADF todavía puede usar IR de red virtual administrada en caso de que siga presente.
+
+## <a name="sharing-self-hosted-integration-runtime"></a>Uso compartido de IR autohospedado
+
+### <a name="sharing-a-self-hosted-ir-from-a-different-tenant-is-not-supported"></a>No se admite el uso compartido de un IR autohospedado desde un inquilino diferente 
+
+#### <a name="symptoms"></a>Síntomas
+
+Es posible que observe otras factorías de datos (en diferentes inquilinos) al intentar compartir el IR autohospedado desde la interfaz de usuario de Azure Data Factory, pero no puede compartirlo entre factorías de datos que se encuentran en distintos inquilinos.
+
+#### <a name="cause"></a>Causa
+
+El IR autohospedado no puede compartirse entre inquilinos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,14 +1,14 @@
 ---
 title: 'Trabajo con grupos de administración: Gobernanza en Azure'
 description: Aprenda a visualizar, mantener, actualizar y eliminar la jerarquía de grupos de administración.
-ms.date: 05/01/2021
+ms.date: 06/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 31d63cf493ae548b8172071c133655900d8c3be7
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: a42800bb40f0c94de9b852eb77b3b87b698bdb09
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109753820"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112020950"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Administración de los recursos con grupos de administración
 
@@ -199,14 +199,16 @@ Uno de los motivos de crear un grupo de administración es agrupar las suscripci
 
 Al mover un grupo de administración o una suscripción para ser secundarios de otro grupo de administración, es preciso evaluar tres reglas como verdaderas.
 
-Si va a realizar la acción de movimiento, necesitará lo siguiente:
+Si va a realizar un traslado, necesita permiso en cada una de las capas siguientes:
 
-- Permisos de escritura de grupos de administración y de escritura de la asignación de roles en la suscripción o en el grupo de administración secundarios.
-  - Ejemplo del rol integrado **Propietario**
-- Acceso de escritura de grupos de administración en el grupo de administración primario de destino.
-  - Ejemplo de rol integrado: **Propietario**, **Colaborador**, **Colaborador de grupo de administración**
-- Acceso de escritura de grupos de administración en el grupo de administración primario existente.
-  - Ejemplo de rol integrado: **Propietario**, **Colaborador**, **Colaborador de grupo de administración**
+- Suscripción o grupo de administración secundarios
+  - `Microsoft.management/managementgroups/write`
+  - `Microsoft.management/managementgroups/subscription/write` (solo para suscripciones)
+  - `Microsoft.Authorization/roleassignment/write`
+- Grupo de administración primario de destino
+  - `Microsoft.management/managementgroups/write`
+- Grupo de administración primario actual
+  - `Microsoft.management/managementgroups/write`
 
 **Excepción**: Si el grupo de administración primario existente o de destino es el grupo de administración raíz, no se aplican los requisitos de permisos. Puesto que el grupo de administración raíz es la zona de aterrizaje predeterminada de todos los nuevos grupos de administración y suscripciones, no necesita permisos sobre él para mover un elemento.
 

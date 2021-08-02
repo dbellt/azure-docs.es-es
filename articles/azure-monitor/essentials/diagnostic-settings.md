@@ -5,13 +5,13 @@ author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 02/08/2021
-ms.openlocfilehash: 60ac56cfda026871afa1725bbd54625b7ce7585e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 06/09/2021
+ms.openlocfilehash: bb820be289aa2ddcec2183094e819083dde8c1d8
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789202"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111902795"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Creación de una configuración de diagnóstico para enviar los registros y las métricas de la plataforma a diferentes destinos
 Los [registros de plataforma](./platform-logs-overview.md) de Azure, como los registros de recursos y los registros de actividad de Azure, proporcionan información de diagnóstico y auditoría detallada sobre los recursos de Azure y la plataforma de Azure de la que dependen. Las [métricas de plataforma](./data-platform-metrics.md) se recopilan de forma predeterminada y suelen almacenarse en la base de datos de métricas de Azure Monitor. En este artículo, se explica cómo crear y establecer la configuración de diagnóstico para enviar métricas y registros de plataforma a diferentes destinos.
@@ -199,7 +199,7 @@ Consulte [Configuración de diagnóstico](/rest/api/monitor/diagnosticsettings) 
 ## <a name="create-using-azure-policy"></a>Creación mediante Azure Policy
 Dado que es necesario crear una configuración de diagnóstico para cada recurso de Azure, se puede usar Azure Policy para crear automáticamente una configuración de diagnóstico a medida que se crea cada recurso. Para más información, consulte [Implementación de Azure Monitor a escala mediante Azure Policy](../deploy-scale.md).
 
-## <a name="metric-category-is-not-supported-error"></a>La categoría de métrica no es un error compatible
+## <a name="error-metric-category-is-not-supported"></a>Error: La categoría de métrica no es compatible
 Al implementar una configuración de diagnóstico, recibirá el mensaje de error siguiente:
 
    "La categoría de métrica '*xxxx*' no se admite"
@@ -216,7 +216,9 @@ El problema se debe a un cambio reciente en la API subyacente. Las categorías d
 
 Si recibe este error, actualice las implementaciones para reemplazar los nombres de categoría de métrica por "AllMetrics" para corregir el problema. Si la implementación agregaba anteriormente varias categorías, solo debe conservarse una con la referencia "AllMetrics". Si sigue teniendo el problema, póngase en contacto con el equipo de soporte técnico de Azure a través de Azure Portal. 
 
+## <a name="error-setting-disappears-due-to-non-ascii-characters-in-resourceid"></a>Error: La configuración desaparece debido a caracteres no ASCII en resourceID
 
+La configuración de diagnóstico no admite identificadores de recursos con caracteres no ASCII (por ejemplo, Preproducción). Puesto que no puede cambiar el nombre de los recursos en Azure, la única opción es crear un recurso sin caracteres no ASCII. Si los caracteres están en un grupo de recursos, puede mover los recursos que contiene a uno nuevo. De lo contrario, deberá volver a crear el recurso. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

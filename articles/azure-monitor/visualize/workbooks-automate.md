@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: e1d96dd885fafcd95af1ae9d4757fb5c6ee4a3ef
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 48766e51e3408e11c264b77c43b066f3fedc6c28
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315316"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110080513"
 ---
 # <a name="programmatically-manage-workbooks"></a>Administración de libros mediante programación
 
@@ -307,4 +307,4 @@ Por motivos técnicos, este mecanismo no se puede usar para crear instancias de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Explore cómo se usan los libros para potenciar la nueva [experiencia de Azure Monitor para Storage](../insights/storage-insights-overview.md).
+Explore cómo se usan los libros para potenciar la nueva [experiencia de Conclusiones de Storage](../insights/storage-insights-overview.md).

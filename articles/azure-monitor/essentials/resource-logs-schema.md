@@ -3,12 +3,12 @@ title: Servicios y esquemas admitidos de los registros de recursos de Azure
 description: Conozca el esquema de los eventos y servicios admitidos para los registros de recurso de Azure.
 ms.topic: reference
 ms.date: 05/10/2021
-ms.openlocfilehash: 5021f6fcfdd981989e2c30edb7605bd080725142
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 5d9ae1cd9ca1d5f71d4ad2baff95159bf0e2e7f8
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109715509"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112026442"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Esquema específico de servicio y común para los registros de recursos de Azure
 
@@ -47,7 +47,7 @@ El esquema para los registros de recursos varía según la categoría de registr
 
 | Servicio | Esquema y documentos |
 | --- | --- |
-| Azure Active Directory | [Información general](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Esquema de registros de auditoría](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) y [Esquema de inicios de sesión](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Azure Active Directory | [Información general](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Esquema de registros de auditoría](../../active-directory/reports-monitoring/overview-reports.md) y [Esquema de inicios de sesión](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | [Configuración del registro de diagnóstico de Azure Analysis Services](../../analysis-services/analysis-services-logging.md) |
 | API Management | [Registros de recursos de API Management](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
 | App Service | [Registros de App Service](../../app-service/troubleshoot-diagnostic-logs.md)
@@ -55,6 +55,7 @@ El esquema para los registros de recursos varía según la categoría de registr
 | Azure Automation |[Log Analytics para Azure Automation](../../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Registro de Azure Batch](../../batch/batch-diagnostics.md) |
 | Cognitive Services | [Registro para Azure Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
+| Container Instances | [Registro para Azure Container Instances](../../container-instances/container-instances-log-analytics.md#log-schema) |
 | Container Registry | [Registro para Azure Container Registry](../../container-registry/container-registry-diagnostics-audit-logs.md) |
 | Content Delivery Network | [Registros de Azure para CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Registro de Azure Cosmos DB](../../cosmos-db/monitor-cosmos-db.md) |

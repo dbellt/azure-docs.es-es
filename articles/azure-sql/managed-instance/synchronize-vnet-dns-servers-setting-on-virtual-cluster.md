@@ -3,16 +3,18 @@ title: Sincronización de la configuración de servidores DNS de red virtual en 
 description: Obtenga información sobre cómo sincronizar la configuración de servidores DNS de red virtual en el clúster virtual de SQL Managed Instance.
 services: sql-database
 ms.service: sql-managed-instance
+ms.subservice: deployment-configuration
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.topic: how-to
 ms.date: 01/17/2021
-ms.openlocfilehash: b95afe513dba2f1da9556b27ec17bcccc9fe88e1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 276b4033dc2a5c157245448453b72a8074b79702
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102173558"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110707153"
 ---
 # <a name="synchronize-virtual-network-dns-servers-setting-on-sql-managed-instance-virtual-cluster"></a>Sincronización de la configuración de servidores DNS de red virtual en el clúster virtual de SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -34,8 +36,7 @@ Si este cambio se implementa después de que se cree el [clúster virtual](conne
 
 La configuración del servidor DNS de sincronización de usuarios debe tener uno de los siguientes roles de Azure:
 
-- Rol Propietario de la suscripción, o
-- Rol Colaborador de Instancia administrada, o
+- Rol de colaborador de la suscripción o
 - Rol personalizado con el permiso siguiente:
   - `Microsoft.Sql/virtualClusters/updateManagedInstanceDnsServers/action`
 

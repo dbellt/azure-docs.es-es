@@ -2,13 +2,13 @@
 title: Habilitar copia de seguridad al crear una máquina virtual de Azure
 description: Describe cómo habilitar la copia de seguridad al crear una VM de Azure con Azure Backup.
 ms.topic: conceptual
-ms.date: 06/13/2019
-ms.openlocfilehash: ad81300545686d61f42cdd8684e502c937b4fd43
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/03/2021
+ms.openlocfilehash: 48798dc276c10276e0effd458bd15e9cfbab32dd
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89377342"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112006066"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Habilitar copia de seguridad al crear una máquina virtual de Azure
 
@@ -57,16 +57,20 @@ El servicio Backup crea un grupo de recursos diferente al de la máquina virtual
 
 Puntos a tener en cuenta:
 
-1. Puede usar el nombre predeterminado del grupo de recursos o editarlo según los requisitos de la empresa.
-2. El patrón del nombre del grupo de recursos se proporciona como entrada durante la creación de la directiva de copia de seguridad de la máquina virtual. El nombre del grupo de recursos deberá tener el formato siguiente: `<alpha-numeric string>* n <alpha-numeric string>`. "n" se reemplaza por un entero (empezando por el 1) y se usa para el escalado horizontal si el primer grupo de recursos está lleno. A día de hoy, los grupos de recursos pueden tener hasta 600 RPC como máximo.
+1. Puede usar el nombre predeterminado del grupo de recursos o editarlo según los requisitos de la empresa.<br>Si no ha creado un RG, para especificar un RG para restorepointcollection, siga estos pasos:
+   1. Cree un RG para restorepointcollection. Por ejemplo, "rpcrg".
+   1. Mencione el nombre de RG en la directiva de copia de seguridad de máquina virtual.
+   >[!NOTE]
+   >Esto creará un RG con el valor numérico anexado y lo usará para restorepointcollection.
+1. El patrón del nombre del grupo de recursos se proporciona como entrada durante la creación de la directiva de copia de seguridad de la máquina virtual. El nombre del grupo de recursos deberá tener el formato siguiente: `<alpha-numeric string>* n <alpha-numeric string>`. "n" se reemplaza por un entero (empezando por el 1) y se usa para el escalado horizontal si el primer grupo de recursos está lleno. A día de hoy, los grupos de recursos pueden tener hasta 600 RPC como máximo.
               ![Elección del nombre al crear la directiva](./media/backup-during-vm-creation/create-policy.png)
-3. El patrón debe seguir las reglas de nomenclatura de los grupos de recursos siguientes y la longitud total no debe superar la máxima permitida para el nombre del grupo de recursos.
+1. El patrón debe seguir las reglas de nomenclatura de los grupos de recursos siguientes y la longitud total no debe superar la máxima permitida para el nombre del grupo de recursos.
     1. Los nombres de los grupos de recursos solo permiten caracteres alfanuméricos, puntos, guiones bajos, guiones y paréntesis. No puede terminar en punto.
     2. Los nombres de los grupos de recursos pueden contener hasta 74 caracteres, nombre y sufijo incluidos.
-4. La primera cadena `<alpha-numeric-string>` es obligatoria, mientras que la segunda después de "n" es opcional. Esto solo se aplica si se asigna un nombre personalizado. Si no escribe nada en ninguno de los cuadros de texto, se usa el nombre predeterminado.
-5. Si es necesario, puede editar el nombre del grupo de recursos al modificar la directiva. Si se cambia el patrón de nombre, se crearán puntos de restauración en el nuevo grupo de recursos. Sin embargo, los antiguos puntos de restauración seguirán residiendo en el grupo de recursos anterior y no se moverán, ya que la colección de puntos de restauración no admite el traslado de recursos. Finalmente, los puntos de restauración recogerán los elementos no utilizados al expirar.
+1. La primera cadena `<alpha-numeric-string>` es obligatoria, mientras que la segunda después de "n" es opcional. Esto solo se aplica si se asigna un nombre personalizado. Si no escribe nada en ninguno de los cuadros de texto, se usa el nombre predeterminado.
+1. Si es necesario, puede editar el nombre del grupo de recursos al modificar la directiva. Si se cambia el patrón de nombre, se crearán puntos de restauración en el nuevo grupo de recursos. Sin embargo, los antiguos puntos de restauración seguirán residiendo en el grupo de recursos anterior y no se moverán, ya que la colección de puntos de restauración no admite el traslado de recursos. Finalmente, los puntos de restauración recogerán los elementos no utilizados al expirar.
 ![Cambio del nombre al modificar la directiva](./media/backup-during-vm-creation/modify-policy.png)
-6. Es conveniente que no se bloquee el grupo de recursos que se ha creado para que lo utilice el servicio Backup.
+1. Es conveniente que no se bloquee el grupo de recursos que se ha creado para que lo utilice el servicio Backup.
 
 Para configurar el grupo de recursos de Azure Backup para Virtual Machines mediante PowerShell, consulte el artículo para la [creación de un grupo de recursos de Azure Backup durante la retención de instantáneas](backup-azure-vms-automation.md#creating-azure-backup-resource-group-during-snapshot-retention).
 
@@ -83,7 +87,7 @@ Una vez creada la VM, haga lo siguiente:
 
 ## <a name="use-a-resource-manager-template-to-deploy-a-protected-vm"></a>Uso de una plantilla de Resource Manager para implementar una VM protegida
 
-En los pasos anteriores se explica cómo usar Azure Portal para crear una máquina virtual y protegerla en un almacén de Recovery Services. Para implementar una o varias VM rápidamente y protegerlas en un almacén de Azure Recovery Services, consulte la plantilla [Deploy a Windows VM and enable backup](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/) (Implementar una VM Windows y habilitar la copia de seguridad).
+En los pasos anteriores se explica cómo usar Azure Portal para crear una máquina virtual y protegerla en un almacén de Recovery Services. Para implementar una o varias VM rápidamente y protegerlas en un almacén de Azure Recovery Services, consulte la plantilla [Deploy a Windows VM and enable backup](https://azure.microsoft.com/resources/templates/recovery-services-create-vm-and-configure-backup/) (Implementar una VM Windows y habilitar la copia de seguridad).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

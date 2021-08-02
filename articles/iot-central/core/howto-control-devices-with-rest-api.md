@@ -3,16 +3,16 @@ title: Empleo de la API de REST para administrar dispositivos en Azure IoT Cent
 description: Uso de la API de REST de IoT Central para controlar dispositivos en una aplicación
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/24/2020
+ms.date: 06/01/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 3fe641cef856fccc2df3fc32d25b05ccfa2a392c
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 56ee24985da57c6da76638b659e5a07e68d0f516
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108776899"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110788953"
 ---
 # <a name="how-to-use-the-iot-central-rest-api-to-control-devices"></a>Empleo de la API de REST de IoT Central para controlar dispositivos
 
@@ -27,9 +27,9 @@ En este artículo se explica cómo usar la API `/devices/{device_id}` para contr
 
 Un dispositivo puede agrupar las propiedades, la telemetría y los comandos que admite en _componentes_ y _módulos_.
 
-Cada llamada API de REST de IoT Central requiere un encabezado de autorización. Para obtener más información, vea [Autenticación y autorización de llamadas API de REST de IoT Central](howto-authorize-rest-api.md).
+Cada llamada API de REST de IoT Central requiere un encabezado de autorización. Para obtener más información, vea los [procedimientos de autenticación y autorización de llamadas a la API REST de IoT Central](howto-authorize-rest-api.md).
 
-Para obtener documentación de referencia sobre la API de REST de IoT Central, vea [Referencia de la API de REST de Azure IoT Central](https://docs.microsoft.com/rest/api/iotcentral/).
+Para obtener documentación de referencia sobre la API de REST de IoT Central, vea [Referencia de la API de REST de Azure IoT Central](/rest/api/iotcentral/).
 
 ## <a name="components-and-modules"></a>Componentes y módulos
 
@@ -162,6 +162,9 @@ La respuesta a esta solicitud es similar al ejemplo siguiente:
   }
 }
 ```
+
+> [!TIP]
+> Para acceder a la telemetría desde un componente de un módulo, use `/api/devices/{deviceId}/modules/{moduleName}/components/{componentName}/telemetry/{telemetryName}`.
 
 ## <a name="read-properties"></a>Lectura de las propiedades
 
@@ -297,6 +300,9 @@ La respuesta a esta solicitud es similar al ejemplo siguiente:
 }
 ```
 
+> [!TIP]
+> Para acceder a las propiedades de un componente de un módulo, use `/devices/{deviceId}/modules/{moduleName}/components/{componentName}/properties`.
+
 ## <a name="write-properties"></a>Escritura de propiedades
 
 Algunas propiedades son editables. Por ejemplo, en el modelo de termostato, la propiedad `targetTemperature` es una propiedad editable.
@@ -388,6 +394,20 @@ La respuesta a esta solicitud es similar al ejemplo siguiente:
 > [!TIP]
 > Para actualizar todas las propiedades de un módulo, use `PUT` en lugar de `PATCH`.
 
+### <a name="update-module-properties"></a>Actualización de las propiedades del módulo
+
+Si está utilizando un dispositivo IoT Edge, utilice la siguiente solicitud para recuperar los valores de propiedad de un módulo:
+
+```http
+GET https://{your app subdomain}.azureiotcentral.com/api/devices/{deviceId}/modules/{moduleName}/properties?api-version=1.0
+```
+
+Si está utilizando un dispositivo IoT Edge, use la siguiente solicitud para recuperar los valores de propiedad de un componente en un módulo:
+
+```http
+GET https://{your app subdomain}.azureiotcentral.com/api/devices/{deviceId}/modules/{moduleName}/components/{componentName}/properties?api-version=1.0
+```
+
 ## <a name="call-commands"></a>Comandos de llamada
 
 Puede usar la API de REST para llamar a comandos de un dispositivo y recuperar el historial de este.
@@ -459,6 +479,9 @@ Para ver el historial de este comando, use la siguiente solicitud:
 ```http
 GET https://{your app subdomain}.azureiotcentral.com/api/devices/temperature-controller-01/components/thermostat2/commands/getMaxMinReport?api-version=1.0
 ```
+
+> [!TIP]
+> Para llamar a comandos de un componente de un módulo, use `/devices/{deviceId}/modules/{moduleName}/components/{componentName}/commands/{commandName}`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

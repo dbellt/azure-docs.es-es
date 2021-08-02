@@ -6,13 +6,13 @@ author: lrtoyou1223
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/01/2020
-ms.openlocfilehash: f84d7d7a02b75723f78cfbed9ee23e19ebea9a15
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.date: 06/10/2021
+ms.openlocfilehash: 9d41ff8d2b0bfd1e83f15366e152398f5de8ccf9
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109481686"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112020984"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Private Link para Azure Data Factory
 
@@ -63,7 +63,7 @@ La habilitación del servicio Private Link para cada uno de los canales de comun
    > La conexión a Azure Data Factory a través de un punto de conexión privado solo es aplicable al entorno de ejecución de integración autohospedado en la factoría de datos. No se admite en Synapse.
 
 > [!WARNING]
-> Cuando cree un servicio vinculado, asegúrese de que las credenciales se almacenan en un almacén de claves de Azure. De lo contrario, las credenciales no funcionarán al habilitar Private Link en Azure Data Factory.
+> Si habilita Private Link en Azure Data Factory y bloquea el acceso público al mismo tiempo, asegúrese de que, al crear un servicio vinculado, las credenciales se almacenan en un almacén de claves de Azure. De lo contrario, las credenciales no funcionarán.
 
 ## <a name="dns-changes-for-private-endpoints"></a>Cambios de DNS en puntos de conexión privados
 Al crear un punto de conexión privado, el registro del recurso CNAME de DNS de Data Factory se actualiza a un alias de un subdominio con el prefijo "privatelink". De forma predeterminada, también se crea una [zona DNS privada](../dns/private-dns-overview.md), que se corresponde con el subdominio "privatelink", con los registros de recursos A de DNS para los puntos de conexión privados.
@@ -92,26 +92,152 @@ Para más información sobre cómo configurar su propio servidor DNS para que ad
 - [Configuración de DNS para puntos de conexión privados](../private-link/private-endpoint-overview.md#dns-configuration)
 
 
-## <a name="set-up-private-link-for-azure-data-factory"></a>Configuración de Private Link para Azure Data Factory
-Puede crear puntos de conexión privados mediante [Azure Portal](../private-link/create-private-endpoint-portal.md).
+## <a name="set-up-a-private-endpoint-link-for-azure-data-factory"></a>Configuración de un vínculo de punto de conexión privado para Azure Data Factory
 
-Puede elegir si desea conectar su entorno de ejecución de integración autohospedado a Azure Data Factory a través de un punto de conexión público o un punto de conexión privado. 
+En esta sección configurará un vínculo de punto de conexión privado para Azure Data Factory.
 
-![Captura de pantalla de bloqueo del acceso público de entorno de ejecución de integración autohospedado.](./media/data-factory-private-link/disable-public-access-shir.png)
+Puede elegir si quiere conectar su entorno de ejecución de integración autohospedado (SHIR) a Azure Data Factory mediante un punto de conexión público o privado durante el paso de creación de la factoría de datos, que se muestra aquí: 
 
+:::image type="content" source="./media/data-factory-private-link/disable-public-access-shir.png" alt-text="Captura de pantalla de bloqueo del acceso público de entorno de ejecución de integración autohospedado.":::
 
-También puede ir a Azure Data Factory en Azure Portal y crear un punto de conexión privado, como se muestra aquí:
+Puede cambiar la selección en cualquier momento después de la creación desde la página del portal de Data Factory en la hoja Redes.  Después de habilitar allí los puntos de conexión privados, también debe agregar un punto de conexión privado a la factoría de datos.
 
-![Captura de pantalla del panel "Conexiones de punto de conexión privado" para crear un punto de conexión privado.](./media/data-factory-private-link/create-private-endpoint.png)
+Un punto de conexión privado requiere una red virtual y una subred para el vínculo, y una máquina virtual dentro de la subred, que se usará para ejecutar el entorno de ejecución de integración autohospedado (SHIR), que se conecta a través del vínculo del punto de conexión privado.
 
-En el paso de **Recurso**, seleccione **Microsoft.Datafactory/factories** como **Tipo de recurso**. Y si desea crear un punto de conexión privado para las comunicaciones de comandos entre el entorno de ejecución de integración autohospedado y el servicio Azure Data Factory, seleccione **DataFactory** para **Subrecurso de destino**.
+### <a name="create-the-virtual-network"></a>Crear la red virtual
+Si no tiene una red virtual para usarla con el vínculo de punto de conexión privado, debe crear una y asignar una subred.  
 
-![Captura de pantalla del panel "Conexiones de punto de conexión privado" para seleccionar el recurso.](./media/data-factory-private-link/private-endpoint-resource.png)
+1. Inicie sesión en Azure Portal en https://portal.azure.com.
+2. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso > Redes > Red virtual** o busque **Red virtual** en el cuadro de búsqueda.
+
+3. En **Crear red virtual**, escriba o seleccione esta información en la pestaña **Conceptos básicos**:
+
+    | **Configuración**          | **Valor**                                                           |
+    |------------------|-----------------------------------------------------------------|
+    | **Detalles del proyecto**  |                                                                 |
+    | Suscripción     | Selección de su suscripción a Azure                                  |
+    | Grupo de recursos   | Seleccione un grupo de recursos para la red virtual. |
+    | **Detalles de instancia** |                                                                 |
+    | Nombre             | Escriba un nombre para la red virtual. |
+    | Region           | IMPORTANTE: Seleccione la misma región que usará el punto de conexión privado. |
+
+4. Seleccione la pestaña **Direcciones IP** o el botón **Siguiente: Direcciones IP** situado en la parte inferior de la página.
+
+5. En la pestaña **Direcciones IP**, especifique esta información:
+
+    | Configuración            | Value                      |
+    |--------------------|----------------------------|
+    | Espacio de direcciones IPv4 | Escriba **10.1.0.0/16**. |
+
+6. En **Nombre de subred**, seleccione la palabra **predeterminada**.
+
+7. En **Editar subred**, especifique esta información:
+
+    | Configuración            | Value                      |
+    |--------------------|----------------------------|
+    | Nombre de subred | Escriba un nombre para la subred. |
+    | Intervalo de direcciones de subred | Escriba **10.1.0.0/24**. |
+
+8. Seleccione **Guardar**.
+
+9. Seleccione la pestaña **Revisar y crear** o el botón **Revisar y crear**.
+
+10. Seleccione **Crear**.
+
+### <a name="create-a-virtual-machine-for-the-self-hosted-integration-runtime-shir"></a>Creación de una máquina virtual para el entorno de ejecución de integración autohospedado (SHIR)
+También debe crear o asignar una máquina virtual para ejecutar el entorno de ejecución de integración autohospedado en la nueva subred creada anteriormente.
+
+1. En la parte superior izquierda del portal, seleccione **Crear un recurso** > **Proceso** > **Máquina virtual** o **Máquina virtual** en el cuadro de búsqueda.
+   
+2. En **Crear una máquina virtual**, escriba o seleccione los valores en la pestaña **Básico**:
+
+    | Configuración | Valor                                          |
+    |-----------------------|----------------------------------|
+    | **Detalles del proyecto** |  |
+    | Suscripción | Selección de su suscripción a Azure |
+    | Grupo de recursos | Selección de un grupo de recursos |
+    | **Detalles de instancia** |  |
+    | Nombre de la máquina virtual | Escriba un nombre para la máquina virtual. |
+    | Region | Seleccione la región usada anteriormente para la red virtual. |
+    | Opciones de disponibilidad | Seleccione **No se requiere redundancia de la infraestructura** |
+    | Imagen | Seleccione **Windows Server 2019 Datacenter - Gen1** (o cualquier otra imagen de Windows que admita el entorno de ejecución de integración autohospedado). |
+    | Instancia de Azure Spot | Seleccione **No**. |
+    | Size | Elija el tamaño de la máquina virtual o acepte la configuración predeterminada. |
+    | **Cuenta de administrador** |  |
+    | Nombre de usuario | Escriba un nombre de usuario. |
+    | Contraseña | Escriba una contraseña. |
+    | Confirmar contraseña | Vuelva a escribir la contraseña. |
+
+3. Seleccione la pestaña **Redes** o seleccione **Siguiente: Discos** y, después, **Siguiente: Redes**.
+  
+4. En la pestaña Redes, seleccione o escriba:
+
+    | Configuración | Valor |
+    |-|-|
+    | **Interfaz de red** |  |
+    | Virtual network | Seleccione la red virtual que creó anteriormente. |
+    | Subnet | Seleccione la subred creada anteriormente. |
+    | Dirección IP pública | Seleccione **Ninguno**. |
+    | Grupo de seguridad de red de NIC | **Basic**|
+    | Puertos de entrada públicos | Seleccione **Ninguno**. |
+   
+5. Seleccione **Revisar + crear**. 
+  
+6. Revise la configuración y, a continuación, seleccione **Crear**.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
+### <a name="create-the-private-endpoint"></a>Creación del punto de conexión privado 
+Por último, debe crear el punto de conexión privado en la factoría de datos.
+
+1. En la página de Azure Portal de la factoría de datos, seleccione la hoja **Redes** y la pestaña **Conexiones de punto de conexión privado** y, a continuación, seleccione **+ Punto de conexión privado**. 
+
+:::image type="content" source="./media/data-factory-private-link/create-private-endpoint.png" alt-text="Captura de pantalla del panel &quot;Conexiones de punto de conexión privado&quot; para crear un punto de conexión privado.":::
+
+2. En la pestaña **Aspectos básicos** de **Crear un punto de conexión privado**, escriba o seleccione esta información:
+
+    | Parámetro | Value |
+    | ------- | ----- |
+    | **Detalles del proyecto** | |
+    | Subscription | Seleccione su suscripción. |
+    | Resource group | Selección de un grupo de recursos |
+    | **Detalles de instancia** |  |
+    | Nombre  | Escriba un nombre para el punto de conexión. |
+    | Region | Seleccione la región de la red virtual que creó anteriormente. |
+
+3. Seleccione la pestaña **Recurso** o el botón **Siguiente: Recurso** en la parte inferior de la página.
+    
+4. En **Recurso**, escriba o seleccione esta información:
+
+    | Parámetro | Value |
+    | ------- | ----- |
+    | Método de conexión | Seleccione **Conectarse a un recurso de Azure en mi directorio**. |
+    | Subscription | Seleccione su suscripción. |
+    | Tipo de recurso | Seleccione **Microsoft.Datafactory/factories**. |
+    | Recurso | Seleccione su factoría de datos |
+    | Recurso secundario de destino | Y si desea crear un punto de conexión privado para las comunicaciones de comandos entre el entorno de ejecución de integración autohospedado y el servicio Azure Data Factory, seleccione **DataFactory** para **Subrecurso de destino**. Si desea usar un punto de conexión privado para la creación y supervisión de la factoría de datos en la red virtual, seleccione **Portal** para **Subrecurso de destino**.|
+
+5. Seleccione la pestaña **Configuración** o el botón **Siguiente: Configuración** situado en la parte inferior de la pantalla.
+
+6. En **Configuración**, escriba o seleccione esta información:
+
+    | Configuración | Value |
+    | ------- | ----- |
+    | **Redes** |  |
+    | Virtual network | Seleccione la red virtual que creó anteriormente. |
+    | Subnet | Seleccione la subred creada anteriormente. |
+    | **Integración de DNS privado** |  |
+    | Integración con una zona DNS privada | Deje el valor predeterminado de **Sí**. |
+    | Subscription | Seleccione su suscripción. |
+    | Zonas DNS privadas | Deje el valor predeterminado de **(Nuevo) privatelink.azurewebsites.net**.
+    
+
+7. Seleccione **Revisar + crear**.
+
+8. Seleccione **Crear**.
 
 > [!NOTE]
 > Deshabilitar el acceso a la red pública solo es aplicable al entorno de ejecución de integración autohospedado, no a Azure Integration Runtime ni a SQL Server Integration Services (SSIS) Integration Runtime.
-
-Si desea crear un punto de conexión privado para la creación y supervisión de la factoría de datos en la red virtual, seleccione **Portal** para **Subrecurso de destino**.
 
 > [!NOTE]
 > Puede seguir accediendo al portal de Azure Data Factory a través de la red pública después de crear el punto de conexión privado para el portal.

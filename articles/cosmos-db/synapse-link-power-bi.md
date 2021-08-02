@@ -7,17 +7,19 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: synapse-cosmos-db
-ms.openlocfilehash: d84508a7629481a7138f1080c86f4a203d35894d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ae03907ce75d6df999949ebf418fb8135520008d
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105626255"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111958906"
 ---
 # <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Uso de Power BI y un grupo de Synapse SQL sin servidor para analizar los datos de Azure Cosmos DB mediante Synapse Link 
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 En este artículo va a aprender a compilar una base de datos de grupos de SQL sin servidor y vistas de Synapse Link para Azure Cosmos DB. Va a consultar los contenedores de Azure Cosmos DB y, después, va a compilar un modelo con Power BI de esas vistas que refleje esa consulta.
+
+Con Azure Synapse Link, puede crear paneles casi en tiempo real en Power BI para analizar los datos de Azure Cosmos DB. No hay ningún impacto en el rendimiento ni en el costo de las cargas de trabajo transaccionales y tampoco existe ninguna complejidad en la administración de canalizaciones de ETL. Puede usar los modos [DirectQuery](/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) o [importación](/power-bi/connect-data/service-dataset-modes-understand#import-mode). 
 
 En este escenario usará datos ficticios sobre las ventas de productos de Surface en un comercio asociado. Analizará los ingresos por tienda en función de la proximidad a núcleos familiares grandes y el impacto de la publicidad durante una semana específica. En este artículo creará dos vistas denominadas **RetailSales** y **StoreDemographics** y una consulta entre ellas. Puede obtener los datos del producto de ejemplo en este repositorio de [GitHub](https://github.com/Azure-Samples/Synapse/tree/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData).
 

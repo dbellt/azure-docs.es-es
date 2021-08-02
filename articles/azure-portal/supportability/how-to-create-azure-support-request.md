@@ -3,13 +3,13 @@ title: Creación de una solicitud de soporte técnico de Azure
 description: Los clientes que necesiten asistencia pueden usar Azure Portal para buscar soluciones de autoservicio y para crear y administrar solicitudes de soporte técnico.
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.topic: how-to
-ms.date: 03/16/2021
-ms.openlocfilehash: 395fc0d5905389ffb8f68d8bbc4c6f8b3a871d36
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.date: 05/25/2021
+ms.openlocfilehash: 3b38a010fa23605019f1969a80e9f9a3cda467c8
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104774885"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110496584"
 ---
 # <a name="create-an-azure-support-request"></a>Creación de una solicitud de soporte técnico de Azure
 
@@ -84,7 +84,7 @@ A continuación, recopilaremos información adicional sobre el problema. Proporc
 
 1. Una vez que tenemos toda la información sobre el problema, puede elegir cómo obtener soporte técnico. En la sección **Método de soporte técnico** de **Detalles**, seleccione la gravedad del impacto. El nivel de gravedad máximo depende de su [plan de soporte técnico](https://azure.microsoft.com/support/plans).
 
-    La opción **Compartir información de diagnóstico** está seleccionada de forma predeterminada. Esto permite al soporte técnico de Azure recopilar [información de diagnóstico](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) de los recursos de Azure. En algunos casos, hay una segunda pregunta que no está seleccionada de forma predeterminada, como solicitar acceso a la memoria de una máquina virtual.
+    La opción **Compartir información de diagnóstico** está seleccionada de forma predeterminada. Esto permite al soporte técnico de Azure recopilar [información de diagnóstico](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) de los recursos de Azure. Puede desactivar esta opción si prefiere no compartir información de diagnóstico. En algunos casos, hay una segunda pregunta que no está seleccionada de forma predeterminada, como solicitar acceso a la memoria de una máquina virtual.
 
 1. Proporcione su método de contacto preferido, un buen momento para ponernos en contacto con usted y su idioma de soporte técnico.
 

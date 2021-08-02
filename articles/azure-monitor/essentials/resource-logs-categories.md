@@ -2,13 +2,13 @@
 title: Servicios y categorías admitidos de los registros de recursos de Azure Monitor
 description: Referencia de Azure Monitor para conocer el esquema de los eventos y servicios admitidos para los registros de recursos de Azure.
 ms.topic: reference
-ms.date: 03/30/2021
-ms.openlocfilehash: b9bac212a8be040349a8d78c64d7beab291e1f9e
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.date: 05/26/2021
+ms.openlocfilehash: b45e478b11290002cb2445b1a57662bacba407dd
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108016029"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110534433"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Categorías admitidas en los registros de recursos de Azure
 
@@ -76,6 +76,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
+|Auditoría|Auditoría|Sí|
 |HttpRequest|Solicitudes HTTP|Sí|
 
 
@@ -202,6 +203,13 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |ChatOperational|Registros de chat operativos|No|
 |SMSOperational|Registros de SMS operativos|No|
 |Uso|Registros de uso|No|
+
+
+## <a name="microsoftconnectedvehicleplatformaccounts"></a>Microsoft.ConnectedVehicle/platformAccounts
+
+|Category|Nombre para mostrar de categoría|Costos de exportación|
+|---|---|---|
+|Registros|Registros MCVP|Sí|
 
 
 ## <a name="microsoftcontainerregistryregistries"></a>Microsoft.ContainerRegistry/registries
@@ -451,6 +459,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |EventRoutesOperation|EventRoutesOperation|No|
 |ModelsOperation|ModelsOperation|No|
 |QueryOperation|QueryOperation|No|
+|ResourceProviderOperation|ResourceProviderOperation|Sí|
 
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
@@ -465,6 +474,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |PartitionKeyRUConsumption|PartitionKeyRUConsumption|No|
 |PartitionKeyStatistics|PartitionKeyStatistics|No|
 |QueryRuntimeStatistics|QueryRuntimeStatistics|No|
+|TableApiRequests|TableApiRequests|Sí|
 
 
 ## <a name="microsofteventgriddomains"></a>Microsoft.EventGrid/domains
@@ -616,7 +626,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |KeyDeliveryRequests|Solicitudes de entrega de clave|No|
 
 
-## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
+## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationgateways
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
@@ -654,6 +664,14 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |---|---|---|
 |FrontdoorAccessLog|Registro de acceso de Front Door|No|
 |FrontdoorWebApplicationFirewallLog|Registro de firewall de aplicaciones web de Front Door|No|
+
+
+## <a name="microsoftnetworkloadbalancers"></a>Microsoft.Network/loadBalancers
+
+|Category|Nombre para mostrar de categoría|Costos de exportación|
+|---|---|---|
+|LoadBalancerAlertEvent|Eventos de alerta de equilibrador de carga|No|
+|LoadBalancerProbeHealthStatus|Estado de mantenimiento de sondeo de equilibrador de carga|No|
 
 
 ## <a name="microsoftnetworknetworksecuritygroups"></a>Microsoft.Network/networksecuritygroups
@@ -921,6 +939,19 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |BigDataPoolAppsEnded|Aplicaciones finalizadas del grupo de macrodatos|No|
 
 
+## <a name="microsoftsynapseworkspaceskustopools"></a>Microsoft.Synapse/workspaces/kustoPools
+
+|Category|Nombre para mostrar de categoría|Costos de exportación|
+|---|---|---|
+|Comando|Comando|Sí|
+|FailedIngestion|Operaciones de ingesta con error|Sí|
+|IngestionBatching|Procesamiento por lotes de ingesta|Sí|
+|Consultar|Consultar|Sí|
+|SucceededIngestion|Operaciones de ingesta correctas|Sí|
+|TableDetails|Detalles de tabla|Sí|
+|TableUsageStatistics|Estadísticas de uso de tablas|Sí|
+
+
 ## <a name="microsoftsynapseworkspacessqlpools"></a>Microsoft.Synapse/workspaces/sqlPools
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
@@ -956,7 +987,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |AppServiceEnvironmentPlatformLogs|Registros de plataforma de App Service Environment|No|
 
 
-## <a name="microsoftwebsites"></a>microsoft.web/sites
+## <a name="microsoftwebsites"></a>Microsoft.Web/sites
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|

@@ -1,19 +1,20 @@
 ---
 title: Fuente de cambios en Azure Blob Storage | Microsoft Docs
 description: Obtenga información sobre los registros de fuente de cambios en Azure Blob Storage y cómo usarlos.
-author: normesta
-ms.author: normesta
-ms.date: 02/08/2021
+author: tamram
+ms.author: tamram
+ms.date: 05/17/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 6da83ceb6d8ee51916d25949309d7ddfba0e4b30
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 37367cc4608c1bfbf9c621388bcbc6ecaabd8aa4
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107503615"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110679328"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Compatibilidad con la fuente de cambios en Azure Blob Storage
 
@@ -33,16 +34,12 @@ En el diagrama siguiente se muestra cómo se agregan registros a la fuente de ca
 
 La compatibilidad con la fuente de cambios es adecuada para escenarios que procesan datos en función de los objetos que han cambiado. Por ejemplo, las aplicaciones pueden:
 
-  - Actualizar un índice secundario, sincronizar con una caché, un motor de búsqueda o cualquier otro escenario de administración de contenido.
-  
-  - Extraer métricas e información de análisis de negocios, en función de los cambios que se produzcan en los objetos, ya sea como transmisión o en modo por lotes.
-  
-  - Almacenar, auditar y analizar cambios en los objetos, en cualquier período de tiempo, por seguridad, cumplimiento normativo o inteligencia en la administración de datos empresariales.
+- Actualizar un índice secundario, sincronizar con una caché, un motor de búsqueda o cualquier otro escenario de administración de contenido.
+- Extraer métricas e información de análisis de negocios, en función de los cambios que se produzcan en los objetos, ya sea como transmisión o en modo por lotes.
+- Almacenar, auditar y analizar cambios en los objetos, en cualquier período de tiempo, por seguridad, cumplimiento normativo o inteligencia en la administración de datos empresariales.
+- Compilar soluciones para la copia de seguridad, el reflejo o la replicación del estado de los objetos en su cuenta para la administración ante desastres o el cumplimiento.
+- Crear canalizaciones de aplicaciones conectadas que reaccionen a eventos de cambio o programen ejecuciones basadas en objetos creados o modificados.
 
-  - Compilar soluciones para la copia de seguridad, el reflejo o la replicación del estado de los objetos en su cuenta para la administración ante desastres o el cumplimiento.
-
-  - Crear canalizaciones de aplicaciones conectadas que reaccionen a eventos de cambio o programen ejecuciones basadas en objetos creados o modificados.
-  
 La fuente de cambios es un requisito previo para [Replicación de objetos](object-replication-overview.md) y [Restauración a un momento dado para blobs en bloques](point-in-time-restore-overview.md).
 
 > [!NOTE]
@@ -60,7 +57,7 @@ Estos son algunos aspectos que hay que tener en cuenta al habilitar la fuente de
 
 - La fuente de cambios captura *todos* los cambios de todos los eventos disponibles que se producen en la cuenta. Las aplicaciones cliente pueden filtrar los tipos de eventos según sea necesario. (Consulte las [condiciones](#conditions) de la versión actual).
 
-- Solo en las cuentas de GPv2 y de Blob Storage se puede habilitar la fuente de cambios. Actualmente, no se admiten las cuentas de BlockBlobStorage Premium ni las cuentas habilitadas para el espacio de nombres jerárquico. No se admiten las cuentas de almacenamiento de GPv1, pero se pueden actualizar a GPv2 sin tiempo de inactividad. Consulte [actualización a una cuenta de almacenamiento de GPv2](../common/storage-account-upgrade.md) para más información.
+- Solo las cuentas de uso general v2 y Blob Storage pueden habilitar la fuente de cambios. Las cuentas de blobs en bloques prémium y las cuentas habilitadas para espacios de nombres jerárquicos no se admiten actualmente. No se admiten las cuentas de uso general v1, pero se pueden actualizar a v2 sin tiempo de inactividad. Para más información consulte [Actualización a una cuenta de almacenamiento de uso general v2](../common/storage-account-upgrade.md).
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -132,19 +129,19 @@ Use una plantilla de Azure Resource Manager para habilitar la fuente de cambios 
         }]
    }
    ```
-    
+
 5. Elija el botón **Guardar**, especifique el grupo de recursos de la cuenta y, luego, elija el botón **Comprar** para implementar la plantilla y habilitar la fuente de cambios.
 
 ---
 
 ## <a name="consume-the-change-feed"></a>Uso de la fuente de cambios
 
-La fuente de cambios genera varios archivos de registro y metadatos. Estos archivos se ubican en el contenedor **$blobchangefeed** de la cuenta de almacenamiento. 
+La fuente de cambios genera varios archivos de registro y metadatos. Estos archivos se ubican en el contenedor **$blobchangefeed** de la cuenta de almacenamiento.
 
 > [!NOTE]
 > En la versión actual, el contenedor $blobchangefeed solo está visible en Azure Portal, pero no en el Explorador de Azure Storage. Actualmente, no se puede ver el contenedor $blobchangefeed cuando se llama a la API ListContainers, pero se puede llamar a la API ListBlobs directamente en el contenedor para ver los blobs.
 
-Las aplicaciones cliente pueden usar la fuente de cambios mediante la biblioteca de procesadores de la fuente de cambios de blob que se proporciona con el SDK del procesador correspondiente. 
+Las aplicaciones cliente pueden usar la fuente de cambios mediante la biblioteca de procesadores de la fuente de cambios de blob que se proporciona con el SDK del procesador correspondiente.
 
 Consulte [Procesamiento de los registros de la fuente de cambios en Azure Blob Storage](storage-blob-change-feed-how-to.md).
 
@@ -304,13 +301,15 @@ En esta sección se describen los problemas conocidos y las condiciones de la ve
 
 ## <a name="faq"></a>Preguntas más frecuentes
 
-### <a name="what-is-the-difference-between-change-feed-and-storage-analytics-logging"></a>¿Cuál es la diferencia entre la fuente de cambios y el registro de Storage Analytics?
+### <a name="what-is-the-difference-between-the-change-feed-and-storage-analytics-logging"></a>¿Cuál es la diferencia entre la fuente de cambios y el registro de Storage Analytics?
+
 Los registros de Analytics tienen registros de todas las operaciones de lectura, escritura, enumeración y eliminación con solicitudes correctas o con errores en todas las operaciones. Los registros de Analytics son la mejor solución pero no se garantiza ningún orden.
 
 La fuente de cambios es una solución que proporciona un registro transaccional de mutaciones o cambios correctos en su cuenta como, por ejemplo, la creación, modificación y eliminación de blobs. La fuente de cambios garantiza que todos los eventos se registren y se muestren en el orden de cambios correctos por cada blob, por lo que no tiene que filtrar el ruido en caso de un volumen enorme de operaciones de lectura o solicitudes con errores. La fuente de cambios se ha diseñado y está optimizada fundamentalmente para el desarrollo de aplicaciones que requieren ciertas garantías.
 
-### <a name="should-i-use-change-feed-or-storage-events"></a>¿Debo usar fuente de cambios o eventos de Blob Storage?
-Puede usar ambas características ya que fuente de cambios y [eventos de Blob Storage](storage-blob-event-overview.md) proporcionan la misma información con la misma garantía de fiabilidad siendo la principal diferencia la latencia, orden y almacenamiento de los registros de eventos. La fuente de cambios publica registros en el registro a los pocos minutos del cambio y también garantiza el orden de las operaciones de cambio por cada blob. Los eventos de Storage se insertan en tiempo real y es posible que no estén ordenados. Los eventos de fuente de cambios se almacenan de forma duradera dentro de la cuenta de almacenamiento como registros estables de solo lectura con su propia definición de retención, mientras que los eventos de Storage son transitorios y los consume el controlador de eventos a menos que los almacene explícitamente. Con la fuente de cambios, todas las aplicaciones pueden utilizar los registros a su conveniencia con las API o los SDK de Blob service. 
+### <a name="should-i-use-the-change-feed-or-storage-events"></a>¿Debo usar la fuente de cambios o eventos de Blob Storage?
+
+Puede usar ambas características ya que fuente de cambios y los [eventos de Blob Storage](storage-blob-event-overview.md) proporcionan la misma información con la misma garantía de fiabilidad, siendo la principal diferencia la latencia, el orden y el almacenamiento de los registros de eventos. La fuente de cambios publica entradas en el registro a los pocos minutos del cambio y también garantiza el orden de las operaciones de cambio por cada blob. Los eventos de Storage se insertan en tiempo real y es posible que no estén ordenados. Los eventos de fuente de cambios se almacenan de forma duradera dentro de la cuenta de almacenamiento como registros estables de solo lectura con su propia definición de retención, mientras que los eventos de Storage son transitorios y los consume el controlador de eventos a menos que los almacene explícitamente. Con la fuente de cambios, todas las aplicaciones pueden utilizar los registros a su conveniencia con las API o los SDK de blobs.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

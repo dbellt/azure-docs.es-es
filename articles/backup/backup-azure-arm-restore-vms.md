@@ -3,13 +3,13 @@ title: restauración de máquinas virtuales mediante Azure Portal
 description: Restaure una máquina virtual de Azure desde un punto de recuperación mediante Azure Portal, incluida la característica Restauración entre regiones.
 ms.reviewer: geg
 ms.topic: conceptual
-ms.date: 04/19/2021
-ms.openlocfilehash: 0f3a715f4fef85b90fd8f06558a8cfdab1ca8900
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.date: 05/01/2021
+ms.openlocfilehash: 26efe6cafc5829cedcb7bb74f8ea796256d45d10
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739051"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111966801"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Restauración de datos de máquinas virtuales de Azure en Azure Portal
 
@@ -53,13 +53,20 @@ Si no tiene permisos, puede [restaurar un disco](#restore-disks) y, luego, [usar
 
 ## <a name="select-a-restore-point"></a>Seleccione un punto de restauración
 
-1. En el almacén asociado a la máquina virtual que quiere restaurar, seleccione **Elementos de copia de seguridad** > **Máquina virtual de Azure**.
-1. Seleccione una máquina virtual. En el panel de la máquina virtual, se muestran de forma predeterminada los puntos de recuperación de los treinta últimos días. Puede mostrar puntos de recuperación anteriores a treinta días o filtrar para buscar puntos de recuperación según fechas, intervalos de tiempo y distintos tipos de coherencia de instantáneas.
-1. Para restaurar la máquina virtual, haga clic en **Restaurar VM**.
+1. Vaya al **Centro de copia de seguridad** en Azure Portal y haga clic en **Restaurar** en la pestaña **Información general**.
 
-    ![Punto de restauración](./media/backup-azure-arm-restore-vms/restore-point.png)
+    ![Navegar hasta la restauración](./media/backup-azure-arm-restore-vms/select-restore.png)
 
-1. Seleccione un punto de restauración para usarlo en la recuperación.
+1. Seleccione **Azure Virtual Machines** como **Tipo de origen de datos** y, a continuación, seleccione una instancia de Backup.
+
+    ![Selección del tipo de origen de datos](./media/backup-azure-arm-restore-vms/virtual-machine-as-datasource.png)
+
+1. Seleccione una máquina virtual y haga clic en **Continuar**.
+1. En la siguiente pantalla que aparece, seleccione un punto de restauración que se usará para la recuperación.
+
+    ![Selección del punto de restauración para una máquina virtual](./media/backup-azure-arm-restore-vms/restore-point.png)
+
+
 
 ## <a name="choose-a-vm-restore-configuration"></a>Elección de la configuración de restauración de una máquina virtual
 
@@ -116,7 +123,7 @@ Una vez restaurado el disco, use la plantilla generada como parte de la operaci�
 
 1. Para personalizar la configuración de la máquina virtual proporcionada en la plantilla, seleccione **Editar plantilla**. Si quiere agregar más personalizaciones, seleccione **Editar parámetros**.
     - [Obtenga más información](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template) sobre cómo implementar recursos desde una plantilla personalizada.
-    - [Obtenga más información](../azure-resource-manager/templates/template-syntax.md) sobre la creación de plantillas.
+    - [Obtenga más información](../azure-resource-manager/templates/syntax.md) sobre la creación de plantillas.
 
    ![Carga de la implementación de plantilla](./media/backup-azure-arm-restore-vms/edit-template1.png)
 
@@ -165,10 +172,6 @@ Actualmente, la región secundaria [RPO](azure-backup-glossary.md#rpo-recovery-p
 ![Elegir la VM que se va a restaurar](./media/backup-azure-arm-restore-vms/sec-restore.png)
 
 ![Seleccionar punto de restauración](./media/backup-azure-arm-restore-vms/sec-rp.png)
-
-![Configuración de la restauración](./media/backup-azure-arm-restore-vms/rest-config.png)
-
-![Notificación de desencadenador de restauración en curso](./media/backup-azure-arm-restore-vms/restorenotifications.png)
 
 - Para restaurar y crear una VM, consulte [Crear una VM](#create-a-vm).
 - Para realizar la restauración como un disco, consulte [Restaurar discos](#restore-disks).

@@ -8,13 +8,14 @@ ms.topic: conceptual
 ms.custom:
 - seo-lt-2019
 - references_regions
+- devx-track-azurepowershell
 ms.date: 07/15/2020
-ms.openlocfilehash: dd4e5838c97d6a2e86f67bb40457b797462183d9
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 61b011a7df52b4df29c23a8e443f8bad6d72240a
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785482"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110677015"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Red virtual administrada de Azure Data Factory (versión preliminar)
 
@@ -36,7 +37,13 @@ Ventajas del uso de una red virtual administrada:
 - La red virtual administrada, junto con los puntos de conexión privados administrados, sirven de protección contra la filtración de datos. 
 
 > [!IMPORTANT]
->Actualmente, la red virtual administrada solo se admite en la misma región que la región de Azure Data Factory.
+>Actualmente, la red virtual administrada solo se admite en la misma región que Azure Data Factory.
+
+> [!Note]
+>Como la red virtual administrada de Azure Data Factory todavía está en versión preliminar pública, no hay ninguna garantía de Acuerdo de Nivel de Servicio.
+
+> [!Note]
+>El entorno público de ejecución de integración de Azure existente no puede cambiar al entorno de ejecución de Azure en la red virtual administrada de Azure Data Factory y viceversa.
  
 
 ![Arquitectura de la red virtual de Azure Data Factory](./media/managed-vnet/managed-vnet-architecture-diagram.png)
@@ -59,7 +66,7 @@ El punto de conexión privado usa una dirección IP privada en la red virtual ad
 > [!WARNING]
 > Si un almacén de datos de PaaS (Blob, ADLS Gen2 o Azure Synapse Analytics) tiene un punto de conexión privado que ya se ha creado, aunque permita el acceso desde todas las redes, ADF solo podrá acceder a dicho almacén mediante un punto de conexión privado administrado. Si aún no existe un punto de conexión privado, debe crear uno en estos escenarios. 
 
-Una conexión de punto de conexión privado se crea en un estado "pendiente" cuando se crea un punto de conexión privado administrado en Azure Data Factory. Se inicia un flujo de trabajo de aprobación. El propietario del recurso de vínculo privado es responsable de aprobar o rechazar la conexión.
+Una conexión de punto de conexión privado se crea con estado "pendiente" cuando se crea un punto de conexión privado administrado en Azure Data Factory. Se inicia un flujo de trabajo de aprobación. El propietario del recurso de vínculo privado es responsable de aprobar o rechazar la conexión.
 
 ![Administración de un punto de conexión privado](./media/tutorial-copy-data-portal-private/manage-private-endpoint.png)
 
@@ -73,6 +80,11 @@ Solo un punto de conexión privado administrado en un estado aprobado puede envi
 Entre las funcionalidades de la creación interactiva se incluyen probar la conexión, examinar la lista de carpetas y la lista de tablas, obtener esquemas y obtener una vista previa de los datos. Puede habilitar la creación interactiva al crear o editar una instancia de Azure Integration Runtime que se encuentre en una red virtual administrada por ADF. El servicio de back-end asignará previamente el proceso para las funcionalidades de creación interactiva. De lo contrario, el proceso se asignará cada vez que se realice cualquier operación interactiva, lo que tardará más tiempo. El período de vida (TTL) para la creación interactiva es de 60 minutos, lo que significa que se deshabilitará automáticamente después de 60 minutos de la última operación de creación interactiva.
 
 ![Creación interactiva](./media/managed-vnet/interactive-authoring.png)
+
+## <a name="activity-execution-time-using-managed-virtual-network"></a>Tiempo de ejecución de la actividad mediante una red virtual administrada
+Por diseño, el entorno de ejecución de integración de Azure en la red virtual administrada tiene un tiempo en la cola más largo que el entorno de ejecución de Azure, ya que no se reserva un nodo de proceso por factoría de datos, por lo que hay una preparación antes de que se inicie cada actividad y se produce principalmente en la unión a una red virtual y no al entorno de ejecución de integración de Azure. En el caso de las actividades que no son de copia, incluida la actividad de canalización y la actividad externa, hay un período de vida (TTL) de 60 minutos al desencadenarlas por primera vez. Dentro de TTL, el tiempo de cola es más corto porque el nodo ya está preparado. 
+> [!NOTE]
+> La actividad de copia todavía no tiene compatibilidad con TTL.
 
 ## <a name="create-managed-virtual-network-via-azure-powershell"></a>Creación de una red virtual administrada mediante Azure PowerShell
 ```powershell
@@ -120,7 +132,7 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
 
 ## <a name="limitations-and-known-issues"></a>Limitaciones y problemas conocidos
 ### <a name="supported-data-sources"></a>Orígenes de datos compatibles
-Los orígenes de datos siguientes pueden establecer una conexión a través de un vínculo privado desde la red virtual administrada de ADF.
+Los orígenes de datos siguientes tienen compatibilidad nativa con puntos de conexión privados y se pueden conectar a través de Private Link desde una red virtual administrada por ADF.
 - Azure Blob Storage (sin incluir la cuenta de almacenamiento V1)
 - Azure Table Storage (sin incluir la cuenta de almacenamiento V1)
 - Azure Files (sin incluir la cuenta de almacenamiento V1)
@@ -134,6 +146,16 @@ Los orígenes de datos siguientes pueden establecer una conexión a través de u
 - Azure Database for MySQL
 - Azure Database for PostgreSQL
 - Azure Database for MariaDB
+- Azure Machine Learning
+
+> [!Note]
+> Todavía puede acceder a todos los orígenes de datos admitidos por Data Factory a través de la red pública.
+
+> [!NOTE]
+> Dado que Azure SQL Managed Instance no admite por el momento puntos de conexión privados nativos, puede acceder a este servicio desde la red virtual administrada mediante el servicio Private Link y Load Balancer. Consulte [Tutorial: Acceso a SQL Managed Instance desde una VNET administrada de Data Factory mediante un punto de conexión privado](tutorial-managed-virtual-network-sql-managed-instance.md).
+
+### <a name="on-premises-data-sources"></a>Orígenes de datos locales
+Para acceder a orígenes de datos locales desde una red virtual administrada mediante un punto de conexión privado, consulte [Tutorial: Acceso a SQL Server local desde una red virtual administrada por Data Factory mediante un punto de conexión privado](tutorial-managed-virtual-network-on-premise-sql-server.md).
 
 ### <a name="azure-data-factory-managed-virtual-network-is-available-in-the-following-azure-regions"></a>La característica Managed Virtual Network de Azure Data Factory está disponible en las siguientes regiones de Azure:
 - Este de Australia
@@ -143,12 +165,15 @@ Los orígenes de datos siguientes pueden establecer una conexión a través de u
 - Este de Canadá
 - Centro de la India
 - Centro de EE. UU.
+- Este de Asia
 - Este de EE. UU.
 - Este de EE. UU. 2
 - Centro de Francia
+- Centro-oeste de Alemania
 - Japón Oriental
 - Japón Occidental
 - Centro de Corea del Sur
+- Centro-Norte de EE. UU
 - Norte de Europa
 - Este de Noruega
 - Norte de Sudáfrica

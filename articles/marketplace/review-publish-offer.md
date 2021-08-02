@@ -7,15 +7,15 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 04/13/2021
-ms.openlocfilehash: bff07f18d0c72e4c4dc4e6b079924b9062442c9d
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.date: 03/10/2021
+ms.openlocfilehash: eb50a6418c296e98b12af481df33509af3f0a06d
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109633886"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111536585"
 ---
-# <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Procedimiento para revisar y publicar una oferta en el marketplace comercial
+# <a name="review-and-publish-an-offer-to-the-commercial-marketplace"></a>Revisión y publicación de una oferta en el marketplace comercial
 
 Este artículo le muestra cómo usar el Centro de partners para enviar su oferta a publicación, obtener una versión preliminar de la oferta y, a continuación, publicarla en el marketplace comercial de Microsoft. También se explica cómo comprobar el estado de la publicación a medida que avanza a través de los pasos de publicación. Ya debe haber creado una oferta que quiera publicar.
 
@@ -30,17 +30,17 @@ Puede revisar el estado de la oferta en la pestaña **Información general** del
 | Atención necesaria | Se ha detectado un problema crítico durante la certificación o durante otra fase de publicación. |
 | Versión preliminar | Nosotros certificamos la oferta, misma que está en espera de la comprobación final del anunciante. Seleccione **Transmitir** para publicar la oferta en vivo. |
 | En vivo | La oferta está activa en Marketplace y los clientes la pueden ver y adquirir. |
-| Desuso pendiente | El anunciante ha seleccionado "Desusar (antiguamente, Detener venta)" en la oferta o el plan, pero aún no se ha completado la acción. |
+| Detener venta pendiente | El anunciante ha seleccionado "Detener venta" en la oferta o el plan, pero aún no se ha completado la acción. |
 | No disponible en el marketplace | Una oferta publicada anteriormente se ha quitado del Marketplace. |
-|||
+|
 
 ## <a name="validation-and-publishing-steps"></a>Pasos de validación y publicación
 
 Cuando esté listo para enviar una oferta para su publicación, seleccione **Revisar y publicar** en la esquina superior derecha del portal. En la página **Revisar y publicar** se muestra el estado de cada página de la oferta, que puede ser uno de los siguientes:
 
-   - **No iniciado**: la página está incompleta.
-   - **Incompleta**: falta información necesaria en la página o hay errores que deben corregirse. Tendrá que volver a la página anterior y actualizarla.
-   - **Completa**: la página está completa. Se han proporcionado todos los datos necesarios y no hay ningún error.
+- **No iniciado**: la página está incompleta.
+- **Incompleta**: falta información necesaria en la página o hay errores que deben corregirse. Tendrá que volver a la página anterior y actualizarla.
+- **Completa**: la página está completa. Se han proporcionado todos los datos necesarios y no hay ningún error.
 
 Si alguna de las páginas tiene un estado distinto de **Completo**, debe corregir el problema de la página y, a continuación, volver a la página **Revisar y publicar** para confirmar que el estado es ahora **Completo**. Algunos tipos de oferta requieren pruebas. En este caso, verá un campo **Notas para la certificación** donde deberá proporcionar instrucciones para la realización de pruebas al equipo de certificación, además de todas las notas adicionales que pueden resultar útiles para comprender la aplicación.
 
@@ -54,6 +54,10 @@ Cuando todas las páginas estén completas y haya escrito las notas de prueba ap
 | [Aprobación del publicador](#publisher-sign-off-phase) | Le enviaremos un correo electrónico con una solicitud para que pueda obtener una versión preliminar y aprobar su oferta. |
 | [Publicar](#publish-phase) | Ejecutamos una serie de pasos para comprobar que la oferta de versión preliminar se publica en directo en el marketplace comercial. |
 |||
+
+Para obtener más información sobre la validación en Azure Marketplace, vea [Instrucciones de descripción de Azure Marketplace.](marketplace-criteria-content-validation.md)
+
+Para obtener más información sobre las instrucciones de prueba y la finalización de una primera publicación en Microsoft AppSource, consulte el apartado sobre la [validación funcional de Dynamics 365 Operations](dynamics-365-operations-validation.md).
 
 ## <a name="automated-validation-phase"></a>Fase de validación automatizada
 
@@ -150,7 +154,7 @@ Si desea publicar la oferta más adelante, tendrá que volver a empezar el proce
 
 Cuando la oferta esté lista para su revisión y aprobación, se le enviará un correo electrónico para solicitarle que revise y apruebe la versión preliminar de la oferta. También se puede actualizar la página **Offer overview** (Información general de la oferta) en el explorador para ver si la oferta ha alcanzado la fase de aprobación del editor. Si es así, el botón **Transmitir en directo** y los vínculos de versión preliminar estarán disponibles.
 
-La captura de pantalla siguiente muestra la página **Información general de la oferta** en el programa de Marketplace comercial del Centro de partners. Los pasos de validación que verá en esta página varían en función del tipo de oferta y de las selecciones realizadas al crear la oferta. Tenga en cuenta que la fase de certificación puede producirse durante el envío para la versión preliminar o el envío a publicación en función del tipo de oferta.
+La captura de pantalla siguiente muestra la página **Información general de la oferta** en el programa de Marketplace comercial del Centro de partners. Los pasos de validación que verá en esta página varían en función del tipo de oferta y de las selecciones realizadas al crear la oferta. La fase de certificación puede producirse durante el envío para la versión preliminar o el envío a publicación en función del tipo de oferta.
 
 ![Muestra la página de Información general de la oferta para una oferta en el Centro de partners. Se muestran los vínculos de versión preliminar y el botón de Transmitir en directo.](./media/publish-status-publisher-signoff.png)
 
@@ -166,7 +170,7 @@ En la página **Información general de la oferta**, verá vínculos de versión
 
 Después de aprobar la versión preliminar, seleccione **Transmitir** para publicar su oferta en el marketplace comercial. 
 
-Si desea realizar cambios después obtener la versión preliminar de la oferta, puede editar y volver a enviar la solicitud de publicación. Si la oferta ya está activa y disponible para el público en el marketplace, las actualizaciones que realice no se activarán hasta que seleccione **Transmitir*. Para obtener más información, consulte [Actualización de una oferta existente en el marketplace comercial](partner-center-portal/update-existing-offer.md).
+Si desea realizar cambios después obtener la versión preliminar de la oferta, puede editar y volver a enviar la solicitud de publicación. Si la oferta ya está activa y disponible para el público en el marketplace, las actualizaciones que realice no se activarán hasta que seleccione **Transmitir*. Para obtener más información, consulte [Actualización de una oferta existente en el marketplace comercial](update-existing-offer.md).
 
 ## <a name="publish-phase"></a>Fase de publicación
 
@@ -200,18 +204,18 @@ En la página **Historial** del Centro de partners se muestran los eventos de pu
 
 Para ver el historial de la oferta:
 
-1.    Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
-2.    En el menú de navegación de la izquierda, seleccione **Marketplace comercial** > **Información general**.
-3.    Seleccione la oferta.
-4.    Seleccione la pestaña **Historial** en el menú de navegación de la izquierda. En la página se proporcionan detalles de los eventos siguientes, según corresponda a su oferta:
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
+2. En el menú de navegación de la izquierda, seleccione **Marketplace comercial** > **Información general**.
+3. Seleccione la oferta.
+4. Seleccione la pestaña **Historial** en el menú de navegación de la izquierda. En la página se proporcionan detalles de los eventos siguientes, según corresponda a su oferta:
 
 |Evento    |Descripción    |
 |---------|---------------|
 |Oferta creada    |Se ha creado la oferta en el Centro de partners. Un usuario seleccionó el tipo de oferta, el id. de la oferta y el alias de la oferta en **Marketplace comercial** > **Información general**.    |
 |Plan creado: *nombre de plan*    |Un usuario creó un nuevo plan especificando el id. de plan y el nombre del plan en la pestaña **Información general del plan**.</br>*Este evento solo se aplica a los tipos de oferta que admiten planes*.    |
-|Plan eliminado  |Un usuario eliminó un plan borrador que no se había publicado, seleccionando **Eliminar borrador** en la página **Información general del plan**.</br>*Este evento solo se aplica a los tipos de oferta que admiten planes*.    |
-|Plan de desuso iniciado: *nombre del plan*    |Un usuario inició un plan de desuso (antiguamente, detención de la venta), seleccionando **Desusar** en la página **Información general del plan**.</br>*Este evento solo se aplica a los tipos de oferta que admiten planes*.    |
-|Plan de desuso cancelado: *nombre del plan*    |Un usuario canceló un plan de desuso (antiguamente, detención de la venta) seleccionando **Undo deprecate** (Deshacer desuso) (anteriormente, detención de la venta) en la página **Información general del plan**.</br>*Este evento solo se aplica a los tipos de oferta que admiten planes*.    |
+|Plan eliminado    |Un usuario eliminó un plan borrador que no se había publicado, seleccionando **Eliminar borrador** en la página **Información general del plan**.</br>*Este evento solo se aplica a los tipos de oferta que admiten planes*.    |
+|Plan de detención de la venta iniciado: *nombre del plan*    |Un usuario inició un plan de detención de la venta, seleccionando **Dejar de vender** en la página de **Información general del plan**.</br>*Este evento solo se aplica a los tipos de oferta que admiten planes*.    |
+|Plan de detención de la venta cancelado: *nombre del plan*    |Un usuario canceló un plan de detención de la venta, seleccionando **Deshacer detención de la venta** en la página de **Información general del plan**.</br>*Este evento solo se aplica a los tipos de oferta que admiten planes*.    |
 |Envío de oferta a versión preliminar    |Un usuario envió la oferta a versión preliminar seleccionando **Publicar** en la página **Revisar y publicar**.    |
 |Cancelación del envío a versión preliminar iniciada    |Un usuario solicitó cancelar la publicación de la oferta en versión preliminar, seleccionando **Cancelar publicación** de la página **Información general de la oferta** después del envío a versión preliminar.</br>*Este evento se muestra mientras se procesa la solicitud de cancelación*.    |
 |Envío a versión preliminar cancelado    |Un usuario canceló la publicación de la oferta en versión preliminar, seleccionando **Cancelar publicación** de la página **Información general de la oferta** después del envío a versión preliminar.</br>*Este evento se muestra después de que la solicitud de cancelación se haya procesado correctamente*.    |
@@ -219,7 +223,7 @@ Para ver el historial de la oferta:
 |Cancelación de publicación en marketplace iniciada    |Un usuario solicitó cancelar la publicación de la oferta, seleccionando **Cancelar publicación** de la página **Información general de la oferta** después de cerrar sesión para la llamada en directo.</br>*Este evento se muestra mientras se procesa la solicitud de cancelación*.    |
 |Publicación en marketplace comercial cancelada    |Un usuario canceló la publicación de la oferta, seleccionando **Cancelar publicación** de la página **Información general de la oferta** después de cerrar sesión para la llamada en directo.</br>*Este evento se muestra después de que la solicitud de cancelación se haya procesado correctamente*.    |
 |Audiencia privada sincronizada    |Un usuario actualizó y sincronizó la audiencia privada seleccionando **Sync private audience** (Sincronizar audiencia privada) en la página **Información general del plan** o en la página **Plan pricing & availability** (Precio y disponibilidad del plan).</br>*Este evento solo se aplica a los tipos de oferta que admiten planes privados*.    |
-|Desuso (antiguamente, detención de la venta) de una oferta    |Un usuario dejó de vender la oferta seleccionando **Desusar** en la página **Información general de la oferta**.    |
+|Venta de la oferta detenida    |Un usuario dejó de vender la oferta seleccionando **Dejar de vender** en la página **Información general de la oferta**.    |
 
 > [!NOTE]
 > En la página Historial no se indica cuándo se ha guardado un borrador de la oferta.
@@ -228,21 +232,22 @@ Para ver el historial de la oferta:
 
 Puede usar filtros para reducir el historial completo de su oferta a eventos de publicación específicos:
 
-1.    Seleccione el botón de filtro en la esquina superior derecha de la página.
-2.    Elija un filtro y, a continuación, seleccione **Aplicar** para ver qué eventos del historial se corresponden con los criterios seleccionados.
-3.    Seleccione **Borrar filtros** para volver al historial completo de la oferta.
+1. Seleccione el botón de filtro en la esquina superior derecha de la página.
+2. Elija un filtro y, a continuación, seleccione **Aplicar** para ver qué eventos del historial se corresponden con los criterios seleccionados.
+3. Seleccione **Borrar filtros** para volver al historial completo de la oferta.
 
 Hay cuatro filtros:
-* Eventos
-* Usuarios
-* Date
-* Páginas
+
+- Eventos
+- Usuarios
+- Date
+- Páginas
 
 Al elegir el filtro **Páginas**, puede seleccionar cualquiera de las páginas del Centro de partners aplicables a su tipo de oferta. Cuando se aplica, el filtro **Páginas** muestra todos los eventos **Envío de oferta a versión preliminar** con cambios en la página seleccionada.
 
-* Para todas las ofertas, se incluye la página **Configuración de la oferta** de manera predeterminada para cada evento de envío.
-* En el caso de las ofertas que admiten planes, se incluye la página **Información general del plan** para cada evento de envío.
-* En el caso de las ofertas que admiten la versión de prueba, se incluye la página **Versión de prueba** para cada evento de envío.
+- Para todas las ofertas, se incluye la página **Configuración de la oferta** de manera predeterminada para cada evento de envío.
+- En el caso de las ofertas que admiten planes, se incluye la página **Información general del plan** para cada evento de envío.
+- En el caso de las ofertas que admiten la versión de prueba, se incluye la página **Versión de prueba** para cada evento de envío.
 
 ### <a name="users"></a>Usuarios
 
@@ -274,4 +279,4 @@ No se muestra ningún usuario para los procesos del sistema que corresponden a [
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Acceso a los informes de análisis de marketplace comercial en el Centro de partners](partner-center-portal/analytics.md)
+- [Acceso a los informes de análisis de marketplace comercial en el Centro de partners](analytics.md)

@@ -5,18 +5,19 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 04/30/2021
+ms.date: 05/26/2021
 ms.author: victorh
-ms.openlocfilehash: 4692b21333999dfc6fcc8edcbba8af800989ee1d
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: e4543af78b173632e3374567e9a199f182679e8f
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108325524"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110701713"
 ---
 # <a name="azure-firewall-dns-settings"></a>Configuración DNS de Azure Firewall
 
-Puede configurar un servidor DNS personalizado y habilitar el proxy DNS para Azure Firewall. Configure estas opciones al implementar el firewall o posteriormente desde la página **Configuración DNS**.
+Puede configurar un servidor DNS personalizado y habilitar el proxy DNS para Azure Firewall. Configure estas opciones al implementar el firewall o posteriormente desde la página **Configuración DNS**. De forma predeterminada, Azure Firewall usa Azure DNS y el proxy DNS está deshabilitado.
 
 ## <a name="dns-servers"></a>Servidores DNS
 
@@ -29,7 +30,7 @@ Un servidor DNS mantiene y resuelve los nombres de dominio en direcciones IP. De
 
 1. En **Configuración** de Azure Firewall, seleccione **Configuración DNS**.
 2. En **Servidores DNS**, puede escribir o agregar servidores DNS existentes que se hayan especificado previamente en la red virtual.
-3. Seleccione **Guardar**.
+3. Seleccione **Aplicar**.
 
 El firewall dirige ahora el tráfico DNS a los servidores DNS especificados para la resolución de nombres.
 
@@ -63,7 +64,9 @@ $azFw | Set-AzFirewall
 
 ## <a name="dns-proxy"></a>Proxy DNS
 
-Puede configurar Azure Firewall para que actúe como proxy DNS. Un proxy DNS es un intermediario para las solicitudes DNS de las máquinas virtuales cliente a un servidor DNS. Si desea habilitar el filtrado de FQDN (nombre de dominio completo) en las reglas de red, habilite el proxy DNS y actualice la configuración de la máquina virtual para usar el firewall como proxy DNS.
+Puede configurar Azure Firewall para que actúe como proxy DNS. Un proxy DNS es un intermediario para las solicitudes DNS de las máquinas virtuales cliente a un servidor DNS.
+
+Si desea habilitar el filtrado de FQDN (nombre de dominio completo) en las reglas de red, habilite el proxy DNS y actualice la configuración de la máquina virtual para usar el firewall como proxy DNS.
 
 :::image type="content" source="media/dns-settings/dns-proxy-2.png" alt-text="Configuración del proxy DNS con un servidor DNS personalizado.":::
 
@@ -76,7 +79,13 @@ Hay dos tipos de función de almacenamiento en caché que se producen cuando Azu
 
 - **Caché negativa**: la resolución de DNS no obtiene respuesta ni resolución. El firewall almacena en caché esta información durante una hora.
 
-El proxy DNS almacena todas las direcciones IP resueltas de FQDN en reglas de red. Como procedimiento recomendado, use FQDN que se resuelvan en una dirección IP.  
+El proxy DNS almacena todas las direcciones IP resueltas de FQDN en reglas de red. Como procedimiento recomendado, use FQDN que se resuelvan en una dirección IP.
+
+### <a name="policy-inheritance"></a>Herencia de directivas
+
+ La configuración de DNS de directivas aplicada a un firewall independiente invalida la configuración de DNS de dicho firewall. Una directiva secundaria hereda toda la configuración de DNS de la directiva principal, pero puede invalidar esta.
+
+Por ejemplo, para usar nombres de dominio completos en la regla de red, se debe habilitar el proxy DNS. Sin embargo, si una directiva principal **no** tiene habilitado el proxy DNS, la directiva secundaria no admitirá nombres de dominio completos en las reglas de red a menos que se invalide localmente esta configuración.
 
 ### <a name="dns-proxy-configuration"></a>Configuración de proxy DNS
 
@@ -163,4 +172,5 @@ $azFw | Set-AzFirewall
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Filtrado de FQDN en reglas de red](fqdn-filtering-network-rules.md)
+- [Detalles del proxy DNS de Azure Firewall](dns-details.md)
+- [Filtrado de FQDN en reglas de red](fqdn-filtering-network-rules.md)

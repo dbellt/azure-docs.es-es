@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 04/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4bf27ffc888e189f15e1c435309cbeddb1c11fec
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 865d82caebe72a0eba916a9d6d5f2e76ecd552ba
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830347"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110536471"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementación de Hybrid Runbook Worker en Windows
 
@@ -92,9 +92,9 @@ El procedimiento de importación se describe en detalle en [Importación de runb
 
 El runbook usa los parámetros siguientes.
 
-| Parámetro | Status | Descripción |
+| Parámetro | Estado | Descripción |
 | ------- | ----- | ----------- |
-| `Location` | Mandatory | La ubicación del área de trabajo de Log Analytics. |
+| `Location` | Mandatory | La ubicación de la cuenta de Automation en la que se ejecuta el script. |
 | `ResourceGroupName` | Mandatory | El grupo de recursos de la cuenta de Automation. |
 | `AccountName` | Mandatory | El nombre de la cuenta de Automation en la que se registrará Hybrid Run Worker. |
 | `CreateLA` | Mandatory | Si es true, usa el valor de `WorkspaceName` para crear un área de trabajo de Log Analytics. Si es false, el valor de `WorkspaceName` debe hacer referencia a un área de trabajo existente. |
@@ -124,7 +124,7 @@ Realice los pasos siguientes para instalar el rol en la máquina Windows mediant
 
 1. Descargue el script **New-OnPremiseHybridWorker.ps1** de la [Galería de PowerShell](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker). Una vez descargado el script, cópielo o ejecútelo en la máquina de destino. El script usa los parámetros siguientes.
 
-    | Parámetro | Status | Descripción |
+    | Parámetro | Estado | Descripción |
     | --------- | ------ | ----------- |
     | `AAResourceGroupName` | Mandatory | el nombre del grupo de recursos que está asociado a su cuenta de Automation. |
     | `AutomationAccountName` | Mandatory | el nombre de la cuenta de Automation.

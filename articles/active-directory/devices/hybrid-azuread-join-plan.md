@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 05/28/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cadba181ea7d6a12ca64c78f3c7c58654d5f756f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30c0d0fa394c8b962206879a80d600987753f2f6
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102500815"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953463"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrucciones: Planeamiento de la implementación de la unión a Azure Active Directory híbrido
 
@@ -74,7 +74,6 @@ Como primer paso del planeamiento, debe revisar el entorno y determinar si neces
 ## <a name="review-things-you-should-know"></a>Revisión de los aspectos que debe conocer
 
 ### <a name="unsupported-scenarios"></a>Escenarios no admitidos
-- Actualmente, no se admite la unión a Azure AD híbrido si el entorno consta de un solo bosque AD que sincroniza datos de identidad con más de un inquilino de Azure AD.
 
 - No se admite la unión a Azure AD híbrido para Windows Server que ejecuta el rol de controlador de dominio (DC).
 
@@ -85,6 +84,7 @@ Como primer paso del planeamiento, debe revisar el entorno y determinar si neces
 - La Herramienta de migración de estado de usuario (USMT) no funciona con el registro de dispositivos.  
 
 ### <a name="os-imaging-considerations"></a>Consideraciones sobre la creación de imágenes del SO
+
 - Si se basa en la herramienta de preparación del sistema (Sysprep) y utiliza para la instalación una imagen **anterior a Windows 10 1809**, asegúrese de que esa imagen no corresponde a un dispositivo que ya está registrado en Azure AD como unión a Azure AD híbrido.
 
 - Si se basa en la instantánea de una máquina virtual (VM) para crear otras VM, asegúrese de que esa instantánea no sea de una VM que ya se haya registrado en Azure AD como unión a Azure AD híbrido.
@@ -92,6 +92,7 @@ Como primer paso del planeamiento, debe revisar el entorno y determinar si neces
 - Si usa el [filtro de escritura unificado](/windows-hardware/customize/enterprise/unified-write-filter) y tecnologías similares que borran los cambios en el disco en el reinicio, se deben aplicar después de que el dispositivo esté unido a Azure AD híbrido. La habilitación de estas tecnologías antes de que se complete la unión a Azure AD híbrido dará lugar a que la unión del dispositivo se termine en cada reinicio.
 
 ### <a name="handling-devices-with-azure-ad-registered-state"></a>Control de dispositivos con el estado registrado de Azure AD
+
 Si los dispositivos unidos a un dominio de Windows 10 están [registrados en Azure AD](overview.md#getting-devices-in-azure-ad) con su inquilino, podría provocar un doble estado de dispositivos registrados en Azure AD y unidos a Azure AD híbrido. Se recomienda actualizar a Windows 10 1803 (con KB4489894 aplicado) o una versión superior para solucionar automáticamente esta situación. En las versiones anteriores a 1803, deberá quitar manualmente el estado registrado en Azure AD antes de habilitar la unión a Azure AD híbrido. A partir de la versión 1803, se han realizado los siguientes cambios para evitar este doble estado:
 
 - Cualquier estado registrado de Azure AD existente de un usuario se eliminaría automáticamente <i>en el momento en que el dispositivo se una a Azure AD híbrido y el usuario en cuestión inicie sesión</i>. Por ejemplo, si un usuario A tuviera un estado registrado de Azure AD en el dispositivo, el doble estado de ese usuario A se limpiará únicamente cuando este inicie sesión en el dispositivo. Si hay varios usuarios en el mismo dispositivo, el doble estado se limpiará individualmente cuando cada uno de esos usuarios inicie sesión. Además de quitar el estado registrado de Azure AD, Windows 10 también anulará la inscripción del dispositivo de Intune u otra MDM, si la inscripción se produjo como parte del registro de Azure AD a través de la inscripción automática.
@@ -102,7 +103,18 @@ Si los dispositivos unidos a un dominio de Windows 10 están [registrados en Az
 > [!NOTE]
 > Aunque Windows 10 quita automáticamente el estado registrado de Azure AD localmente, el objeto de dispositivo de Azure AD no se elimina de inmediato si se administra mediante Intune. Puede validar la eliminación del estado registrado de Azure AD si ejecuta dsregcmd /status y considerar que el dispositivo no se ha registrado en Azure AD en función de eso.
 
+### <a name="hybrid-azure-ad-join-for-single-forest-multiple-azure-ad-tenants"></a>Unido a Azure AD híbrido para un único bosque, varios inquilinos de Azure AD
+
+Para registrar los dispositivos unidos a Azure AD híbrido en sus respectivos inquilinos, las organizaciones deben asegurarse de que la configuración de SCP se realice en los dispositivos y no en AD. Encontrará más información sobre cómo hacerlo en el artículo [Validación controlada de la unión a Azure AD híbrido](hybrid-azuread-join-control.md). También es importante que las organizaciones comprendan que ciertas funcionalidades de Azure AD no funcionarán en configuraciones de Azure AD multiinquilino de un único bosque.
+- La [escritura diferida de dispositivos](../hybrid/how-to-connect-device-writeback.md) no funcionará. Esto afecta al [acceso condicional basado en dispositivos para las aplicaciones locales federadas mediante ADFS](/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises). También afecta a la [implementación de Windows Hello para empresas cuando se usa el modelo de confianza de certificados híbridos](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust).
+- La [escritura diferida de grupos](../hybrid/how-to-connect-group-writeback.md) no funcionará. Esto afecta a la escritura diferida de grupos de Office 365 en un bosque con Exchange instalado.
+- [SSO de conexión directa](../hybrid/how-to-connect-sso.md) no funcionará. Esto afecta a los escenarios de SSO que las organizaciones pueden usar en plataformas con múltiples sistemas operativos o exploradores, por ejemplo, iOS/Linux con Firefox, Safari y Chrome sin la extensión de Windows 10.
+- [La unión a Azure AD híbrido de dispositivos Windows de nivel inferior en un entorno administrado](./hybrid-azuread-join-managed-domains.md#enable-windows-down-level-devices) no funcionará. Por ejemplo, la unión a Azure AD híbrido en Windows Server 2012 R2 en un entorno administrado requiere SSO de conexión directa y, como no funcionará, la unión a Azure AD híbrido no funcionará para este tipo de configuración.
+- La [protección de contraseñas de Azure AD local](../authentication/concept-password-ban-bad-on-premises.md) no funcionará. Esto afecta a la capacidad de realizar eventos de cambio de contraseña y restablecimiento de contraseña en controladores de dominio locales de Active Directory Domain Services (AD DS) con las mismas listas de contraseñas prohibidas globales y personalizadas que se almacenan en Azure AD.
+
+
 ### <a name="additional-considerations"></a>Consideraciones adicionales
+
 - Si su entorno usa la infraestructura de escritorio virtual (VDI), consulte [Identidad del dispositivo y virtualización del escritorio](./howto-device-identity-virtual-desktop-infrastructure.md).
 
 - La unión a Azure AD híbrido es compatible con TPM 2.0 compatible con FIPS y no se admite en TPM 1.2. Si los dispositivos tienen TPM 1.2 compatible con FIPS, debe deshabilitarlos antes de continuar con la unión a Azure AD híbrido. Microsoft no proporciona ninguna herramienta para deshabilitar el modo FIPS para TPM, ya que eso depende del fabricante de TPM. Póngase en contacto con el OEM de hardware para obtener soporte técnico. 
@@ -132,7 +144,7 @@ Estos escenarios no requieren que se configure un servidor de federación para l
 
 ### <a name="federated-environment"></a>Entorno federado
 
-Un entorno federado debe tener un proveedor de identidades que admita los requisitos siguientes. Si tiene un entorno federado en que se utilizan los Servicios de federación de Active Directory (AD FS), ya se admiten los requisitos anteriores.
+Un entorno federado debe tener un proveedor de identidades que admita los requisitos siguientes. Si tiene un entorno federado en que se utilizan los Servicios de federación de Active Directory (AD FS), entonces los siguientes requisitos ya son compatibles.
 
 - **Notificación WIAORMULTIAUTHN:** Esta notificación es necesaria para realizar la unión a Azure AD híbrido para dispositivos Windows de nivel inferior.
 - **Protocolo WS-Trust:** Este protocolo es necesario para autenticar en Azure AD los dispositivos Windows actuales unidos a Azure AD híbrido. Cuando use AD FS, debe habilitar los siguientes puntos de conexión de WS-Trust: `/adfs/services/trust/2005/windowstransport`  

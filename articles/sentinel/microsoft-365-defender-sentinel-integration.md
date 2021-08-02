@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/21/2021
 ms.author: yelevin
-ms.openlocfilehash: 164bb6ca0c84120dbef2ab8307e723ed5723cf2f
-ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
+ms.openlocfilehash: 13fb05fe04988320c46755b38bfc952b7265d30d
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107992006"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112059911"
 ---
 # <a name="microsoft-365-defender-integration-with-azure-sentinel"></a>Integración de Microsoft 365 Defender en Azure Sentinel
 
@@ -74,9 +74,10 @@ Una vez conectada la integración de Microsoft 365 Defender, todos los conector
 
 - El uso conjunto de ambos mecanismos es totalmente compatible y se puede usar para facilitar la transición a la nueva lógica de creación de incidentes de Microsoft 365 Defender. Sin embargo, esto creará **incidentes duplicados** para las mismas alertas.
 
-- Para evitar la creación de incidentes duplicados para las mismas alertas, se recomienda que los clientes desactiven todas las **reglas de creación de incidentes de Microsoft** para productos de Microsoft 365 (Defender para punto de conexión, Defender for Identity y Defender para Office 365; consulte Cloud App Security a continuación) al conectar Microsoft 365 Defender. Para ello, puede deshabilitar la creación de incidentes en la página del conector. Tenga en cuenta que, si lo hace, los filtros aplicados por las reglas de creación de incidentes no se aplicarán a la integración de incidentes de Microsoft 365 Defender.
+- Para evitar la creación de incidentes duplicados para las mismas alertas, se recomienda que los clientes desactiven todas las **reglas de creación de incidentes de Microsoft** para productos de Microsoft 365 (Defender para punto de conexión, Defender for Identity y Defender para Office 365 y Cloud App Security) al conectar Microsoft 365 Defender. Para ello, puede deshabilitar la creación de incidentes en la página del conector. Tenga en cuenta que, si lo hace, los filtros aplicados por las reglas de creación de incidentes no se aplicarán a la integración de incidentes de Microsoft 365 Defender.
 
-- En el caso de las alertas de Microsoft Cloud App Security, no todos los tipos de alerta están incorporados actualmente en Microsoft 365 Defender. Para asegurarse de seguir recibiendo incidentes para todas las alertas de Cloud App Security, debe conservar o crear **reglas de creación de incidentes de Microsoft** para los [tipos de alerta *no incorporados* en Microsoft 365 Defender](microsoft-cloud-app-security-alerts-not-imported-microsoft-365-defender.md).
+    > [!NOTE]
+    > Todos los tipos de alerta de Microsoft Cloud App Security están incorporados ahora en Microsoft 365 Defender.
 
 ### <a name="working-with-microsoft-365-defender-incidents-in-azure-sentinel-and-bi-directional-sync"></a>Trabajo con incidentes de Microsoft 365 Defender en Azure Sentinel y sincronización bidireccional
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 06/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 68cf157a512e9b1f6caee4734869c5bb4b836e2f
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 5bcd23c9a515155b9dc7cfdc04a3fafe122474ae
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104962442"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111986361"
 ---
 # <a name="connect-to-a-virtual-machine-console-on-an-azure-stack-edge-pro-gpu-device"></a>Conexión a la consola de una máquina virtual en un dispositivo Azure Stack Edge Pro GPU
 
@@ -132,4 +132,5 @@ Id                     : 81462e0a-decb-4cd4-96e9-057094040063
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Solucione los problemas asociados a [Azure Stack Edge Pro](azure-stack-edge-gpu-troubleshoot.md) en Azure Portal.
+- Solución de problemas de [implementaciones de máquinas virtuales](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md) en Azure Portal.
+<!--Make "VM guest logs" first link when article is available.-->

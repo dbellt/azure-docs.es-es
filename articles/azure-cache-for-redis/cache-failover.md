@@ -6,16 +6,22 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: cc7c70fa2e7131f09f621e992d537e0b120061ef
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 91c62faf53bd0a0f81322316e5225579eaa6ca9d
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102210740"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111813057"
 ---
 # <a name="failover-and-patching-for-azure-cache-for-redis"></a>Conmutación por error y aplicación de revisiones para Azure Cache for Redis
 
-Para crear aplicaciones cliente resistentes y correctas, es fundamental comprender la conmutación por error en el contexto del servicio Azure Cache for Redis. Una conmutación por error puede formar parte de las operaciones de administración planeadas o puede ser el resultado de errores de red o hardware no planeados. Un uso habitual de la conmutación por error de la caché tiene lugar cuando el servicio de administración aplica parches a los archivos binarios de Azure Cache for Redis. En este artículo se explica qué es una conmutación por error, cómo se produce durante la aplicación de revisiones y cómo se crea una aplicación cliente resistente.
+Para crear aplicaciones cliente resistentes y correctas, es fundamental comprender la conmutación por error en el servicio Azure Cache for Redis. Una conmutación por error puede formar parte de las operaciones de administración planeadas o puede ser el resultado de errores de red o hardware no planeados. Un uso habitual de la conmutación por error de la caché tiene lugar cuando el servicio de administración aplica parches a los archivos binarios de Azure Cache for Redis.
+
+En este artículo, encontrará esta información:  
+
+- Qué es una conmutación por error.
+- Cómo se produce una conmutación por error durante la aplicación de revisiones.
+- Cómo crear una aplicación cliente resistente.
 
 ## <a name="what-is-a-failover"></a>¿Qué es la conmutación por error?
 
@@ -34,9 +40,14 @@ En una memoria caché Básica, el nodo único es siempre uno principal. En una c
 
 Una conmutación por error se produce cuando un nodo réplica se promueve para convertirse en un nodo principal y el nodo principal anterior cierra las conexiones existentes. Cuando el nodo principal vuelve a estar disponible, observa el cambio en los roles y disminuye su nivel para convertirse en una réplica. A continuación, se conecta al nuevo principal y sincroniza los datos. Una conmutación por error puede ser planeada o no planeada.
 
-La *conmutación por error planeada* se realiza durante las actualizaciones del sistema, como la aplicación de revisiones de Redis o las actualizaciones del sistema operativo, y durante las operaciones de administración, como el escalado y el reinicio. Dado que los nodos reciben un aviso por adelantado de la actualización, pueden intercambiar roles de forma cooperativa y actualizar rápidamente el equilibrador de carga del cambio. Una conmutación por error planeada suele finalizar en menos de un segundo.
+Una *conmutación por error planeada* tiene lugar durante dos momentos diferentes:
 
-Una *conmutación por error no planeada* puede producirse debido a un error de hardware, a un error de red o a otras interrupciones inesperadas en el nodo principal. El nodo réplica se promueve a principal, pero el proceso tardará más. Un nodo réplica debe detectar que su nodo principal no está disponible antes de que pueda iniciar el proceso de conmutación por error. El nodo réplica también debe comprobar si este error no planeado es transitorio o local, para evitar una conmutación por error innecesaria. Este retraso en la detección significa que una conmutación por error no planeada finaliza normalmente en 10 o 15 segundos.
+- Actualizaciones del sistema, como aplicación de revisiones de Redis o actualizaciones del sistema operativo.  
+- Operaciones de administración, como el escalado y el reinicio.
+
+Dado que los nodos reciben un aviso por adelantado de la actualización, pueden intercambiar roles de forma cooperativa y actualizar rápidamente el equilibrador de carga del cambio. Una conmutación por error planeada suele finalizar en menos de un segundo.
+
+Una *conmutación por error no planeada* puede producirse debido a un error de hardware, a un error de red o a otras interrupciones inesperadas en el nodo principal. El nodo réplica se promueve a principal, pero el proceso tardará más. Un nodo réplica debe detectar primero que su nodo principal no está disponible antes de que pueda iniciar el proceso de conmutación por error. El nodo réplica también debe comprobar si este error no planeado es transitorio o local, para evitar una conmutación por error innecesaria. Este retraso en la detección significa que una conmutación por error no planeada finaliza normalmente en 10 o 15 segundos.
 
 ## <a name="how-does-patching-occur"></a>¿Cómo se realiza la aplicación de la revisión?
 
@@ -48,7 +59,7 @@ El servicio Azure Cache for Redis actualiza regularmente la memoria caché con l
 1. El nodo réplica se conecta al nodo principal y sincroniza los datos.
 1. Cuando se completa la sincronización de datos, el proceso de aplicación de la revisión se repite en los nodos restantes.
 
-Como la aplicación de la revisión es una conmutación por error planeada, el nodo réplica se promueve rápidamente para convertirse en principal y comienza a atender solicitudes y nuevas conexiones. Las memorias caché Básicas no tienen un nodo réplica y no están disponibles hasta que se completa la actualización. La aplicación de la revisión se realiza por separado en cada partición de una caché en clúster y las conexiones a otra partición no se cierran.
+Como la aplicación de la revisión es una conmutación por error planeada, el nodo réplica se promueve rápidamente para convertirse en principal. A continuación, el nodo comienza a atender las solicitudes y las nuevas conexiones. Las memorias caché Básicas no tienen un nodo réplica y no están disponibles hasta que se completa la actualización. La aplicación de la revisión se realiza por separado en cada partición de una caché en clúster y las conexiones a otra partición no se cierran.
 
 > [!IMPORTANT]
 > La revisión se aplica de uno a uno en los nodos, para evitar la pérdida de datos. Las memorias caché Básicas tendrán pérdida de datos. En las cachés en clúster, la aplicación de la revisión se realiza en una partición a la vez.
@@ -59,7 +70,7 @@ Dado que se produce una sincronización de datos completa antes de que se repita
 
 ## <a name="additional-cache-load"></a>Carga adicional de caché
 
-Siempre que se produce una conmutación por error, las caché Estándar y Premium deben replicar los datos de un nodo a otro. Esta replicación provoca un aumento de la carga en la CPU y en la memoria del servidor. Si la instancia de caché ya está muy cargada, puede que haya mayor latencia en las aplicaciones cliente. En casos extremos, las aplicaciones cliente pueden recibir excepciones de tiempo de espera. Para ayudar a mitigar el impacto de esta carga adicional, [configure](cache-configure.md#memory-policies) el valor `maxmemory-reserved` de la caché.
+Siempre que se produce una conmutación por error, las caché Estándar y Premium deben replicar los datos de un nodo a otro. Esta replicación provoca un aumento de la carga en la CPU y en la memoria del servidor. Si la instancia de caché ya está muy cargada, puede que haya mayor latencia en las aplicaciones cliente. En casos extremos, las aplicaciones cliente pueden recibir excepciones de tiempo de espera. Para ayudar a mitigar el efecto de más carga, [configure](cache-configure.md#memory-policies) la opción `maxmemory-reserved` de la memoria caché.
 
 ## <a name="how-does-a-failover-affect-my-client-application"></a>¿Cómo afecta una conmutación por error a mi aplicación cliente?
 
@@ -75,7 +86,7 @@ Para probar la resistencia de una aplicación cliente, use un [reinicio](cache-a
 
 ### <a name="can-i-be-notified-in-advance-of-a-planned-maintenance"></a>¿Se puede recibir una notificación previa a un mantenimiento planeado?
 
-Azure Cache for Redis publica ahora notificaciones en un canal de publicación/suscripción llamado [AzureRedisEvents](https://github.com/Azure/AzureCacheForRedis/blob/main/AzureRedisEvents.md) unos 30 segundos antes de las actualizaciones planeadas. Se trata de notificaciones en tiempo de ejecución, y se compilan especialmente para las aplicaciones que pueden usar disyuntores para omitir los comandos de caché o búfer, por ejemplo, durante las actualizaciones planeadas. No es un mecanismo que pueda notificarle con días u horas de antemano.
+Azure Cache for Redis publica ahora notificaciones en un canal de publicación/suscripción llamado [AzureRedisEvents](https://github.com/Azure/AzureCacheForRedis/blob/main/AzureRedisEvents.md) unos 30 segundos antes de las actualizaciones planeadas. Las notificaciones se realizan en tiempo de ejecución. Se compilan especialmente para las aplicaciones que pueden usar disyuntores para omitir los comandos de caché o búfer, por ejemplo, durante las actualizaciones planeadas. No es un mecanismo que pueda notificarle con días u horas de antemano.
 
 ### <a name="client-network-configuration-changes"></a>Cambios en la configuración de red del cliente
 

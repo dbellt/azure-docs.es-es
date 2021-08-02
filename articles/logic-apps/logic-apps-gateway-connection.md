@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: conceptual
 ms.date: 03/24/2021
-ms.openlocfilehash: 49da5d7f045ed06ba16696ebd16ad212b9d140d8
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 490750fecf1634f8d0bbcd92bd71cdf3cb531c71
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107763316"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111888597"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conexión a orígenes de datos locales desde Azure Logic Apps
 
@@ -170,7 +170,7 @@ Para crear un recurso de puerta de enlace diferente, vincular la instalación de
 
 * Su cuenta de Azure no pertenece a un único [inquilino o directorio de Azure AD](../active-directory/fundamentals/active-directory-whatis.md#terminology). Compruebe que usa el mismo inquilino o directorio de Azure AD que usó durante la instalación de la puerta de enlace.
 
-* El recurso de puerta de enlace y la instalación de la puerta de enlace no deben estar en la misma región. No obstante, la ubicación de la aplicación lógica puede diferir de la ubicación del recurso de puerta de enlace.
+* El recurso de puerta de enlace y la instalación de la puerta de enlace no deben estar en la misma región. Asegúrese de que la instalación de la puerta de enlace usa la misma región en la que desea crear el recurso de puerta de enlace en Azure. No obstante, la ubicación de la aplicación lógica puede diferir de la ubicación del recurso de puerta de enlace.
 
 * La instalación de puerta de enlace ya está asociada a otro recurso de puerta de enlace. Cada recurso de puerta de enlace solo se puede vincular a una instalación de puerta de enlace, que solo se puede vincular a una cuenta y suscripción de Azure. Por lo tanto, no se puede seleccionar una instalación de puerta de enlace que ya esté asociada a otro recurso de puerta de enlace. Estas instalaciones no aparecerán en la lista **Nombre de instalación**.
 

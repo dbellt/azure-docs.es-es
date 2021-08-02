@@ -1,33 +1,34 @@
 ---
-title: Copia de datos hacia y desde SQL Server
-description: Aprenda a trasladar los datos hacia y desde una base de datos SQL Server en un entorno local o en una máquina virtual de Azure mediante Azure Data Factory.
+title: Copia y transformación de datos con SQL Server como origen o destino
+description: Aprenda a copiar y transformar los datos con la base de datos SQL Server como origen o destino, en un entorno local o en una máquina virtual de Azure mediante Azure Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/17/2021
-ms.openlocfilehash: c6996a5e3f20a3c71fc5a49f9650955ce9c41683
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.date: 05/26/2021
+ms.openlocfilehash: 084af91fe294ab52591bc5ef9bf22ffe941637ea
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109486798"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110781809"
 ---
-# <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Copia de datos con SQL Server como origen o destino mediante Azure Data Factory
+# <a name="copy-and-transform-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Copia y transformación de datos con SQL Server como origen o destino mediante Azure Data Factory
 
 > [!div class="op_single_selector" title1="Seleccione la versión de Azure Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-sqlserver-connector.md)
 > * [Versión actual](connector-sql-server.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se resume el uso de la actividad de copia de Azure Data Factory para copiar datos con una base de datos SQL Server como origen o destino. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que incluye información general de esta actividad.
+En este artículo se describe cómo usar la actividad de copia de Azure Data Factory para copiar datos con la base de datos de SQL Server como origen o destino y cómo usar Data Flow para transformar los datos de la base de datos de SQL Server.  Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
 Este conector SQL Server es compatible con las actividades siguientes:
 
 - [Actividad de copia](copy-activity-overview.md) con [matriz de origen o receptor compatible](copy-activity-overview.md)
+- [Asignación de Data Flow](concepts-data-flow-overview.md)
 - [Actividad de búsqueda](control-flow-lookup-activity.md)
 - [Actividad GetMetadata](control-flow-get-metadata-activity.md)
 
@@ -552,6 +553,66 @@ En el ejemplo siguiente se muestra cómo usar un procedimiento almacenado para r
         }
     }
     ```
+
+## <a name="mapping-data-flow-properties"></a>Propiedades de Asignación de instancias de Data Flow
+
+Al transformar datos en el flujo de datos de asignación, puede leer y escribir en las tablas de la base de datos de SQL Server. Para más información, vea la [transformación de origen](data-flow-source.md) y la [transformación de receptor](data-flow-sink.md) en los flujos de datos de asignación.
+
+> [!NOTE]
+> Para acceder a la instancia de SQL Server local, debe usar la [red virtual administrada](managed-virtual-network-private-endpoint.md) de Azure Data Factory mediante un punto de conexión privado. Consulte este [tutorial](tutorial-managed-virtual-network-on-premise-sql-server.md) para ver los pasos detallados.
+
+### <a name="source-transformation"></a>Transformación de origen
+
+En la tabla siguiente se indican las propiedades que admite el origen de SQL Server. Puede editar estas propiedades en la pestaña **Source options** (Opciones de origen).
+
+| Nombre | Descripción | Obligatorio | Valores permitidos | Propiedad de script de flujo de datos |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Tabla | Si selecciona Tabla como entrada, el flujo de datos captura todos los datos de la tabla especificada en el conjunto de datos. | No | - |- |
+| Consultar | Si selecciona Consultar como entrada, especifique una consulta SQL para capturar datos del origen, lo que invalida cualquier tabla que especifique en el conjunto de datos. El uso de consultas es una excelente manera de reducir las filas para pruebas o búsquedas.<br><br>La cláusula **Ordenar por** no se admite, pero puede establecer una instrucción SELECT FROM completa. También puede usar las funciones de tabla definidas por el usuario. **select * from udfGetData()** es un UDF in SQL que devuelve una tabla que puede utilizar en el flujo de datos.<br>Ejemplo de consulta: `Select * from MyTable where customerId > 1000 and customerId < 2000`| No | String | Query |
+| Tamaño de lote | Especifique un tamaño de lote para fragmentar datos grandes en lecturas. | No | Entero | batchSize |
+| Nivel de aislamiento | Elija uno de los siguientes niveles de aislamiento:<br>- Read Committed<br>- Read Uncommitted (predeterminado)<br>- Repeatable Read<br>- Serializable<br>- None (ignorar el nivel de aislamiento) | No | <small>READ_COMMITTED<br/>READ_UNCOMMITTED<br/>REPEATABLE_READ<br/>SERIALIZABLE<br/>NONE</small> |isolationLevel |
+
+#### <a name="sql-server-source-script-example"></a>Ejemplo de script de origen de SQL Server
+
+Cuando se usa SQL Server como tipo de origen, el script de flujo de datos asociado es:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    isolationLevel: 'READ_UNCOMMITTED',
+    query: 'select * from MYTABLE',
+    format: 'query') ~> SQLSource
+```
+
+### <a name="sink-transformation"></a>Transformación de receptor
+
+En la tabla siguiente se indican las propiedades que admite el receptor de SQL Server. Puede editar estas propiedades en la pestaña **Opciones del receptor**.
+
+| Nombre | Descripción | Obligatorio | Valores permitidos | Propiedad de script de flujo de datos |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Método de actualización | Especifique qué operaciones se permiten en el destino de la base de datos. El valor predeterminado es permitir solamente las inserciones.<br>Para actualizar, upsert o eliminar filas, se requiere una [transformación de alteración de fila](data-flow-alter-row.md) a fin de etiquetar filas para esas acciones. | Sí | `true` o `false` | deletable <br/>insertable <br/>updateable <br/>upsertable |
+| Columnas de clave | En el caso de las actualizaciones, upserts y eliminaciones, se deben establecer columnas de clave para determinar la fila que se va a modificar.<br>El nombre de columna que elija como clave se usará como parte de las operaciones posteriores de actualización, upsert y eliminación. Por lo tanto, debe seleccionar una columna que exista en la asignación del receptor. | No | Array | claves |
+| Omitir escritura de columnas de clave | Si no quiere escribir el valor en la columna de clave, seleccione "Skip writing key columns" (Omitir escritura de columnas de clave). | No | `true` o `false` | skipKeyWrites |
+| Acción Table |determina si se deben volver a crear o quitar todas las filas de la tabla de destino antes de escribir.<br>- **Ninguno**: no se realizará ninguna acción en la tabla.<br>- **Volver a crear**: se quitará la tabla y se volverá a crear. Obligatorio si se crea una nueva tabla dinámicamente.<br>- **Truncar**: se quitarán todas las filas de la tabla de destino. | No | `true` o `false` | recreate<br/>truncate |
+| Tamaño de lote | Especifique el número de filas que se escriben en cada lote. Los tamaños de lote más grandes mejoran la compresión y la optimización de memoria, pero se arriesgan a obtener excepciones de memoria al almacenar datos en caché. | No | Entero | batchSize |
+| Scripts SQL anteriores y posteriores | Especifique scripts de SQL de varias líneas que se ejecutarán antes (preprocesamiento) y después (procesamiento posterior) de que los datos se escriban en la base de datos del receptor. | No | String | preSQLs<br>postSQLs |
+
+#### <a name="sql-server-sink-script-example"></a>Ejemplo de script de receptor de SQL Server
+
+Cuando se usa SQL Server como tipo de receptor, el script de flujo de datos asociado es:
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    deletable:false,
+    insertable:true,
+    updateable:true,
+    upsertable:true,
+    keys:['keyColumn'],
+    format: 'table',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> SQLSink
+```
 
 ## <a name="data-type-mapping-for-sql-server"></a>Asignación de tipos de datos para SQL Server
 

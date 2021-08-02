@@ -1,21 +1,21 @@
 ---
-title: 'Instalación de paquetes de idioma en VM con Windows 10 en Windows Virtual Desktop: Azure'
-description: Procedimiento para instalar paquetes de idioma para VM multisesión con Windows 10 en Windows Virtual Desktop.
+title: 'Instalación de paquetes de idioma en máquinas virtuales Windows 10 en Windows Virtual Desktop: Azure'
+description: Procedimiento para instalar paquetes de idioma para máquinas virtuales multisesión con Windows 10 en Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 12/03/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 87a12ec80c19e34cfb1bebfe29d14b118ae1eb93
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 63565af9775779d89c44384e0bd45c8d01e4147c
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108317242"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112006552"
 ---
 # <a name="add-language-packs-to-a-windows-10-multi-session-image"></a>Adición de paquetes de idioma a una imagen multisesión de Windows 10
 
-Windows Virtual Desktop es un servicio que los usuarios pueden implementar en cualquier momento y lugar. Por eso es importante que los usuarios puedan personalizar el idioma en el que se muestra la imagen multisesión de Windows 10 Enterprise.
+Azure Virtual Desktop es un servicio que los usuarios pueden implementar en cualquier momento y lugar. Por eso es importante que los usuarios puedan personalizar el idioma en el que se muestra la imagen multisesión de Windows 10 Enterprise.
 
 Hay dos maneras de adaptarse a las necesidades de idioma de los usuarios:
 
@@ -34,28 +34,30 @@ Necesita lo siguiente para personalizar las imágenes multisesión de Windows 1
      
      - ISO del idioma:
         - [Archivo ISO del paquete de idioma de Windows 10, versión 1903 o 1909](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
-        - [Archivo ISO del paquete de idioma de Windows 10, versión 2004 o 20H2](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
+        - [Windows 10, versión 2004, 20H2 o 21H1 Language Pack ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
 
      - Archivo ISO del disco 1 de característica previa petición:
         - [Archivo ISO del disco 1 de característica previa petición de Windows 10, versión 1903 o 1909](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
-        - [Archivo ISO del disco 1 de característica previa petición de Windows 10, versión 2004 o 20H2](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
+        - [Windows 10, versión 2004, 20H2 o 21H1 FOD Disk 1 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
         
      - Archivo ISO de aplicaciones de bandeja de entrada:
         - [Archivo ISO de aplicaciones de bandeja de entrada de Windows 10, versión 1903 o 1909](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_InboxApps.iso)
         - [Archivo ISO de aplicaciones de bandeja de entrada de Windows 10, versión 2004](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_InboxApps.iso)
         - [Archivo ISO de aplicaciones de bandeja de entrada de Windows 10, versión 20H2](https://software-download.microsoft.com/download/pr/19041.508.200905-1327.vb_release_svc_prod1_amd64fre_InboxApps.iso)
+        - [Windows 10, versión 21H1 Inbox Apps ISO](https://software-download.microsoft.com/download/sg/19041.928.210407-2138.vb_release_svc_prod1_amd64fre_InboxApps.iso)
      
      - Si usa los archivos ISO de paquete de experiencia local (LXP) para localizar las imágenes, también necesitará descargar el ISO de LXP adecuado para una mejor experiencia lingüística
         - Si usa Windows 10, versión 1903 o 1909:
           - [Windows 10, versión 1903 o 1909 LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_1903_32_64_ARM64_MultiLng_LngPkAll_LXP_ONLY.iso)
-        - Si usa Windows 10, versión 2004 o 20H2, use la información de [Adición de idiomas en Windows 10: Problemas conocidos](/windows-hardware/manufacture/desktop/language-packs-known-issue) para averiguar cuál de los siguientes archivos ISO de LXP es el adecuado para usted:
-          - [Windows 10, versión 2004 o 20H2 **9B** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_64_ARM64_MultiLang_LangPckAll_LIP_LXP_ONLY)
-          - [Windows 10, versión 2004 o 20H2 **9C** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_32_64_ARM64_MultiLng_LngPkAll_LIP_9C_LXP_ONLY)
-          - [Windows 10, versión 2004 o 20H2 **10C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2010C.iso)
-          - [Windows 10, versión 2004 o 20H2 **11C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2011C.iso)
-          - [Windows 10, versión 2004 o 20H2 **1C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2101C.iso)
-          - [Windows 10, versión 2004 o 20H2 **2C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2102C.iso)
-          - [Windows 10, versión 2004 o 20H2 **4B** LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2104B.iso)
+        - Si usa Windows 10, versión 2004, 20H2 o 21H1, use la información de [Adición de idiomas en Windows 10: Problemas conocidos](/windows-hardware/manufacture/desktop/language-packs-known-issue) para averiguar cuál de los siguientes archivos ISO de LXP es el adecuado para usted:
+          - [Windows 10, versión 2004, 20H2 o 21H1 **9B** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_64_ARM64_MultiLang_LangPckAll_LIP_LXP_ONLY)
+          - [Windows 10, versión 2004, 20H2 o 21H1 **9C** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_32_64_ARM64_MultiLng_LngPkAll_LIP_9C_LXP_ONLY)
+          - [Windows 10, versión 2004, 20H2 o 21H1 **10C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2010C.iso)
+          - [Windows 10, versión 2004, 20H2 o 21H1 **11C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2011C.iso)
+          - [Windows 10, versión 2004, 20H2 o 21H1 **1C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2101C.iso)
+          - [Windows 10, versión 2004, 20H2 o 21H1 **2C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2102C.iso)
+          - [Windows 10, versión 2004, 20H2 o 21H1 **4B** LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2104B.iso)
+          - [Windows 10, versión 2004, 20H2 o 21H1 **5C** LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2105C.iso)
 
 - Un recurso compartido de Azure Files o un recurso compartido de archivos en una máquina virtual del servidor de archivos de Windows
 
@@ -231,7 +233,7 @@ Para ejecutar sysprep, haga lo siguiente:
 
 2. Detenga la máquina virtual y captúrela en una imagen administrada siguiendo las instrucciones que se indican en [Creación de una imagen administrada de una máquina virtual generalizada en Azure](../virtual-machines/windows/capture-image-resource.md).
 
-3. Ahora puede usar la imagen personalizada para implementar un grupo de hosts de Windows Virtual Desktop. Para aprender a implementar un grupo de hosts, consulte [Tutorial: Creación de un grupo de hosts con Azure Portal](create-host-pools-azure-marketplace.md).
+3. Ahora puede usar la imagen personalizada para implementar un grupo de hosts de Azure Windows Virtual Desktop. Para aprender a implementar un grupo de hosts, consulte [Tutorial: Creación de un grupo de hosts con Azure Portal](create-host-pools-azure-marketplace.md).
 
 ## <a name="enable-languages-in-windows-settings-app"></a>Habilitación de idiomas en la aplicación de configuración de Windows
 
@@ -247,7 +249,7 @@ $LanguageList.Add("zh-cn")
 Set-WinUserLanguageList $LanguageList -force
 ```
 
-Una vez que un usuario ha cambiado la configuración de idioma, tendrá que cerrar la sesión de Windows Virtual Desktop e iniciar sesión de nuevo para que los cambios surtan efecto. 
+Una vez que un usuario ha cambiado la configuración de idioma, tendrá que cerrar la sesión de Azure Virtual Desktop e iniciar sesión de nuevo para que los cambios surtan efecto. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

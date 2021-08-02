@@ -8,18 +8,29 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 0f233bdff54822037d15fde9ac62e34193794ad3
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 68e4949fe0ef0b10018cd3827e259028c37d5b5c
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106110315"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112019096"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill"></a>Aptitud cognitiva de búsqueda de entidades personalizadas
 
 La aptitud de **búsqueda de entidades personalizadas** busca texto de una lista de palabras y frases personalizada definida por el usuario. Con esta lista, se etiquetan todos los documentos con entidades coincidentes. La aptitud también admite un grado de coincidencia aproximada que se puede aplicar para buscar coincidencias similares pero no exactas.  
 
-Esta aptitud no está enlazada a una API de Cognitive Services y se puede usar de forma gratuita durante el período de versión preliminar. No obstante, debe [asociar un recurso de Cognitive Services](./cognitive-search-attach-cognitive-services.md) para invalidar el límite de enriquecimiento diario. El límite diario se aplica al acceso gratuito a Cognitive Services cuando se accede a él mediante Azure Cognitive Search.
+Esta aptitud no está enlazada a ninguna API de Cognitive Services. No obstante, debe [asociar un recurso de Cognitive Services](./cognitive-search-attach-cognitive-services.md) para invalidar el límite de enriquecimiento diario. El límite diario se aplica al acceso gratuito a Cognitive Services cuando se accede a él mediante Azure Cognitive Search.
+
+## <a name="pricing-details"></a>Detalles de precios
+
+Los registros de texto corresponden al número de unidades de 1000 caracteres dentro de un documento que se proporciona como entrada para la aptitud.
+
+|  Plan de tarifa  |        Precio  |
+|--------------|----------------------|
+| De 0 a 500 000 registros de texto | 1 USD por 1000 registros de texto |
+| De 0,5 a 2,5 millones de registros de texto | 0,75 USD por 1000 registros de texto |
+| De 2,5 a 10 millones de registros de texto | 0,30 USD por 1000 registros de texto |
+| Más de 10 millones de registros de texto | 0,25 USD por 1000 registros de texto |
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.CustomEntityLookupSkill 
@@ -308,4 +319,4 @@ Esta advertencia se emitirá si el número de coincidencias detectadas es mayor 
 
 + [Aptitudes integradas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
-+ [Aptitud de reconocimiento de entidades (para buscar entidades conocidas)](cognitive-search-skill-entity-recognition.md)
++ [Aptitud de reconocimiento de entidades (para buscar entidades conocidas)](cognitive-search-skill-entity-recognition-v3.md)

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 19b3595228c29814e42af88696972fd81b156190
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6b50169586ef29e579d52985ee8b7822a63560d0
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443053"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982438"
 ---
 # <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-pro-gpu-device"></a>Uso del panel de Kubernetes para supervisar el dispositivo Azure Stack Edge Pro con GPU
 
@@ -121,4 +121,5 @@ El servidor de métricas de Kubernetes proporciona canalizaciones de escalabilid
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre cómo [solucionar los problemas en un dispositivo](azure-stack-edge-gpu-troubleshoot.md).
+Obtenga información sobre cómo [supervisar con Azure Monitor](azure-stack-edge-gpu-enable-azure-monitor.md).
+Obtenga información sobre cómo [ejecutar y recopilar registros](azure-stack-edge-gpu-troubleshoot.md)

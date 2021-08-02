@@ -1,5 +1,5 @@
 ---
-title: Tarea de DevOps del servicio Azure Image Builder
+title: 'Versión preliminar: tarea de DevOps del servicio Azure Image Builder'
 description: Tarea de Azure DevOps para insertar artefactos de compilación en una imagen de máquina virtual, para que pueda instalar y configurar la aplicación y el sistema operativo
 author: danielsollondon
 ms.author: danis
@@ -8,14 +8,15 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
-ms.openlocfilehash: d02a5c6bc194009d459647721dab16be0dcade84
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 7055aa967058e1592f757c2dabf7890b1da76632
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670470"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111441805"
 ---
-# <a name="azure-image-builder-service-devops-task"></a>Tarea de DevOps del servicio Azure Image Builder
+# <a name="azure-image-builder-service-devops-task-preview"></a>Tarea de DevOps del servicio Azure Image Builder (versión preliminar)
 
 En este artículo se explica cómo usar una tarea de Azure DevOps para insertar artefactos de compilación en una imagen de máquina virtual, para que pueda instalar y configurar la aplicación y el sistema operativo.
 
@@ -28,6 +29,9 @@ Hay dos tareas de DevOps de Azure VM Image Builder (AIB):
 * [Tarea de AIB "inestable"](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder-canary): nos permite agregar las últimas actualizaciones y características, permitir a los clientes probarlas antes de promocionarlas a la tarea "estable". Si no se ha notificado ningún problema y los datos de telemetría no muestran ningún problema, aproximadamente una semana después, promocionaremos el código de la tarea a "estable". 
 
 ## <a name="prerequisites"></a>Prerrequisitos
+
+> [!NOTE]
+> Actualmente, la tarea AIB no admite reinicios de Windows, ejecutando comandos elevados como administrador, lo que significa que no es adecuada para escenarios de Windows Virtual Desktop o personalizaciones de Windows que requieren lo anterior. Si desea usar DevOps con Image Builder, debe anidar la plantilla en una tarea de Azure Resource Manager, usar la CLI de AZ o las tareas de PowerShell.
 
 * Instale la [tarea de DevOps estable de Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder).
 * Debe tener una cuenta de VSTS DevOps y una canalización de compilación creada.

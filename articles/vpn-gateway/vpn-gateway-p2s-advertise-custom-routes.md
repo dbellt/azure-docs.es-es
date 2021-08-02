@@ -1,27 +1,27 @@
 ---
 title: Anuncio de rutas personalizadas para clientes VPN Gateway de punto a sitio
 titleSuffix: Azure VPN Gateway
-description: Obtenga información sobre cómo anunciar rutas personalizadas a los clientes VPN Gateway de punto a sitio.
+description: Obtenga información sobre cómo anunciar rutas personalizadas a los clientes VPN Gateway de punto a sitio. En este artículo se incluyen los pasos para la tunelización forzada del cliente VPN.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 06/08/2021
 ms.author: cherylmc
-ms.openlocfilehash: f2d822fdf62d24718c3732ccb77fa5c5f50cd506
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: b37b63fda6b142fc1aba458c007b6fe0eb5db814
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108293087"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111810955"
 ---
 # <a name="advertise-custom-routes-for-p2s-vpn-clients"></a>Anuncio de rutas personalizadas para clientes VPN de conexión de punto a sitio
 
-Es posible que quiera anunciar rutas personalizadas a todos sus clientes VPN de punto a sitio. Por ejemplo, cuando tiene puntos de conexión de almacenamiento habilitados en su red virtual y quiere que los usuarios remotos puedan tener acceso a estas cuentas de almacenamiento a través de la conexión VPN. Puede anunciar la dirección IP del punto de conexión de almacenamiento a todos sus usuarios remotos de modo que el tráfico a la cuenta de almacenamiento pase por el túnel VPN y no por la red pública de Internet.
+Es posible que quiera anunciar rutas personalizadas a todos sus clientes VPN de punto a sitio. Por ejemplo, cuando tiene puntos de conexión de almacenamiento habilitados en su red virtual y quiere que los usuarios remotos puedan tener acceso a estas cuentas de almacenamiento a través de la conexión VPN. Puede anunciar la dirección IP del punto de conexión de almacenamiento a todos sus usuarios remotos de modo que el tráfico a la cuenta de almacenamiento pase por el túnel VPN y no por la red pública de Internet. También puede usar rutas personalizadas para configurar la tunelización forzada para los clientes VPN.
 
-![Ejemplo de conexión multisitio de Azure VPN Gateway](./media/vpn-gateway-p2s-advertise-custom-routes/custom-routes.png)
+:::image type="content" source="./media/vpn-gateway-p2s-advertise-custom-routes/custom-routes.png" alt-text="Diagrama para anunciar las rutas personalizadas.":::
 
-## <a name="to-advertise-custom-routes"></a>Para anunciar rutas personalizadas
+## <a name="advertise-custom-routes"></a>Anuncio de rutas personalizadas
 
 Para anunciar rutas personalizadas, use `Set-AzVirtualNetworkGateway cmdlet`. En el siguiente ejemplo se le muestra cómo anunciar la dirección IP para las [tablas de cuentas de almacenamiento de Contoso](https://contoso.table.core.windows.net).
 
@@ -44,7 +44,18 @@ Para anunciar rutas personalizadas, use `Set-AzVirtualNetworkGateway cmdlet`. En
     ```azurepowershell-interactive
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute x.x.x.x/xx , y.y.y.y/yy
     ```
-## <a name="to-view-custom-routes"></a>Para ver rutas personalizadas
+
+## <a name="advertise-custom-routes---forced-tunneling"></a>Anuncio de rutas personalizadas: tunelización forzada
+
+Puede dirigir todo el tráfico al túnel VPN si anuncia 0.0.0.0/1 y 128.0.0.0/1 como rutas personalizadas a los clientes. El motivo para dividir 0.0.0.0/0 en dos subredes más pequeñas es que estos prefijos más pequeños son más específicos que la ruta predeterminada que posiblemente ya esté configurada en el adaptador de red local y, como tal, se preferirán al enrutar el tráfico.
+
+1. Para habilitar la tunelización forzada, use estos comandos:
+
+    ```azurepowershell-interactive    
+    $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
+    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute 0.0.0.0/1 , 128.0.0.0/1
+    ```
+## <a name="view-custom-routes"></a>Visualización de rutas personalizadas
 
 Use el siguiente ejemplo para ver rutas personalizadas:
 
@@ -52,7 +63,7 @@ Use el siguiente ejemplo para ver rutas personalizadas:
   $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
   $gw.CustomRoutes | Format-List
   ```
-## <a name="to-delete-custom-routes"></a>Para eliminar rutas personalizadas
+## <a name="delete-custom-routes"></a>Eliminación de rutas personalizadas
 
 Use el siguiente ejemplo para eliminar rutas personalizadas:
 
@@ -62,4 +73,4 @@ Use el siguiente ejemplo para eliminar rutas personalizadas:
   ```
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información de enrutamiento de conexión de punto a sitio adicional, consulte [Acerca del enrutamiento de punto a sitio](vpn-gateway-about-point-to-site-routing.md).
+Para más información sobre el enrutamiento de conexión de punto a sitio, consulte [Acerca del enrutamiento de punto a sitio](vpn-gateway-about-point-to-site-routing.md).

@@ -1,7 +1,7 @@
 ---
 title: Personalización de las notificaciones de aplicación del inquilino de Azure AD (PowerShell)
 titleSuffix: Microsoft identity platform
-description: En esta página se describe la asignación de notificaciones de Azure Active Directory.
+description: Aprenda a personalizar las notificaciones emitidas en tokens para una aplicación en un inquilino de Azure Active Directory específico.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -10,29 +10,28 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 06/10/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: e77155f8a6efd3916ae90fcb562d688bb5b5126f
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: bb44904379e7a9b784f4e2d9bb7c93673718ed37
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107598897"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111983049"
 ---
-# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedimientos: Personalizar las notificaciones emitidas en tokens para una determinada aplicación de un inquilino (versión preliminar)
+# <a name="customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant"></a>Personalizar las notificaciones emitidas en tokens para una determinada aplicación de un inquilino
+
+Los administradores de inquilinos usan la personalización de notificaciones para personalizar las notificaciones que se emiten en tokens para una aplicación específica de su inquilino. Puede usar directivas de asignación de notificaciones para:
+
+- seleccionar las notificaciones que se incluyen en tokens.
+- crear tipos de notificación que aún no existen.
+- elegir o cambiar el origen de los datos emitidos en notificaciones concretas.
+
+La personalización de notificaciones admite la configuración de directivas de asignación de notificaciones para los protocolos WS-Fed, SAML, OAuth y OpenID Connect.
 
 > [!NOTE]
-> Esta característica reemplaza a la [personalización de notificaciones](active-directory-saml-claims-customization.md) que se ofrece actualmente a través del portal. Si en la misma aplicación personaliza las notificaciones mediante el portal y usa al mismo tiempo el método de Graph/PowerShell que se detalla en este documento, los tokens emitidos para esa aplicación harán caso omiso de la configuración del portal. Las configuraciones realizadas mediante los métodos que se detallan en este documento no se reflejarán en el portal.
-
-> [!NOTE]
-> Esta funcionalidad se encuentra actualmente en versión preliminar pública. Debe estar preparado para deshacer o eliminar los cambios. La característica está disponible en cualquier suscripción de Azure Active Directory (Azure AD) durante el período de versión preliminar pública. Pero cuando ya esté disponible con carácter general, algunos aspectos podrían requerir una suscripción Premium de Azure AD. Esta característica permite configurar directivas de asignación de notificaciones para los protocolos WS-Fed, SAML, OAuth y OpenID Connect.
-
-Los administradores de inquilinos usan esta característica para personalizar las notificaciones que se emiten en tokens para una aplicación específica de su inquilino. Puede usar directivas de asignación de notificaciones para:
-
-- Seleccionar las notificaciones que se incluyen en tokens.
-- Crear tipos de notificación que aún no existen.
-- Elegir o cambiar el origen de los datos emitidos en notificaciones concretas.
+> Esta característica reemplaza a la [personalización de notificaciones](active-directory-saml-claims-customization.md) que se ofrece a través de Azure Portal. Si en la misma aplicación personaliza las notificaciones mediante el portal y usa al mismo tiempo el método de Microsoft Graph/PowerShell que se detalla en este documento, los tokens emitidos para esa aplicación harán caso omiso de la configuración del portal. Las configuraciones realizadas mediante los métodos que se detallan en este documento no se reflejarán en el portal.
 
 En este artículo se abordan algunos escenarios comunes que pueden ayudarle a entender cómo usar el [tipo de directiva de asignación de notificaciones](reference-claims-mapping-policy-type.md).
 
@@ -40,7 +39,10 @@ Al crear una directiva de asignación de notificaciones, también puede emitir u
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-En los ejemplos siguientes, va a crear, actualizar, vincular y eliminar directivas de entidades de servicio. Las directivas de asignación de notificaciones solo se pueden asignar a objetos de entidades de servicio. Si no está familiarizado con Azure AD, es conveniente que [aprenda a obtener un inquilino de Azure AD](quickstart-create-new-tenant.md) antes de continuar con estos ejemplos.
+En los ejemplos siguientes, va a crear, actualizar, vincular y eliminar directivas de entidades de servicio. las directivas de asignación de notificaciones solo se pueden asignar a objetos de entidades de servicio. Si no está familiarizado con Azure AD, es conveniente que [aprenda a obtener un inquilino de Azure AD](quickstart-create-new-tenant.md) antes de continuar con estos ejemplos.
+
+> [!NOTE]
+> La [versión preliminar pública del módulo de PowerShell de Azure AD](https://www.powershellgallery.com/packages/AzureADPreview) es necesaria para configurar directivas de asignación de notificaciones. El módulo de PowerShell está en versión preliminar, de modo que debe estar preparado para revertir o quitar cualquier tipo de cambio. 
 
 Para comenzar, realice uno de los pasos siguientes:
 

@@ -3,12 +3,12 @@ title: CI/CD con Azure Pipelines y plantillas
 description: Describe cómo configurar la integración continua en Azure Pipelines mediante plantillas de Azure Resource Manager. Muestra cómo usar un script de PowerShell o copiar archivos en una ubicación de almacenamiento provisional e implementar desde allí.
 ms.topic: conceptual
 ms.date: 03/09/2021
-ms.openlocfilehash: 4a2f1f15de0abd802f3dce138b2cea33e52e3dfc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8264fd53bde168972cdddd9bdf15fccc8d536651
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102561949"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111984471"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Integración de plantillas de ARM con Azure Pipelines
 

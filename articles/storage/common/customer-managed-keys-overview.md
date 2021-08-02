@@ -5,17 +5,17 @@ description: Puede usar su propia clave de cifrado para proteger los datos de la
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/30/2021
+ms.date: 06/01/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 07f8faf503bdea6be8263afa6240594956b61391
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: cd2a265c5d4c339fa6e50338949cbf643314a3ee
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106059452"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111371328"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Claves administradas por el cliente para el cifrado de Azure Storage
 
@@ -45,8 +45,18 @@ En la lista siguiente se explican los pasos numerados del diagrama:
 1. Un administrador de Azure Key Vault concede permisos sobre las claves de cifrado a la identidad administrada que está asociada a la cuenta de almacenamiento.
 2. Un administrador de Azure Storage configura el cifrado con una clave administrada por el cliente para la cuenta de almacenamiento.
 3. Azure Storage usa la identidad administrada que está asociada a la cuenta de almacenamiento para autenticar el acceso a Azure Key Vault mediante Azure Active Directory.
-4. Azure Storage encapsula la clave de cifrado de la cuenta con la clave de cliente en Azure Key Vault.
+4. Azure Storage encapsula la clave de cifrado de la cuenta con la clave administrada por el cliente en Azure Key Vault.
 5. En operaciones de lectura y escritura, Azure Storage envía solicitudes a Azure Key Vault para desencapsular la clave de cifrado de la cuenta con el fin de realizar operaciones de cifrado y descifrado.
+
+La identidad administrada asociada a la cuenta de almacenamiento debe tener estos permisos como mínimo para acceder a una clave administrada por el cliente en Azure Key Vault:
+
+- *wrapkey*
+- *unwrapkey*
+- *get*  
+
+Para obtener más información sobre los permisos de clave, consulte [Tipos de claves, algoritmos y operaciones](../../key-vault/keys/about-keys-details.md#key-access-control).
+
+Azure Policy proporciona una directiva integrada para requerir que las cuentas de almacenamiento usen claves administradas por el cliente para cargas de trabajo de Blob Storage y Azure Files. Para obtener más información, consulte la sección **Almacenamiento** de las [definiciones de directivas integradas de Azure Policy](../../governance/policy/samples/built-in-policies.md#storage).
 
 ## <a name="customer-managed-keys-for-queues-and-tables"></a>Claves administradas por el cliente para colas y tablas
 

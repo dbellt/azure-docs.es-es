@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: troubleshooting
-ms.date: 04/12/2021
+ms.date: 05/27/2021
 tags: active-directory
 ms.author: mimart
 author: msmimart
@@ -14,20 +14,20 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc9424af07125977bc74a62a6bca97b8c10b8da3
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: c971c93d873bb8326b986cfd771ef96b615f2131
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108317404"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110612772"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Solución de problemas de colaboración B2B de Azure Active Directory
 
 Estos son algunos de los recursos para solucionar problemas comunes relacionados con la colaboración B2B de Azure Active Directory (Azure AD).
 
    > [!IMPORTANT]
-   > - **A partir del segundo semestre de 2021,** Google empezará a [retirar la compatibilidad con el inicio de sesión en vista web](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si usa la federación de Google para las invitaciones de B2B o [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), o si usa el registro de autoservicio con Gmail, los usuarios de Google Gmail no podrán iniciar sesión si las aplicaciones autentican a los usuarios con una vista web insertada. [Más información](google-federation.md#deprecation-of-web-view-sign-in-support).
-   > - **A partir de octubre de 2021**, Microsoft dejará de admitir el canje de invitaciones mediante la creación de cuentas de Azure AD no administradas e inquilinos para escenarios de colaboración B2B. Como preparación, se recomienda a los clientes que opten por la [autenticación de código de acceso de un solo uso por correo electrónico](one-time-passcode.md). Agradecemos sus comentarios sobre esta característica en vista previa pública. Nos alegra poder crear más formas de colaborar.
+   > - **A partir del segundo semestre de 2021,** Google empezará a [retirar la compatibilidad con el inicio de sesión en vista web](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si usa la federación de Google para las invitaciones B2B o [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), o si usa el registro de autoservicio con Gmail, los usuarios de Gmail de Google no podrán iniciar sesión si las aplicaciones autentican a los usuarios con una vista web insertada. [Más información](google-federation.md#deprecation-of-web-view-sign-in-support).
+   > - **A partir de octubre de 2021**, Microsoft dejará de admitir el canje de invitaciones mediante la creación de cuentas de Azure AD no administradas e inquilinos para escenarios de colaboración B2B. Como preparación, animamos a los clientes a participar en la [autenticación de código de acceso de un solo uso por correo electrónico](one-time-passcode.md), que ahora está disponible con carácter general.
 
 ## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>He agregado un usuario externo, pero no lo veo en mi libreta de direcciones global o en el selector de personas
 
@@ -39,6 +39,9 @@ La posibilidad de buscar usuarios invitados existentes en el selector de persona
 
 Para habilitarla, use la configuración "ShowPeoplePickerSuggestionsForGuestUsers" en el nivel de inquilino y colección de sitios. Para configurarla, use los cmdlets Set-SPOTenant y Set-SPOSite, que permiten que los miembros busquen a todos los usuarios invitados existentes en el directorio. Los cambios en el ámbito del inquilino no afectan los sitios de SPO que ya se aprovisionaron.
 
+## <a name="my-guest-invite-settings-and-domain-restrictions-arent-being-respected-by-sharepoint-onlineonedrive"></a>Ni SharePoint Online ni OneDrive respetan la configuración de invitación de invitados ni las restricciones de dominio.
+
+De forma predeterminada, SharePoint Online y OneDrive tienen su propio conjunto de opciones de usuario externo y no usan la configuración de Azure AD.  Para asegurarse de que las opciones sean coherentes entre esas aplicaciones, debe habilitar la [integración de SharePoint y OneDrive con Azure AD B2B](/sharepoint/sharepoint-azureb2b-integration-preview).
 ## <a name="invitations-have-been-disabled-for-directory"></a>Las invitaciones se han deshabilitado para el directorio
 
 Si recibe una notificación de que no tiene permisos para invitar a usuarios, vaya a Azure Active Directory > Configuración de usuario > Usuarios externos > Administrar la configuración de la colaboración externa y compruebe que la cuenta de usuario está autorizada para invitar a usuarios externos.
@@ -62,6 +65,14 @@ Cuando se invita a usuarios cuya organización usa Azure Active Directory, pero 
 Si va a usar la autenticación de federación y el usuario no existe en Azure Active Directory, no se puede invitar al usuario.
 
 Para resolver este problema, el administrador del usuario externo debe sincronizar la cuenta del usuario con Azure Active Directory.
+
+## <a name="i-cant-invite-an-email-address-because-of-a-conflict-in-proxyaddresses"></a>No puedo invitar a una dirección de correo electrónico debido a un conflicto en las direcciones proxy
+
+Esto sucede cuando otro objeto del directorio tiene la misma dirección de correo electrónico invitada que una de sus direcciones proxy. Para corregir este conflicto, quite el correo electrónico del objeto de [usuario](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true) y elimine también el objeto de [contacto](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true) asociado antes de intentar invitar a este correo electrónico de nuevo.
+
+## <a name="the-guest-user-object-doesnt-have-a-proxyaddress"></a>El objeto de usuario invitado no tiene una dirección proxy
+
+Al invitar a un usuario invitado externo, se puede producir un conflicto con un [objeto de contacto](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true) existente. Cuando esto sucede, el usuario invitado se crea sin dirección proxy. Esto significa que el usuario no podrá canjear esta cuenta mediante el [canje Just-In-Time](redemption-experience.md#redemption-through-a-direct-link) o la [autenticación de código de acceso de un solo uso por correo electrónico](one-time-passcode.md#user-experience-for-one-time-passcode-guest-users).
 
 ## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>¿Cómo "\#", que habitualmente no es un carácter válido, se sincroniza con Azure AD?
 

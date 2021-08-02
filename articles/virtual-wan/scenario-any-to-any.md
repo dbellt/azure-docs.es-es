@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b25b0469eeb8c1cb449c9db0ff5e7091a9a20f28
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: b27d1327eac8e108c462fd3c0f19a257a5385428
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108163272"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110575996"
 ---
 # <a name="scenario-any-to-any"></a>Escenario: Universal
 
@@ -35,7 +35,7 @@ Dado que todas las conexiones de redes virtuales y ramas (VPN, ExpressRoute y VP
 
 * Redes virtuales:
   * Tabla de rutas asociada: **Valor predeterminado**
-  * Propagación a tablas de enrutamiento: **Valor predeterminado**
+  * Propagación a tablas de rutas: **Valor predeterminado**
 * Ramas:
   * Tabla de enrutamiento asociada: **Valor predeterminado**
   * Propagación a tablas de rutas: **Valor predeterminado**

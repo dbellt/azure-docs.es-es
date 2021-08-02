@@ -7,12 +7,12 @@ ms.topic: include
 author: mingshen-ms
 ms.author: krsh
 ms.date: 04/16/2021
-ms.openlocfilehash: e119d40cd0b8f482d33c3c86c644cf6a0846390a
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 7d94bd0a4a9fb50cb211fd227c3022a46beef502
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107727137"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111527559"
 ---
 ## <a name="generalize-the-image"></a>Generalizar la imagen
 
@@ -55,17 +55,39 @@ Una vez que la VM esté lista, puede capturarla en una instancia de Azure Share
 8. Seleccione **Revisar y crear** para revisar sus selecciones.
 9. Una vez que pase la validación, seleccione **Crear**.
 
-Para conceder el acceso, siga estos pasos:
+## <a name="set-the-right-permissions"></a>Definición de los permisos correctos
 
-1. Vaya a Shared Image Gallery.
+Si la cuenta del Centro de partners es el propietario de la suscripción que hospeda Shared Image Gallery, no se necesita nada más para los permisos.
+
+Si solo tiene acceso de lectura a la suscripción, use una de las dos opciones siguientes.
+
+### <a name="option-one--ask-the-owner-to-grant-owner-permission"></a>Opción uno: pedir al propietario que conceda permiso de propietario
+
+Pasos para que el propietario conceda permiso de propietario:
+
+1. Vaya a la instancia de Shared Image Gallery (SIG).
 2. Seleccione **Control de acceso** (IAM) en el panel de la izquierda.
-3. Seleccione **Agregar** y, luego, **Agregar asignación de roles**.
-4. Seleccione un **Rol** o **Propietario**.
-5. En **Asignar acceso a**, seleccione **Usuario, grupo o entidad de servicio**.
-6. Seleccione el correo electrónico de Azure del usuario que publicará la imagen.
-7. Seleccione **Guardar**.
+3. Seleccione **Agregar** y, a continuación, **Agregar asignación de roles**.<br>
+    :::image type="content" source="../media/create-vm/add-role-assignment.png" alt-text="Se muestra la ventana Agregar asignación de roles.":::
+1. En **Rol**, seleccione **Propietario**.
+1. En **Asignar acceso a**, seleccione **User, group, or service principle** (Usuario, grupo o entidad de servicio).
+1. En **Seleccionar**, escriba el correo electrónico de Azure de la persona que publicará la imagen.
+1. Seleccione **Guardar**.
 
-:::image type="content" source="../media/create-vm/add-role-assignment.png" alt-text="Muestra la ventana Agregar asignación de roles.":::
+### <a name="option-two--run-a-command"></a>Opción dos: ejecutar un comando
+
+Pida al propietario que ejecute cualquiera de estos comandos (en cualquier caso, use el susbscriptionId de la suscripción en la que creó Shared Image Gallery).
+
+```azurecli
+az login
+az provider register --namespace Microsoft.PartnerCenterIngestion --subscription {subscriptionId}
+```
+ 
+```powershell
+Connect-AzAccount
+Select-AzSubscription -SubscriptionId {subscriptionId}
+Register-AzResourceProvider -ProviderNamespace Microsoft.PartnerCenterIngestion
+```
 
 > [!NOTE]
 > No es necesario generar URI de SAS, ya que ahora puede publicar una imagen de SIG en el Centro de partners. Sin embargo, si todavía necesita hacer referencia a los pasos de generación de URI de SAS, consulte [Generación de un URI de SAS para una imagen de máquina virtual](../azure-vm-get-sas-uri.md).

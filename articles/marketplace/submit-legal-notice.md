@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 03/08/2021
-ms.openlocfilehash: 36bda5d241a1d383e7773abeda8a9889fb24086e
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 3935afe1c174ace2492d2d81c6ef10d3d934d26d
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108133032"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112008046"
 ---
 # <a name="notifying-microsoft-regarding-the-publisher-agreement"></a>Notificación a Microsoft sobre el acuerdo del publicador
 
@@ -20,7 +20,7 @@ Use una incidencia de soporte técnico para enviar avisos legales a Microsoft en
 
 ## <a name="submit-notice-regarding-the-publisher-agreement"></a>Envío de aviso sobre el Contrato de publicador
 
-1. Vaya a la sección [Preguntas legales o contractuales](https://partner.microsoft.com/support/?stage=2&topicid=05a1a389-1256-d441-89c9-a140217de6b9) de soporte técnico del Centro de partners.
+1. Vaya a la sección [Preguntas legales o contractuales](https://go.microsoft.com/fwlink/?linkid=2157631) de soporte técnico del Centro de partners.
 
 1. Seleccione **Provide issue details**(Proporcionar detalles del problema) (si es necesario, inicie sesión en el Centro de partners primero).
 
@@ -45,4 +45,4 @@ Use una incidencia de soporte técnico para enviar avisos legales a Microsoft en
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Un agente de soporte técnico se pondrá en contacto con usted si tenemos preguntas.
-- Revise el [Contrato de publicador de Microsoft](/legal/marketplace/msft-publisher-agreement) (PDF).
+- Revise el [Contrato de publicador de Microsoft](/legal/marketplace/msft-publisher-agreement).

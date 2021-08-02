@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 1f28ee0cb174c02ba05d93ac0c8eba309bfc3872
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 314e2cf6991a33fb50ee14b9e54f9d47069dc20c
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108739824"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112027900"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opciones de configuración: Application Insights de Azure Monitor para Java
 
@@ -39,14 +39,14 @@ Encontrará más detalles y opciones de configuración adicionales a continuaci�
 
 ## <a name="configuration-file-path"></a>Ruta del archivo de configuración
 
-De forma predeterminada, Application Insights Java 3.0 espera que el archivo de configuración se denomine `applicationinsights.json` y que se encuentre en el mismo directorio que `applicationinsights-agent-3.0.3.jar`.
+De forma predeterminada, Application Insights Java 3.x espera que el archivo de configuración se denomine `applicationinsights.json` y que se encuentre en el mismo directorio que `applicationinsights-agent-3.1.1.jar`.
 
 Puede especificar la ruta de acceso a su propio archivo de configuración mediante
 
 * la variable de entorno `APPLICATIONINSIGHTS_CONFIGURATION_FILE`, o
 * la propiedad del sistema Java `applicationinsights.configuration.file`.
 
-Si especifica una ruta de acceso relativa, se resolverá de forma relativa al directorio en el que se encuentra `applicationinsights-agent-3.0.3.jar`.
+Si especifica una ruta de acceso relativa, se resolverá de forma relativa al directorio en el que se encuentra `applicationinsights-agent-3.1.1.jar`.
 
 ## <a name="connection-string"></a>Cadena de conexión
 
@@ -219,7 +219,7 @@ También puede establecer el nivel mediante la variable de entorno `APPLICATIONI
 
 A continuación se muestran los valores `level` válidos que puede especificar en el archivo `applicationinsights.json` y cómo se corresponden con los niveles de registro en diferentes plataformas de registro:
 
-| level             | Log4j  | Logback | JUL     |
+| Nivel             | Log4j  | Logback | JUL     |
 |-------------------|--------|---------|---------|
 | Apagado               | Apagado    | Apagado     | Apagado     |
 | FATAL             | FATAL  | ERROR   | SEVERE  |
@@ -331,7 +331,8 @@ También puede suprimir estas instrumentaciones estableciendo estas variables de
 
 ## <a name="heartbeat"></a>Latido
 
-De forma predeterminada, Application Insights Java 3.0 envía una métrica de latido cada 15 minutos. Si está usando la métrica de latido para desencadenar las alertas, puede aumentar la frecuencia de este latido:
+De forma predeterminada, Application Insights Java 3.x envía una métrica de latido cada 15 minutos.
+Si está usando la métrica de latido para desencadenar las alertas, puede aumentar la frecuencia de este latido:
 
 ```json
 {
@@ -346,7 +347,7 @@ De forma predeterminada, Application Insights Java 3.0 envía una métrica de la
 
 ## <a name="http-proxy"></a>Proxy HTTP
 
-Si su aplicación está protegida por un firewall y no puede conectarse directamente a Application Insights (consulte [Direcciones IP que emplea Application Insights](./ip-addresses.md)), puede configurar Application Insights Java 3.0 para que use un proxy HTTP:
+Si su aplicación está protegida por un firewall y no puede conectarse directamente a Application Insights (consulte [Direcciones IP que emplea Application Insights](./ip-addresses.md)), puede configurar Application Insights Java 3.x para que use un proxy HTTP:
 
 ```json
 {
@@ -357,7 +358,7 @@ Si su aplicación está protegida por un firewall y no puede conectarse directam
 }
 ```
 
-Application Insights Java 3.0 también respeta las propiedades del sistema globales `https.proxyHost` y `https.proxyPort` globales si se establecen (y `http.nonProxyHosts` si fuera necesario).
+Application Insights Java 3.x también respeta las propiedades del sistema globales `https.proxyHost` y `https.proxyPort` globales si se establecen (y `http.nonProxyHosts` si fuera necesario).
 
 ## <a name="metric-interval"></a>Intervalo de métrica
 
@@ -401,11 +402,11 @@ La configuración se aplica a todas estas métricas:
 
 ## <a name="self-diagnostics"></a>Diagnóstico automático
 
-"Diagnóstico automático" hace referencia al registro interno de Application Insights Java 3.0.
+"Diagnóstico automático" hace referencia al registro interno de Application Insights Java 3.x.
 
 Esta funcionalidad puede ser útil para detectar y diagnosticar problemas con Application Insights.
 
-De forma predeterminada, Application Insights Java 3.0 registra en el nivel `INFO` tanto en el archivo `applicationinsights.log` como en la consola, que se corresponde con esta configuración:
+De forma predeterminada, Application Insights Java 3.x registra en el nivel `INFO` tanto en el archivo `applicationinsights.log` como en la consola, que se corresponde con esta configuración:
 
 ```json
 {
@@ -425,7 +426,7 @@ De forma predeterminada, Application Insights Java 3.0 registra en el nivel `INF
 
 `level` puede ser uno de `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG` o `TRACE`.
 
-`path` incluye una ruta de acceso absoluta o relativa. Las rutas de acceso relativas se resuelven en el directorio donde se encuentra `applicationinsights-agent-3.0.3.jar`.
+`path` incluye una ruta de acceso absoluta o relativa. Las rutas de acceso relativas se resuelven en el directorio donde se encuentra `applicationinsights-agent-3.1.1.jar`.
 
 `maxSizeMb` es el tamaño máximo del archivo de registro antes de que se revierta.
 

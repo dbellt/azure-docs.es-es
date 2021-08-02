@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/4/2020
-ms.openlocfilehash: 43d616bc82c608918f5e7ee51481a393dd55a284
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8ae2d31bcb6cd17d020bf1602b5280f1db927f3f
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105566077"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110496204"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migración de cargas de trabajo de Hive de Azure HDInsight 3.6 a HDInsight 4.0
 
@@ -131,7 +131,11 @@ Opcionalmente, HDInsight se integra con Azure Active Directory mediante Enterpri
 
 Consulte el [anuncio de HDInsight 4.0](../hdinsight-version-release.md) para otros cambios.
 
-## <a name="further-reading"></a>Información adicional
+## <a name="troubleshooting-guide"></a>Guía de solución de problemas
+
+La [guía de solución de problemas de HDInsight 3.6 a 4.0 para cargas de trabajo de Hive](./interactive-query-troubleshoot-migrate-36-to-40.md) proporciona respuestas a problemas comunes que surgen al migrar cargas de trabajo de Hive de HDInsight 3.6 a HDInsight 4.0.
+
+## <a name="further-reading"></a>Lecturas adicionales
 
 * [Anuncio de HDInsight 4.0](../hdinsight-version-release.md)
 * [Análisis a fondo de HDInsight 4.0](https://azure.microsoft.com/blog/deep-dive-into-azure-hdinsight-4-0/)

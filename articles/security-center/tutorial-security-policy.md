@@ -4,29 +4,30 @@ description: En este artículo se describe cómo trabajar con directivas de segu
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/24/2021
+ms.date: 05/25/2021
 ms.author: memildin
-ms.openlocfilehash: 6ecedc20cf6924a82b6b4640d3caa75bc5958de0
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: b48adf5e6c2c7b91e98ef410c71802b5d47d2845
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102101331"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459795"
 ---
 # <a name="manage-security-policies"></a>Administrar directivas de seguridad
 
 En este artículo se explica cómo configurar directivas de seguridad y cómo visualizarlas en Security Center. 
 
-## <a name="who-can-edit-security-policies"></a>¿Quién puede editar directivas de seguridad?
+Para comprender las relaciones entre iniciativas, directivas y recomendaciones, consulte [¿Qué son las directivas de seguridad, las iniciativas y las recomendaciones?](security-policy-concept.md)
 
-Puede editar directivas de seguridad mediante el portal de Azure Policy, la API REST o con Windows PowerShell.
+## <a name="who-can-edit-security-policies"></a>¿Quién puede editar directivas de seguridad?
 
 Security Center usa el control de acceso basado en roles de Azure (Azure RBAC), que proporciona roles integrados que puede asignar a usuarios, grupos y servicios de Azure. Cuando un usuario abre Security Center, solo ve la información relacionada con los recursos a los que puede tener acceso. Esto significa que a los usuarios se les asigna el rol de *propietario*, *colaborador* o *lector* para la suscripción del recurso. También hay dos roles de Security Center específicos:
 
 - **Lector de seguridad**: tiene derechos para ver elementos de Security Center como recomendaciones, alertas, directiva y estado. No se pueden realizar cambios.
 - **Administrador de seguridad**: tiene los mismos derechos de visualización que el *lector de seguridad*. También se puede actualizar la directiva de seguridad y descartar alertas.
+
+Puede editar directivas de seguridad mediante el portal de Azure Policy, la API REST o con Windows PowerShell.
 
 ## <a name="manage-your-security-policies"></a>Administración de las directivas de seguridad
 
@@ -81,27 +82,48 @@ Para más información sobre las recomendaciones, consulte [Administración de l
 
     :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Inicio del proceso de administración de directivas en Azure Security Center":::
 
-2. Seleccione el grupo de administración o de suscripción para el que quiere deshabilitar la recomendación.
+1. Seleccione el grupo de administración o de suscripción para el que quiere deshabilitar la recomendación (y la directiva).
 
    > [!NOTE]
    > Recuerde que un grupo de administración aplica sus directivas a sus suscripciones. Por lo tanto, si deshabilita la directiva de una suscripción y la suscripción pertenece a un grupo de administración que todavía usa la misma directiva, seguirá recibiendo las recomendaciones de la directiva. La directiva se seguirá aplicando desde el nivel de administración y las recomendaciones se seguirán generando.
 
-1. Seleccione **Ver directiva efectiva**.
+1. En las secciones **Directiva predeterminada del centro de seguridad**, **Estándares normativos y del sector** o **Sus iniciativas personalizadas**, seleccione la iniciativa pertinente que contenga la directiva que desea deshabilitar.
 
-    :::image type="content" source="./media/tutorial-security-policy/view-effective-policy.png" alt-text="Apertura de la directiva efectiva asignada a su suscripción":::
+1. Abra la sección **Parámetros** y busque la directiva que invoca la recomendación que quiere deshabilitar.
 
-1. Seleccione la directiva asignada.
-
-   ![selección de directiva](./media/tutorial-security-policy/security-policy.png)
-
-1. En la sección **PARÁMETROS**, busque la directiva que invoca la recomendación que quiere deshabilitar y, en la lista desplegable, seleccione **Deshabilitado**
+1. En la lista desplegable, cambie el valor de la directiva correspondiente a **Deshabilitado**.
 
    ![deshabilitar la directiva](./media/tutorial-security-policy/disable-policy.png)
 
 1. Seleccione **Guardar**.
 
    > [!NOTE]
-   > Los cambios de deshabilitación de directiva pueden tardar hasta 12 horas en surtir efecto.
+   > Este cambio puede tardar hasta 12 horas en aplicarse.
+
+
+## <a name="enable-a-security-policy"></a>Habilitación de una directiva de seguridad
+
+Es posible que algunas directivas de las iniciativas están deshabilitadas de forma predeterminada. Por ejemplo, en la iniciativa Azure Security Benchmark, se proporcionan algunas directivas para habilitar solo si cumplen un requisito normativo o de cumplimiento específico para su organización. Estas directivas incluyen recomendaciones para cifrar los datos en reposo con claves administradas por el cliente, como "Los registros de contenedor se deben cifrar con una clave administrada por el cliente (CMK)".
+
+Para habilitar una directiva deshabilitada y asegurarse de que se evalúa para los recursos:
+
+1. En Security Center, en la sección **Directiva y cumplimiento**, seleccione **Directiva de seguridad**.
+
+    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Inicio del proceso de administración de directivas en Azure Security Center":::
+
+1. Seleccione el grupo de administración o de suscripción para el que quiere habilitar la recomendación (y la directiva).
+
+1. En las secciones **Directiva predeterminada del centro de seguridad**, **Estándares normativos y del sector** o **Sus iniciativas personalizadas**, seleccione la iniciativa pertinente que contenga la directiva que desea habilitar.
+
+1. Abra la sección **Parámetros** y busque la directiva que invoca la recomendación que quiere deshabilitar.
+
+1. En la lista desplegable, cambie el valor de la directiva correspondiente a **AuditIfNotExists** o **Exigir**.
+
+1. Seleccione **Guardar**.
+
+   > [!NOTE]
+   > Este cambio puede tardar hasta 12 horas en aplicarse.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 En esta página se explicaron las directivas de seguridad. Para obtener información relacionada, consulte las páginas siguientes:

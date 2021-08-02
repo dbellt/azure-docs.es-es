@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2021
 ms.author: aldomel
-ms.openlocfilehash: 232b83fef2da312828f4f9f332ab2505e3a68100
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 3f17e24bb63a60fc542806da848f85e7d0279bba
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107503650"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111984957"
 ---
 # <a name="virtual-network-traffic-routing"></a>Enrutamiento del tráfico de redes virtuales
 
@@ -126,7 +126,7 @@ az network route-table route create -g MyResourceGroup --route-table-name MyRout
 
 #### <a name="known-issues-april-2021"></a>Problemas conocidos (abril de 2021)
 
-Cuando hay rutas BGP presentes o se configura un punto de conexión de servicio en la subred, es posible que las rutas no se evalúen con la prioridad correcta. Actualmente hay una corrección en curso para estos escenarios. </br>
+Cuando hay rutas BGP presentes o se configura un punto de conexión de servicio en la subred, es posible que las rutas no se evalúen con la prioridad correcta. Esta característica no funciona actualmente para redes virtuales de pila dual (IPv4+IPv6). Actualmente hay una corrección en curso para estos escenarios. </br>
 
 
 > [!NOTE] 
@@ -286,9 +286,9 @@ La tabla de rutas de *Subnet2* en la imagen contiene las rutas siguientes:
 |Valor predeterminado |Active |10.2.0.0/16         |Emparejamiento de VNET              |                   |
 |Valor predeterminado |Active |10.10.0.0/16        |Puerta de enlace de red virtual   |[X.X.X.X]          |
 |Valor predeterminado |Active |0.0.0.0/0           |Internet                  |                   |
-|Valor predeterminado |Activo |10.0.0.0/8          |Ninguno                      |                   |
-|Valor predeterminado |Active |100.64.0.0/10       |Ninguno                      |                   |
-|Valor predeterminado |Activo |192.168.0.0/16      |None                      |                   |
+|Predeterminado |Active |10.0.0.0/8          |Ninguno                      |                   |
+|Predeterminado |Active |100.64.0.0/10       |Ninguno                      |                   |
+|Predeterminado |Active |192.168.0.0/16      |None                      |                   |
 
 La tabla de rutas de *Subnet2* contiene todas las rutas predeterminadas creadas por Azure y el emparejamiento de VNet opcional y las rutas opcionales de la puerta de enlace de red virtual. Azure ha agregado las rutas opcionales a todas las subredes de la red virtual cuando tanto la puerta de enlace como el emparejamiento se han agregado a la red virtual. Azure ha quitado las rutas de los prefijos de dirección 10.0.0.0/8, 192.168.0.0/16 y 100.64.0.0/10 de la tabla de rutas de *Subnet1* cuando la ruta definida por el usuario del prefijo de dirección 0.0.0.0/0 se ha agregado a *Subnet1*.  
 

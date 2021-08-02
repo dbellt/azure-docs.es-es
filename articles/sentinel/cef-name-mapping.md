@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: reference
 ms.date: 04/12/2021
-ms.openlocfilehash: 107d10bec77ea7bb2b67ae86f48d5b88a286869d
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 3d30bb733245c0519b73d66653b8d09cb9a4b4b9
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108229511"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111528187"
 ---
 # <a name="cef-and-commonsecuritylog-field-mapping"></a>Asignación de campos de CEF y CommonSecurityLog
 
@@ -60,7 +60,7 @@ Para obtener más información, consulte [Conexión de la solución externa con 
 | dproc | DestinationProcessName | Nombre del proceso de destino del evento, como `telnetd` o `sshd.` |
 | dpt | DestinationPort | Puerto de destino. <br>Valores válidos: `*0` - `65535` |
 | dst | DestinationIP | Dirección IpV4 de destino a la que hace referencia el evento en una red IP. |
-| dtz | DeviceTimeZon | Zona horaria del dispositivo que genera el evento |
+| dtz | DeviceTimeZone | Zona horaria del dispositivo que genera el evento |
 | duid |DestinationUserId | Identifica el usuario de destino por id. |
 | duser | DestinationUserName |Identifica el usuario de destino por nombre.|
 | dvc | DeviceAddress | Dirección IPv4 del dispositivo que genera el evento. |

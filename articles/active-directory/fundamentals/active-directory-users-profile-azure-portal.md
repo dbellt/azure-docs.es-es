@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 05/04/2021
+ms.date: 06/10/2021
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 173bd167a0814ddf735d90b257089a685d99cc58
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6239b0c7f56db49d54ee95b1d6fb0737d2ea9cb8
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108762612"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112017995"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Adición o actualización de la información de perfil de un usuario mediante Azure Active Directory
 Agregue información de perfil de usuario, como la imagen de perfil, información específica del trabajo y algunos valores de configuración mediante Azure Active Directory (Azure AD). Para obtener más información acerca de la adición de nuevos usuarios, consulte [cómo agregar o eliminar usuarios en Azure Active Directory](add-users-azure-active-directory.md).
@@ -38,9 +38,7 @@ Como verá, hay más información disponible en un perfil de usuario que la que 
 
     ![Página de perfil del usuario, incluida la información editable](media/active-directory-users-profile-azure-portal/user-profile-all-blade.png)
 
-3. Seleccione **Editar** para agregar o actualizar de forma opcional la información incluida en cada una de las secciones disponibles.
-
-    ![Página de perfil del usuario, se muestran las áreas editables](media/active-directory-users-profile-azure-portal/user-profile-edit.png)
+3. Seleccione **Editar** si desea agregar o actualizar la información incluida en cada una de las secciones modificables.
 
     - **Imagen de perfil.** Seleccione una imagen en miniatura para la cuenta de usuario. Esta imagen aparece en Azure Active Directory y en las páginas personales del usuario, tales como la página myapps.microsoft.com.
 

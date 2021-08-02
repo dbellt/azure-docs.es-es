@@ -3,12 +3,12 @@ title: Acceso al registro con restricción de red con el servicio de confianza d
 description: Habilitación de una instancia de servicio de Azure de confianza para acceder de forma segura a un registro de contenedor con restricción de red para extraer o insertar imágenes
 ms.topic: article
 ms.date: 01/29/2021
-ms.openlocfilehash: 4b0d7feb223bcfcec4e8b2c786b211f4e3c3c3eb
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 77ea904e73df1b423c99e6039c4e0756fcade34e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785877"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110474994"
 ---
 # <a name="allow-trusted-services-to-securely-access-a-network-restricted-container-registry-preview"></a>Permitir que los servicios de confianza accedan de forma segura a un registro de contenedor con restricción de red (versión preliminar)
 
@@ -45,7 +45,7 @@ Las instancias de los siguientes servicios pueden acceder a un registro de conte
 |Azure Container Registry | [Importar imágenes desde otro registro de contenedor de Azure](container-registry-import-images.md#import-from-an-azure-container-registry-in-the-same-ad-tenant) | 
 
 > [!NOTE]
-> Actualmente, al habilitar la configuración de permitir servicios de confianza, no se permiten instancias de otros servicios de Azure administrados, como App Service, Azure Container Instances y Azure Security Center, para acceder a un registro de contenedor con restricción de red.
+> Actualmente, al habilitar la configuración para permitir servicios de confianza, no se permiten instancias de otros servicios de Azure administrados, como App Service, Azure Container Instances y Azure Security Center, para acceder a un registro de contenedor con restricción de red.
 
 ## <a name="allow-trusted-services---cli"></a>Permitir servicios de confianza (CLI)
 

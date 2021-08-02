@@ -1,18 +1,18 @@
 ---
 title: Creación de planes para una oferta de máquina virtual en Azure Marketplace
-description: Aprenda a crear planes para una oferta de máquina virtual en Azure Marketplace.
+description: Cree planes para una oferta de máquina virtual en Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 05/06/2021
-ms.openlocfilehash: 27f7aa419a2dd57bf205e945221c8224c6247f11
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 05/20/2021
+ms.openlocfilehash: f0e05f06258cc30253fefdc7113fce045009f500
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110062670"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111527629"
 ---
 # <a name="create-plans-for-a-virtual-machine-offer"></a>Creación de planes para una oferta de máquina virtual
 
@@ -210,11 +210,14 @@ Proporcione una versión de disco y el identificador URI de firma de acceso comp
 Estos dos campos obligatorios se muestran en la imagen anterior:
 
 - **Versión del disco**: es la versión de la imagen que se va a proporcionar.
-- **Vínculo del disco duro virtual del SO**: la ubicación en la cuenta de Azure Storage para el disco duro virtual del sistema operativo. Para saber cómo obtener el URI de firma de acceso compartido, vea [Obtención del URI de firma de acceso compartido para la imagen de máquina virtual](azure-vm-get-sas-uri.md).
+- **Vínculo VHD del sistema operativo**: la imagen almacenada en la galería de imágenes compartidas de Azure. Aprenda cómo capturar la imagen en una [galería de imágenes compartidas](azure-vm-create-using-approved-base.md#capture-image).
 
 Los discos de datos (seleccione **Agregar disco de datos (máximo 16)** ) también son identificadores URI de firma de acceso compartido de discos duros virtuales que se almacenan en sus cuentas de Azure Storage. Agregue solo una imagen por envío en un plan.
 
 Independientemente del sistema operativo que use, agregue solo el número mínimo de discos de datos que necesite la solución. Durante la implementación, los usuarios no pueden eliminar los discos que forman parte de una imagen, pero siempre pueden agregar discos durante o después de la implementación.
+
+> [!NOTE]
+> Si proporciona las imágenes mediante SAS y tiene discos de datos, también debe proporcionarlas como URI de SAS. Si usa una imagen compartida, se capturan como parte de la imagen en la galería de imágenes compartidas. Una vez publicada la oferta en Azure Marketplace, puede eliminar la imagen de Azure Storage o de la galería de imágenes compartidas.
 
 Seleccione **Guardar borrador** y, luego, seleccione **← Información general del plan** en la parte superior izquierda para ver el plan que acaba de crear.
 

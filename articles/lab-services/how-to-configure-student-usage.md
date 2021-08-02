@@ -3,12 +3,12 @@ title: Configuración de los valores de uso de los laboratorios de Azure Lab Ser
 description: Obtenga información sobre cómo configurar el número de alumnos del laboratorio, registrarlos en el laboratorio, controlar el número de horas que pueden usar la máquina virtual y mucho más.
 ms.topic: article
 ms.date: 12/01/2020
-ms.openlocfilehash: 380a587eecb276c457b93ca3c3f3ac08b2239275
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f7c0fb7b0228ee17705af2dfd70279f6fc7bda3c
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98791970"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110190719"
 ---
 # <a name="add-and-manage-lab-users"></a>Incorporación y administración de usuarios de laboratorio
 
@@ -156,6 +156,9 @@ En esta sección, puede obtener el vínculo de registro del portal y enviarlo a 
     En el panel **Usuarios** se muestra una lista de los alumnos que se han registrado en el laboratorio.  
 
     ![Lista de usuarios registrados](./media/tutorial-track-usage/registered-users.png)
+
+    > [!NOTE] 
+    > Si [vuelve a publicar un laboratorio](how-to-create-manage-template.md#publish-the-template-vm) o [restablece las máquinas virtuales de los alumnos](how-to-set-virtual-machine-passwords.md#reset-vms), los alumnos permanecerán registrados en las máquinas virtuales de los laboratorios.  Sin embargo, el contenido de las máquinas virtuales se eliminará y las máquinas virtuales se volverán a crear con la imagen de la máquina virtual de la plantilla.
 
 ## <a name="set-quotas-for-users"></a>Establecimiento de cuotas para los usuarios
 

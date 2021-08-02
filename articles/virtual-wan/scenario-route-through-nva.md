@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 90b1df8af4cf9f65cb04cc9418d7e8f97f9c3e49
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: c8c4e516b297bb5d4466910bff83859288e0ec89
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108162840"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110575397"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Escenario: Enrutamiento del tráfico a través de una aplicación virtual de red
 
@@ -46,7 +46,7 @@ En la siguiente matriz de conectividad se resumen los flujos admitidos en este e
 | **VNet no de NVA**| &#8594; | Sobre la red virtual de la NVA | Directo | Directo | Directo |
 | **Ramas**     | &#8594; | Sobre la red virtual de la NVA | Directo | Directo | Directo |
 
-Cada una de las celdas de la matriz de conectividad describe cómo se comunica una red virtual o una rama (el lado "De" del flujo, los encabezados de fila de la tabla) con una red virtual o una rama de destino (el lado "A" del flujo, los encabezados de columna en cursiva de la tabla). "Directo" significa que Virtual WAN proporciona la conectividad de forma nativa, "Emparejamiento" significa que la conectividad la proporciona una ruta definida por el usuario en la red virtual, "Sobre la red virtual de la NVA" significa que la conectividad atraviesa la NVA implementada en la red virtual de la NVA. Tenga en cuenta lo siguiente.
+Cada una de las celdas de la matriz de conectividad describe cómo se comunica una red virtual o una rama (el lado "De" del flujo, los encabezados de fila de la tabla) con una red virtual o una rama de destino (el lado "A" del flujo, los encabezados de columna en cursiva de la tabla). "Directo" significa que Virtual WAN proporciona conectividad de forma nativa; "Emparejamiento" significa que la conectividad la proporciona una ruta definida por el usuario en la red virtual; "Sobre la red virtual de la NVA" significa que la conectividad atraviesa la NVA implementada en la red virtual de NVA. Tenga en cuenta lo siguiente.
 
 * Los radios de NVA no están administrados por Virtual WAN. Como consecuencia, el usuario mantiene los mecanismos con los que se comunicarán con otras redes virtuales o ramas. La conectividad a la red virtual de NVA se proporciona mediante un emparejamiento de VNet, y una ruta predeterminada a 0.0.0.0/0 que apunta a la NVA como próximo salto debe cubrir la conectividad a Internet, a otros radios y a las ramas.
 * Las redes virtuales de NVA sabrán sobre sus propios radios de NVA, pero no sobre los radios de NVA conectados a otras redes virtuales de NVA. Por ejemplo, en la Figura 2 mostrada más adelante en este artículo, VNet 2 sabe sobre VNet 5 y VNet 6, pero no sobre otros radios, como VNet 7 y VNet 8. Se requiere una ruta estática para insertar los prefijos de otros radios en redes virtuales de NVA
@@ -56,7 +56,7 @@ Teniendo en cuenta que los radios de NVA no están administrados por Virtual WAN
 
 * Redes virtuales (VNet no de centros y Vnet de usuario-centro):
   * Tabla de enrutamiento asociada: **Valor predeterminado**
-  * Propagación a tablas de enrutamiento: **Valor predeterminado**
+  * Propagación a tablas de rutas: **Valor predeterminado**
 * Ramas:
   * Tabla de enrutamiento asociada: **Valor predeterminado**
   * Propagación a tablas de enrutamiento: **Valor predeterminado**

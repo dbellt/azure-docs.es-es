@@ -10,12 +10,13 @@ ms.topic: reference
 ms.date: 02/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: eaf58b964517162ee7f7eb925e1e64830eedc087
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.custom: b2c-support
+ms.openlocfilehash: ccf8c5fceea71c3781ae420c1c36c629ebb97a7b
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "85202558"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110783825"
 ---
 # <a name="date-claims-transformations"></a>Transformaciones de notificaciones de fecha
 
@@ -31,7 +32,7 @@ Comprueba que una notificación de fecha y hora (tipo de datos en cadena) es may
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | leftOperand | string | Tipo de la primera notificación, que debe ser mayor que la segunda notificación. |
 | InputClaim | rightOperand | string | Tipo de la segunda notificación, que debe ser menor que la primera notificación. |
-| InputParameter | AssertIfEqualTo | boolean | Especifica si esta aserción debe pasar si el operando izquierdo es igual al operando derecho. |
+| InputParameter | AssertIfEqualTo | boolean | Especifica si esta aserción produce un error si el operando izquierdo es igual al operando derecho. Se producirá un error si el operando izquierdo es igual al operando derecho y el valor se establece en `true`. Valores posibles: `true` (opción predeterminada) o `false`. |
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | Especifica si esta aserción debe pasar si falta el operando derecho. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | Especifica el número de milisegundos que se permiten entre las dos horas para considerar que las horas son iguales (por ejemplo, para tener en cuenta para el desplazamiento del reloj). |
 
@@ -39,7 +40,7 @@ La transformación de notificaciones **AssertDateTimeIsGreaterThan** siempre se 
 
 ![Ejecución de AssertStringClaimsAreEqual](./media/date-transformations/assert-execution.png)
 
-En el ejemplo siguiente se comparan la notificación `currentDateTime` con la notificación `approvedDateTime`. Se produce un error si `currentDateTime` es mayor que `approvedDateTime`. La transformación trata los valores como iguales si están dentro de la diferencia de 5 minutos (30 000 milisegundos).
+En el ejemplo siguiente se comparan la notificación `currentDateTime` con la notificación `approvedDateTime`. Se produce un error si `currentDateTime` es mayor que `approvedDateTime`. La transformación trata los valores como iguales si están dentro de la diferencia de 5 minutos (30 000 milisegundos). No producirá un error si los valores son iguales porque `AssertIfEqualTo` está establecido en `false`.
 
 ```xml
 <ClaimsTransformation Id="AssertApprovedDateTimeLaterThanCurrentDateTime" TransformationMethod="AssertDateTimeIsGreaterThan">
@@ -54,6 +55,10 @@ En el ejemplo siguiente se comparan la notificación `currentDateTime` con la no
   </InputParameters>
 </ClaimsTransformation>
 ```
+
+> [!NOTE]
+> En el ejemplo anterior, si quita el parámetro de entrada `AssertIfEqualTo` y `currentDateTime` es igual a `approvedDateTime`, se producirá un error. El valor predeterminado de `AssertIfEqualTo` es `true`.
+>
 
 El perfil técnico de validación `login-NonInteractive` llama a la transformación de notificaciones `AssertApprovedDateTimeLaterThanCurrentDateTime`.
 ```xml

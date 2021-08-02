@@ -1,22 +1,23 @@
 ---
-title: Creación de una plantilla de Azure Image Builder, versión preliminar
+title: Creación de una plantilla de Azure Image Builder
 description: Obtenga información sobre cómo crear una plantilla para usarla con Azure Image Builder.
-author: danielsollondon
-ms.author: danis
-ms.date: 05/04/2021
+author: kof-f
+ms.author: kofiforson
+ms.date: 05/24/2021
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: cynthn
-ms.openlocfilehash: 94083c8811d92d05a68295f9ac75f38123b3f771
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 07dfd9eb2dab9ae8c7e7a024bbf09c641e0910e4
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109732603"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967251"
 ---
-# <a name="preview-create-an-azure-image-builder-template"></a>Vista previa: Creación de una plantilla de Azure Image Builder 
+# <a name="create-an-azure-image-builder-template"></a>Creación de una plantilla de Azure Image Builder 
 
 Azure Image Builder utiliza un archivo .json para trasladar la información al servicio Image Builder. En este artículo analizaremos las secciones del archivo json, para que pueda compilar su propio archivo. Para ver ejemplos de archivos .json completos, consulte el [GitHub de Azure Image Builder](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
 
@@ -55,7 +56,7 @@ Este es el formato de plantilla básico:
 
 ## <a name="type-and-api-version"></a>Tipo y versión de API
 
-`type` es el tipo de recurso, que debe ser `"Microsoft.VirtualMachineImages/imageTemplates"`. `apiVersion` cambiará con el tiempo a medida que cambie la API, pero debería ser `"2020-02-14"` para la versión preliminar.
+`type` es el tipo de recurso, que debe ser `"Microsoft.VirtualMachineImages/imageTemplates"`. `apiVersion` cambiará con el tiempo a medida que cambie la API, pero debería ser `"2020-02-14"` por ahora.
 
 ```json
     "type": "Microsoft.VirtualMachineImages/imageTemplates",
@@ -64,18 +65,16 @@ Este es el formato de plantilla básico:
 
 ## <a name="location"></a>Location
 
-La ubicación es la región donde se creará la imagen personalizada. Para la versión preliminar de Image Builder, se admiten las siguientes regiones:
+La ubicación es la región donde se creará la imagen personalizada. Se admiten las regiones siguientes:
 
 - Este de EE. UU.
 - Este de EE. UU. 2
 - Centro-Oeste de EE. UU.
 - Oeste de EE. UU.
 - Oeste de EE. UU. 2
+- Centro-sur de EE. UU.
 - Norte de Europa
 - Oeste de Europa
-- Centro-sur de EE. UU.
-
-Próximamente (mediados de 2021):
 - Sudeste de Asia
 - Sudeste de Australia
 - Este de Australia
@@ -89,21 +88,23 @@ Próximamente (mediados de 2021):
 ### <a name="data-residency"></a>Residencia de datos
 El servicio Azure VM Image Builder no almacena ni procesa los datos de los clientes fuera de las regiones que tienen requisitos estrictos de residencia de datos de una sola región cuando un cliente solicita una compilación en esa región. En caso de una interrupción del servicio para las regiones que tienen requisitos de residencia de datos, deberá crear plantillas en una región y una ubicación geográfica diferentes.
 
+### <a name="zone-redundancy"></a>Redundancia de zona
+La distribución admite redundancia de zona, los discos duros virtuales se distribuyen a una cuenta de almacenamiento con redundancia de zona de forma predeterminada y la versión de Shared Image Gallery admitirá un [tipo de almacenamiento ZRS](../disks-redundancy.md#zone-redundant-storage-for-managed-disks-preview) si se especifica.
  
 ## <a name="vmprofile"></a>vmProfile
 ## <a name="buildvm"></a>buildVM
-De manera predeterminada, Image Builder usará una máquina virtual "Standard_D1_v2", que se compila a partir de la imagen especificada en `source`. Podría querer invalidar esto por los siguientes motivos:
+De manera predeterminada, Image Builder usará una máquina virtual de compilación "Standard_D1_v2", que se compila a partir de la imagen especificada en `source`. Podría querer invalidar esto por los siguientes motivos:
 1. Realizar personalizaciones que requieran mayor memoria, CPU y control de archivos grandes (GB).
 2. Al ejecutar compilaciones de Windows, debe usar "Standard_D2_v2" o un tamaño de máquina virtual equivalente.
-3. Requerir [aislamiento de máquina virtual](https://docs.microsoft.com/azure/virtual-machines/isolation).
+3. Requerir [aislamiento de máquina virtual](../isolation.md).
 4. Personalizar una imagen que requiera hardware específico, por ejemplo, para una máquina virtual con GPU, necesita un tamaño de máquina virtual de GPU. 
-5. Requerir cifrado de un extremo a otro en el resto de la máquina virtual de compilación; debe especificar el [tamaño de máquina virtual](https://docs.microsoft.com/azure/virtual-machines/azure-vms-no-temp-disk) de compilación compatible que no usa discos temporales locales.
+5. Requerir cifrado de un extremo a otro en el resto de la máquina virtual de compilación; debe especificar el [tamaño de máquina virtual](../azure-vms-no-temp-disk.md) de compilación compatible que no usa discos temporales locales.
  
 Esto es opcional.
 
 
 ## <a name="proxy-vm-size"></a>Tamaño de máquina virtual de proxy
-La máquina virtual de proxy se usa para enviar comandos entre Azure Image Builder Service y la máquina virtual de compilación; esto solo se implementa al especificar una red virtual existente. Para obtener más información, consulte la [documentación](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking#why-deploy-a-proxy-vm) de las opciones de red.
+La máquina virtual de proxy se usa para enviar comandos entre Azure Image Builder Service y la máquina virtual de compilación; esto solo se implementa al especificar una red virtual existente. Para obtener más información, consulte la [documentación](image-builder-networking.md#why-deploy-a-proxy-vm) de las opciones de red.
 ```json
  {
     "proxyVmSize": "Standard A1_v2"
@@ -142,7 +143,7 @@ Esta sección opcional se puede usar para asegurarse de que las dependencias se 
     "dependsOn": [],
 ```
 
-Para obtener más información, consulte [Definir dependencias de recursos](../../azure-resource-manager/templates/define-resource-dependency.md#dependson).
+Para obtener más información, consulte [Definir dependencias de recursos](../../azure-resource-manager/templates/resource-dependency.md#dependson).
 
 ## <a name="identity"></a>Identidad
 
@@ -177,7 +178,7 @@ La API requiere un "SourceType" que define el origen de la compilación de image
 
 
 > [!NOTE]
-> Al usar imágenes personalizadas de Windows existentes, puede ejecutar el comando Sysprep hasta 8 veces en una sola imagen de Windows. Para obtener más información, consulte la documentación de [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep).
+> Al usar imágenes personalizadas de Windows existentes, puede ejecutar el comando Sysprep hasta tres veces en una sola imagen de Windows 7 o Windows Server 2008 R2, o 1001 veces en una sola imagen de Windows para versiones posteriores. Para obtener más información, consulte la documentación de [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep).
 
 ### <a name="platformimage-source"></a>Origen de PlatformImage 
 El generador de imágenes de Azure admite Windows Server y el cliente, así como las imágenes de Azure Marketplace de Linux. Consulte [aquí](../image-builder-overview.md#os-support) para ver la lista completa. 
@@ -303,7 +304,7 @@ La sección de personalización es una matriz. Azure Image Builder recorrerá lo
  
 ### <a name="shell-customizer"></a>Personalizador de shell
 
-El personalizador de shell admite la ejecución de scripts de shell, que deben estar accesibles públicamente para que IB pueda acceder a ellos.
+El personalizador de shell admite la ejecución de scripts de shell. Los scripts de shell deben ser accesibles públicamente o debe haber configurado una característica [MSI](./image-builder-user-assigned-identity.md) para que Image Builder tenga acceso a estos.
 
 ```json
     "customize": [ 
@@ -421,7 +422,7 @@ Propiedades de personalización:
 
 ### <a name="file-customizer"></a>Personalizador de archivos
 
-El personalizador de archivos permite que el generador de imágenes descargue un archivo desde un almacenamiento de GitHub o Azure Storage. Si tiene una canalización de compilación de imagen basada en artefactos de compilación, puede configurar el personalizador de archivos para que se descargue desde el recurso compartido de la compilación y mover los artefactos a la imagen.  
+El personalizador de archivos permite a Image Builder descargar un archivo desde un repositorio de GitHub o Azure Storage. Si tiene una canalización de compilación de imagen basada en artefactos de compilación, puede configurar el personalizador de archivos para que se descargue desde el recurso compartido de la compilación y mover los artefactos a la imagen.  
 
 ```json
      "customize": [ 
@@ -450,11 +451,11 @@ Los directorios de Windows y las rutas de acceso de Linux lo admiten, aunque hay
 - Sistema operativo Linux: la única ruta de acceso en la que el generador de imágenes puede escribir es /tmp.
 - Windows: no hay ninguna restricción en la ruta de acceso, pero esta debe existir.
  
- 
+
 Si se produce un error al intentar descargar el archivo o colocarlo en un directorio concreto, se producirá un error en el paso de personalización, que se registrará en customization.log.
 
 > [!NOTE]
-> el personalizador de archivos solo es adecuado para descargas de archivos pequeños, inferiores a 20 MB. Para descargas de archivos más grandes, use un script o un comando insertado, el código de uso para descargar archivos, como `wget` o `curl` de Linux, o `Invoke-WebRequest` de Windows.
+> el personalizador de archivos solo es adecuado para descargas de archivos pequeños, inferiores a 20 MB. Para descargas de archivos más grandes, use un script o un comando insertado y, a continuación, use código para descargar archivos, como, por ejemplo, `wget` o `curl` de Linux, Windows o `Invoke-WebRequest`.
 
 ### <a name="windows-update-customizer"></a>Personalizador de Windows Update
 Este personalizador se basa en el [aprovisionador de Windows Update de la comunidad](https://packer.io/docs/provisioners/community-supported.html) para Packer, que es un proyecto de código abierto que mantiene la comunidad de Packer. Microsoft comprueba y valida el aprovisionamiento con el servicio Image Builder, y permite investigar problemas con él, así como trabajar para resolver problemas, pero Microsoft no admite oficialmente el proyecto de código abierto. Para obtener documentación detallada y ayuda con el aprovisionamiento de Windows Update, vea el repositorio del proyecto.
@@ -471,10 +472,11 @@ Este personalizador se basa en el [aprovisionador de Windows Update de la comuni
                 "updateLimit": 20
             }
                ], 
-OS support: Windows
 ```
 
-Propiedades de personalización:
+SO compatible: Windows
+
+Propiedades del personalizador:
 - **type**: WindowsUpdate.
 - **searchCriteria**: (opcional) define qué tipo de actualizaciones se instalan (recomendadas, importantes, etc.); BrowseOnly=0 e IsInstalled=0 (recomendado) son los valores predeterminados.
 - **filters**: (opcional) permite especificar un filtro para incluir o excluir actualizaciones.

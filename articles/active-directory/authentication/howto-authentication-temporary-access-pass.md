@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/26/2021
+ms.date: 06/11/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f0473a266cffb083a82ffc9afb333da7eecf59c
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 471cf0ae11910b74f6aabd8fd858ed6f6dd2f31c
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108015706"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112029772"
 ---
 # <a name="configure-temporary-access-pass-in-azure-ad-to-register-passwordless-authentication-methods-preview"></a>Configuración de un Pase de acceso temporal en Azure AD para registrar métodos de autenticación sin contraseña (versión preliminar)
 
@@ -141,8 +141,8 @@ Remove-MgUserAuthenticationTemporaryAccessPassMethod -UserId user3@contoso.com -
 
 - Un usuario solo puede tener un Pase de acceso temporal. El código de acceso se puede usar durante las horas de inicio y finalización del Pase de acceso temporal.
 - Si el usuario requiere un nuevo Pase de acceso temporal:
-  - Si el Pase de acceso temporal existente es válido, el administrador debe eliminar el Pase de acceso temporal existente y crear un nuevo pase para el usuario. Si se elimina un Pase de acceso temporal válido, se revocarán las sesiones del usuario. 
-  - Si el Pase de acceso temporal existente ha expirado, uno nuevo invalidará el Pase de acceso temporal existente y no revocará las sesiones del usuario.
+  - Si el Pase de acceso temporal existente es válido, el administrador debe eliminar el Pase de acceso temporal existente y crear un nuevo pase para el usuario. 
+  - Si el Pase de acceso temporal existente ha expirado, uno nuevo invalidará el Pase de acceso temporal existente.
 
 Para obtener más información sobre los estándares de NIST para la incorporación y la recuperación, consulte la [publicación especial de NIST 800-63A](https://pages.nist.gov/800-63-3/sp800-63a.html#sec4).
 
@@ -154,7 +154,7 @@ Tenga en cuenta las limitaciones siguientes:
 - Tenga en cuenta que los usuarios invitados no pueden iniciar sesión con un Pase de acceso temporal.
 - Pase de acceso temporal está en versión preliminar pública y actualmente no está disponible en Azure para la Administración Pública de Estados Unidos.
 - Los usuarios en el ámbito de la directiva de registro de autoservicio de restablecimiento de contraseña (SSPR) *o* la [directiva de registro de autenticación multifactor de protección de identidades](../identity-protection/howto-identity-protection-configure-mfa-policy.md) tienen que registrar los métodos de autenticación una vez que han iniciado sesión con un Pase de acceso temporal. Los usuarios en el ámbito de estas directivas se redirigen al [modo de interrupción del registro combinado](concept-registration-mfa-sspr-combined.md#combined-registration-modes). Esta experiencia no admite actualmente el registro con FIDO2 e inicio de sesión telefónico. 
-- Un Pase de acceso temporal no se puede usar con la extensión del servidor de directivas de redes (NPS) ni el adaptador de los Servicios de federación de Active Directory (AD FS), ni durante el programa de instalación de Windows/experiencia de serie (OOBE) y AutoPilot. 
+- Un Pase de acceso temporal no se puede usar con la extensión del servidor de directivas de redes (NPS) ni el adaptador de los Servicios de federación de Active Directory (AD FS), ni durante el programa de instalación de Windows/experiencia de serie (OOBE) y Autopilot. 
 - Cuando el inicio de sesión único de conexión directa está habilitado en el inquilino, se pide a los usuarios que escriban una contraseña. El vínculo **Use el Pase de acceso temporal en su lugar** estará disponible para que el usuario inicie sesión con un Pase de acceso temporal.
 
   ![Captura de pantalla de la opción Use un Pase de acceso temporal en su lugar.](./media/how-to-authentication-temporary-access-pass/alternative.png)

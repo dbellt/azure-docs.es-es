@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 6644f495f28fb76503948c18354a5af0fcf832e5
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: fcac9eee73f509de5903030b77d567cbe11ee043
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364760"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110787566"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Java de Azure Cosmos DB para API de SQL: Notas de la versión y recursos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,13 +24,13 @@ ms.locfileid: "107364760"
 > * [SDK de .NET Core v2](sql-api-sdk-dotnet-core.md)
 > * [SDK de fuente de cambios de .NET, versión 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [SDK de Java v4](sql-api-sdk-java-v4.md)
+> * [SDK para Java v4](sql-api-sdk-java-v4.md)
 > * [Versión 2 del SDK de Java asincrónico](sql-api-sdk-async-java.md)
 > * [SDK de Java v2 sincrónico](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Conector OLTP de Spark 3](sql-api-sdk-java-spark-v3.md)
-> * [Conector OLTP de Spark 2](sql-api-sdk-java-spark.md)
+> * [Conector Spark 3 OLTP](sql-api-sdk-java-spark-v3.md)
+> * [Conector Spark 2 OLTP](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Proveedor de recursos de REST](/rest/api/cosmos-db-resource-provider/)
@@ -54,6 +54,13 @@ Este es el SDK sincrónico original de Azure Cosmos DB para Java v2 para SQL AP
 |**Tiempo de ejecución mínimo admitido**|[Java Development Kit (JDK) 7+](/java/azure/jdk/)|
 
 ## <a name="release-notes"></a>Notas de la versión
+### <a name="263"></a><a name="2.6.3"></a>2.6.3
+* Se ha corregido una directiva de reintentos cuando `GoneException` se encapsula en `IllegalStateException`: este cambio es necesario para asegurarse de que la memoria caché de Gateway se actualiza en la versión 410 para que el conector de Spark (en Spark 2.4) pueda usar una directiva de reintentos personalizada a fin de permitir que las consultas se realicen correctamente durante las divisiones de particiones.
+
+### <a name="262"></a><a name="2.6.2"></a>2.6.2
+* Se ha agregado una nueva directiva de reintentos para reintentar los tiempos de espera de lectura.
+* Se ha actualizado la dependencia `com.fasterxml.jackson.core/jackson-databind` a 2.9.10.8.
+* Se ha actualizado la dependencia `org.apache.httpcomponents/httpclient` a 4.5.13.
 
 ### <a name="261"></a><a name="2.6.1"></a>2.6.1
 * Se corrigió un error en el control de una consulta a través de la interoperabilidad de servicios.

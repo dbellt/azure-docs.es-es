@@ -1,20 +1,20 @@
 ---
 title: Implementación de recursos con una plantilla y la CLI de Azure
-description: Use Azure Resource Manager y la CLI de Azure para implementar recursos en Azure. Los recursos se definen en una plantilla de Resource Manager o un archivo Bicep.
+description: Use Azure Resource Manager y la CLI de Azure para implementar recursos en Azure. Los recursos se definen en una plantilla de Resource Manager.
 ms.topic: conceptual
-ms.date: 03/25/2021
-ms.openlocfilehash: ddcb9adad545f27dfe29f3a9354520b0e141e933
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 05/07/2021
+ms.openlocfilehash: 4507fe743674ac8c7ee45b53adb1e4cc543289d5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108737088"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951158"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Implementación de recursos con plantillas de ARM y la CLI de Azure
 
-En este artículo, se explica cómo se utiliza la CLI de Azure con plantillas de Azure Resource Manager (plantillas de ARM) o archivos Bicep para implementar recursos en Azure. Si no está familiarizado con los conceptos de implementación y administración de las soluciones de Azure, vea la [información general sobre plantillas](overview.md) o la [visión general sobre Bicep](bicep-overview.md).
+En este artículo, se explica el uso de la CLI de Azure con plantillas de Azure Resource Manager (ARM) para implementar los recursos en Azure. Si no está familiarizado con los conceptos de implementación y administración de las soluciones de Azure, vea [Información general sobre plantillas](overview.md).
 
-Los comandos de implementación cambiaron en la CLI de Azure, versión 2.2.0. Los ejemplos de este artículo requieren la CLI de Azure, versión 2.2.0 o posterior. Para implementar archivos Bicep, necesita la [CLI de Azure versión 2.20.0 o posterior](/cli/azure/install-azure-cli).
+Los comandos de implementación cambiaron en la CLI de Azure, versión 2.2.0. Los ejemplos de este artículo requieren la [CLI de Azure, versión 2.20.0 o posterior](/cli/azure/install-azure-cli).
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -27,13 +27,13 @@ La implementación puede tener como destino un grupo de recursos, una suscripci�
 * Para implementar en un **grupo de recursos**, use [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create):
 
   ```azurecli-interactive
-  az deployment group create --resource-group <resource-group-name> --template-file <path-to-template-or-bicep>
+  az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
   ```
 
 * Para implementar en una **suscripción**, use [az deployment sub create](/cli/azure/deployment/sub#az_deployment_sub_create):
 
   ```azurecli-interactive
-  az deployment sub create --location <location> --template-file <path-to-template-or-bicep>
+  az deployment sub create --location <location> --template-file <path-to-template>
   ```
 
   Para más información sobre las implementaciones en el nivel de suscripción, consulte [Creación de grupos de recursos y otros recursos en el nivel de suscripción](deploy-to-subscription.md).
@@ -41,7 +41,7 @@ La implementación puede tener como destino un grupo de recursos, una suscripci�
 * Para implementar en un **grupo de administración**, use [az deployment mg create](/cli/azure/deployment/mg#az_deployment_mg_create):
 
   ```azurecli-interactive
-  az deployment mg create --location <location> --template-file <path-to-template-or-bicep>
+  az deployment mg create --location <location> --template-file <path-to-template>
   ```
 
   Para obtener más información sobre las implementaciones de nivel de grupo de administración, consulte [Creación de recursos en el nivel de grupo de administración](deploy-to-management-group.md).
@@ -49,14 +49,14 @@ La implementación puede tener como destino un grupo de recursos, una suscripci�
 * Para implementar en un **inquilino**, use [az deployment tenant create](/cli/azure/deployment/tenant#az_deployment_tenant_create):
 
   ```azurecli-interactive
-  az deployment tenant create --location <location> --template-file <path-to-template-or-bicep>
+  az deployment tenant create --location <location> --template-file <path-to-template>
   ```
 
   Para obtener más información sobre las implementaciones a nivel de inquilino, consulte [Creación de recursos en el nivel de inquilino](deploy-to-tenant.md).
 
-Para cada ámbito, el usuario que implementa la plantilla o el archivo Bicep debe tener los permisos necesarios para crear recursos.
+Para cada ámbito, el usuario que implementa la plantilla debe tener permisos para crear recursos.
 
-## <a name="deploy-local-template-or-bicep-file"></a>Implementación de una plantilla local o un archivo Bicep
+## <a name="deploy-local-template"></a>Implementar una plantilla local
 
 Puede implementar una plantilla desde la máquina local o una que esté almacenada externamente. En esta sección se describe la implementación de una plantilla local.
 
@@ -66,13 +66,13 @@ Si va a realizar la implementación en un grupo de recursos que no existe, cree 
 az group create --name ExampleGroup --location "Central US"
 ```
 
-Para implementar una plantilla local o archivo Bicep, use el parámetro `--template-file` en el comando de implementación. En el ejemplo siguiente también se muestra cómo establecer un valor de parámetro.
+Para implementar una plantilla local, use el parámetro `--template-file` en el comando de implementación. En el ejemplo siguiente también se muestra cómo establecer un valor de parámetro.
 
 ```azurecli-interactive
 az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
-  --template-file <path-to-template-or-bicep> \
+  --template-file <path-to-template> \
   --parameters storageAccountType=Standard_GRS
 ```
 
@@ -83,9 +83,6 @@ La implementación puede demorar unos minutos en completarse. Cuando termine, ve
 ```
 
 ## <a name="deploy-remote-template"></a>Implementación de una plantilla remota
-
-> [!NOTE]
-> Actualmente, la CLI de Azure no admite la implementación de archivos Bicep remotos. Use la [CLI de Bicep](./bicep-install.md#development-environment) para compilar el archivo de Bicep en una plantilla JSON y, luego, cargue el archivo JSON en la ubicación remota.
 
 En lugar de almacenar las plantillas de ARM en el equipo local, quizás prefiera almacenarlas en una ubicación externa. Puede almacenar plantillas en un repositorio de control de código fuente (por ejemplo, GitHub). O bien, puede almacenarlas en una cuenta de Azure Storage para el acceso compartido en su organización.
 
@@ -123,7 +120,7 @@ Para obtener más información, vea [Uso de rutas de acceso relativas para plant
 
 ## <a name="deployment-name"></a>Nombre de implementación
 
-Al implementar una plantilla de Resource Manager, puede asignarle un nombre a la implementación. Este nombre puede ayudarle a recuperar la implementación del historial de implementaciones. Si no especifica un nombre para la implementación, se utilizará el nombre del archivo de la plantilla. Por ejemplo, si implementa una plantilla llamada `azuredeploy.json` y no especifica ningún nombre para la implementación, el nombre que se asignará será `azuredeploy`.
+Al implementar una plantilla de Resource Manager, puede asignarle un nombre a la implementación. Este nombre puede ayudarle a recuperar la implementación del historial de implementaciones. Si no especifica un nombre para la implementación, se utilizará el nombre del archivo de la plantilla. Por ejemplo, si implementa una plantilla llamada _azuredeploy.json_ y no especifica ningún nombre para la implementación, el nombre que se asignará será `azuredeploy`.
 
 Cada vez que se ejecuta una implementación, se agrega una entrada al historial de implementación del grupo de recursos con el nombre de la implementación. Si ejecuta otra implementación y le asigna el mismo nombre, la entrada anterior se reemplazará por la implementación actual. Si desea que todas las entradas del historial de implementaciones sean diferentes, asigne un nombre único a cada implementación.
 
@@ -148,9 +145,6 @@ Si especifica un nombre único para cada implementación, podrá ejecutarlas sim
 Para evitar conflictos con las implementaciones simultáneas y garantizar que las entradas del historial de implementaciones son únicas, asigne un nombre diferente a cada implementación.
 
 ## <a name="deploy-template-spec"></a>Implementación de la especificación de plantilla
-
-> [!NOTE]
-> Actualmente, la CLI de Azure no admite la creación de especificaciones de plantilla mediante archivos Bicep. Sin embargo, puede crear un archivo Bicep con el recurso [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) para implementar una especificación de plantilla. A continuación, se muestra un [ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep).
 
 En lugar de implementar una plantilla local o remota, puede crear una [especificación de plantilla](template-specs.md). La especificación de plantilla es un recurso de su suscripción de Azure que contiene una plantilla de ARM. Facilita el uso compartido de la plantilla de forma segura con los usuarios de la organización. Use el control de acceso basado en rol de Azure (RBAC de Azure) para conceder acceso a la especificación de la plantilla. Esta funcionalidad actualmente está en su versión preliminar.
 
@@ -177,11 +171,11 @@ az deployment group create \
   --template-spec $id
 ```
 
-Para obtener más información, consulte [Especificaciones de plantilla de Azure Resource Manager (versión preliminar)](template-specs.md).
+Para más información, vea [Especificaciones de plantilla de Azure Resource Manager](template-specs.md).
 
 ## <a name="preview-changes"></a>Vista previa de los cambios
 
-Antes de implementar la plantilla, puede obtener una vista previa de los cambios que la plantilla realizará en su entorno. Use la [operación Y si](template-deploy-what-if.md) para comprobar que la plantilla realiza los cambios esperados. La operación y si también valida que la plantilla no tenga errores.
+Antes de implementar la plantilla, puede obtener una vista previa de los cambios que la plantilla realizará en su entorno. Use la [operación Y si](./deploy-what-if.md) para comprobar que la plantilla realiza los cambios esperados. La operación y si también valida que la plantilla no tenga errores.
 
 ## <a name="parameters"></a>Parámetros
 
@@ -194,7 +188,7 @@ Para pasar parámetros en línea, proporcione los valores en `parameters`. Por e
 ```azurecli-interactive
 az deployment group create \
   --resource-group testgroup \
-  --template-file <path-to-template-or-bicep> \
+  --template-file <path-to-template> \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
 ```
 
@@ -205,7 +199,7 @@ También puede obtener el contenido del archivo y proporcionar ese contenido com
 ```azurecli-interactive
 az deployment group create \
   --resource-group testgroup \
-  --template-file <path-to-template-or-bicep> \
+  --template-file <path-to-template> \
   --parameters exampleString=@stringContent.txt exampleArray=@arrayContent.json
 ```
 
@@ -244,7 +238,7 @@ Use comillas dobles alrededor del código JSON que desee pasar al objeto.
 
 ### <a name="parameter-files"></a>Archivos de parámetros
 
-En lugar de pasar parámetros como valores en línea en el script, quizá le resulte más fácil usar un archivo JSON que contiene los valores de parámetro. El archivo de parámetros debe ser un archivo local. No se admiten los archivos de parámetros externos con la CLI de Azure. Tanto la plantilla de ARM como el archivo Bicep usan archivos de parámetros JSON.
+En lugar de pasar parámetros como valores en línea en el script, quizá le resulte más fácil usar un archivo JSON que contiene los valores de parámetro. El archivo de parámetros debe ser un archivo local. No se admiten los archivos de parámetros externos con la CLI de Azure.
 
 Para más información sobre el archivo de parámetro, consulte [Creación de un archivo de parámetros de Resource Manager](parameter-files.md).
 
@@ -255,7 +249,7 @@ az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
   --template-file storage.json \
-  --parameters @storage.parameters.json
+  --parameters '@storage.parameters.json'
 ```
 
 ## <a name="handle-extended-json-format"></a>Control del formato JSON extendido
@@ -284,5 +278,5 @@ Para poder implementar una plantilla con cadenas o comentarios multilínea utili
 
 * Para revertir a una implementación correcta cuando se produce un error, consulte [Revertir en caso de error a una implementación correcta](rollback-on-error.md).
 * Para especificar cómo controlar los recursos que existen en el grupo de recursos, pero que no están definidos en la plantilla, consulte [Modos de implementación de Azure Resource Manager](deployment-modes.md).
-* Para entender cómo definir parámetros en la plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+* Para entender cómo definir parámetros en la plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](./syntax.md).
 * Para obtener sugerencias para resolver los errores de implementación más comunes, consulte [Solución de errores comunes de implementación de Azure con Azure Resource Manager](common-deployment-errors.md).

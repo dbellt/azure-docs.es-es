@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 0c0b3bd81e0f73a7879382e28516378bd722bc17
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8bc17ef020ae61a18f5259a956c7b5d3b3998a4d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877556"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110463586"
 ---
 # <a name="how-to-use-permissions-in-azure-spring-cloud"></a>Uso de permisos en Azure Spring Cloud
 En este artículo se muestra cómo crear roles personalizados que delegan permisos en recursos de Azure Spring Cloud. Los roles personalizados amplían los [roles integrados de Azure](../role-based-access-control/built-in-roles.md) con varios permisos estándar.
@@ -29,7 +29,7 @@ Implementaremos los siguientes roles personalizados:
     * Reiniciar aplicaciones
     * Obtener secuencias de registros
     * No puede realizar cambios en las aplicaciones ni configuraciones
-* **Rol de acciones de Azure Pipelines/Jenkins/GitHub**:
+* **Rol de Azure Pipelines/Jenkins/Acciones de GitHub**:
     * Puede realizar operaciones de creación, lectura, actualización y eliminación
     * Puede crear y configurar todo en Azure Spring Cloud y las aplicaciones de la instancia de servicio: Acciones de Azure Pipelines, Jenkins o GitHub, con plantillas de Terraform o Resource Manager
 
@@ -194,7 +194,7 @@ En **Microsoft.AppPlatform/locations/operationStatus/operationId**, seleccione:
 5. Haga clic en **Revisar y crear**.
 
 ## <a name="define-azure-pipelinesprovisioning-role"></a>Definición del rol de Azure Pipelines/aprovisionamiento
-Este rol de acciones de Jenkins/GitHub puede crear y configurar todo en Azure Spring Cloud y las aplicaciones con una instancia de servicio. Este rol se usa para liberar o implementar código.
+Este rol de Jenkins/Acciones de GitHub lo puede crear y configurar todo en Azure Spring Cloud y las aplicaciones con una instancia de servicio. Este rol se usa para liberar o implementar código.
 
 1. Repita el procedimiento para navegar a la suscripción y el grupo de recursos, y vaya a Control de acceso (IAM).
 

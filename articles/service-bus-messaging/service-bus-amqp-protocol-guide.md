@@ -3,12 +3,12 @@ title: Guía del protocolo AMQP 1.0 en Azure Service Bus y Event Hubs | Microsof
 description: Guía del protocolo para expresiones y la descripción de AMQP 1.0 en Azure Service Bus y Event Hubs
 ms.topic: article
 ms.date: 04/14/2021
-ms.openlocfilehash: 8d346aeef74e1f67d3d525c061d40314ee5342aa
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 0c1c053378c8c2dec1f769fe489eb823ea81390f
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107531018"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111438745"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guía del protocolo AMQP 1.0 Azure Service Bus y Event Hubs
 
@@ -404,12 +404,7 @@ Gracias a esta funcionalidad, puede crear un remitente y establecer el vínculo 
 | | <------ | attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link ID},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] ) |
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-Para aprender más sobre AMQP, visite los siguientes vínculos:
-
-* [Información general sobre AMQP para Service Bus]
-* [Compatibilidad de AMQP 1.0 con los temas y las colas con particiones de Service Bus]
-* [AMQP de Service Bus para Windows Server]
+Para obtener más información sobre AMQP, consulte [Compatibilidad con Advanced Message Queueing Protocol (AMQP) 1.0 en Service Bus](service-bus-amqp-overview.md).
 
 [this video course]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD
 [1]: ./media/service-bus-amqp-protocol-guide/amqp1.png
@@ -417,6 +412,3 @@ Para aprender más sobre AMQP, visite los siguientes vínculos:
 [3]: ./media/service-bus-amqp-protocol-guide/amqp3.png
 [4]: ./media/service-bus-amqp-protocol-guide/amqp4.png
 
-[Información general sobre AMQP para Service Bus]: service-bus-amqp-overview.md
-[Compatibilidad de AMQP 1.0 con los temas y las colas con particiones de Service Bus]: 
-[AMQP in Service Bus for Windows Server]: /previous-versions/service-bus-archive/dn574799(v=azure.100)

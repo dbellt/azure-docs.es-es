@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 829f89f716a29f09f88a2e02b257aba1b207d072
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 31183be893a9216f33adc4f5e25a55cfb3545db8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102634199"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110099575"
 ---
 # <a name="azure-stack-edge-mini-r-system-requirements"></a>Requisitos del sistema de Azure Stack Edge Mini R
 
@@ -107,6 +107,7 @@ Se recomienda configurar las reglas de firewall para el tráfico de salida en fu
 | https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Registro de contenedor de Microsoft (obligatorio)               |
 | https://\*.azurecr.io                     | Registros de contenedores personales y de terceros (opcional) | 
 | https://\*.azure-devices.net              | Acceso de IoT Hub (obligatorio)                             | 
+| https://\*.docker.com              | StorageClass (obligatorio)                             |
 
 ### <a name="url-patterns-for-gateway-for-azure-government"></a>Patrones de dirección URL para la puerta de enlace de Azure Government
 

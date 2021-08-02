@@ -10,18 +10,18 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.custom: mqtt, devx-track-js
-ms.openlocfilehash: db4f78e14696c421adaedd16b0b3f8d598f12846
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b94cd4cc5c76495cb08f743b1a6849b6eb6c77b2
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91251905"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112005940"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-nodejs"></a>Carga de archivos de un dispositivo a la nube con IoT Hub (Node.js)
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-Este tutorial se basa en el código del tutorial sobre el [envío de mensajes de la nube al dispositivo con IoT Hub](iot-hub-node-node-c2d.md) para mostrar cómo se usan las [funcionalidades de carga de archivos de IoT Hub](iot-hub-devguide-file-upload.md) para cargar un archivo en [Azure Blob Storage](../storage/index.yml). En este tutorial se muestra cómo realizar las siguientes acciones:
+En este tutorial se muestra cómo realizar las siguientes acciones:
 
 * Proporcionar un dispositivo de forma segura con un identificador URI de blob de Azure para cargar un archivo.
 
@@ -38,7 +38,7 @@ Dichos archivos se suelen procesar por lotes en la nube mediante herramientas co
 
 Al final de este tutorial, ejecutará dos aplicaciones de consola de Node.js:
 
-* **SimulatedDevice.js**, que carga un archivo en el almacenamiento mediante un identificador URI de SAS proporcionado por IoT Hub.
+* **FileUpload.js**, que carga un archivo en el almacenamiento mediante un URI de SAS proporcionado por un centro de IoT.
 
 * **ReadFileUploadNotification.js**, que recibe notificaciones de carga de archivos de IoT Hub.
 
@@ -53,78 +53,71 @@ Al final de este tutorial, ejecutará dos aplicaciones de consola de Node.js:
 
 * Una cuenta de Azure activa. (En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos minutos).
 
-* Asegúrese de que el puerto 8883 está abierto en el firewall. En el ejemplo de dispositivo de este artículo se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y saber cómo solucionar este problema, consulte [Conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Asegúrese de que el puerto 8883 está abierto en el firewall. En el ejemplo de dispositivo de este artículo se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y para saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
+## <a name="create-an-iot-hub"></a>Crear un centro de IoT
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
 ## <a name="upload-a-file-from-a-device-app"></a>Carga de un archivo desde una aplicación de dispositivo
 
-En esta sección, creará la aplicación para dispositivos para cargar un archivo en IoT Hub.
+En esta sección, copiará la aplicación de dispositivo de GitHub para cargar un archivo en IoT Hub.
 
-1. Cree una carpeta vacía denominada ```simulateddevice```.  En la carpeta ```simulateddevice```, cree un archivo package.json con el siguiente comando en el símbolo del sistema.  Acepte todos los valores predeterminados:
+1. Hay dos ejemplos de carga de archivos disponibles en GitHub para Node.js: un ejemplo básico y otro más avanzado. Copie el ejemplo básico del repositorio [aquí](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/upload_to_blob.js). El ejemplo avanzado se encuentra [aquí](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/upload_to_blob_advanced.js).   
+
+2. Cree una carpeta vacía denominada ```fileupload```.  En la carpeta ```fileupload```, cree un archivo package.json con el siguiente comando en el símbolo del sistema.  Acepte todos los valores predeterminados:
 
     ```cmd/sh
     npm init
     ```
 
-2. En el símbolo del sistema, en la carpeta ```simulateddevice```, ejecute el siguiente comando para instalar el paquete del SDK de dispositivo **azure-iot-device** y el paquete **azure-iot-device-mqtt**:
+3. En el símbolo del sistema, en la carpeta ```fileupload```, ejecute el siguiente comando para instalar el paquete del SDK de dispositivo **azure-iot-device** y el paquete **azure-iot-device-mqtt**:
 
     ```cmd/sh
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-3. Con un procesador de texto, cree un archivo **SimulatedDevice.js** en la carpeta ```simulateddevice```.
-
-4. Agregue las siguientes instrucciones ```require``` al principio del archivo **SimulatedDevice.js** :
+4. Con un editor de texto, cree un archivo **FileUpload.js** en la carpeta ```fileupload``` y copie en ella el ejemplo básico.
 
     ```javascript
+    // Copyright (c) Microsoft. All rights reserved.
+    // Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
     'use strict';
 
+    var Protocol = require('azure-iot-device-mqtt').Mqtt;
+    var Client = require('azure-iot-device').Client;
     var fs = require('fs');
-    var mqtt = require('azure-iot-device-mqtt').Mqtt;
-    var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
-    ```
 
-5. Agregue una variable `deviceconnectionstring` y utilícela para crear una instancia de **cliente**.  Reemplace `{deviceconnectionstring}` por el nombre del dispositivo que creó en la sección *Creación de una instancia de IoT Hub*:
+    var deviceConnectionString = process.env.ConnectionString;
+    var filePath = process.env.FilePath;
 
-    ```javascript
-    var connectionString = '{deviceconnectionstring}';
-    var filename = 'myimage.png';
-    ```
+    var client = Client.fromConnectionString(deviceConnectionString, Protocol);
+    fs.stat(filePath, function (err, fileStats) {
+      var fileStream = fs.createReadStream(filePath);
 
-    > [!NOTE]
-    > Por simplicidad, la cadena de conexión se incluye en el código: esto no es una práctica recomendada y, según su arquitectura y caso de uso, puede ser recomendable considerar alternativas más seguras para almacenar este secreto.
-
-6. Agregue el siguiente código para conectar el cliente:
-
-    ```javascript
-    var client = clientFromConnectionString(connectionString);
-    console.log('Client connected');
-    ```
-
-7. Cree una devolución de llamada y use la función **uploadToBlob** para cargar el archivo.
-
-    ```javascript
-    fs.stat(filename, function (err, stats) {
-        const rr = fs.createReadStream(filename);
-
-        client.uploadToBlob(filename, rr, stats.size, function (err) {
-            if (err) {
-                console.error('Error uploading file: ' + err.toString());
-            } else {
-                console.log('File uploaded');
-            }
-        });
+      client.uploadToBlob('testblob.txt', fileStream, fileStats.size, function (err, result) {
+        if (err) {
+          console.error('error uploading file: ' + err.constructor.name + ': ' + err.message);
+        } else {
+          console.log('Upload successful - ' + result);
+        }
+        fileStream.destroy();
+      });
     });
     ```
 
-8. Guarde el archivo **SimulatedDevice.js** y ciérrelo.
+5. Agregue variables de entorno para la cadena de conexión del dispositivo y la ruta de acceso al archivo que quiere cargar.
 
-9. Copie un archivo de imagen a la carpeta `simulateddevice` llámelo `myimage.png`.
+6. Guarde y cierre el archivo **FileUpload.js**.
+
+7. Copie un archivo de imagen en la carpeta `fileupload` y asígnele un nombre, por ejemplo, `myimage.png`. Coloque la ruta de acceso al archivo en la variable de entorno `FilePath`.
 
 ## <a name="get-the-iot-hub-connection-string"></a>Obtención de la cadena de conexión de IoT Hub
 
-En este artículo, creará un servicio de back-end para recibir mensajes de notificación de carga de archivos desde la instancia de IOT Hub que creó en [Enviar telemetría desde un dispositivo a IoT Hub](quickstart-send-telemetry-node.md). Para recibir mensajes de notificación de carga de archivos, el servicio necesita el permiso de **conexión de servicio**. De forma predeterminada, todas las instancias de IoT Hub se crean con una directiva de acceso compartido denominada **servicio** que concede este permiso.
+En este artículo, creará un servicio de back-end para recibir mensajes de notificación de carga de archivos desde el centro de IoT que ha creado. Para recibir mensajes de notificación de carga de archivos, el servicio necesita el permiso de **conexión de servicio**. De forma predeterminada, todas las instancias de IoT Hub se crean con una directiva de acceso compartido denominada **servicio** que concede este permiso.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
@@ -163,7 +156,7 @@ Puede usar la cadena de conexión **iothubowner** de IoT Hub para completar esta
     ```
 
     > [!NOTE]
-    > Por simplicidad, la cadena de conexión se incluye en el código: esto no es una práctica recomendada y, según su arquitectura y caso de uso, puede ser recomendable considerar alternativas más seguras para almacenar este secreto.
+    > Por simplicidad, la cadena de conexión se incluye en el código: esta no es una práctica recomendada y, según su arquitectura y caso de uso, puede ser recomendable considerar alternativas más seguras para almacenar este secreto.
 
 6. Agregue el siguiente código para conectar el cliente:
 
@@ -205,13 +198,13 @@ En la carpeta `fileuploadnotification` del símbolo del sistema, ejecute el sigu
 node FileUploadNotification.js
 ```
 
-En la carpeta `simulateddevice` del símbolo del sistema, ejecute el siguiente comando:
+En la carpeta `fileupload` del símbolo del sistema, ejecute el siguiente comando:
 
 ```cmd/sh
-node SimulatedDevice.js
+node FileUpload.js
 ```
 
-En la captura de pantalla siguiente se muestra la salida de la aplicación **SimulatedDevice**:
+En la captura de pantalla siguiente se muestra la salida de la aplicación **FileUpload**:
 
 ![Salida de la aplicación simulated-device](./media/iot-hub-node-node-file-upload/simulated-device.png)
 

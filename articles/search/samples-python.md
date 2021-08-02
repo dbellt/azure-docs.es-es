@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/27/2021
-ms.openlocfilehash: 0d09851cf8e68cead4a67615aaa792512482f351
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/11/2021
+ms.openlocfilehash: fc27ed68f5dedefa0b4bf77a206faa15c94f083f
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98955129"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112018322"
 ---
 # <a name="python-code-samples-for-azure-cognitive-search"></a>Ejemplos de código de Python de Azure Cognitive Search
 
@@ -49,8 +49,9 @@ Los ejemplos de código del equipo de Cognitive Search muestran características
 | Ejemplos | Artículo |
 |---------|---------|
 | [quickstart](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Quickstart) | Código fuente de [Inicio rápido: Creación de un índice de Azure Cognitive Search en Python](search-get-started-python.md). En este artículo se habla del flujo de trabajo básico para crear, cargar y consultar un índice de búsqueda con datos de ejemplo. |
+| [search-website](https://github.com/azure-samples/azure-search-python-samples/tree/master/search-website) | Código fuente de [Tutorial: Incorporación de la funcionalidad de búsqueda a las aplicaciones web](tutorial-python-overview.md). Muestra una aplicación de búsqueda de un extremo a otro que incluye un cliente enriquecido más componentes para hospedar la aplicación y controlar las solicitudes de búsqueda.|
 | [tutorial-ai-enrichment](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment)  | Código fuente de [Tutorial: Uso de Python y AI para generar contenido que permita búsquedas desde blobs de Azure](cognitive-search-tutorial-blob-python.md). En este artículo se muestra cómo crear un indizador de blobs con un conjunto de aptitudes cognitivas, donde el conjunto de aptitudes crea y transforma contenido sin procesar para que pueda buscarse o consumirse. |
 | [AzureML-Custom-Skill](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill)  | Código fuente de [Ejemplo: Creación de una aptitud personalizada con Python](cognitive-search-custom-skill-python.md). En este artículo se muestra la integración del indizador y el conjunto de aptitudes con modelos de aprendizaje profundo en Azure Machine Learning. |
 
 > [!Tip]
-> Pruebe el [Explorador de ejemplos](/samples/browse/?languages=python&products=azure-cognitive-search) para buscar ejemplos de código de Microsoft en Github, filtrados por producto, servicio y lenguaje.
+> Pruebe el [Explorador de ejemplos](/samples/browse/?languages=python&products=azure-cognitive-search) para buscar ejemplos de código de Microsoft en GitHub, filtrados por producto, servicio y lenguaje.

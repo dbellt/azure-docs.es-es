@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a recuperar archivos y carpetas desde
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: c2af279ec7e846316a94e58977e7079305ab9b03
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 76d81aa92643002bc5cd2b8859941af8e7440c87
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106579372"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111421875"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure
 
@@ -143,9 +143,14 @@ Si lo hace en un equipo con acceso restringido, asegúrese de que hay acceso a l
 
 > [!NOTE]
 >
-> El archivo de script que descargó en el paso 1 [anterior](#step-1-generate-and-download-script-to-browse-and-recover-files) tendrá **geo-name** en el nombre del archivo. Use ese **geo-name** para rellenar la dirección URL. El nombre del script descargado comenzará por: \'VMname\'\_\'geoname\'_\'GUID\'.<br><br>
-> Por ejemplo, si el nombre de archivo del script es *ContosoVM_wcus_12345678*, **geo-name** es *wcus* y la dirección URL será:<br> <https://pod01-rec2.wcus.backup.windowsazure.com>
+> En caso de que el sistema operativo de la VM de la que se ha hecho una copia de seguridad sea Windows, el nombre geográfico se mencionará en la contraseña generada.<br><br>
+> Por ejemplo, si la contraseña generada es *ContosoVM_wcus_GUID*, el nombre geográfico es wcus y la dirección URL sería: <https://pod01-rec2.wcus.backup.windowsazure.com><br><br>
 >
+>
+> Si el sistema operativo de la VM de la que se ha hecho una copia de seguridad es Linux, el archivo de script que descargó en el paso 1 [anterior](#step-1-generate-and-download-script-to-browse-and-recover-files) tendrá **geo-name** en el nombre del archivo. Use ese **geo-name** para rellenar la dirección URL. El nombre del script descargado comenzará por: \'VMname\'\_\'geoname\'_\'GUID\'.<br><br>
+> Por ejemplo, si el nombre de archivo del script es *ContosoVM_wcus_12345678*, **geo-name** es *wcus* y la dirección URL sería: <https://pod01-rec2.wcus.backup.windowsazure.com><br><br>
+>
+
 
 En el caso de Linux, el script requiere los componentes "open-iscsi" e "lshw" para conectar con el punto de recuperación. Si los componentes no existen en el equipo donde se ejecuta el script, este solicita permiso para instalarlos. Otorgue el consentimiento para instalar los componentes necesarios.
 

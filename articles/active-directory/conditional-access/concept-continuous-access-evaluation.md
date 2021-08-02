@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 374fa4db4441dc82f9d14eef9cdd7589a9a82fad
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: c615c3b57d0c4ebfdbffdc1461f2289d4b8c4256
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126856"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111438277"
 ---
 # <a name="continuous-access-evaluation"></a>Evaluación continua de acceso
 
@@ -137,6 +137,9 @@ En esta página, puede limitar opcionalmente los usuarios y grupos que estarán 
 > [!WARNING]
 > Para deshabilitar la evaluación continua de acceso, seleccione **Habilitar versión preliminar**, **Deshabilitar versión preliminar** y **Guardar**.
 
+> [!NOTE]
+>Puede consultar Microsoft Graph mediante [**continuousAccessEvaluationPolicy**](/graph/api/continuousaccessevaluationpolicy-get?view=graph-rest-beta&tabs=http#request-body) para comprobar la configuración de CAE en el inquilino. Una respuesta HTTP 200 y el cuerpo de respuesta asociado indican si CAE está habilitado o deshabilitado en el inquilino. CAE no está configurado si Microsoft Graph devuelve una respuesta HTTP 404.
+
 ![Habilitar la versión preliminar de CAE en Azure Portal](./media/concept-continuous-access-evaluation/enable-cae-preview.png)
 
 ## <a name="troubleshooting"></a>Solución de problemas
@@ -191,4 +194,6 @@ La frecuencia de inicio de sesión se respetará con o sin CAE.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Anuncio de evaluación continua de acceso](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933)
+- [Anuncio de evaluación continua de acceso](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933)
+- [Uso de las API habilitadas para la evaluación continua de acceso en las aplicaciones](../develop/app-resilience-continuous-access-evaluation.md)
+- [Desafíos de notificaciones, solicitudes de notificaciones y funcionalidades de cliente](../develop/claims-challenge.md)

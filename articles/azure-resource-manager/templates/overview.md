@@ -3,12 +3,12 @@ title: Introducción a las plantillas
 description: Describe las ventajas del uso de plantillas de Azure Resource Manager (plantillas de ARM) para la implementación de recursos.
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: 14bcbbd7a7ae7315dbb8e9d3e7e44ce0ffe0a4b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 62d25d2bd87f9335ac6442a7038f9326b04b36b0
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103419990"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111960366"
 ---
 # <a name="what-are-arm-templates"></a>¿Qué son las plantillas de Resource Manager?
 
@@ -18,7 +18,7 @@ Para cumplir estos desafíos, puede automatizar las implementaciones y usar la p
 
 Para implementar la infraestructura como código para las soluciones de Azure, use las plantillas de Azure Resource Manager (plantillas de ARM). La plantilla es un archivo de notación de objetos JavaScript (JSON) que contiene la infraestructura y la configuración del proyecto. La plantilla usa sintaxis declarativa, lo que permite establecer lo que pretende implementar sin tener que escribir la secuencia de comandos de programación para crearla. En la plantilla se especifican los recursos que se van a implementar y las propiedades de esos recursos.
 
-Hemos incorporado un nuevo lenguaje para desarrollar plantillas de ARM. El lenguaje se denomina Bicep y se encuentra actualmente en versión preliminar. Bicep y las plantillas en formato JSON ofrecen las mismas funcionalidades. Puede convertir la plantilla entre los dos lenguajes. Bicep proporciona una sintaxis que es más fácil de usar para crear plantillas. Para más información, consulte [¿Qué es Bicep (versión preliminar)?](bicep-overview.md).
+Hemos introducido un nuevo lenguaje denominado Bicep que se usa para desarrollar archivos JSON para plantillas de ARM. Los archivos de Bicep y las plantillas JSON ofrecen las mismas funcionalidades. Puede convertir las plantillas entre los dos lenguajes. Bicep proporciona una sintaxis que es más fácil de usar para crear plantillas. Para más información, vea [¿Qué es Bicep?](../bicep/overview.md)
 
 Para obtener información sobre cómo puede empezar a trabajar con las plantillas de ARM, consulte el vídeo siguiente.
 
@@ -44,7 +44,7 @@ Si intenta decidir entre usar plantillas de Resource Manager o una de las demás
 
 * **Pruebas**: puede asegurarse de que la plantilla sigue las instrucciones recomendadas si la prueba con el kit de herramientas de la plantilla ARM (arm-ttk). Este kit de pruebas es un script de PowerShell que puede descargar de [GitHub](https://github.com/Azure/arm-ttk). El kit de herramientas facilita el desarrollo de conocimientos con el lenguaje de plantilla.
 
-* **Vista previa de los cambios**: puede usar la [operación hipotética](template-deploy-what-if.md) para obtener una vista previa de los cambios antes de implementar la plantilla. Con la operación hipotética puede ver qué recursos se crearán, actualizarán o eliminarán, así como las propiedades de los recursos que se cambiarán. La operación hipotética comprueba el estado actual del entorno y elimina la necesidad de administrar el estado.
+* **Vista previa de los cambios**: puede usar la [operación hipotética](./deploy-what-if.md) para obtener una vista previa de los cambios antes de implementar la plantilla. Con la operación hipotética puede ver qué recursos se crearán, actualizarán o eliminarán, así como las propiedades de los recursos que se cambiarán. La operación hipotética comprueba el estado actual del entorno y elimina la necesidad de administrar el estado.
 
 * **Validación integrada**: La plantilla solo se implementa después de pasar la validación. Resource Manager se encarga de comprobar la plantilla antes de iniciar la implementación para asegurarse de que esta se realizará correctamente. Es menos probable que la implementación se detenga a medio acabar.
 
@@ -68,15 +68,15 @@ Dentro de la plantilla, puede escribir [expresiones de plantilla](template-expre
 
 La plantilla contiene las secciones siguientes:
 
-* [Parámetros](template-parameters.md): proporcione valores durante la implementación que permitan usar la misma plantilla con entornos diferentes.
+* [Parámetros](./parameters.md): proporcione valores durante la implementación que permitan usar la misma plantilla con entornos diferentes.
 
-* [Variables](template-variables.md): defina los valores que se reutilizan en las plantillas. Se pueden crear a partir de valores de parámetro.
+* [Variables](./variables.md): defina los valores que se reutilizan en las plantillas. Se pueden crear a partir de valores de parámetro.
 
-* [Funciones definidas por el usuario](template-user-defined-functions.md): cree funciones personalizadas que simplifiquen la plantilla.
+* [Funciones definidas por el usuario](./user-defined-functions.md): cree funciones personalizadas que simplifiquen la plantilla.
 
 * [Recursos](resource-declaration.md): especifique los recursos que se van a implementar.
 
-* [Salidas](template-outputs.md): devuelva valores de los recursos implementados.
+* [Salidas](./outputs.md): devuelva valores de los recursos implementados.
 
 ## <a name="template-deployment-process"></a>Proceso de implementación de plantillas
 
@@ -151,6 +151,6 @@ Este enfoque significa que puede compartir de forma segura plantillas que satisf
 
 * Para obtener un tutorial paso a paso que le guíe en el proceso de creación de una plantilla, consulte [Tutorial: Creación e implementación de su primera plantilla de Resource Manager](template-tutorial-create-first-template.md).
 * Para una guía en módulos con información sobre las plantillas de ARM en Microsoft Learn, consulte [Implementación y administración de recursos en Azure mediante plantillas de ARM](/learn/paths/deploy-manage-resource-manager-templates/).
-* Para obtener información sobre las propiedades de los archivos de plantilla, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+* Para obtener información sobre las propiedades de los archivos de plantilla, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](./syntax.md).
 * Para obtener información sobre la exportación de plantillas, consulte [Guía de inicio rápido: Creación e implementación de plantillas de Resource Manager mediante Azure Portal](quickstart-create-templates-use-the-portal.md).
 * Para obtener respuestas a preguntas comunes, consulte [Preguntas más frecuentes sobre las plantillas de ARM](frequently-asked-questions.md).

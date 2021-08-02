@@ -6,17 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 06/09/2021
 ms.author: tamram
-ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 222518f21cb9940efd4fbf266b9248e4b0414f43
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: d060a066c80f10fb9d887db90bde434cc89922a5
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108316339"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111901637"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Cambio en la forma en que se replican las cuentas de almacenamiento
 
@@ -46,7 +45,6 @@ En la tabla siguiente se proporciona información general sobre cómo cambiar de
 
 <sup>1</sup> Incurre en un cargo de salida único.<br />
 <sup>2</sup> No se admite la migración de LRS a GRS si la cuenta de almacenamiento contiene blobs en el nivel de archivo.<br />
-<sup>3</sup> La conversión de ZRS a GZRS/RA-GZRS o viceversa no se admite en las siguientes regiones: Este de EE. UU. 2, Este de EE. UU., Oeste de Europa.
 
 > [!CAUTION]
 > Si realizó una [conmutación por error de la cuenta](storage-disaster-recovery-guidance.md) para la cuenta de (RA-)GRS o (RA-)GZRS, la cuenta será redundante localmente (LRS) en la nueva región principal después de la conmutación por error. No se admite la migración en vivo a ZRS o GZRS para una cuenta de LRS resultante de una conmutación por error. Esto se cumple incluso en el caso de las denominadas operaciones de conmutación por recuperación. Por ejemplo, si realiza una conmutación por error de cuentas de RA-GZRS a LRS en la región secundaria y, a continuación, la configura de nuevo en RA-GRS y realiza otra conmutación por error de cuentas en la región primaria original, no puede ponerse en contacto con el soporte técnico para la migración en vivo original a RA-GZRS en la región primaria. En su lugar, tendrá que realizar una migración manual a ZRS o GZRS.
@@ -148,7 +146,7 @@ Siga estos pasos para solicitar una migración en vivo:
 1. Rellene la información adicional necesaria en la pestaña **Detalles** y, luego, seleccione **Revisar y crear** para revisar y enviar la incidencia de soporte técnico. Un responsable de soporte técnico se pondrá en contacto con usted para proporcionarle la asistencia que necesite.
 
 > [!NOTE]
-> Los recursos compartidos de archivos prémium (cuentas de FileStorage) solo están disponibles para LRS y ZRS.
+> Los recursos compartidos de archivos Premium solo están disponibles para LRS y ZRS.
 >
 > Las cuentas de almacenamiento de GZRS no admiten actualmente el nivel de archivo. Consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](../blobs/storage-blob-storage-tiers.md) para más información.
 >
@@ -197,7 +195,7 @@ az storage account update -g <resource_group> -n <storage_account> --set kind=St
 
 Los costos asociados a la modificación de la forma en que se replican los datos dependen de la ruta de la conversión. Si se ordenan de la más económica a la más costosa, las ofertas de redundancia de Azure Storage son LRS, ZRS, GRS, RA-GRS, GZRS y RA-GZRS.
 
-Por ejemplo, si se pasa *de* LRS a cualquier otra opción, se incurrirá en cargos adicionales porque se pasará a un nivel de redundancia más sofisticado. Si se migra *a* GRS o RA-GRS se incurrirá en un cargo por ancho de banda de salida porque los datos (en la región primaria) se están replicando en la región secundaria remota. Este cargo es un costo único en la instalación inicial. Después de copiar los datos, ya no hay ningún cargo adicional de migración. Para obtener más información sobre los cargos de ancho de banda, consulte la [página de precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Por ejemplo, si se pasa *de* LRS a cualquier otra opción, se incurrirá en cargos adicionales porque se pasará a un nivel de redundancia más sofisticado. La migración *a* GRS o RA-GRS incurrirá en un cargo de ancho de banda de salida en el momento de la migración porque toda la cuenta de almacenamiento se replica en la región secundaria. Todas las escrituras posteriores en la región primaria también incurren en cargos de ancho de banda de salida para replicar la escritura en la región secundaria. Para obtener más información sobre los cargos de ancho de banda, consulte la [página de precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 Si migra la cuenta de almacenamiento de GRS a LRS no hay ningún costo adicional, pero los datos replicados se eliminarán de la ubicación secundaria.
 

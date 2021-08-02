@@ -6,13 +6,14 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 04/27/2021
-ms.openlocfilehash: fad2fce019848c752217f15aaba8ba4c28a7c874
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.date: 05/12/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 1b8502363d7868b32bf2576742ca443b673c5123
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108177397"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971985"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integración y entrega continuas en Azure Data Factory
 
@@ -161,9 +162,15 @@ Es posible que se produzca un error de acceso denegado en la tarea Azure Key Vau
 
 ### <a name="updating-active-triggers"></a>Actualización de desencadenadores activos
 
+Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo instalar y configurar Azure PowerShell](/powershell/azure/install-Az-ps).
+
+>[!WARNING]
+>Si no usa las versiones más recientes del módulo de PowerShell y Data Factory, puede que se produzcan errores de deserialización al ejecutarse los comandos. 
+>
+
 Puede producirse un error en la implementación si intenta actualizar desencadenadores activos. Para actualizar desencadenadores activos, debe detenerlos manualmente e iniciarlos después de la implementación. Puede hacerlo mediante una tarea de Azure PowerShell:
 
-1.  En la pestaña **Tareas** de la versión, agregue una tarea **Azure PowerShell**. Elija la versión de la tarea 4.*. 
+1.  En la pestaña **Tareas** de la versión, agregue una tarea **Azure PowerShell**. Elija la versión de tarea más reciente de Azure PowerShell. 
 
 1.  Seleccione la suscripción en la que se encuentra la factoría.
 
@@ -618,6 +625,8 @@ No se olvide de agregar los scripts de Data Factory en la canalización de CI/CD
 
 Si no ha configurado Git, puede acceder a las plantillas vinculadas a través de **Export ARM Template** en la lista **Plantilla de ARM**.
 
+Al implementar los recursos, debe especificar si la implementación es una actualización incremental o una actualización completa. La diferencia entre estos dos modos es la forma en que Resource Manager controla los recursos existentes en el grupo de recursos que no están en la plantilla. Revise [Modos de implementación](../azure-resource-manager/templates/deployment-modes.md).
+
 ## <a name="hotfix-production-environment"></a>Entorno de producción de revisión
 
 Si implementa una factoría en producción y se da cuenta de que hay un error que se debe corregir de inmediato, pero no puede implementar la rama de colaboración actual, es posible que deba implementar una revisión. Este enfoque se conoce como ingeniería de corrección rápida o QFE.
@@ -687,7 +696,14 @@ Si usa la integración de Git con la factoría de datos y tiene una canalizació
 
 ## <a name="sample-pre--and-post-deployment-script"></a><a name="script"></a> Script de ejemplo anterior y posterior a la implementación
 
-Se puede usar este script de ejemplo para detener los desencadenadores antes de la implementación y reiniciarlos más adelante. El script también incluye código para eliminar recursos que se han quitado. Guarde el script en un repositorio de Git de Azure DevOps y haga referencia a él mediante una tarea de Azure PowerShell de la versión 4.*.
+Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo instalar y configurar Azure PowerShell](/powershell/azure/install-Az-ps).
+
+>[!WARNING]
+>Si no usa las versiones más recientes del módulo de PowerShell y Data Factory, puede que se produzcan errores de deserialización al ejecutarse los comandos. 
+>
+
+Se puede usar este script de ejemplo para detener los desencadenadores antes de la implementación y reiniciarlos más adelante. El script también incluye código para eliminar recursos que se han quitado. Guarde el script en un repositorio de Git de Azure DevOps y haga referencia a él mediante una tarea de Azure PowerShell de la versión más reciente.
+
 
 Al ejecutar un script anterior a la implementación, tendrá que especificar una variante de los siguientes parámetros en el campo **Argumentos de script**.
 

@@ -6,14 +6,14 @@ ms.author: dech
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 05/18/2021
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 2f47e86b89244cdc2ac41d72203a51b0d91effdb
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: ce17b54905861759c437c2df735dd5515991b507
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108227477"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110456623"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Aprovisionamiento del rendimiento de escalabilidad automática en una base de datos o un contenedor de Azure Cosmos DB: SQL API
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -30,7 +30,7 @@ Si va a usar otra API, vea los artículos [MongoDB API](how-to-provision-through
 
 1. Vaya a la cuenta de Azure Cosmos DB y abra la pestaña **Explorador de datos**.
 
-1. Seleccione **Nuevo contenedor**. Escriba un nombre para la base de datos, el contenedor y una clave de partición. En **Rendimiento**, seleccione la opción **Escalabilidad automática** y elija el [rendimiento máximo (RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) al que desea escalar la base de datos o el contenedor.
+1. Seleccione **Nuevo contenedor**. Escriba un nombre para la base de datos, el contenedor y una clave de partición. En el rendimiento de la base de datos o del contenedor, seleccione la opción **Escalabilidad automática** y establezca el [rendimiento máximo (RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) al que quiere escalar la base de datos o el contenedor.
 
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png" alt-text="Creación de un contenedor y configuración del rendimiento aprovisionado de escalabilidad automática":::
 
@@ -39,9 +39,6 @@ Si va a usar otra API, vea los artículos [MongoDB API](how-to-provision-through
 Para aprovisionar la escalabilidad automática en la base de datos de rendimiento compartido, seleccione la opción **Aprovisionar rendimiento de base de datos** al crear una nueva base de datos. 
 
 ### <a name="enable-autoscale-on-existing-database-or-container"></a>Habilitación de la escalabilidad automática en la base de datos o el contenedor existente
-
-> [!IMPORTANT]
-> En la versión actual, Azure Portal es la única manera de migrar entre la escalabilidad automática y el rendimiento aprovisionado estándar (manual). 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) o en el [explorador de Azure Cosmos DB](https://cosmos.azure.com/).
 
@@ -54,14 +51,14 @@ Para aprovisionar la escalabilidad automática en la base de datos de rendimient
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="Habilitación de la escalabilidad automática en un contenedor existente":::
 
 > [!NOTE]
-> Cuando se habilita la escalabilidad automática en una base de datos o un contenedor existente, el sistema determina el valor inicial para el número máximo de RU/s, en función de la configuración de rendimiento y el almacenamiento aprovisionados manualmente. Una vez completada la operación, puede cambiar el número máximo de RU/s si es necesario. [Más información.](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 
+> Cuando se habilita la escalabilidad automática en una base de datos o un contenedor existente, el sistema determina el valor inicial para el número máximo de RU/s, en función de la configuración de rendimiento y el almacenamiento aprovisionados manualmente. Una vez completada la operación, puede cambiar el número máximo de RU/s si es necesario. [Más información.](autoscale-faq.yml#how-does-the-migration-between-autoscale-and-standard--manual--provisioned-throughput-work-) 
 
 ## <a name="azure-cosmos-db-net-v3-sdk"></a>SDK de Azure Cosmos DB para .NET V3
 
 Use la [versión 3.9 o posterior](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) de la API del SDK de Azure Cosmos DB para .NET para SQL API para administrar los recursos de escalabilidad automática. 
 
 > [!IMPORTANT]
-> Puede usar el SDK para .NET para crear nuevos recursos de escalabilidad automática. El SDK no admite la migración entre el rendimiento estándar (manual) y la escalabilidad automática. El escenario de migración solo se admite actualmente en Azure Portal. 
+> Puede usar el SDK para .NET para crear nuevos recursos de escalabilidad automática. El SDK no admite la migración entre el rendimiento estándar (manual) y la escalabilidad automática. Actualmente, el escenario de migración solo se admite en [Azure Portal](#enable-autoscale-on-existing-database-or-container), la [CLI](#azure-cli) y [PowerShell](#azure-powershell).
 
 ### <a name="create-database-with-shared-throughput"></a>Creación de una base de datos con rendimiento compartido
 
@@ -118,8 +115,7 @@ await container.ReplaceThroughputAsync(ThroughputProperties.CreateAutoscaleThrou
 Puede usar la [versión 4.0 o posterior](https://mvnrepository.com/artifact/com.azure/azure-cosmos) de Azure Cosmos DB Java SDK para SQL API para administrar los recursos de escalabilidad automática.
 
 > [!IMPORTANT]
-> Puede usar el SDK para Java para crear nuevos recursos de escalabilidad automática. El SDK no admite la migración entre el rendimiento estándar (manual) y la escalabilidad automática. El escenario de migración solo se admite actualmente en Azure Portal.
-
+> Puede usar el SDK para Java para crear nuevos recursos de escalabilidad automática. El SDK no admite la migración entre el rendimiento estándar (manual) y la escalabilidad automática. Actualmente, el escenario de migración solo se admite en [Azure Portal](#enable-autoscale-on-existing-database-or-container), la [CLI](#azure-cli) y [PowerShell](#azure-powershell).
 ### <a name="create-database-with-shared-throughput"></a>Creación de una base de datos con rendimiento compartido
 
 # <a name="async"></a>[Asincrónico](#tab/api-async)
@@ -249,18 +245,18 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 
-Las plantillas de Azure Resource Manager se pueden usar para aprovisionar el rendimiento de escalado automático en luna base de datos o en recursos de nivel de contenedor para todas las API de Azure Cosmos DB. Consulte [Plantillas de Azure Resource Manager para Azure Cosmos DB](./templates-samples-sql.md) para ejemplos.
+Las plantillas de Azure Resource Manager se pueden usar para aprovisionar el rendimiento de escalabilidad automática en una nueva base de datos o en recursos de nivel de contenedor para todas las API de Azure Cosmos DB. Consulte [Plantillas de Azure Resource Manager para Azure Cosmos DB](./templates-samples-sql.md) para ejemplos. Por diseño, las plantillas de Azure Resource Manager no se pueden usar para migrar entre el rendimiento aprovisionado y el de escalabilidad automática en un recurso existente. 
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>CLI de Azure
 
-La CLI de Azure se puede usar para aprovisionar el rendimiento de escalado automático en una base de datos o en recursos de nivel de contenedor para todas las API de Azure Cosmos DB. Para ejemplos, consulte [Ejemplos de la CLI de Azure para Azure Cosmos DB](cli-samples.md).
+La CLI de Azure se puede usar para aprovisionar el rendimiento de escalabilidad automática en una nueva base de datos o en recursos de nivel de contenedor para todas las API de Azure Cosmos DB, o para habilitar la escalabilidad automática en un recurso existente. Para ejemplos, consulte [Ejemplos de la CLI de Azure para Azure Cosmos DB](cli-samples.md).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-Azure PowerShell se puede usar para aprovisionar el rendimiento de escalado automático en una base de datos o en recursos de nivel de contenedor para todas las API de Azure Cosmos DB. Para ejemplos, consulte [Ejemplos de Azure PowerShell para Azure Cosmos DB](powershell-samples.md).
+Azure PowerShell se puede usar para aprovisionar el rendimiento de escalabilidad automática en una nueva base de datos o en recursos de nivel de contenedor para todas las API de Azure Cosmos DB, o para habilitar la escalabilidad automática en un recurso existente. Para ejemplos, consulte [Ejemplos de Azure PowerShell para Azure Cosmos DB](powershell-samples.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga información sobre las [ventajas del rendimiento aprovisionado con escalabilidad automática](provision-throughput-autoscale.md#benefits-of-autoscale).
 * Obtenga información acerca de cómo [elegir entre el rendimiento manual y de escalabilidad automática](how-to-choose-offer.md).
-* Revise las [preguntas más frecuentes sobre Escalabilidad automática](autoscale-faq.md).
+* Revise las [preguntas más frecuentes sobre Escalabilidad automática](autoscale-faq.yml).

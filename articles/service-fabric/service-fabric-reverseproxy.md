@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: bharatn
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 012a49762596adee39988614ed0c1020cd8bc104
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d15f8a139a63845470c26048c043d574064e2aa1
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98791111"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112034020"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverso en Azure Service Fabric
 El servidor proxy inverso creado en Azure Service Fabric ayuda a que los microservicios que se ejecutan en un clúster de Service Fabric detecten otros servicios que tienen puntos de conexión HTTP y se comuniquen con estos servicios.
@@ -41,7 +41,7 @@ El servidor proxy inverso expone uno o varios puntos de conexión en el nodo loc
 >
 
 ## <a name="reaching-microservices-from-outside-the-cluster"></a>Comunicación externa con los microservicios a través del clúster
-La comunicación externa predeterminada de los microservicios se basa en un modelo manual; es decir, no se puede acceder directamente a los servicios desde los clientes externos. [Azure Load Balancer](../load-balancer/load-balancer-overview.md) actúa como límite de red entre los microservicios y los clientes externos. Además, realiza la traducción de direcciones de red y reenvía las solicitudes externas a los puntos de conexión IP:port internos. Para hacer que los clientes externos puedan acceder directamente al punto de conexión de un microservicio, primero debe configurar Load Balancer para que reenvíe el tráfico a cada puerto que utilice el servicio del clúster. Además, la mayoría de los microservicios, especialmente los microservicios con estado, no se encuentran en todos los nodos del clúster. Los microservicios se pueden mover entre nodos durante la conmutación por error. En tales casos, el equilibrador de carga no puede determinar eficazmente la ubicación del nodo de destino de las réplicas al que debe reenviar el tráfico.
+La comunicación externa predeterminada de los microservicios se basa en un modelo manual; es decir, no se puede acceder directamente a los servicios desde los clientes externos. [Azure Load Balancer](../load-balancer/load-balancer-overview.md) actúa como límite de red entre los microservicios y los clientes externos. Además, realiza la traducción de direcciones de red y reenvía las solicitudes externas a los puntos de conexión IP:port internos. Para hacer que los clientes externos puedan acceder directamente al punto de conexión de un microservicio, primero debe configurar Load Balancer para que reenvíe el tráfico a cada puerto que utilice el servicio del clúster. Sin embargo, la mayoría de los microservicios, especialmente los microservicios con estado, no se encuentran en todos los nodos del clúster. Los microservicios se pueden mover entre nodos durante la conmutación por error. En tales casos, el equilibrador de carga no puede determinar eficazmente la ubicación del nodo de destino de las réplicas al que debe reenviar el tráfico.
 
 ### <a name="reaching-microservices-via-the-reverse-proxy-from-outside-the-cluster"></a>Comunicación externa con los microservicios a través del clúster mediante el proxy inverso
 En lugar de configurar el puerto de un servicio individual de Load Balancer, puede configurar solo el puerto del proxy inverso de Load Balancer. Esta configuración permite a los clientes externos al clúster comunicarse con los servicios internos de este a través del proxy inverso sin realizar más ajustes en la configuración.

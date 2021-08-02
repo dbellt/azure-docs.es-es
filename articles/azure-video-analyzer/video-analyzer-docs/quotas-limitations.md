@@ -3,13 +3,13 @@ title: 'Cuotas y limitaciones de Azure Video Analyzer: Azure'
 description: En este artículo se describen las cuotas y limitaciones de Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 03/26/2021
-ms.openlocfilehash: ca70737fd9bcf571dd4f0ca729bbe50b540de90e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 05/26/2021
+ms.openlocfilehash: d4bc488411319832b59540fb1392b5d3259cef69
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388645"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110652193"
 ---
 # <a name="video-analyzer-quotas-and-limitations"></a>Cuotas y limitaciones de Azure Video Analyzer
 
@@ -44,6 +44,7 @@ A continuación se indican las limitaciones sobre cómo se pueden conectar nodos
    * No se puede usar después de un procesador de extensión HTTP o gRPC.
 * Procesador de la puerta de señales
    * Debe estar inmediatamente después que el origen RTSP.
+   * No se puede usar en elementos de nivel superior desde un protocolo HTTP o un procesador de extensiones gRPC.
 * Procesador de seguimiento de objetos
    * Debe estar inmediatamente después de un procesador de extensión HTTP o gRPC. El procesador de extensiones no debe aplicar un modelo de IA en cada fotograma del vídeo en directo.
 * Procesador de cruce de líneas

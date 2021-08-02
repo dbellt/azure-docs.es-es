@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c1d78094effe6919587f24c2262612e4fab347d
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: a122c5dc10600b612c20d3a742f3500944562357
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107575384"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111408000"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identidad del dispositivo y virtualización del escritorio
 
@@ -35,10 +35,10 @@ Las versiones persistentes usan una imagen de escritorio única para cada usuari
 
 Las versiones no persistentes usan una colección de equipos de escritorio a los que los usuarios pueden tener acceso según sea necesario. Estos escritorios no persistentes se revierten al estado original. En el caso de los dispositivos de Windows actual<sup>1</sup>, esto sucede cuando una máquina virtual pasa por un proceso de apagado, reinicio o restablecimiento del sistema operativo; y en el caso de dispositivos de Windows de nivel inferior<sup>2</sup> esto sucede cuando un usuario cierra sesión.
 
-Se ha producido un aumento en las implementaciones de VDI no persistentes, ya que el trabajo remoto sigue siendo la norma. A medida que los clientes implementan un entorno VDI no persistente, es importante asegurarse de administrar la tasa de bajas de dispositivos que podrían producirse debido al registro frecuente de dispositivos sin una estrategia adecuada para la administración del ciclo de vida de los dispositivos.
+Se ha producido un aumento en las implementaciones de VDI no persistentes, ya que el trabajo remoto sigue siendo la norma. A medida que los clientes implementan un entorno VDI no persistente, es importante asegurarse de administrar los dispositivos obsoletos que se crean como consecuencia del registro frecuente de dispositivos sin una estrategia adecuada para la administración del ciclo de vida de los dispositivos.
 
 > [!IMPORTANT]
-> Si la tasa de bajas de dispositivos no se administra debidamente, podría provocar una mayor presión en el consumo de cuota por parte de los inquilinos, además de un riesgo potencial de interrupción del servicio si la cuota de los inquilinos se agota. Para evitar esta situación, siga las directrices que se incluyen a continuación cuando implemente entornos VDI no persistentes.
+> Si los dispositivos obsoletos no se administran debidamente, podría provocar una mayor presión en el consumo de cuota por parte de los inquilinos, además de un riesgo potencial de interrupción del servicio si la cuota de los inquilinos se agota. Para evitar esta situación, siga las directrices que se incluyen a continuación cuando implemente entornos VDI no persistentes.
 
 En este artículo se tratan las guías de Microsoft para los administradores sobre la compatibilidad con la identidad del dispositivo y VDI. Para más información sobre la identidad del dispositivo, consulte el artículo [¿Qué es una identidad de dispositivo?](overview.md)
 

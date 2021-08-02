@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/21/2021
+ms.date: 05/25/2021
 ms.author: yelevin
-ms.openlocfilehash: 9115c31b3eb24e9d0e3afd5984ea60308c424a77
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 846eb51c85a00a90b5565064ffa106e4fc69e56c
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109786760"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112059641"
 ---
 # <a name="tutorial-create-custom-analytics-rules-to-detect-threats"></a>Tutorial: Creación de reglas de análisis personalizadas para detectar amenazas
 
@@ -86,7 +86,7 @@ En la pestaña **Establecer la lógica de la regla**, puede escribir una consult
 
 > [!IMPORTANT]
 > Las características de enriquecimiento de alertas se encuentran actualmente en **versión preliminar**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
-    
+
 - Use la sección de configuración **Asignación de entidades** para asignar parámetros de los resultados de las consultas a entidades reconocidas por Azure Sentinel. Las entidades enriquecen la salida de las reglas (alertas e incidentes) con datos esenciales que actúan como bloques de creación de cualquier proceso de investigación y de las acciones de corrección posteriores. También son los criterios por los que puede agrupar las alertas en incidentes en la pestaña **Configuración de los incidentes**.
 
     Obtenga más información sobre las [entidades en Azure Sentinel](entities-in-azure-sentinel.md).
@@ -96,6 +96,10 @@ En la pestaña **Establecer la lógica de la regla**, puede escribir una consult
 - Use la sección configuración de **Detalles personalizados** para extraer elementos de datos de eventos de la consulta y mostrarlos en las alertas generadas por esta regla, lo que le proporciona visibilidad inmediata del contenido del evento en sus alertas e incidentes.
 
     Obtenga más información sobre la exposición de detalles personalizados en alertas y consulte las [instrucciones completas](surface-custom-details-in-alerts.md).
+
+- Use la sección de configuración **Detalles de alerta** para adaptar los detalles de presentación de la alerta a su contenido real. Los detalles de la alerta le permiten mostrar, por ejemplo, la dirección IP o el nombre de cuenta de un atacante en el título de la propia alerta, por lo que aparecerá en la cola de incidentes. Esto ofrece una imagen mucho más completa y clara del panorama de las amenazas.
+
+    Consulte las instrucciones completas sobre [cómo personalizar los detalles de la alerta](customize-alert-details.md).
 
 ### <a name="query-scheduling-and-alert-threshold"></a>Programación de consultas y umbral de alertas
 
@@ -119,11 +123,11 @@ En la pestaña **Establecer la lógica de la regla**, puede escribir una consult
         > Para obtener una explicación técnica detallada de por qué este retraso es necesario y cómo soluciona este problema, consulte la excelente entrada de blog de Ron Marsiano sobre el tema del [control del retraso de la ingesta en reglas de alertas programadas de Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/handling-ingestion-delay-in-azure-sentinel-scheduled-alert-rules/ba-p/2052851).
 
 - Use la sección **Umbral de alerta** para definir el nivel de confidencialidad de la regla. Por ejemplo, en **Generar alerta cuando el número de resultados de consulta**, seleccione **Es mayor que** y escriba el número 1000 si desea que la regla genere una alerta solo si la consulta genera más de 1000 resultados cada vez que se ejecuta. Este es un campo obligatorio, por lo que si no desea establecer un umbral (es decir, si desea que su alerta registre todos los eventos), escriba 0 en el campo numérico.
-    
+
 ### <a name="results-simulation"></a>Simulación de resultados
 
 En el área **Results simulation** (Simulación de resultados) de la derecha del asistente, seleccione **Test with current data** (Probar con los datos actuales) y Azure Sentinel mostrará un gráfico de los resultados (eventos de registro) que la consulta habría generado en las últimas 50 ejecuciones, según la programación definida actualmente. Si modifica la consulta, vuelva a seleccionar **Probar con los datos actuales** para actualizar el gráfico. El gráfico muestra el número de resultados en un periodo definido, lo que determina la configuración de la sección **Query scheduling** (Programación de consultas).
-  
+
 Este es el aspecto que podría tener la simulación de resultados en la consulta de la captura de pantalla anterior. El lado izquierdo es la vista predeterminada, mientras que el lado derecho es lo que se ve al mantener el mouse sobre un momento dado del gráfico.
 
 :::image type="content" source="media/tutorial-detect-threats-custom/results-simulation.png" alt-text="Capturas de pantallas de simulación de resultados":::
@@ -134,15 +138,25 @@ Si percibe que la consulta desencadenaría alertas excesivas o demasiado frecuen
 
 > [!IMPORTANT]
 > La agrupación de eventos se encuentra actualmente en **versión preliminar**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
-    
+
 - En **Agrupación de eventos**, elija una de las dos formas de controlar la agrupación de **eventos** en **alertas**: 
 
     - **Agrupar todos los eventos en una misma alerta** (la configuración predeterminada). La regla genera una única alerta cada vez que se ejecuta, siempre y cuando la consulta devuelva más resultados de los especificados en el **umbral de alerta** anterior. La alerta incluye un resumen de todos los eventos que se devuelven en los resultados. 
 
     - **Desencadenar una alerta para cada evento**. La regla genera una alerta única para cada evento devuelto por la consulta. Esto resulta útil si desea que los eventos se muestren individualmente, o si desea agruparlos por determinados parámetros por usuario, nombre de host o cualquier otro elemento. Puede definir estos parámetros en la consulta.
-    
+
         En la actualidad, el número de alertas que puede generar una regla se limita a veinte. Si en una regla determinada, **Agrupación de eventos** se establece en **Desencadenar una alerta para cada evento** y la consulta de la regla devuelve más de 20 eventos, cada uno de los primeros 19 eventos generará una alerta única y la vigésima alerta resumirá todo el conjunto de eventos devueltos. En otras palabras, la vigésima alerta es lo que habría generado en la opción **Agrupar todos los eventos en una misma alerta**.
 
+        Si elige esta opción, Azure Sentinel agregará un nuevo campo, **OriginalQuery**, a los resultados de la consulta. Esta es una comparación del campo **Query** existente y el nuevo campo:
+
+        | Nombre del campo | Contiene | Al ejecutar la consulta en este campo<br>el resultado es... |
+        | - | :-: | :-: |
+        | **Consultar** | Registro comprimido del evento que generó esta instancia de la alerta. | Evento que generó esta instancia de la alerta. |
+        | **OriginalQuery** | La consulta original tal y como está escrita en la regla de&nbsp;análisis. | El evento más reciente en el período de tiempo en el que se ejecuta la consulta, que se ajusta a los parámetros definidos por la consulta. |
+        |
+
+        En otras palabras, el campo **OriginalQuery** se comporta como normalmente se comporta el campo **Query**. El resultado de este campo adicional es que se ha resuelto el problema descrito por el primer elemento de la sección [Solución de problemas](#troubleshooting) siguiente.
+ 
     > [!NOTE]
     > ¿En qué se diferencian los **eventos** y las **alertas**?
     >
@@ -163,12 +177,14 @@ En la pestaña **Incident Settings** (Configuración de incidentes), puede elegi
 > [!IMPORTANT]
 > La pestaña Configuración de los incidentes está actualmente en **versión preliminar**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
+Por ejemplo:
+
 :::image type="content" source="media/tutorial-detect-threats-custom/incident-settings-tab.png" alt-text="Definir la configuración de creación de incidentes y la agrupación de alertas":::
 
 ### <a name="incident-settings"></a>Configuración de los incidentes
 
 En la sección **Configuración de los incidentes**, el valor predeterminado de **Crear incidentes a partir de las alertas desencadenadas por esta regla de análisis** es **Habilitado**, lo que significa que Azure Sentinel creará un solo incidente independiente por cada una de las alertas que desencadene la regla.
-    
+
 - Si no desea que esta regla provoque la aparición de incidentes (por ejemplo, si esta regla es solo para recopilar información para su posterior análisis), seleccione **Disabled** (Deshabilitado).
 
 - Si desea que se cree un solo incidente a partir de un grupo de alertas, en lugar de uno para cada alerta, consulte la sección siguiente.
@@ -177,15 +193,17 @@ En la sección **Configuración de los incidentes**, el valor predeterminado de 
 
 En la sección **Alert grouping** (Agrupación de alertas), si desea que se genere un solo incidente a partir de un grupo de hasta 150 alertas similares o recurrentes (consulte la nota), en **Group related alerts, triggered by this analytics rule, into incidents** (Agrupar en incidentes alertas relacionadas desencadenadas por esta regla de análisis) seleccione **Enabled** (Habilitado) y establezca los siguientes parámetros.
 
+
 - **Limite el grupo a las alertas creadas en el período de tiempo seleccionado**: Determine el período de tiempo en el que se agruparán las alertas similares o periódicas. Todas las alertas correspondientes que se encuentren dentro de este periodo de tiempo generarán colectivamente un incidente o un conjunto de incidentes (en función de la configuración de agrupación que encontrará a continuación). Las alertas que aparezcan fuera de este periodo de tiempo generarán un incidente, o conjunto de incidentes, independientes.
 
 - **Agrupe las alertas desencadenadas por esta regla de análisis en un único incidente por**: elija el motivo por el que se agruparán las alertas:
 
-    - **Agrupar las alertas en un solo incidente si todas las entidades coinciden**: Las alertas se agrupan si comparten los mismos valores entre todas las entidades asignadas (definidas en la pestaña Set rule logic [Establecer lógica de regla] anterior). Esta es la configuración recomendada.
-
-    - **Agrupar todas las alertas desencadenadas por esta regla en un único incidente**: Todas las alertas que genera esta regla se agrupan aunque no compartan valores idénticos.
-
-    - **Agrupar las alertas en un solo incidente si las entidades seleccionadas coinciden**: Las alertas se agrupan si comparten valores idénticos en algunas de las entidades asignadas (que puede seleccionar en la lista desplegable). Es posible que desee usar esta opción si, por ejemplo, desea crear incidentes independientes basados en las direcciones IP de origen o de destino.
+    | Opción | Descripción |
+    | ------- | ---------- |
+    | **Agrupar las alertas en un solo incidente si todas las entidades coinciden** | Las alertas se agrupan si comparten los mismos valores entre todas las entidades asignadas, definidas en la pestaña [Set rule logic](#define-the-rule-query-logic-and-configure-settings) (Establecer lógica de regla) anterior. Esta es la configuración recomendada. |
+    | **Agrupar todas las alertas desencadenadas por esta regla en un único incidente** | Todas las alertas que genera esta regla se agrupan aunque no compartan valores idénticos. |
+    | **Agrupar las alertas en un solo incidente si las entidades seleccionadas y los detalles coinciden** | Las alertas se agrupan si comparten valores idénticos para todas las entidades asignadas, los detalles de las alertas y los detalles personalizados seleccionados en las listas desplegables correspondientes.<br><br>Es posible que quiera usar esta configuración si, por ejemplo, quiere crear incidentes independientes basados en las direcciones IP de origen o de destino, o si desea agrupar las alertas que coincidan con una entidad y gravedad específicas.<br><br>**Nota:** Al seleccionar esta opción, debe tener al menos un tipo de entidad o campo seleccionado para la regla. De lo contrario, se producirá un error en la validación de la regla y esta no se creará. |
+    |
 
 - **Vuelva a abrir los incidentes coincidentes cerrados**: si se ha resuelto y cerrado un incidente y, posteriormente, se genera otra alerta que habría pertenecido a ese incidente, establezca esta opción en **Enabled** (Habilitado) si quiere que el incidente cerrado se vuelva a abrir, o bien déjela como **Disabled** (Deshabilitado) si quiere que la alerta cree un incidente nuevo.
     
@@ -213,6 +231,10 @@ En la sección **Alert grouping** (Agrupación de alertas), si desea que se gene
 > [!NOTE]
 > Las alertas generadas en Azure Sentinel están disponibles a través de [Seguridad de Microsoft Graph](/graph/security-concept-overview). Para obtener más información, vea la [documentación sobre alertas de Seguridad de Microsoft Graph](/graph/api/resources/security-api-overview).
 
+## <a name="export-the-rule-to-an-arm-template"></a>Exportación de la regla a una plantilla de ARM
+
+Si desea empaquetar la regla para administrarla e implementarla como código, puede [exportarla fácilmente a una plantilla de Azure Resource Manager (ARM)](import-export-analytics-rules.md). También puede importar reglas de archivos de plantilla para verlos y editarlos en la interfaz de usuario.
+
 ## <a name="troubleshooting"></a>Solución de problemas
 
 ### <a name="issue-no-events-appear-in-query-results"></a>Problema: no aparece ningún evento en los resultados de la consulta
@@ -220,6 +242,9 @@ En la sección **Alert grouping** (Agrupación de alertas), si desea que se gene
 Si la **agrupación de eventos** se establece para **desencadenar una alerta para cada evento**, en determinados escenarios, al ver los resultados de la consulta posteriormente (por ejemplo, al volver a las alertas de un incidente), es posible que no aparezca ningún resultado de la consulta. Esto se debe a que la conexión del evento a la alerta se logra mediante el hash de la información del evento concreto y la inclusión del hash en la consulta. Si los resultados de la consulta han cambiado desde que se generó la alerta, el hash dejará de ser válido y no se mostrará ningún resultado. 
 
 Para ver los eventos, quite manualmente la línea con el hash de la consulta de la regla y ejecute la consulta.
+
+> [!NOTE]
+> Este problema se ha resuelto mediante la adición de un nuevo campo, **OriginalQuery**, a los resultados cuando se selecciona esta opción de agrupación de eventos. Consulte la [descripción](#event-grouping-and-rule-suppression) anterior.
 
 ### <a name="issue-a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name"></a>Problema: No se pudo ejecutar una regla programada o aparece con el texto AUTO DISABLED agregado al nombre
 

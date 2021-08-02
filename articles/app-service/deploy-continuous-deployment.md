@@ -6,19 +6,19 @@ ms.topic: article
 ms.date: 03/12/2021
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 633d62fc69c516b482d5749a07052337dc71f567
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: aa058f0de74941a8ac9fe711c7b6de59240680bb
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789490"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110536679"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implementación continua en Azure App Service
 
 [Azure App Service](overview.md) le permite realizar implementaciones continuas desde los repositorios de [GitHub](https://help.github.com/articles/create-a-repo), [BitBucket](https://confluence.atlassian.com/get-started-with-bitbucket/create-a-repository-861178559.html) y [Azure Repos](/azure/devops/repos/git/creatingrepo) al incorporar las últimas actualizaciones.
 
 > [!NOTE]
-> La página **Centro de desarrollo (clásico)** en Azure Portal, que es la experiencia de implementación anterior, quedará en desuso en marzo de 2021. Este cambio no afectará a ninguna configuración de implementación existente en la aplicación y puede continuar con la administración de la implementación de aplicaciones en la página **Centro de implementación**.
+> La página **Centro de desarrollo (clásico)** de Azure Portal, una versión anterior de la experiencia de implementación, quedó en desuso en marzo de 2021. Este cambio no afecta a ninguna configuración de implementación existente en la aplicación, y puede continuar con la administración de la implementación de aplicaciones en la página **Centro de implementación** del portal.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -43,7 +43,7 @@ Elija la pestaña que se corresponda con la selección de los pasos.
 
 1. Si va a realizar la implementación desde GitHub por primera vez, haga clic en **Autorizar** y siga las indicaciones de autorización. Si quiere realizar la implementación desde un repositorio de usuario diferente, haga clic en **Cambiar cuenta**.
 
-1. Una vez que autorice su cuenta de Azure con GitHub, seleccione la **organización**, el **repositorio** y la **rama** para configurar CI/CD.
+1. Una vez que autorice su cuenta de Azure con GitHub, seleccione la **organización**, el **repositorio** y la **rama** para configurar CI/CD. Si no encuentra ningún repositorio ni ninguna organización, es posible que deba habilitar permisos adicionales en GitHub. Para más información, consulte [Administración del acceso a los repositorios de la organización](https://docs.github.com/organizations/managing-access-to-your-organizations-repositories).
 
 1. Cuando Acciones de GitHub es el proveedor de compilación elegido, puede seleccionar el archivo de flujo de trabajo que quiera con las listas desplegables **Pila en tiempo de ejecución** y **Versión**. Azure confirma este archivo de flujo de trabajo en el repositorio de GitHub seleccionado para controlar las tareas de compilación e implementación. Para ver el archivo antes de guardar los cambios, haga clic en **vista previa del archivo**.
 

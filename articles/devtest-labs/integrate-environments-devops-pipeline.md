@@ -3,12 +3,12 @@ title: Integración de entornos en Azure Pipelines en Azure DevTest Labs
 description: Aprenda a integrar entornos de Azure DevTest Labs en las canalizaciones de integración continua (CI) y entrega continua (CD) de Azure DevOps.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: be726b2a3f67fd3dada4fdc3cf794922a3c18d06
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 18f334fe85b6a38c38fc41d55c711ee6d6629760
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "85483030"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112006138"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integración de entornos en las canalizaciones CI/CD de Azure DevOps
 Puede usar la extensión Azure DevTest Labs Tasks que se instala en Azure DevOps Services (anteriormente conocido como Visual Studio Team Services) para integrar fácilmente la canalización de compilación y versión de integración continua (CI) y entrega continua (CD) con Azure DevTest Labs. Estas extensiones permiten que sea más fácil implementar rápidamente un [entorno](devtest-lab-test-env.md) para una determinada tarea de prueba y, luego, eliminarlo cuando finalice la prueba. 
@@ -26,8 +26,8 @@ En esta sección se describe cómo crear y configurar un laboratorio donde se va
 
 1. [Cree un laboratorio](devtest-lab-create-lab.md) si aún no tiene uno. 
 2. Configure el laboratorio y cree una plantilla de entorno siguiendo las instrucciones de este artículo: [Creación de entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager](devtest-lab-create-environment-from-arm.md).
-3. En este ejemplo, use una plantilla de inicio rápido de Azure existente [https://azure.microsoft.com/resources/templates/201-web-app-redis-cache-sql-database/](https://azure.microsoft.com/resources/templates/201-web-app-redis-cache-sql-database/).
-4. Copie la carpeta **201-web-app-redis-cache-sql-database** en la carpeta **ArmTemplate** en el repositorio configurado en el paso 2.
+3. En este ejemplo, use una plantilla de inicio rápido de Azure existente [https://azure.microsoft.com/resources/templates/web-app-redis-cache-sql-database](https://azure.microsoft.com/resources/templates/web-app-redis-cache-sql-database).
+4. Copie la carpeta **web-app-redis-cache-sql-database** en la carpeta **ArmTemplate** del repositorio configurado en el paso 2.
 
 ## <a name="create-a-release-definition"></a>Creación de una definición de versión
 Para crear la definición de la versión, siga estos pasos:

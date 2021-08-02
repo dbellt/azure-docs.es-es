@@ -3,12 +3,12 @@ title: Información general de las características de Azure Event Hubs | Micros
 description: En este artículo se proporcionan detalles acerca de las características y la terminología de Azure Event Hubs.
 ms.topic: article
 ms.date: 03/15/2021
-ms.openlocfilehash: 4fdcee27cd414069572e996f31de37d1ae641d13
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: e75e8fe3b405652e245119cafa828e752436095b
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107988449"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111422136"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Características y terminología de Azure Event Hubs
 
@@ -51,7 +51,7 @@ Los eventos publicados se quitan de un centro de eventos en función de una dire
 
 - El valor **predeterminado** y el período de retención **más corto** posible es de **1 día (24 horas)** .
 - En el caso de Event Hubs **estándar**, el período de retención máximo es de **7 días**. 
-- En el caso de Event Hubs **dedicado**, el período de retención máximo es de **90 días**.
+- En el caso de que el nivel de Event Hubs sea **Premium** o **Dedicado**, el período de retención máximo es de **90 días**.
 - Si cambia el período de retención, se aplica a todos los mensajes, incluidos los que ya están en el centro de eventos. 
 
 Event Hubs retiene los eventos durante el tiempo de retención configurado, que se aplica a todas las particiones. Los eventos se eliminan automáticamente cuando se alcanza el período de retención. Si especifica un período de retención de un día, el evento dejará de estar disponible exactamente 24 horas después de que se haya aceptado. No se pueden eliminar eventos explícitamente. 
@@ -101,7 +101,7 @@ Cualquier entidad que lea datos de eventos de un centro de eventos es un *consum
 
 El mecanismo de publicación y suscripción de Event Hubs se habilita a través de los *grupos de consumidores*. Un grupo de consumidores es una vista (estado, posición o desplazamiento) de un centro de eventos completo. Los grupos de consumidores habilitan varias aplicaciones consumidoras para que cada una tenga una vista separada del flujo de eventos y para que lean el flujo de forma independiente a su propio ritmo y con sus propios desplazamientos.
 
-En una arquitectura de procesamiento de flujos, cada aplicación de bajada se corresponde con un grupo de consumidores. Si quiere escribir datos de eventos para el almacenamiento a largo plazo, esa aplicación de escritura de almacenamiento es un grupo de consumidores. Otro grupo de consumidores independiente puede realizar el procesamiento de eventos complejos. Solo puede obtener acceso a las particiones a través de un grupo de consumidores. Siempre hay un grupo de consumidores predeterminado en un centro de eventos y puede crear hasta 20 grupos de consumidores para un centro de eventos de nivel Estándar.
+En una arquitectura de procesamiento de flujos, cada aplicación de bajada se corresponde con un grupo de consumidores. Si quiere escribir datos de eventos para el almacenamiento a largo plazo, esa aplicación de escritura de almacenamiento es un grupo de consumidores. Otro grupo de consumidores independiente puede realizar el procesamiento de eventos complejos. Solo puede obtener acceso a las particiones a través de un grupo de consumidores. Siempre hay un grupo de consumidores predeterminado en un centro de eventos y puede crear hasta el [número máximo de grupos de consumidores](event-hubs-quotas.md) para el plan de tarifa correspondiente. 
 
 Como máximo, puede haber cinco lectores simultáneos en una partición por grupo de consumidores; pero **se recomienda que solo haya un receptor activo en una partición por grupo de consumidores**. Cada lector recibe todos los mensajes dentro de una sola partición. Si tiene varios lectores en la misma partición, procesará los mensajes duplicados. Debe controlar esto en su código, pues no puede ser trivial. Sin embargo, es un enfoque válido en algunos escenarios.
 

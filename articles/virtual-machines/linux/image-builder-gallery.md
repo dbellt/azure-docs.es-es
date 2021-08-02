@@ -1,5 +1,5 @@
 ---
-title: Uso de Azure Image Builder y Shared Image Gallery para máquinas virtuales Linux (versión preliminar)
+title: Uso de Azure Image Builder y Shared Image Gallery para máquinas virtuales Linux
 description: Aprenda a usar Azure Image Builder y la CLI de Azure para crear una versión de la imagen en el servicio Shared Image Gallery y después distribuirla globalmente.
 author: cynthn
 ms.author: cynthn
@@ -9,14 +9,14 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: danis
-ms.openlocfilehash: cf7f5ed4a27772a89d0356c60e6f7135786ca07d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8ba997980de6e28fbe2b12fc9541a1d11667922d
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101695607"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112028512"
 ---
-# <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Vista previa: Crear una imagen de Linux y distribuirla en una galería de imágenes compartidas 
+# <a name="create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Crear una imagen de Linux y distribuirla en una galería de imágenes compartidas 
 
 En este artículo se muestra cómo puede usar Azure Image Builder y la CLI de Azure para crear una versión de la imagen en el servicio [Shared Image Gallery](../shared-image-galleries.md) y después distribuirla globalmente. También puede hacerlo mediante [Azure PowerShell](../windows/image-builder-gallery.md).
 
@@ -25,22 +25,10 @@ Se usará una plantilla .json de ejemplo para configurar la imagen. El archivo .
 
 Para distribuir la imagen en una galería de imágenes compartidas, en la plantilla se usa [sharedImage](image-builder-json.md#distribute-sharedimage) como valor de la sección `distribute` de la plantilla.
 
-> [!IMPORTANT]
-> Actualmente, el generador de imágenes de Azure se encuentra en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="register-the-features"></a>Registro de las características
-Para usar el generador de imágenes de Azure durante la versión preliminar, tendrá que registrar la nueva característica.
 
-```azurecli-interactive
-az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
-```
-
-Compruebe el estado del registro de la característica.
-
-```azurecli-interactive
-az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
-```
+Para usar Azure Image Builder, debe registrar la característica.
 
 Compruebe el registro.
 
@@ -66,7 +54,7 @@ az provider register -n Microsoft.Network
 
 Usaremos algunos datos de forma repetida, por lo que crearemos diversas variables para almacenar esa información.
 
-Para la versión preliminar, el generador de imágenes solo admitirá la creación de imágenes personalizadas en el mismo grupo de recursos que la imagen administrada de origen. Actualice el nombre del grupo de recursos de este ejemplo para que coincida con el de la imagen administrada de origen.
+Image Builder solo admite la creación de imágenes personalizadas en el mismo grupo de recursos que la imagen administrada de origen. Actualice el nombre del grupo de recursos de este ejemplo para que coincida con el de la imagen administrada de origen.
 
 ```azurecli-interactive
 # Resource group name - we are using ibLinuxGalleryRG in this example

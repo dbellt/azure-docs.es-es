@@ -9,12 +9,12 @@ ms.subservice: trusted-launch
 ms.topic: how-to
 ms.date: 04/06/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 295579d17f3b24adcf43f6907cc4b1aca01dcae2
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 15386baa369b18678ef84ebed8144d358fa8177f
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565923"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109839372"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>Implementación de una máquina virtual con el inicio seguro habilitado (versión preliminar)
 
@@ -22,7 +22,7 @@ El [inicio seguro](trusted-launch.md) es una manera de mejorar la seguridad de l
 
 > [!IMPORTANT]
 > El inicio seguro está actualmente en versión preliminar pública.
-> 
+>
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 >
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -32,9 +32,9 @@ El [inicio seguro](trusted-launch.md) es una manera de mejorar la seguridad de l
 Cree una máquina virtual con el inicio seguro habilitado.
 
 1. Inicie sesión en [Azure Portal](https://aka.ms/TL_preview).
-   > [!NOTE] 
+   > [!NOTE]
    > El vínculo del portal es único de la versión preliminar de inicio seguro.
-   >  
+   >
 2. Busque **Máquinas virtuales**.
 3. En **Servicios**, seleccione **Máquinas virtuales**.
 4. En la página **Máquinas virtuales**, seleccione **Agregar** y, después, **Máquina virtual**.
@@ -48,7 +48,7 @@ Cree una máquina virtual con el inicio seguro habilitado.
     :::image type="content" source="media/trusted-launch/gen-2-image.png" alt-text="Captura de pantalla que muestra el mensaje que confirma que se trata de una imagen de generación 2 compatible con el inicio seguro.":::
 
 13. Seleccione un tamaño de máquina virtual que admita el inicio seguro. Consulte la lista de [tamaños compatibles](trusted-launch.md#public-preview-limitations).
-14. Rellene la información de **Cuenta de administrador** y **Reglas del puerto de entrada**. 
+14. Rellene la información de **Cuenta de administrador** y **Reglas del puerto de entrada**.
 1. Seleccione **Avanzado** en la parte superior de la página para pasar a esta pestaña.
 1. Desplácese hacia abajo hasta la sección **Generación de VM**. Asegúrese de **Gen 2** está seleccionado.
 1. Todavía en la pestaña **Avanzado**, desplácese hacia abajo hasta **Inicio seguro** y active la casilla **Inicio seguro**. Esto hará que aparezcan dos opciones más: Arranque seguro y vTPM. Seleccione las opciones adecuadas para su implementación.
@@ -61,23 +61,21 @@ Cree una máquina virtual con el inicio seguro habilitado.
     :::image type="content" source="media/trusted-launch/validation.png" alt-text="Captura de pantalla de la página de validación, donde se muestran las opciones de inicio seguro incluidas.":::
 
 
-La implementación de la máquina virtual tardará unos minutos. 
+La implementación de la máquina virtual tardará unos minutos.
 
 ## <a name="deploy-using-a-template"></a>Implementación mediante una plantilla
 
 Puede implementar máquinas virtuales con inicio seguro mediante una plantilla de inicio rápido:
 
-**Linux**:    
-[![Implementar en Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2FcreateUiDefinition.json)
+**Linux**: [![Implementar en Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-linux%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-linux%2FcreateUiDefinition.json)
 
-**Windows**:    
-[![Implementar en Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2FcreateUiDefinition.json)
+**Windows**: [![Implementar en Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-windows%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-windows%2FcreateUiDefinition.json)
 
 ## <a name="view-and-update"></a>Consulta y actualización
 
 Puede ver la configuración del inicio seguro de una máquina virtual existente en su página **Información general** en el portal.
 
-Para cambiar la configuración del inicio seguro, en el menú de la izquierda, seleccione **Configuración** en la sección **Configuración**. En la sección **Inicio seguro**, puede habilitar o deshabilitar el arranque seguro y vTPM. Cuando haya terminado, seleccione **Guardar** en la parte superior de la página. 
+Para cambiar la configuración del inicio seguro, en el menú de la izquierda, seleccione **Configuración** en la sección **Configuración**. En la sección **Inicio seguro**, puede habilitar o deshabilitar el arranque seguro y vTPM. Cuando haya terminado, seleccione **Guardar** en la parte superior de la página.
 
 :::image type="content" source="media/trusted-launch/configuration.png" alt-text="Captura de pantalla sobre cómo cambiar la configuración de inicio seguro.":::
 
@@ -87,24 +85,24 @@ Si la máquina virtual se está ejecutando, aparecerá un mensaje que le indicar
 ## <a name="verify-secure-boot-and-vtpm"></a>Comprobación del arranque seguro y vTPM
 
 Puede comprobar si el arranque seguro y vTPM están habilitados en la máquina virtual.
-    
+
 ### <a name="linux-validate-if-secure-boot-is-running"></a>Linux: comprobar si está habilitado el arranque seguro
 
-Conéctese mediante SSH a la máquina virtual y, a continuación, ejecute el siguiente comando: 
+Conéctese mediante SSH a la máquina virtual y, a continuación, ejecute el siguiente comando:
 
 ```bash
 mokutil --sb-state
 ```
 
 Si el arranque seguro está habilitado, el comando devolverá:
- 
+
 ```bash
-SecureBoot enabled 
+SecureBoot enabled
 ```
 
 ### <a name="linux-validate-if-vtpm-is-enabled"></a>Linux: comprobar si está habilitado vTPM
 
-Utilice SSH en la máquina virtual. Compruebe si el dispositivo tpm0 está presente: 
+Utilice SSH en la máquina virtual. Compruebe si el dispositivo tpm0 está presente:
 
 ```bash
 ls /dev/tpm0
@@ -130,7 +128,7 @@ En el panel derecho, compruebe que Estado de arranque seguro muestra **Activado*
 
 ## <a name="enable-the-azure-security-center-experience"></a>Habilitación de la experiencia de Azure Security Center
 
-Para que Azure Security Center muestre información sobre las máquinas virtuales con inicio seguro, debe habilitar varias directivas. La forma más fácil de habilitar las directivas es mediante la implementación de esta [plantilla de Resource Manager](https://github.com/prash200/azure-quickstart-templates/tree/master/101-asc-trustedlaunch-policies) en su suscripción. 
+Para que Azure Security Center muestre información sobre las máquinas virtuales con inicio seguro, debe habilitar varias directivas. La forma más fácil de habilitar las directivas es mediante la implementación de esta [plantilla de Resource Manager](https://github.com/prash200/azure-quickstart-templates/tree/master/101-asc-trustedlaunch-policies) en su suscripción.
 
 Seleccione el botón siguiente para implementar las directivas en la suscripción:
 
@@ -139,7 +137,7 @@ Seleccione el botón siguiente para implementar las directivas en la suscripció
 La plantilla solo debe implementarse una vez por cada suscripción. Instala automáticamente las extensiones `GuestAttestation` y `AzureSecurity` en todas las máquinas virtuales compatibles. Si aparecen errores, intente volver a implementar la plantilla.
 
 Para conocer las recomendaciones sobre vTPM y arranque seguro en máquinas virtuales con inicio seguro, consulte [Agregar una iniciativa personalizada a la suscripción](../security-center/custom-security-policies.md#to-add-a-custom-initiative-to-your-subscription).
- 
+
 ## <a name="sign-things-for-secure-boot-on-linux"></a>Firma de elementos para el arranque seguro en Linux
 
 En algunos casos, puede que necesite firmar algunos elementos para disponer del arranque seguro de UEFI.  Por ejemplo, puede que tenga que seguir el [procedimiento para firmar elementos de arranque seguro](https://ubuntu.com/blog/how-to-sign-things-for-secure-boot) para Ubuntu. En estos casos, debe especificar las claves de inscripción de la utilidad MOK para la máquina virtual. Deberá usar la consola serie de Azure para acceder a la utilidad MOK.
@@ -152,7 +150,7 @@ En algunos casos, puede que necesite firmar algunos elementos para disponer del 
 1. Una vez que haya iniciado sesión, use `mokutil` para importar el archivo de clave pública `.der`.
 
     ```bash
-    sudo mokutil –import <path to public key.der> 
+    sudo mokutil –import <path to public key.der>
     ```
 1. Reinicie la máquina desde la consola serie de Azure; para ello, escriba `sudo reboot`. Se iniciará una cuenta atrás de 10 segundos.
 1. Presione la tecla de flecha arriba o abajo para interrumpir la cuenta atrás y esperar en el modo de consola UEFI. Si no se interrumpe el temporizador, el proceso de arranque continúa y se pierden todos los cambios de MOK.

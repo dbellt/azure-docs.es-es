@@ -6,12 +6,12 @@ author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 9a79a9f863e4deaee27ddfbfdcefd3511fac5032
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 3b4a98e37c16feeb2ad8203caaeb5bc231761379
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109752182"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112004230"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Clústeres dedicados de registros de Azure Monitor
 
@@ -22,7 +22,7 @@ Las funcionalidades que requieren clústeres dedicados son las siguientes:
 - **[Claves administradas por el cliente](../logs/customer-managed-keys.md)** : cifre los datos del clúster mediante las claves proporcionadas y controladas por el cliente.
 - **[Caja de seguridad](../logs/customer-managed-keys.md#customer-lockbox-preview)** : los clientes pueden controlar las solicitudes de acceso a los datos de los ingenieros de soporte técnico de Microsoft.
 - **[Cifrado doble](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)** : protege en caso de que uno de los algoritmos o claves de cifrado puedan estar en peligro. En este caso, la capa adicional de cifrado también protege los datos.
-- **[Varias áreas de trabajo](../logs/cross-workspace-query.md)** : si un cliente usa más de un área de trabajo para producción, puede que tenga sentido usar un clúster dedicado. Las consultas entre áreas de trabajo se ejecutarán más rápido si todas las áreas de trabajo están en el mismo clúster. Puede ser más rentable también usar un clúster dedicado, ya que los niveles de reserva de capacidad asignados tienen en cuenta toda la ingesta del clúster y se aplican a todas sus áreas de trabajo, incluso si algunas de ellas son pequeñas y no son válidas para el descuento de la reserva de capacidad.
+- **[Varias áreas de trabajo](../logs/cross-workspace-query.md)** : si un cliente usa más de un área de trabajo para producción, puede que tenga sentido usar un clúster dedicado. Las consultas entre áreas de trabajo se ejecutarán más rápido si todas las áreas de trabajo están en el mismo clúster. Puede ser más rentable también usar un clúster dedicado, ya que los niveles de compromiso asignados tienen en cuenta toda la ingesta del clúster y se aplican a todas sus áreas de trabajo, incluso si algunas de ellas son pequeñas y no son válidas para el descuento de nivel de compromiso.
 
 Los clústeres dedicados requieren que los clientes confirmen el uso de una capacidad de al menos 1 TB de ingesta de datos al día. La migración a un clúster dedicado es sencilla. No se produce ninguna pérdida de datos ni interrupción del servicio. 
 
@@ -39,17 +39,17 @@ Todas las operaciones en el nivel de clúster requieren el permiso de acción `M
 
 ## <a name="cluster-pricing-model"></a>Modelo de precios de clúster
 
-Los clústeres dedicados de Log Analytics usan un modelo de precios de reserva de capacidad de al menos 1000 GB/día. Cualquier uso por encima del nivel de reserva se facturará según la tarifa de pago por uso.  La información de precios de reserva de capacidad está disponible en la [página de precios de Azure Monitor]( https://azure.microsoft.com/pricing/details/monitor/).  
+Los clústeres dedicados de Log Analytics usan un modelo de precios de nivel de compromiso de al menos 1000 GB/día. Cualquier uso por encima del nivel se facturará a una tarifa efectiva por GB de ese nivel de compromiso.  La información de precios del plan de compromiso está disponible en la [página de precios de Azure Monitor]( https://azure.microsoft.com/pricing/details/monitor/).  
 
-El nivel de reserva de capacidad del clúster se configura mediante programación con Azure Resource Manager con el parámetro `Capacity` en `Sku`. El parámetro `Capacity` se especifica en unidades de GB y puede tener valores de 1000 GB/día o más en incrementos de 100 GB/día.
+El nivel de compromiso del clúster se configura mediante programación con Azure Resource Manager usando el parámetro `Capacity` en `Sku`. `Capacity` se especifica en unidades de GB y puede tener valores de 1000, 2000 o 5000 GB/día.
 
 Hay dos modos de facturación para el uso en un clúster. Estos pueden especificarse mediante el parámetro `billingType` al configurar el clúster. 
 
 1. **Clúster**: en este caso (que es el modo predeterminado), la facturación de los datos ingeridos se realiza en el nivel de clúster. Las cantidades de datos ingeridas desde cada área de trabajo asociada a un clúster se suman para calcular la factura diaria del clúster. 
 
-2. **Áreas de trabajo**: los costos de reserva de capacidad para el clúster se atribuyen proporcionalmente a las áreas de trabajo del clúster (después de tener en cuenta las asignaciones por nodo de [Azure Security Center](../../security-center/index.yml) para cada área de trabajo).
+2. **Workspaces**: los costos del nivel de compromiso del clúster se atribuyen proporcionalmente a las áreas de trabajo del clúster, según el volumen de ingesta de datos de cada área de trabajo (después de tener en cuenta las asignaciones por nodo de [Azure Security Center](../../security-center/index.yml) para cada área de trabajo). Estos detalles completos de este modelo de precios se explican [aquí]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters). 
 
-Si el área de trabajo usa el plan de tarifa heredado por nodo, cuando esté vinculado a un clúster se le facturará en función de los datos ingeridos en relación con la reserva de capacidad del clúster en lugar de por nodo. Se seguirán aplicando las asignaciones de datos por nodo de Azure Security Center.
+Si el área de trabajo usa el plan de tarifa heredado por nodo, cuando esté vinculado a un clúster se le facturará en función de los datos ingeridos en relación con el nivel de compromiso en lugar de por nodo. Se seguirán aplicando las asignaciones de datos por nodo de Azure Security Center.
 
 Encontrará más detalles sobre la facturación de los clústeres dedicados de Log Analytics [aquí]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters).
 
@@ -77,7 +77,7 @@ Deben especificarse las siguientes propiedades:
 - **Nombre del clúster**: Se usa con fines administrativos. Los usuarios no se exponen a este nombre.
 - **ResourceGroupName**: Como para cualquier recurso de Azure, los clústeres pertenecen a un grupo de recursos. Se recomienda usar un grupo de recursos de TI central, ya que los clústeres suelen compartirse entre muchos equipos dentro de una organización. Para más información sobre el diseño, consulte [Diseño de la implementación de registros de Azure Monitor](../logs/design-logs-deployment.md).
 - **Ubicación**: Un clúster se encuentra en una región de Azure específica. Solo las áreas de trabajo que se encuentran en esta región se pueden vincular a este clúster.
-- **SkuCapacity**: Debe especificar el nivel (sku) de *capacidad de reserva* al crear un recurso *cluster*. El nivel de *reserva de capacidad* puede estar en el intervalo de 1000 a 3000 GB por día. Puede actualizarlo en incrementos de 100 más adelante si es necesario. Si necesita un nivel de reserva de capacidad superior a 3000 GB por día, comuníquese con nosotros en LAIngestionRate@microsoft.com. Para obtener más información sobre los costos del clúster, consulte [Administración de costos de clústeres de Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters).
+- **SkuCapacity**: debe especificar el nivel de compromiso (SKU) al crear un recurso de clúster. El nivel de compromiso se puede establecer en 1000, 2000 o 5000 GB/día. Para obtener más información sobre los costos del clúster, consulte [Administración de costos de clústeres de Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters). Tenga en cuenta que los niveles de compromiso se denominaban anteriormente "reservas de capacidad". 
 
 Después de crear el recurso *cluster*, puede editar propiedades adicionales, como *sku*, *keyVaultProperties o *billingType*. Vea más detalles a continuación.
 
@@ -299,8 +299,8 @@ Después de crear el recurso *cluster* y de que esté totalmente aprovisionado, 
 
 - **keyVaultProperties**: actualiza la clave en Azure Key Vault. Consulte [Actualización del clúster con detalles del identificador de clave](../logs/customer-managed-keys.md#update-cluster-with-key-identifier-details). Contiene los parámetros siguientes: *KeyVaultUri*, *KeyName*, *KeyVersion*. 
 - **billingType**: La propiedad *billingType* determina la atribución de facturación para el recurso *cluster* y sus datos:
-  - **Cluster** (valor predeterminado): Los costos de Reserva de capacidad para el clúster se atribuyen al recurso *cluster*.
-  - **Workspaces**: Los costos de Reserva de capacidad para el clúster se atribuyen proporcionalmente a las áreas de trabajo del clúster. En este caso, se factura una parte del uso del recurso *cluster* si el total de datos ingeridos del día está por debajo de la Reserva de capacidad. Vea [Clústeres dedicados de Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters) para obtener más información sobre el modelo de precios del clúster.
+  - **Cluster** (valor predeterminado): los costos para el clúster se atribuyen al recurso *cluster*.
+  - **Workspaces**: los costos del nivel de compromiso para el clúster se atribuyen proporcionalmente a las áreas de trabajo del clúster. En este caso, se factura una parte del uso del recurso *cluster* si el total de datos ingeridos del día está por debajo del nivel de compromiso. Vea [Clústeres dedicados de Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters) para obtener más información sobre el modelo de precios del clúster.
   - **Identidad**: la identidad que se usará para autenticarse en la instancia de Key Vault. Puede ser asignada por el sistema o por el usuario.
 
 >[!IMPORTANT]
@@ -396,9 +396,9 @@ Lo mismo que para el "clúster de un grupo de recursos", pero en el ámbito de l
 
 
 
-### <a name="update-capacity-reservation-in-cluster"></a>Actualización de la reserva de capacidad en el clúster
+### <a name="update-commitment-tier-in-cluster"></a>Actualización del nivel de compromiso en el clúster
 
-Cuando cambie el volumen de datos en las áreas de trabajo vinculadas con el tiempo y desee actualizar el nivel de reserva de capacidad adecuadamente. La capacidad se especifica en unidades de GB y puede tener valores de 1000 GB/día o más en incrementos de 100 GB/día. Tenga en cuenta que no tiene que proporcionar el cuerpo completo de la solicitud de REST, pero debe incluir la SKU.
+Cuando cambie el volumen de datos en las áreas de trabajo vinculadas con el tiempo y desee actualizar el nivel de compromiso adecuadamente. El nivel se especifica en unidades de GB y puede tener valores de 1000, 2000 GB/día o más en incrementos de 5000 GB/día. Tenga en cuenta que no tiene que proporcionar el cuerpo completo de la solicitud de REST, pero debe incluir la SKU.
 
 **CLI**
 

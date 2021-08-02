@@ -7,18 +7,18 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 03/16/2020
-ms.openlocfilehash: a7f12891bf394e54ee46c60598536faed1731202
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c82f68ee35ae95a424c0847be9a9cc770185af43
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104600890"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112005742"
 ---
 # <a name="set-up-an-azure-marketplace-subscription-for-hosted-test-drives"></a>Configuración de una suscripción a Azure Marketplace para las versiones de prueba hospedadas
 
-Explica cómo configurar una suscripción a Azure Marketplace para versiones de prueba de **Dynamics 365 for Customer Engagement** y **Dynamics 365 for Operations**.
+Explica cómo configurar una suscripción a Azure Marketplace para versiones de prueba de **Dynamics 365 for Customer Engagement y Power Apps** y **Dynamics 365 for Operations**.
 
-## <a name="set-up-for-dynamics-365-for-customer-engagement"></a>Configuración de Dynamics 365 for Customer Engagement
+## <a name="set-up-for-dynamics-365-for-customer-engagement--power-apps"></a>Configuración de Dynamics 365 for Customer Engagement & Power Apps
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta de administrador.
 2. Compruebe que se encuentra en el inquilino asociado a la instancia de la versión de prueba de Dynamics 365. Para ello, mantenga el puntero sobre el icono de la cuenta en la esquina superior derecha. Si no está en el inquilino correcto, seleccione el icono de cuenta para cambiar al inquilino correcto.

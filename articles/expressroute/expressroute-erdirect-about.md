@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/17/2021
 ms.author: duau
-ms.openlocfilehash: 56d6a76991c4386be45b2c18f4edb3d363e58fa5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fd890c8e8d72609d109fa466e260dd7315fd553b
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105027149"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111441229"
 ---
 # <a name="about-expressroute-direct"></a>Acerca de ExpressRoute Direct
 
@@ -69,7 +69,7 @@ En la mayoría de los escenarios, la funcionalidad es equivalente a circuitos qu
 
 ## <a name="circuit-skus"></a>SKU de circuitos
 
-ExpressRoute Direct admite escenarios de ingesta de datos masivos en Azure Storage y otros servicios de macrodatos. Ahora, los circuitos ExpressRoute de ExpressRoute Direct 100 Gbps también admiten SKU de circuito de **40 Gbps** y 100 Gbps. Los pares de puertos físicos solamente son de **100 o 10 Gbps** y pueden tener varios circuitos virtuales. Tamaños del circuito:
+ExpressRoute Direct admite escenarios de ingesta de datos masivos en Azure Storage y otros servicios de macrodatos. Ahora, los circuitos ExpressRoute de ExpressRoute Direct 100 Gbps también admiten SKU de circuito de **40 Gbps** y **100 Gbps**. Los pares de puertos físicos solamente son de **100 o 10 Gbps** y pueden tener varios circuitos virtuales. Tamaños del circuito:
 
 | **ExpressRoute Direct de 100 Gbps** | **ExpressRoute Direct de 10 Gbps** | 
 | --- | --- |

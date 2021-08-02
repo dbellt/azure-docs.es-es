@@ -3,20 +3,20 @@ title: Trabajos de Elastic Database (versión preliminar)
 description: Configuración de trabajos de Elastic Database (versión preliminar) para ejecutar scripts de Transact-SQL (T-SQL) en un conjunto de una o más bases de datos de Azure SQL Database
 services: sql-database
 ms.service: sql-database
-ms.subservice: scale-out
+ms.subservice: elastic-jobs
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
 author: srinia
 ms.author: srinia
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 12/18/2018
-ms.openlocfilehash: f9a026ed47d662b80ef01e505bfbcf8f32d20b04
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 35e13b483141e841d9cca5a2e5d3aa3c77ee7b4a
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92792181"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112017620"
 ---
 # <a name="create-configure-and-manage-elastic-jobs-preview"></a>Creación, configuración y administración de trabajos elásticos (versión preliminar)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -78,7 +78,7 @@ Actualmente, la versión preliminar está limitada a 100 trabajos simultáneos.
 
 Para asegurarse de que los recursos no están sobrecargados al ejecutar trabajos en las bases de datos de un grupo elástico de SQL, los trabajos se pueden configurar para limitar el número de bases de datos en las que puede ejecutarse un trabajo al mismo tiempo.
 
-Establezca el número de bases de datos simultáneas que ejecuta un trabajo estableciendo el parámetro `@max_parallelism` del procedimiento almacenado `sp_add_jobstep` en T-SQL o `Add-AzSqlElasticJobStep -MaxParallelism` en PowerShell.
+Establezca el número de bases de datos simultáneas que ejecuta un trabajo estableciendo el parámetro `@max_parallelism` del procedimiento almacenado `sp_add_jobstep` en T-SQL.
 
 ## <a name="best-practices-for-creating-jobs"></a>Procedimientos recomendados para crear trabajos
 

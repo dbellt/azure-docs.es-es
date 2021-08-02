@@ -6,13 +6,13 @@ ms.author: apimpm
 ms.custom: subject-cost-optimization
 ms.service: api-management
 ms.topic: how-to
-ms.date: 12/15/2020
-ms.openlocfilehash: 1ebb89ae318e57f1d4e0708a08019515ca43158d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/11/2021
+ms.openlocfilehash: ec15f11c6aee82d117210402e4cc4fda114e86a2
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99581336"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112034614"
 ---
 # <a name="plan-and-manage-costs-for-api-management"></a>Planeamiento y administración de costos de API Management
 
@@ -51,11 +51,29 @@ Para obtener más información sobre los precios y las características, consult
 
 Puede pagar los cargos de API Management con el pago por adelantado de Azure (antes conocido como compromiso monetario). Sin embargo, no puede usar el crédito del pago por adelantado de Azure para pagar los gastos de productos y servicios de terceros, como los que proceden de Azure Marketplace.
 
+## <a name="understand-the-full-billing-model"></a>Descripción del modelo de facturación completo
+
+El uso de recursos de Azure con API Management incurre en costos. Los costos unitarios del uso de los recursos de Azure varían según lo siguiente:
+* Intervalos de tiempo (segundos, minutos, horas y días)
+* Uso de unidades (bytes, megabytes, etc)
+* Número de transacciones
+
+### <a name="how-youre-charged-for-api-management"></a>Cómo se le cobra por API Management
+
+Al crear o usar recursos de Azure con API Management, se le cobrará en función de los niveles en los que esté trabajando. Obtenga más información sobre [cómo elegir el mejor nivel](./api-management-features.md).
+
+| Niveles | Descripción |
+| ----- | ----------- |
+| Consumo | No incurre en costos fijos. Se le facturará en función del número de llamadas API al servicio por encima de un umbral determinado. |
+| Desarrollador, Básico, Estándar y Prémium | Incurre en costos mensuales, en función del número de [unidades](./api-management-capacity.md) y [puertas de enlace auto-hospedadas](./self-hosted-gateway-overview.md). Las puertas de enlace auto hospedadas son gratuitas para el nivel Desarrollador. [Actualice](./upgrade-and-scale.md) a un nivel de servicio diferente en cualquier momento. |
+
+También puede incurrir en cargos adicionales al usar otros recursos de Azure con API Management, como redes virtuales, zonas de disponibilidad y escrituras en varias regiones. Al final del ciclo de facturación, se suman los cargos de cada medidor. La factura muestra una sección con todos los costos de API Management. Hay un elemento de línea independiente para cada medidor.
+
 ## <a name="monitor-costs"></a>Supervisión de costos
 
-A medida que se usan recursos de Azure con API Management, se incurre en costos. Los costos de unidad de uso de recursos de Azure varían según el intervalo de tiempo (segundos, minutos, horas y días) o el uso de unidades (bytes, megabytes, etc.). En cuanto se inicia el uso de API Management, se generan costos, que puede ver en el [análisis de costos](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+Los costos se generan en cuanto se empieza a usar API Management. Puede ver los costos en el [análisis de costos](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) o con la Calculadora de precios de Azure.
 
-Al usar el análisis de costos, puede ver los costos de API Management de diferentes intervalos de tiempo en gráficos y tablas. Algunos ejemplos son: por día, mes actual y anterior y año. También puede ver los costos comparados con los presupuestos y los costos previstos. Con el tiempo, cambiar a vistas más largas puede ayudarle a identificar las tendencias de gasto y comprobar dónde este se ha sobrepasado. Si ha creado presupuestos, también podrá ver fácilmente dónde se han excedido.
+Al usar el análisis de costos, puede ver en gráficos y tablas los costos de API Management de diferentes intervalos de tiempo (día, mes actual y anterior, y año). También puede ver los costos comparados con los presupuestos y los costos previstos. Con el tiempo, cambiar a vistas más largas puede ayudarle a identificar las tendencias de gasto y comprobar dónde este se ha sobrepasado. Si ha creado presupuestos, también podrá ver fácilmente dónde se han excedido.
 
 > [!NOTE]
 > Los costos que se muestran en este ejemplo son solo para fines de demostración. Los costos variarán en función del uso de recursos y del precio actual.
@@ -86,13 +104,6 @@ Los presupuestos se pueden crear con filtros para recursos o servicios específi
 También puede [exportar los datos de costos](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) a una cuenta de almacenamiento. Esto resulta útil cuando necesita que otros usuarios hagan un análisis de datos adicional para los costos. Por ejemplo, un equipo de finanzas puede analizar los datos con Excel o Power BI. Puede exportar los costos en una programación diaria, semanal o mensual y establecer un intervalo de fechas personalizado. La exportación de los datos de costos es la forma recomendada de recuperar conjuntos de datos de costos.
 
 ## <a name="other-ways-to-manage-and-reduce-costs-for-api-management"></a>Otras formas de administrar y reducir los costos de API Management
-
-### <a name="choose-tier"></a>Elección del nivel
-
-Revise la [comparación basada en características de los niveles de Azure API Management](api-management-features.md) para ayudar a decidir qué nivel de servicio puede ser adecuado para sus escenarios. Los distintos niveles de servicio admiten combinaciones de características y capacidades diseñadas para varios casos de uso con costos diferentes. 
-
-* El nivel de servicio **Consumo** proporciona una opción ligera sin servidor que no supone costos fijos. Se le facturará en función del número de llamadas API al servicio por encima de un umbral determinado. La capacidad también se escala automáticamente en función de la carga en el servicio.
-* Los niveles de API Management **Desarrollador**, **Básico**, **Estándar** y **Prémium** generan costos mensuales y proporcionan un mayor rendimiento y conjuntos de características más completos para las cargas de trabajo de evaluación y producción. [Actualice](upgrade-and-scale.md) a un nivel de servicio diferente en cualquier momento.
 
 ### <a name="scale-using-capacity-units"></a>Escalado mediante unidades de capacidad
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/12/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 1ac3c25458df19ca1db7ee16e5c231512a7663b0
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 9328b8159b04d4e7e7bc2383739c86c76dbf156a
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108076912"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111985893"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>¿Qué es el almacén analítico de Azure Cosmos DB?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -78,9 +78,16 @@ Mediante la creación de partición horizontal, el almacén transaccional de Azu
 
 ## <a name="automatically-handle-schema-updates"></a><a id="analytical-schema"></a>Control automático de las actualizaciones de esquema
 
-El almacén transaccional de Azure Cosmos DB es independiente del esquema y le permite iterar las aplicaciones transaccionales sin tener que encargarse de la administración de esquemas o índices. A diferencia de esto, el almacén analítico de Azure Cosmos DB está esquematizado para optimizar el rendimiento de las consultas analíticas. Con la funcionalidad de sincronización automática, Azure Cosmos DB administra la inferencia de esquemas en las actualizaciones más recientes del almacén transaccional.  También administra la representación del esquema en el almacén analítico de manera integrada, lo que incluye el control de los tipos de datos anidados.
+El almacén transaccional de Azure Cosmos DB es independiente del esquema y le permite iterar las aplicaciones transaccionales sin tener que encargarse de la administración de esquemas o índices. A diferencia de esto, el almacén analítico de Azure Cosmos DB está esquematizado para optimizar el rendimiento de las consultas analíticas. Con la funcionalidad de sincronización automática, Azure Cosmos DB administra la inferencia de esquemas en las actualizaciones más recientes del almacén transaccional. También administra la representación del esquema en el almacén analítico de manera integrada, lo que incluye el control de los tipos de datos anidados.
 
 A medida que evoluciona el esquema, y se agregan propiedades nuevas con el tiempo, el almacén analítico presenta automáticamente un esquema unificado de todos los esquemas históricos del almacén de transacciones.
+
+> [!NOTE]
+> En el contexto del almacén analítico, consideramos las siguientes estructuras como propiedad:
+> * "Elementos" JSON" o "pares cadena-valor separados por `:`".
+> * Objetos JSON, delimitados por `{` y `}`.
+> * Matrices JSON, delimitadas por `[` y `]`.
+
 
 ### <a name="schema-constraints"></a>Restricciones del esquema
 
@@ -89,6 +96,34 @@ Las restricciones siguientes se aplican a los datos operativos de Azure Cosmos 
 * Puede tener 1000 propiedades como máximo en cualquier nivel de anidamiento del esquema y una profundidad de anidamiento máxima de 127.
   * En el almacén analítico solo se representan las primeras 1000 propiedades.
   * En el almacén analítico solo se representan los primeros 127 niveles anidados.
+  * El primer nivel de un documento JSON es su nivel raíz `/`.
+  * Las propiedades del primer nivel del documento se representarán como columnas.
+
+
+* Escenarios de ejemplo:
+  * Si el primer nivel del documento tiene 2000 propiedades, solo se representarán las primeras 1000.
+  * Si los documentos tienen 5 niveles con 200 propiedades en cada uno, se representarán todas las propiedades.
+  * Si los documentos tienen 10 niveles con 400 propiedades en cada uno, solo los dos primeros niveles se representarán completamente en el almacén analítico. También se representará la mitad del tercer nivel.
+
+* El documento hipotético siguiente contiene 4 propiedades y 3 niveles.
+  * Los niveles son `root` `myArray` y la estructura anidada dentro de `myArray`.
+  * Las propiedades son `id`, `myArray`, `myArray.nested1` y `myArray.nested2`.
+  * La representación del almacén analítico tendrá 2 columnas, `id` y `myArray`. Puede usar las funciones de Spark o T-SQL para exponer también las estructuras anidadas como columnas.
+
+
+```json
+{
+  "id": "1",
+  "myArray": [
+    "string1",
+    "string2",
+    {
+      "nested1": "abc",
+      "nested2": "cde"
+    }
+  ]
+}
+```
 
 * Mientras que los documentos JSON (y colecciones o contenedores de Cosmos DB) distinguen mayúsculas de minúsculas de la perspectiva de exclusividad, el almacén analítico no lo es.
 
@@ -109,13 +144,12 @@ Las restricciones siguientes se aplican a los datos operativos de Azure Cosmos 
 
 
 * El primer documento de la colección define el esquema de almacenamiento analítico inicial.
-  * Las propiedades del primer nivel del documento se representarán como columnas.
   * Los documentos que tengan más propiedades que el esquema inicial generarán nuevas columnas en el almacén analítico.
   * No se pueden quitar las columnas.
   * La eliminación de todos los documentos de una colección no restablece el esquema del almacén analítico.
   * No hay control de versiones de esquema. La última versión inferida del almacén de transacciones es lo que verá en el almacén analítico.
 
-* Actualmente no se admiten los nombres de la columna de lectura de Azure Synapse Spark que contengan espacios en blanco.
+* Actualmente no se admiten los nombres de la columna de lectura de Azure Synapse Spark que contengan espacios en blanco. Deberá usar funciones de Spark como `cast` o `replace` para poder cargar los datos en un dataframe de Spark.
 
 ### <a name="schema-representation"></a>Representación del esquema
 
@@ -163,6 +197,8 @@ La representación de esquemas bien definida crea una representación tabular si
 La representación de esquemas con fidelidad total está diseñada para administrar todos los esquemas polimórficos de los datos operativos independientes del esquema. En esta representación de esquemas no se quita ningún elemento del almacén analítico aunque no se cumplan las restricciones de los esquemas bien definidos (es decir, que no haya campos ni matrices de tipos de datos mixtos).
 
 Para ello, se traducen las propiedades de hoja de los datos operativos del almacén analítico con columnas distintas según el tipo de datos de los valores de la propiedad. Los nombres de las propiedades de hoja se amplían con tipos de datos como sufijos en el esquema del almacén analítico, de modo que se pueden consultar sin ambigüedad.
+
+En la representación de esquema de fidelidad completa, cada tipo de datos de cada propiedad generará una columna para ese tipo de datos. Cada una de ellas cuenta como una de las 1000 propiedades máximas.
 
 Por ejemplo, vamos a tomar el siguiente documento de ejemplo del almacén transaccional:
 
@@ -248,6 +284,10 @@ El almacén analítico sigue un modelo de precios basado en el consumo, donde se
 Los precios del almacén analítico son independientes del modelo de precios del almacén transaccional. No hay ningún concepto de RU aprovisionadas en el almacén analítico. Consulte la [página de precios de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para obtener información completa sobre el modelo de precios del almacén analítico.
 
 Para obtener una estimación general del costo de habilitación del almacén analítico en un contenedor de Azure Cosmos DB, puede usar el [planificador de capacidad de Azure Cosmos DB](https://cosmos.azure.com/capacitycalculator/) y obtener una estimación de los costos de almacenamiento analítico y de las operaciones de escritura. Los costos de las operaciones de lectura analíticas dependen de las características de la carga de trabajo analítica, pero como estimación general, el análisis de 1 TB de datos en el almacén analítico suele generar 130 000 operaciones de lectura analíticas, con un costo de 0,065 USD.
+
+> [!NOTE]
+> Las estimaciones de operaciones de lectura del almacén analítico no se incluyen en la calculadora de costos de Cosmos DB, ya que son una función de la carga de trabajo analítica. Aunque la estimación anterior es para examinar 1 TB de datos en el almacén analítico, la aplicación de filtros reduce el volumen de datos analizados y esto determina el número exacto de operaciones de lectura analíticas según el modelo de precios de consumo. Una prueba de concepto en torno a la carga de trabajo analítica proporcionaría una estimación más fina de las operaciones de lectura analítica.
+
 
 ## <a name="analytical-time-to-live-ttl"></a><a id="analytical-ttl"></a> Período de vida (TTL) analítico
 

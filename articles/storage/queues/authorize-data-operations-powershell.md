@@ -10,18 +10,18 @@ ms.date: 02/10/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 61bcf7abca2860078bd89da070309a0057360f0c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 862c576ae86cd7d91a1bd73243caa0a68e3689c1
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100370230"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111900546"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-queue-data"></a>Ejecución de comandos de PowerShell con credenciales de Azure AD para acceder a los datos de cola
 
 Azure Storage proporciona extensiones para PowerShell que le permiten iniciar sesión y ejecutar comandos de scripting con credenciales de Azure Active Directory (Azure AD). Al iniciar sesión en PowerShell con credenciales de Azure AD, se devuelve un token de acceso OAuth 2.0. PowerShell usa automáticamente ese token para autorizar las operaciones de datos posteriores en Queue Storage. Para las operaciones admitidas, ya no necesita pasar una clave de cuenta o token SAS con el comando.
 
-Puede asignar permisos en los datos de cola a una entidad de seguridad de Azure AD mediante el control de acceso basado en roles de Azure (Azure RBAC). Para más información sobre los roles de Azure en Azure Storage, consulte [cómo administrar los derechos de acceso a los datos de Azure Storage mediante Azure RBAC](../common/storage-auth-aad-rbac-portal.md).
+Puede asignar permisos en los datos de cola a una entidad de seguridad de Azure AD mediante el control de acceso basado en roles de Azure (Azure RBAC). Para más información sobre los roles de Azure en Azure Storage, consulte [cómo administrar los derechos de acceso a los datos de Azure Storage mediante Azure RBAC](assign-azure-role-data-access.md).
 
 ## <a name="supported-operations"></a>Operaciones compatibles
 
@@ -71,7 +71,7 @@ En el ejemplo siguiente se muestra cómo crear una cola en una nueva cuenta de a
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. Antes de crear la cola, asígnese a sí mismo el rol [Colaborador de datos de Queue Storage](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor). Aunque sea el propietario de la cuenta, necesita permisos explícitos para realizar operaciones de datos en la cuenta de almacenamiento. Para más información sobre la asignación de roles de Azure, consulte [Uso de Azure Portal para asignar un rol de Azure para el acceso a datos de blobs y colas](../common/storage-auth-aad-rbac-portal.md).
+1. Antes de crear la cola, asígnese a sí mismo el rol [Colaborador de datos de Queue Storage](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor). Aunque sea el propietario de la cuenta, necesita permisos explícitos para realizar operaciones de datos en la cuenta de almacenamiento. Para más información sobre la asignación de roles de Azure, consulte [Asignación de un rol de Azure para acceder a datos de cola](assign-azure-role-data-access.md).
 
     > [!IMPORTANT]
     > La propagación de las asignaciones de roles de Azure puede tardar unos minutos.
@@ -85,5 +85,5 @@ En el ejemplo siguiente se muestra cómo crear una cola en una nueva cuenta de a
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Uso de PowerShell para asignar un rol de Azure para el acceso a datos de blobs y colas](../common/storage-auth-aad-rbac-powershell.md)
+- [Asignación de un rol de Azure para acceder a datos de cola](assign-azure-role-data-access.md)
 - [Autorización del acceso a datos de blobs y colas con identidades administradas para los recursos de Azure](../common/storage-auth-aad-msi.md)

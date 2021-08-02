@@ -7,22 +7,22 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 04/20/2021
-ms.openlocfilehash: f11f1d5601a61bbd9b8729b478c278db8d3e73dc
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 85668f07512e8aaa925b924ef0e631fe89b5c3fa
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812430"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112005706"
 ---
 # <a name="detailed-configuration-for-hosted-test-drives"></a>Configuración detallada de las versiones de prueba hospedadas
 
-En este artículo se describe cómo configurar una versión de prueba hospedada para Dynamics 365 fo Customer Engagement o Dynamics 365 for Operations.
+En este artículo se describe cómo configurar una versión de prueba hospedada para Dynamics 365 for Customer Engagement y Power Apps o Dynamics 365 for Operations.
 
-## <a name="configure-for-dynamics-365-customer-engagement"></a>Configuración para Dynamics 365 Customer Engagement
+## <a name="configure-for-dynamics-365-customer-engagement--power-apps"></a>Configuración para Dynamics 365 Customer Engagement y Power Apps
 
-1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/).
+1. Inicie sesión en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2165507).
 2. Si no puede acceder al vínculo anterior, debe enviar una solicitud [aquí](https://appsource.microsoft.com/partners/list-an-app) para publicar la aplicación. Una vez que revisemos la solicitud, se le concederá acceso para iniciar el proceso de publicación.
-3. Busque una oferta de **Dynamics 365 for Customer Engagement** existente o cree una nueva.
+3. Busque una oferta de **Dynamics 365 for Customer Engagement y Power Apps** o cree una nueva oferta de **Dynamics 365 for Customer Engagement y Power Apps**.
 4. Active la casilla **Habilitar una versión de prueba** y seleccione un **Tipo de versión de prueba** (consulte la siguiente ilustración) y, a continuación, seleccione **Guardar**.
 
     [![Activación de la casilla "Habilitar una versión de prueba".](media/test-drive/enable-test-drive-check-box.png)](media/test-drive/enable-test-drive-check-box.png#lightbox)
@@ -61,9 +61,10 @@ En este artículo se describe cómo configurar una versión de prueba hospedada 
 
 ## <a name="configure-for-dynamics-365-operations"></a>Configuración para Dynamics 365 Operations
 
+1. Inicie sesión en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2165507).
 2. Si no puede acceder al vínculo anterior, debe enviar una solicitud [aquí](https://appsource.microsoft.com/partners/list-an-app) para publicar la aplicación. Una vez que revisemos la solicitud, se le concederá acceso para iniciar el proceso de publicación.
 3. Busque una oferta de **Dynamics 365 for Operations** existente o cree una nueva.
-4. Active la casilla **Habilitar una versión de prueba** y seleccione un **Tipo de versión de prueba** (consulte la siguiente ilustración) y, a continuación, seleccione **Guardar**.
+4. Active la casilla **Habilitar una versión de prueba** y seleccione un **Tipo de versión de prueba** (consulte la siguiente ilustración) y, a continuación, seleccione **Guardar borrador**.
 
     [![Activación de la casilla "Habilitar una versión de prueba".](media/test-drive/enable-test-drive-check-box-operations.png)](media/test-drive/enable-test-drive-check-box-operations.png#lightbox)
 

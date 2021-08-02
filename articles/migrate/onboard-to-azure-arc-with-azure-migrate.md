@@ -6,41 +6,44 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 04/27/2021
-ms.openlocfilehash: 27b1253b2d2808e01e5dae542e82211d96add216
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 09c27d77c80b7c9178fbbe9f7c5e01b3bc67c567
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108281084"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969039"
 ---
 # <a name="onboard-on-premises-servers-in-vmware-virtual-environment-to-azure-arc"></a>Incorporación de los servidores locales del entorno virtual de VMware en Azure Arc   
 
 En este artículo se describe cómo incorporar máquinas virtuales de VMware locales en Azure Arc para la administración de Azure mediante la herramienta de detección y evaluación de Azure Migrate. 
 
-Azure Arc permite administrar el entorno de TI híbrido con un único panel al ampliar la experiencia de administración de Azure a los servidores locales que no son candidatos ideales para la migración. [Más información](https://docs.microsoft.com/azure/azure-arc/servers/overview) sobre Azure Arc 
+Azure Arc permite administrar el entorno de TI híbrido con un único panel al ampliar la experiencia de administración de Azure a los servidores locales que no son candidatos ideales para la migración. [Más información](../azure-arc/servers/overview.md) sobre Azure Arc 
 
 ## <a name="before-you-get-started"></a>Antes de comenzar
 
-- [Consulte los requisitos](https://docs.microsoft.com/azure/migrate/tutorial-discover-vmware#prerequisites) para detectar los servidores que se ejecutan en el entorno de VMware con la herramienta de detección y evaluación de Azure Migrate.  
-- Prepare [VMware vCenter](https://docs.microsoft.com/azure/migrate/tutorial-discover-vmware#prepare-vmware) para su uso y revise los [requisitos de VMware](migrate-support-matrix-vmware.md#vmware-requirements) para realizar el inventario de software. El inventario de software debe completarse para empezar a incorporar los servidores detectados a Azure Arc.   
-- Revise los [requisitos de detección de aplicaciones](migrate-support-matrix-vmware.md#application-discovery-requirements) antes de iniciar el inventario de software en los servidores. Los servidores de Windows deben tener instalada la versión 3.0 de PowerShell u otra posterior.
-- Asegúrese de comprobar los [requisitos previos para Azure Arc](https://docs.microsoft.com/azure/azure-arc/servers/agent-overview#prerequisites) y revise las consideraciones siguientes:
+- [Consulte los requisitos](/azure/migrate/tutorial-discover-vmware#prerequisites) para detectar los servidores que se ejecutan en el entorno de VMware con la herramienta de detección y evaluación de Azure Migrate.  
+- Prepare [VMware vCenter](/azure/migrate/tutorial-discover-vmware#prepare-vmware) para su uso y revise los [requisitos de VMware](migrate-support-matrix-vmware.md#vmware-requirements) para realizar el inventario de software. El inventario de software debe completarse para empezar a incorporar los servidores detectados a Azure Arc.   
+- Revise los [requisitos de detección de aplicaciones](migrate-support-matrix-vmware.md#application-discovery-requirements) antes de iniciar el inventario de software en los servidores. Los servidores de Windows deben tener instalada la versión 3.0 de PowerShell u otra posterior. 
+- Compruebe los requisitos de acceso a puertos para permitir conexiones remotas al inventario de los servidores detectados. 
+    - **Windows:** conexión entrante en el puerto de WinRM 5985 (HTTP). <br/>
+    - **Linux:** conexiones entrantes en el puerto 22 (TCP). 
+- Asegúrese de comprobar los [requisitos previos para Azure Arc](/azure/azure-arc/servers/agent-overview#prerequisites) y revise las consideraciones siguientes:
     - La incorporación a Azure Arc solo se puede iniciar una vez realizados el inventario de software y la detección de vCenter Server. El inventario de software puede tardar hasta 6 horas en completarse después de que se haya activado.
-    -  El [agente de máquina híbrida conectada para Azure Arc](https://docs.microsoft.com/azure/azure-arc/servers/learn/quick-enable-hybrid-vm) se instalará en los servidores detectados durante el proceso de incorporación de Arc. Asegúrese de proporcionar credenciales con permisos de administrador en los servidores para instalar y configurar el agente. En Linux, proporcione la cuenta raíz, y en Windows, proporcione una cuenta que pertenezca al grupo de administradores locales. 
-    - Compruebe que los servidores ejecutan un [sistema operativo compatible](https://docs.microsoft.com/azure/azure-arc/servers/agent-overview#supported-operating-systems).
-    - Asegúrese de que a la cuenta de Azure se le ha concedido una asignación a los [roles de Azure requeridos](https://docs.microsoft.com/azure/azure-arc/servers/agent-overview#required-permissions).
-    - Asegúrese de que las [direcciones URL necesarias](https://docs.microsoft.com/azure/azure-arc/servers/agent-overview#networking-configuration) no se bloquean si los servidores detectados se conectan mediante un firewall o servidor proxy para comunicarse a través de Internet.
-    - Revise las [regiones admitidas](https://docs.microsoft.com/azure/azure-arc/servers/overview#supported-regions) para Azure Arc. 
+    -  El [agente de máquina híbrida conectada para Azure Arc](/azure/azure-arc/servers/learn/quick-enable-hybrid-vm) se instalará en los servidores detectados durante el proceso de incorporación de Arc. Asegúrese de proporcionar credenciales con permisos de administrador en los servidores para instalar y configurar el agente. En Linux, proporcione la cuenta raíz, y en Windows, proporcione una cuenta que pertenezca al grupo de administradores locales. 
+    - Compruebe que los servidores ejecutan un [sistema operativo compatible](/azure/azure-arc/servers/agent-overview#supported-operating-systems).
+    - Asegúrese de que a la cuenta de Azure se le ha concedido una asignación a los [roles de Azure requeridos](/azure/azure-arc/servers/agent-overview#required-permissions).
+    - Asegúrese de que las [direcciones URL necesarias](/azure/azure-arc/servers/agent-overview#networking-configuration) no se bloquean si los servidores detectados se conectan mediante un firewall o servidor proxy para comunicarse a través de Internet.
+    - Revise las [regiones admitidas](/azure/azure-arc/servers/overview#supported-regions) para Azure Arc. 
     - Los servidores habilitados para Azure Arc admiten hasta 5000 instancias de máquina en un grupo de recursos.
 
 
 ## <a name="set-up-the-azure-migrate-project"></a>Configuración de un proyecto de Azure Migrate  
 
-1. Antes de empezar, prepare la [cuenta de usuario de Azure](https://docs.microsoft.com/azure/migrate/tutorial-discover-vmware#prepare-an-azure-user-account) y compruebe que tiene los [roles necesarios](./create-manage-projects.md#verify-permissions) en la suscripción para crear los recursos requeridos por Azure Migrate. 
-2. [Use este artículo](https://docs.microsoft.com/azure/migrate/create-manage-projects) para configurar un nuevo proyecto de Azure Migrate que tenga incorporada la herramienta de detección y evaluación de Azure Migrate.  
+1. Antes de empezar, prepare la [cuenta de usuario de Azure](./tutorial-discover-vmware.md#prepare-an-azure-user-account) y compruebe que tiene los [roles necesarios](./create-manage-projects.md#verify-permissions) en la suscripción para crear los recursos requeridos por Azure Migrate. 
+2. [Use este artículo](./create-manage-projects.md) para configurar un nuevo proyecto de Azure Migrate que tenga incorporada la herramienta de detección y evaluación de Azure Migrate.  
 
     > [!Note]
-    > También puede usar un proyecto de Migrate existente e incorporar el inventario de servidores detectados a Azure Arc. Para ello, inicie el administrador de configuración del dispositivo desde el servidor del dispositivo y asegúrese de que los servicios se han actualizado a las últimas versiones. [Más información](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-upgrades) <br/> <br/> A continuación, [siga estas instrucciones](#onboard-to-azure-arc) para incorporar los servidores.  
+    > También puede usar un proyecto de Migrate existente e incorporar el inventario de servidores detectados a Azure Arc. Para ello, inicie el administrador de configuración del dispositivo desde el servidor del dispositivo y asegúrese de que los servicios se han actualizado a las últimas versiones. [Más información](./migrate-appliance.md#appliance-upgrades) <br/> <br/> A continuación, [siga estas instrucciones](#onboard-to-azure-arc) para incorporar los servidores.  
 
 ## <a name="deploy-and-register-the-azure-migrate-appliance"></a>Implementación y registro del dispositivo de Azure Migrate 
 
@@ -55,12 +58,12 @@ Antes de configurar el dispositivo, haga lo siguiente:
 
 Después,
 
-- Siga este artículo para [configurar el dispositivo de Azure Migrate](https://docs.microsoft.com/azure/migrate/tutorial-discover-vmware#set-up-the-appliance) para iniciar la detección de vCenter Server. Para implementar el dispositivo, puede descargar e importar una plantilla OVA a VMware para crear un servidor que se ejecute en vCenter Server.  
-- Después de implementar el dispositivo, debe registrarlo en el proyecto antes de iniciar la detección. Siga [estas instrucciones](https://docs.microsoft.com/azure/migrate/tutorial-discover-vmware#register-the-appliance-with-azure-migrate) para registrar el dispositivo. 
+- Siga este artículo para [configurar el dispositivo de Azure Migrate](./tutorial-discover-vmware.md#set-up-the-appliance) para iniciar la detección de vCenter Server. Para implementar el dispositivo, puede descargar e importar una plantilla OVA a VMware para crear un servidor que se ejecute en vCenter Server.  
+- Después de implementar el dispositivo, debe registrarlo en el proyecto antes de iniciar la detección. Siga [estas instrucciones](./tutorial-discover-vmware.md#register-the-appliance-with-azure-migrate) para registrar el dispositivo. 
 
 ## <a name="configure-the-appliance-and-start-discovery"></a>Configuración del dispositivo e inicio de la detección  
 
-Use [este artículo](https://docs.microsoft.com/azure/migrate/tutorial-discover-vmware#start-continuous-discovery) para configurar el dispositivo de Azure Migrate e iniciar la detección de vCenter Server. 
+Use [este artículo](./tutorial-discover-vmware.md#start-continuous-discovery) para configurar el dispositivo de Azure Migrate e iniciar la detección de vCenter Server. 
 
 Al configurar el dispositivo para la detección, debe especificar los detalles en el administrador de configuración del dispositivo:
 
@@ -85,12 +88,12 @@ Una vez completada la detección de vCenter Server, el inventario de software (d
 
 3. En la lista desplegable **Región**, seleccione la región de Azure en la que se almacenarán los metadatos de los servidores.
 
-4. Proporcione los detalles de la **entidad de servicio de Azure Active Directory** para la incorporación a gran escala. Revise este artículo para [crear una entidad de servicio mediante Azure Portal o Azure PowerShell](https://docs.microsoft.com/azure/azure-arc/servers/onboard-service-principal#create-a-service-principal-for-onboarding-at-scale). <br/>
+4. Proporcione los detalles de la **entidad de servicio de Azure Active Directory** para la incorporación a gran escala. Revise este artículo para [crear una entidad de servicio mediante Azure Portal o Azure PowerShell](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale). <br/>
 
     Se requieren las entradas siguientes:
-    - **Id. de directorio (inquilino)** : [identificador único (GUID)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-and-app-id-values-for-signing-in) que representa la instancia dedicada de Azure AD. 
-    - **Id. de aplicación (cliente)** : [identificador único (GUID)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-and-app-id-values-for-signing-in) que representa el identificador de aplicación de la entidad de servicio.
-    - **Secreto de la entidad de servicio (secreto de aplicación)** : [secreto de cliente](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#option-2-create-a-new-application-secret) para la autenticación basada en contraseña. 
+    - **Id. de directorio (inquilino)** : [identificador único (GUID)](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) que representa la instancia dedicada de Azure AD. 
+    - **Id. de aplicación (cliente)** : [identificador único (GUID)](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) que representa el identificador de aplicación de la entidad de servicio.
+    - **Secreto de la entidad de servicio (secreto de aplicación)** : [secreto de cliente](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret) para la autenticación basada en contraseña. 
     
 5. _Opcional_: proporcione la **dirección IP del servidor proxy** o el nombre y el **número de puerto** si los servidores detectados requieren un servidor proxy para conectarse a Internet. Escriba el valor con el formato `http://<proxyURL>:<proxyport>`. Este servidor proxy usado por los servidores detectados puede ser distinto al requerido por el servidor del dispositivo para conectarse a Internet (proporcionado en la sección de requisitos previos del administrador de configuración del dispositivo).   
 
@@ -121,15 +124,16 @@ Una vez completada la detección de vCenter Server, el inventario de software (d
 
 Si recibe un error al realizar la incorporación a Azure Arc mediante el dispositivo de Azure Migrate, la siguiente sección puede ayudarle a identificar la posible causa y los pasos sugeridos para resolver el problema. 
 
-Si no ve el código de error que aparece a continuación o si el código de error comienza por **_AZCM_**, consulte [esta guía para solucionar problemas de Azure Arc](https://docs.microsoft.com/azure/azure-arc/servers/troubleshoot-agent-onboard).
+Si no ve el código de error que aparece a continuación o si el código de error comienza por **_AZCM_**, consulte [esta guía para solucionar problemas de Azure Arc](../azure-arc/servers/troubleshoot-agent-onboard.md).
 
 ### <a name="error-60001---unabletoconnecttophysicalserver"></a>Error 60001: UnableToConnectToPhysicalServer  
 
 **Causas posibles:**  
-No se cumplen los [requisitos previos](https://go.microsoft.com/fwlink/?linkid=2134728) para conectarse al servidor o hay problemas de red para conectarse al servidor, como por ejemplo, alguna configuración del proxy.
+No se cumplen los [requisitos previos](./migrate-support-matrix-physical.md) para conectarse al servidor o hay problemas de red para conectarse al servidor, como por ejemplo, alguna configuración del proxy.
 
 **Acciones recomendadas**   
-- Asegúrese de que el servidor cumple los requisitos previos para la detección y evaluación, como se documenta [aquí](https://go.microsoft.com/fwlink/?linkid=2134728). 
+- Asegúrese de que el servidor cumple los requisitos previos y los requisitos de acceso a puertos tal como se documenta [aquí](https://go.microsoft.com/fwlink/?linkid=2134728). 
+- Agregue las direcciones IP de las máquinas remotas (servidores detectados) a la lista TrustedHosts de WinRM en el dispositivo de Azure Migrate y vuelva a intentar la operación. 
 - Asegúrese de que ha elegido el método de autenticación correcto en el dispositivo para conectarse al servidor. 
    > [!Note] 
    > Azure Migrate admite la autenticación basada en claves SSH y en contraseñas para los servidores Linux.
@@ -153,7 +157,7 @@ No se puede establecer la conexión con el servidor. Ha proporcionado credencial
 **Acciones recomendadas**  
 - Asegúrese de que el servidor afectado tenga instaladas las últimas actualizaciones del kernel y del sistema operativo.
 - Asegúrese de que no hay latencia de red entre el dispositivo y el servidor. Se recomienda que el dispositivo y el servidor de origen estén en el mismo dominio para evitar problemas de latencia.
-- Conéctese al servidor afectado desde el dispositivo y ejecute los comandos [documentados aquí](https://go.microsoft.com/fwlink/?linkid=2152600) para comprobar si devuelven datos nulos o vacíos.
+- Conéctese al servidor afectado desde el dispositivo y ejecute los comandos [documentados aquí](./troubleshoot-appliance-discovery.md) para comprobar si devuelven datos nulos o vacíos.
 - Si el problema persiste, envíe un caso de soporte técnico de Microsoft, donde debe proporcionar el identificador de la máquina del dispositivo (disponible en el pie de página del administrador de configuración del dispositivo).  
 
 ### <a name="error-60108---softwareinventorycredentialnotassociated"></a>Error 60108: SoftwareInventoryCredentialNotAssociated  
@@ -162,7 +166,7 @@ No se puede establecer la conexión con el servidor. Ha proporcionado credencial
 - No se encontraron credenciales asociadas con el servidor.
 
 **Acciones recomendadas**  
-- El inventario de software debe completarse para empezar a incorporar los servidores detectados a Azure Arc. [Más información](https://docs.microsoft.com/azure/migrate/how-to-discover-applications#add-credentials-and-initiate-discovery)
+- El inventario de software debe completarse para empezar a incorporar los servidores detectados a Azure Arc. [Más información](./how-to-discover-applications.md#add-credentials-and-initiate-discovery)
 - Asegúrese de que las credenciales proporcionadas en el administrador de configuración del dispositivo son válidas y de que se puede acceder al servidor con las credenciales.
 - Vuelva al administrador de configuración del dispositivo para proporcionar otro conjunto de credenciales o editar uno existente.  
 
@@ -172,7 +176,7 @@ No se puede establecer la conexión con el servidor. Ha proporcionado credencial
 - El servidor hospeda un sistema operativo no compatible con la incorporación a Azure Arc.
 
 **Acciones recomendadas**  
-- [Consulte los sistemas operativos compatibles](https://docs.microsoft.com/azure/azure-arc/servers/agent-overview#supported-operating-systems) con Azure Arc. 
+- [Consulte los sistemas operativos compatibles](../azure-arc/servers/agent-overview.md#supported-operating-systems) con Azure Arc. 
  
 ### <a name="error-10002---scriptexecutiontimedoutonvm"></a>Error 10002: ScriptExecutionTimedOutOnVm  
 

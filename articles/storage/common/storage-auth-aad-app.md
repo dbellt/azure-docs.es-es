@@ -10,12 +10,12 @@ ms.date: 12/07/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c2de1dc71579e6915a54e3815edd2858532ba263
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: ee77fd8ee7f9b209fa1639c787295e380e8dce0b
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108075940"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111902004"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Adquisición de un token de Azure AD para la autorización de solicitudes desde una aplicación cliente
 
@@ -31,7 +31,7 @@ La aplicación de ejemplo proporciona una experiencia completa que muestra cómo
 
 ## <a name="assign-a-role-to-an-azure-ad-security-principal"></a>Asignación de un rol a una entidad de seguridad de Azure AD
 
-Para autenticar una entidad de seguridad de la aplicación de Azure Storage, primero configure los valores del control de acceso basado en roles (RBAC) de Azure para esa entidad de seguridad. Azure Storage define los roles integrados que abarcan los permisos para los contenedores y las colas. Cuando el rol de Azure se asigna a una entidad de seguridad, esta recibe acceso a ese recurso. Para obtener más información, consulte el artículo sobre cómo [administrar los derechos de acceso a los datos de Azure Blob y Queue con RBAC de Azure](./storage-auth-aad-rbac-portal.md).
+Para autenticar una entidad de seguridad de la aplicación de Azure Storage, primero configure los valores del control de acceso basado en roles (RBAC) de Azure para esa entidad de seguridad. Azure Storage define los roles integrados que abarcan los permisos para los contenedores y las colas. Cuando el rol de Azure se asigna a una entidad de seguridad, esta recibe acceso a ese recurso. Para más información, consulte [Asignación de un rol de Azure para el acceso a datos de blob](../blobs/assign-azure-role-data-access.md).
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Registro de la aplicación con un inquilino de Azure AD
 
@@ -127,7 +127,7 @@ Para solicitar el token, necesitará los siguientes valores del registro de la a
 
 Para ejecutar el ejemplo de código, cree una cuenta de almacenamiento en la misma suscripción que su instancia de Azure Active Directory. A continuación, cree un contenedor en esa cuenta de almacenamiento. El código de ejemplo creará un blob en bloques en este contenedor.
 
-A continuación, asigne explícitamente el rol **Colaborador de datos de Storage Blob** a la cuenta de usuario en la que ejecutará el código de ejemplo. Para ver instrucciones sobre cómo asignar este rol en Azure Portal, consulte [Uso de Azure Portal para asignar un rol de Azure para el acceso a datos de blobs y colas](storage-auth-aad-rbac-portal.md).
+A continuación, asigne explícitamente el rol **Colaborador de datos de Storage Blob** a la cuenta de usuario en la que ejecutará el código de ejemplo. Para saber cómo asignar este rol en Azure Portal, consulte [Asignación de un rol de Azure para el acceso a datos de blob](../blobs/assign-azure-role-data-access.md).
 
 > [!NOTE]
 > Al crear una cuenta de Azure Storage, no se le asignan automáticamente permisos para tener acceso a datos a través de Azure AD. Tiene que asignarse a sí mismo de forma explícita un rol de Azure para Azure Storage. Puede asignarlo al nivel de su suscripción, grupo de recursos, cuenta de almacenamiento o un contenedor o cola.
@@ -293,5 +293,5 @@ https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Plataforma de identidad de Microsoft](../../active-directory/develop/index.yml)
-- [Administración de los derechos de acceso a los datos de almacenamiento con RBAC de Azure](./storage-auth-aad-rbac-portal.md)
+- Consulte [Asignación de un rol de Azure el acceso a datos de blob](../blobs/assign-azure-role-data-access.md).
 - [Autenticación del acceso a blobs y colas con Azure Active Directory e identidades administradas para los recursos de Azure](storage-auth-aad-msi.md)

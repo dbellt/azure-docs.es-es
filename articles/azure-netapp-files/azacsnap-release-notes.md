@@ -12,18 +12,28 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/21/2021
+ms.date: 05/27/2021
 ms.author: phjensen
-ms.openlocfilehash: 269ef95835e5284806e7c1eaa76980e635c3d1dd
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: fd8d4e1bfed60aa8f3eae4d4d3c033247ab1268d
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107946554"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579912"
 ---
 # <a name="release-notes-for-azure-application-consistent-snapshot-tool"></a>Notas de la versión de la herramienta Azure Application Consistent Snapshot
 
 En esta página se enumeran los cambios importantes realizados en AzAcSnap para proporcionar una nueva funcionalidad o resolver los defectos.
+
+## <a name="may-2021"></a>Mayo de 2021
+
+### <a name="azacsnap-v501-build-2021052414837---patch-update-to-v50"></a>AzAcSnap v5.0.1 (compilación: 20210524.14837); actualización de revisión a v5.0
+
+AzAcSnap v5.0.1 (compilación: 20210524.14837) se proporciona como una actualización de revisión a la rama v5.0 con las siguientes correcciones y mejoras:
+
+- Se ha mejorado el control del código de salida.  En algunos casos, se emitía un código de salida de 0 (cero) incluso cuando se producía un error de ejecución donde debería haber sido distinto de cero.  Los códigos de salida ahora solo deben ser cero cuando `azacsnap` se ejecuta correctamente hasta el final y un número distinto de cero en caso de error.  Además, el control de errores internos de AzAcSnap se ha ampliado para capturar y emitir el código de salida de los comandos externos (por ejemplo, hdbsql, ssh) ejecutados por AzAcSnap, si son la causa del error.
+
+Descargue la [versión más reciente](https://aka.ms/azacsnapdownload) del instalador y revise [cómo empezar](azacsnap-get-started.md).
 
 ## <a name="april-2021"></a>Abril de 2021
 
@@ -32,8 +42,6 @@ En esta página se enumeran los cambios importantes realizados en AzAcSnap para 
 AzAcSnap v5.0 (compilación: 20210421.6349) se ha publicado para disponibilidad general y, para esta compilación, se han realizado las siguientes correcciones y mejoras:
 
 - El tiempo de espera de reintento de hdbsql (para esperar una respuesta de SAP HANA) se establece automáticamente en la mitad del valor de "savePointAbortWaitSeconds" para evitar condiciones de carrera.  El valor de "savePointAbortWaitSeconds" se puede modificar directamente en el archivo de configuración JSON y debe ser de 600 segundos como mínimo.
-
-Descargue la [versión más reciente](https://aka.ms/azacsnapdownload) del instalador y revise [cómo empezar](azacsnap-get-started.md).
 
 ## <a name="march-2021"></a>Marzo de 2021
 

@@ -1,6 +1,6 @@
 ---
-title: Configuración de los detalles de la descripción de la oferta de SaaS en el Centro de partners de Microsoft
-description: Aprenda a configurar los detalles de la descripción de la oferta de software como servicio (SaaS) para el marketplace comercial de Microsoft.
+title: Configuración de los detalles de las descripciones de ofertas de SaaS en Azure Marketplace
+description: Configure los detalles de las descripciones de ofertas de software como servicio (SaaS) en Azure Marketplace.
 author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
@@ -8,14 +8,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 3a47ba2025bcaba542d2dbec0c89643e0900f233
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e02fccc2747403076d872fad20db0a4e92d10be4
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96746155"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110616694"
 ---
-# <a name="how-to-configure-your-saas-offer-listing-details"></a>Configuración de los detalles de la descripción de la oferta de SaaS
+# <a name="configure-saas-offer-listing-details"></a>Configuración de los detalles de las descripciones de ofertas de SaaS
 
 La información que especifica en la página **Offer listing** (Descripción de la oferta) de su oferta de software como servicio (SaaS) se mostrará en los almacenes en línea del marketplace comercial de Microsoft. Aquí se incluye las descripciones de su oferta, capturas de pantallas y sus recursos de marketing.
 
@@ -67,7 +67,7 @@ Debe agregar entre uno y tres documentos de marketing a su oferta. Estos documen
 1. En el cuadro **Nombre** que aparece, escriba el nombre de este documento. Los clientes verán dicho nombre en la pestaña de detalles de la oferta.
 1. Repita estos pasos para agregar un documento auxiliar adicional.
 
-## <a name="add-your-marketplace-media"></a>Adición de elementos multimedia de marketplace
+## <a name="add-marketplace-media"></a>Adición de elementos multimedia del marketplace
 
 ### <a name="add-logos"></a>Adición de logotipos
 
@@ -104,5 +104,5 @@ Seleccione **Guardar borrador** antes de pasar a la siguiente pestaña: Público
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si va a vender su oferta a través de Microsoft, vaya al artículo sobre [cómo agregar un público de versión preliminar a su oferta de SaaS](create-new-saas-offer-preview.md). 
-- En caso contrario, vaya a [Comercialización de ofertas de SaaS](create-new-saas-offer-marketing.md).
+- Si va a vender su oferta a través de Microsoft, vaya a [Agregar una audiencia preliminar](create-new-saas-offer-preview.md). 
+- De lo contrario, vaya [Vender una oferta de SaaS](create-new-saas-offer-marketing.md).

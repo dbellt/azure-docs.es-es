@@ -4,19 +4,19 @@ description: Cree una copia transaccionalmente coherente de una base de datos de
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: how-to
-author: stevestein
-ms.author: sashan
-ms.reviewer: wiassaf
+author: shkale-msft
+ms.author: shkale
+ms.reviewer: mathoma
 ms.date: 03/10/2021
-ms.openlocfilehash: 895219622999334c4d5a91e7af922ae9d54f30a5
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 325a2feb0cf29a03a88249e2d0ac3a22f685d498
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108073960"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110694553"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Creación de una copia transaccionalmente coherente de una base de datos de Azure SQL Database
 
@@ -182,6 +182,7 @@ AS COPY OF source_server_name.source_database_name;
 
 > [!TIP]
 > La copia de base de datos mediante T-SQL permite copiar una base de datos de una suscripción en un inquilino de Azure diferente. Esto solo se admite cuando se usa un inicio de sesión de autenticación de SQL para iniciar sesión en el servidor de destino.
+> No se admite la creación de una copia de base de datos en un servidor lógico en un inquilino de Azure diferente cuando la autenticación de [Azure Active Directory](https://techcommunity.microsoft.com/t5/azure-sql/support-for-azure-ad-user-creation-on-behalf-of-azure-ad/ba-p/2346849) está activa (habilitada) en el servidor lógico de origen o de destino.
 
 ## <a name="monitor-the-progress-of-the-copying-operation"></a>Supervisión del progreso de la operación de copia
 

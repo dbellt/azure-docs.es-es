@@ -9,23 +9,32 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 04/14/2021
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e24bf5df84015ada6b62c35fdd29571c66e06ebd
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 932fc71617846f2839767546a8fac00a3d16008c
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107505265"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110792261"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Asignación de roles con ámbito a una unidad administrativa
 
 Para un control administrativo más pormenorizado en Azure Active Directory (Azure AD), puede asignar usuarios a un rol de Azure AD con un ámbito limitado a una o más unidades administrativas.
 
-Vea [Introducción](admin-units-manage.md#get-started) para prepararse para el uso de PowerShell y Microsoft Graph para la administración de unidades administrativas.
+## <a name="prerequisites"></a>Requisitos previos
+
+- Una licencia de Azure AD Premium P1 o P2 para cada administrador de la unidad administrativa
+- Licencias de Azure AD Free para los miembros de la unidad administrativa
+- Administrador global o administrador de roles con privilegios
+- Módulo Azure AD al usar PowerShell
+- Consentimiento del administrador al usar Probador de Graph para Microsoft Graph API
+
+Para obtener más información, consulte [Requisitos previos para usar PowerShell o Probador de Graph](prerequisites.md).
+
 
 ## <a name="available-roles"></a>Roles disponibles
 
@@ -50,7 +59,7 @@ Las siguientes entidades de seguridad pueden asignarse a un rol con un ámbito d
 
 Puede asignar un rol con ámbito mediante Azure Portal, PowerShell o Microsoft Graph.
 
-### <a name="use-the-azure-portal"></a>Uso de Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 1. En Azure Portal, vaya a **Azure AD**.
 
@@ -69,7 +78,7 @@ Puede asignar un rol con ámbito mediante Azure Portal, PowerShell o Microsoft 
 > [!Note]
 > Para asignar un rol en una unidad administrativa mediante Azure AD Privileged Identity Management (PIM), vea [Asignación de roles de Azure AD en PIM](../privileged-identity-management/pim-how-to-add-role-to-user.md?tabs=new#assign-a-role-with-restricted-scope).
 
-### <a name="use-powershell"></a>Uso de PowerShell
+### <a name="powershell"></a>PowerShell
 
 ```powershell
 $adminUser = Get-AzureADUser -ObjectId "Use the user's UPN, who would be an admin on this unit"
@@ -82,7 +91,7 @@ Add-AzureADMSScopedRoleMembership -Id $adminUnitObj.Id -RoleId $role.ObjectId -R
 
 La sección resaltada se puede cambiar según sea necesario para el entorno específico.
 
-### <a name="use-microsoft-graph"></a>Uso de Microsoft Graph
+### <a name="microsoft-graph-api"></a>Microsoft Graph API
 
 Request
 
@@ -105,7 +114,7 @@ Cuerpo
 
 Puede ver una lista de administradores con ámbito mediante Azure Portal, PowerShell o Microsoft Graph.
 
-### <a name="use-the-azure-portal"></a>Uso de Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 Todas las asignaciones de roles creadas con un ámbito de unidad administrativa se pueden ver en la sección [Unidades administrativas de Azure AD](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). 
 
@@ -115,7 +124,7 @@ Todas las asignaciones de roles creadas con un ámbito de unidad administrativa 
 
 1. Seleccione **Roles y administradores** y abra un rol para ver las asignaciones de la unidad administrativa.
 
-### <a name="use-powershell"></a>Uso de PowerShell
+### <a name="powershell"></a>PowerShell
 
 ```powershell
 $adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
@@ -124,7 +133,7 @@ Get-AzureADMSScopedRoleMembership -Id $adminUnitObj.Id | fl *
 
 Puede cambiar la sección resaltada según sea necesario para el entorno específico.
 
-### <a name="use-microsoft-graph"></a>Uso de Microsoft Graph
+### <a name="microsoft-graph-api"></a>Microsoft Graph API
 
 Request
 

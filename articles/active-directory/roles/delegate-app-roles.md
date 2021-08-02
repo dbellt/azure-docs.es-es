@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9dcbb12f48a98a35013a80f986b67f75118d74c
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 2dd14da92eedc14a3da8e9eb0a29b08d96acd204
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060265"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110790789"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegación de permisos de registro de aplicaciones en Azure Active Directory
 
@@ -38,7 +38,7 @@ De manera predeterminada, en Azure AD, todos los usuarios pueden registrar aplic
 
 ### <a name="to-disable-the-default-ability-to-create-application-registrations-or-consent-to-applications"></a>Deshabilitar la capacidad predeterminada de crear registros de aplicación o dar consentimiento a las aplicaciones
 
-1. Inicie sesión en la organización de Azure AD con una cuenta que sea válida para el rol de administrador global de esa organización.
+1. Inicie sesión en la organización de Azure AD con una cuenta que sea válida para el rol de administrador global de esa organización.
 1. Establezca uno o los dos valores siguientes:
 
     - En la [página Configuración de usuario de su organización](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings), establezca el valor **Los usuarios pueden registrar aplicaciones** en No. Esto deshabilitará la capacidad predeterminada de los usuarios de crear registros de aplicación.
@@ -95,8 +95,8 @@ La creación y la asignación de roles personalizados son pasos independientes:
 Esta separación le permite crear una definición de roles única y, a continuación, asignarla muchas veces en *ámbitos* diferentes. Un rol personalizado se puede asignar en un ámbito de toda la organización o en un ámbito de objeto en caso de que exista un único objeto de Azure AD. Un ejemplo de un ámbito de objeto es un registro de aplicación único. Mediante el uso de diferentes ámbitos, se puede asignar la misma definición de roles a Sally en todos los registros de aplicaciones de la organización y, a continuación, a Naveen solo en el registro de aplicación de informes de gastos de Contoso.
 
 Sugerencias para crear y usar roles personalizados para delegar la administración de aplicaciones:
-- Los roles personalizados solo conceden acceso a las hojas de registro de aplicaciones más recientes del portal de Azure AD. No conceden acceso a las hojas de registros de aplicaciones heredadas.
-- Los roles personalizados no conceden acceso al portal de Azure AD si la opción de usuario "Restringir el acceso al portal de administración de Azure AD" está establecida en Sí.
+- Los roles personalizados solo conceden acceso en las hojas de registro de aplicaciones más actuales de Azure Portal. No conceden acceso a las hojas de registros de aplicaciones heredadas.
+- Los roles personalizados no conceden acceso a Azure Portal si la opción de usuario "Restringir el acceso al portal de administración de Azure AD" está establecida en Sí.
 - Los registros de aplicaciones a los que el usuario tiene acceso mediante las asignaciones de roles solo aparecen en la pestaña "Todas las aplicaciones" de la página Registro de aplicación. No aparecen en la pestaña "Aplicaciones propias".
 
 Para más información sobre los aspectos básicos de los roles personalizados, consulte la [introducción sobre los roles personalizados](custom-overview.md), y también cómo [crear un rol personalizado](custom-create.md) y cómo [asignar un rol](custom-assign-powershell.md).
@@ -104,4 +104,4 @@ Para más información sobre los aspectos básicos de los roles personalizados, 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Permisos y subtipos del registro de aplicaciones](custom-available-permissions.md)
-- [Referencia de rol de administrador de Azure AD](permissions-reference.md)
+- [Roles integrados de Azure AD](permissions-reference.md)

@@ -1,5 +1,5 @@
 ---
-title: Creación de una máquina virtual Windows con Azure Image Builder (versión preliminar)
+title: Creación de una máquina virtual Windows con Azure Image Builder
 description: Cree una máquina virtual Windows con Azure Image Builder.
 author: kof-f
 ms.author: kofiforson
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
-ms.openlocfilehash: cd941868cd03a456ba78b57bcfeae5f8adfb59f4
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 6eaa59521a864b3d93d4c79706ca8ec7ff100d70
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107948210"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112030978"
 ---
-# <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>Vista previa: Creación de una máquina virtual Windows con Azure Image Builder
+# <a name="create-a-windows-vm-with-azure-image-builder"></a>Creación de una máquina virtual Windows con Azure Image Builder
 
 En este artículo se muestra cómo puede crear una imagen personalizada de Windows mediante el generador de imágenes de máquina virtual de Azure. En el ejemplo de este artículo se usan [personalizadores](../linux/image-builder-json.md#properties-customize) para personalizar la imagen:
 - PowerShell (ScriptUri): para descargar y ejecutar un [script de PowerShell](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1).
@@ -33,24 +33,14 @@ También puede especificar un valor de `buildTimeoutInMinutes`. El valor predete
 Se usará una plantilla .json de ejemplo para configurar la imagen. El archivo .json que se usa aquí es: [helloImageTemplateWin.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json). 
 
 
-> [!IMPORTANT]
-> Actualmente, el generador de imágenes de Azure se encuentra en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+> [!NOTE]
+> En el caso de los usuarios de Windows, los ejemplos de la CLI de Azure siguientes se pueden ejecutar en [Azure Cloud Shell](https://shell.azure.com) mediante Bash.
 
 
 ## <a name="register-the-features"></a>Registro de las características
 
-Para usar el generador de imágenes de Azure durante la versión preliminar, tendrá que registrar la nueva característica.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
-```
-
-Compruebe el estado del registro de la característica.
-
-```azurecli-interactive
-az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
-```
+Para usar Azure Image Builder, debe registrar la característica.
 
 Compruebe el registro.
 

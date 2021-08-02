@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: 97509b878fb5e0cb28bddc5d1b58c21b32c34675
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 493f04883aa49c8658b7b4a1996bf010992a2f55
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99555641"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110792879"
 ---
 # <a name="use-azure-sentinel-watchlists"></a>Uso de listas de seguimiento de Azure Sentinel
 
@@ -36,17 +36,23 @@ Algunos escenarios habituales para usar listas de seguimiento son:
 
 ## <a name="create-a-new-watchlist"></a>Creación de una nueva lista de seguimiento
 
-1. En Azure Portal, vaya a **Azure Sentinel** > **Configuración** > **Watchlist** (Lista de seguimiento) y, a continuación, seleccione **Agregar nuevo**.
+1. En Azure Portal, vaya a **Azure Sentinel** > **Configuración** > **Lista de reproducción** y, a continuación, seleccione **+Agregar nuevo**.
 
-    > [!div class="mx-imgBorder"]
-    > ![nueva lista de seguimiento](./media/watchlists/sentinel-watchlist-new.png)
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-new.png" alt-text="nueva lista de seguimiento" lightbox="./media/watchlists/sentinel-watchlist-new.png":::
 
-1. En la página **General**, proporcione el nombre, la descripción y el alias de la lista de seguimiento y, a continuación, seleccione **Siguiente**.
+1. En la página **General**, proporcione el nombre, la descripción y el alias de la lista de seguimiento y, a continuación, seleccione **Siguiente: Origen**.
 
-    > [!div class="mx-imgBorder"]
-    > ![página general de la lista de seguimiento](./media/watchlists/sentinel-watchlist-general.png)
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-general.png" alt-text="página general de la lista de seguimiento":::
 
-1. En la página **Origen**, seleccione el tipo de conjunto de archivos, cargue un archivo y, a continuación, seleccione **Siguiente**.
+1. En la página **Origen**, seleccione el tipo de conjunto de datos (actualmente solo está disponible CSV), escriba el número de líneas **antes de la fila de encabezado** en el archivo de datos y, a continuación, elija un archivo para cargarlo de una de estas dos maneras:
+    1. Haga clic en el vínculo **Buscar archivos** en el cuadro **Cargar archivo** y seleccione el archivo de datos que desea cargar.
+    1. Arrastre y coloque el archivo de datos en el cuadro **Cargar archivo**.
+
+    Verá una vista previa de las primeras 50 filas de resultados en la pantalla del Asistente.
+
+1. En el campo **SearchKey**, escriba el nombre de una columna en la lista de visualización que espera usar como combinación con otros datos o como un objeto frecuente de búsquedas. Por ejemplo, si la lista de seguimiento de servidores contiene nombres de servidor y sus respectivas direcciones IP, y espera usar las direcciones IP a menudo para búsquedas o combinaciones, use la columna **Dirección IP** como SearchKey.
+
+1. Seleccione **Siguiente: Revisar y crear**.
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-source.png" alt-text="página de origen de la lista de seguimiento" lightbox="./media/watchlists/sentinel-watchlist-source.png":::
 
@@ -54,10 +60,9 @@ Algunos escenarios habituales para usar listas de seguimiento son:
     >
     > Las cargas de archivos están limitadas actualmente a archivos de hasta 3,8 MB de tamaño.
 
-1. Revise la información, compruebe que sea correcta y, después, seleccione **Crear**.
+1. Revise la información, compruebe que es correcta, espere el mensaje *Validación superada* y, a continuación, seleccione **Crear**.
 
-    > [!div class="mx-imgBorder"]
-    > ![página de revisión de la lista de seguimiento](./media/watchlists/sentinel-watchlist-review.png)
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-review.png" alt-text="página de revisión de la lista de seguimiento":::
 
     Una vez que se crea la lista de seguimiento, aparece una notificación.
 
@@ -65,27 +70,33 @@ Algunos escenarios habituales para usar listas de seguimiento son:
 
 ## <a name="use-watchlists-in-queries"></a>Uso de listas de seguimiento en consultas
 
+> [!TIP]
+> Para obtener un rendimiento óptimo de las consultas, use **SearchKey** (que representa el campo que definió al crear la lista de reproducción) como clave para las combinaciones en las consultas. Observe el ejemplo siguiente.
+
 1. En Azure Portal, vaya a **Azure Sentinel** > **Configuration** > **Watchlist** (Lista de seguimiento), seleccione la lista de seguimiento que quiere usar y, a continuación, seleccione **Ver en Log Analytics**.
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-list.png" alt-text="uso de listas de seguimiento en consultas" lightbox="./media/watchlists/sentinel-watchlist-queries-list.png":::
 
-1. Los elementos de la lista de seguimiento se extraen automáticamente para la consulta y aparecerán en la pestaña **Resultados**. En el ejemplo siguiente se muestran los resultados de la extracción de los campos **ServerName** y **IpAddress**.
+1. Los elementos de la lista de seguimiento se extraen automáticamente para la consulta y aparecerán en la pestaña **Resultados**. En el ejemplo siguiente se muestran los resultados de la extracción de los campos **Nombre** y **Dirección IP**. **SearchKey** se muestra como su propia columna.
 
     > [!NOTE]
     > La marca de tiempo en las consultas se omitirá tanto en la UI de la consulta como en las alertas programadas.
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-fields.png" alt-text="consultas con campos de la lista de seguimiento" lightbox="./media/watchlists/sentinel-watchlist-queries-fields.png":::
     
-1. Puede consultar los datos de cualquier tabla comparándolos con los datos de una lista de reproducción tratando a esta última como una tabla de combinaciones y búsquedas.
+1. Puede consultar los datos de cualquier tabla comparándolos con los datos de una lista de reproducción tratando a esta última como una tabla de combinaciones y búsquedas. Use **SearchKey** como clave para la combinación.
 
     ```kusto
     Heartbeat
     | lookup kind=leftouter _GetWatchlist('IPlist') 
-     on $left.ComputerIP == $right.IPAddress
+     on $left.ComputerIP == $right.SearchKey
     ```
-    :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-join.png" alt-text="consultas en comparación con listas de reproducción como búsqueda":::
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-join.png" alt-text="consultas en comparación con listas de reproducción como búsqueda" lightbox="./media/watchlists/sentinel-watchlist-queries-join.png":::
 
 ## <a name="use-watchlists-in-analytics-rules"></a>Uso de listas de seguimiento en reglas de análisis
+
+> [!TIP]
+> Para obtener un rendimiento óptimo de las consultas, use **SearchKey** (que representa el campo que definió al crear la lista de seguimiento) como clave para las combinaciones en las consultas. Observe el ejemplo siguiente.
 
 Para usar listas de seguimiento en reglas de análisis, desde el Azure Portal, vaya a **Azure Sentinel** > **Configuración** > **Análisis** y cree una regla con la función `_GetWatchlist('<watchlist>')` en la consulta.
 
@@ -93,7 +104,7 @@ Para usar listas de seguimiento en reglas de análisis, desde el Azure Portal, v
 
     :::image type="content" source="./media/watchlists/create-watchlist.png" alt-text="lista de cuatro elementos de la lista de reproducción":::
 
-    :::image type="content" source="./media/watchlists/sentinel-watchlist-new-2.png" alt-text="crear lista de reproducción con cuatro elementos":::
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-new-other.png" alt-text="crear lista de reproducción con cuatro elementos":::
 
 1. A continuación, cree la regla de análisis.  En este ejemplo, solo se incluyen eventos de direcciones IP en la lista de reproducción:
 
@@ -105,21 +116,21 @@ Para usar listas de seguimiento en reglas de análisis, desde el Azure Portal, v
     ```
     ```kusto
     //Watchlist inline with the query
+    //Use SearchKey for the best performance
     Heartbeat
     | where ComputerIP in ( 
         (_GetWatchlist('ipwatchlist')
-        | project IPAddress)
+        | project SearchKey)
     )
     ```
 
-:::image type="content" source="./media/watchlists/sentinel-watchlist-analytics-rule-2.png" alt-text="uso de listas de seguimiento en reglas de análisis":::
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-analytics-rule.png" alt-text="uso de listas de seguimiento en reglas de análisis":::
 
 ## <a name="view-list-of-watchlists-aliases"></a>Visualización de la lista de alias de listas de seguimiento
 
 Para obtener una lista de los alias de las listas de seguimiento, en Azure Portal, vaya a **Azure Sentinel** > **General** > **Registros** y ejecute la consulta siguiente: `_GetWatchlistAlias`. Puede ver la lista de alias en la pestaña **Resultados**.
 
-> [!div class="mx-imgBorder"]
-> ![enumeración de listas de seguimiento](./media/watchlists/sentinel-watchlist-alias.png)
+   :::image type="content" source="./media/watchlists/sentinel-watchlist-alias.png" alt-text="enumeración de listas de seguimiento" lightbox="./media/watchlists/sentinel-watchlist-alias.png":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, aprendió a usar las listas de seguimiento en Azure Sentinel para enriquecer los datos y mejorar las investigaciones. Para más información sobre Azure Sentinel, consulte los siguientes artículos:

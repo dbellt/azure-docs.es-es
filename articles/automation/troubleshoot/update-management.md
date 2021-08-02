@@ -3,22 +3,70 @@ title: Resolución de problemas de Update Management de Azure Automation
 description: En este artículo se describe cómo solucionar y resolver problemas con Update Management de Azure Automation.
 services: automation
 ms.subservice: update-management
-ms.date: 04/18/2021
+ms.date: 06/10/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5d73f7232afc9dcd6f7e069297efac763c242f7b
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 0f773bdedcbcb014e15436732e489f9b15900f58
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108164262"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951780"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Solución de problemas de Update Management
 
-En este artículo se describen los problemas que puede experimentar al implementar la característica Update Management en sus máquinas. Existe un agente solucionador de problemas para que el agente de Hybrid Runbook Worker determine el problema subyacente. Para obtener más información sobre el solucionador de problemas, consulte [Solución de problemas del agente de actualización de Windows](update-agent-issues.md) y [Solución de problemas del agente de actualización de Linux](update-agent-issues-linux.md). Si tiene otros problemas de implementación de características, consulte [Solucionar problemas de implementación de características](onboarding.md).
+En este artículo se describen los problemas que puede experimentar al usar la característica Update Management para evaluar y administrar actualizaciones en sus máquinas. Existe un agente solucionador de problemas para que el agente de Hybrid Runbook Worker determine el problema subyacente. Para obtener más información sobre el solucionador de problemas, consulte [Solución de problemas del agente de actualización de Windows](update-agent-issues.md) y [Solución de problemas del agente de actualización de Linux](update-agent-issues-linux.md). Si tiene otros problemas de implementación de características, consulte [Solucionar problemas de implementación de características](onboarding.md).
 
 >[!NOTE]
 >Si encuentra problemas al implementar Update Management en una máquina Windows, abra el Visor de eventos de Windows y compruebe el registro de eventos de **Operations Manager** en los **registros de aplicaciones y servicios** en la máquina local. Busque eventos con el id. de evento 4502 y detalles del evento que contengan `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
+
+## <a name="scenario-windows-defender-update-always-show-as-missing"></a><a name="windows-defender-update-missing-status"></a>Ejemplo: la actualización de Windows Defender siempre se muestra como ausente.
+
+### <a name="issue"></a>Incidencia
+
+La actualización de definiciones de Windows Defender (**KB2267602**) siempre se muestra como ausente en una evaluación cuando se instala y se muestra como actualizada en el momento de comprobarla en el historial de Windows Update.
+
+### <a name="cause"></a>Causa
+
+Las actualizaciones de definiciones se publican varias veces en un solo día. Como resultado, puede ver varias versiones de KB2267602 publicadas en un solo día, pero con un id. de actualización y una versión diferentes.
+
+La evaluación de Update Management se ejecuta una vez cada 11 horas. En este ejemplo, a las 10:00 se ejecutó una evaluación y la versión 1.237.316.0 estaba disponible en ese momento. Al buscar la tabla **Actualización** en el área de trabajo de Log Analytics, la actualización de la definición 1.237.316.0 se muestra con un valor de **updateState** establecido en **Necesario**. Si una implementación programada se ejecuta unas horas más tarde (supongamos que a las 13:00) y la versión 1.237.316.0 o una versión más reciente sigue estando disponible, se instalará la versión más reciente; así pues, este proceso se reflejará en el registro escrito en la tabla **UpdateRunProgress**. Sin embargo, en la tabla **Actualización** todavía se mostrará la versión 1.237.316.0 como **Necesaria** hasta que se ejecute la siguiente evaluación. Cuando la evaluación se ejecuta de nuevo, es posible que no haya una actualización de definición más reciente disponible, por lo que la tabla **Actualización** no mostrará la versión de actualización de definición 1.237.316.0 como ausente o una versión más reciente disponible según sea necesario. Debido a la frecuencia de las actualizaciones de definiciones, se podrían devolver varias versiones en la búsqueda de registros. 
+
+### <a name="resolution"></a>Solución
+
+Ejecute la siguiente consulta de registro para confirmar que las actualizaciones de definiciones instaladas se notifican correctamente. Esta consulta devuelve el tiempo generado, la versión y el id. de actualización de KB2267602 en la tabla **Actualizaciones**. Reemplace el valor de *Equipo* por el nombre completo de la máquina.
+
+```kusto
+Update
+| where TimeGenerated > ago(14h) and OSType != "Linux" and (Optional == false or Classification has "Critical" or Classification has "Security") and SourceComputerId in ((
+    Heartbeat
+    | where TimeGenerated > ago(12h) and OSType =~ "Windows" and notempty(Computer)
+    | summarize arg_max(TimeGenerated, Solutions) by SourceComputerId
+    | where Solutions has "updates"
+    | distinct SourceComputerId))
+| summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by Computer, SourceComputerId, UpdateID
+| where UpdateState =~ "Needed" and Approved != false and Computer == "<computerName>"
+| render table
+```
+
+Los resultados de la consulta deben devolver un valor similar al siguiente:
+
+:::image type="content" source="./media/update-management/example-query-updates-table.png" alt-text="Ejemplo que muestra los resultados de la consulta de registro de la tabla Actualizaciones.":::
+
+Ejecute la siguiente consulta de registro para obtener el tiempo generado, la versión y el id. de actualización de KB2267602 en la tabla **UpdatesRunProgress**. Esta consulta le permitirá saber si se instaló desde Update Management o si se instaló automáticamente en la máquina desde Microsoft Update. Debe reemplazar el valor de *CorrelationId* por el GUID del trabajo de runbook (es decir, el valor de la propiedad **MasterJOBID** del trabajo de runbook **Patch-MicrosoftOMSComputer**) para la actualización, y *SourceComputerId* por el GUID de la máquina.
+
+```kusto
+UpdateRunProgress
+| where OSType!="Linux" and CorrelationId=="<master job id>" and SourceComputerId=="<source computer id>"
+| summarize arg_max(TimeGenerated, Title, InstallationStatus) by UpdateId
+| project TimeGenerated, id=UpdateId, displayName=Title, InstallationStatus
+```
+
+Los resultados de la consulta deben devolver un valor similar al siguiente:
+
+:::image type="content" source="./media/update-management/example-query-updaterunprogress-table.png" alt-text="Ejemplo que muestra los resultados de la consulta de registro de la tabla UpdatesRunProgress.":::
+
+Si el valor **TimeGenerated** de los resultados de la consulta de registro de la tabla **Actualizaciones** es anterior a la marca de tiempo (es decir, el valor de **TimeGenerated**) de la instalación de la actualización en el equipo o de los resultados de la consulta de registro de la tabla **UpdateRunProgress**, espere a la siguiente valoración. A continuación, vuelva a ejecutar la consulta de registro en la tabla **Actualizaciones**. No aparecerá una actualización de KB2267602 o aparecerá con una versión más reciente. Sin embargo, si después de realizar la evaluación más reciente la misma versión aparece como **Necesaria** en la tabla **Actualizaciones** pero resulta que ya está instalada, debe abrir un incidente de soporte técnico de Azure.
 
 ## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a><a name="updates-linux-installed-different"></a>Escenario: Las actualizaciones de Linux se muestran como pendientes y las que se instalan varían
 
@@ -86,7 +134,7 @@ Este error puede ocurrir debido a uno de los siguientes motivos:
 
 ## <a name="scenario-superseded-update-indicated-as-missing-in-update-management"></a>Escenario: En Update Management se indica que falta una actualización reemplazada
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Se indica que faltan actualizaciones antiguas en la cuenta de Automation, aunque se han reemplazado. Una actualización reemplazada es aquella que no es necesario instalar, puesto que hay una posterior disponible que corrige la misma vulnerabilidad. Update Management omite la actualización reemplazada y no la convierte en aplicable en favor de la actualización que la reemplaza. Para obtener información sobre un problema relacionado, vea [Actualización reemplazada](/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer).
 
@@ -114,7 +162,7 @@ Cuando una actualización reemplazada sea no aplicable al cien por cien, debe ca
 
 ## <a name="scenario-machines-dont-show-up-in-the-portal-under-update-management"></a><a name="nologs"></a>Escenario: Las máquinas no se muestran en el portal en Update Management
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Los equipos presentan estos síntomas:
 
@@ -163,7 +211,7 @@ Este problema puede deberse a problemas de configuración local o a que la confi
 
 ## <a name="scenario-unable-to-register-automation-resource-provider-for-subscriptions"></a><a name="rp-register"></a>Escenario: No se puede registrar el proveedor de recursos de Automation para las suscripciones
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Al trabajar con implementaciones de características en la cuenta de Automation, se produce el siguiente error:
 
@@ -290,13 +338,23 @@ Las máquinas aparecen en los resultados de la consulta de azure Resource Graph,
 
 4. Compruebe que la instancia de Hybrid Worker está presente para esa máquina.
 
-5. Si la máquina no está configurada como Hybrid Runbook Worker del sistema, revise los métodos para habilitar la máquina en la sección [Enable Update Management](../update-management/overview.md#enable-update-management) (Habilitar administración de actualizaciones) del artículo Información general de la administración de actualizaciones. El método que se va a habilitar se basa en el entorno en el que se ejecuta la máquina.
+5. Si la máquina no está configurada como Hybrid Runbook Worker del sistema, revise los siguientes métodos para habilitar la máquina usando uno de ellos:
+
+   - Desde la [cuenta de Automation](../update-management/enable-from-automation-account.md) para una o varias máquinas de Azure o que no sean de Azure, incluidos los servidores habilitados para Arc.
+
+   - Use el [runbook](../update-management/enable-from-runbook.md) **Enable-AutomationSolution** para automatizar la incorporación de VM de Azure.
+
+   - Para una [VM de Azure concreta](../update-management/enable-from-vm.md), desde la página **Máquinas virtuales** en Azure Portal. Este escenario está disponible para las VM Linux y Windows.
+
+   - Para [varias máquinas virtuales de Azure](../update-management/enable-from-portal.md), selecciónelas en la página **Máquinas virtuales** de Azure Portal.
+
+   El método que se va a habilitar se basa en el entorno en el que se ejecuta la máquina.
 
 6. Repita los pasos anteriores para todas las máquinas que no se han mostrado en la versión preliminar.
 
 ## <a name="scenario-update-management-components-enabled-while-vm-continues-to-show-as-being-configured"></a><a name="components-enabled-not-working"></a>Escenario: Componentes de Update Management habilitados, mientras la máquina virtual se sigue mostrando como configurada
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Continúa recibiendo el mensaje siguiente en una máquina virtual 15 minutos después de la implementación:
 
@@ -326,7 +384,7 @@ Update
 
 #### <a name="communication-with-automation-account-blocked"></a>Comunicación con la cuenta de Automation bloqueada
 
-Vaya a [Network planning](../update-management/overview.md#ports) (Planeamiento de red) para obtener información acerca de qué direcciones y puertos deben permitirse para que Update Management funcione.
+Vaya a [Network planning](../update-management/plan-deployment.md#ports) (Planeamiento de red) para obtener información acerca de qué direcciones y puertos deben permitirse para que Update Management funcione.
 
 #### <a name="duplicate-computer-name"></a>Nombre de equipo duplicado
 
@@ -350,7 +408,7 @@ Si usa una imagen clonada, los distintos nombres de equipo tienen el mismo ident
 
 ## <a name="scenario-you-receive-a-linked-subscription-error-when-you-create-an-update-deployment-for-machines-in-another-azure-tenant"></a><a name="multi-tenant"></a>Escenario: Recibe un error de la suscripción vinculada al crear una implementación de actualización para las máquinas en otro inquilino de Azure
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Encuentra el error siguiente al intentar crear una implementación de actualización para las máquinas en otro inquilino de Azure:
 
@@ -378,7 +436,7 @@ New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationA
 
 ## <a name="scenario-unexplained-reboots"></a><a name="node-reboots"></a>Escenario: Reinicios inexplicables
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Aunque haya establecido la opción **Reboot Control** (Control de reinicio) en **No reiniciar nunca**, las máquinas todavía se reinician después de instalar las actualizaciones.
 
@@ -416,12 +474,12 @@ Puede recuperar más detalles mediante programación con las API REST. Consulte 
 
 Cuando proceda, use [grupos dinámicos](../update-management/configure-groups.md) para las implementaciones de actualizaciones. Además, puede llevar a cabo los pasos siguientes.
 
-1. Compruebe si la máquina o el servidor cumplen los [requisitos](../update-management/overview.md#system-requirements).
+1. Compruebe si la máquina o el servidor cumplen los [requisitos](../update-management/operating-system-requirements.md).
 2. Compruebe la conectividad con el Hybrid Runbook Worker mediante el solucionador de problemas del agente de Hybrid Runbook Worker. Para más información sobre el solucionador de problemas, consulte el artículo sobre [cómo solucionar problemas con el agente de actualización](update-agent-issues.md).
 
 ## <a name="scenario-updates-are-installed-without-a-deployment"></a><a name="updates-nodeployment"></a>Escenario: Las actualizaciones se instalan sin una implementación
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Al inscribir una máquina Windows en Update Management, puede ver las actualizaciones instaladas sin una implementación.
 
@@ -439,7 +497,7 @@ Para más información, consulte [Configuración de actualizaciones automáticas
 
 ## <a name="scenario-machine-is-already-registered-to-a-different-account"></a><a name="machine-already-registered"></a>Escenario: La máquina ya está registrada en otra cuenta
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Aparece el siguiente mensaje de error:
 
@@ -458,7 +516,7 @@ La máquina ya se ha implementado en otra área de trabajo para Update Managemen
 
 ## <a name="scenario-machine-cant-communicate-with-the-service"></a><a name="machine-unable-to-communicate"></a>Escenario: La máquina no se puede comunicar con el servicio
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Aparece uno de los siguientes mensajes de error:
 
@@ -488,7 +546,7 @@ Revise la red y asegúrese de que están permitidas las direcciones y los puerto
 
 ## <a name="scenario-unable-to-create-self-signed-certificate"></a><a name="unable-to-create-selfsigned-cert"></a>Escenario: Error al crear el certificado autofirmado
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Aparece uno de los siguientes mensajes de error:
 
@@ -506,7 +564,7 @@ Verifique que la cuenta del sistema tiene acceso de lectura a la carpeta **C:\Pr
 
 ## <a name="scenario-the-scheduled-update-failed-with-a-maintenancewindowexceeded-error"></a><a name="mw-exceeded"></a>Escenario: Error en la actualización programada con un error MaintenanceWindowExceeded
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 La ventana de mantenimiento predeterminada para las actualizaciones es de 120 minutos. Puede aumentar la ventana de mantenimiento a un máximo de seis 6 horas o 360 minutos. Es posible que reciba el mensaje de error `For one or more machines in schedule, UM job run resulted in Maintenance Window Exceeded state. Guide available at https://aka.ms/UMSucrMwExceeded.`
 
@@ -514,7 +572,7 @@ La ventana de mantenimiento predeterminada para las actualizaciones es de 120 m
 
 Para comprender el motivo de esta incidencia durante la ejecución de una actualización después de haberse iniciado correctamente, [compruebe la salida del trabajo](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) desde la máquina afectada en la ejecución. Puede encontrar mensajes de error específicos procedentes de las máquinas que puede investigar e intentar solucionar.  
 
-Puede recuperar más detalles mediante programación con las API REST. Consulte [Ejecuciones de la máquina de configuración de actualizaciones de software](https://docs.microsoft.com/rest/api/automation/softwareupdateconfigurationmachineruns) para obtener información sobre cómo recuperar una lista de ejecuciones de máquina de configuración de actualizaciones, o una única ejecución de máquina de configuración de actualizaciones de software por identificador.
+Puede recuperar más detalles mediante programación con las API REST. Consulte [Ejecuciones de la máquina de configuración de actualizaciones de software](/rest/api/automation/softwareupdateconfigurationmachineruns) para obtener información sobre cómo recuperar una lista de ejecuciones de máquina de configuración de actualizaciones, o una única ejecución de máquina de configuración de actualizaciones de software por identificador.
 
 Edite las implementaciones de actualizaciones programadas con errores y aumente la ventana de mantenimiento.
 
@@ -522,7 +580,7 @@ Para más información sobre las ventanas de mantenimiento, consulte la [instala
 
 ## <a name="scenario-machine-shows-as-not-assessed-and-shows-an-hresult-exception"></a><a name="hresult"></a>Escenario: La máquina aparece como "No evaluado" y se muestra una excepción HRESULT
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 * Tiene máquinas que aparecen como `Not assessed` en **Cumplimiento** y verá un mensaje de excepción debajo de él.
 * Se muestra un código de error HRESULT en el portal.
@@ -549,7 +607,7 @@ Si se muestra un código de error HRESULT, haga doble clic en la excepción que 
 |Excepción  |Acción o resolución  |
 |---------|---------|
 |`Exception from HRESULT: 0x……C`     | Busque el código de error correspondiente en la [lista de códigos de error de Windows Update](https://support.microsoft.com/help/938205/windows-update-error-code-list) para buscar detalles adicionales sobre la causa de la excepción.        |
-|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Estos errores indican problemas de conectividad de red. Asegúrese de que la máquina tenga conectividad de red con Update Management. Consulte la sección sobre el [planeamiento de red](../update-management/overview.md#ports) para obtener una lista de puertos y direcciones necesarios.        |
+|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Estos errores indican problemas de conectividad de red. Asegúrese de que la máquina tenga conectividad de red con Update Management. Consulte la sección sobre el [planeamiento de red](../update-management/plan-deployment.md#ports) para obtener una lista de puertos y direcciones necesarios.        |
 |`0x8024001E`| No se completó la operación de actualización porque se estaba cerrando el servicio o el sistema.|
 |`0x8024002E`| El servicio de Windows Update está deshabilitado.|
 |`0x8024402C`     | Si usa un servidor WSUS, asegúrese de que los valores del Registro para `WUServer` y `WUStatusServer` en la clave del Registro `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` especifican el servidor WSUS correcto.        |
@@ -567,7 +625,7 @@ También puede descargar y ejecutar el [solucionador de problemas de Windows Upd
 
 ## <a name="scenario-update-run-returns-failed-status-linux"></a>Escenario: La ejecución de la actualización devuelve un estado Error (Linux)
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Se inicia una ejecución de actualización, pero encuentra errores durante la ejecución.
 
@@ -615,7 +673,7 @@ Con frecuencia, unas actualizaciones tienen preferencia sobre otras. Para más i
 
 ### <a name="installing-updates-by-classification-on-linux"></a>Instalación de actualizaciones mediante clasificación en Linux
 
-La implementación de actualizaciones en Linux mediante clasificación ("actualizaciones críticas y de seguridad") tiene advertencias importantes, especialmente para CentOS. Estas limitaciones se documentan en la página de [información general de Update Management](../update-management/overview.md#linux).
+La implementación de actualizaciones en Linux mediante clasificación ("actualizaciones críticas y de seguridad") tiene advertencias importantes, especialmente para CentOS. Estas limitaciones se documentan en la página de [información general de Update Management](../update-management/overview.md#update-classifications).
 
 ### <a name="kb2267602-is-consistently-missing"></a>KB2267602 falta constantemente
 

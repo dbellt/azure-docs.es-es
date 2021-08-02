@@ -9,12 +9,12 @@ ms.date: 03/12/2021
 ms.author: msangapu
 ms.custom: seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 6519f3fe7335ed41f4d5ef67771aaa738a33e4a8
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 26515528a809b36be8d13d19f7baf99b5b2f897f
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107782610"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110783309"
 ---
 # <a name="continuous-deployment-with-custom-containers-in-azure-app-service"></a>Implementación continua con contenedores personalizados en Azure App Service
 
@@ -67,7 +67,11 @@ Siga los pasos siguientes. Para ello, seleccione la pestaña que coincida con su
 La lista desplegable **Registro** muestra los registros de la misma suscripción que la aplicación. **Seleccione** el registro que desee.
 
 > [!NOTE]
-> Para implementar desde un registro en una suscripción diferente, **seleccione en cambio** **Registro privado** en el **origen del registro**.
+>  - Si desea usar identidades administradas para bloquear el acceso a ACR, siga esta guía:
+>    - [Uso de identidades administradas asignadas por el sistema con App Service y Azure Container Registry](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_system-assigned_managed_identities.md)
+>    - [Uso de identidades administradas asignadas por el usuario con App Service y Azure Container Registry](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_user-assigned_managed_identities.md)
+>  - Para implementar desde un registro en una suscripción diferente, **seleccione en cambio** **Registro privado** en el **origen del registro**.
+>   
 
 ::: zone pivot="container-windows"
 **Seleccione** la **imagen** y la **etiqueta** que quiere implementar. Si lo desea, **escriba** el comando de inicio en el **archivo de inicio**. 

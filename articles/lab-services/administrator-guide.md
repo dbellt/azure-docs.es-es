@@ -3,12 +3,12 @@ title: 'Azure Lab Services: guía del administrador | Microsoft Docs'
 description: Esta guía sirve de ayuda para los administradores que crean y administran cuentas de laboratorio mediante Azure Lab Services.
 ms.topic: article
 ms.date: 10/20/2020
-ms.openlocfilehash: b5dff57eb663324679941a043ebaa97f39c6aa20
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 0dd7cb9f23d820cc8a4001d430e8ef446ecc5460
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108770720"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111958836"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services: guía del administrador
 Los administradores de tecnología de la información (TI) que administran los recursos en la nube de una universidad suelen ser también responsables de configurar la cuenta de laboratorio en su institución. Una vez configurada una cuenta de laboratorio, los administradores o educadores crean los laboratorios que están incluidos en la cuenta. En este artículo se proporciona información general de alto nivel sobre los recursos de Azure relacionados e instrucciones para crearlos.
@@ -89,23 +89,23 @@ De forma predeterminada, cada laboratorio tiene su propia red virtual.  Si tiene
 
 ## <a name="shared-image-gallery"></a>Galería de imágenes compartidas
 
-Una galería de imágenes compartidas se asocia a una cuenta de laboratorio y sirve como repositorio central para almacenar imágenes. Una imagen se guarda en la galería cuando un educador elige exportarla desde la máquina virtual de plantilla de un laboratorio. Cada vez que un educador realiza cambios en la máquina virtual de plantilla y los exporta, se guardan nuevas versiones de la imagen y se mantienen las versiones anteriores.
+Una galería de imágenes compartidas se asocia a una cuenta de laboratorio y sirve como repositorio central para almacenar imágenes. Una imagen se guarda en la galería cuando un educador elige exportarla desde la máquina virtual de plantilla de un laboratorio. Cada vez que un formador realiza cambios en la máquina virtual de plantilla y la exporta, se crean definiciones de imagen o versiones en la galería.  
 
-Los instructores pueden publicar una versión de una imagen desde la galería de imágenes compartidas cuando crean un laboratorio. Aunque la galería almacena varias versiones de una imagen, los educadores solo pueden seleccionar la versión más reciente durante la creación del laboratorio.
+Los instructores pueden publicar una versión de una imagen desde la galería de imágenes compartidas cuando crean un laboratorio. Aunque la galería almacena varias versiones de una imagen, los formadores solo pueden seleccionar la última versión durante la creación del laboratorio.  La última versión se elige en función del valor más alto de MajorVersion, luego MinorVersion y, por último, Patch.  Para obtener más información sobre las versiones, vea [Versiones de la imagen](../virtual-machines/shared-image-galleries.md#image-versions).
 
 El servicio Shared Image Gallery es un recurso opcional que puede que no necesite inmediatamente si está empezando solo por unos cuantos laboratorios. Sin embargo, este servicio ofrece muchas ventajas que le resultarán útiles a medida que escale verticalmente a laboratorios adicionales:
 
 - **Puede guardar y administrar versiones de una imagen de máquina virtual de plantilla**
 
-    Resulta útil cuando se crea una imagen personalizada o se realizan cambios (software, configuración, etc.) en una imagen de la galería pública de Azure Marketplace.  Por ejemplo, es habitual que los educadores requieran la instalación de software o herramientas diferentes. En lugar de solicitar a los alumnos que instalen manualmente estos requisitos previos por su cuenta, se pueden exportar diferentes versiones de la imagen de máquina virtual de plantilla en una galería de imágenes compartidas. Después, puede usar estas versiones de imagen al crear otros laboratorios.
+    Resulta útil cuando se crea una imagen personalizada o se realizan cambios (software, configuración, etc.) en una imagen de la galería de Azure Marketplace.  Por ejemplo, es habitual que los educadores requieran la instalación de software o herramientas diferentes. En lugar de solicitar a los alumnos que instalen manualmente estos requisitos previos por su cuenta, se pueden exportar diferentes versiones de la imagen de máquina virtual de plantilla en una galería de imágenes compartidas. Después, puede usar estas versiones de imagen al crear otros laboratorios.
 
 - **Puede compartir y volver a usar imágenes de máquina virtual de plantilla entre laboratorios**
 
     Puede guardar y reutilizar una imagen para que no tenga que configurarla desde cero cada vez que cree un laboratorio. Por ejemplo, si varias clases necesitan usar la misma imagen, puede crearla una vez y exportarla a la galería de imágenes compartidas para que se pueda compartir entre laboratorios.
 
-- **La disponibilidad de las imágenes se garantiza mediante la replicación automática**
+- **Puede cargar sus propias imágenes personalizadas desde otros entornos fuera de los laboratorios**.
 
-    Al guardar una imagen de un laboratorio en la galería de imágenes compartidas, se replica automáticamente en otras [regiones de la misma geografía](https://azure.microsoft.com/global-infrastructure/regions/). En el caso de que se produzca una interrupción en una región, la publicación de la imagen en el laboratorio no se ve afectada, ya que se puede usar una réplica de la imagen de otra región.  La publicación de máquinas virtuales desde varias réplicas también puede ayudar al rendimiento.
+    Puede [cargar imágenes personalizadas en otros entornos fuera del contexto de los laboratorios](how-to-attach-detach-shared-image-gallery.md).  Por ejemplo, puede cargar imágenes desde su propio entorno de laboratorio físico o desde una máquina virtual de Azure a Shared Image Gallery.  Una vez que se importa una imagen en la galería, puede usar las imágenes para crear laboratorios.
 
 Para agrupar imágenes compartidas de manera lógica, puede realizar una de las siguientes acciones:
 
@@ -137,7 +137,7 @@ La región especifica el centro de datos donde se almacena la información sobre
 
 La ubicación de una cuenta de un laboratorio indica la región en que existe un recurso.  
 
-### <a name="lab"></a>Laboratorio
+### <a name="lab"></a>Laboratorio    
 
 La ubicación en la que existe un laboratorio varía en función de estos factores:
 
@@ -163,18 +163,21 @@ Una regla general es establecer la región de un recurso en la más próxima a s
 
 ## <a name="vm-sizing"></a>Tamaño de máquina virtual
 
-Cuando los administradores o creadores de laboratorios crean un laboratorio, pueden elegir entre distintos tamaños de máquina virtual, según las necesidades de su aula. Recuerde que la disponibilidad del tamaño de proceso depende de la región en la que se encuentra la cuenta de laboratorio.
+Cuando los administradores o creadores de laboratorios crean un laboratorio, pueden elegir entre distintos tamaños de máquina virtual, según las necesidades de su aula. Recuerde que la disponibilidad del tamaño depende de la región en la que se encuentra la cuenta de laboratorio.
 
-| Size | Especificaciones | Serie | Sugerencia de uso |
+En la tabla siguiente, observe que varios de los tamaños de máquina virtual se asignan a más de una serie de máquinas virtuales.  En función de la disponibilidad de la capacidad, Lab Services puede usar cualquiera de las series de máquinas virtuales que se muestran para un tamaño de máquina virtual.  Por ejemplo, el tamaño de máquina virtual *Pequeño* se asigna al uso de las series de máquina virtual [Standard_A2_v2](../virtual-machines/av2-series.md) o [Standard_A2](../virtual-machines/sizes-previous-gen.md#a-series).  Al elegir *Pequeño* como tamaño de máquina virtual para el laboratorio, Lab Services intentará usar primero la serie *Standard_A2_v2*.  Sin embargo, cuando no haya capacidad suficiente disponible, Lab Services usará la serie *Standard_A2* en su lugar.  El precio viene determinado por el tamaño de la máquina virtual y es el mismo independientemente de la serie de máquinas virtuales que Lab Services use para ese tamaño específico. Para más información sobre los precios de cada tamaño de máquina virtual, lea la [guía de precios de Lab Services](https://azure.microsoft.com/pricing/details/lab-services/).
+
+
+| Size | Especificaciones mínimas | Serie | Sugerencia de uso |
 | ---- | ----- | ------ | ------------- |
-| Pequeña| <ul><li>2&nbsp;núcleos</li><li>3,5 gigabytes (GB) de RAM</li> | [Standard_A2_v2](../virtual-machines/av2-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Es el más adecuado para la línea de comandos, la apertura del explorador web, los servidores web de poco tráfico o las bases de datos pequeñas o medianas. |
-| Media | <ul><li>4&nbsp;núcleos</li><li>7&nbsp;GB&nbsp;de RAM</li> | [Standard_A4_v2](../virtual-machines/av2-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Es el más adecuado para bases de datos relacionales, análisis y almacenamiento en caché en memoria. |
-| Mediano (virtualización anidada) | <ul><li>4&nbsp;núcleos</li><li>16&nbsp;GB&nbsp; de RAM</li></ul> | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#dsv3-series) | Es el más adecuado para bases de datos relacionales, análisis y almacenamiento en caché en memoria.
-| grande | <ul><li>8&nbsp;núcleos</li><li>16&nbsp;GB&nbsp; de RAM</li></ul>  | [Standard_A8_v2](../virtual-machines/av2-series.md) | Es el más adecuado para aplicaciones que necesitan CPU más rápidas, un mejor rendimiento de los discos locales, bases de datos grandes y cachés de memoria grandes.  Este tamaño admite la virtualización anidada. |
-| Grande (virtualización anidada) | <ul><li>8&nbsp;núcleos</li><li>32&nbsp;GB&nbsp; de RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#dsv3-series) | Es el más adecuado para aplicaciones que necesitan CPU más rápidas, un mejor rendimiento de los discos locales, bases de datos grandes y cachés de memoria grandes. |
+| Pequeña| <ul><li>2&nbsp;núcleos</li><li>3,5 gigabytes (GB) de RAM</li> | [Standard_A2_v2](../virtual-machines/av2-series.md) y [Standard_A2](../virtual-machines/sizes-previous-gen.md#a-series) | Es el más adecuado para la línea de comandos, la apertura del explorador web, los servidores web de poco tráfico o las bases de datos pequeñas o medianas. |
+| Media | <ul><li>4&nbsp;núcleos</li><li>7&nbsp;GB&nbsp;de RAM</li> | [Standard_A4_v2](../virtual-machines/av2-series.md) y [Standard_A3](../virtual-machines/sizes-previous-gen.md#a-series) | Es el más adecuado para bases de datos relacionales, análisis y almacenamiento en caché en memoria. |
+| Mediano (virtualización anidada) | <ul><li>4&nbsp;núcleos</li><li>16&nbsp;GB&nbsp; de RAM</li></ul> | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md#dsv3-series) | Es el más adecuado para bases de datos relacionales, análisis y almacenamiento en caché en memoria.  Este tamaño admite la virtualización anidada.
+| grande | <ul><li>8&nbsp;núcleos</li><li>16&nbsp;GB&nbsp; de RAM</li></ul>  | [Standard_A8_v2](../virtual-machines/av2-series.md) y [Standard_A7](../virtual-machines/sizes-previous-gen.md#a-series) | Es el más adecuado para aplicaciones que necesitan CPU más rápidas, un mejor rendimiento de los discos locales, bases de datos grandes y cachés de memoria grandes. |
+| Grande (virtualización anidada) | <ul><li>8&nbsp;núcleos</li><li>32&nbsp;GB&nbsp; de RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md#dsv3-series) | Es el más adecuado para aplicaciones que necesitan CPU más rápidas, un mejor rendimiento de los discos locales, bases de datos grandes y cachés de memoria grandes.  Este tamaño admite la virtualización anidada. |
 | GPU pequeña (visualización) | <ul><li>6&nbsp;núcleos</li><li>56&nbsp;GB&nbsp;de RAM</li>  | [Standard_NV6](../virtual-machines/nv-series.md) | Es el más adecuado para la visualización, la realización de streaming, los juegos y la codificación de forma remota con marcos como OpenGL y DirectX. |
-| GPU pequeña (proceso) | <ul><li>6&nbsp;núcleos</li><li>56&nbsp;GB&nbsp;de RAM</li></ul>  | [Standard_NC6](../virtual-machines/nc-series.md) |Es el más adecuado para aplicaciones con un uso intensivo de proceso, como inteligencia artificial y aprendizaje profundo. |
-| GPU mediana (visualización) | <ul><li>12&nbsp;núcleos</li><li>112&nbsp;GB&nbsp;de RAM</li></ul>  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Es el más adecuado para la visualización, la realización de streaming, los juegos y la codificación de forma remota con marcos como OpenGL y DirectX. |
+| GPU pequeña (proceso) | <ul><li>6&nbsp;núcleos</li><li>56&nbsp;GB&nbsp;de RAM</li></ul>  | [Standard_NC6](../virtual-machines/nc-series.md) y [Standard_NC6s_v3](../virtual-machines/ncv3-series.md) |Es el más adecuado para aplicaciones con un uso intensivo de proceso, como inteligencia artificial y aprendizaje profundo. |
+| GPU mediana (visualización) | <ul><li>12&nbsp;núcleos</li><li>112&nbsp;GB&nbsp;de RAM</li></ul>  | [Standard_NV12](../virtual-machines/nv-series.md), [Standard_NV12s_v3](../virtual-machines/nvv3-series.md) y [Standard_NV12s_v2](../virtual-machines/sizes-previous-gen.md#nvv2-series)  | Es el más adecuado para la visualización, la realización de streaming, los juegos y la codificación de forma remota con marcos como OpenGL y DirectX. |
 
 ## <a name="manage-identity"></a>Administración de identidades
 
@@ -232,6 +235,16 @@ En su lugar, se recomienda el segundo enfoque, que consiste en instalar software
 
 Si su escuela necesita realizar el filtrado de contenido, póngase en contacto con nosotros en los [foros de Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices) para obtener más información.
 
+## <a name="endpoint-management"></a>Administración de puntos de conexión
+
+Muchas herramientas de administración de puntos de conexión, como [Microsoft Endpoint Manager](https://techcommunity.microsoft.com/t5/azure-lab-services/configuration-manager-azure-lab-services/ba-p/1754407), requieren que las máquinas virtuales Windows tengan identificadores de seguridad de máquina (SID) únicos.  El uso de SysPrep para crear una imagen *generalizada* normalmente garantiza que cada máquina Windows tendrá un nuevo SID de máquina único generado cuando la máquina virtual arranca a partir de la imagen.
+
+Con Lab Services, incluso si usa una imagen *generalizada* para crear un laboratorio, la máquina virtual de plantilla y las máquinas virtuales de los alumnos tendrán el mismo SID de máquina.  Las máquinas virtuales tienen el mismo SID porque la imagen de la máquina virtual de la plantilla está en un estado *especializado* cuando se publica para crear las máquinas virtuales de los alumnos.
+
+Por ejemplo, las imágenes de Azure Marketplace se generalizan.  Si crea un laboratorio a partir de la imagen de Marketplace de Win 10 y publica la máquina virtual de plantilla, todas las máquinas virtuales de los alumnos dentro de un laboratorio tendrán el mismo SID de máquina que la máquina virtual de plantilla.  Los SID de la máquina se pueden comprobar mediante una herramienta como [PsGetSid](/sysinternals/downloads/psgetsid).
+
+Si planea usar una herramienta de administración de puntos de conexión o un software similar, se recomienda probarla con máquinas virtuales de laboratorio para asegurarse de que funciona correctamente cuando los SID de la máquina son los mismos.  
+
 ## <a name="pricing"></a>Precios
 
 ### <a name="azure-lab-services"></a>Azure Lab Services
@@ -246,7 +259,7 @@ La creación de una galería de imágenes compartidas y la asociación a su cuen
 
 #### <a name="storage-charges"></a>Cargos de almacenamiento
 
-Para almacenar versiones de imágenes, una galería de imágenes compartidas usa discos estándar administrados por unidades de disco duro (HDD). El tamaño del disco administrado por HDD que se usa depende del tamaño de la versión de la imagen que se almacena. Para información sobre los precios, consulte [Precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).
+Para almacenar versiones de imágenes, una galería de imágenes compartidas usa discos estándar administrados por unidades de disco duro (HDD) de forma predeterminada.  Se recomienda usar discos administrados por HDD al usar Shared Image Gallery con Lab Services.  El tamaño del disco administrado por HDD que se usa depende del tamaño de la versión de la imagen que se almacena.  Lab Services admite tamaños de imagen y disco de hasta 128 GB.  Para información sobre los precios, consulte [Precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 #### <a name="replication-and-network-egress-charges"></a>Cargos por salida de replicación y red
 

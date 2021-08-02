@@ -4,15 +4,15 @@ description: Obtenga información sobre los objetivos de escalabilidad y rendimi
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 05/28/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bdcee6b8ced45dba34309724e5a634cbb60a6d37
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 78ecf275a9c607273aef16e6351224709f230959
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107818825"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110690526"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objetivos de escalabilidad y rendimiento de Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados a los que se puede acceder mediante los protocolos SMB y del sistema de archivos NFS. En este artículo se explican los objetivos de escalabilidad y rendimiento de Azure Files y Azure File Sync.
@@ -35,7 +35,7 @@ Azure admite varios tipos de cuentas de almacenamiento para los distintos escena
 | Capacidad máxima de la cuenta de almacenamiento | 5 PiB<sup>1</sup> | 100 TiB (aprovisionados) |
 | Número máximo de recursos compartidos de archivos | Sin límite | Sin límite, el tamaño total aprovisionado de todos los recursos compartidos debe ser inferior al máximo que la capacidad máxima de la cuenta de almacenamiento. |
 | Velocidad máxima de solicitudes simultáneas | 20 000 IOPS<sup>1</sup> | 100 000 IOPS |
-| Entrada máxima | <ul><li>EE. UU./Europa: 9536 MiB/s<sup>1</sup></li><li>Otras regiones (LRS/ZRS): 9536 MiB/s<sup>1</sup></li><li>Otras regiones (GRS): 4768 GiB/s<sup>1</sup></li></ul> | 4136 MiB/s |
+| Entrada máxima | <ul><li>EE. UU./Europa: 9536 MiB/s<sup>1</sup></li><li>Otras regiones (LRS/ZRS): 9536 MiB/s<sup>1</sup></li><li>Otras regiones (GRS): 4768 MiB/s<sup>1</sup></li></ul> | 4136 MiB/s |
 | Salida máxima | 47 683 MiB/s<sup>1</sup> | 6204 MiB/s |
 | Número máximo de reglas de red virtual | 200 | 200 |
 | Número máximo de reglas de dirección IP | 200 | 200 |

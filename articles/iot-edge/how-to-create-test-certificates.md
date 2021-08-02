@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ea7d44cc704e6937a0d3f396b8eea3f298a02931
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 724c02f56b49957934deefe9f4733cda57620987
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108772322"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112019996"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Creación de certificados de demostración para probar las características de dispositivo IoT Edge
 
@@ -119,7 +119,7 @@ En esta sección, se clona el repositorio de IoT Edge y se ejecutan los scripts.
 
 ### <a name="set-up-on-linux"></a>Configuración en Linux
 
-Para crear certificados de demostración en un dispositivo Windows, debe clonar los scripts de generación y configurarlos para que se ejecuten localmente en bash.
+Para crear certificados de demostración en un dispositivo Linux, debe clonar los scripts de generación y configurarlos para que se ejecuten localmente en bash.
 
 1. Clone el repositorio de Git de IoT Edge que contiene los scripts para generar los certificados de demostración.
 
@@ -362,7 +362,7 @@ El dispositivo IoT también necesita una copia de sus certificados de dispositiv
 
 ### <a name="ca-signed-certificates"></a>Certificados firmados por una entidad de certificación
 
-Al autenticar un dispositivo IoT con certificados autofirmados, debe cargar el certificado de CA raíz de la solución en IoT Hub.
+Al autenticar un dispositivo IoT con certificados firmados por una CA, debe cargar el certificado de CA raíz de la solución en IoT Hub.
 A continuación, realice una comprobación para demostrar IoT Hub que posee el certificado de CA raíz.
 Por último, va a usar el mismo certificado de CA raíz para crear certificados de dispositivo que se colocarán en el dispositivo de IoT para que pueda autenticarse con IoT Hub.
 

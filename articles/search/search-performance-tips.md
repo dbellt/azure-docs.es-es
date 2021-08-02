@@ -7,12 +7,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/06/2021
-ms.openlocfilehash: 28325a1bbda1b2d4a4bb060ae3e79057275ee42a
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 804166beebf4f12e246a27122bd44c611972a488
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106582119"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111438007"
 ---
 # <a name="tips-for-better-performance-in-azure-cognitive-search"></a>Sugerencias para mejorar el rendimiento en Azure Cognitive Search
 
@@ -24,7 +24,7 @@ Este artículo es una colección de sugerencias y procedimientos recomendados qu
 
 ## <a name="index-size-and-schema"></a>Tamaño y esquema del índice
 
-Las consultas se ejecutan más rápido en índices más pequeños. Esto es en parte una función al tener menos campos para examinar, pero también se debe a la forma en que el sistema almacena en caché el contenido de las consultas futuras. Después de la primera consulta, parte del contenido permanece en memoria, donde se busca de forma más eficaz. Dado que el tamaño del índice tiende a crecer con el tiempo, un procedimiento recomendado es revisar periódicamente la composición del índice, tanto el esquema como los documentos, para buscar oportunidades de reducción de contenido. Sin embargo, si el índice tiene el tamaño correcto, la única calibración que puede realizar es aumentar la capacidad: ya sea agregando [réplicas](search-capacity-planning.md#adjust-capacity) o actualizando el nivel de servicio. En la sección ["Sugerencia: actualización a un nivel Estándar S2"]](#tip-upgrade-to-a-standard-s2-tier) se muestra cómo evaluar la decisión de escalado vertical frente a escalado horizontal.
+Las consultas se ejecutan más rápido en índices más pequeños. Esto es en parte una función al tener menos campos para examinar, pero también se debe a la forma en que el sistema almacena en caché el contenido de las consultas futuras. Después de la primera consulta, parte del contenido permanece en memoria, donde se busca de forma más eficaz. Dado que el tamaño del índice tiende a crecer con el tiempo, un procedimiento recomendado es revisar periódicamente la composición del índice, tanto el esquema como los documentos, para buscar oportunidades de reducción de contenido. Sin embargo, si el índice tiene el tamaño correcto, la única calibración que puede realizar es aumentar la capacidad: ya sea agregando [réplicas](search-capacity-planning.md#adjust-capacity) o actualizando el nivel de servicio. En la sección ["Sugerencia: actualización a un nivel Estándar S2"](#tip-upgrade-to-a-standard-s2-tier)se muestra cómo evaluar la decisión de escalado vertical frente a escalado horizontal.
 
 La complejidad del esquema también puede afectar negativamente a la indexación y al rendimiento de las consultas. La atribución excesiva de campos se basa en limitaciones y requisitos de procesamiento. Los [tipos complejos](search-howto-complex-data-types.md) tardan más tiempo en indexar y consultar. En las secciones siguientes se explora cada condición.
 

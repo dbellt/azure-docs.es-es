@@ -5,16 +5,17 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 06/09/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 51e0205fddf9c3e6e3d622465204e647c0099f53
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d6922eaec624141c8acab2d8d8e133db5becd66d
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109715833"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950048"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 
@@ -39,7 +40,7 @@ Puede combinar reglas de firewall que permitan el acceso desde redes virtuales e
 
 Las reglas de firewall de almacenamiento se aplican al punto de conexión público de una cuenta de almacenamiento. No se necesitan reglas de acceso de firewall para permitir el tráfico de los puntos de conexión privados de una cuenta de almacenamiento. El proceso de aprobación de la creación de un punto de conexión privado concede acceso implícito al tráfico desde la subred que hospeda el punto de conexión privado.
 
-Se aplican reglas de red en todos los protocolos de red para Azure Storage, incluidos REST y SMB. Para tener acceso a los datos mediante herramientas como Azure Portal, el Explorador de Storage y AZCopy, deben configurarse reglas de red explícitas.
+Se aplican reglas de red en todos los protocolos de red para Azure Storage, incluidos REST y SMB. Para tener acceso a los datos mediante herramientas como Azure Portal, el Explorador de Storage y AzCopy, deben configurarse reglas de red explícitas.
 
 Una vez que se apliquen las reglas de red, se aplicarán a todas las solicitudes. Los tokens de SAS que conceden acceso a una dirección IP específica sirven para limitar el acceso del titular del token, pero no conceden un acceso nuevo más allá de las reglas de red configuradas.
 
@@ -48,6 +49,9 @@ El tráfico de disco de máquina virtual (incluidas las operaciones de montaje y
 Las cuentas de almacenamiento clásicas no admiten firewalls y redes virtuales.
 
 Puede usar discos no administrados en cuentas de almacenamiento con reglas de red aplicadas para crear copias de seguridad y restaurar máquinas virtuales mediante la creación de una excepción. Este proceso se documenta en la sección [Administración de excepciones](#manage-exceptions) de este artículo. Las excepciones del firewall no se aplican a los discos administrados, puesto que ya son administrados por Azure.
+
+> [!IMPORTANT] 
+> Si elimina la subred que se ha incluido en una regla de red, asegúrese de quitar esa subred de la regla de red. De lo contrario, si crea una subred con el mismo nombre, no podrá usar esa subred en las reglas de red de ninguna cuenta de almacenamiento. 
 
 ## <a name="change-the-default-network-access-rule"></a>Modificación de la regla de acceso de red predeterminada
 
@@ -582,7 +586,11 @@ Los recursos de algunos servicios, **cuando están registrados en su suscripció
 
 ### <a name="trusted-access-based-on-system-assigned-managed-identity"></a>Acceso de confianza basado en la identidad administrada asignada por el sistema
 
-En la tabla siguiente se enumeran los servicios que pueden tener acceso a los datos de la cuenta de almacenamiento si las instancias de recursos de esos servicios reciben el permiso adecuado. Para conceder permiso, debe [asignar explícitamente un rol de Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) a la [identidad administrada asignada por el sistema](../../active-directory/managed-identities-azure-resources/overview.md) para cada instancia de recurso. En ese caso, el ámbito de acceso de la instancia corresponde al rol de Azure que se asigna a la identidad administrada. 
+En la tabla siguiente se enumeran los servicios que pueden tener acceso a los datos de la cuenta de almacenamiento si las instancias de recursos de esos servicios reciben el permiso adecuado. 
+
+Si la cuenta no tiene habilitada la característica de espacio de nombres jerárquico, puede conceder permiso mediante la [asignación explícita de un rol de Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) a la [identidad administrada asignada por el sistema](../../active-directory/managed-identities-azure-resources/overview.md) para cada instancia de recurso. En ese caso, el ámbito de acceso de la instancia corresponde al rol de Azure que se asigna a la identidad administrada. 
+
+Puede usar la misma técnica para una cuenta que tenga la característica de espacio de nombres jerárquico habilitado en ella. Sin embargo, no tiene que asignar un rol de Azure si agrega la identidad administrada asignada por el sistema a la lista de control de acceso (ACL) de cualquier directorio o blob incluido en la cuenta de almacenamiento. En ese caso, el ámbito de acceso de la instancia corresponde al directorio o archivo al que se ha concedido acceso a la identidad administrada asignada por el sistema. También puede combinar roles y listas de control de acceso de Azure. Para más información sobre cómo combinarlos para conceder acceso, consulte [Modelo de control de acceso de Azure Data Lake Storage Gen2](../blobs/data-lake-storage-access-control-model.md).
 
 > [!TIP]
 > La manera recomendada de conceder acceso a recursos específicos es usar reglas de instancia de recurso. Para conceder acceso a instancias de recursos específicas, consulte la sección [Concesión de acceso a instancias de recursos de Azure (versión preliminar)](#grant-access-specific-instances) de este artículo.
@@ -592,7 +600,7 @@ En la tabla siguiente se enumeran los servicios que pueden tener acceso a los da
 | :----------------------------- | :------------------------------------- | :----------------- |
 | Azure API Management           | Microsoft.ApiManagement/service        | Habilita el acceso del servicio API Management a las cuentas de almacenamiento detrás del firewall mediante directivas. [Más información](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Habilita los servicios de Cognitive Search para acceder a las cuentas de almacenamiento con fines de indexación, proceso y consulta. |
-| Azure Cognitive Services       | Microsoft.CognitiveService/accounts    | Habilita Cognitive Services para acceder a las cuentas de almacenamiento. |
+| Azure Cognitive Services       | Microsoft.CognitiveService/accounts    | Habilita Cognitive Services para acceder a las cuentas de almacenamiento. [Más información](../..//cognitive-services/cognitive-services-virtual-networks.md).|
 | Tareas de Azure Container Registry | Microsoft.ContainerRegistry/registries | ACR Tasks puede acceder a las cuentas de almacenamiento al compilar imágenes de contenedor. |
 | Azure Data Factory             | Microsoft.DataFactory/factories        | Permite el acceso a las cuentas de almacenamiento a través del tiempo de ejecución de ADF. |
 | Azure Data Share               | Microsoft.DataShare/accounts           | Permite el acceso a las cuentas de almacenamiento a través de Data Share. |

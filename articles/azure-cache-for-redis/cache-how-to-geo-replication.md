@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 5ffb6c1796431e4f04274a74cfc777adc6e60f1c
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 534efc4723c0a526bd8d607299bbf3ec4effaa86
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108804149"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111895017"
 ---
 # <a name="configure-geo-replication-for-premium-azure-cache-for-redis-instances"></a>Configuración de la replicación geográfica para las instancias de Azure Cache for Redis prémium
 
@@ -33,6 +33,9 @@ Para configurar la replicación geográfica entre dos cachés, se deben cumplir 
 - La caché vinculada secundaria debe tener el mismo tamaño de caché o un tamaño de caché mayor que la caché vinculada principal.
 - Ambas cachés deben estar creadas y en ejecución.
 
+> [!NOTE]
+> La transferencia de datos entre las regiones de Azure se cobrará según las [tarifas de ancho de banda](https://azure.microsoft.com/pricing/details/bandwidth/) estándar.
+
 Algunas características no son compatibles con la replicación geográfica:
 
 - La persistencia no es compatible con la replicación geográfica.
@@ -42,7 +45,7 @@ Algunas características no son compatibles con la replicación geográfica:
 
 Una vez que se configura la replicación geográfica, se aplican las siguientes restricciones al par de cachés vinculadas:
 
-- La caché vinculada secundaria es de solo lectura, porque puede leer de ella, pero no puede escribir datos. Si decide leer desde la instancia de replicación geográfica secundaria, es importante tener en cuenta que cada vez que se produce una sincronización de datos completa entre las instancias principal y secundaria de replicación geográfica (se produce cuando se actualiza alguna de las dos y también en algunos escenarios de reinicio), la instancia secundaria de replicación geográfica generará errores (indicando que hay una sincronización de datos completa en curso) en cualquier operación de Redis que realice en ella hasta que se complete la sincronización de datos completa entre las instancias principal y secundaria de replicación geográfica. Las aplicaciones que leen desde la instancia de replicación geográfica secundaria deben crearse para revertir a la instancia de replicación geográfica principal cada vez que la secundaria genere tales errores. 
+- La caché vinculada secundaria es de solo lectura, porque puede leer de ella, pero no puede escribir datos. Si decide leer desde la instancia de replicación geográfica secundaria, es importante tener en cuenta que, cada vez que se produce una sincronización de datos completa entre las instancias principal y secundaria de replicación geográfica (se produce cuando se actualiza alguna de las dos y también en algunos escenarios de reinicio), la instancia secundaria de replicación geográfica generará errores (indicando que hay una sincronización de datos completa en curso) en cualquier operación de Redis que realice en ella hasta que se complete la sincronización de datos completa entre las instancias principal y secundaria de replicación geográfica. Las aplicaciones que leen desde la instancia de replicación geográfica secundaria deben crearse para revertir a la instancia de replicación geográfica principal cada vez que la secundaria genere tales errores. 
 - Se quitarán los datos existentes en la caché vinculada secundaria antes de la vinculación. Sin embargo, si la replicación geográfica se quita posteriormente, los datos replicados permanecen en la caché vinculada secundaria.
 - No puede [escalar](cache-how-to-scale.md) ninguna de las cachés mientras están vinculadas.
 - No puede [cambiar el número de particiones](cache-how-to-premium-clustering.md) si la caché tiene la agrupación en clústeres habilitada.
@@ -152,7 +155,7 @@ Sí, la replicación geográfica de cachés en redes virtuales es compatible con
   - Si las redes virtuales están en la misma región, puede conectarlas mediante un [emparejamiento de la red virtual](../virtual-network/virtual-network-peering-overview.md) o una [conexión de red virtual a red virtual de VPN Gateway](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
   - Si las redes virtuales están en diferentes regiones, se admite la replicación geográfica mediante el emparejamiento de VNET, pero una VM cliente de la red virtual 1 (región 1) no podrá acceder a la memoria caché de la red virtual 2 (región 2) a través de su nombre DNS debido a una restricción de los equilibradores de carga internos básicos. Para obtener más información sobre las restricciones de emparejamiento de redes virtuales, consulte [Red virtual - Emparejamiento - Requisitos y restricciones](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). La solución recomendada es usar una conexión de red virtual a red virtual de VPN Gateway.
   
-Puede usar [esta plantilla de Azure](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/) para implementar rápidamente dos cachés con replicación geográfica en una red virtual conectada con una conexión puerta de enlace a puerta de enlace de VPN Gateway.
+Puede usar [esta plantilla de Azure](https://azure.microsoft.com/resources/templates/redis-vnet-geo-replication/) para implementar rápidamente dos cachés con replicación geográfica en una red virtual conectada con una conexión puerta de enlace a puerta de enlace de VPN Gateway.
 
 ### <a name="what-is-the-replication-schedule-for-redis-geo-replication"></a>¿Qué es la programación de replicación para la replicación geográfica de Redis?
 

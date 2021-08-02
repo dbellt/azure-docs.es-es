@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 45f0ef5366d97c275c40d4d436020dbaf3501d42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 97cd4d51da70b9b1cca501c7f04a3b0ccfc51305
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102456170"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112059692"
 ---
 # <a name="surface-custom-event-details-in-alerts-in-azure-sentinel"></a>Exposición de detalles de eventos personalizados de alertas en Azure Sentinel 
 
@@ -39,13 +39,13 @@ El procedimiento que se detalla a continuación forma parte del Asistente para c
 
 1. En el menú de navegación de Azure Sentinel, seleccione **Análisis**.
 
-1. Seleccione una regla de consulta programada y haga clic en **Editar**. O bien, para crear una nueva regla, haga clic en **Crear &#10132; Regla de consulta programada** en la parte superior de la pantalla.
+1. Seleccione una regla de consulta programada y haga clic en **Editar**. O bien, para crear una nueva regla, haga clic en **Crear > Regla de consulta programada** en la parte superior de la pantalla.
 
 1. Haga clic en la pestaña **Establecer la lógica de la regla**.
 
-1. En la sección **Alert enhancement** (Mejora de alertas), seleccione **Detalles personalizados**.
+1. En la sección **Enriquecimiento de alertas (versión preliminar)** , expanda **Detalles personalizados**.
 
-    :::image type="content" source="media/surface-custom-details-in-alerts/alert-enhancement.png" alt-text="Buscar y seleccionar detalles personalizados":::
+    :::image type="content" source="media/surface-custom-details-in-alerts/alert-enrichment.png" alt-text="Buscar y seleccionar detalles personalizados":::
 
 1. En la sección **Detalles personalizados** ahora expandida, agregue pares clave-valor correspondientes a los detalles que desea mostrar:
 
@@ -63,7 +63,7 @@ El procedimiento que se detalla a continuación forma parte del Asistente para c
 
     > [!NOTE]
     > 
-    >**Límites de servicio**
+    > **Límites de servicio**
     > - Puede definir **hasta 20 detalles personalizados** en una sola regla de análisis.
     >
     > - El límite de tamaño de todos los detalles personalizados, colectivamente, es de **2 KB**.

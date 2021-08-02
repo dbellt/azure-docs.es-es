@@ -6,15 +6,15 @@ ms.subservice: migration-guide
 ms.custom: ''
 ms.devlang: ''
 ms.topic: how-to
-author: MashaMSFT
-ms.author: mathoma
+author: cawrites
+ms.author: chadam
 ms.date: 08/25/2020
-ms.openlocfilehash: bf602cabaef92bfa9096ab3225f0f6d726617776
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 85f65fa17e1fac05bd9c9040e77b2fbde104b176
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108136686"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111961948"
 ---
 # <a name="migration-guide-oracle-to-azure-sql-database"></a>Guía de migración: de Oracle a Azure SQL Database
 
@@ -135,7 +135,7 @@ También puede usar SQL Server Integration Services para realizar la migración.
 - [Introducción a SQL Server Integration Services](/sql/integration-services/sql-server-integration-services)
 - [SQL Server Integration Services para Azure y movimiento de datos híbridos](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx)
 
-## <a name="post-migration"></a>Etapa posterior a la migración
+## <a name="post-migration"></a>Después de la migración
 
 Cuando haya completado correctamente la fase de *migración*, deberá realizar una serie de tareas posteriores para asegurarse de que todo funcione de la forma más fluida y eficaz posible.
 
@@ -172,6 +172,7 @@ Para obtener más ayuda para completar este escenario de migración, consulte lo
 | [Automatización de la recopilación y consolidación de evaluaciones de SSMA para Oracle](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Automate%20SSMA%20Oracle%20Assessment%20Collection%20%26%20Consolidation)                                             | Este conjunto de recursos usa un archivo .csv como entrada (sources.csv en las carpetas del proyecto) para generar los archivos XML necesarios para ejecutar una evaluación de SSMA en modo de consola. El cliente proporciona el archivo source.csv basado en un inventario de las instancias de Oracle existentes. Los archivos de salida son AssessmentReportGeneration_source_1.xml, ServersConnectionFile.xml y VariableValueFile.xml.|
 | [Errores comunes de SSMA para Oracle y procedimiento para corregirlos](https://aka.ms/dmj-wp-ssma-oracle-errors)                                                           | Con Oracle, puede asignar una condición no escalar en la cláusula WHERE. Sin embargo, SQL Server no admite este tipo de condición. Como resultado, SSMA para Oracle no convierte las consultas que tienen una condición no escalar en la cláusula WHERE, sino que genera el error O2SS0001. Estas notas del producto proporcionan más detalles sobre el problema y las maneras de resolverlo.          |
 | [Manual de migración de Oracle a SQL Server](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20SQL%20Server%20Migration%20Handbook.pdf)                | Este documento se centra en las tareas asociadas a la migración de un esquema de Oracle a la versión más reciente de SQL Server Database. Si la migración requiere cambios en las características o funcionalidades, se debe tener muy en cuenta el posible impacto de cada cambio en las aplicaciones que usan la base de datos.                                                     |
+|[Utilidad Comparación de bases de datos de Oracle a SQL DB](https://www.microsoft.com/download/details.aspx?id=103016)|SSMA para Oracle Tester es la herramienta recomendada para validar automáticamente la conversión de objetos de base de datos y la migración de datos. Se trata de un superconjunto de la funcionalidad Comparación de bases de datos.<br /><br />Si busca una opción alternativa de validación de datos, puede usar la utilidad Comparación de bases de datos para comparar los datos hasta el nivel de fila o de columna en todas las tablas, filas y columnas o únicamente en las seleccionadas.|
 
 El equipo de ingeniería de datos SQL ha desarrollado estos recursos. El objetivo principal de este equipo es permitir y acelerar la modernización compleja de los proyectos de migración de la plataforma de datos a la de Azure, de Microsoft.
 

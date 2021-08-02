@@ -8,25 +8,30 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 03/07/2021
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36ced586db1b4e417e623431c137c43dac8ba56f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1d62e723f42838343798603517ca430d727ff517
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103466688"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110787841"
 ---
 # <a name="assign-azure-ad-roles-to-users"></a>Asignación de roles de Azure AD a usuarios
 
 Ahora puede ver y administrar todos los miembros de los roles de administrador en el centro de administración de Azure AD. Si administra las asignaciones de roles con frecuencia, probablemente preferirá esta experiencia. En este artículo se describe cómo asignar roles de Azure AD mediante el centro de administración de Azure AD.
 
+## <a name="prerequisites"></a>Prerrequisitos
+
+- Administrador global o administrador de roles con privilegios
+- Privileged Identity Management requiere una licencia de Azure AD Premium P2
+
 ## <a name="assign-a-role"></a>Asignar un rol
 
-1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con permisos de administrador de roles con privilegios o de administrador global en la organización.
+1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com).
 
 1. Seleccione **Azure Active Directory**.
 
@@ -48,7 +53,7 @@ Ahora puede ver y administrar todos los miembros de los roles de administrador e
 
 ## <a name="privileged-identity-management-pim"></a>Privileged Identity Management (PIM)
 
-Puede seleccionar **Administrar en PIM** para otras funcionalidades de administración mediante [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md). Los administradores de roles con privilegios pueden cambiar las asignaciones "Permanentes" (siempre activas en el rol) a "Elegibles" (en el rol solo cuando se elevan). Si no tiene Privileged Identity Management, todavía puede seleccionar **Administrar en PIM** para registrarse en una versión de prueba. Privileged Identity Management requiere un [Plan de licencias de Azure AD Premium P2](../privileged-identity-management/subscription-requirements.md).
+Puede seleccionar **Administrar en PIM** para otras funcionalidades de administración mediante [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md). Los administradores de roles con privilegios pueden cambiar las asignaciones "Permanentes" (siempre activas en el rol) a "Elegibles" (en el rol solo cuando se elevan). Si no tiene Privileged Identity Management, todavía puede seleccionar **Administrar en PIM** para registrarse en una versión de prueba. Privileged Identity Management requiere una [licencia de Azure AD Premium P2](../privileged-identity-management/subscription-requirements.md).
 
 ![Captura de pantalla que muestra la página "Administrador de usuarios - Asignaciones" con la acción "Administrar en PIM" seleccionada.](./media/manage-roles-portal/member-list-pim.png)
 

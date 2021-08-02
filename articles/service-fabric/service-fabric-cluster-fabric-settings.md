@@ -3,12 +3,12 @@ title: Cambio de la configuración de un clúster de Azure Service Fabric
 description: En este artículo se describe la configuración de Fabric y las directivas de actualización de Fabric que se pueden personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 65ae2337ac7dbe4370411a154463a6ddc37f83b2
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: ef89cb50770eecb7b61798562ba6228f0ecd0071
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107255978"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110479827"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalización de la configuración de un clúster de Service Fabric
 En este documento se describen las distintas configuraciones de tejido para el clúster de Service Fabric que puede personalizar. Para clústeres hospedados en Azure, puede personalizar la configuración en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster de Azure](service-fabric-cluster-config-upgrade-azure.md). En clústeres independientes, para personalizar la configuración debe actualizar el archivo *ClusterConfig.json* y realizar una actualización de la configuración en el clúster. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -490,7 +490,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
-|PropertyGroup |NodeCapacityCollectionMap |estática|Una colección de funcionalidades de nodo para diferentes métricas. |
+|PropertyGroup |NodeCapacityCollectionMap | Dinámica |Una colección de funcionalidades de nodo para diferentes métricas. Dinámica a partir Service Fabric 8.1, *Estática* en versiones anteriores. |
 
 ## <a name="nodedomainids"></a>NodeDomainIds
 
@@ -503,7 +503,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
-|PropertyGroup |NodePropertyCollectionMap |estática|Una colección de pares de clave y valor de cadena para las propiedades de nodo. |
+|PropertyGroup |NodePropertyCollectionMap | Dinámica |Una colección de pares de clave y valor de cadena para las propiedades de nodo. Dinámica a partir Service Fabric 8.1, *Estática* en versiones anteriores. |
 
 ## <a name="paas"></a>Paas
 

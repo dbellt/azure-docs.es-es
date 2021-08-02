@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 2/25/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 989535d0bd6f514e63c7cea9e5fd71912f8fb08b
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 1d58d0b0ecb614779b2fd046a44ad16afd8ebeb9
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780164"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111955999"
 ---
 # <a name="importing-updates-into-device-update-for-iot-hub---schema-and-other-information"></a>Importación de actualizaciones a Device Update para IoT Hub: esquema y otra información
 Si quiere importar una actualización a Device Update para IoT Hub, asegúrese de revisar primero los [conceptos](import-concepts.md) y la [guía paso a paso](import-update.md). Si le interesan los detalles del esquema que se usa al construir un manifiesto de importación, así como la información sobre los objetos relacionados, vea las secciones que se presentan a continuación.
@@ -56,6 +56,32 @@ Si quiere importar una actualización a Device Update para IoT Hub, asegúrese d
 | Nombre | Obligatorio | Tipo | Descripción |
 | --------- | --------- | --------- | --------- |
 | Sha256 | True | string | Hash codificado en base64 del archivo con el algoritmo SHA-256. |
+
+## <a name="example-import-request-body"></a>Ejemplo de cuerpo de solicitud de importación
+
+Si usa la salida del manifiesto de importación de ejemplo de la página [Adición de una nueva actualización](./import-update.md#review-the-generated-import-manifest) y desea llamar directamente a la [API REST](/rest/api/deviceupdate/updates) Device Update para realizar la importación, el cuerpo de la solicitud correspondiente debe tener el siguiente aspecto:
+
+```json
+{
+  "importManifest": {
+    "url": "http://<your Azure Storage location file path>/importManifest.json",
+    "sizeInBytes": <size of import manifest file>,
+    "hashes": {
+      "sha256": "<hash of import manifest file>"
+    }
+  },
+  "files": [
+    {
+      "filename": "file1.json",
+      "url": "http://<your Azure Storage location file path>/file1.json"
+    },
+    {
+          "filename": "file2.zip",
+          "url": "http://<your Azure Storage location file path>/file2.zip"
+    },
+  ]
+}
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -4,14 +4,14 @@ description: Conozca cómo solucionar problemas del entorno de ejecución de int
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 01/25/2021
+ms.date: 05/31/2021
 ms.author: lle
-ms.openlocfilehash: 2cb0e0870b32270340e37d54dc54a43b22ee014a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7abdd532e20a2514fcf96d97973a8fbfdd87d0df
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100376469"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110796278"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solución de problemas del entorno de ejecución de integración autohospedado
 
@@ -289,6 +289,61 @@ La única manera de evitar este problema es asegurarse de que los dos nodos est�
     ```
     certutil -importpfx FILENAME.pfx AT_KEYEXCHANGE
     ```
+
+### <a name="self-hosted-integration-runtime-nodes-out-of-the-sync-issue"></a>Problema de nodos del entorno de ejecución de integración autohospedado sin sincronización
+
+#### <a name="symptoms"></a>Síntomas
+
+Los nodos del entorno de ejecución de integración autohospedado intentan sincronizar las credenciales entre nodos, pero se quedan bloqueados en el proceso y encuentran el mensaje de error siguiente al cabo de un tiempo:
+
+"El nodo Integration Runtime (autohospedado) está intentando sincronizar las credenciales entre nodos. Esto podría tardar varios minutos".
+
+>[!Note]
+>Si este error aparece durante más de 10 minutos, compruebe la conectividad con el nodo de distribuidor.
+
+#### <a name="cause"></a>Causa
+
+El motivo es que los nodos de trabajo no tienen acceso a las claves privadas. Esto se puede confirmar a partir de los registros del entorno de ejecución de integración autohospedado a continuación:
+
+`[14]0460.3404::05/07/21-00:23:32.2107988 [System] A fatal error occurred when attempting to access the TLS server credential private key. The error code returned from the cryptographic module is 0x8009030D. The internal error state is 10001.`
+
+No tiene ningún problema con el proceso de sincronización al usar la autenticación de la entidad de servicio en el servicio vinculado de ADF. Sin embargo, al cambiar el tipo de autenticación a clave de cuenta, se inició el problema de sincronización. Esto se debe a que el servicio del entorno de ejecución de integración autohospedado se ejecuta en una cuenta de servicio (NT SERVICE\DIAHostService) y debe agregarse a los permisos de clave privada.
+ 
+
+#### <a name="resolution"></a>Solución
+
+Para solucionar este problema, debe agregar la cuenta de servicio del entorno de ejecución de integración autohospedado (NT SERVICE\DIAHostService) a los permisos de clave privada. Puede aplicar los pasos siguientes:
+
+1. Abra el comando de ejecución de Microsoft Management Console (MMC).
+
+    :::image type="content" source="./media/self-hosted-integration-runtime-troubleshoot-guide/management-console-run-command.png" alt-text="Captura de pantalla que muestra el comando de ejecución de MMC":::
+
+1. En el panel de MMC, puede aplicar los pasos siguientes:
+
+    :::image type="content" source="./media/self-hosted-integration-runtime-troubleshoot-guide/add-service-account-to-private-key-1.png" alt-text="Captura de pantalla que muestra el segundo paso para agregar una cuenta de servicio del entorno de ejecución de integración autohospedado a los permisos de clave privada" lightbox="./media/self-hosted-integration-runtime-troubleshoot-guide/add-service-account-to-private-key-1-expanded.png":::
+
+    1. Seleccione **Archivo**.
+    1. Elija **Agregar o quitar complemento** en el menú desplegable.
+    1. Seleccione **Certificados** en el panel "Complementos disponibles".
+    1. Seleccione **Agregar**.
+    1. En el panel emergente "Complemento Certificados", elija **Cuenta de equipo**.
+    1. Seleccione **Siguiente**.
+    1. En el panel "Seleccionar equipo", elija **Equipo local: el equipo en el que se ejecuta esta consola**.
+    1. Seleccione **Finalizar**.
+    1. Seleccione **Aceptar** en el panel "Agregar o quitar complementos".
+
+1. En el panel de MMC, siga estos pasos:
+
+    :::image type="content" source="./media/self-hosted-integration-runtime-troubleshoot-guide/add-service-account-to-private-key-2.png" alt-text="Captura de pantalla que muestra el tercer paso para agregar una cuenta de servicio del entorno de ejecución de integración autohospedado a los permisos de clave privada" lightbox="./media/self-hosted-integration-runtime-troubleshoot-guide/add-service-account-to-private-key-2-expanded.png":::
+
+    1. En la lista de carpetas izquierda, seleccione **Raíz de consola -> Certificados (Equipo local) -> Personal -> Certificados**.
+    1. Haga clic con el botón derecho en **Microsoft Intune MDM beta**.
+    1. Seleccione **Todas las tareas** en la lista desplegable.
+    1. Seleccione **Administrar claves privadas**.
+    1. Seleccione **Agregar** en "Nombre de grupo o usuario".
+    1. Seleccione **NT SERVICE\DIAHostService** para concederle acceso de control total a este certificado, aplicarlo y asegurarlo. 
+    1. Seleccione **Comprobar nombres** y, después, **Aceptar**.
+    1. En el panel "Permisos", seleccione **Aplicar** y, a continuación, **Aceptar**.
 
 ## <a name="self-hosted-ir-setup"></a>Configuración de IR autohospedado
 
@@ -778,18 +833,6 @@ Hemos implementado un nuevo certificado SSL, que se firma desde DigiCert. Compru
 
 Si no está en la CA raíz de confianza, [descárguelo aquí](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt ). 
 
-
-## <a name="self-hosted-ir-sharing"></a>Uso compartido del entorno de ejecución de integración autohospedado
-
-### <a name="sharing-a-self-hosted-ir-from-a-different-tenant-is-not-supported"></a>No se admite el uso compartido de un IR autohospedado desde un inquilino diferente 
-
-#### <a name="symptoms"></a>Síntomas
-
-Es posible que observe otras factorías de datos (en diferentes inquilinos) al intentar compartir el IR autohospedado desde la interfaz de usuario de Azure Data Factory, pero no puede compartirlo entre factorías de datos que se encuentran en distintos inquilinos.
-
-#### <a name="cause"></a>Causa
-
-El IR autohospedado no puede compartirse entre inquilinos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

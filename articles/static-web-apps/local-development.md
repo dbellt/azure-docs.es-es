@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: cshoe
 ms.custom: devx-track-js
-ms.openlocfilehash: d279ae82d85fd877320e95c92446481c43aac40b
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: feb6462fef89a73a8e7a1d0df6808f0c58817b35
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125650"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982167"
 ---
-# <a name="set-up-local-development-for-azure-static-web-apps-preview"></a>Configuración del desarrollo local para Azure Static Web Apps (versión preliminar)
+# <a name="set-up-local-development-for-azure-static-web-apps"></a>Configuración del desarrollo local para Azure Static Web Apps
 
 Cuando se publica en la nube, un sitio de Azure Static Web Apps tiene muchos servicios que funcionan juntos como si fueran la misma aplicación. Estos servicios incluyen:
 
@@ -35,6 +35,9 @@ Para proporcionar una experiencia similar a la que se obtiene en Azure, la [CLI 
 - Un proxy para los puntos de conexión de API: disponible mediante Azure Functions Core Tools
 - Un servidor ficticio de autenticación y autorización
 - Aplicación de opciones de configuración y rutas locales
+
+> [!NOTE]
+> A menudo, los sitios creados con un marco de front-end requieren que una opción de configuración de proxy controle solicitudes correctamente en la ruta `api`. Al usar la CLI de Azure Static Web Apps el valor de ubicación del proxy es `/api` y, sin la CLI, el valor es `http://localhost:7071/api`.
 
 ## <a name="how-it-works"></a>Funcionamiento
 

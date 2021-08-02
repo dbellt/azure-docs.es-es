@@ -2,14 +2,14 @@
 title: Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)
 description: Encuentre respuestas a algunas de las preguntas comunes sobre Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 05/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: 00ca0579ee47ae38e40e966c818acfb7b48f6c5f
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 8feda70f346347a3559e2696d2912d2a976b0a63
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108015598"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111890312"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)
 
@@ -49,6 +49,12 @@ Azure aplica automáticamente revisiones de seguridad a los nodos de Linux del c
 ### <a name="windows-server-nodes"></a>Nodos de Windows Server
 
 Para los nodos de Windows Server, Windows Update no ejecuta ni aplica las actualizaciones más recientes de manera automática. En una programación normal del ciclo de versiones de Windows Update y su proceso de validación propio, debe realizar una actualización en el clúster y los grupos de nodos de Windows Server en el clúster de AKS. Este proceso de actualización crea nodos que ejecutan la imagen y las revisiones más recientes de Windows Server y elimina los nodos anteriores. Para obtener más información sobre este proceso, consulte [Actualización de un grupo de nodos en AKS][nodepool-upgrade].
+
+### <a name="are-there-additional-security-threats-relevant-to-aks-that-customers-should-be-aware-of"></a>¿Hay amenazas de seguridad adicionales relevantes para AKS que los clientes deben tener en cuenta?
+
+Microsoft proporciona instrucciones sobre las acciones adicionales que puede realizar para proteger las cargas de trabajo a través de servicios como [Azure Security Center](https://azure.microsoft.com/services/security-center/). A continuación, se muestra una lista de amenazas de seguridad adicionales relacionadas con AKS y Kubernetes que los clientes deben tener en cuenta:
+
+* [Nueva campaña a gran escala dirigida a Kubeflow](https://techcommunity.microsoft.com/t5/azure-security-center/new-large-scale-campaign-targets-kubeflow/ba-p/2425750): 8 de junio de 2021
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>¿Por qué se crean dos grupos de recursos con AKS?
 
@@ -199,7 +205,7 @@ Aunque AKS tiene mecanismos de resistencia para admitir este tipo de configuraci
 
 ## <a name="can-i-use-custom-vm-extensions"></a>¿Puedo usar extensiones de máquina virtual personalizadas?
 
-Se admite el agente de Log Analytics porque es una extensión que administra Microsoft. De lo contrario, no, AKS es un servicio administrado y no se admite la manipulación de los recursos de IaaS. Para instalar componentes personalizados, use los mecanismos y las API de Kubernetes. Por ejemplo, aproveche DaemonSets para instalar los componentes necesarios.
+No, AKS es un servicio administrado y no se admite la manipulación de los recursos de IaaS. Para instalar componentes personalizados, use los mecanismos y las API de Kubernetes. Por ejemplo, aproveche DaemonSets para instalar los componentes necesarios.
 
 ## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>¿AKS guarda datos de los clientes fuera de la región del clúster?
 
@@ -277,6 +283,9 @@ spec:
 
 El problema se resolvió con Kubernetes v1.20, consulte [Kubernetes 1.20: Control granular de los cambios de permisos de volumen](https://kubernetes.io/blog/2020/12/14/kubernetes-release-1.20-fsgroupchangepolicy-fsgrouppolicy/) para obtener más detalles.
 
+## <a name="can-i-use-fips-cryptographic-libraries-with-deployments-on-aks"></a>¿Puedo usar bibliotecas criptográficas de FIPS con implementaciones en AKS?
+
+Los nodos habilitados para FIPS están disponibles actualmente en versión preliminar en grupos de nodos basados en Linux. Para más información, consulte [Adición de un grupo de nodos habilitado para FIPS (versión preliminar)](use-multiple-node-pools.md#add-a-fips-enabled-node-pool-preview).
 
 <!-- LINKS - internal -->
 

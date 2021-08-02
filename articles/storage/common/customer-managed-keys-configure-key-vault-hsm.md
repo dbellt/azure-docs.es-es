@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: f9b40c934cb428a31a3feb77195518d5351818d7
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f340ac18cb74523d64f4dbf8d6ae1d6f4559582a
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785368"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411888"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault-managed-hsm-preview"></a>Configuración del cifrado con claves administradas por el cliente almacenadas en HSM administrado de Azure Key Vault (versión preliminar)
 
@@ -45,7 +45,7 @@ az storage account update \
 
 ## <a name="assign-a-role-to-the-storage-account-for-access-to-the-managed-hsm"></a>Asignación de un rol a la cuenta de almacenamiento para el acceso al HSM administrado
 
-A continuación, asigne el rol **Managed HSM Crypto Service Encryption** a la identidad administrada de la cuenta de almacenamiento para que la cuenta de almacenamiento tenga permisos para el HSM administrado. Microsoft recomienda que limite la asignación del roles al nivel de la clave individual con el fin de conceder la menor cantidad de privilegios posible a la identidad administrada.
+A continuación, asigne el rol **Usuario de cifrado del servicio de criptografía de HSM administrado** a la identidad administrada de la cuenta de almacenamiento para que la cuenta de almacenamiento tenga permisos para el HSM administrado. Microsoft recomienda que limite la asignación del roles al nivel de la clave individual con el fin de conceder la menor cantidad de privilegios posible a la identidad administrada.
 
 Para crear la asignación de roles para la cuenta de almacenamiento, llame a [az key vault role assignment create](/cli/azure/role/assignment#az_role_assignment_create). No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores.
   
@@ -58,7 +58,7 @@ storage_account_principal = $(az storage account show \
 
 az keyvault role assignment create \
     --hsm-name <hsm-name> \
-    --role "Managed HSM Crypto Service Encryption" \
+    --role "Managed HSM Crypto Service Encryption User" \
     --assignee $storage_account_principal \
     --scope /keys/<key-name>
 ```

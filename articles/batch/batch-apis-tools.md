@@ -2,14 +2,14 @@
 title: API y herramientas para desarrolladores
 description: Obtenga información acerca de las API y herramientas disponibles para desarrollar soluciones con el servicio Azure Batch.
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 06/11/2021
 ms.custom: seodec18
-ms.openlocfilehash: b7c68ab16834bbd746cf52708db0cdb3f31c8d4d
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 0c378ae34ca74df7bb639464818f13f86a8f5ec2
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106219933"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112006642"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Información general sobre las API y herramientas de Batch
 
@@ -66,16 +66,16 @@ Las API de Azure Resource Manager para Batch proporcionan acceso mediante progra
 Estas herramientas de línea de comandos proporcionan la misma funcionalidad que el servicio Batch y las API de administración de Batch: 
 
 - [Cmdlets de PowerShell para Batch](/powershell/module/az.batch/): los cmdlets del módulo [Azure PowerShell](/powershell/azure/) para Azure Batch permiten administrar los recursos de Batch con PowerShell.
-- [CLI de Azure](/cli/azure): la CLI de Azure es un conjunto de herramientas multiplataforma que proporciona comandos de shell para interactuar con muchos de los servicios de Azure, incluidos el servicio Batch y el servicio de administración de Batch. Consulte [Administración de recursos de Batch con la CLI de Azure](batch-cli-get-started.md) para más información sobre el uso de la CLI de Azure con Batch.
+- [CLI de Azure](/cli/azure): la CLI de Azure es un conjunto de herramientas multiplataforma que proporciona comandos de shell para interactuar con muchos de los servicios de Azure, incluidos el servicio Batch y el servicio de administración de Batch. Para obtener más información, consulte [Administración de recursos de Batch con la CLI de Azure](batch-cli-get-started.md).
 
 ## <a name="other-tools-for-application-development"></a>Otras herramientas de desarrollo de aplicaciones
 
 Estas herramientas adicionales pueden ser útiles para crear y depurar los servicios y las aplicaciones de Batch.
 
 - [Portal de Azure](https://portal.azure.com/): puede crear, supervisar y eliminar grupos, trabajos y tareas de Batch en Azure Portal. La información relativa al estado de estos y otros recursos se puede ver mientras se ejecutan trabajos, e incluso se pueden descargar archivos desde los nodos de proceso de los grupos. Por ejemplo, puede descargar el archivo `stderr.txt` de una tarea con errores mientras soluciona problemas. También puede descargar los archivos de Escritorio remoto (RDP) que puede usar para iniciar sesión en los nodos de proceso.
-- [Azure Batch Explorer](https://azure.github.io/BatchExplorer/): Batch Explorer (anteriormente BatchLabs) es una herramienta de cliente independiente, completa y gratuita que puede ayudarle a crear, depurar y supervisar las aplicaciones de Azure Batch. Descargue un [paquete de instalación](https://azure.github.io/BatchExplorer/) para Mac, Linux o Windows.
+- [Azure Batch Explorer](https://azure.github.io/BatchExplorer/): es una herramienta de cliente independiente, completa y gratuita que puede ayudarle a crear, depurar y supervisar aplicaciones de Azure Batch. Descargue un [paquete de instalación](https://azure.github.io/BatchExplorer/) para Mac, Linux o Windows.
 - [Azure Batch Shipyard](https://github.com/Azure/batch-shipyard): Batch Shipyard es una herramienta para ayudar a aprovisionar, ejecutar y supervisar el procesamiento por lotes basado en contenedores y las cargas de trabajo HPC en Azure Batch.
-- [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) aunque no es estrictamente una herramienta de Azure Batch, el Explorador de Storage es otra herramienta muy útil para desarrollar y depurar soluciones de Batch.
+- [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) aunque no es estrictamente una herramienta de Azure Batch, el Explorador de Storage puede ser muy útil para desarrollar y depurar soluciones de Batch.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

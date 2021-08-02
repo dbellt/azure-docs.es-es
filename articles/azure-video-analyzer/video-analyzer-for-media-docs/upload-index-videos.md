@@ -8,12 +8,12 @@ ms.service: azure-video-analyzer
 ms.topic: article
 ms.date: 05/12/2021
 ms.author: juliako
-ms.openlocfilehash: 3b410c78e699b498f858ffb560c745942f42c16c
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: aef9cb4c99385e82f86818cc106c8dc62f0fd6cf
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386899"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110538176"
 ---
 # <a name="upload-and-index-your-videos"></a>Carga e indexación de los vídeos  
 
@@ -349,6 +349,10 @@ La operación Upload puede devolver los códigos de estado que aparecen en la si
 > Es recomendable que use .NET Framework versión 4.6.2 o superior porque las versiones anteriores de .NET Framework no usan de forma predeterminada TLS 1.2.
 >
 > Si debe usar versiones anteriores de .NET Framework, agregue una línea en el código antes de realizar la llamada a la API REST:  <br/> System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+
+## <a name="firewall"></a>Firewall
+
+Consulte [Cuenta de almacenamiento que está detrás de un firewall](faq.md#can-a-storage-account-connected-to-the-media-services-account-be-behind-a-firewall).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

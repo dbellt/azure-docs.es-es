@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: template-concept; references_regions
-ms.openlocfilehash: 5e500eca601d21f106dbe31236e9b5c2aa76b0d2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2483a207344894489992f38d08b37126d7eded22
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104801934"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110652244"
 ---
 # <a name="trusted-launch-for-azure-virtual-machines-preview"></a>Inicio seguro para máquinas virtuales de Azure (versión preliminar)
 
@@ -38,13 +38,17 @@ Azure ofrece el inicio seguro como una manera continua de mejorar la seguridad d
 
 ## <a name="public-preview-limitations"></a>Limitaciones de la vista preliminar pública
 
-**Compatibilidad de tamaño**: todos los tamaños de máquina virtual de [generación 2](generation-2.md), excepto:
-
-- Serie Lsv2 
-- Serie M 
-- Serie Mv2 
-- Serie NDv4 
-- Serie NVv4
+**Compatibilidad con tamaño**:
+- Serie B
+- Serie Dav4, serie Dasv4
+- Serie DCsv2
+- Serie Dv4, serie Dsv4, serie Dsv3, serie Dsv2
+- Serie Ddv4, serie Ddsv4
+- Serie Fsv2
+- Serie Eav4, serie Easv4
+- Serie Ev4, serie Esv4, serie Esv3
+- Serie Edv4, serie Edsv4
+- Serie Lsv2
 
 **Compatibilidad con SO**:
 - RedHat Enterprise Linux 8.3
@@ -58,8 +62,11 @@ Azure ofrece el inicio seguro como una manera continua de mejorar la seguridad d
 - Sesión múltiple de Windows 10 Enterprise
 
 **Regiones**: 
+- Centro de EE. UU.
+- Este de EE. UU. 2
 - Centro-sur de EE. UU.
 - Norte de Europa
+- Oeste de Europa
 
 **Precios**: no hay coste adicional en los precios de las máquinas virtuales existentes.
 

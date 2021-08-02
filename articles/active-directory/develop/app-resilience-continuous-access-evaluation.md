@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 10/06/2020
 ms.author: nichola
 ms.reviewer: ''
-ms.openlocfilehash: 5b00cca584958f3e7d741a2a4f9e6669ff0d241e
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 970985193245a4d7482979c2fc753c2c0b67834b
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107904323"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111406740"
 ---
 # <a name="how-to-use-continuous-access-evaluation-enabled-apis-in-your-applications"></a>Uso de las API habilitadas para la evaluación continua de acceso en las aplicaciones
 
 La [evaluación continua de acceso](../conditional-access/concept-continuous-access-evaluation.md) (CAE) es una característica de Azure AD que permite revocar los tokens de acceso en función de [eventos críticos](../conditional-access/concept-continuous-access-evaluation.md#critical-event-evaluation) y la [evaluación de directivas](../conditional-access/concept-continuous-access-evaluation.md#conditional-access-policy-evaluation-preview) en lugar de depender de la expiración del token en función de la duración. En el caso de algunas API de recursos, ya que el riesgo y la directiva se evalúan en tiempo real, esto puede aumentar considerablemente la duración del token hasta 28 horas. Estos tokens de larga duración se actualizarán de manera proactiva mediante la biblioteca de autenticación de Microsoft (MSAL), lo que aumenta la resistencia de las aplicaciones.
 
-En este artículo se muestra cómo usar las API habilitadas para CAE en sus aplicaciones.
+En este artículo se muestra cómo usar las API habilitadas para CAE en sus aplicaciones. Las aplicaciones que no usan MSAL pueden agregar compatibilidad con [desafíos de notificaciones, solicitudes de notificaciones y funcionalidades de cliente](claims-challenge.md) para usar CAE.
 
 ## <a name="implementation-considerations"></a>Consideraciones de implementación
 
@@ -116,4 +116,5 @@ Para probar la aplicación, puede iniciar la sesión de un usuario en la aplicac
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información, vea [Evaluación continua de acceso](../conditional-access/concept-continuous-access-evaluation.md).
+- Introducción conceptual a la [evaluación de acceso continua](../conditional-access/concept-continuous-access-evaluation.md)
+- [Desafíos de notificaciones, solicitudes de notificaciones y funcionalidades de cliente](claims-challenge.md)

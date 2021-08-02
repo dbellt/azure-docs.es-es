@@ -2,13 +2,13 @@
 title: Traslado de un espacio de nombres de Azure Event Hubs a otra región | Microsoft Docs
 description: En este artículo se muestra cómo trasladar un espacio de nombres de Azure Event Hubs desde la región actual a otra región.
 ms.topic: how-to
-ms.date: 09/01/2020
-ms.openlocfilehash: b177c3916919e3d97325f9d8c6b6027c00cb476f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/08/2021
+ms.openlocfilehash: 9e10cd220a18849336fdc520b269c8af2cb257bd
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96019929"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111811617"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Traslado de un espacio de nombres de Azure Event Hubs a otra región
 En este artículo se muestra cómo exportar una plantilla de Azure Resource Manager para un espacio de nombres de Event Hubs existente y, a continuación, usar la plantilla para crear un espacio de nombres con la misma configuración en otra región. Sin embargo, este proceso no traslada los eventos que todavía no se han procesado. Debe procesar los eventos del espacio de nombres original antes de eliminarlo.
@@ -26,7 +26,7 @@ Para empezar, exporte una plantilla de Resource Manager. Esta plantilla contiene
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione **Todos los recursos** y, después, seleccione su espacio de nombres de Event Hubs.
-3. Seleccione > **Configuración** > **Exportar plantilla**.
+3. En la página **Espacio de nombres de Event Hubs**, seleccione **Exportar plantilla** en **Automatización** en el menú izquierdo. 
 4. Elija **Descargar** en la página **Exportar plantilla**.
 
     ![Descarga de la plantilla de Resource Manager](./media/move-across-regions/download-template.png)

@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de546ef091b1a8e996f286b0c9af45e93488b5b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f8fe57b5b6df03e135bf77e9064e14f376c57ac9
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467664"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110796364"
 ---
 # <a name="list-azure-ad-role-assignments"></a>Enumeración de asignaciones de roles de Azure AD
 
@@ -27,11 +27,18 @@ En este artículo se describe cómo enumerar los roles que ha asignado en Azure 
 - Las asignaciones de roles en el ámbito de toda la organización se agregan y pueden verse en la lista de asignaciones de roles de aplicación únicas.
 - Las asignaciones de roles en el ámbito de aplicación única no se agregan y no se pueden ver en la lista de asignaciones con un ámbito de toda la organización.
 
+## <a name="prerequisites"></a>Prerrequisitos
+
+- Módulo de AzureADPreview al usar PowerShell
+- Consentimiento del administrador al usar Probador de Graph para Microsoft Graph API
+
+Para más información, consulte [Requisitos previos para usar PowerShell o Probador de Graph](prerequisites.md).
+
 ## <a name="list-role-assignments-in-the-azure-portal"></a>Enumeración de asignaciones de roles en Azure Portal
 
 En este procedimiento se describe cómo enumerar las asignaciones de roles con ámbito de toda la organización.
 
-1. Inicie sesión en el [centro de administración de Azure AD](https://aad.portal.azure.com) con permisos de administrador de roles con privilegios o de administrador global en la organización de Azure AD.
+1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com).
 1. Seleccione **Azure Active Directory**, elija **Roles y administradores** y, luego, seleccione un rol para abrirlo y ver sus propiedades.
 1. Seleccione **Asignaciones** para enumerar las asignaciones de roles.
 
@@ -47,31 +54,9 @@ Para descargar todas las asignaciones de un rol específico, en la página **Rol
 
 ![Descarga de todas las asignaciones de un rol](./media/view-assignments/download-role-assignments.png)
 
-## <a name="list-role-assignments-using-azure-ad-powershell"></a>Enumeración de las asignaciones de roles con Azure AD PowerShell
+## <a name="list-role-assignments-using-powershell"></a>Enumeración de las asignaciones de roles con PowerShell
 
 En esta sección se describe cómo ver las asignaciones de un rol con ámbito de toda la organización. Este artículo se usa el módulo [Azure Active Directory PowerShell, versión 2](/powershell/module/azuread/#directory_roles). Para ver las asignaciones con un ámbito de aplicación única con PowerShell, puede usar los cmdlets de [Asignación de roles personalizados con PowerShell](custom-assign-powershell.md).
-
-### <a name="prepare-powershell"></a>Preparación para PowerShell
-
-En primer lugar, debe [descargar el módulo de Azure AD PowerShell en versión preliminar](https://www.powershellgallery.com/packages/AzureAD/).
-
-Para instalar el módulo de Azure AD PowerShell, use los siguientes comandos:
-
-``` PowerShell
-Install-Module -Name AzureADPreview
-Import-Module -Name AzureADPreview
-```
-
-Para comprobar que el módulo esté listo para usar, ejecute el siguiente comando:
-
-``` PowerShell
-Get-Module -Name AzureADPreview
-  ModuleType Version      Name                         ExportedCommands
-  ---------- ---------    ----                         ----------------
-  Binary     2.0.0.115    AzureADPreview               {Add-AzureADAdministrati...}
-```
-
-### <a name="list-role-assignments"></a>Lista de asignaciones de roles
 
 Ejemplo de cómo enumerar las asignaciones de roles.
 
@@ -86,7 +71,7 @@ $role = Get-AzureADDirectoryRole -ObjectId "5b3fe201-fa8b-4144-b6f1-875829ff7543
 Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
 ```
 
-## <a name="list-role-assignments-using-microsoft-graph-api"></a>Visualización de las asignaciones de roles mediante Microsoft Graph API
+## <a name="list-role-assignments-using-the-microsoft-graph-api"></a>Enumeración de las asignaciones de roles mediante Microsoft Graph API
 
 En esa sección se describe cómo enumerar las asignaciones de roles con ámbito de toda la organización.  Para enumerar las asignaciones de roles con un ámbito de aplicación única mediante Graph API, puede usar las operaciones de [Asignación de roles personalizados con Graph API](custom-assign-graph.md).
 
@@ -114,7 +99,7 @@ HTTP/1.1 200 OK
 
 En esa sección se describe cómo enumerar las asignaciones de roles con ámbito de aplicación única. Esta característica actualmente está en su versión preliminar pública.
 
-1. Inicie sesión en el [centro de administración de Azure AD](https://aad.portal.azure.com) con permisos de administrador de roles con privilegios o de administrador global en la organización de Azure AD.
+1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com).
 1. Seleccione **Registros de aplicaciones** y, luego, seleccione el registro de aplicación para ver sus propiedades. Es posible que tenga que seleccionar **Todas las aplicaciones** para ver la lista completa de los registros de aplicaciones de la organización de Azure AD.
 
     ![Creación o edición de registros de aplicaciones desde la página Registros de aplicaciones](./media/view-assignments/app-reg-all-apps.png)
@@ -130,5 +115,5 @@ En esa sección se describe cómo enumerar las asignaciones de roles con ámbito
 ## <a name="next-steps"></a>Pasos siguientes
 
 * No dude en compartir con nosotros en el [foro de roles administrativos de Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
-* Para obtener más información sobre los roles y la asignación de roles de administrador, consulte el artículo [Assign administrator roles](permissions-reference.md) (Asignación de roles de administrador).
+* Para más información acerca de los permisos de roles, consulte [Roles integrados en Azure AD](permissions-reference.md).
 * Para conocer los permisos predeterminados de usuario, vea una [comparación de los permisos predeterminados de usuario miembro e invitado](../fundamentals/users-default-permissions.md).

@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 10/18/2019
-ms.openlocfilehash: bf8b20dadd2fcd78657aa6877e796b645332dd94
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d00ec82b5b66b2c413337f0c4efe803fc1013ab9
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88213461"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109847878"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Solución de problemas de tiempos de expiración de Redis Cache
 
@@ -50,6 +50,8 @@ Este mensaje de error contiene métricas que pueden indicarle la causa y la posi
 | wr |Hay un escritor activo (lo que significa que 6 solicitudes sin enviar no se omiten) bytes/activewriters. |
 | bucear |No hay ningún lector activo y hay cero bytes disponibles para su lectura en los bytes/activereaders de NIC. |
 
+En el ejemplo de excepción anterior, las secciones `IOCP` y `WORKER` incluyen cada una un valor `Busy` mayor que el valor `Min`. La diferencia significa que debe ajustar la configuración de `ThreadPool`. Puede [configurar las opciones de ThreadPool](cache-management-faq.md#important-details-about-threadpool-growth) para asegurarse de que su grupo de subprocesos se escale verticalmente a gran velocidad en escenarios de ráfaga.
+
 Puede usar los pasos siguientes para investigar posibles causas principales.
 
 1. Como procedimiento recomendado, asegúrese de usar el patrón siguiente para conectarse al usar el cliente de StackExchange.Redis.
@@ -74,10 +76,10 @@ Puede usar los pasos siguientes para investigar posibles causas principales.
 
 1. Asegúrese de que el servidor y la aplicación cliente están en la misma región de Azure. Por ejemplo, podría obtener tiempos de expiración cuando la caché está en Este de EE. UU., pero el cliente está en Oeste de EE. UU. y no se completa la solicitud en el intervalo `synctimeout`, o bien podría obtener tiempos de expiración cuando realiza la depuración en la máquina de desarrollo local. 
 
-    Se recomienda encarecidamente que la memoria caché y el cliente estén en la misma región de Azure. Si tiene un escenario que incluye llamadas entre regiones, debe establecer el intervalo `synctimeout` a un valor mayor que el intervalo predeterminado de 5000 ms mediante la inclusión de una propiedad `synctimeout` en la cadena de conexión. En el ejemplo siguiente se muestra un fragmento de una cadena de conexión para StackExchange.Redis que proporciona Azure Redis Cache con un `synctimeout` de 2000 ms.
+    Se recomienda encarecidamente que la memoria caché y el cliente estén en la misma región de Azure. Si tiene un escenario que incluye llamadas entre regiones, debe establecer el intervalo `synctimeout` a un valor mayor que el intervalo predeterminado de 5000 ms mediante la inclusión de una propiedad `synctimeout` en la cadena de conexión. En el ejemplo siguiente se muestra un fragmento de una cadena de conexión para StackExchange.Redis que proporciona Azure Redis Cache con un valor de `synctimeout` de 8000 ms.
 
     ```output
-    synctimeout=2000,cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...
+    synctimeout=8000,cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...
     ```
 
 1. Asegúrese de usar la versión más reciente del [paquete StackExchange.Redis NuGet](https://www.nuget.org/packages/StackExchange.Redis/). Hay errores que se solucionan constantemente en el código que lo hacen más solido frente a tiempos de espera agotados, por lo que es importante tener la versión más reciente.

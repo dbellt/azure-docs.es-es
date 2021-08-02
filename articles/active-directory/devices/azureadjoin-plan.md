@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 383bd00bb0daf165f37ed98e48a5d36708367920
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 2eb74dccb01bb599a40bbf9c606661d4661a37f3
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130870"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953629"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedimientos: Planeación de la implementación de la unión a Azure AD
 
@@ -164,7 +164,7 @@ Si usa AD FS, consulte [Comprobar y administrar el inicio de sesión único con 
 
 Los usuarios obtienen inicio de sesión único desde dispositivos unidos a Azure AD si el dispositivo tiene acceso a un controlador de dominio. 
 
-**Recomendación:** Implemente el [proxy de aplicación de Azure AD](../manage-apps/application-proxy.md) para permitir el acceso seguro para estas aplicaciones.
+**Recomendación:** Implemente el [proxy de aplicación de Azure AD](../app-proxy/application-proxy.md) para permitir el acceso seguro para estas aplicaciones.
 
 ### <a name="on-premises-network-shares"></a>Recursos compartidos de red local
 
@@ -185,6 +185,11 @@ Los dispositivos unidos a AD Azure no admiten las aplicaciones locales basadas e
 La conexión a Escritorio remoto para dispositivos unidos a Azure AD requiere que el equipo host esté unido a Azure AD o unido a Azure AD híbrido. No se admite el escritorio remoto desde un dispositivo no unido o que no sea Windows. Para obtener más información, consulte [Conectarse a un equipo remoto unido a Azure Active Directory](/windows/client-management/connect-to-remote-aadj-pc)
 
 A partir de la actualización 2004 de Windows 10, los usuarios también pueden usar el escritorio remoto desde un dispositivo con Windows 10 registrado en Azure AD a un dispositivo unido a Azure AD. 
+
+### <a name="radius-and-wi-fi-authentication"></a>Autenticación con RADIUS y Wi-Fi
+
+Actualmente, los dispositivos unidos de Azure AD no admiten la autenticación con RADIUS para conectarse a puntos de acceso Wi-Fi, ya que RADIUS se basa en la presencia de un objeto de equipo local. Como alternativa, puede usar certificados que se inserten a través de Intune o credenciales de usuario para autenticarse en Wi-Fi. 
+
 
 ## <a name="understand-your-provisioning-options"></a>Explicación de las opciones de aprovisionamiento
 **Nota**: No se pueden implementar los dispositivos unidos a Azure AD mediante la Herramienta de preparación del sistema (Sysprep) o herramientas de creación de imágenes similares

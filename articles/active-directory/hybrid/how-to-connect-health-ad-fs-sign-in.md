@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 03/16/2021
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 035215bf9350243f667c4883786a923a172cb89c
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 42326cd4080fe6737fd14f8dc2c5a2028c20077f
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126568"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854547"
 ---
 # <a name="ad-fs-sign-ins-in-azure-ad-with-connect-health---preview"></a>Inicios de sesión de AD FS en Azure AD con Connect Health (versión preliminar)
 
@@ -27,8 +27,8 @@ Los inicios de sesión de AD FS ahora se pueden integrar en el informe de inici
 
 El agente de Connect Health para AD FS correlaciona varios identificadores de evento de AD FS según la versión del servidor con el fin de proporcionar información sobre la solicitud y los detalles del error si se produce un error en la solicitud. Esta información se correlaciona con el esquema del informe de inicios de sesión Azure AD y se muestra en la experiencia de usuario del informe de inicios de sesión de Azure AD. Junto con el informe, se proporciona una nueva secuencia de Log Analytics con los datos de AD FS y una nueva plantilla de libro de Azure Monitor. La plantilla se puede usar y modificar para hacer un análisis exhaustivo de escenarios como bloqueos de cuenta de AD FS, intentos con contraseñas incorrectas o picos de intentos inesperados de inicio de sesión.
 
-## <a name="prerequisites"></a>Requisitos previos
-* Tener Azure AD Connect Health para AD FS instalado y actualizado con la versión más reciente.
+## <a name="prerequisites"></a>Prerrequisitos
+* Tener Azure AD Connect Health para AD FS instalado y actualizado con la versión más reciente (3.1.95.0 o posterior).
 * Rol de administrador global o lector de informes para ver los inicios de sesión Azure AD.
 
 ## <a name="what-data-is-displayed-in-the-report"></a>¿Qué datos se muestran en el informe?

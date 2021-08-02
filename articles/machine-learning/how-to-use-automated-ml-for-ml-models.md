@@ -1,35 +1,34 @@
 ---
-title: Uso de AutoML para crear e implementar modelos
+title: Configuración de AutoML con la interfaz de usuario de Estudio
 titleSuffix: Azure Machine Learning
-description: Cree, revise e implemente modelos de aprendizaje automático automatizado con el Estudio de Azure Machine Learning.
+description: Obtenga información sobre cómo configurar ejecuciones de entrenamiento de AutoML sin una sola línea de código con aprendizaje automático automatizado de Azure Machine Learning en Estudio de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: nibaccam
 author: cartacioS
 ms.reviewer: nibaccam
-ms.date: 12/20/2020
-ms.topic: conceptual
-ms.custom: how-to, automl
-ms.openlocfilehash: 5718e0e3732f57b46500f9d2cdb1165e883ca44f
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.date: 06/11/2021
+ms.topic: how-to
+ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.openlocfilehash: 3bf83c31c10245cb64a047c9d856489a4e0ce71a
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107575588"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112030762"
 ---
-# <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Creación, revisión e implementación de modelos de aprendizaje automático automatizado con Azure Machine Learning
+# <a name="set-up-no-code-automl-training-with-the-studio-ui"></a>Configuración del entrenamiento de AutoML sin código con la interfaz de usuario de Estudio 
 
+En este artículo, obtenga información sobre cómo configurar ejecuciones de entrenamiento de AutoML sin una sola línea de código mediante aprendizaje automático automatizado de Azure Machine Learning en [Estudio de Azure Machine Learning](overview-what-is-machine-learning-studio.md).
 
-En este artículo, aprenderá a crear, explorar e implementar modelos de aprendizaje automático automatizado sin una sola línea de código en Azure Machine Learning Studio.
-
-El aprendizaje automático automatizado es un proceso en el que se selecciona automáticamente el mejor algoritmo de aprendizaje automático para sus datos específicos. Este proceso le permite generar modelos de aprendizaje automático rápidamente. [Más información sobre el aprendizaje automático automatizado](concept-automated-ml.md).
+El aprendizaje automático automatizado, AutoML, es un proceso en el que se selecciona automáticamente el mejor algoritmo de aprendizaje automático para sus datos específicos. Este proceso le permite generar modelos de aprendizaje automático rápidamente. [Más información sobre cómo Azure Machine Learning implementa el aprendizaje automático automatizado](concept-automated-ml.md).
  
-Para obtener un ejemplo completo, pruebe el [tutorial para crear un modelo de clasificación con la interfaz de ML automatizado de Azure Machine Learning](tutorial-first-experiment-automated-ml.md). 
+Para obtener un ejemplo completo, pruebe el [Tutorial: Aprendizaje automático automatizado y entrenamiento de modelos de clasificación sin código](tutorial-first-experiment-automated-ml.md). 
 
 Si prefiere una experiencia basada en código de Python, [configure sus experimentos de aprendizaje automático automatizado](how-to-configure-auto-train.md) con el SDK de Azure Machine Learning.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -180,6 +179,14 @@ Explore en profundidad los modelos completados para ver los detalles de la ejecu
 
 [![Detalles de la iteración](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
 
+
+En la pestaña Transformación de datos, puede ver un diagrama del preprocesamiento de datos, la ingeniería de características, las técnicas de escalado y el algoritmo de aprendizaje automático que se aplicaron para generar este modelo.
+
+>[!IMPORTANT]
+> La pestaña Transformación De datos está en versión preliminar. Esta funcionalidad debe considerarse [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) y puede cambiar en cualquier momento.
+
+![Transformación de datos](./media/how-to-use-automated-ml-for-ml-models/data-transformation.png)
+
 ## <a name="model-explanations-preview"></a>Explicaciones de modelos (versión preliminar)
 
 Para entender mejor el modelo, puede ver qué características de datos (con o sin diseño) han influido en las predicciones del modelo con el panel de explicaciones del modelo. 
@@ -219,7 +226,7 @@ ML automatizado le ayuda a implementar el modelo sin escribir código:
 
 1. Rellene el panel **Implementar modelo**.
 
-    Campo| Value
+    Campo| Valor
     ----|----
     Nombre| Escriba un nombre único para la implementación.
     Descripción| Escriba una descripción para saber mejor para qué sirve esta implementación.

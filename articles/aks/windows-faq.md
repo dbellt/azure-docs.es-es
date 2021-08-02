@@ -5,12 +5,12 @@ description: Vea las preguntas frecuentes cuando ejecute cargas de trabajo de ap
 services: container-service
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: 192306d2aeb9abddef641c0b55adaacaf8442de2
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 5d3d78eb20a9ca8b663fa0cf381fcce1bd528345
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110065717"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110463310"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Preguntas frecuentes sobre los grupos de nodos de Windows Server en AKS
 
@@ -175,6 +175,22 @@ Si el clúster tiene Ventaja híbrida de Azure habilitada, la salida de `az vmss
 ## <a name="can-i-use-the-kubernetes-web-dashboard-with-windows-containers"></a>¿Puedo usar el panel web de Kubernetes con los contenedores de Windows?
 
 Sí, puede usar el [panel web de Kubernetes][kubernetes-dashboard] para acceder a la información sobre los contenedores de Windows, pero en este momento no puede ejecutar *kubectl exec* en un contenedor de Windows en ejecución directamente desde el panel web de Kubernetes. Para obtener más detalles sobre la conexión al contenedor de Windows en ejecución, vea [Conexión con RDP a los nodos de Windows Server de clúster de Azure Kubernetes Service (AKS) para el mantenimiento o la solución de problemas][windows-rdp].
+
+## <a name="how-do-i-change-the-time-zone-of-a-running-container"></a>¿Cómo se cambia la zona horaria de un contenedor en ejecución?
+
+Para cambiar la zona horaria de un contenedor de Windows Server en ejecución, conéctese al contenedor en ejecución con una sesión de PowerShell. Por ejemplo:
+    
+```azurecli-interactive
+kubectl exec -it CONTAINER-NAME -- powershell
+```
+
+En el contenedor en ejecución, use [Set-TimeZone](/powershell/module/microsoft.powershell.management/set-timezone) para establecer la zona horaria del contenedor en ejecución. Por ejemplo:
+
+```powershell
+Set-TimeZone -Id "Russian Standard Time"
+```
+
+Para ver la zona horaria actual del contenedor en ejecución o una lista disponible de zonas horarias, use [Get-TimeZone](/powershell/module/microsoft.powershell.management/get-timezone).
 
 ## <a name="what-if-i-need-a-feature-thats-not-supported"></a>¿Qué ocurre si necesito una característica que no se admite?
 

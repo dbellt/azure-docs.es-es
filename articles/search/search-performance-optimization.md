@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/06/2021
 ms.custom: references_regions
-ms.openlocfilehash: 493f6759f63f023572f38647076e04425acf9d6a
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 169f0b76e1009931d51339fe6b058ca24608af30
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581523"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110061055"
 ---
 # <a name="availability-and-business-continuity-in-azure-cognitive-search"></a>Disponibilidad y continuidad empresarial en Azure Cognitive Search
 
@@ -44,15 +44,19 @@ Puede agregar dos o más réplicas al servicio de búsqueda para utilizar Availa
 Actualmente, Azure Cognitive Search admite zonas de disponibilidad para los servicios de búsqueda de nivel estándar o superior que se crearon en una de las siguientes regiones:
 
 + Este de Australia (creado a partir del 30 de enero de 2021)
++ Sur de Brasil (creado el 2 de mayo de 2021, o posteriormente)
 + Centro de Canadá (creado a partir del 30 de enero de 2021)
 + Centro de EE. UU. (creado a partir del 4 de diciembre de 2020)
 + Este de EE. UU. (creado a partir del 27 de enero de 2021)
 + Este de EE. UU. 2 (creado a partir del 30 de enero de 2021)
 + Centro de Francia (creado a partir del 23 de octubre de 2020)
++ Centro-oeste de Alemania (creado el 3 de mayo de 2021, o posteriormente)
 + Este de Japón (creado a partir del 30 de enero de 2021)
 + Norte de Europa (creado a partir del 28 de enero de 2021)
++ Centro-sur de EE. UU. (creado el 30 de abril de 2021, o posteriormente)
 + Sudeste de Asia (creado a partir del 31 de enero de 2021)
 + Sur de Reino Unido (creado a partir del 30 de enero de 2021)
++ US Gov Virginia (creado el 30 de abril de 2021, o posteriormente)
 + Oeste de Europa (creado a partir del 29 de enero de 2021)
 + Oeste de EE. UU. 2 (creado a partir del 30 de enero de 2021)
 

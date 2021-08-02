@@ -2,13 +2,13 @@
 title: 'Funciones de plantillas: comparación'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para comparar valores.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: 95655a4c92a1de9bb7a7faebcdaa83fb0fa75696
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/11/2021
+ms.openlocfilehash: 0572ff1815cd8ede87d490457a5cb689bed80467
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99834007"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959728"
 ---
 # <a name="comparison-functions-for-arm-templates"></a>Funciones de comparación para plantillas de ARM
 
@@ -21,13 +21,13 @@ Resource Manager ofrece varias funciones para realizar comparaciones en las plan
 * [less](#less)
 * [lessOrEquals](#lessorequals)
 
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
-
 ## <a name="coalesce"></a>coalesce
 
 `coalesce(arg1, arg2, arg3, ...)`
 
 Devuelve el primer valor no nulo de los parámetros. Las cadenas vacías, las matrices vacías y los objetos vacíos no son nulos.
+
+En Bicep, use el operador `??` en su lugar. Vea [Coalesce ??](../bicep/operators-logical.md#coalesce-).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -43,8 +43,6 @@ El valor de los primeros parámetros que no son nulos, que puede ser una cadena,
 ### <a name="example"></a>Ejemplo
 
 En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/coalesce.json) siguiente se muestra el resultado de los diferentes usos de coalesce.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -90,31 +88,6 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param objectToTest object = {
-  'null1': null
-  'null2': null
-  'string': 'default'
-  'int': 1
-  'object': {
-    'first': 'default'
-  }
-  'array': [
-    1
-  ]
-}
-
-output stringOutput string = objectToTest.null1 ?? objectToTest.null2 ?? objectToTest.string
-output intOutput int = objectToTest.null1 ?? objectToTest.null2 ?? objectToTest.int
-output objectOutput object = objectToTest.null1 ?? objectToTest.null2 ?? objectToTest.object
-output arrayOutput array = objectToTest.null1 ?? objectToTest.null2 ?? objectToTest.array
-output emptyOutput bool =empty(objectToTest.null1 ?? objectToTest.null2)
-```
-
----
-
 La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Value |
@@ -129,7 +102,9 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 `equals(arg1, arg2)`
 
-Comprueba si dos valores son iguales. La función `equals` no se admite en Bicep. En su lugar, utilice el operador `==`.
+Comprueba si dos valores son iguales.
+
+En Bicep, use el operador `==` en su lugar. Vea [Equals ==](../bicep/operators-comparison.md#equals-).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -146,8 +121,6 @@ Devuelve **True** si los valores son iguales; en caso contrario, **False**.
 
 La función equals se suele usar con el elemento `condition` para comprobar si está implementado un recurso.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "condition": "[equals(parameters('newOrExisting'),'new')]",
@@ -163,18 +136,9 @@ La función equals se suele usar con el elemento `condition` para comprobar si e
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-> [!NOTE]
-> `Conditions` no se ha implementado aún en Bicep. Consulte [Condiciones](https://github.com/Azure/bicep/issues/186).
-
----
-
 ### <a name="example"></a>Ejemplo
 
 La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/equals.json) siguiente comprueba diferentes tipos de valores para la igualdad. Todos los valores predeterminados devuelven True.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -237,36 +201,6 @@ La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param firstInt int = 1
-param secondInt int = 1
-param firstString string = 'a'
-param secondString string = 'a'
-param firstArray array = [
-  'a'
-  'b'
-]
-param secondArray array = [
-  'a'
-  'b'
-]
-param firstObject object = {
-  'a': 'b'
-}
-param secondObject object = {
-  'a': 'b'
-}
-
-output checInts bool = firstInt == secondInt
-output checkStrings bool = firstString == secondString
-output checkArrays bool = firstArray == secondArray
-output checkObjects bool = firstObject == secondObject
-```
-
----
-
 La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Value |
@@ -277,8 +211,6 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | checkObjects | Bool | True |
 
 En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) siguiente se usa [not](template-functions-logical.md#not) con **equals**.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -295,14 +227,6 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-output checkNotEquals bool = ! (1 == 2)
-```
-
----
-
 El resultado del ejemplo anterior es:
 
 | Nombre | Tipo | Valor |
@@ -313,7 +237,9 @@ El resultado del ejemplo anterior es:
 
 `greater(arg1, arg2)`
 
-Comprueba si el primer valor es mayor que el segundo. La función `greater` no se admite en Bicep. En su lugar, utilice el operador `>`.
+Comprueba si el primer valor es mayor que el segundo.
+
+En Bicep, use el operador `>` en su lugar. Vea [Mayor que >](../bicep/operators-comparison.md#greater-than-).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -329,8 +255,6 @@ Devuelve **True** si el primer valor es mayor que el segundo; en caso contrario,
 ### <a name="example"></a>Ejemplo
 
 La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greater.json) siguiente comprueba si un valor es mayor que el otro.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -369,20 +293,6 @@ La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param firstInt int = 1
-param secondInt int = 2
-param firstString string = 'A'
-param secondString string = 'a'
-
-output checkInts bool = firstInt > secondInt
-output checkStrings bool = firstString > secondString
-```
-
----
-
 La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Value |
@@ -394,7 +304,9 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 `greaterOrEquals(arg1, arg2)`
 
-Comprueba si el primer valor es mayor o igual que el segundo. La función `greaterOrEquals` no se admite en Bicep. En su lugar, utilice el operador `>=`.
+Comprueba si el primer valor es mayor o igual que el segundo.
+
+En Bicep, use el operador `>=` en su lugar. Vea [Mayor o igual que >=](../bicep/operators-comparison.md#greater-than-or-equal-).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -410,8 +322,6 @@ Devuelve **True** si el primer valor es mayor o igual que el segundo; en caso co
 ### <a name="example"></a>Ejemplo
 
 La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greaterorequals.json) siguiente comprueba si un valor es mayor o igual que el otro.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -450,20 +360,6 @@ La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param firstInt int = 1
-param secondInt int = 2
-param firstString string = 'A'
-param secondString string = 'a'
-
-output checkInts bool = firstInt >= secondInt
-output checkStrings bool = firstString >= secondString
-```
-
----
-
 La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Value |
@@ -475,7 +371,9 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 `less(arg1, arg2)`
 
-Comprueba si el primer valor es menor que el segundo. La función `less` no se admite en Bicep. En su lugar, utilice el operador `<`.
+Comprueba si el primer valor es menor que el segundo.
+
+En Bicep, use el operador `<` en su lugar. Vea [Menor que <](../bicep/operators-comparison.md#less-than-).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -491,8 +389,6 @@ Devuelve **True** si el primer valor es menor que el segundo; en caso contrario,
 ### <a name="example"></a>Ejemplo
 
 La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/less.json) siguiente comprueba si un valor es menor que el otro.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -531,20 +427,6 @@ La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param firstInt int = 1
-param secondInt int = 2
-param firstString string = 'A'
-param secondString string = 'a'
-
-output checkInts bool = firstInt < secondInt
-output checkStrings bool = firstString < secondString
-```
-
----
-
 La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Value |
@@ -556,7 +438,9 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 `lessOrEquals(arg1, arg2)`
 
-Comprueba si el primer valor es menor o igual que el segundo. La función `lessOrEquals` no se admite en Bicep. En su lugar, utilice el operador `<=`.
+Comprueba si el primer valor es menor o igual que el segundo.
+
+En Bicep, use el operador `<=` en su lugar. Vea [Menor o igual que <=](../bicep/operators-comparison.md#less-than-or-equal-).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -572,8 +456,6 @@ Devuelve **True** si el primer valor es menor o igual que el segundo; en caso co
 ### <a name="example"></a>Ejemplo
 
 La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/lessorequals.json) siguiente comprueba si un valor es menor o igual que el otro.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -612,20 +494,6 @@ La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param firstInt int = 1
-param secondInt int = 2
-param firstString string = 'A'
-param secondString string = 'a'
-
-output checkInts bool = firstInt <= secondInt
-output checkStrings bool = firstString <= secondString
-```
-
----
-
 La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Value |
@@ -635,4 +503,4 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener una descripción de las secciones de una plantilla de ARM, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+* Para obtener una descripción de las secciones de una plantilla de ARM, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](./syntax.md).

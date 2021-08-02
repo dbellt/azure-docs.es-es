@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.date: 06/03/2021
 ms.author: alkohli
-ms.openlocfilehash: 24fd0e9765ddbafda0fde0a3b362a4facd99afe7
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: bbb4ce6442cc38e2554c6c1f745223a193ca793d
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110460846"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950750"
 ---
 # <a name="enable-azure-monitor-on-your-azure-stack-edge-pro-gpu-device"></a>Habilitación de Azure Monitor en un dispositivo de Azure Stack Edge Pro con GPU
 
@@ -22,6 +22,9 @@ ms.locfileid: "110460846"
 La supervisión de contenedores en el dispositivo de Azure Stack Edge Pro con GPU es fundamental, especialmente cuando se ejecutan varias aplicaciones de proceso. Azure Monitor le permite recopilar registros de contenedor y métricas de memoria y de procesador desde el clúster de Kubernetes que se ejecuta en el dispositivo.
 
 En este artículo se describen los pasos necesarios para habilitar Azure Monitor en el dispositivo y recopilar los registros de contenedor en el área de trabajo de Log Analytics. Actualmente, el almacén de métricas de Azure Monitor no es compatible con el dispositivo de Azure Stack Edge Pro con GPU. 
+
+> [!NOTE]
+> Si Azure Arc está habilitado en el clúster de Kubernetes del dispositivo, siga los pasos descritos en [Azure Monitor Container Insights para contenedores con clústeres de Kubernetes habilitado para Azure Arc](../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=%2fazure%2fazure-arc%2fkubernetes%2ftoc.json) para configurar la supervisión de contenedores.
 
 
 ## <a name="prerequisites"></a>Prerrequisitos
@@ -243,4 +246,4 @@ Siga estos pasos para habilitar la información de contenedor en el área de tra
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga información sobre la [Supervisión de las cargas de trabajo de Kubernetes a través del panel de Kubernetes](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
-- Aprenda a [administrar las notificaciones de alertas de eventos de dispositivos](azure-stack-edge-gpu-manage-device-event-alert-notifications.md). 
+- Aprenda a [administrar las notificaciones de alertas de eventos de dispositivos](azure-stack-edge-gpu-manage-device-event-alert-notifications.md).

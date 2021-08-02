@@ -2,28 +2,28 @@
 title: Supervisar el rendimiento de Azure App Services | Microsoft Docs
 description: Supervisión del rendimiento de aplicaciones de Azure App Services. Carga y tiempo de respuesta de gráfico, información de dependencia y establecer alertas en el rendimiento.
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 05/17/2021
 ms.custom: devx-track-js, devx-track-dotnet, devx-track-azurepowershell
-ms.openlocfilehash: e5c9e91ff6d9cc5bc8fe478853c802abcd9d6e49
-ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
+ms.openlocfilehash: 5557031080ddb7d625cc31be48c496bcbf30b7b4
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109627823"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967175"
 ---
-# <a name="monitor-azure-app-service-performance"></a>Supervisar el rendimiento de Azure App Service
+# <a name="application-monitoring-for-azure-app-service"></a>Supervisión de aplicaciones para Azure App Service
 
-Ahora, habilitar la supervisión en las aplicaciones web basadas en ASP.NET, ASP.NET Core y Node.js que se ejecutan en [Azure App Services](../../app-service/index.yml) es más fácil que nunca. Mientras que antes era necesario instalar manualmente una extensión de sitio, ahora el agente o la extensión más reciente están integrados en la imagen de App Service de manera predeterminada. En este artículo le guiaremos a través de la habilitación de la supervisión de Application Insights y proporcionaremos instrucciones preliminares para automatizar el proceso para implementaciones a gran escala.
+Ahora, habilitar la supervisión en las aplicaciones web basadas en ASP.NET, ASP.NET Core, Java y Node.js que se ejecutan en [Azure App Services](../../app-service/index.yml) es más fácil que nunca. Mientras que antes era necesario instrumentar manualmente la aplicación, ahora el agente o la extensión más reciente están integrados en la imagen de App Service de manera predeterminada. En este artículo le guiaremos a través de la habilitación de la supervisión de Application Insights para Azure Monitor y proporcionaremos instrucciones preliminares para automatizar el proceso para implementaciones a gran escala.
 
 > [!NOTE]
-> Agregar manualmente una extensión de sitio de Application Insights a través de **Herramientas de desarrollo** > **Extensiones** está en desuso. Este método de instalación de extensiones dependía de actualizaciones manuales para cada nueva versión. La versión estable más reciente de la extensión ahora viene [preinstalada](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) como parte de la imagen de App Service. Los archivos se encuentran en `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` y se actualizan automáticamente con cada versión estable. Si sigue las instrucciones basadas en agentes para habilitar la supervisión a continuación, se quitará automáticamente la extensión en desuso.
+> Solo para .NET en Windows: agregar manualmente una extensión de sitio de Application Insights a través de **Herramientas de desarrollo** > **Extensiones** está en desuso. Este método de instalación de extensiones dependía de actualizaciones manuales para cada nueva versión. La versión estable más reciente de la extensión ahora viene [preinstalada](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) como parte de la imagen de App Service. Los archivos se encuentran en `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` y se actualizan automáticamente con cada versión estable. Si sigue las instrucciones basadas en agentes para habilitar la supervisión a continuación, se quitará automáticamente la extensión en desuso.
 
 ## <a name="enable-application-insights"></a>Habilitación de Application Insights
 
 Hay dos maneras de habilitar la supervisión de aplicaciones para las aplicaciones hospedadas de Azure App Service:
 
 * **Supervisión de aplicaciones basadas en agentes** (ApplicationInsightsAgent).  
-    * Este método es el más fácil de habilitar y no requiere ninguna configuración avanzada. A menudo se conoce como supervisión de "entorno en tiempo de ejecución". Para Azure App Services se recomienda la habilitación de este nivel de supervisión como mínimo y, a continuación, en función del escenario específico, puede evaluar si es necesaria una supervisión más avanzada a través de instrumentación manual.
+    * Este método es el más fácil para habilitar y no se requiere ningún cambio de código ni configuraciones avanzadas. A menudo se conoce como supervisión de "entorno en tiempo de ejecución". Para Azure App Services se recomienda la habilitación de este nivel de supervisión como mínimo y, a continuación, en función del escenario específico, puede evaluar si es necesaria una supervisión más avanzada a través de instrumentación manual.
 
 * **Instrumentación manual de la aplicación mediante código** mediante la instalación del SDK de Application Insights.
 
@@ -76,7 +76,7 @@ Hay dos maneras de habilitar la supervisión de aplicaciones para las aplicacion
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
 > [!IMPORTANT]
-> Se admiten las siguientes versiones de ASP.NET Core: ASP.NET Core 2.1 y 3.1. Las versiones 2.0, 2.2 y 3.0 se han retirado y ya no se admiten. Actualice a una [versión compatible](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) de .NET Core para que la instrumentación automática funcione.
+> Se admiten las siguientes versiones de ASP.NET Core: ASP.NET Core 2.1, 3.1 y 5.0. Las versiones 2.0, 2.2 y 3.0 se han retirado y ya no se admiten. Actualice a una [versión compatible](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) de .NET Core para que la instrumentación automática funcione.
 
 Actualmente, la orientación del marco de trabajo completo de ASP.NET Core, la implementación independiente y las aplicaciones basadas en Linux **no se admiten** con la supervisión basada en agentes o extensiones. (La [instrumentación manual](./asp-net-core.md) a través de código funcionará en todos los escenarios anteriores).
 
@@ -89,20 +89,55 @@ Actualmente, la orientación del marco de trabajo completo de ASP.NET Core, la i
      > [!NOTE]
      > Al hacer clic en **Aceptar** para crear el nuevo recurso, se le pedirá **Aplicar la configuración de supervisión**. Con la selección de **Continuar** se vinculará el nuevo recurso de Application Insights a su servicio de aplicaciones. Al hacerlo, también se **desencadenará un reinicio del servicio de aplicaciones**. 
 
-     ![Instrumentación de la aplicación web](./media/azure-web-apps/create-resource-01.png)
+    ![Instrumentación de la aplicación web](./media/azure-web-apps/create-resource-01.png)
 
 2. Después de especificar qué recurso se debe usar, puede elegir cómo quiere que Application Insights recopile los datos de cada plataforma para la aplicación. ASP.NET Core ofrece una **recopilación recomendada** o **deshabilitada** para ASP.NET Core 2.1 y 3.1.
 
-    ![Opciones de elección para cada plataforma](./media/azure-web-apps/choose-options-new-net-core.png)
+    ![Opciones de elección para cada plataforma.](./media/azure-web-apps/choose-options-new-net-core.png)
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 No se admite la supervisión basada en agente de Windows. Para realizar la habilitación con Linux, visite la [documentación de App Service de Node.js](../../app-service/configure-language-nodejs.md?pivots=platform-linux#monitor-with-application-insights).
 
+Puede supervisar las aplicaciones de Node.js que se ejecutan en Azure App Service sin ningún cambio de código, solo con un par de pasos sencillos. Las aplicaciones de Application Insights para Node.js se integran con App Service en Linux, en los contenedores basados en código y los personalizados, y con App Service en Windows para las aplicaciones basadas en código. La integración se encuentra en versión preliminar pública. La integración agrega el SDK de Node.js, que se encuentra en la fase de disponibilidad general. 
+
+1. **Seleccione Application Insights** en el panel de control de Azure para el servicio de aplicaciones.
+
+    > [!div class="mx-imgBorder"]
+    > ![En Configuración, elija Application Insights.](./media/azure-web-apps/ai-enable.png)
+
+   * Elija crear un nuevo recurso a menos que ya haya configurado un recurso de Application Insights para esta aplicación. 
+
+     > [!NOTE]
+     > Al hacer clic en **Aceptar** para crear el nuevo recurso, se le pedirá **Aplicar la configuración de supervisión**. Con la selección de **Continuar** se vinculará el nuevo recurso de Application Insights a su servicio de aplicaciones. Al hacerlo, también se **desencadenará un reinicio del servicio de aplicaciones**. 
+
+    ![Instrumente la aplicación web.](./media/azure-web-apps/create-resource-01.png)
+
+2. Una vez que haya especificado qué recurso usar ya está listo para continuar. 
+
+    > [!div class="mx-imgBorder"]
+    > ![Opciones de elección para cada plataforma.](./media/azure-web-apps/app-service-node.png)
+
 # <a name="java"></a>[Java](#tab/java)
 
-Siga las instrucciones indicadas para el [agente de Java 3.0 de Application Insights](./java-in-process-agent.md) para habilitar la instrumentación automática en las aplicaciones de Java sin cambiar el código.
-La integración automática todavía no está disponible para App Service.
+Puede activar la supervisión de las aplicaciones Java que se ejecutan en Azure App Service con un solo clic, no se requiere ningún cambio de código. Application Insights para Java se integra con App Service en Linux, en los contenedores basados en código y los personalizados, y con App Service en Windows para las aplicaciones basadas en código. La integración se encuentra en versión preliminar pública. Es importante saber cómo se supervisará la aplicación. La integración agrega [Application Insights Java 3.0](./java-in-process-agent.md), que se encuentra en la fase de disponibilidad general. Recibirá toda la telemetría que recopila automáticamente.
+
+1. **Seleccione Application Insights** en el panel de control de Azure para el servicio de aplicaciones.
+
+    > [!div class="mx-imgBorder"]
+    > ![En Configuración, elija Application Insights.](./media/azure-web-apps/ai-enable.png)
+
+   * Elija crear un nuevo recurso a menos que ya haya configurado un recurso de Application Insights para esta aplicación. 
+
+     > [!NOTE]
+     > Al hacer clic en **Aceptar** para crear el nuevo recurso, se le pedirá **Aplicar la configuración de supervisión**. Con la selección de **Continuar** se vinculará el nuevo recurso de Application Insights a su servicio de aplicaciones. Al hacerlo, también se **desencadenará un reinicio del servicio de aplicaciones**. 
+
+    ![Instrumente la aplicación web.](./media/azure-web-apps/create-resource-01.png)
+
+2. Después de especificar qué recurso usar, puede configurar el agente de Java. El [conjunto completo de configuraciones](./java-standalone-config.md) está disponible, solo tiene que pegar un archivo JSON válido sin especificar la cadena de conexión. Ya ha elegido un recurso de Application Insights al que conectarse, ¿recuerda? 
+
+    > [!div class="mx-imgBorder"]
+    > ![Opciones de elección para cada plataforma.](./media/azure-web-apps/create-app-service-ai.png)
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -174,7 +209,7 @@ Con el fin de habilitar la recopilación de datos de telemetría con Application
 
 ### <a name="app-service-application-settings-with-azure-resource-manager"></a>Configuración de la aplicación de App Service con Azure Resource Manager
 
-La configuración de la aplicación de App Service se puede administrar y configurar con [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md). Este método puede usarse al implementar nuevos recursos de App Service con la automatización de Azure Resource Manager o para modificar la configuración de los recursos existentes.
+La configuración de la aplicación de App Service se puede administrar y configurar con [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/syntax.md). Este método puede usarse al implementar nuevos recursos de App Service con la automatización de Azure Resource Manager o para modificar la configuración de los recursos existentes.
 
 La estructura básica de JSON de la configuración de la aplicación para App Service se muestra a continuación:
 
@@ -331,9 +366,9 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 
 La actualización de la versión 2.8.9 se realiza automáticamente, sin acciones adicionales. Los nuevos bits de supervisión se proporcionan en segundo plano para el servicio de aplicación de destino y se recogen en el reinicio de la aplicación.
 
-Para comprobar qué versión de la extensión se ejecuta, visite `http://yoursitename.scm.azurewebsites.net/ApplicationInsights`
+Para comprobar qué versión de la extensión se ejecuta, vaya a `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`.
 
-![Captura de pantalla de la ruta de dirección URL http://yoursitename.scm.azurewebsites.net/ApplicationInsights](./media/azure-web-apps/extension-version.png)
+![Captura de pantalla de la ruta de acceso de URL para comprobar la versión de la extensión que está ejecutando](./media/azure-web-apps/extension-version.png)
 
 ### <a name="upgrade-from-versions-100---265"></a>Actualización de las versiones 1.0.0 a 2.6.5
 
@@ -351,9 +386,6 @@ Si se realiza la actualización desde una versión anterior a la 2.5.1, comprueb
 ## <a name="troubleshooting"></a>Solución de problemas
 
 A continuación, se muestra nuestra guía paso a paso de solución de problemas para la supervisión basada en extensiones o agentes para aplicaciones basadas en ASP.NET y ASP.NET Core que se ejecutan en Azure App Services.
-
-> [!NOTE]
-> El enfoque recomendado para supervisar aplicaciones Java es utilizar la instrumentación automática sin cambiar el código. Siga las instrucciones para el [agente de Java 3.0 de Application Insights](./java-in-process-agent.md).
 
 
 1. Compruebe que la aplicación se supervisa a través de `ApplicationInsightsAgent`.

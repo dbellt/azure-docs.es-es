@@ -2,13 +2,14 @@
 title: Compatibilidad del nivel de acceso de archivo (versión preliminar)
 description: Conozca más sobre la compatibilidad del nivel de acceso de archivo para Azure Backup.
 ms.topic: conceptual
-ms.date: 02/18/2021
-ms.openlocfilehash: 7a42b8702cfdda14a18aa3cdd4e084ed78767b0a
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.date: 06/03/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c817e5e0fbed7ebe6c659a91e180820de3fdc677
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012155"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111410106"
 ---
 # <a name="archive-tier-support-preview"></a>Compatibilidad del nivel de acceso de archivo (versión preliminar)
 
@@ -77,19 +78,29 @@ Clientes compatibles:
 
         `$bckItm = $BackupItemList | Where-Object {$_.Name -match '<dbName>' -and $_.ContainerName -match '<vmName>'}`
 
+1. Agregue el intervalo de fechas para el que desea ver los puntos de recuperación. Por ejemplo, si desea ver los puntos de recuperación de los últimos 124 días a los últimos 95 días, use el siguiente comando:
+
+   ```azurepowershell
+    $startDate = (Get-Date).AddDays(-124)
+    $endDate = (Get-Date).AddDays(-95) 
+
+    ```
+    >[!NOTE]
+    >El intervalo de la fecha de inicio y la fecha de finalización no debe ser superior a treinta días.<br><br>Para ver los puntos de recuperación de un intervalo de tiempo diferente, modifique las fechas de inicio y finalización en consecuencia.
 ## <a name="use-powershell"></a>Uso de PowerShell
 
 ### <a name="check-archivable-recovery-points"></a>Comprobación de los puntos de recuperación que se pueden archivar
 
 ```azurepowershell
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm  -IsReadyForMove $true -TargetTier VaultArchive
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() -IsReadyForMove $true -TargetTier VaultArchive
 ```
 
-Con esto se enumerarán todos los puntos de recuperación asociados a un elemento de copia de seguridad determinado que estén listos para moverse al archivo.
+Con esto se enumerarán todos los puntos de recuperación asociados a un elemento de copia de seguridad determinado que estén listos para moverse al archivo (desde la fecha de inicio hasta la fecha de finalización). También puede modificar las fechas de inicio y de finalización.
 
 ### <a name="check-why-a-recovery-point-cannot-be-moved-to-archive"></a>Comprobación de por qué un punto de recuperación no se puede migrar al archivo
 
 ```azurepowershell
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() -IsReadyForMove $false -TargetTier VaultArchive
 $rp[0].RecoveryPointMoveReadinessInfo["ArchivedRP"]
 ```
 
@@ -119,8 +130,10 @@ $RecommendedRecoveryPointList = Get-AzRecoveryServicesBackupRecommendedArchivabl
 ### <a name="move-to-archive"></a>Traslado al nivel de archivo
 
 ```azurepowershell
-Move-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -RecoveryPoint $rp[2] -SourceTier VaultStandard -DestinationTier VaultArchive
+Move-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -RecoveryPoint $rp[0] -SourceTier VaultStandard -DestinationTier VaultArchive
 ```
+
+Donde, `$rp[0]` es el primer punto de recuperación de la lista. Si desea mover otros puntos de recuperación, use `$rp[1]`, `$rp[2]`, etc.
 
 Este comando mueve al archivo un punto de recuperación que se puede archivar. Devuelve un trabajo que se puede usar para hacer el seguimiento de la operación de movimiento desde el portal y con PowerShell.
 
@@ -129,7 +142,7 @@ Este comando mueve al archivo un punto de recuperación que se puede archivar. D
 Este comando devuelve todos los puntos de recuperación archivados.
 
 ```azurepowershell
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -Tier VaultArchive
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -Tier VaultArchive -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
 ```
 
 ### <a name="restore-with-powershell"></a>Restauración con PowerShell
@@ -149,7 +162,7 @@ Para obtener más información sobre los distintos métodos de restauración de 
 Restore-AzRecoveryServicesBackupItem -VaultLocation $vault.Location -RehydratePriority "Standard" -RehydrateDuration 15 -RecoveryPoint $rp -StorageAccountName "SampleSA" -StorageAccountResourceGroupName "SArgName" -TargetResourceGroupName $vault.ResourceGroupName -VaultId $vault.ID
 ```
 
-Para restaurar SQL Server, siga [estos pasos](backup-azure-sql-automation.md#restore-sql-dbs). Los parámetros adicionales obligatorios son **RehydrationPriority** y **RehydrationDuration**.
+Para restaurar SQL Server, siga [estos pasos](backup-azure-sql-automation.md#restore-sql-dbs). El comando `Restore-AzRecoveryServicesBackupItem` requiere dos parámetros adicionales: **RehydrationDuration** y **RehydrationPriority**.
 
 ### <a name="view-jobs-from-powershell"></a>Visualización de trabajos desde PowerShell
 
@@ -291,6 +304,12 @@ Hay varios códigos de error que aparecen cuando no se puede mover un punto de r
 ### <a name="what-will-happen-to-archive-recovery-points-if-i-stop-protection-and-retain-data"></a>¿Qué ocurrirá en los puntos de recuperación de archivo si detengo la protección y conservo los datos?
 
 El punto de recuperación permanecerá en el archivo para siempre. Para obtener más información, consulte [Impacto de detener la protección en los puntos de recuperación](manage-recovery-points.md#impact-of-stop-protection-on-recovery-points).
+
+### <a name="is-cross-region-restore-supported-from-archive-tier"></a>¿Se admite la restauración entre regiones desde el nivel de archivo?
+
+Al trasladar los datos de almacenes GRS del nivel estándar al nivel de archivo, dichos datos se mueven al archivo GRS. Esto es así incluso cuando la restauración entre regiones está habilitada. Una vez que los datos de copia de seguridad se trasladan al nivel de archivo, no se pueden restaurar los datos en la región asociada. Sin embargo, durante los errores de región, los datos de copia de seguridad de la región secundaria estarán disponibles para la restauración. 
+
+Al restaurar desde un punto de recuperación en el nivel de archivo de la región primaria, el punto de recuperación se copia en el nivel estándar y se conserva según la duración de la rehidratación, tanto en la región primaria como en la secundaria. Puede realizar la restauración entre regiones desde estos puntos de recuperación rehidratados.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

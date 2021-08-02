@@ -1,6 +1,6 @@
 ---
-title: Venta de una oferta de SaaS en el Centro de partners de Microsoft
-description: Obtenga información sobre la venta conjunta con Microsoft y las opciones del programa de reventa a través de proveedores de soluciones en la nube (CSP) para su oferta de software como servicio (SaaS) en el marketplace comercial de Microsoft.
+title: Venta de una oferta de SaaS en Azure Marketplace
+description: Aprenda sobre la venta conjunta con Microsoft y la reventa de su oferta de software como servicio (SaaS) en Azure Marketplace mediante las opciones del programa de proveedores de soluciones en la nube (CSP).
 author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
@@ -8,14 +8,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: fa207ca38c46f09e3660ea03e70d20e45c620845
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 632c2aaed5b9c0ffbfb6c47c4194276fd6a1869c
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108127450"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110703439"
 ---
-# <a name="how-to-sell-your-saas-offer"></a>Venta de una oferta de SaaS
+# <a name="sell-a-saas-offer-through-microsoft"></a>Venta de una oferta de SaaS a través de Microsoft
 
 En este artículo se describen opciones adicionales para vender una oferta de software como servicio (SaaS) a través de Microsoft. Puede realizar una venta conjunta con Microsoft, revenderla a través de [programa de proveedores de soluciones en la nube (CSP)](cloud-solution-providers.md), o bien usar ambas opciones.
 
@@ -32,4 +32,4 @@ Si decide incluir su oferta en el programa de proveedores de soluciones en la nu
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Prueba y publicación de ofertas de SaaS](test-publish-saas-offer.md)
-- [Activación de Marketplace Rewards](partner-center-portal/marketplace-rewards.md)
+- [Activación de Marketplace Rewards](marketplace-rewards.md)

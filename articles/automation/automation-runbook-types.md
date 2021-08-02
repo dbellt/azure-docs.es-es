@@ -3,15 +3,15 @@ title: Tipos de runbooks de Azure Automation
 description: En este artículo se describen los tipos de runbooks que puede usar en Azure Automation y las consideraciones de determinar qué tipo usar.
 services: automation
 ms.subservice: process-automation
-ms.date: 05/17/2021
+ms.date: 06/10/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9528443e7e89ecb91db70736d2051f813b130cce
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c64a712cc916cad0f6f6fec77f33fcb422f834fb
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110073187"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982977"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de runbooks de Azure Automation
 
@@ -122,11 +122,14 @@ Los runbooks de Python 3 se admiten en las siguientes infraestructuras globales
 * Debe estar familiarizado con el scripting de Python.
 * Para utilizar bibliotecas de terceros, debe [importar los paquetes](python-packages.md) a la cuenta de Automation.
 * Usar el cmdlet **Start-AutomationRunbook** en PowerShell o en el flujo de trabajo de PowerShell para iniciar un runbook de Python 3 (versión preliminar) no funciona. Puede usar el cmdlet  **Start-AzAutomationRunbook** desde el nódulo Az.Automation o el cmdlet  **Start-AzureRmAutomationRunbook** del módulo AzureRm.Automation para solucionar esta limitación.  
-* Azure Automation no admite  **sy.stderr**.
+* Azure Automation no admite  **sys.stderr**.
 
 ### <a name="known-issues"></a>Problemas conocidos
 
-Los trabajos de Python 3 a veces generan un error con el mensaje de excepción para indicar que *la ruta de acceso ejecutable del intérprete no es válida*. Podría ver esta excepción si un trabajo se retrasa y empieza más de 10 minutos tarde o usa **Start-AutomationRunbook** para iniciar runbooks de Python 3. Si el trabajo se retrasa, reiniciar el runbook debería ser suficiente.
+En el caso de los trabajos en la nube, a veces se produce un error en los trabajos de Python 3 con un mensaje de excepción `invalid interpreter executable path`. Podría ver esta excepción si el trabajo se retrasa y empieza más de 10 minutos tarde o usa **Start-AutomationRunbook** para iniciar runbooks de Python 3. Si el trabajo se retrasa, reiniciar el runbook debería ser suficiente. Los trabajos híbridos deben funcionar sin ningún problema si se usan los pasos siguientes:
+
+1. Cree una nueva variable de entorno denominada `PYTHON_3_PATH` y especifique la carpeta de instalación. Por ejemplo, si la carpeta de instalación es `C:\Python3`, debe agregarse esta ruta de acceso a la variable.
+1. Reinicie la máquina después de establecer la variable de entorno.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

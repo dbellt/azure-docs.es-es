@@ -14,12 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: 4772fdae06f23430d829fa411068b7af7a85b3dd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 9eca2fe92109bcd91fe5943e53d1e18734401984
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101668714"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111814366"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Conector de SAP LaMa para Azure
 
@@ -91,34 +92,19 @@ El conector de Azure puede usar una entidad de servicio para la autorización en
 1. Anote el valor. Se usa como contraseña para la entidad de servicio
 1. Anote el identificador de la aplicación. Se usa como nombre de usuario de la entidad de servicio.
 
-La entidad de servicio no tiene permiso para tener acceso a los recursos de Azure de forma predeterminada. Debe conceder los permisos de entidad de servicio para acceder a ellos.
+La entidad de servicio no tiene permiso para tener acceso a los recursos de Azure de forma predeterminada.
+Asigne el rol Colaborador a la entidad de servicio en el ámbito del grupo de recursos para todos los grupos de recursos que contengan sistemas SAP que SAP LaMa deba administrar.
 
-1. Vaya a https://portal.azure.com.
-1. Abra la hoja Grupos de recursos.
-1. Seleccione el grupo de recursos que quiere usar.
-1. Haga clic en Control de acceso (IAM)
-1. Haga clic en Agregar asignación de roles.
-1. Seleccione el rol Colaborador.
-1. Escriba el nombre de la aplicación que creó anteriormente
-1. Haga clic en Guardar
-1. Repita los pasos del 3 al 8 para todos los grupos de recursos que quiera usar en SAP LaMa.
+Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="use-a-managed-identity-to-get-access-to-the-azure-api"></a><a name="af65832e-6469-4d69-9db5-0ed09eac126d"></a>Uso de una identidad administrada para obtener acceso a la API de Azure
 
 Para poder usar una identidad administrada, la instancia de SAP LaMa debe ejecutarse en una VM de Azure que tenga una identidad asignada por el usuario o por el sistema. Para más información sobre las identidades administradas, consulte [¿Qué es Managed Identities for Azure Resources?](../../../active-directory/managed-identities-azure-resources/overview.md) y [Configurar identidades administradas para recursos de Azure en una VM mediante Azure Portal](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md).
 
-La identidad administrada no tiene permiso para tener acceso a los recursos de Azure de forma predeterminada. Debe concederle permisos de acceso.
+La identidad administrada no tiene permiso para tener acceso a los recursos de Azure de forma predeterminada.
+Asigne el rol Colaborador a la identidad de máquina virtual en el ámbito del grupo de recursos para todos los grupos de recursos que contengan sistemas SAP que SAP LaMa deba administrar.
 
-1. Vaya a https://portal.azure.com.
-1. Abra la hoja Grupos de recursos.
-1. Seleccione el grupo de recursos que quiere usar.
-1. Haga clic en Control de acceso (IAM)
-1. Haga clic en Agregar -> Agregar asignación de roles.
-1. Seleccione el rol Colaborador.
-1. Seleccione "Máquina virtual" para "Asignar acceso a".
-1. Seleccione la máquina virtual donde se ejecuta la instancia de SAP LaMa.
-1. Haga clic en Guardar
-1. Repita los pasos para todos los grupos de recursos que quiera usar en SAP LaMa.
+Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../../../role-based-access-control/role-assignments-portal.md).
 
 En la configuración del conector de Azure para SAP LaMa, seleccione "Usar identidad administrada" para habilitar el uso de Identidad administrada. Si desea usar una identidad asignada por el sistema, asegúrese de dejar vacío el campo Nombre de usuario. Si desea usar una identidad asignada por el usuario, escriba el identificador de la identidad asignada por el usuario en el campo Nombre de usuario.
 

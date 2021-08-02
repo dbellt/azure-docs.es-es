@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 5f694dec6deffde9efb32fefbab91ae3b7a44a2c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 002e224fc64943ab29876ca47d7f5d337bc1230d
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99490867"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112020230"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Direcciones IP de administración de HDInsight
 
@@ -53,39 +53,39 @@ Permita el tráfico desde las direcciones IP enumeradas en los servicios de mant
 
 | Country | Region | Direcciones IP de origen permitidas | Destino permitido | Dirección |
 | ---- | ---- | ---- | ---- | ----- |
-| Asia | Este de Asia | 23.102.235.122</br>52.175.38.134 | \*:443 | Entrada |
-| &nbsp; | Sudeste de Asia | 13.76.245.160</br>13.76.136.249 | \*:443 | Entrada |
-| Australia | Este de Australia | 104.210.84.115</br>13.75.152.195 | \*:443 | Entrada |
-| &nbsp; | Sudeste de Australia | 13.77.2.56</br>13.77.2.94 | \*:443 | Entrada |
-| Brasil | Sur de Brasil | 191.235.84.104</br>191.235.87.113 | \*:443 | Entrada |
-| Canadá | Este de Canadá | 52.229.127.96</br>52.229.123.172 | \*:443 | Entrada |
-| &nbsp; | Centro de Canadá | 52.228.37.66</br>52.228.45.222 |\*: 443 | Entrada |
-| China | Norte de China | 42.159.96.170</br>139.217.2.219</br></br>42.159.198.178</br>42.159.234.157 | \*:443 | Entrada |
-| &nbsp; | Este de China | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | \*:443 | Entrada |
-| &nbsp; | Norte de China 2 | 40.73.37.141</br>40.73.38.172 | \*:443 | Entrada |
-| &nbsp; | Este de China 2 | 139.217.227.106</br>139.217.228.187 | \*:443 | Entrada |
-| Europa | Norte de Europa | 52.164.210.96</br>13.74.153.132 | \*:443 | Entrada |
-| &nbsp; | Oeste de Europa| 52.166.243.90</br>52.174.36.244 | \*:443 | Entrada |
-| Francia | Centro de Francia| 20.188.39.64</br>40.89.157.135 | \*:443 | Entrada |
-| Alemania | Centro de Alemania | 51.4.146.68</br>51.4.146.80 | \*:443 | Entrada |
-| &nbsp; | Nordeste de Alemania | 51.5.150.132</br>51.5.144.101 | \*:443 | Entrada |
-| India | Centro de la India | 52.172.153.209</br>52.172.152.49 | \*:443 | Entrada |
-| &nbsp; | Sur de la India | 104.211.223.67<br/>104.211.216.210 | \*:443 | Entrada |
-| Japón | Japón Oriental | 13.78.125.90</br>13.78.89.60 | \*:443 | Entrada |
-| &nbsp; | Japón Occidental | 40.74.125.69</br>138.91.29.150 | \*:443 | Entrada |
-| Corea | Centro de Corea del Sur | 52.231.39.142</br>52.231.36.209 | \*:443 | Entrada |
-| &nbsp; | Corea del Sur | 52.231.203.16</br>52.231.205.214 | \*:443 | Entrada
-| Reino Unido | Oeste de Reino Unido | 51.141.13.110</br>51.141.7.20 | \*:443 | Entrada |
-| &nbsp; | Sur de Reino Unido 2 | 51.140.47.39</br>51.140.52.16 | \*:443 | Entrada |
-| Estados Unidos | Centro de EE. UU. | 13.89.171.122</br>13.89.171.124 | \*:443 | Entrada |
-| &nbsp; | Este de EE. UU. | 13.82.225.233</br>40.71.175.99 | \*:443 | Entrada |
-| &nbsp; | Este de EE. UU. 2 | 20.44.16.8/29</br>20.49.102.48/29 | \*:443 | Entrada |
-| &nbsp; | Centro-Norte de EE. UU | 157.56.8.38</br>157.55.213.99 | \*:443 | Entrada |
-| &nbsp; | Centro-Oeste de EE. UU. | 52.161.23.15</br>52.161.10.167 | \*:443 | Entrada |
-| &nbsp; | Oeste de EE. UU. | 13.64.254.98</br>23.101.196.19 | \*:443 | Entrada |
-| &nbsp; | Oeste de EE. UU. 2 | 52.175.211.210</br>52.175.222.222 | \*:443 | Entrada |
-| &nbsp; | Norte de Emiratos Árabes Unidos | 65.52.252.96</br>65.52.252.97 | \*:443 | Entrada |
-| &nbsp; | Centro de Emiratos Árabes Unidos | 20.37.76.96</br>20.37.76.99 | \*:443 | Entrada |
+| Asia | Este de Asia | 23.102.235.122<br>52.175.38.134 | \*:443 | Entrada |
+| &nbsp; | Sudeste de Asia | 13.76.245.160<br>13.76.136.249 | \*:443 | Entrada |
+| Australia | Este de Australia | 104.210.84.115<br>13.75.152.195 | \*:443 | Entrada |
+| &nbsp; | Sudeste de Australia | 13.77.2.56<br>13.77.2.94 | \*:443 | Entrada |
+| Brasil | Sur de Brasil | 191.235.84.104<br>191.235.87.113 | \*:443 | Entrada |
+| Canadá | Este de Canadá | 52.229.127.96<br>52.229.123.172 | \*:443 | Entrada |
+| &nbsp; | Centro de Canadá | 52.228.37.66<br>52.228.45.222 |\*: 443 | Entrada |
+| China | Norte de China | 42.159.96.170<br>139.217.2.219<br>42.159.198.178<br>42.159.234.157 | \*:443 | Entrada |
+| &nbsp; | Este de China | 42.159.198.178<br>42.159.234.157<br>42.159.96.170<br>139.217.2.219 | \*:443 | Entrada |
+| &nbsp; | Norte de China 2 | 40.73.37.141<br>40.73.38.172 | \*:443 | Entrada |
+| &nbsp; | Este de China 2 | 139.217.227.106<br>139.217.228.187 | \*:443 | Entrada |
+| Europa | Norte de Europa | 52.164.210.96<br>13.74.153.132 | \*:443 | Entrada |
+| &nbsp; | Oeste de Europa| 52.166.243.90<br>52.174.36.244 | \*:443 | Entrada |
+| Francia | Centro de Francia| 20.188.39.64<br>40.89.157.135 | \*:443 | Entrada |
+| Alemania | Centro de Alemania | 51.4.146.68<br>51.4.146.80 | \*:443 | Entrada |
+| &nbsp; | Nordeste de Alemania | 51.5.150.132<br>51.5.144.101 | \*:443 | Entrada |
+| India | Centro de la India | 52.172.153.209<br>52.172.152.49 | \*:443 | Entrada |
+| &nbsp; | Sur de la India | 104.211.223.67<br>104.211.216.210 | \*:443 | Entrada |
+| Japón | Japón Oriental | 13.78.125.90<br>13.78.89.60 | \*:443 | Entrada |
+| &nbsp; | Japón Occidental | 40.74.125.69<br>138.91.29.150 | \*:443 | Entrada |
+| Corea | Centro de Corea del Sur | 52.231.39.142<br>52.231.36.209 | \*:443 | Entrada |
+| &nbsp; | Corea del Sur | 52.231.203.16<br>52.231.205.214 | \*:443 | Entrada
+| Reino Unido | Oeste de Reino Unido | 51.141.13.110<br>51.141.7.20 | \*:443 | Entrada |
+| &nbsp; | Sur de Reino Unido 2 | 51.140.47.39<br>51.140.52.16 | \*:443 | Entrada |
+| Estados Unidos | Centro de EE. UU. | 13.89.171.122<br>13.89.171.124 | \*:443 | Entrada |
+| &nbsp; | Este de EE. UU. | 13.82.225.233<br>40.71.175.99 | \*:443 | Entrada |
+| &nbsp; | Este de EE. UU. 2 | 20.44.16.8/29<br>20.49.102.48/29 | \*:443 | Entrada |
+| &nbsp; | Centro-Norte de EE. UU | 157.56.8.38<br>157.55.213.99 | \*:443 | Entrada |
+| &nbsp; | Centro-Oeste de EE. UU. | 52.161.23.15<br>52.161.10.167 | \*:443 | Entrada |
+| &nbsp; | Oeste de EE. UU. | 13.64.254.98<br>23.101.196.19 | \*:443 | Entrada |
+| &nbsp; | Oeste de EE. UU. 2 | 52.175.211.210<br>52.175.222.222 | \*:443 | Entrada |
+| &nbsp; | Norte de Emiratos Árabes Unidos | 65.52.252.96<br>65.52.252.97 | \*:443 | Entrada |
+| &nbsp; | Centro de Emiratos Árabes Unidos | 20.37.76.96<br>20.37.76.99 | \*:443 | Entrada |
 
 Para más información sobre las direcciones IP que se van a usar para Azure Government, vea el documento [Azure Government Intelligence + Analytics](../azure-government/compare-azure-government-global-azure.md) (Inteligencia y análisis de Azure Government).
 

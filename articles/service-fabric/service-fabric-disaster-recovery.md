@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 8d99b4d1fbf227d850de387b7ca24dcd3fd40646
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4f10ce3203eb63f7622f41e6838289129026ca73
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98791162"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110698273"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Recuperación ante desastres en Service Fabric de Azure
 Una parte fundamental de la entrega de alta disponibilidad es garantizar que los servicios sobreviven a cualquier tipo de error. Esto es especialmente importante para los errores imprevistos y fuera de control. 
@@ -186,14 +186,15 @@ En raras ocasiones, los centros de datos físicos pueden dejar de estar disponib
 
 Para los clústeres que se ejecutan en Azure, puede ver las actualizaciones en caso de interrupciones en la [página de estado de Azure][azure-status-dashboard]. En el caso muy poco probable de que se destruyera un centro de datos físico parcial o totalmente, los clústeres de Service Fabric que hospede o sus servicios se podrían perder. Esto incluye cualquier estado del que no se haya realizado copia de seguridad fuera de ese centro de datos o esa región.
 
-Hay dos estrategias diferentes para sobrevivir al error permanente o duradero de un único centro de datos o región: 
+Hay varias estrategias diferentes para sobrevivir al error permanente o duradero de un único centro de datos o región: 
 
 - Ejecutar clústeres de Service Fabric independientes en varias de estas regiones y utilizar algún mecanismo de conmutación por error y conmutación por recuperación entre estos entornos. Este tipo de modelo de varios clústeres activos/activos o activos/pasivos requiere código adicional de administración y operación. Este modelo también requiere la coordinación de las copias de seguridad de los servicios de un centro de datos o región para que estén disponibles en otros centros de datos o regiones cuando uno produzca un error. 
-- Ejecutar un único clúster de Service Fabric que abarque varios centros de datos o regiones. La configuración mínima admitida para esta estrategia es tres centros de datos o regiones. El número recomendado de regiones o centros de datos es cinco. 
+- Ejecutar un único clúster de Service Fabric que abarque varios centros de datos. La configuración mínima admitida para esta estrategia es tres centros de datos. Para más información, consulte [Implementación de un clúster de Azure Service Fabric en Availability Zones](service-fabric-cross-availability-zones.md).
   
-  Este modelo requiere una topología de clúster más compleja. Sin embargo, la ventaja es que el error de un centro de datos o región se transforma de desastre en error normal. Estos errores se solucionan mediante los mecanismos que funcionan para los clústeres de una única región. Los dominios de error, los dominios de actualización y las reglas de colocación de Service Fabric aseguran que las cargas de trabajo se distribuyen para tolerar los errores normales. 
+  Este modelo requiere configuración adicional. Sin embargo, la ventaja es que el error de un centro de datos se transforma de desastre a error normal. Estos errores se solucionan mediante los mecanismos que funcionan para los clústeres de una única región. Los dominios de error, los dominios de actualización y las reglas de colocación de Service Fabric aseguran que las cargas de trabajo se distribuyen para tolerar los errores normales.
   
   Para más información sobre las directivas que pueden ayudar a que los servicios funcionen en este tipo de clúster, consulte [Directivas de colocación de servicios de Service Fabric](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md).
+- Ejecutar un único clúster de Service Fabric que abarque varias regiones mediante el modelo independiente. El número recomendado de regiones es tres. Consulte [Creación de un clúster independiente](service-fabric-cluster-creation-for-windows-server.md) para más información sobre la configuración de Service Fabric independiente.
 
 ### <a name="random-failures-that-lead-to-cluster-failures"></a>Errores aleatorios que dan lugar a errores en el clúster
 Service Fabric tiene el concepto de *nodos raíz*. Se trata de nodos que conservan la disponibilidad del clúster subyacente. 

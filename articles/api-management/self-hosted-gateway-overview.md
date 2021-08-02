@@ -1,21 +1,19 @@
 ---
-title: Introducción a la puerta de enlace autohospedada | Microsoft Docs
+title: Información general sobre la puerta de enlace autohospedada | Azure API Management
 description: Aprenda cómo la característica de puerta de enlace autohospedada de Azure API Management ayuda a las organizaciones a administrar las API en entornos híbridos y multinube.
 services: api-management
 documentationcenter: ''
 author: vlvinogr
-manager: gwallace
-editor: ''
 ms.service: api-management
 ms.topic: article
 ms.date: 05/25/2021
 ms.author: apimpm
-ms.openlocfilehash: 946a2707e68e2f3ce6f78df997d102eeb0c7c450
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 2c8688660540f965f25038298c996511901405cb
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110376976"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111810134"
 ---
 # <a name="self-hosted-gateway-overview"></a>Introducción a la puerta de enlace autohospedada
 
@@ -49,7 +47,7 @@ Las siguientes funcionalidades de las puertas de enlace administradas **no está
 
 - Registros de Azure Monitor
 - Administración de cifrado y de la versión de TLS ascendente (back-end)
-- La validación de los certificados de servidor y cliente mediante [certificados raíz de CA](api-management-howto-ca-certificates.md) cargados en el servicio de API Management. Para más información, consulte [Validación de certificados en una puerta de enlace autohospedada](api-management-howto-mutual-certificates-for-clients.md#certificate-validation-in-self-hosted-gateway).
+- La validación de los certificados de servidor y cliente mediante [certificados raíz de CA](api-management-howto-ca-certificates.md) cargados en el servicio de API Management. Puede configurar [entidades de certificación personalizadas](api-management-howto-ca-certificates.md#create-custom-ca-for-self-hosted-gateway) para las puertas de enlace autohospedadas y directivas de [validación de certificados de cliente](api-management-access-restriction-policies.md#validate-client-certificate) para aplicarlas.
 - Integración con [Service Fabric](../service-fabric/service-fabric-api-management-overview.md).
 - Reanudación de la sesión TLS.
 - Renegociación del certificado de cliente. Esto significa que, para que la [autenticación de certificados de cliente](api-management-howto-mutual-certificates-for-clients.md) funcione, los consumidores de la API de trabajo deben presentar sus certificados como parte del protocolo de enlace TLS inicial. Para garantizar este escenario, habilite la configuración Negociar certificado de cliente cuando configure un nombre de host personalizado de puerta de enlace autohospedada.

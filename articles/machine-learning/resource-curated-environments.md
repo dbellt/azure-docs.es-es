@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.date: 4/2/2021
-ms.openlocfilehash: 16d5cbc1d48b4559ac34314582b9c01b7c6bb58c
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 1bea195d6f08832415a16531212d176ada7402e6
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166656"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110612581"
 ---
 # <a name="azure-machine-learning-curated-environments"></a>Entornos mantenidos de Azure Machine Learning
 
@@ -25,28 +25,34 @@ En este artículo se enumeran los entornos mantenidos disponibles en Azure Machi
 > Esta lista está actualizada a abril de 2021. Use la CLI o el SDK de Python para obtener la lista más actualizada de entornos y sus dependencias. Para más información, consulte el [artículo sobre los entornos](./how-to-use-environments.md#use-a-curated-environment). Después del lanzamiento de este conjunto nuevo, se ocultarán los entornos mantenidos anteriormente, pero se podrán seguir usando. 
 
 ## <a name="pytorch"></a>PyTorch
-- AzureML-Pytorch1.7-Cuda11-OpenMpi4.1.0-py36
+- AzureML-pytorch-1.7-ubuntu18.04-py37-cuda11-gpu
      - Un entorno de aprendizaje profundo con PyTorch que contiene el SDK de Azure ML y paquetes adicionales de Python.
      - Versión de PyTorch: 1.7
-     - Versión de Python: 3.6.9
+     - Versión de Python: 3.7
      - Imagen base: mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04
      - Versión de CUDA: 11.0.3
-     - OpenMPI: 4.1.0
+     - Versión de OpenMPI: 4.1.0
+     - Versión de Ubuntu: 18.04
 
-## <a name="scikit"></a>Scikit
-- AzureML-Scikit-learn0.20.4-Cuda11-OpenMpi4.1.0-py36
+## <a name="sklearn"></a>Sklearn
+- AzureML-sklearn-0.24-ubuntu18.04-py37-cuda11-gpu
      - Un entorno para tareas como regresión, agrupación en clústeres y clasificación con Scikit-learn. Contiene el SDK de Azure ML y paquetes adicionales de Python.
-     - Versión de Scikit-learn: 20.4
-     - Versión de Python: 3.6.9
+     - Versión de Scikit-learn: 24.1
+     - Versión de Python: 3.7
      - Imagen base: mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04
      - Versión de CUDA: 11.0.3
-     - OpenMPI: 4.1.0
+     - Versión de OpenMPI: 4.1.0
+     - Versión de Ubuntu: 18.04
 
 ## <a name="tensorflow"></a>TensorFlow
-- AzureML-TensorFlow2.4-Cuda11-OpenMpi4.1.0-py36
+- AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11-gpu
      - Un entorno de aprendizaje profundo con Tensorflow que contiene el SDK de Azure ML y paquetes adicionales de Python.
      - Versión de Tensorflow: 2.4
-     - Versión de Python: 3.6.9
+     - Versión de Python: 3.7
      - Imagen base: mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04
      - Versión de CUDA: 11.0.3
-     - OpenMPI: 4.1.0
+     - Versión de OpenMPI: 4.1.0
+     - Versión de Ubuntu: 18.04
+
+## <a name="inference-only-curated-environments-and-prebuilt-docker-images"></a>Entornos mantenidos de solo inferencia e imágenes de Docker precompiladas
+- Aprenda sobre los entornos mantenidos de solo inferencia y la ruta de acceso MCR de las imágenes Docker precompiladas. Consulte [Imágenes de Docker precompiladas para inferencia](concept-prebuilt-docker-images-inference.md#list-of-prebuilt-docker-images-for-inference).

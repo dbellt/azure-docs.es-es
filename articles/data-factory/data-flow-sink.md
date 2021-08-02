@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/06/2021
-ms.openlocfilehash: ee5ccd377ccfe65a061f3fda8967a90501737953
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 8996e7a30756877b5329ef959b86529bdfcbd943
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109632662"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110789668"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformación de receptor en el flujo de datos de asignación
 
@@ -47,10 +47,11 @@ El flujo de datos de asignación sigue un enfoque de extracción, carga y transf
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties) <br/>[Common Data Model](format-common-data-model.md#sink-properties)<br>[Texto delimitado](format-delimited-text.md#mapping-data-flow-properties) <br>[Delta](format-delta.md) <br>[JSON](format-json.md#mapping-data-flow-properties) <br/>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br>-/✓ <br>✓/- <br>-/✓ <br>✓/-<br>✓/✓ <br>✓/- |
 | [Azure Database for MySQL](connector-azure-database-for-mysql.md) |  | ✓/✓ |
 | [Azure Database para PostgreSQL](connector-azure-database-for-postgresql.md) |  | ✓/✓ |
-| [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/✓ |
 | [Instancia administrada de Azure SQL](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
+| [SQL Server](connector-sql-server.md) | | ✓/✓ |
 
 La configuración específica de estos conectores se encuentra en la pestaña **Configuración**. La información y algunos ejemplos de script de flujo de datos sobre esta configuración se encuentran en la documentación del conector.
 
@@ -88,6 +89,8 @@ Por ejemplo, si se especifica una columna de clave única de `column1` en un rec
 
 > [!NOTE]
 > Un receptor de caché debe estar en un flujo de datos completamente independiente de cualquier transformación que haga referencia a este a través de una búsqueda en caché. Un receptor de caché también debe ser el primer receptor escrito. 
+
+**Escritura en la salida de la actividad**: opcionalmente, el receptor almacenado en caché puede escribir los datos de salida en la entrada de la siguiente actividad de la canalización. Esto le permitirá pasar datos de forma rápida y sencilla fuera de la actividad de flujo de datos sin necesidad de conservar los datos en un almacén de datos.
 
 ## <a name="field-mapping"></a>Asignación de campos
 

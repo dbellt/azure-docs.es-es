@@ -2,14 +2,14 @@
 title: Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 description: Use Azure Resource Manager para trasladar recursos a un nuevo grupo de recursos o a una nueva suscripción.
 ms.topic: conceptual
-ms.date: 04/16/2021
+ms.date: 06/03/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: e899319460c4d9b144a580e0cb093488ea76683c
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: fdda54f31fe4a85a5ac62d8ce60fffd03c5a785d
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108322174"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111526683"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
@@ -122,7 +122,117 @@ Con fines ilustrativos, solo tenemos un recurso dependiente.
 * Paso 2: Traslade el recurso y los recursos dependientes juntos desde la suscripción de origen hasta la de destino.
 * Paso 3: Opcionalmente, redistribuya los recursos dependientes a distintos grupos de recursos dentro de la suscripción de destino.
 
-## <a name="validate-move"></a>Validar el movimiento
+## <a name="use-the-portal"></a>Uso del portal
+
+Para mover recursos, seleccione el grupo de recursos que contiene dichos recursos.
+
+Seleccionar los recursos que quiere trasladar. Para trasladar todos los recursos, active la casilla situada en la parte superior de la lista. O bien, seleccione cada recurso de forma individual.
+
+:::image type="content" source="./media/move-resource-group-and-subscription/select-resources-to-move.png" alt-text="seleccionar recursos":::
+
+Seleccione el botón **Mover**.
+
+:::image type="content" source="./media/move-resource-group-and-subscription/select-move.png" alt-text="opciones de movimiento":::
+
+Este botón ofrece tres opciones:
+
+* Mover a un grupo de recursos nuevo
+* Mover a una suscripción nueva
+* Mover a una región nueva Para cambiar las regiones, vea [Mover recursos entre regiones (desde un grupo de recursos)](../../resource-mover/move-region-within-resource-group.md?toc=/azure/azure-resource-manager/management/toc.json).
+
+Seleccione si va a mover los recursos a un nuevo grupo de recursos o a una nueva suscripción.
+
+El grupo de recursos de origen se establece automáticamente. Especifique el grupo de recursos de destino. Si va a trasladar a una nueva suscripción, especifique también la suscripción. Seleccione **Siguiente**.
+
+:::image type="content" source="./media/move-resource-group-and-subscription/select-destination-group.png" alt-text="Selección del grupo de recursos de destino":::
+
+El portal valida que se pueden trasladar los recursos. Espere a que se complete la validación.
+
+:::image type="content" source="./media/move-resource-group-and-subscription/validation.png" alt-text="Validación de movimiento":::
+
+Cuando la validación se complete correctamente, seleccione **Siguiente**.
+
+Confirme que tiene que actualizar las herramientas y los scripts para estos recursos. Para empezar a mover los recursos, seleccione **Mover**.
+
+:::image type="content" source="./media/move-resource-group-and-subscription/acknowledge-change.png" alt-text="seleccionar destino":::
+
+Cuando el traslado se haya completado, se le notificará el resultado.
+
+:::image type="content" source="./media/move-resource-group-and-subscription/view-notification.png" alt-text="Visualización de los resultados del traslado":::
+
+## <a name="use-azure-powershell"></a>Uso de Azure PowerShell
+
+### <a name="validate"></a>Validación
+
+Para probar el escenario de traslado sin mover realmente los recursos, use el comando [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction). Use esta operación solo cuando necesite determinar de antemano los resultados. Para ejecutar esta operación, necesita el:
+
+* identificador de recurso del grupo de recursos de origen
+* identificador de recurso del grupo de recursos de destino
+* identificador de recurso de cada recurso que se va a mover
+
+```azurepowershell
+Invoke-AzResourceAction -Action validateMoveResources `
+-ResourceId "/subscriptions/{subscription-id}/resourceGroups/{source-rg}" `
+-Parameters @{ resources= @("/subscriptions/{subscription-id}/resourceGroups/{source-rg}/providers/{resource-provider}/{resource-type}/{resource-name}", "/subscriptions/{subscription-id}/resourceGroups/{source-rg}/providers/{resource-provider}/{resource-type}/{resource-name}", "/subscriptions/{subscription-id}/resourceGroups/{source-rg}/providers/{resource-provider}/{resource-type}/{resource-name}");targetResourceGroup = '/subscriptions/{subscription-id}/resourceGroups/{destination-rg}' }  
+```
+
+Si se supera la validación, no verá ninguna salida.
+
+Si la validación no se supera, verá un mensaje de error que describe por qué no se pueden mover los recursos.
+
+### <a name="move"></a>Move
+
+Para mover recursos existentes a otro grupo de recursos o a otra suscripción, use el comando [Move-AzResource](/powershell/module/az.resources/move-azresource). El siguiente ejemplo muestra cómo trasladar varios recursos a un nuevo grupo de recursos.
+
+```azurepowershell-interactive
+$webapp = Get-AzResource -ResourceGroupName OldRG -ResourceName ExampleSite
+$plan = Get-AzResource -ResourceGroupName OldRG -ResourceName ExamplePlan
+Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
+```
+
+Para moverlos a una nueva suscripción, especifique un valor para el parámetro `DestinationSubscriptionId`.
+
+## <a name="use-azure-cli"></a>Uso de CLI de Azure
+
+### <a name="validate"></a>Validación
+
+Para probar el escenario de traslado sin mover realmente los recursos, use el comando [az resource invoke-action](/cli/azure/resource#az_resource_invoke_action). Use esta operación solo cuando necesite determinar de antemano los resultados. Para ejecutar esta operación, necesita el:
+
+* identificador de recurso del grupo de recursos de origen
+* identificador de recurso del grupo de recursos de destino
+* identificador de recurso de cada recurso que se va a mover
+
+En el cuerpo de la solicitud, use `\"` para escapar las comillas dobles.
+
+```azurecli
+az resource invoke-action --action validateMoveResources \
+  --ids "/subscriptions/{subscription-id}/resourceGroups/{source-rg}" \
+  --request-body "{  \"resources\": [\"/subscriptions/{subscription-id}/resourceGroups/{source-rg}/providers/{resource-provider}/{resource-type}/{resource-name}\", \"/subscriptions/{subscription-id}/resourceGroups/{source-rg}/providers/{resource-provider}/{resource-type}/{resource-name}\", \"/subscriptions/{subscription-id}/resourceGroups/{source-rg}/providers/{resource-provider}/{resource-type}/{resource-name}\"],\"targetResourceGroup\":\"/subscriptions/{subscription-id}/resourceGroups/{destination-rg}\" }" 
+```
+
+Si se supera la validación, verá:
+
+```azurecli
+{} Finished .. 
+```
+
+Si la validación no se supera, verá un mensaje de error que describe por qué no se pueden mover los recursos.
+
+### <a name="move"></a>Move
+
+Para trasladar recursos existentes a otro grupo de recursos o a otra suscripción, use el comando [az resource move](/cli/azure/resource#az_resource_move). Proporcione los identificadores de recursos de los recursos que se van a mover. El siguiente ejemplo muestra cómo trasladar varios recursos a un nuevo grupo de recursos. En el parámetro `--ids`, ofrezca una lista separada por espacios de los identificadores de recurso que se van a trasladar.
+
+```azurecli
+webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)
+plan=$(az resource show -g OldRG -n ExamplePlan --resource-type "Microsoft.Web/serverfarms" --query id --output tsv)
+az resource move --destination-group newgroup --ids $webapp $plan
+```
+
+Para mover a una nueva suscripción, proporcione el parámetro `--destination-subscription-id`.
+
+## <a name="use-rest-api"></a>Use la API de REST
+
+### <a name="validate"></a>Validación
 
 La [operación de validación del movimiento](/rest/api/resources/resources/moveresources) le permite probar el escenario de movimiento sin mover realmente los recursos. Use esta operación para comprobar si el movimiento se realizará correctamente. La validación se llama automáticamente cuando se envía una solicitud de traslado. Use esta operación solo cuando necesite determinar de antemano los resultados. Para ejecutar esta operación, necesita el:
 
@@ -175,65 +285,7 @@ Mientras todavía se esté ejecutando la operación, continuará recibiendo el c
 {"error":{"code":"ResourceMoveProviderValidationFailed","message":"<message>"...}}
 ```
 
-## <a name="use-the-portal"></a>Uso del portal
-
-Para mover recursos, seleccione el grupo de recursos que contiene dichos recursos.
-
-Cuando se visualiza el grupo de recursos, la opción para mover está deshabilitada.
-
-:::image type="content" source="./media/move-resource-group-and-subscription/move-first-view.png" alt-text="opción para mover deshabilitada":::
-
-Para habilitar la opción para mover, seleccione los recursos que desea trasladar. Para seleccionar todos los recursos, active la casilla situada en la parte superior de la lista. O bien, seleccione cada recurso de forma individual. Después de seleccionar los recursos, se habilita la opción para moverlos.
-
-:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="seleccionar recursos":::
-
-Seleccione el botón **Mover**.
-
-:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="opciones de movimiento":::
-
-Este botón ofrece tres opciones:
-
-* Mover a un grupo de recursos nuevo
-* Mover a una suscripción nueva
-* Mover a una región nueva Para cambiar las regiones, vea [Mover recursos entre regiones (desde un grupo de recursos)](../../resource-mover/move-region-within-resource-group.md?toc=/azure/azure-resource-manager/management/toc.json).
-
-Seleccione si va a mover los recursos a un nuevo grupo de recursos o a una nueva suscripción.
-
-Seleccione el grupo de recursos de destino. Confirme que tiene que actualizar los scripts para estos recursos y seleccione **Aceptar**. Si ha seleccionado mover a una suscripción nueva, también debe seleccionar la suscripción de destino.
-
-:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="seleccionar destino":::
-
-Después de validar que los recursos se pueden mover, verá una notificación de que se está ejecutando la operación de movimiento.
-
-:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="notificación":::
-
-Cuando haya finalizado, se le notificará del resultado.
-
-## <a name="use-azure-powershell"></a>Uso de Azure PowerShell
-
-Para mover recursos existentes a otro grupo de recursos o a otra suscripción, use el comando [Move-AzResource](/powershell/module/az.resources/move-azresource). El siguiente ejemplo muestra cómo trasladar varios recursos a un nuevo grupo de recursos.
-
-```azurepowershell-interactive
-$webapp = Get-AzResource -ResourceGroupName OldRG -ResourceName ExampleSite
-$plan = Get-AzResource -ResourceGroupName OldRG -ResourceName ExamplePlan
-Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
-```
-
-Para moverlos a una nueva suscripción, especifique un valor para el parámetro `DestinationSubscriptionId`.
-
-## <a name="use-azure-cli"></a>Uso de CLI de Azure
-
-Para trasladar recursos existentes a otro grupo de recursos o a otra suscripción, use el comando [az resource move](/cli/azure/resource#az_resource_move). Proporcione los identificadores de recursos de los recursos que se van a mover. El siguiente ejemplo muestra cómo trasladar varios recursos a un nuevo grupo de recursos. En el parámetro `--ids`, ofrezca una lista separada por espacios de los identificadores de recurso que se van a trasladar.
-
-```azurecli
-webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)
-plan=$(az resource show -g OldRG -n ExamplePlan --resource-type "Microsoft.Web/serverfarms" --query id --output tsv)
-az resource move --destination-group newgroup --ids $webapp $plan
-```
-
-Para mover a una nueva suscripción, proporcione el parámetro `--destination-subscription-id`.
-
-## <a name="use-rest-api"></a>Use la API de REST
+### <a name="move"></a>Move
 
 Para mover recursos existentes a otro grupo de recursos o a otra suscripción, use la operación [Mover recursos](/rest/api/resources/resources/moveresources).
 
@@ -291,6 +343,12 @@ Por ejemplo, mover una máquina virtual podría requerir mover siete tipos de re
   * storageAccounts
 
 Otro ejemplo común implica mover una red virtual. Es posible que tenga que mover varios recursos asociados a esa red virtual. La solicitud de movimiento podría requerir mover las direcciones IP públicas, las tablas de rutas, las puertas de enlace de red virtual, los grupos de seguridad de red y más.
+
+**Pregunta: ¿Qué significa el código de error "RequestDisallowedByPolicy"?**
+
+Resource Manager valida la solicitud de traslado antes de intentar el traslado. Esta validación incluye la comprobación de las directivas definidas en los recursos implicados en el traslado. Por ejemplo, si intenta mover un almacén de claves pero la organización tiene una directiva para denegar la creación de un almacén de claves en el grupo de recursos de destino, se produce un error en la validación y el traslado se bloquea. El código de error devuelto es **RequestDisallowedByPolicy**. 
+
+Para más información sobre las directivas, consulte [¿Qué es Azure Policy?](../../governance/policy/overview.md).
 
 **Pregunta: ¿Por qué no puedo mover algunos recursos de Azure?**
 

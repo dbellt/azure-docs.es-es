@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 863f98e643a7978856c03f5efe95736e6787f977
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: a8f0088077d5b7d0ec9fbc4336ee68a3459845b1
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107814413"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411816"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Conceptos básicos de Azure Key Vault
 
@@ -32,7 +32,7 @@ Estos son otros términos importantes:
 
 - **Usuario o responsable de criptografía de HSM administrado**: los roles integrados que normalmente se asignan a usuarios o entidades de servicio que realizarán operaciones criptográficas mediante claves en HSM administrado. El usuario criptográfico puede crear claves, pero no puede eliminarlas.
 
-- **Cifrado del servicio criptográfico de HSM administrado**: rol integrado que normalmente se asigna a una identidad de servicio administrada por las cuentas de servicio (por ejemplo, la cuenta de almacenamiento) para el cifrado de datos en reposo con la clave administrada por el cliente.
+- **Usuario de cifrado del servicio de criptografía de HSM administrado**: rol integrado que normalmente se asigna a una identidad de servicio administrada por las cuentas de servicio (por ejemplo, la cuenta de almacenamiento) para el cifrado de datos en reposo con la clave administrada por el cliente.
 
 - **Recursos**: un recurso es un elemento administrable que está disponible a través de Azure. Ejemplos comunes son una máquina virtual, una cuenta de almacenamiento, una aplicación web, una base de datos y una red virtual. Hay muchos más.
 
@@ -53,6 +53,11 @@ Para realizar cualquier operación con Key Vault, deberá autenticarse en la sol
 - **Entidad de servicio y certificado**: puede usar una entidad de servicio y un certificado asociado que tenga acceso a Key Vault. No se recomienda este enfoque porque el propietario o el desarrollador de la aplicación debe girar el certificado.
 - **Entidad de servicio y secreto**: aunque puede usar una entidad de servicio y un secreto para autenticarse en Key Vault, no se recomienda que lo haga. Es difícil girar automáticamente el secreto de arranque que se utiliza para autenticarse en Key Vault.
 
+## <a name="encryption-of-data-in-transit"></a>Cifrado de datos en tránsito
+
+Azure Key Vault aplica el protocolo [Seguridad de la capa de transporte](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) para proteger los datos cuando viajan entre Azure Key Vault y los clientes. Los clientes negocian una conexión TLS con Azure Key Vault. TLS proporciona una autenticación sólida, privacidad de mensajes e integridad (lo que permite la detección de la manipulación, interceptación y falsificación de mensajes), interoperabilidad, flexibilidad de algoritmo, y facilidad de implementación y uso.
+
+[Confidencialidad directa total](https://en.wikipedia.org/wiki/Forward_secrecy) (PFS) protege las conexiones entre los sistemas cliente de los clientes y los servicios en la nube de Microsoft mediante claves únicas. Las conexiones también usan longitudes de clave de cifrado RSA de 2048 bits. Esta combinación hace difícil para un usuario interceptar y acceder a datos que están en tránsito.
 
 ## <a name="key-vault-roles"></a>Roles de Key Vault
 

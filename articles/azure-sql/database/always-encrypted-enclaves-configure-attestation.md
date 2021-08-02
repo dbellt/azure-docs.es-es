@@ -10,13 +10,14 @@ ms.topic: how-to
 author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
-ms.date: 01/15/2021
-ms.openlocfilehash: a51aa15e1338380d4b4179e7fb8899273750c374
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.date: 05/01/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0e2e6bc57a830b5257d246a4229e174cf8612d3c
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106107187"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110662528"
 ---
 # <a name="configure-azure-attestation-for-your-azure-sql-logical-server"></a>Configuración de Azure Attestation para el servidor lógico de Azure SQL
 
@@ -31,18 +32,10 @@ Para usar Azure Attestation para la atestación de enclaves de Intel SGX usados 
 
 1. Crear un [proveedor de atestación](../../attestation/basic-concepts.md#attestation-provider) y configurarlo con la directiva de atestación recomendada.
 
-2. Conceder al servidor lógico de Azure SQL acceso al proveedor de atestación.
+2. Determine la dirección URL de atestación y compártala con los administradores de aplicaciones.
 
 > [!NOTE]
 > La configuración de la atestación es responsabilidad del administrador de atestación. Consulte [Roles y responsabilidades al configurar la atestación y los enclaves de SGX](always-encrypted-enclaves-plan.md#roles-and-responsibilities-when-configuring-sgx-enclaves-and-attestation).
-
-## <a name="requirements"></a>Requisitos
-
-El servidor lógico de Azure SQL y el proveedor de atestación deben pertenecer al mismo inquilino de Azure Active Directory. No se admiten interacciones entre inquilinos. 
-
-El servidor lógico de Azure SQL debe tener asignada una identidad de Azure AD. Como administrador de atestación, debe obtener la identidad de Azure AD del servidor del administrador de Azure SQL Database para ese servidor. Usará la identidad para conceder al servidor acceso al proveedor de atestación. 
-
-Para obtener instrucciones sobre cómo crear un servidor con una identidad o asignar una identidad a un servidor existente mediante PowerShell y CLI de Azure, consulte [Asignar una identidad de Azure Active Directory (Azure AD) al servidor](transparent-data-encryption-byok-configure.md#assign-an-azure-active-directory-azure-ad-identity-to-your-server).
 
 ## <a name="create-and-configure-an-attestation-provider"></a>Creación y configuración de un proveedor de atestación
 
@@ -92,62 +85,21 @@ Para obtener instrucciones sobre cómo crear un proveedor de atestación y confi
 
 ## <a name="determine-the-attestation-url-for-your-attestation-policy"></a>Determinación de la dirección URL de atestación de la directiva de atestación
 
-Después de configurar una directiva de atestación, debe compartir la dirección URL de la atestación que haga referencia a la directiva y los administradores de las aplicaciones que usan Always Encrypted con enclaves seguros en Azure SQL Database. Los administradores o los usuarios de las aplicaciones deberán configurar sus aplicaciones con la dirección URL de atestación, de modo que puedan ejecutar instrucciones que usen enclaves seguros.
-
-### <a name="use-powershell-to-determine-the-attestation-url"></a>Uso de PowerShell para determinar la dirección URL de atestación
-
-Use el siguiente script para determinar la dirección URL de atestación:
-
-```powershell
-$attestationProvider = Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $attestationResourceGroupName 
-$attestationUrl = $attestationProvider.AttestUri + "/attest/SgxEnclave"
-Write-Host "Your attestation URL is: " $attestationUrl 
-```
+Después de configurar una directiva de atestación, debe compartir la dirección URL de atestación con los administradores de aplicaciones que usan Always Encrypted con enclaves seguros en Azure SQL Database. La dirección URL de atestación es la propiedad `Attest URI` del proveedor de atestación que contiene la directiva de atestación, que es así: `https://MyAttestationProvider.wus.attest.azure.net`.
 
 ### <a name="use-azure-portal-to-determine-the-attestation-url"></a>Uso de Azure Portal para determinar la dirección URL de atestación
 
-1. En el panel de información general del proveedor de atestación, copie el valor de la propiedad URI de atestación en el portapapeles. Un URI de atestación debe tener el siguiente aspecto: `https://MyAttestationProvider.us.attest.azure.net`.
+En el panel de información general del proveedor de atestación, copie el valor de la propiedad `Attest URI` en el Portapapeles. 
 
-2. Anexe lo siguiente al URI de atestación: `/attest/SgxEnclave`. 
+### <a name="use-powershell-to-determine-the-attestation-url"></a>Uso de PowerShell para determinar la dirección URL de atestación
 
-La dirección URL de atestación resultante debe tener el siguiente aspecto: `https://MyAttestationProvider.us.attest.azure.net/attest/SgxEnclave`
-
-## <a name="grant-your-azure-sql-logical-server-access-to-your-attestation-provider"></a>Concesión de acceso al proveedor de atestación para el servidor lógico de Azure SQL
-
-Durante el flujo de trabajo de atestación, el servidor lógico de Azure SQL que contiene la base de datos llama al proveedor de atestación para enviar una solicitud de atestación. Para que el servidor lógico de Azure SQL pueda enviar solicitudes de atestación, el servidor debe tener un permiso para la acción `Microsoft.Attestation/attestationProviders/attestation/read` en el proveedor de atestación. La manera recomendada de conceder el permiso es que el administrador del proveedor de atestación asigne la identidad de Azure AD del servidor al rol de lector de atestación para el proveedor de atestación, o el grupo de recursos que lo contiene.
-
-### <a name="use-azure-portal-to-assign-permission"></a>Uso de Azure Portal para asignar el permiso
-
-Para asignar la identidad de un servidor de Azure SQL al rol Lector de atestación para un proveedor de atestación, siga las instrucciones generales de [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md). Cuando esté en el panel **Agregar asignación de roles**:
-
-1. En la lista desplegable **Rol**, seleccione el rol **Lector de atestación**.
-1. En el campo **Seleccionar**, escriba el nombre de su servidor de Azure SQL para buscarlo.
-
-Vea la captura de pantalla siguiente para obtener un ejemplo.
-
-![asignación de roles del lector de atestación](./media/always-encrypted-enclaves/attestation-provider-role-assigment.png)
-
-> [!NOTE]
-> Para que un servidor se muestre en el panel **Agregar asignación de roles**, el servidor debe tener una identidad de Azure AD asignada (consulte [Requisitos](#requirements)).
-
-### <a name="use-powershell-to-assign-permission"></a>Uso de PowerShell para asignar permisos
-
-1. Busque el servidor lógico de Azure SQL.
+Use el cmdlet `Get-AzAttestation` para recuperar las propiedades del proveedor de atestación, incluida AttestURI.
 
 ```powershell
-$serverResourceGroupName = "<server resource group name>"
-$serverName = "<server name>" 
-$server = Get-AzSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName 
-```
- 
-2. Asigne al servidor el rol Lector de atestación para el grupo de recursos que contiene su proveedor de atestación.
-
-```powershell
-$attestationResourceGroupName = "<attestation provider resource group name>"
-New-AzRoleAssignment -ObjectId $server.Identity.PrincipalId -RoleDefinitionName "Attestation Reader" -ResourceGroupName $attestationResourceGroupName
+Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $attestationResourceGroupName
 ```
 
-Para más información, consulte [Asignación de roles de Azure mediante Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md#assign-role-examples).
+Para más información, consulte [Creación y administración de un proveedor de atestación](../../attestation/quickstart-powershell.md#create-and-manage-an-attestation-provider).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

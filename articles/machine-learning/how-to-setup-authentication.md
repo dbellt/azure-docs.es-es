@@ -8,31 +8,36 @@ ms.author: cgronlun
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 04/02/2021
+ms.date: 05/27/2021
 ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2
-ms.openlocfilehash: 44468f056cb9e13b8384c86fa5858ef1c3edb44b
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 5f8f2c1f6d48a5c1b128643258af083b1811570e
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108070036"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854637"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configuración de la autenticación para recursos y flujos de trabajo de Azure Machine Learning
 
 
-Obtenga información sobre cómo configurar la autenticación en el área de trabajo de Azure Machine Learning. La autenticación en el área de trabajo de Azure Machine Learning se basa en __Azure Active Directory__ (Azure AD) en la mayoría de los casos. En general, hay tres flujos de trabajo de autenticación que se pueden usar al conectarse al área de trabajo:
+Obtenga información sobre cómo configurar la autenticación en el área de trabajo de Azure Machine Learning. La autenticación en el área de trabajo de Azure Machine Learning se basa en __Azure Active Directory__ (Azure AD) en la mayoría de los casos. En general, hay cuatro flujos de trabajo de autenticación que se pueden usar al conectarse al área de trabajo:
 
 * __Interactiva:__ el usuario utiliza la cuenta en Azure Active Directory para autenticarse directamente o para obtener un token que se usa para la autenticación. La autenticación interactiva se usa durante la _experimentación y el desarrollo iterativo_. La autenticación interactiva permite controlar el acceso a los recursos (por ejemplo, un servicio web) por usuario.
 
 * __Entidad de servicio__: el usuario crea una cuenta de entidad de servicio en Azure Active Directory y la usa para autenticarse u obtener un token. Una entidad de servicio se usa cuando se necesita un _proceso automatizado para autenticarse_ en el servicio sin necesidad de interacción del usuario. Por ejemplo, un script de implementación e integración continua que entrena y prueba un modelo cada vez que cambia el código de entrenamiento.
 
+* __Sesión de la CLI de Azure__: se usa una sesión activa de la CLI de Azure para autenticarse. La autenticación con la CLI de Azure se usa durante la _experimentación y el desarrollo iterativo_, o cuando se necesita un _proceso automatizado para autenticarse_ en el servicio mediante una sesión autenticada previamente. Puede iniciar sesión en Azure mediante la CLI de Azure en la estación de trabajo local, sin almacenar las credenciales en el código de Python ni pedir al usuario que se autentique. Del mismo modo, puede reutilizar los mismos scripts como parte de las canalizaciones de integración e implementación continuas, al mismo tiempo que autentica la CLI de Azure con una identidad de entidad de servicio.
+
 * __Identidad administrada__: Si utiliza el SDK de Azure Machine Learning _en una máquina virtual de Azure_, puede usar una identidad administrada para Azure. Este flujo de trabajo permite a la máquina virtual conectarse al área de trabajo mediante la identidad administrada, sin almacenar las credenciales en el código de Python ni pedir al usuario que se autentique. Los clústeres de proceso de Azure Machine Learning también se pueden configurar para usar una identidad administrada para acceder al área de trabajo cuando se _entrenen modelos_.
 
-> [!IMPORTANT]
-> Independientemente del flujo de trabajo de autenticación que se use, el control de acceso basado en roles de Azure (Azure RBAC) se usa para limitar el nivel de acceso (autorización) permitido a los recursos. Por ejemplo, un proceso de administración o de automatización podría acceder para crear una instancia de proceso, pero no usarla, mientras que un científico de datos podría usarla, pero no eliminarla ni crearla. Para obtener más información, consulte [Administración del acceso a un área de trabajo de Azure Machine Learning](how-to-assign-roles.md).
+Independientemente del flujo de trabajo de autenticación que se use, el control de acceso basado en roles de Azure (Azure RBAC) se usa para limitar el nivel de acceso (autorización) permitido a los recursos. Por ejemplo, un proceso de administración o de automatización podría acceder para crear una instancia de proceso, pero no usarla, mientras que un científico de datos podría usarla, pero no eliminarla ni crearla. Para obtener más información, consulte [Administración del acceso a un área de trabajo de Azure Machine Learning](how-to-assign-roles.md).
+
+Se puede utilizar el acceso condicional de Azure AD para controlar o restringir aún más el acceso al área de trabajo para cada flujo de trabajo de autenticación. Por ejemplo, un administrador solo puede permitir el acceso al área de trabajo desde dispositivos administrados.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
+[!INCLUDE [cli-version-info](../../includes/machine-learning-cli-version-1-only.md)]
 
 * Cree un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 * [Configure un entorno de desarrollo](how-to-configure-environment.md) para instalar el SDK de Azure Machine Learning o use una [instancia de proceso de Azure Machine Learning](concept-azure-machine-learning-architecture.md#compute-instance) con el SDK ya instalado.
@@ -392,6 +397,10 @@ ws = Workspace(subscription_id="your-sub-id",
                 auth=msi_auth
                 )
 ```
+
+## <a name="use-conditional-access"></a>Uso del acceso condicional
+
+Como administrador, puede aplicar [directivas de acceso condicional de Azure AD](../active-directory/conditional-access/overview.md) para los usuarios que inician sesión en el área de trabajo. Por ejemplo, puede requerir la autenticación en dos fases o permitir el inicio de sesión solo desde dispositivos administrados. Para usar el acceso condicional para áreas de trabajo de Azure Machine Learning específicamente, [asigne la directiva de acceso condicional](../active-directory/conditional-access/concept-conditional-access-cloud-apps.md) a la aplicación en la nube de Machine Learning.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

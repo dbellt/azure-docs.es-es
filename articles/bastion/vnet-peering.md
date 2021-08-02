@@ -1,18 +1,18 @@
 ---
 title: Emparejamiento de VNet y arquitectura de Azure Bastion
-description: En este artículo, aprenderá cómo se pueden usar conjuntamente el emparejamiento de VNet y Azure Bastion para conectarse a las máquinas virtuales.
+description: Aprenderá cómo se pueden usar conjuntamente el emparejamiento de VNet y Azure Bastion para conectarse a las máquinas virtuales.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 12/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 60ad4ece6de40b61b1d25e61963b30c084639eba
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: d7f888c5bbb47a3690aee9b139d2516eb956a35f
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108072970"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110540391"
 ---
 # <a name="vnet-peering-and-azure-bastion"></a>Emparejamiento de VNet y Azure Bastion
 

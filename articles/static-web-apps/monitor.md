@@ -1,22 +1,25 @@
 ---
-title: Supervisión en la versión preliminar de Azure Static Web Apps
-description: Supervise solicitudes, errores e información de seguimiento en la versión preliminar de Azure Static Web Apps
+title: Supervisión de Azure Static Web Apps
+description: Supervise solicitudes, errores e información de seguimiento en Azure Static Web Apps.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 4/23/2021
 ms.author: cshoe
-ms.openlocfilehash: 474b612d835ab415f9607f737ef219acc2e99152
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 8c97c3c008dda4269b282e89af7badda889588fe
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108077702"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110497579"
 ---
 # <a name="monitor-azure-static-web-apps"></a>Supervisión en Azure Static Web Apps
 
 Habilite [Application Insights](../azure-monitor/app/app-insights-overview.md) para supervisar las solicitudes de API, los errores y la información de seguimiento.
+
+> [!IMPORTANT]
+> Application Insights un [modelo de precios independiente](https://azure.microsoft.com/pricing/details/monitor) de Azure Static Web Apps.
 
 > [!NOTE]
 > Para usar Application Insights con Azure Static Web Apps, se requiere una aplicación con una [API](./add-api.md).
@@ -71,6 +74,27 @@ Siga estos pasos para ver los seguimientos en la aplicación.
 1. Haga clic en el botón **Ejecutar**.
 
 :::image type="content" source="media/monitoring/azure-static-web-apps-application-insights-traces.png" alt-text="Visualización de seguimientos de Application Insights":::
+
+## <a name="limit-logging"></a>Limitación del registro
+
+En algunos casos, es posible que quiera limitar el registro mientras sigue capturando detalles sobre errores y advertencias mediante la realización de los siguientes cambios en el archivo _host.json_ de la aplicación Azure Functions.
+
+```json
+{
+    "version": "2.0",
+    "logging": {
+        "applicationInsights": {
+            "samplingSettings": {
+              "isEnabled": true
+            },
+            "enableDependencyTracking": false
+        },
+        "logLevels": {
+            "default": "Warning"
+        }
+    }
+}
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

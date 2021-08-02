@@ -6,12 +6,12 @@ ms.reviewer: estfan, logicappspm, azla
 ms.topic: how-to
 ms.custom: subject-cost-optimization
 ms.date: 05/25/2021
-ms.openlocfilehash: 5fbf0d8f713785c7ec37e48fbf78e6d95a21ca4b
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 5bbdcd8032fbb4d20af2e681bf703c3d62985fe0
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379583"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971623"
 ---
 # <a name="plan-and-manage-costs-for-azure-logic-apps"></a>Planeamiento y administración de los costos de Azure Logic Apps
 
@@ -59,7 +59,7 @@ Estos son otros recursos que incurren en costos cuando se crean para usarlos con
 
 #### <a name="storage-operations-and-costs"></a>Operaciones y costos de almacenamiento
 
-Azure Logic Apps usa [Azure Storage](/storage) en las operaciones de almacenamiento. Con Azure Logic Apps multiinquilino, el uso y los costos de almacenamiento se asocian a la aplicación lógica. [La retención de datos y los costos de almacenamiento](../logic-apps/logic-apps-pricing.md#data-retention) acumulan costos mediante un [modelo de precio fijo](../logic-apps/logic-apps-pricing.md#fixed-pricing). Por ejemplo, las entradas y salidas del historial de ejecución se mantienen en el almacenamiento en segundo plano, que difiere de los recursos de almacenamiento creados, administrados y a los que se accede de forma independiente desde la aplicación lógica.
+Azure Logic Apps usa [Azure Storage](../storage/index.yml) en las operaciones de almacenamiento. Con Azure Logic Apps multiinquilino, el uso y los costos de almacenamiento se asocian a la aplicación lógica. [La retención de datos y los costos de almacenamiento](../logic-apps/logic-apps-pricing.md#data-retention) acumulan costos mediante un [modelo de precio fijo](../logic-apps/logic-apps-pricing.md#fixed-pricing). Por ejemplo, las entradas y salidas del historial de ejecución se mantienen en el almacenamiento en segundo plano, que difiere de los recursos de almacenamiento creados, administrados y a los que se accede de forma independiente desde la aplicación lógica.
 
 Con Azure Logic Apps de inquilino único, puede usar su propia [cuenta de almacenamiento](../azure-functions/storage-considerations.md#storage-account-requirements) de Azure. Esta funcionalidad proporciona más control y flexibilidad con los datos de Logic Apps. Cuando los flujos de trabajo *con estado* ejecutan sus operaciones, Azure Logic Apps realiza transacciones de almacenamiento en tiempo de ejecución. Por ejemplo, las colas se utilizan para la programación, mientras que las tablas y blobs se utilizan para almacenar los estados de los flujos de trabajo. Los costos de almacenamiento cambian en función del contenido del flujo de trabajo. Los distintos desencadenadores, acciones y cargas tienen como resultado diferentes operaciones y necesidades de almacenamiento. Las transacciones de almacenamiento siguen el [modelo de precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/). Los costos de almacenamiento se enumeran por separado en la factura de Azure.
 
@@ -121,13 +121,13 @@ Los costos de unidad de uso de recursos varían según los intervalos de tiempo,
 
 Después de empezar a incurrir en costos de recursos que se crean o se empiezan a usar en Azure, puede revisar y supervisar estos costos de las siguientes maneras:
 
-* [Supervisar las ejecuciones de aplicaciones lógicas y el consumo de almacenamiento](#monitor-billing-metrics) mediante Azure Monitor
+* [Supervisar las ejecuciones de aplicaciones lógicas y el uso de almacenamiento](#monitor-billing-metrics) mediante Azure Monitor
 
 * Ejecutar [análisis de costos](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) con [Azure Cost Management and Billing](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 <a name="monitor-billing-metrics"></a>
 
-### <a name="monitor-logic-app-executions-and-storage-consumption"></a>Supervisión del consumo de almacenamiento y las ejecuciones de las aplicaciones lógicas
+### <a name="monitor-logic-app-executions-and-storage-usage"></a>Supervisar las ejecuciones de aplicaciones lógicas y el uso de almacenamiento
 
 Con Azure Monitor, puede ver estas métricas para una aplicación lógica específica:
 

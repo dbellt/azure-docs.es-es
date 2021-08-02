@@ -3,21 +3,21 @@ title: Acceso seguro y datos
 description: Proteja el acceso a las entradas, las salidas, los desencadenadores basados en solicitudes, el historial de ejecución, las tareas de administración y el acceso a otros recursos en Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla, rarayudu
+ms.reviewer: rarayudu, azla
 ms.topic: conceptual
-ms.date: 03/09/2021
-ms.openlocfilehash: 7b082c226b38633d6c34ee2fe4d5227252b2bfcb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/01/2021
+ms.openlocfilehash: 50087ed6066ba97a866cc2fd40901397a3825e37
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102556390"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111983931"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger el acceso y los datos en Azure Logic Apps
 
 Azure Logic Apps se basa en [Azure Storage](../storage/index.yml) para almacenar y [cifrar los datos en reposo](../security/fundamentals/encryption-atrest.md) automáticamente. Este cifrado protege los datos y le ayuda a cumplir los compromisos de cumplimiento y seguridad de la organización. De forma predeterminada, Azure Storage usa claves que administra Microsoft para cifrar sus datos. Para más información, consulte [Cifrado de Azure Storage para datos en reposo](../storage/common/storage-service-encryption.md).
 
-Para controlar el acceso y proteger los datos confidenciales en Azure Logic Apps aún más, puede configurar seguridad adicional en estas áreas:
+Para controlar el acceso y proteger los datos confidenciales en Azure Logic Apps aún más, puede configurar más seguridad en estas áreas:
 
 * [Acceso de las llamadas entrantes a desencadenadores basados en solicitud](#secure-inbound-requests)
 * [Acceso a las operaciones de las aplicaciones lógicas](#secure-operations)
@@ -51,7 +51,7 @@ Las llamadas de entrada admiten estos conjuntos de cifrado:
 * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
-Estas son otras formas de limitar el acceso a los desencadenadores que reciben llamadas entrantes a la aplicación lógica para que solo los clientes autorizados puedan llamar a la aplicación lógica:
+En la siguiente lista se incluyen más formas de limitar el acceso a los desencadenadores que reciben llamadas entrantes a la aplicación lógica para que solo los clientes autorizados puedan llamar a la aplicación lógica:
 
 * [Generación de firmas de acceso compartido (SAS)](#sas)
 * [Habilitación de Azure Active Directory Open Authentication (Azure AD OAuth)](#enable-oauth)
@@ -218,9 +218,7 @@ En [Azure Portal](https://portal.azure.com), agregue una o varias directivas de 
 
 1. Para incluir el encabezado `Authorization` del token de acceso en las salidas del desencadenador basado en la solicitud, consulte [Inclusión del encabezado "Authorization" en las salidas del desencadenador por solicitud](#include-auth-header).
 
-
-Las propiedades de flujo de trabajo, como las directivas, no aparecen en la vista de código de la aplicación lógica en Azure Portal. Para acceder a las directivas mediante programación, llame a la siguiente API a través de Azure Resource Manager (ARM): `https://management.azure.com/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group-name}/providers/Microsoft.Logic/workflows/{your-workflow-name}?api-version=2016-10-01&_=1612212851820`. Asegúrese de reemplazar los valores de marcador de posición para el identificador de suscripción de Azure, el nombre del grupo de recursos y el nombre del flujo de trabajo.
-
+Las propiedades de flujo de trabajo, como las directivas, no aparecen en la vista de código de la aplicación lógica en Azure Portal. Para acceder a las directivas mediante programación, llame a la siguiente API a través de Azure Resource Manager: `https://management.azure.com/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group-name}/providers/Microsoft.Logic/workflows/{your-workflow-name}?api-version=2016-10-01&_=1612212851820`. Asegúrese de reemplazar los valores de marcador de posición para el identificador de suscripción de Azure, el nombre del grupo de recursos y el nombre del flujo de trabajo.
 
 <a name="define-authorization-policy-template"></a>
 
@@ -310,7 +308,14 @@ Para más información, consulte los temas siguientes:
 
 ### <a name="expose-your-logic-app-with-azure-api-management"></a>Exposición de su aplicación lógica con Azure API Management
 
-Para agregar más [protocolos de autenticación](../active-directory/develop/authentication-vs-authorization.md) a la aplicación lógica, considere la posibilidad de usar el servicio [Azure API Management](../api-management/api-management-key-concepts.md). Este servicio le permite exponer su aplicación lógica como API y le ofrece una supervisión enriquecida, seguridad, directiva y documentación para cualquier punto de conexión. API Management puede exponer un punto de conexión público o privado para la aplicación lógica. Para autorizar el acceso a este punto de conexión, puede usar Azure AD OAuth, un [certificado de cliente](#client-certificate-authentication) o cualquier otro estándar de seguridad. Cuando API Management recibe una solicitud, el servicio la envía a la aplicación lógica y también hace cualquier transformación o restricción necesaria en el proceso. Para que solo API Management pueda llamar a la aplicación lógica, puede [limitar el número de direcciones IP de entrada de la aplicación lógica](#restrict-inbound-ip).
+Para obtener más protocolos y opciones de autenticación, considere la posibilidad de exponer la aplicación lógica como una API mediante Azure API Management. Este servicio proporciona funcionalidades completas de supervisión, seguridad, directiva y documentación para cualquier punto de conexión. API Management puede exponer un punto de conexión público o privado para la aplicación lógica. Para autorizar el acceso a este punto de conexión, puede usar Azure Active Directory Open Authentication (Azure AD OAuth), el certificado del cliente u otros estándares de seguridad. Cuando API Management recibe una solicitud, el servicio la envía a la aplicación lógica y hace cualquier transformación o restricción necesaria en el proceso. Para que solo API Management pueda llamar a la aplicación lógica, puede [limitar el número de direcciones IP de entrada de la aplicación lógica](#restrict-inbound-ip).
+
+Para más información, revise la siguiente documentación:
+
+* [Acerca de API Management](../api-management/api-management-key-concepts.md)
+* [Protección de un back-end de API web en Azure API Management mediante la autorización de OAuth 2.0 con Azure AD](../api-management/api-management-howto-protect-backend-with-aad.md)
+* [Protección de API mediante la autenticación de certificados de cliente en API Management](../api-management/api-management-howto-mutual-certificates-for-clients.md)
+* [Directivas de autenticación de Azure API Management](../api-management/api-management-authentication-policies.md)
 
 <a name="restrict-inbound-ip"></a>
 
@@ -641,7 +646,7 @@ En la definición de desencadenador o acción subyacente, agregue o actualice la
 
 ## <a name="access-to-parameter-inputs"></a>Acceso a entradas de parámetros
 
-Si implementa en entornos diferentes, considere la posibilidad de parametrizar los valores de la definición de flujo de trabajo que varían en función de esos entornos. De este modo, puede evitar los datos incluidos en el código mediante una [plantilla de Azure Resource Manager ](../azure-resource-manager/templates/overview.md) para implementar la aplicación lógica, proteger los datos confidenciales definiendo parámetros seguros y pasar dichos datos como entradas separadas mediante los [parámetros de la plantilla](../azure-resource-manager/templates/template-parameters.md) con un [archivo de parámetros](../azure-resource-manager/templates/parameter-files.md).
+Si implementa en entornos diferentes, considere la posibilidad de parametrizar los valores de la definición de flujo de trabajo que varían en función de esos entornos. De este modo, puede evitar los datos incluidos en el código mediante una [plantilla de Azure Resource Manager ](../azure-resource-manager/templates/overview.md) para implementar la aplicación lógica, proteger los datos confidenciales definiendo parámetros seguros y pasar dichos datos como entradas separadas mediante los [parámetros de la plantilla](../azure-resource-manager/templates/parameters.md) con un [archivo de parámetros](../azure-resource-manager/templates/parameter-files.md).
 
 Por ejemplo, si autentica acciones HTTP con [Azure Active Directory Open Authentication](#azure-active-directory-oauth-authentication) (Azure AD OAuth), puede definir y ocultar los parámetros que aceptan el identificador de cliente y el secreto de cliente utilizados para la autenticación. Para definir estos parámetros para la aplicación lógica, use la sección `parameters` dentro de la definición de flujo de trabajo de la aplicación lógica y Resource Manager para la implementación. Para proteger los valores de parámetros que no quiera mostrar al editar la aplicación lógica o visualizar el historial de ejecución, defina los parámetros con el tipo `securestring` o `secureobject` y use la codificación necesaria. Los parámetros de este tipo no se devuelven con la definición del recurso y no son accesibles al visualizar el recurso después de la implementación. Para tener acceso a estos valores de parámetro durante el tiempo de ejecución, use la expresión `@parameters('<parameter-name>')` dentro de la definición del flujo de trabajo. Esta expresión solo se evalúa en tiempo de ejecución y se describe con el [lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md).
 
@@ -654,7 +659,7 @@ Para más información, consulte las secciones siguientes en este tema:
 * [Parámetros protegidos en las definiciones de flujo de trabajo](#secure-parameters-workflow)
 * [Protección del historial de ejecución mediante ofuscación](#obfuscate)
 
-Si [automatiza la implementación de aplicaciones lógicas con plantillas de Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), puede definir [parámetros de plantilla](../azure-resource-manager/templates/template-parameters.md) protegidos, que se evalúan en la implementación, mediante los tipos `securestring` y `secureobject`. Para definir parámetros de plantilla, use la sección `parameters` de nivel superior de la plantilla, que es independiente y diferente de la sección `parameters` de la definición de flujo de trabajo. Para proporcionar valores para los parámetros de plantilla, use un [archivo de parámetros](../azure-resource-manager/templates/parameter-files.md) independiente.
+Si [automatiza la implementación de aplicaciones lógicas con plantillas de Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), puede definir [parámetros de plantilla](../azure-resource-manager/templates/parameters.md) protegidos, que se evalúan en la implementación, mediante los tipos `securestring` y `secureobject`. Para definir parámetros de plantilla, use la sección `parameters` de nivel superior de la plantilla, que es independiente y diferente de la sección `parameters` de la definición de flujo de trabajo. Para proporcionar valores para los parámetros de plantilla, use un [archivo de parámetros](../azure-resource-manager/templates/parameter-files.md) independiente.
 
 Por ejemplo, si usa secretos, puede definir y usar parámetros de plantilla protegidos que recuperen dichos secretos de [Azure Key Vault](../key-vault/general/overview.md) en la implementación. A continuación, puede hacer referencia a Key Vault y al secreto en el archivo de parámetros. Para más información, consulte los temas siguientes:
 
@@ -856,7 +861,11 @@ En función de la funcionalidad del punto de conexión de destino, las llamadas 
 
 A continuación se muestra información acerca de los certificados autofirmados de TLS/SSL:
 
-* En el caso de aplicaciones lógicas en el entorno global multiinquilino de Azure, el conector HTTP no permite certificados de TLS/SSL autofirmados. Si la aplicación lógica realiza una llamada HTTP a un servidor y presenta un certificado autofirmado de TLS/SSL, la llamada HTTP produce un error `TrustFailure`.
+* En el caso de aplicaciones lógicas en el entorno global multiinquilino de Azure Logic Apps, las operaciones HTTP no permiten certificados de TLS/SSL autofirmados. Si la aplicación lógica realiza una llamada HTTP a un servidor y presenta un certificado autofirmado de TLS/SSL, la llamada HTTP produce un error `TrustFailure`.
+
+* En el caso de aplicaciones lógicas en el entorno de Azure Logic Apps de inquilino único, las operaciones HTTP admiten certificados TLS/SSL autofirmados. Sin embargo, debe completar algunos pasos adicionales para este tipo de autenticación. De lo contrario, se produce un error en la llamada. Para obtener más información, revise [Autenticación con certificados TLS/SSL para Azure Logic Apps de inquilino único](../connectors/connectors-native-http.md#tsl-ssl-certificate-authentication).
+
+  Si quiere usar el certificado de cliente o Azure Active Directory y Open Authentication (Azure AD OAuth) con el tipo de credencial "Certificado" en su lugar, todavía tiene que completar algunos pasos adicionales para este tipo de autenticación. De lo contrario, se produce un error en la llamada. Para obtener más información, revise [Certificado de cliente o Azure Active Directory y Open Authentication (Azure AD OAuth) con el tipo de credencial "Certificado" para Azure Logic Apps de inquilino único](../connectors/connectors-native-http.md#client-certificate-authentication).
 
 * En el caso de las aplicaciones lógicas en un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), el conector HTTP permite certificados autofirmados para los protocolos de enlace TLS/SSL. Sin embargo, primero debe [habilitar la compatibilidad con certificados autofirmados](../logic-apps/create-integration-service-environment-rest-api.md#request-body) para un ISE existente o un ISE nuevo mediante la API REST de Logic Apps, y, después, instalar el certificado público en la ubicación de `TrustedRoot`.
 
@@ -998,6 +1007,9 @@ Al usar [parámetros protegidos](#secure-action-parameters) para administrar y p
 }
 ```
 
+> [!IMPORTANT]
+> Si tiene un recurso **Aplicación lógica (estándar)** en Azure Logic Apps de inquilino único y quiere usar una operación HTTP con un certificado TSL/SSL, un certificado de cliente o Azure Active Directory en Open Authentication (Azure AD OAuth) con el tipo de credencial `Certificate`, asegúrese de completar los pasos de configuración adicionales para este tipo de autenticación. De lo contrario, se produce un error en la llamada. Para obtener más información, revise [Autenticación en un entorno de inquilino único](../connectors/connectors-native-http.md#single-tenant-authentication).
+
 Para obtener más información acerca de cómo proteger los servicios mediante la autenticación de certificados de cliente, consulte estos temas:
 
 * [Cómo mejorar la seguridad de las API mediante la autenticación de certificados de cliente en Azure API Management](../api-management/api-management-howto-mutual-certificates-for-clients.md)
@@ -1045,6 +1057,9 @@ Al usar [parámetros protegidos](#secure-action-parameters) para administrar y p
    "runAfter": {}
 }
 ```
+
+> [!IMPORTANT]
+> Si tiene un recurso **Aplicación lógica (estándar)** en Azure Logic Apps de inquilino único y quiere usar una operación HTTP con un certificado TSL/SSL, un certificado de cliente o Azure Active Directory en Open Authentication (Azure AD OAuth) con el tipo de credencial `Certificate`, asegúrese de completar los pasos de configuración adicionales para este tipo de autenticación. De lo contrario, se produce un error en la llamada. Para obtener más información, revise [Autenticación en un entorno de inquilino único](../connectors/connectors-native-http.md#single-tenant-authentication).
 
 <a name="raw-authentication"></a>
 
@@ -1153,7 +1168,7 @@ Puede usar Azure Logic Apps en [Azure Government](../azure-government/documentat
 
   Por ejemplo, para cumplir los requisitos de nivel de impacto 5, cree la aplicación de funciones con el [plan de App Service](../azure-functions/dedicated-plan.md) mediante el plan de tarifa [**aislado**](../app-service/overview-hosting-plans.md) junto con una instancia de [App Service Environment (ASE)](../app-service/environment/intro.md) que también usa el plan de tarifa **aislado**. En este entorno, las aplicaciones de funciones se ejecutan en máquinas virtuales y redes virtuales de Azure dedicadas, que proporcionan aislamiento de red sobre el aislamiento de proceso para las aplicaciones y las máximas posibilidades de escalabilidad horizontal. Para obtener más información, consulte la [guía de aislamiento de nivel de impacto 5 de Azure Government: Azure Functions](../azure-government/documentation-government-impact-level-5.md#azure-functions).
 
-  Para más información, consulte los temas siguientes:<p>
+  Para más información, revise la siguiente documentación:
 
   * [Planes de Azure App Service](../app-service/overview-hosting-plans.md)
   * [Opciones de redes de Azure Functions](../azure-functions/functions-networking-options.md)
@@ -1161,13 +1176,19 @@ Puede usar Azure Logic Apps en [Azure Government](../azure-government/documentat
   * [Aislamiento de máquina virtual de Azure](../virtual-machines/isolation.md)
   * [Implementación de servicios de Azure dedicados en las redes virtuales](../virtual-network/virtual-network-for-azure-services.md)
 
-* Para crear aplicaciones lógicas que se ejecuten en recursos dedicados y puedan tener acceso a recursos protegidos por una red virtual de Azure, puede crear un [entorno del servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+* En función de si usa [Azure Logic Apps de inquilino único y multiinquilino](logic-apps-overview.md#resource-environment-differences), tiene estas opciones:
 
-  * Algunas redes virtuales de Azure usan puntos de conexión privados ([Azure Private Link](../private-link/private-link-overview.md)) para proporcionar acceso a los servicios de PaaS de Azure, como Azure Storage, Azure Cosmos DB o Azure SQL Database, servicios de asociados o servicios de clientes que se hospedan en Azure. Si las aplicaciones lógicas necesitan acceder a redes virtuales que usan puntos de conexión privados, debe crear, implementar y ejecutar esas aplicaciones lógicas dentro de un ISE.
+  * Con las aplicaciones lógicas basadas en un solo inquilino, puede comunicarse de forma privada y segura entre flujos de trabajo de aplicación lógica y una instancia de Azure Virtual Network mediante la configuración de puntos de conexión privados para el tráfico entrante, así como usar la integración de Virtual Network para el tráfico saliente. Para obtener más información, revise [Protección del tráfico entre redes virtuales y Azure Logic Apps de inquilino único mediante puntos de conexión privados](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
 
-  * Para obtener más control sobre las claves de cifrado utilizadas por Azure Storage, puede configurar, usar y administrar su propia clave mediante [Azure Key Vault](../key-vault/general/overview.md). Esta funcionalidad también se conoce como "Bring Your Own Key" (BYOK) y la clave se denomina "clave administrada por el cliente". Para obtener más información, consulte [Configure claves administradas por el cliente para cifrar los datos en reposo para los entornos del servicio de integración (ISE) en Azure Logic Apps](../logic-apps/customer-managed-keys-integration-service-environment.md).
+  * Con las aplicaciones lógicas basadas en varios inquilinos, puede crear y ejecutar las aplicaciones lógicas en un [entorno del servicio de integración (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md). De esa forma, las aplicaciones lógicas se ejecutan en recursos dedicados y pueden acceder a recursos protegidos por una instancia de Azure Virtual Network. Para obtener más control sobre las claves de cifrado utilizadas por Azure Storage, puede configurar, usar y administrar su propia clave mediante [Azure Key Vault](../key-vault/general/overview.md). Esta funcionalidad también se conoce como "Bring Your Own Key" (BYOK) y la clave se denomina "clave administrada por el cliente". Para obtener más información, revise [Configure claves administradas por el cliente para cifrar los datos en reposo para los entornos del servicio de integración (ISE) en Azure Logic Apps](../logic-apps/customer-managed-keys-integration-service-environment.md).
 
-Para más información, consulte los temas siguientes:
+  > [!IMPORTANT]
+  > Algunas redes virtuales de Azure usan puntos de conexión privados ([Azure Private Link](../private-link/private-link-overview.md)) para proporcionar acceso a los servicios de PaaS de Azure, como Azure Storage, Azure Cosmos DB o Azure SQL Database, servicios de asociados o servicios de clientes que se hospedan en Azure.
+  >
+  > Si los flujos de trabajo necesitan acceso a redes virtuales que usan puntos de conexión privados y desea desarrollar esos flujos de trabajo mediante el tipo de recurso **Aplicación lógica (consumo)** , *debe crear y ejecutar las aplicaciones lógicas en un entorno del servicio de integración*. Sin embargo, si desea desarrollar esos flujos de trabajo mediante el tipo de recurso **Aplicación lógica (estándar)** , *no necesita un entorno del servicio de integración*. 
+  > En su lugar, los flujos de trabajo pueden comunicarse de forma privada y segura con redes virtuales mediante el uso de puntos de conexión privados para el tráfico entrante y la integración de Virtual Network para el tráfico saliente. Para obtener más información, revise [Protección del tráfico entre redes virtuales y Azure Logic Apps de inquilino único mediante puntos de conexión privados](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
+
+Para obtener más información sobre el aislamiento, revise la siguiente documentación:
 
 * [Aislamiento en la nube pública de Azure](../security/fundamentals/isolation-choices.md)
 * [Seguridad para aplicaciones IaaS altamente confidenciales en Azure](/azure/architecture/reference-architectures/n-tier/high-security-iaas)

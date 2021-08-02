@@ -12,15 +12,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/27/2021
+ms.date: 06/09/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4350f60029673af04ad263c9e9f25d7a74bc532b
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 818d39417689fd5fad80b69b2ee63af9114dc239
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108131032"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112004644"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA
 
@@ -174,13 +174,13 @@ Configuración para el volumen **/hana/data** de SAP:
 | M64s, M64ds_v2, M64s_v2 | 1024 GiB | 1000 MBps | 4 x P15 | 500 MBps | 680 Mbps | 4400 | 14 000 |
 | M64ms, M64dms_v2, M64ms_v2 | 1792 GiB | 1000 MBps | 4 x P20 | 600 MBps | 680 Mbps | 9200 | 14 000 |  
 | M128s, M128ds_v2, M128s_v2 | 2048 GiB | 2000 Mbps | 4 x P20 | 600 MBps | 680 Mbps | 9200| 14 000 | 
-| M192ds_v2, M192s_v2 | 2048 GiB | 2000 Mbps | 4 x P20 | 600 MBps | 680 Mbps | 9200| 14 000 | 
+| M192ids_v2, M192is_v2 | 2048 GiB | 2000 Mbps | 4 x P20 | 600 MBps | 680 Mbps | 9200| 14 000 | 
 | M128ms, M128dms_v2, M128ms_v2 | 3892 GiB | 2000 Mbps | 4 x P30 | 800 MBps | sin expansión | 20.000 | sin expansión | 
-| M192ms, M192dms_v2, M128ms_v2 | 4096 GiB | 2000 Mbps | 4 x P30 | 800 MBps | sin expansión | 20.000 | sin expansión | 
+| M192ims, M192idms_v2 | 4096 GiB | 2000 Mbps | 4 x P30 | 800 MBps | sin expansión | 20.000 | sin expansión | 
 | M208s_v2 | 2850 GiB | 1000 MBps | 4 x P30 | 800 MBps | sin expansión | 20.000| sin expansión | 
 | M208ms_v2 | 5700 GiB | 1000 MBps | 4 x P40 | 1000 MBps | sin expansión | 30,000 | sin expansión |
 | M416s_v2 | 5700 GiB | 2000 Mbps | 4 x P40 | 1000 MBps | sin expansión | 30,000 | sin expansión |
-| M416ms_v2 | 11 400 GiB | 2000 Mbps | 4 x P50 | 2000 Mbps | sin expansión | 30,000 | sin expansión |
+| M416ms_v2 | 11 400 GiB | 2000 Mbps | 4 x P50 | 1000 MBps | sin expansión | 30,000 | sin expansión |
 
 
 Para el volumen **/hana/log**. La configuración sería similar a la siguiente:
@@ -194,9 +194,9 @@ Para el volumen **/hana/log**. La configuración sería similar a la siguiente:
 | M64s, M64ds_v2, M64s_v2 | 1024 GiB | 1000 MBps | 3 x P15 | 375 MBps | 510 Mbps | 3300 | 10 500 | 
 | M64ms, M64dms_v2, M64ms_v2 | 1792 GiB | 1000 MBps | 3 x P15 | 375 MBps | 510 Mbps | 3300 | 10 500 |  
 | M128s, M128ds_v2, M128s_v2 | 2048 GiB | 2000 Mbps | 3 x P15 | 375 MBps | 510 Mbps | 3300 | 10 500| 
-| M192ds_v2, M192s_v2 | 2048 GiB | 2000 Mbps | 3 x P15 | 375 MBps | 510 Mbps | 3300 | 10 500| 
+| M192ids_v2, M192is_v2 | 2048 GiB | 2000 Mbps | 3 x P15 | 375 MBps | 510 Mbps | 3300 | 10 500| 
 | M128ms, M128dms_v2, M128ms_v2 | 3892 GiB | 2000 Mbps | 3 x P15 | 375 MBps | 510 Mbps | 3300 | 10 500 |
-| M192dms_v2, M192ms_v2 | 4096 GiB | 2000 Mbps | 3 x P15 | 375 MBps | 510 Mbps | 3300 | 10 500 | 
+| M192idms_v2, M192ims_v2 | 4096 GiB | 2000 Mbps | 3 x P15 | 375 MBps | 510 Mbps | 3300 | 10 500 | 
 | M208s_v2 | 2850 GiB | 1000 MBps | 3 x P15 | 375 MBps | 510 Mbps | 3300 | 10 500 |  
 | M208ms_v2 | 5700 GiB | 1000 MBps | 3 x P15 | 375 MBps | 510 Mbps | 3300 | 10 500 |  
 | M416s_v2 | 5700 GiB | 2000 Mbps | 3 x P15 | 375 MBps | 510 Mbps | 3300 | 10 500 |  
@@ -214,9 +214,9 @@ For the other volumes, the configuration would look like:
 | M64s, M64ds_v2, M64s_v2 | 1024 GiB | 1000 MBps | 1 x P30 | 1 x P6 | 1 x P6 |
 | M64ms, M64dms_v2, M64ms_v2 | 1792 GiB | 1000 MBps | 1 x P30 | 1 x P6 | 1 x P6 | 
 | M128s, M128ds_v2, M128s_v2 | 2048 GiB | 2000 Mbps | 1 x P30 | 1 x P10 | 1 x P6 | 
-| M192ds_v2, M192s_v2  | 2048 GiB | 2000 Mbps | 1 x P30 | 1 x P10 | 1 x P6 | 
+| M192ids_v2, M192is_v2  | 2048 GiB | 2000 Mbps | 1 x P30 | 1 x P10 | 1 x P6 | 
 | M128ms, M128dms_v2, M128ms_v2 | 3892 GiB | 2000 Mbps | 1 x P30 | 1 x P10 | 1 x P6 |
-| M192dms_v2, M192ms_v2  | 4096 GiB | 2000 Mbps | 1 x P30 | 1 x P10 | 1 x P6 |
+| M192idms_v2, M192ims_v2  | 4096 GiB | 2000 Mbps | 1 x P30 | 1 x P10 | 1 x P6 |
 | M208s_v2 | 2850 GiB | 1000 MBps |  1 x P30 | 1 x P10 | 1 x P6 |
 | M208ms_v2 | 5700 GiB | 1000 MBps | 1 x P30 | 1 x P10 | 1 x P6 | 
 | M416s_v2 | 5700 GiB | 2000 Mbps |  1 x P30 | 1 x P10 | 1 x P6 | 
@@ -285,9 +285,9 @@ A menudo, las recomendaciones superan los requisitos mínimos de SAP como se ind
 | M64s, M64ds_v2, M64s_v2 | 1024 GiB | 1000 MB/s |  1200 GB | 600 MBps | 5\.000 | 512 GB | 250 MBps  | 2,500 |
 | M64ms, M64dms_v2, M64ms_v2 | 1792 GiB | 1000 MB/s | 2100 GB | 600 MBps | 5\.000 | 512 GB | 250 MBps  | 2,500 |
 | M128s, M128ds_v2, M128s_v2 | 2048 GiB | 2000 MB/s |2400 GB | 750 Mbps | 7000 | 512 GB | 250 MBps  | 2,500 |
-| M192ds_v2, M192s_v2 | 2048 GiB | 2000 MB/s |2400 GB | 750 Mbps | 7000 | 512 GB | 250 MBps  | 2,500 | 
+| M192ids_v2, M192is_v2 | 2048 GiB | 2000 MB/s |2400 GB | 750 Mbps | 7000 | 512 GB | 250 MBps  | 2,500 | 
 | M128ms, M128dms_v2, M128ms_v2 | 3892 GiB | 2000 MB/s | 4800 GB | 750 Mbps |9 600 | 512 GB | 250 MBps  | 2,500 | 
-| M192dms_v2, M192ms_v2 | 4096 GiB | 2000 MB/s | 4800 GB | 750 Mbps |9 600 | 512 GB | 250 MBps  | 2,500 | 
+| M192idms_v2, M192ims_v2 | 4096 GiB | 2000 MB/s | 4800 GB | 750 Mbps |9 600 | 512 GB | 250 MBps  | 2,500 | 
 | M208s_v2 | 2850 GiB | 1000 MB/s | 3500 GB | 750 Mbps | 7000 | 512 GB | 250 MBps  | 2,500 | 
 | M208ms_v2 | 5700 GiB | 1000 MB/s | 7200 GB | 750 Mbps | 14 400 | 512 GB | 250 MBps  | 2,500 | 
 | M416s_v2 | 5700 GiB | 2000 MB/s | 7200 GB | 1000 MBps | 14 400 | 512 GB | 400 MBps  | 4\.000 | 
@@ -328,9 +328,9 @@ Una alternativa menos costosa para estas configuraciones podría ser similar a l
 | M64s, M64ds_v2, M64s_v2 | 1024 GiB | 1000 MB/s | 7 x P15 | 1 x E30 | 1 x E6 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 10 000<sup>2</sup>. |
 | M64ms, M64dms_v2, M64ms_v2| 1792 GiB | 1000 MB/s | 6 x P20 | 1 x E30 | 1 x E6 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 10 000<sup>2</sup>. |
 | M128s, M128ds_v2, M128s_v2 | 2048 GiB | 2000 MB/s |6 x P20 | 1 x E30 | 1 x E10 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 20 000<sup>2</sup>. |
-| M192ds_v2, M192s_v2 | 2048 GiB | 2000 MB/s |6 x P20 | 1 x E30 | 1 x E10 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 20 000<sup>2</sup>. |
+| M192ids_v2, M192is_v2 | 2048 GiB | 2000 MB/s |6 x P20 | 1 x E30 | 1 x E10 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 20 000<sup>2</sup>. |
 | M128ms, M128dms_v2, M128ms_v2  | 3800 GiB | 2000 MB/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 20 000<sup>2</sup>. |
-| M192dms_v2, M192ms_v2  | 4096 GiB | 2000 MB/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 20 000<sup>2</sup>. |
+| M192idms_v2, M192ims_v2  | 4096 GiB | 2000 MB/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 20 000<sup>2</sup>. |
 | M208s_v2 | 2850 GiB | 1000 MB/s | 4 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 10 000<sup>2</sup>. |
 | M208ms_v2 | 5700 GiB | 1000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 10 000<sup>2</sup>. |
 | M416s_v2 | 5700 GiB | 2000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | El uso de Acelerador de escritura para los datos combinados y el volumen de registro limitará la tasa de IOPS a 20 000<sup>2</sup>. |

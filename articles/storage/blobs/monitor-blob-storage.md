@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: subject-monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: dd4d4c1ddea737a1aa2083f7e2801aaee1b4cff7
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.custom: subject-monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: bd9e8c2e71f69045078111bd5a4ae7c0edf567aa
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110467452"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111527377"
 ---
 # <a name="monitoring-azure-blob-storage"></a>Supervisión de Azure Blob Storage
 
@@ -542,7 +542,7 @@ Puede acceder a los registros que se envían a un área de trabajo Log Analytics
 
 Para más información, consulte [Introducción a los análisis de registros de Azure Monitor](../../azure-monitor/logs/log-analytics-tutorial.md).
 
-Los datos se almacenan en la tabla **StorageBlobLog**. Los registros de Data Lake Storage Gen2 no aparecen en una tabla dedicada. Esto se debe a que Data Lake Storage Gen2 no es servicio. Es un conjunto de funcionalidades que puede habilitar en la cuenta de almacenamiento. Si ha habilitado esas funcionalidades, los registros seguirán apareciendo en la tabla StorageBlobLogs. 
+Los datos se almacenan en la tabla **StorageBlobLog**. Los registros de Data Lake Storage Gen2 no aparecen en una tabla dedicada. Esto se debe a que Data Lake Storage Gen2 no es servicio. Es un conjunto de funcionalidades que puede habilitar en la cuenta de almacenamiento. Si ha habilitado esas funcionalidades, los registros seguirán apareciendo en la tabla StorageBlobLog. 
 
 #### <a name="sample-kusto-queries"></a>Ejemplos de consultas de Kusto
 

@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/22/2021
-ms.openlocfilehash: eb54ad3e5e7d3db5fc1a399c473de81531e27178
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.date: 06/10/2021
+ms.openlocfilehash: e3e468b774503b42fd46e66492f09982e8d1d9a6
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107988593"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982275"
 ---
 # <a name="logical-replication-and-logical-decoding-in-azure-database-for-postgresql---flexible-server"></a>Replicación lógica y descodificación lógica en Azure Database for PostgreSQL con servidor flexible
 
@@ -21,7 +21,7 @@ ms.locfileid: "107988593"
 Azure Database for PostgreSQL: servidor flexible admite las siguientes metodologías de replicación y extracción de datos lógicos:
 1. **Replicación lógica**
    1. Uso de la [replicación lógica nativa](https://www.postgresql.org/docs/12/logical-replication.html) de PostgreSQL para replicar objetos de datos. La replicación lógica permite un control preciso sobre la replicación de datos, incluida la replicación de datos de nivel de tabla.
-   2. El uso de la extensión [pglogical](https://github.com/2ndQuadrant/pglogical) que proporciona replicación lógica de streaming y funcionalidades adicionales, como la copia del esquema inicial de la base de datos, la compatibilidad con TRUNCATE, la capacidad de replicar DDL, etc.
+   <!--- 2. Using [pglogical](https://github.com/2ndQuadrant/pglogical) extension that provides logical streaming replication and additional capabilities such as copying initial schema of the database, support for TRUNCATE, ability to replicate DDL etc. -->
 2. La **descodificación lógica** que se implementa mediante la [descodificación](https://www.postgresql.org/docs/12/logicaldecoding-explanation.html) del contenido del registro de escritura previa (WAL). 
 
 ## <a name="comparing-logical-replication-and-logical-decoding"></a>Comparación de la replicación lógica y la descodificación lógica
@@ -43,10 +43,13 @@ Descodificación lógica
 
 ## <a name="pre-requisites-for-logical-replication-and-logical-decoding"></a>Requisitos previos para la comparación de la replicación lógica y la descodificación lógica
 
-1. Configure el parámetro `wal_level` del servidor como `logical`.
-2. Reinicie el servidor para aplicar el cambio de `wal_level`.
-3. Confirme que la instancia de PostgreSQL permite el tráfico de red desde el recurso de conexión.
-4. Conceda al usuario administrador permisos de replicación.
+1. Vaya a la página de parámetros de servidor en el portal.
+2. Configure el parámetro `wal_level` del servidor como `logical`.
+<!---
+3. If you want to use pglogical extension, search for the `shared_preload_libaries` parameter, and select `pglogical` from the drop-down box. Also update `max_worker_processes` parameter value to at least 16. -->
+3. Guarde los cambios y reinicie el servidor para aplicar el cambio de `wal_level`.
+4. Confirme que la instancia de PostgreSQL permite el tráfico de red desde el recurso de conexión.
+5. Conceda al usuario administrador permisos de replicación.
    ```SQL
    ALTER ROLE <adminname> WITH REPLICATION;
    ```
@@ -86,36 +89,62 @@ A continuación se muestra código de ejemplo que puede usar para probar la repl
    ```SQL
    SELECT * FROM basic;
    ```
+   Puede agregar más filas a la tabla del publicador y ver los cambios en el suscriptor.
 
-Puede agregar más filas a la tabla del publicador y ver los cambios en el suscriptor.
+   Si no puede ver los datos, habilite el privilegio de inicio de sesión para `azure_pg_admin` y compruebe el contenido de la tabla. 
+   ```SQL 
+   ALTER ROLE azure_pg_admin login;
+   ```
+
 
 Visite la documentación de PostgreSQL para comprender mejor la [replicación lógica](https://www.postgresql.org/docs/current/logical-replication.html).
 
+<!---
+### pglogical extension
 
-### <a name="pglogical-extension"></a>Extensión pglogical
+Here is an example of configuring pglogical at the provider database server and the subscriber. Please refer to pglogical extension documentation for more details. Also make sure you have performed pre-requisite tasks listed above.
 
-Este es un ejemplo de configuración de pglogical en el servidor de bases de datos de proveedor y suscriptor. Para más información, consulte la documentación de la extensión pglogical.
-
-1. Instale la extensión pglogical en los servidores de bases de datos de proveedor y suscriptor.
+1. Install pglogical extension in the database in both the provider and the subscriber database servers.
     ```SQL
+   \C myDB
    CREATE EXTENSION pglogical;
    ```
-2. En el servidor de bases de datos de proveedor, cree el nodo de proveedor.
+2. At the **provider** (source/publisher) database server, create the provider node.
    ```SQL
-   select pglogical.create_node( node_name := 'provider1', dsn := ' host=myProviderDB.postgres.database.azure.com port=5432 dbname=myDB');
+   select pglogical.create_node( node_name := 'provider1', 
+   dsn := ' host=myProviderServer.postgres.database.azure.com port=5432 dbname=myDB user=myUser password=myPassword');
    ```
-3. Agregue tablas del esquema testUser al conjunto de replicación predeterminado.
-    ```SQL
+3. Create a replication set.
+   ```SQL
+   select pglogical.create_replication_set('myreplicationset');
+   ```
+4. Add all tables in the database to the replication set.
+   ```SQL
+   SELECT pglogical.replication_set_add_all_tables('myreplicationset', '{public}'::text[]);
+   ```
+
+   As an alternate method, ou can also add tables from a specific schema (for example, testUser) to a default replication set.
+   ```SQL
    SELECT pglogical.replication_set_add_all_tables('default', ARRAY['testUser']);
    ```
-4. En el servidor de suscriptor, cree un nodo de suscriptor.
+
+5. At the **subscriber** database server, create a subscriber node.
    ```SQL
-   select pglogical.create_node( node_name := 'subscriber1', dsn := ' host=mySubscriberDB.postgres.database.azure.com port=5432 dbname=myDB');
+   select pglogical.create_node( node_name := 'subscriber1', 
+   dsn := ' host=mySubscriberServer.postgres.database.azure.com port=5432 dbname=myDB user=myUser password=myPasword' );
    ```
-5. Cree una suscripción para iniciar el proceso de sincronización y replicación.
+6. Create a subscription to start the synchronization and the replication process.
     ```SQL
-   select pglogical.create_subscription( subscription_name := 'subscription1', provider_dsn := ' host=myProviderDB.postgres.database.azure.com port=5432 dbname=myDB');
+   select pglogical.create_subscription (
+   subscription_name := 'subscription1',
+   replication_sets := array['myreplicationset'],
+   provider_dsn := 'host=myProviderServer.postgres.database.azure.com port=5432 dbname=myDB user=myUser password=myPassword');
    ```
+7. You can then verify the subscription status.
+   ```SQL
+   SELECT subscription_name, status FROM pglogical.show_subscription_status();
+   ```
+-->
 ### <a name="logical-decoding"></a>Descodificación lógica
 La descodificación lógica se puede consumir mediante el protocolo de streaming o la interfaz SQL. 
 

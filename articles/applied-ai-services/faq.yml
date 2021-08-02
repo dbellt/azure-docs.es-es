@@ -1,0 +1,39 @@
+### YamlMime:FAQ
+metadata:
+  title: Preguntas más frecuentes sobre Azure Applied AI Services
+  description: Respuestas a preguntas frecuentes sobre Azure Applied AI Services
+  author: mrbullwinkle
+  ms.author: mbullwin
+  manager: nitinme
+  ms.topic: conceptual
+  ms.service: applied-ai-services
+  ms.date: 05/28/2021
+  ms.openlocfilehash: e424501e4b5ce6f6731f093394a6536c332b3cbc
+  ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 06/02/2021
+  ms.locfileid: "111907916"
+title: Preguntas más frecuentes sobre Azure Applied AI Services
+summary: >
+  Aquí encontrará respuestas a preguntas frecuentes sobre cómo usar Azure Applied AI Services.
+sections:
+- name: 'Sección única: ignorado'
+  questions:
+  - question: ¿Azure Applied AI Services admite el cifrado de datos en reposo y las claves administradas por el cliente (CMK)?
+    answer: >
+      Sí, el proceso para habilitar las claves administradas por el cliente con Azure Key Vault para Applied AI Services varía en función del producto. Use estos vínculos para obtener instrucciones específicas de cada servicio:
+
+      - [Cifrado de datos en reposo de Cognitive Search](../search/search-security-manage-encryption-keys.md)
+
+      - [Cifrado de datos en reposo de Form Recognizer](../cognitive-services/form-recognizer/encrypt-data-at-rest.md)
+
+      - [Cifrado de datos en reposo de Metrics Advisor](../cognitive-services/metrics-advisor/encryption.md#customer-managed-keys-with-azure-key-vault)
+
+      - [Cifrado de datos en reposo de Video Analyzer](../azure-video-analyzer/video-analyzer-docs/customer-managed-keys.md)
+additionalContent: >
+  ## <a name="next-steps"></a>Pasos siguientes
+
+  - [¿Qué es Azure Key Vault?](../key-vault/general/overview.md)
+
+  - [Formulario de solicitud de claves administradas por el cliente de Applied AI Services](https://aka.ms/cogsvc-cmk)

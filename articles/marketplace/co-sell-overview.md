@@ -8,12 +8,12 @@ author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
 ms.date: 4/15/2021
-ms.openlocfilehash: ff67d5150e6bb95e900d3a81e0025216ffb19471
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: bb4a0cd58c316a9e40a3346d4f5417fe911c2c0e
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108133392"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111420975"
 ---
 # <a name="co-sell-with-microsoft-sales-teams-and-partners-overview"></a>Información general sobre la venta conjunta de los equipos de ventas de Microsoft y los asociados
 
@@ -79,7 +79,7 @@ Las ofertas que logran el estado _Venta conjunta de propiedad intelectual de Azu
 
 - El precio del servicio de marketplace se reduce del 20 al 10 %. Este descuento se aplica a su solución de infraestructura como servicio (IaaS) o software como servicio (SaaS) vendida mediante Marketplace comercial. Para obtener más información, consulte [Tarifas de servicio de Marketplace comercial](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees).
 - Los asociados del programa Proveedor de soluciones en la nube (CSP) reciben un incentivo del 10 % para vender su oferta de IaaS o SaaS. Para más información acerca del programa CSP, consulte [Programa Proveedor de soluciones en la nube](cloud-solution-providers.md).
-- Las ventas de su oferta mediante Azure Marketplace contribuirán a los compromisos de consumo de Azure de los clientes. Los clientes cualificados verán la oferta marcada como **Apto para ventajas de Azure** en Azure Portal. Para más información, consulte [Ventaja del compromiso de consumo de Azure](azure-consumption-commitment-benefit.md).
+- Las ventas de su oferta mediante Azure Marketplace contribuirán a los compromisos de consumo de Azure de los clientes. Los clientes cualificados verán la oferta marcada como **Apto para ventajas de Azure** en Azure Portal. Para más información sobre cómo el programa MACC beneficia a los clientes y cómo pueden encontrar soluciones habilitadas para MACC, consulte [Ventaja del compromiso de consumo de Azure](/marketplace/azure-consumption-commitment-benefit). Para información sobre cómo los editores pueden inscribir su oferta de transacción en MACC, consulte [Inscripción al compromiso de consumo de Azure](azure-consumption-commitment-enrollment.md).
 - Las ofertas que alcanzan el estado de _venta conjunta con incentivos de la propiedad intelectual de Azure_ o que están inscritas en el [Programa Connect para ISV de Business Applications](business-applications-isv-program.md) con el estado Listo para la venta conjunta recibirán un distintivo de **soluciones preferidas de Microsoft** en la página de descripción de la oferta de las tiendas en línea [Azure Marketplace](https://azuremarketplace.microsoft.com/) y [AppSource](https://appsource.microsoft.com/).  Una vez que una oferta alcanza el estado correspondiente, el distintivo de solución preferida puede tardar hasta 30 días en mostrarse en la tienda en línea. El distintivo promueve las ofertas por su calidad, rendimiento y capacidad para satisfacer las necesidades de los clientes de un sector vertical de la industria o área de soluciones determinados.
 
 Para obtener información sobre cómo lograr el estado Listo para la venta conjunta y el estado Listo para la venta conjunta con incentivos, consulte [Requisitos de la venta conjunta](co-sell-requirements.md).

@@ -1,20 +1,20 @@
 ---
 title: Cree una oferta de máquina virtual de Azure en Azure Marketplace.
-description: Obtenga información sobre cómo crear una oferta de máquina virtual en el marketplace comercial de Microsoft.
+description: Cree una oferta de máquina virtual de Azure en Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 04/08/2021
-ms.openlocfilehash: f0c1d9d528ed4fbf61786042fb6fb34f05fec5d5
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 626ee3d9fb7ec193e1384712a03c23feefef67af
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812600"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111525037"
 ---
-# <a name="how-to-create-a-virtual-machine-offer-on-azure-marketplace"></a>Creación de una oferta de máquina virtual de Azure en Azure Marketplace
+# <a name="create-a-virtual-machine-offer-on-azure-marketplace"></a>Cree una oferta de máquina virtual de Azure en Azure Marketplace.
 
 En este artículo se explica cómo crear una oferta de máquina virtual de Azure para [Azure Marketplace](https://azuremarketplace.microsoft.com/). Se dirige a máquinas virtuales basadas en Windows y en Linux que contienen un sistema operativo, un disco duro virtual (VHD) y hasta 16 discos de datos.
 
@@ -47,16 +47,16 @@ Escriba un **Alias de la oferta**. El alias de la oferta es el nombre que se usa
 
 Seleccione **Crear** para generar la oferta y continuar. En el Centro de partners, abra la página **Configuración de la oferta**.
 
-## <a name="enable-a-test-drive-optional"></a>Habilitación de una versión de prueba (opcional)
+## <a name="test-drive-optional"></a>Versión de prueba (opcional)
 
 Una versión de prueba es una excelente manera de exhibir la oferta a posibles clientes al concederles acceso a un entorno preconfigurado durante un número fijo de horas. La oferta de una versión de prueba tiene como resultado una mayor tasa de conversión y genera clientes potenciales muy cualificados. Para más información sobre las versiones de prueba, consulte [¿Qué es una versión de prueba?](./what-is-test-drive.md).
 
 > [!TIP]
 > Una versión de prueba es diferente de una evaluación gratuita. Puede ofrecer una versión de prueba, una evaluación gratuita o ambas. Las dos proporcionan a los clientes la solución durante un período fijo. Sin embargo, una versión de prueba también incluye un práctico recorrido autoguiado por las principales características y ventajas del producto demostradas en un escenario de implementación real.
 
-Para habilitar una versión de prueba, seleccione la casilla **Habilitar una versión de prueba**. La versión de prueba se configurará más adelante. Con la versión de prueba, es necesario configurar un CRM (vea la sección siguiente).
+Para habilitar una versión de prueba, seleccione la casilla **Habilitar una versión de prueba**. La versión de prueba se configurará más adelante. Con la versión de prueba, es necesario configurar un CRM (vea la sección siguiente). Para eliminar la versión de prueba de la oferta, desactive esta casilla.
 
-## <a name="configure-customer-leads-management"></a>Configuración de la administración de clientes potenciales
+## <a name="customer-leads"></a>Clientes potenciales
 
 [!INCLUDE [Customer leads](includes/customer-leads.md)] 
 
@@ -64,5 +64,5 @@ Seleccione **Guardar borrador** antes de pasar a la siguiente pestaña del menú
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Cómo configurar las propiedades de la oferta de máquinas virtuales](azure-vm-create-properties.md)
+- [Configuración de las propiedades de la oferta de máquinas virtuales](azure-vm-create-properties.md)
 - [Procedimientos recomendados para la publicación de ofertas](gtm-offer-listing-best-practices.md)
