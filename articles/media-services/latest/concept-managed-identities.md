@@ -1,55 +1,51 @@
 ---
 title: Identidades administradas
 description: Media Services puede usarse con identidades administradas de Azure.
-keywords: ''
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
 ms.service: media-services
 ms.topic: conceptual
-ms.date: 1/29/2020
+ms.date: 05/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 0bbfb54d6ba7483e96633bdf05bb580e5517d216
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 02f832c7fc25003950d6a112d951c07d1332e08a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277749"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110454374"
 ---
 # <a name="managed-identities"></a>Identidades administradas
 
 Un desafío común para los desarrolladores es la administración de secretos y credenciales para proteger la comunicación entre distintos servicios. En Azure, las identidades administradas eliminan la necesidad de que los desarrolladores administren credenciales, al proporcionar una identidad para el recurso de Azure en Azure AD y usarla para obtener tokens de Azure Active Directory (Azure AD).
 
-Actualmente hay dos escenarios en los que las identidades administradas se pueden usar con Media Services:
+## <a name="media-services-managed-identity-scenarios"></a>Escenarios de identidad administrada de Media Services
 
-- Usar la identidad administrada de la cuenta de Media Services para acceder a las cuentas de almacenamiento.
+Actualmente hay tres escenarios en los que las identidades administradas se pueden usar con Media Services:
 
-- Usar la identidad administrada de la cuenta de Media Services para acceder a las claves de cliente de una instancia de Key Vault.
+- [Conceder a una cuenta de Media Services acceso a Key Vault para habilitar las claves administradas por el cliente](security-encrypt-data-managed-identity-cli-tutorial.md).
+- [Conceder a una cuenta de Media Services acceso a las cuentas de almacenamiento para permitir a Media Services omitir las ACL de red de Azure Storage](security-access-storage-managed-identity-cli-tutorial.md).
+- Permitir que otros servicios (por ejemplo, VM o [Azure Functions](security-function-app-managed-identity-cli-tutorial.md)) accedan a Media Services.
 
-En las dos secciones siguientes se describen los pasos de los dos escenarios.
+En los dos primeros escenarios, la identidad administrada se usa para conceder a la *cuenta de Media Services* acceso a otros servicios.  En el tercer escenario, *el servicio* tiene una identidad administrada que se usa para acceder a Media Services.
 
-## <a name="use-the-managed-identity-of-the-media-services-account-to-access-storage-accounts"></a>Uso de la identidad administrada de la cuenta de Media Services para acceder a las cuentas de almacenamiento
+:::image type="content" source="media/diagrams/managed-identities-scenario-comparison.svg" alt-text="Comparación de los escenarios de identidades administradas":::
 
-1. Cree una cuenta de Media Services con una identidad administrada.
-1. Conceda a la entidad de seguridad administrada acceso a una cuenta de almacenamiento de su propiedad.
-1. De este modo, Media Services puede acceder a la cuenta de almacenamiento en su nombre mediante la identidad administrada.
+> [!NOTE]
+> Estos escenarios se pueden combinar. Puede crear identidades administradas para la cuenta de Media Services (por ejemplo, para acceder a las claves administradas por el cliente) y el recurso de Azure Functions para acceder a la cuenta de Media Services.
 
-## <a name="use-the-managed-identity-of-the-media-services-account-to-access-key-vault-to-access-customer-keys"></a>Uso de la identidad administrada de la cuenta de Media Services para acceder a las claves de cliente de una instancia de Key Vault
+## <a name="tutorials-and-how-tos"></a>Tutoriales y procedimientos
 
-1. Cree una cuenta de Media Services con una identidad administrada.
-1. Conceda acceso a la entidad de seguridad administrada a una instancia de Key Vault de su propiedad.
-1. Configure la cuenta de Media Services para usar el cifrado de cuenta basado en claves de cliente.
-1. Media Services accede a Key Vault en su nombre mediante la identidad administrada.
+Pruebe estos tutoriales para obtener experiencia práctica con el uso de una identidad administrada con Media Services.
 
-Para obtener más información acerca de las claves administradas por el cliente y Key Vault, consulte [Bring Your Own Key (claves administradas por el cliente) con Media Services](concept-use-customer-managed-keys-byok.md)
+- [CLI: cifrar datos en una cuenta de Media Services con una clave de Key Vault](security-encrypt-data-managed-identity-cli-tutorial.md)
+- [CLI: permitir que Media Services acceda a una cuenta de almacenamiento configurada para bloquear las solicitudes de direcciones IP desconocidas](security-access-storage-managed-identity-cli-tutorial.md)
+- [CLI: proporcionar a una aplicación de funciones acceso a una cuenta de Media Services](security-function-app-managed-identity-cli-tutorial.md)
+- [PORTAL: usar Azure Portal para emplear claves administradas por el cliente o BYOK con Media Services](security-customer-managed-keys-portal-tutorial.md)
+- [POSTMAN/REST: usar claves administradas por el cliente o BYOK con la API de REST de Media Services](security-customer-managed-keys-rest-postman-tutorial.md)
 
-## <a name="tutorials"></a>Tutoriales
-
-Estos tutoriales incluyen los dos escenarios mencionados anteriormente.
-
-- [Uso de Azure Portal para emplear claves administradas por el cliente o BYOK con Media Services](security-customer-managed-keys-portal-tutorial.md)
-- [Uso de claves administradas por el cliente o BYOK con la API REST de Media Services](security-customer-managed-keys-rest-postman-tutorial.md).
-
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="further-reading"></a>Lecturas adicionales
 
 Para obtener más información sobre las funciones de las identidades administradas y su uso con las aplicaciones de Azure, consulte [Identidades administradas de Azure AD](../../active-directory/managed-identities-azure-resources/overview.md).
+
+Para obtener más información sobre Azure Functions, consulte [Acerca de Azure Functions](../../azure-functions/functions-overview.md).

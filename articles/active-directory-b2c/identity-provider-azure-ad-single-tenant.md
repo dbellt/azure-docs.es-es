@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 05/26/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 9a31fe8046e6bb0a933ade78ee2c7f4b208767a7
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: a6952679ad2497a059b6ad043ef5e1e23fea0236
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028356"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111744078"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión para una determinada organización de Azure Active Directory en Azure Active Directory B2C
 
@@ -64,7 +64,7 @@ Para habilitar el inicio de sesión para los usuarios con una cuenta de Azure A
 
 Si quiere obtener las notificaciones `family_name` y `given_name` de Azure AD, puede configurar notificaciones opcionales para la aplicación en la interfaz de usuario de Azure Portal o el manifiesto de aplicación. Para obtener más información, consulte [Procedimientos: Proporcionar notificaciones opcionales a la aplicación de Azure AD](../active-directory/develop/active-directory-optional-claims.md).
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com). Busque y seleccione **Azure Active Directory**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con su inquilino de Azure AD de la organización. Busque y seleccione **Azure Active Directory**.
 1. En la sección **Administrar**, seleccione **Registros de aplicaciones**.
 1. Seleccione en la lista la aplicación para la que desea configurar notificaciones opcionales.
 1. En la sección **Administrar**, seleccione **Configuración del token**.
@@ -114,7 +114,7 @@ En este momento ya está configurado el proveedor de identidades de Azure AD, p
 1. En **Proveedores de identidades sociales**, seleccione **Contoso Azure AD**.
 1. Seleccione **Guardar**.
 1. Para probar la directiva, seleccione **Ejecutar flujo de usuario**.
-1. En **Aplicación**, seleccione la aplicación web denominada *testapp1* que registró anteriormente. La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
+1. En **Aplicación**, seleccione la aplicación web que [registró anteriormente](tutorial-register-applications.md). La **dirección URL de respuesta** debe mostrar `https://jwt.ms`. 
 1. Seleccione el botón **Ejecutar flujo de usuario**.
 1. En la página de registro o de inicio de sesión, seleccione **Contoso Azure AD** para iniciar sesión con la cuenta de Contoso de Azure AD.
 

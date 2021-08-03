@@ -2,13 +2,13 @@
 title: SDK de Azure Event Grid
 description: Se describen los SDK de Azure Event Grid. Estos SDK proporcionan administración, publicación y consumo.
 ms.topic: reference
-ms.date: 07/07/2019
-ms.openlocfilehash: aa53aaa89a703bb88df6611cdb0dd38341248a55
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/17/2021
+ms.openlocfilehash: 330f0399a16e6765a754d342580a221adc6fb7d9
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104955931"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110062783"
 ---
 # <a name="event-grid-sdks-for-management-and-publishing"></a>SDK de Event Grid para administración y publicación
 
@@ -31,10 +31,10 @@ Los SDK de planos de datos permiten publicar eventos en temas, y se aseguran de 
 
 | Lenguaje de programación | SDK | 
 | -------------------- | ---------- | 
-| .NET | SDK estable: [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid)<p>SDK de versión preliminar: [Azure.Messaging.EventGrid](https://www.nuget.org/packages/Azure.Messaging.EventGrid/) |
-| Java | SDK estable: [azure-eventgrid](https://mvnrepository.com/artifact/com.microsoft.azure/azure-eventgrid)<p>SDK de versión preliminar: [azure-messaging-eventgrid](https://search.maven.org/artifact/com.azure/azure-messaging-eventgrid/)</p> |  
-| Python | [azure-eventgrid](https://pypi.org/project/azure-eventgrid/#history) (consulte las versiones preliminares y estables más recientes en la página **Historial de versiones**) |
-| JavaScript | [@azure/eventgrid](https://www.npmjs.com/package/@azure/eventgrid/) (vaya a la pestaña **Versiones** para ver los paquetes de versión beta y estable más recientes). | 
+| .NET | SDK estable más reciente: [Azure.Messaging.EventGrid](https://www.nuget.org/packages/Azure.Messaging.EventGrid/)<p>SDK heredado: [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) |
+| Java | SDK estable más reciente: [azure-messaging-eventgrid](https://search.maven.org/artifact/com.azure/azure-messaging-eventgrid/)<p>SDK heredado: [azure-eventgrid](https://mvnrepository.com/artifact/com.microsoft.azure/azure-eventgrid)</p> |  
+| Python | [azure-eventgrid](https://pypi.org/project/azure-eventgrid/) |
+| JavaScript | [@azure/eventgrid](https://www.npmjs.com/package/@azure/eventgrid/) | 
 | Go | [Azure SDK para Go](https://github.com/Azure/azure-sdk-for-go) |
 | Ruby | [azure_event_grid](https://rubygems.org/gems/azure_event_grid) |
 

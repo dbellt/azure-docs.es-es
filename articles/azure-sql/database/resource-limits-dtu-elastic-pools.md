@@ -7,16 +7,16 @@ ms.subservice: elastic-pools
 ms.custom: seo-lt-2019 sqldbrb=1 references_regions
 ms.devlang: ''
 ms.topic: reference
-author: sachinpMSFT
-ms.author: sachinp
-ms.reviewer: sstein
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma
 ms.date: 04/09/2021
-ms.openlocfilehash: 906d34a91736d28f0da4a5ba34b7114fbe410adb
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: fbbd345e6b2832d8b992ea42a8a2c1fb33615af7
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107306643"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110689950"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Límites de recursos para grupos elásticos que utilizan el modelo de compra de DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "107306643"
 En este artículo se proporcionan los límites de recursos detallados para bases de datos en Azure SQL Database que están dentro de un grupo elástico mediante el modelo de compra de DTU.
 
 * Para conocer los límites del modelo de compra en DTU para las bases de datos únicas en un servidor, consulte [Información general de los límites de recursos para un servidor](resource-limits-logical-server.md).
-* Para obtener información sobre los límites de recursos del modelo de compra de DTU para Azure SQL Database, consulte [Límites de recursos de la unidad de procesamiento de base de datos en bases de datos únicas](resource-limits-dtu-single-databases.md) y [Límites de recursos de la unidad de procesamiento de base de datos en grupos elásticos](resource-limits-dtu-elastic-pools.md).
+* Para información sobre los límites de recursos del modelo de compra de DTU para Azure SQL Database, vea [Límites de recursos de la unidad de procesamiento de base de datos en bases de datos únicas](resource-limits-dtu-single-databases.md) y [Límites de recursos de la unidad de procesamiento de base de datos en grupos elásticos](resource-limits-dtu-elastic-pools.md).
 * Para conocer los límites de recursos de núcleo virtual, consulte [Límites de recursos del núcleo virtual: Azure SQL Database](resource-limits-vcore-single-databases.md) y [Límites de recursos del núcleo virtual: grupos elásticos](resource-limits-vcore-elastic-pools.md).
 * Para obtener más información sobre los diferentes modelos de compra, consulte los [niveles de servicio y modelos de compra](purchasing-models.md).
 
@@ -161,6 +161,8 @@ Si se usan todas las unidades DTU de un grupo elástico, cada una de las bases d
 
 > [!NOTE]
 > Para obtener información sobre los límites de `tempdb`, consulte los [límites de tempdb](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
+>
+> Para información adicional sobre los límites de almacenamiento en el nivel de servicio prémium, consulte [Gobernanza del espacio de almacenamiento](resource-limits-logical-server.md#storage-space-governance).
 
 ### <a name="database-properties-for-pooled-databases"></a>Propiedades de base de datos para bases de datos agrupadas
 

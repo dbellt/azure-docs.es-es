@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: da0826a349131d9d5716932abfc603be8103b788
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 3453d1a0d06fd9918f3f1ae49a519d676ab26785
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903549"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110468445"
 ---
 # <a name="review-your-security-recommendations"></a>Examen de las recomendaciones de seguridad
 
@@ -39,6 +39,7 @@ Security Center analiza el estado de seguridad de los recursos para identificar 
     1. En el caso de las recomendaciones admitidas, en la barra de navegación superior se muestran algunos o todos los botones siguientes:
         - **Aplicar** y **Denegar** (vea [Evitar errores de configuración con las recomendaciones Aplicar o Denegar](prevent-misconfigurations.md)).
         - **View policy definition** (Ver definición de directiva) para ir directamente a la entrada Azure Policy de la directiva subyacente.
+        - **Abrir consulta**: todas las recomendaciones tienen la opción de ver la información detallada sobre los recursos afectados mediante Azure Resource Graph Explorer.
     1. **Indicador de gravedad**
     1. **Intervalo de actualización** (si procede).
     1. **Recuento de recursos exentos** si existen exenciones para esta recomendación; se muestra el número de recursos exentos.
@@ -51,6 +52,24 @@ Security Center analiza el estado de seguridad de los recursos para identificar 
 
             :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Los recursos no aplicables con motivos":::.
     1. Botones de acción para corregir la recomendación o desencadenar una aplicación lógica.
+
+
+## <a name="review-recommendation-data-in-azure-resource-graph-explorer-arg"></a>Revisión de los datos de recomendación en Azure Resource Graph Explorer (ARG)
+
+La barra de herramientas de la página de detalles de recomendación incluye un botón **Abrir consulta** para explorar los detalles de [Azure Resource Graph (ARG)](../governance/resource-graph/index.yml), un servicio de Azure que ofrece la posibilidad de consultar los datos de posición de seguridad de Security Center en varias suscripciones.
+
+ARG está diseñado para proporcionar una exploración de recursos eficaz con la posibilidad de realizar consultas a gran escala en los entornos en la nube con sólidas funcionalidades de filtrado, agrupación y ordenación. Es una forma rápida y eficaz de consultar información en las suscripciones de Azure mediante programación o desde Azure Portal.
+
+Con el [lenguaje de consulta Kusto (KQL)](/azure/data-explorer/kusto/query/), puede hacer referencia cruzada a los datos de ASC con otras propiedades de recursos.
+
+Por ejemplo, esta página de detalles de recomendación muestra quince recursos afectados:
+
+:::image type="content" source="./media/security-center-recommendations/open-query.png" alt-text="Botón **Abrir consulta** en la página de detalles de recomendación.":::
+
+Al abrir la consulta subyacente y ejecutarla, Azure Resource Graph Explorer devuelve los mismos quince recursos y su estado de mantenimiento en esta recomendación: 
+
+:::image type="content" source="./media/security-center-recommendations/run-query.png" alt-text="Azure Resource Graph Explorer que muestra los resultados de la recomendación que aparecían en la captura de pantalla anterior.":::
+
 
 ## <a name="preview-recommendations"></a>Recomendaciones de la versión preliminar
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: references_regions
 ms.date: 05/06/2021
 ms.author: juliako
-ms.openlocfilehash: 486b57659c3fa28b0a61293970bcc418c3b3b6dd
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: d67d8dba31a453f4a42982519d619f294d47e04f
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386929"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111813826"
 ---
 # <a name="video-analyzer-for-media-release-notes"></a>Notas de la versión de Video Analyzer for Media
 
@@ -29,7 +29,33 @@ Para mantenerse al día con los desarrollos más recientes de Azure Video Analyz
 * Corrección de errores
 * Funciones obsoletas
 
-## <a name="aprilmay-2021"></a>Abril y mayo de 2021
+## <a name="may-2021"></a>Mayo de 2021
+
+### <a name="new-source-languages-support-for-speech-to-text-stt-translation-and-search"></a>Compatibilidad con nuevos idiomas de origen para la conversión de voz a texto (STT), la traducción y la búsqueda
+
+Video Analyzer for Media ahora admite STT, traducción, y búsquedas en chino (cantonés) ("zh-HK"), neerlandés (Países Bajos) ("Nl-NL"), checo ("Cs-CZ"), polaco ("Pl-PL"), sueco (Suecia) ("Sv-SE"), noruego ("nb-NO"), finés ("fi-FI"), francés canadiense ("fr-CA"), tailandés ("th-TH"), árabe: (Emiratos Árabes Unidos) ("ar-AE", "ar-EG"), (Iraq) (''ar-IQ"), (Jordania) ("ar-JO"), (Kuwait) ("ar-KW"), (Líbano) ("ar-LB"), (Omán) ("ar-OM"), (Qatar) ("ar-QA"), (Autoridad Palestina) ("ar-PS"), (Siria) ("ar-SY"), y turco ("tr-TR"). 
+
+Estos idiomas están disponibles en la API y en el sitio web de Video Analyzer for Media. Seleccione el idioma del cuadro combinado en **Idioma de origen del vídeo**.
+
+### <a name="new-theme-for-azure-video-analyzer-for-media"></a>Nuevo tema de Azure Video Analyzer for Media
+
+Hay disponible un nuevo tema: "Azure" junto con los temas "light" y "dark". Para seleccionar un tema, haga clic en el icono de engranaje de la esquina superior derecha del sitio web y busque temas en **Configuración de usuario**.
+ 
+### <a name="new-open-source-code-you-can-leverage"></a>Puede utilizar nuevo código abierto 
+
+Hay tres nuevos proyectos de Git-Hub disponibles en nuestro [repositorio de GitHub](https://github.com/Azure-Samples/media-services-video-indexer):
+
+* Código que le ayuda a aprovechar la [personalización del widget](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets) recién agregado.
+* Solución que le ayudará a agregar [búsqueda personalizada](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/VideoSearchWithAutoMLVision) a las bibliotecas de vídeos.
+* Solución que le ayudará a agregar [desduplicación](https://github.com/Azure-Samples/media-services-video-indexer/commit/6b828f598f5bf61ce1b6dbcbea9e8b87ba11c7b1) a las bibliotecas de vídeos.
+ 
+### <a name="new-option-to-toggle-bounding-boxes-for-observed-people-on-the-player"></a>Nueva opción para alternar los rectángulos delimitadores (para personas observadas) en el reproductor  
+
+Al indexar un vídeo a través de nuestra configuración de vídeo avanzada, puede ver nuestras nuevas funcionalidades de personas observadas.
+
+Si se detectan personas en el archivo multimedia, puede habilitar un rectángulo delimitador en la persona detectada mediante el reproductor multimedia.
+
+## <a name="april-2021"></a>Abril de 2021
 
 El servicio Video Indexer ha cambiado de nombre a Azure Video Analyzer for Media.
 

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/08/2021
+ms.date: 06/01/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: e1753391c7b61b6e9bd9e6ac0d142b4ee94502d8
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: a970fdf041b0a946f959eeb8c1f3adac1c7ce32e
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107363978"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110784787"
 ---
 # <a name="configurable-token-lifetimes-in-the-microsoft-identity-platform-preview"></a>Vigencia de tokens configurable en la Plataforma de identidad de Microsoft (versión preliminar)
 
@@ -62,7 +62,7 @@ Los tokens de identificador se pasan a los clientes nativos y de sitios web. Los
 
 ## <a name="token-lifetime-policies-for-refresh-tokens-and-session-tokens"></a>Directivas de vigencia para los tokens de actualización y los tokens de sesión
 
-Las directivas de vigencia del token no se pueden establecer para los tokens de actualización y los tokens de sesión.
+Las directivas de vigencia del token no se pueden establecer para los tokens de actualización y los tokens de sesión. Para obtener información sobre la duración, el tiempo de espera y la revocación de los tokens de actualización, consulte [Actualización de tokens](refresh-tokens.md).
 
 > [!IMPORTANT]
 > A partir del 30 de enero de 2021, no puede configurar la vigencia de los tokens de actualización ni de sesión. Azure Active Directory ya no respeta la configuración de los tokens de actualización y de sesión en las directivas existentes.  Los nuevos tokens emitidos después de que los tokens existentes hayan expirado ahora se establecen en la [configuración predeterminada](#configurable-token-lifetime-properties). Después de la retirada de la configuración de los tokens de actualización y de sesión, todavía podrá configurar la vigencia de los tokens de acceso, SAML y de identificador.

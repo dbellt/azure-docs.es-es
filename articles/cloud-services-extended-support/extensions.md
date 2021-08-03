@@ -8,16 +8,22 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 58377252e163894cdfee83d9c68146a9131f94c5
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: c9ee7e475957ca41c9094cab3b149f53e48a3764
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108288785"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111900921"
 ---
 # <a name="extensions-for-cloud-services-extended-support"></a>Extensiones de Cloud Services (soporte extendido)
 
-Las extensiones son aplicaciones pequeñas que proporcionan tareas de automatización y configuración en roles posterior a la implementación. Por ejemplo, puede habilitar una conexión de Escritorio remoto en su rol durante la implementación del servicio en la nube (soporte extendido) mediante la extensión de Escritorio remoto.  
+Las extensiones son aplicaciones pequeñas que proporcionan tareas de automatización y configuración en roles posterior a la implementación. Por ejemplo, puede habilitar una conexión de Escritorio remoto en su rol durante la implementación del servicio en la nube (soporte extendido) mediante la extensión de Escritorio remoto. 
+
+## <a name="key-vault-extension"></a>Extensión de Key Vault
+
+La extensión de máquina virtual de Key Vault proporciona la actualización automática de certificados almacenados en una instancia de Azure Key Vault. En concreto, la extensión supervisa una lista de certificados observados almacenados en almacenes de claves y, cuando detecta un cambio, recupera e instala los certificados correspondientes. También permite la referencia de certificados entre regiones o entre suscripciones para Cloud Service (soporte extendido).
+
+Para más información, vea [Configuración de la extensión de almacén de claves para el servicio en la nube (soporte extendido)](https://docs.microsoft.com/azure/cloud-services-extended-support/enable-key-vault-virtual-machine).
 
 ## <a name="remote-desktop-extension"></a>Extensión de Escritorio remoto
 

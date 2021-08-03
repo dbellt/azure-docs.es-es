@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/25/2021
 ms.author: thweiss
-ms.openlocfilehash: d8aaa34fe2e81515866c047c6a171b1bdb58ff3f
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 884626bd5b0cbbf6fb24bf0e3da3b7776e720f77
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388448"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112071648"
 ---
 # <a name="use-client-side-encryption-with-always-encrypted-for-azure-cosmos-db-preview"></a>Use el cifrado del lado cliente con Always Encrypted para Azure Cosmos DB (versión preliminar)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -80,6 +80,8 @@ El servicio de Azure Cosmos DB nunca ve el texto sin formato de las propiedades 
 - El **cifrado determinista** genera siempre el mismo valor cifrado para cualquier valor de texto sin formato determinado y configuración de cifrado. El uso del cifrado determinista permite que las consultas realicen filtros de igualdad en propiedades cifradas. Sin embargo, puede permitir a los atacantes averiguar información sobre los valores cifrados mediante el análisis de patrones en la propiedad cifrada. Esto sucede especialmente cuando hay un conjunto pequeño de posibles valores cifrados, como verdadero o falso, o región norte, sur, este u oeste.
 
 - El **cifrado aleatorio** usa un método que cifra los datos de una manera menos predecible. El cifrado aleatorio es más seguro, pero evita que las consultas se filtren por propiedades cifradas.
+
+Consulte [Generación del vector de inicialización (IV)](/sql/relational-databases/security/encryption/always-encrypted-cryptography#step-1-generating-the-initialization-vector-iv) para obtener más información sobre el cifrado determinista y aleatorio en Always Encrypted.
 
 ## <a name="setup-azure-key-vault"></a>Configuración de Azure Key Vault
 

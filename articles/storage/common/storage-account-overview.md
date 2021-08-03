@@ -6,19 +6,19 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/19/2021
+ms.date: 05/14/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: dedb8faf74ffba7b5846512b4c52eb5a58822f7e
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: c5d4c390110a5b3eef7509508d35c9554f7be984
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107895962"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110065987"
 ---
 # <a name="storage-account-overview"></a>Introducción a las cuentas de almacenamiento
 
-Una cuenta de Azure Storage contiene todos los objetos de datos de Azure Storage: blobs, archivos, colas, tablas y discos. La cuenta de almacenamiento proporciona un espacio de nombres único para los datos de Azure Storage que es accesible desde cualquier lugar del mundo a través de HTTP o HTTPS. Los datos de la cuenta de Azure Storage son duraderos y altamente disponibles, seguros y escalables a gran escala.
+Una cuenta de Azure Storage contiene todos los objetos de datos de Azure Storage: blobs, recursos compartidos de archivos, colas, tablas y discos. La cuenta de almacenamiento proporciona un espacio de nombres único para los datos de Azure Storage que es accesible desde cualquier lugar del mundo mediante HTTP o HTTPS. Los datos de la cuenta de almacenamiento son duraderos y altamente disponibles, seguros y escalables a gran escala.
 
 Para obtener información sobre cómo crear una cuenta de Azure Storage, consulte [Crear una cuenta de almacenamiento](storage-account-create.md).
 
@@ -26,22 +26,20 @@ Para obtener información sobre cómo crear una cuenta de Azure Storage, consult
 
 Azure Storage ofrece varios tipos de cuentas de almacenamiento. Cada tipo admite diferentes características y tiene su propio modelo de precios. Tenga en cuenta estas diferencias antes de crear una cuenta de almacenamiento para determinar el tipo de cuenta más adecuada para sus aplicaciones.
 
-En la tabla siguiente se describen los tipos de cuentas de almacenamiento recomendados por Microsoft para la mayoría de los escenarios:
+En la tabla siguiente se describen los tipos de cuentas de almacenamiento que recomienda Microsoft para la mayoría de los escenarios. Todas ellas usan el modelo de implementación de [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 
-| Tipo de cuenta de almacenamiento | Servicios admitidos | Opciones de redundancia | Modelo de implementación | Uso |
-|--|--|--|--|--|
-| De uso general, estándar, v2 | Blob, File, Queue, Table y Data Lake Storage<sup>1</sup> | LRS, GRS, RA-GRS<br /><br />ZRS, GZRS, RA-GZRS<sup>2</sup> | Resource Manager<sup>3</sup> | tipo de cuenta de almacenamiento básico para blobs, archivos, colas y tablas. Se recomienda para la mayoría de los escenarios con Azure Storage. |
-| Blobs en bloques prémium<sup>4</sup> | Solo blobs en bloques | LRS<br /><br />ZRS<sup>2</sup> | Resource Manager<sup>3</sup> | Cuentas de almacenamiento con características de rendimiento Premium para blobs en bloques y en anexos. Recomendado para escenarios con altas tasas de transacciones, que utilizan objetos más pequeños o que requieren una latencia de almacenamiento constantemente baja.<br />[Más información...](../blobs/storage-blob-performance-tiers.md) |
-| Recursos compartido de archivos prémium<sup>4</sup> | Recursos compartidos de archivos únicamente | LRS<br /><br />ZRS<sup>2</sup> | Resource Manager<sup>3</sup> | Cuentas de almacenamiento solo para archivos con características de rendimiento superiores. Se recomienda para empresas y aplicaciones de escalado de alto rendimiento.<br />[Más información...](../files/storage-files-planning.md#management-concepts) |
-| Blobs en páginas prémium<sup>4</sup> | Solo blobs en páginas | LRS | Resource Manager<sup>3</sup> | Tipo de cuenta de almacenamiento prémium solo para blobs en páginas.<br />[Más información...](../blobs/storage-blob-pageblob-overview.md) |
+| Tipo de cuenta de almacenamiento | Servicios de almacenamiento admitidos | Opciones de redundancia | Uso |
+|--|--|--|--|
+| De uso general, estándar, v2 | Blob (incluido Data Lake Storage<sup>1</sup>), Queue y Table Storage, Azure Files  | LRS, GRS, RA-GRS<br /><br />ZRS, GZRS, RA-GZRS<sup>2</sup> | Tipo de cuenta de almacenamiento estándar para blobs, archivos, colas y tablas. Se recomienda para la mayoría de los escenarios con Azure Storage. Tenga en cuenta que si desea compatibilidad con recursos compartidos de archivos NFS en Azure Files, debe usar el tipo de cuenta de recursos compartidos de archivos Prémium. |
+| Blobs en bloques Prémium<sup>3</sup> | Blob Storage (incluido Data Lake Storage<sup>1</sup>) | LRS<br /><br />ZRS<sup>2</sup> | Tipo de cuenta de almacenamiento Prémium para blobs en bloques y blobs en anexos. Recomendado para escenarios con altas tasas de transacciones, que utilizan objetos más pequeños o que requieren una latencia de almacenamiento constantemente baja. [Más información sobre las cargas de trabajo de ejemplo.](../blobs/storage-blob-performance-tiers.md#premium-performance) |
+| Recursos compartidos de archivos Prémium<sup>3</sup> | Azure Files | LRS<br /><br />ZRS<sup>2</sup> | Tipo de cuenta de almacenamiento Prémium solo para recursos compartidos de archivos. Se recomienda para empresas y aplicaciones de escalado de alto rendimiento. Use este tipo de cuenta si desea una cuenta de almacenamiento que admita recursos compartidos de archivos SMB y NFS. |
+| Blobs en páginas Premium<sup>3</sup> | Solo blobs en páginas | LRS | Tipo de cuenta de almacenamiento prémium solo para blobs en páginas. [Más información sobre los blobs en páginas y los casos de uso de ejemplo.](../blobs/storage-blob-pageblob-overview.md) |
 
-<sup>1</sup> Data Lake Storage es un conjunto de funcionalidades dedicadas al análisis de macrodatos que se basa en Azure Blob Storage. Para más información, consulte [Introducción a Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md).
+<sup>1</sup> Data Lake Storage es un conjunto de funcionalidades dedicadas al análisis de macrodatos que se basa en Azure Blob Storage. Para más información, consulte [Introducción a Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) y [Creación de una cuenta de almacenamiento para su uso con Data Lake Storage Gen2](../blobs/create-data-lake-storage-account.md).
 
-<sup>2</sup> El almacenamiento con redundancia de zona (ZRS) y el almacenamiento con redundancia de zona geográfica (GZRS/RA-GZRS) solo están disponibles en cuentas de uso general estándar v2, de blobs en bloques prémium y de recursos compartido de archivos prémium en determinadas regiones. Para más información sobre las opciones de redundancia de Azure Storage, consulte [Redundancia de Azure Storage](storage-redundancy.md).
+<sup>2</sup> El almacenamiento con redundancia de zona (ZRS) y el almacenamiento con redundancia de zona geográfica (GZRS/RA-GZRS) solo están disponibles en cuentas de uso general estándar v2, de blobs en bloques prémium y de recursos compartidos de archivos prémium en determinadas regiones. Para más información, vea [Redundancia de Azure Storage](storage-redundancy.md).
 
-<sup>3</sup> Azure Resource Manager es el modelo de implementación recomendado para los recursos de Azure, incluidas las cuentas de almacenamiento. Para obtener más información, consulte [Información general de Resource Manager](../../azure-resource-manager/management/overview.md).
-
-<sup>4</sup> Las cuentas de almacenamiento de un nivel de rendimiento prémium usan discos de estado sólido (SSD) para una baja latencia baja y un alto rendimiento.
+<sup>3</sup> Las cuentas de almacenamiento de un nivel de rendimiento prémium usan discos SSD para una latencia baja y un alto rendimiento.
 
 También se admiten cuentas de almacenamiento heredadas. Para obtener más información, consulte [Tipos de cuentas de almacenamiento heredadas](#legacy-storage-account-types).
 
@@ -70,9 +68,9 @@ Construya la dirección URL para acceder a un objeto de una cuenta de almacenami
 
 También puede configurar una cuenta de almacenamiento para usar un dominio personalizado para los blobs. Para obtener más información, consulte [Configuración de un nombre de dominio personalizado para una cuenta de Azure Storage](../blobs/storage-custom-domain-name.md).  
 
-## <a name="migrating-a-storage-account"></a>Migración de una cuenta de almacenamiento
+## <a name="migrate-a-storage-account"></a>Migración de una cuenta de almacenamiento
 
-En la tabla siguiente se resumen y se proporcionan instrucciones para mover, actualizar o migrar una cuenta de almacenamiento:
+En la tabla siguiente se resumen y se señalan las instrucciones necesarias para mover, actualizar o migrar una cuenta de almacenamiento:
 
 | Escenario de migración | Detalles |
 |--|--|
@@ -80,9 +78,9 @@ En la tabla siguiente se resumen y se proporcionan instrucciones para mover, act
 | Traslado de una cuenta de almacenamiento a una otro grupo de recursos | Azure Resource Manager brinda opciones para cambiar de grupo de recursos cualquier recurso. Para obtener más información, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../../azure-resource-manager/management/move-resource-group-and-subscription.md). |
 | Traslado de una cuenta de almacenamiento a otra región | Para mover una cuenta de almacenamiento, cree una copia de esta en otra región. Luego, mueva los datos a esa cuenta mediante AzCopy u otra herramienta de su elección. Para más información, consulte [Traslado de una cuenta de Azure Storage a otra región](storage-account-move.md). |
 | Actualización a una cuenta de almacenamiento de uso general v2 | Todas las cuentas de almacenamiento de uso general v1 o las cuentas de almacenamiento de blobs se pueden actualizar y convertirse en cuentas de almacenamiento de uso general v2. Tenga en cuenta que esta acción no se puede deshacer. Para más información, consulte [Actualización a una cuenta de almacenamiento de uso general v2](storage-account-upgrade.md). |
-| Migración de una cuenta de almacenamiento clásica a una implementada con Azure Resource Manager | El modelo de implementación de Azure Resource Manager es superior al modelo de implementación clásica en cuanto a funcionalidad, escalabilidad y seguridad. Para más información sobre cómo migrar una cuenta de almacenamiento de implementación clásica a una de implementación con Azure Resource Manager, consulte la sección [Migración de cuentas de almacenamiento](../../virtual-machines/migration-classic-resource-manager-overview.md#migration-of-storage-accounts) del artículo **Migración compatible con la plataforma de recursos de IaaS del modelo clásico al de Azure Resource Manager**. |
+| Migración de una cuenta de almacenamiento clásica a una implementada con Azure Resource Manager | El modelo de implementación de Azure Resource Manager es superior al modelo de implementación clásica en cuanto a funcionalidad, escalabilidad y seguridad. Para más información sobre cómo migrar una cuenta de almacenamiento clásica a Azure Resource Manager, consulte la sección "Migración de cuentas de almacenamiento" del artículo [Migración compatible con la plataforma de recursos de IaaS del modelo clásico al de Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md#migration-of-storage-accounts). |
 
-## <a name="transferring-data-into-a-storage-account"></a>Transferencia de datos a una cuenta de almacenamiento
+## <a name="transfer-data-into-a-storage-account"></a>Transferencia de datos a una cuenta de almacenamiento
 
 Microsoft proporciona servicios y utilidades para importar datos desde dispositivos de almacenamiento local o proveedores de almacenamiento en la nube de terceros. La solución que use dependerá de la cantidad de datos que vaya a transferir. Para obtener más información, consulte [Introducción a la migración de Azure Storage](storage-migration-overview.md).
 
@@ -110,10 +108,10 @@ La página [Precios de Azure Storage](https://azure.microsoft.com/pricing/detail
 
 En la tabla siguiente se describen los tipos de cuentas de almacenamiento heredadas. Microsoft no recomienda estos tipos de cuenta, pero se pueden usar en determinados escenarios:
 
-| Tipo de cuenta de almacenamiento heredada | Servicios admitidos | Opciones de redundancia | Modelo de implementación | Uso |
+| Tipo de cuenta de almacenamiento heredada | Servicios de almacenamiento admitidos | Opciones de redundancia | Modelo de implementación | Uso |
 |--|--|--|--|--|
-| De uso general, estándar, v1 | Blob, File, Queue, Table y Data Lake Storage | LRS, GRS, RA-GRS | Resource Manager, clásico | Es posible que las cuentas de uso general v1 no incluyan las características más recientes o que no tengan los precios más bajos por gigabyte. Considere el uso para estos escenarios:<br /><ul><li>Sus aplicaciones requieren el modelo de implementación clásico de Azure.</li><li>Sus aplicaciones realizan una gran cantidad de transacciones o utilizan un ancho de banda significativo de replicación geográfica, pero no es necesario que tengan una gran capacidad. En este caso, las cuentas de uso general v1 pueden ser la opción más económica.</li><li>Usa una versión de la API REST de Azure Storage que es anterior a 14-02-2014 o una biblioteca cliente con una versión inferior a 4.x, y no puede actualizar la aplicación.</li></ul> |
-| Almacenamiento de blobs estándar | Blob (solo blobs en bloques y blobs en anexos) | LRS, GRS, RA-GRS | Resource Manager | Microsoft recomienda usar cuentas estándar de uso general v2 en su lugar cuando sea posible. |
+| De uso general, estándar, v1 | Blob, Queue y Table Storage, Azure Files | LRS, GRS, RA-GRS | Resource Manager, clásico | Es posible que las cuentas de uso general v1 no incluyan las características más recientes o que no tengan los precios más bajos por gigabyte. Considere el uso para estos escenarios:<br /><ul><li>Sus aplicaciones requieren el [modelo de implementación clásico de Azure](../../azure-portal/supportability/classic-deployment-model-quota-increase-requests.md).</li><li>Sus aplicaciones realizan una gran cantidad de transacciones o utilizan un ancho de banda significativo de replicación geográfica, pero no es necesario que tengan una gran capacidad. En este caso, las cuentas de uso general v1 pueden ser la opción más económica.</li><li>Usa una versión de la API REST de Azure Storage que es anterior a 14-02-2014 o una biblioteca cliente con una versión inferior a 4.x, y no puede actualizar la aplicación.</li></ul> |
+| Almacenamiento de blobs estándar | Almacenamiento de blobs (solo blobs en bloques y blobs en anexos) | LRS, GRS, RA-GRS | Resource Manager | Microsoft recomienda usar cuentas estándar de uso general v2 en su lugar cuando sea posible. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

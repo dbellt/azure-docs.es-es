@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
-ms.openlocfilehash: 4d1dd358c03d051be4be5733d9e729d1d7ef5b0c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a7b2e6ee4b54427f33ba9701ae13f139341a1941
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105026179"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112030960"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Información general sobre los agentes de Azure Monitor
 
@@ -43,7 +43,7 @@ En las tablas siguientes se proporciona una comparación rápida de los agentes 
 
 | | Agente de Azure Monitor (versión preliminar) | Diagnóstico<br>extensión (WAD) | Telegraf<br>agente | Log Analytics<br>agente | Dependencia<br>agente |
 |:---|:---|:---|:---|:---|:---|
-| **Entornos compatibles** | Azure<br>Otra nube (Azure Arc)<br>Local (Azure Arc) | Azure | Azure<br>Otra nube<br>Local | Azure<br>Otra nube<br>Local | Azure<br>Otra nube<br>Local |
+| **Entornos admitidos** (consulte la tabla siguiente para los sistemas operativos compatibles) | Azure<br>Otra nube (Azure Arc)<br>Local (Azure Arc) | Azure | Azure<br>Otra nube<br>Local | Azure<br>Otra nube<br>Local | Azure<br>Otra nube<br>Local |
 | **Requisitos del agente**  | None | None | None | None | Requiere el agente de Log Analytics |
 | **Datos recopilados** | syslog<br>Rendimiento | syslog<br>Rendimiento | Rendimiento | syslog<br>Rendimiento| Dependencias de procesos<br>Métricas de conexión de red |
 | **Destinatario de los datos** | Registros de Azure Monitor<br>Métricas de Azure Monitor | Azure Storage<br>Centro de eventos | Métricas de Azure Monitor | Registros de Azure Monitor | Registros de Azure Monitor<br>(a través del agente de Log Analytics) |
@@ -140,8 +140,9 @@ En las tablas siguientes se enumeran los sistemas operativos compatibles con los
 | Sistema operativo | Agente de Azure Monitor | Agente de Log Analytics | Dependency Agent | Extensión Diagnostics | 
 |:---|:---:|:---:|:---:|:---:|
 | Windows Server 2019                                      | X | X | X | X |
+| Windows Server 2019 Core                                 | X |   |   |   |
 | Windows Server 2016                                      | X | X | X | X |
-| Windows Server 2016 Core                                 |   |   |   | X |
+| Windows Server 2016 Core                                 | X |   |   | X |
 | Windows Server 2012 R2                                   | X | X | X | X |
 | Windows Server 2012                                      | X | X | X | X |
 | Windows Server 2008 R2 SP1                               | X | X | X | X |
@@ -168,13 +169,16 @@ En las tablas siguientes se enumeran los sistemas operativos compatibles con los
 | Oracle Linux 7                                              | X | X |   | X |
 | Oracle Linux 6                                              |   | X |   |   |
 | Oracle Linux 6.4+                                           |   | X |   | X |
+| Red Hat Enterprise Linux Server 8.3                         | X <sup>3</sup> | X | X |   |
 | Red Hat Enterprise Linux Server 8                           | X <sup>3</sup> | X | X |   |
 | Red Hat Enterprise Linux Server 7                           | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                           |   | X | X |   |
 | Red Hat Enterprise Linux Server 6.7+                        |   | X | X | X |
 | SUSE Linux Enterprise Server 15.2                           | X <sup>3</sup> |   |   |   |
 | SUSE Linux Enterprise Server 15.1                           | X <sup>3</sup> | X |   |   |
+| SUSE Linux Enterprise Server 15 SP1                         | X | X | X |   |
 | SUSE Linux Enterprise Server 15                             | X | X | X |   |
+| SUSE Linux Enterprise Server 12 SP5                         | X | X | X | X |
 | SUSE Linux Enterprise Server 12                             | X | X | X | X |
 | Ubuntu 20.04 LTS                                            | X | X | X |   |
 | Ubuntu 18.04 LTS                                            | X | X | X | X |
@@ -183,9 +187,7 @@ En las tablas siguientes se enumeran los sistemas operativos compatibles con los
 
 <sup>1</sup> Requiere que Python (2 o 3) esté instalado en la máquina.
 
-<sup>2</sup> Requiere que Python 2 esté instalado en la máquina.
-
-<sup>3</sup> Problema conocido al recopilar eventos de Syslog. Actualmente solo se admiten los datos de rendimiento.
+<sup>3</sup> Problema conocido al recopilar eventos de Syslog en versiones anteriores a la 1.9.0
 #### <a name="dependency-agent-linux-kernel-support"></a>Compatibilidad del kernel de Linux con Dependency Agent
 
 Dado que Dependency Agent funciona en el nivel de kernel, la compatibilidad también depende de la versión del kernel. En la tabla siguiente se enumeran la versión principal y secundaria de los sistemas operativos Linux y las versiones de kernel admitidas para Dependency Agent.

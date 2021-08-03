@@ -1,17 +1,17 @@
 ---
 title: 'Diagnóstico de problemas de rendimiento de gráficos en Escritorio remoto: Azure'
-description: Este artículo describe cómo usar contadores de gráficos de RemoteFX en sesiones del protocolo de escritorio remoto para diagnosticar problemas de rendimiento con gráficos en Windows Virtual Desktop.
+description: En este artículo se describe cómo usar contadores de gráficos de RemoteFX en sesiones del protocolo de escritorio remoto para diagnosticar problemas de rendimiento con gráficos en Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: fc1bb9d6dbdb024fba6544c25951ba94384132b0
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 86d5aa82aaf51d0d2407799050f92a04a12c4a58
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445743"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111752934"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnóstico de problemas de rendimiento de gráficos en Escritorio remoto
 
@@ -100,6 +100,6 @@ Si los recursos del cliente son la causa del cuello de botella, pruebe uno de lo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para crear una máquina virtual de Azure optimizada para GPU, consulte [Configuración de la aceleración de la unidad de procesamiento de gráficos (GPU) para Windows Virtual Desktop](configure-vm-gpu.md).
+- Para crear una máquina virtual de Azure optimizada para GPU, consulte [Configuración de la aceleración de la unidad de procesamiento de gráficos (GPU) para Azure Virtual Desktop](configure-vm-gpu.md).
 - Para obtener información general sobre cómo solucionar problemas y las pistas de escalación, consulte [Información general sobre solución de problemas, comentarios y soporte técnico](troubleshoot-set-up-overview.md).
 - Para más información sobre el servicio, consulte [Entorno de Windows Virtual Desktop](environment-setup.md).

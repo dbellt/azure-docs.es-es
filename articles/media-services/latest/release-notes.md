@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 1b3d13402e18659d0deba723eaf52d4eb5959253
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 7eff89301fa54312ffef323023100660237185a4
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379257"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111955350"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -28,6 +28,12 @@ Para mantenerse al día con los avances más recientes, este artículo proporcio
 * Problemas conocidos
 * Corrección de errores
 * Funciones obsoletas
+
+## <a name="may-2021"></a>Mayo de 2021
+
+### <a name="availability-zones-default-support-in-media-services"></a>Compatibilidad predeterminada con Availability Zones en Media Services
+
+Media Services ahora es compatible con [Availability Zones](concept-availability-zones.md), que proporciona ubicaciones con aislamiento de errores dentro de la misma región de Azure.  Las cuentas de Media Services ahora tienen redundancia de zona de forma predeterminada y no se requiere ninguna configuración adicional. Esto solo se aplica a las regiones que tienen [compatibilidad con Availability Zones](../../availability-zones/az-region.md#azure-regions-with-availability-zones).
 
 ## <a name="march-2021"></a>Marzo de 2021
 
@@ -498,7 +504,7 @@ Compatibilidad con el cifrado de CMAF y “cbcs” para reproductores Apple HLS 
 
 ### <a name="video-indexer"></a>Video Indexer
 
-La versión de disponibilidad general Video Indexer se anunció en agosto. Para información reciente sobre las características admitidas actualmente, vea [Novedades de Video Indexer](../video-indexer/video-indexer-overview.md?bc=/azure/media-services/video-indexer/breadcrumb/toc.json&toc=/azure/media-services/video-indexer/toc.json). 
+La versión de disponibilidad general Video Indexer se anunció en agosto. Para información reciente sobre las características admitidas actualmente, vea [Novedades de Video Indexer](../../azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview.md?bc=%2fazure%2fmedia-services%2fvideo-indexer%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fmedia-services%2fvideo-indexer%2ftoc.json). 
 
 ### <a name="plans-for-changes"></a>Planes de cambios
 

@@ -3,20 +3,20 @@ title: Administración del espacio de archivo de Azure SQL Database
 description: En esta página se describe cómo administrar el espacio de archivo con bases de datos únicas o agrupadas de Azure SQL Database, y se proporcionan ejemplos de código para determinar si se debe reducir una base de datos única o agrupada, y cómo hacerlo.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
-ms.custom: sqldbrb=1
+ms.subservice: deployment-configuration
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, sstein
-ms.date: 12/22/2020
-ms.openlocfilehash: 7bb754b892715adffc6ead99f3d866f9f9d8af9b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/28/2021
+ms.openlocfilehash: fb5ee8b096f64faa47756642b4e94bae429fb879
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99096498"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591267"
 ---
 # <a name="manage-file-space-for-databases-in-azure-sql-database"></a>Administración del espacio de archivo para bases de datos en Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,7 +38,7 @@ Es posible que sea necesario supervisar el uso del espacio de archivo y reducir 
 
 ### <a name="monitoring-file-space-usage"></a>Supervisión del uso del espacio de archivo
 
-La mayoría de las métricas de espacio de almacenamiento que aparecen en Azure Portal y en las API siguientes solo miden el tamaño de las páginas de datos que se usan:
+La mayoría de las métricas de espacio de almacenamiento que aparecen en las API siguientes solo miden el tamaño de las páginas de datos que se usan:
 
 - API de métricas basadas en Azure Resource Manager, como [get-metrics](/powershell/module/az.monitor/get-azmetric) de PowerShell
 - T-SQL: [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
@@ -52,8 +52,15 @@ Sin embargo, las siguientes API también miden el tamaño del espacio asignado p
 
 Azure SQL Database no reduce de forma automática los archivos de datos para reclamar el espacio asignado sin usar debido al posible impacto en el rendimiento de la base de datos.  Sin embargo, los clientes pueden reducir los archivos de datos a través de un autoservicio en el momento que estimen oportuno siguiendo los pasos descritos en [Reclamación del espacio asignado sin usar](#reclaim-unused-allocated-space).
 
-> [!NOTE]
-> A diferencia de los archivos de datos, Azure SQL Database reduce automáticamente los archivos de registro, ya que esa operación no afecta al rendimiento de la base de datos.
+### <a name="shrinking-transaction-log-file"></a>Reducción del archivo de registro de transacciones
+
+A diferencia de los archivos de datos, Azure SQL Database reduce automáticamente el archivo de registro de transacciones para evitar un uso de espacio excesivo que pueda provocar errores de espacio insuficiente. No suele ser necesario que los clientes reduzcan el archivo de registro de transacciones.
+
+En los niveles de servicio Premium y Crítico para la empresa, si el registro de transacciones aumenta demasiado, puede contribuir de forma significativa al consumo de almacenamiento local para alcanzar el límite de [almacenamiento local máximo](resource-limits-logical-server.md#storage-space-governance). Si el consumo de almacenamiento local se aproxima al límite, los clientes pueden optar por reducir el registro de transacciones mediante el comando [DBCC SHRINKFILE](/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql), tal y como se muestra en el ejemplo siguiente. Esta operación libera espacio de almacenamiento local en cuanto se completa el comando, sin necesidad de esperar a la operación de reducción automática periódica.
+
+```tsql
+DBCC SHRINKFILE (2);
+```
 
 ## <a name="understanding-types-of-storage-space-for-a-database"></a>Descripción de los tipos de espacio de almacenamiento para una base de datos
 
@@ -61,7 +68,7 @@ Comprender las cantidades de espacio de almacenamiento siguientes es importante 
 
 |Cantidad de base de datos|Definición|Comentarios|
 |---|---|---|
-|**Espacio de datos usado**|La cantidad de espacio usado para almacenar los datos de la base de datos en páginas de 8 KB.|Por lo general, el espacio usado aumenta (disminuciones) en las inserciones (eliminaciones). En algunos casos, el espacio usado no cambia en las inserciones o eliminaciones, según la cantidad y el patrón de datos implicados en la operación y las posibles fragmentaciones. Por ejemplo, al eliminar una fila de cada página de datos no disminuye necesariamente el espacio usado.|
+|**Espacio de datos usado**|La cantidad de espacio usado para almacenar los datos de la base de datos.|Por lo general, el espacio usado aumenta (disminuciones) en las inserciones (eliminaciones). En algunos casos, el espacio usado no cambia en las inserciones o eliminaciones, según la cantidad y el patrón de datos implicados en la operación y las posibles fragmentaciones. Por ejemplo, al eliminar una fila de cada página de datos no disminuye necesariamente el espacio usado.|
 |**Espacio de datos asignado**|La cantidad de espacio de archivo de formato disponible para almacenar datos de la base de datos.|La cantidad de espacio asignado crece automáticamente, pero nunca disminuye después de las eliminaciones. Este comportamiento garantiza que las futuras inserciones son más rápidas puesto que no es necesario volver a formatear el espacio.|
 |**Espacio de datos asignado, pero no usado**|La diferencia entre la cantidad de espacio de datos asignado y el espacio de datos usado.|Esta cantidad representa la cantidad máxima de espacio libre que se puede reclamar mediante la reducción de archivos de datos de base de datos.|
 |**Tamaño máximo de datos**|La cantidad máxima de espacio que se puede usar para almacenar datos de base de datos.|La cantidad de espacio de datos asignado no puede crecer por encima del tamaño máximo de datos.|
@@ -223,21 +230,22 @@ Para más información sobre este comando, consulte [SHRINKDATABASE](/sql/t-sql/
 
 ### <a name="auto-shrink"></a>Reducción automática
 
-Como alternativa, la reducción automática puede habilitarse para una base de datos.  La reducción automática reduce la complejidad de la administración de archivos y afecta menos al rendimiento de la base de datos que `SHRINKDATABASE` o `SHRINKFILE`.  La reducción automática puede resultar especialmente útil para administrar grupos elásticos con muchas bases de datos.  Sin embargo, la reducción automática es menos eficaz al reclamar espacio de archivo que `SHRINKDATABASE` y `SHRINKFILE`.
-De forma predeterminada, la opción Reducción automática está deshabilitada, como se recomienda para la mayoría de las bases de datos. Para más información, vea [Consideraciones para AUTO_SHRINK](/troubleshoot/sql/admin/considerations-autogrow-autoshrink#considerations-for-auto_shrink).
+Como alternativa, puede habilitarse la reducción automática para una base de datos.  La reducción automática reduce la complejidad de la administración de archivos y afecta menos al rendimiento de la base de datos que `SHRINKDATABASE` o `SHRINKFILE`. La reducción automática puede ser especialmente útil para administrar grupos elásticos con muchas bases de datos que experimentan un crecimiento y una reducción importantes del espacio usado. Sin embargo, la reducción automática es menos eficaz al reclamar espacio de archivo que `SHRINKDATABASE` y `SHRINKFILE`.
 
-Para habilitar la reducción automática, modifique el nombre de la base de datos en el siguiente comando.
+La reducción automática está deshabilitada de forma predeterminada, lo cual se recomienda para la mayoría de las bases de datos. Si es necesario habilitar la reducción automática, se recomienda deshabilitarla una vez que se hayan alcanzado los objetivos de administración del espacio, en lugar de mantenerla habilitada de forma permanente. Para más información, vea [Consideraciones para AUTO_SHRINK](/troubleshoot/sql/admin/considerations-autogrow-autoshrink#considerations-for-auto_shrink).
+
+Para habilitar la reducción automática, ejecute el comando siguiente en su base de datos (no en la base de datos maestra).
 
 ```sql
--- Enable auto-shrink for the database.
-ALTER DATABASE [db1] SET AUTO_SHRINK ON;
+-- Enable auto-shrink for the current database.
+ALTER DATABASE CURRENT SET AUTO_SHRINK ON;
 ```
 
 Para más información sobre este comando, consulte las opciones de [DATABASE SET](/sql/t-sql/statements/alter-database-transact-sql-set-options).
 
 ### <a name="rebuild-indexes"></a>Recompilación de índices
 
-Después de reducir los archivos de datos de la base de datos, los índices se pueden fragmentar y perder su eficacia para la optimización del rendimiento. Si se produce una degradación del rendimiento, considere la posibilidad de recompilar los índices de base de datos. Para más información sobre la fragmentación y la recompilación de índices, consulte [Reorganizar y volver a generar índices](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
+Después de reducir los archivos de datos, los índices se pueden fragmentar y perder su eficacia para la optimización del rendimiento. Si se produce una degradación del rendimiento, considere la posibilidad de recompilar los índices de base de datos. Para obtener más información sobre la fragmentación y el mantenimiento de índices, consulte [Optimización del mantenimiento de índices para mejorar el rendimiento de las consultas y reducir el consumo de recursos](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

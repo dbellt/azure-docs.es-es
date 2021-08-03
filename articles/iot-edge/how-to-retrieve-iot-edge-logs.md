@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 19183da24a3652757626cb37fae96027ed01a8ea
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 51a79058ec4456b173b1f50169198d3ea3ba2e93
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109633184"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111541867"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Recuperación de registros de implementaciones de IoT Edge
 
@@ -37,7 +37,7 @@ Aunque no es necesario, para mejorar la compatibilidad con esta característica,
 
 `{Timestamp}` debe tener el formato `yyyy-MM-dd hh:mm:ss.fff zzz` y `{Log Level}` debe seguir la tabla siguiente, que deriva sus niveles de gravedad del [código de gravedad del estándar Syslog](https://wikipedia.org/wiki/Syslog#Severity_level).
 
-| Value | Severity |
+| Valor | Severity |
 |-|-|
 | 0 | Emergencia |
 | 1 | Alerta |
@@ -53,6 +53,9 @@ La [Clase de registrador de IoT Edge](https://github.com/Azure/iotedge/blob/mast
 ## <a name="retrieve-module-logs"></a>Recuperación de registros del módulo
 
 Use el método directo **GetModuleLogs** para recuperar los registros de un módulo de IoT Edge.
+
+>[!TIP]
+>La página de solución de problemas de IoT Edge en Azure Portal proporciona una experiencia simplificada para ver los registros del módulo. Para obtener más información, consulte [Supervisión y solución de problemas de dispositivos IoT Edge desde Azure Portal](troubleshoot-in-portal.md).
 
 Este método acepta una carga JSON con el siguiente esquema:
 

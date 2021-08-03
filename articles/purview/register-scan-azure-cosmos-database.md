@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: 91005835a407cd097d7c5de3de02a48959b4cbfd
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 23825bd3ab41891f775f26e2ee2b052e3a041401
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109750778"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111560149"
 ---
 # <a name="register-and-scan-azure-cosmos-database-sql-api"></a>Registro y examen de Azure Cosmos Database (SQL API)
 
@@ -39,7 +39,7 @@ Cuando el método de autenticación seleccionado es **Clave de cuenta**, debe ob
 
 1. Vaya a la cuenta de Cosmos DB en Azure Portal. 
 1. Seleccione **Configuración** > **Claves**. 
-1. Copie la *clave* y guárdela para usarla en los pasos siguientes.
+1. Copie una clave PRINCIPAL o SECUNDARIA de las *claves de lectura y escritura* o *claves de solo lectura*, y guárdela en algún lugar para los pasos siguientes.
 1. Vaya a almacén de claves.
 1. Seleccione **Configuración > Secretos**.
 1. Seleccione **+ Generar/Importar** y escriba el **nombre** y el **valor** como la *clave* de la cuenta de Azure Cosmos DB.
@@ -67,11 +67,38 @@ En la pantalla **Register sources (Azure Cosmos DB (SQL API))** (Registrar orí
 4. Seleccione una colección o cree una nueva (opcional).
 5. Seleccione **Registrar** para registrar el origen de datos.
 
-
 :::image type="content" source="media/register-scan-azure-cosmos-database/register-sources.png" alt-text="Opciones de registro de orígenes" border="true":::
 
 
-[!INCLUDE [create and manage scans](includes/manage-scans.md)]
+## <a name="creating-and-running-a-scan"></a>Creación y ejecución de un examen
+
+Para crear y ejecutar un nuevo examen, siga estos pasos:
+
+1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de Purview Studio.
+
+1. Seleccione el origen de datos de Azure Cosmos DB que ha registrado.
+
+1. Seleccione **Nuevo análisis**.
+
+1. Seleccione la credencial para conectarse al origen de datos. 
+
+   :::image type="content" source="media/register-scan-azure-cosmos-database/set-up-scan-cosmos.png" alt-text="Configurar examen":::
+
+1. Elija los elementos adecuados de la lista para limitar el ámbito del examen a bases de datos específicas.
+
+   :::image type="content" source="media/register-scan-azure-cosmos-database/cosmos-database-scope-your-scan.png" alt-text="Ámbito del examen":::
+
+1. A continuación, seleccione un conjunto de reglas de examen. Puede elegir entre los valores predeterminados del sistema, los conjuntos de reglas personalizadas existentes o la creación de un conjunto de reglas en línea.
+
+   :::image type="content" source="media/register-scan-azure-cosmos-database/select-scan-rule-set.png" alt-text="Conjunto de reglas de examen":::
+
+1. Elija el desencadenador del examen. Puede configurar una programación o ejecutar el examen una vez.
+
+   :::image type="content" source="media/register-scan-azure-cosmos-database/trigger-scan.png" alt-text="trigger":::
+
+1. Revise el examen y seleccione **Save and run** (Guardar y ejecutar).
+
+[!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

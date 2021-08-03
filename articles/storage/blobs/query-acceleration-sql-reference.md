@@ -10,12 +10,12 @@ ms.date: 09/09/2020
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
-ms.openlocfilehash: ca4fe1410c18357a1fab10cc9c971cf3a81542fd
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: f696a6b071d353c98e87387d5640e35ff579460e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105963264"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110477816"
 ---
 # <a name="query-acceleration-sql-language-reference"></a>Referencia del lenguaje SQL de aceleración de consultas
 
@@ -38,6 +38,11 @@ En el ejemplo siguiente, para cada fila para la que la *expresión* WHERE devuel
 ```sql
 SELECT expression [, expression …] FROM table [WHERE expression] [LIMIT limit]
 ```
+
+Puede especificar una o varias columnas específicas como parte de la expresión SELECT (por ejemplo: `SELECT Title, Author, ISBN`). 
+
+> [!NOTE]
+> El número máximo de columnas específicas que puede usar en la expresión SELECT es 49. Si necesita que la instrucción SELECT devuelva más de 49 columnas, use un carácter comodín (`*`) para la expresión SELECT (por ejemplo: `SELECT *`). 
 
 En el ejemplo siguiente se devuelve un cálculo de agregado (por ejemplo, el valor medio de una columna determinada) sobre cada una de las filas para las que la *expresión* devuelve true. 
 
@@ -235,12 +240,12 @@ Una instrucción SELECT puede contener una o varias expresiones de proyección o
 
 |Expression|Descripción|
 |--|--|
-|[COUNT(\*)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql)    |Devuelve el número de registros que coinciden con la expresión de predicado.|
-|[COUNT(expression)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql)    |Devuelve el número de registros cuya expresión no es NULL.|
-|[AVERAGE(expression)](https://docs.microsoft.com/sql/t-sql/functions/avg-transact-sql)    |Devuelve el promedio de los valores no NULL de la expresión.|
-|[MIN(expression)](https://docs.microsoft.com/sql/t-sql/functions/min-transact-sql)    |Devuelve el valor mínimo no NULL de la expresión.|
-|[MAX(expression](https://docs.microsoft.com/sql/t-sql/functions/max-transact-sql)    |Devuelve el valor máximo no NULL de la expresión.|
-|[SUM(expression)](https://docs.microsoft.com/sql/t-sql/functions/sum-transact-sql)    |Devuelve la suma de todos los valores no NULL de la expresión.|
+|[COUNT(\*)](/sql/t-sql/functions/count-transact-sql)    |Devuelve el número de registros que coinciden con la expresión de predicado.|
+|[COUNT(expression)](/sql/t-sql/functions/count-transact-sql)    |Devuelve el número de registros cuya expresión no es NULL.|
+|[AVERAGE(expression)](/sql/t-sql/functions/avg-transact-sql)    |Devuelve el promedio de los valores no NULL de la expresión.|
+|[MIN(expression)](/sql/t-sql/functions/min-transact-sql)    |Devuelve el valor mínimo no NULL de la expresión.|
+|[MAX(expression](/sql/t-sql/functions/max-transact-sql)    |Devuelve el valor máximo no NULL de la expresión.|
+|[SUM(expression)](/sql/t-sql/functions/sum-transact-sql)    |Devuelve la suma de todos los valores no NULL de la expresión.|
 
 ### <a name="missing"></a>MISSING
 

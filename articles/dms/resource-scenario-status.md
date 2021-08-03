@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: 5d5706738a0d85beed839d324ae3da055cafe39a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 237de7e75007de85054501ed76b253a6eedf4346
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108747528"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111528377"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Estado de los escenarios de migración que admite Azure Database Migration Service
 
@@ -53,11 +53,16 @@ En la siguiente tabla se muestra la compatibilidad de Azure Database Migration S
 | **Máquina virtual de Azure SQL** | SQL Server | ✔ | Disponibilidad general |
 |   | Oracle | X |   |
 | **Azure Cosmos DB** | MongoDB | ✔ | Disponibilidad general |
-| **Azure DB para MySQL** | MySQL | ✔ |   |
-|   | MySQL de RDS | X |   |
+| **Azure DB for MySQL: servidor único** | MySQL | ✔ | Vista previa pública  |
+|   | MySQL de RDS | ✔ | Vista previa pública  |
+|   | Azure DB for MySQL* | ✔ | Vista previa pública  |
+| **Azure DB for MySQL: servidor flexible** | MySQL | ✔ | Vista previa pública  |
+|   | MySQL de RDS | ✔ | Vista previa pública  |
+|   | Azure DB for MySQL* | ✔ | Vista previa pública  |
 | **Azure DB for PostgreSQL: servidor único** | PostgreSQL | X |
 |  | PostgreSQL de RDS | X |   |
-|  | Oracle | X |   |
+| **Azure DB for PostgreSQL: servidor flexible** | PostgreSQL | X |
+|  | PostgreSQL de RDS | X |   |
 | **Azure DB for PostgreSQL: Hiperescala (Citus)** | PostgreSQL | X |
 |  | PostgreSQL de RDS | X |   |
 
@@ -79,12 +84,16 @@ En la siguiente tabla se muestra la compatibilidad de Azure Database Migration S
 | **Azure DB para MySQL** | MySQL | ✔ | Disponibilidad general |
 |   | MySQL de RDS | ✔ | Disponibilidad general |
 | **Azure DB for PostgreSQL: servidor único** | PostgreSQL | ✔ | Disponibilidad general |
-|   | Azure DB for PostgreSQL: servidor único | ✔ | Disponibilidad general |
+|   | Azure DB for PostgreSQL: servidor único* | ✔ | Disponibilidad general |
 |   | PostgreSQL de RDS | ✔ | Disponibilidad general |
-|   | Oracle | X |   |
+| **Azure DB for PostgreSQL: servidor flexible** | PostgreSQL | ✔ | Disponibilidad general |
+|   | Azure DB for PostgreSQL: servidor único* | ✔ | Disponibilidad general |
+|   | PostgreSQL de RDS | ✔ | Disponibilidad general |
 | **Azure DB for PostgreSQL: Hiperescala (Citus)** | PostgreSQL | ✔ | Disponibilidad general |
 |   | PostgreSQL de RDS | ✔ | Disponibilidad general |
 
+> [!NOTE]
+> Si la base de datos de origen ya está en PaaS de Azure (por ejemplo, Azure DB for MySQL o Azure DB for PostgreSQL), elija el motor correspondiente al crear la actividad de migración. Por ejemplo, si va a migrar de Azure DB for MySQL: servidor único a Azure DB for MySQL: servidor flexible, elija MySQL como motor de origen durante la creación del escenario. Si va a migrar de Azure DB for PostgreSQL: servidor único a Azure DB for PostgreSQL: servidor flexible, elija PostgreSQL como motor de origen durante la creación del escenario. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

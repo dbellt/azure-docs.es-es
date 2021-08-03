@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 06/14/2021
 ms.author: memildin
-ms.openlocfilehash: 1a6a9080a8957b56d12eca289a500fd45f0e709b
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: fefbc605702539cb882aba4c7802d284b4291a9c
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310825"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112062305"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Protección de las cargas de trabajo de Kubernetes
 
@@ -33,14 +33,14 @@ Security Center ofrece más características de seguridad del contenedor si habi
 
 ## <a name="availability"></a>Disponibilidad
 
-|Aspecto|Detalles|
-|----|:----|
-|Estado de la versión:|Disponibilidad general (GA)|
-|Precios:|Gratuito|
-|Roles y permisos necesarios:|**Propietario** o **administrador de seguridad** para editar una asignación<br>**Lector** para ver las recomendaciones|
-|Requisitos del entorno:|Se requiere la versión 1.14 (o posterior) de Kubernetes<br>Ningún recurso PodSecurityPolicy (antiguo modelo de PSP) en los clústeres<br>No se admiten nodos de Windows|
-|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
-|||
+| Aspecto                          | Detalles                                                                                                                                      |
+|---------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------|
+| Estado de la versión:                  | Disponibilidad general (GA)                                                                                                                    |
+| Precios:                        | Gratuito                                                                                                                                         |
+| Roles y permisos necesarios: | **Propietario** o **administrador de seguridad** para editar una asignación<br>**Lector** para ver las recomendaciones                                              |
+| Requisitos del entorno:       | Se requiere la versión 1.14 (o posterior) de Kubernetes<br>Ningún recurso PodSecurityPolicy (antiguo modelo de PSP) en los clústeres<br>No se admiten nodos de Windows |
+| Nubes:                         | ![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos) |
+|                                 |                                                                                                                                              |
 
 
 ## <a name="set-up-your-workload-protection"></a>Configuración de la protección de cargas de trabajo
@@ -69,7 +69,7 @@ Para configurar las recomendaciones, instale el **complemento de Azure Policy pa
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Página de detalles de recomendación para **El complemento Azure Policy para Kubernetes debería estar instalado y habilitado en sus clústeres**":::
 
-### <a name="step-2-view-and-configure-the-bundle-of-13-recommendations"></a>Paso 2: Vista y configuración del conjunto de 13 recomendaciones
+### <a name="step-2-view-and-configure-the-bundle-of-recommendations"></a>Paso 2: Vista y configuración del conjunto de recomendaciones
 
 1. Aproximadamente 30 minutos después de completarse la instalación del complemento, Security Center muestra el estado de mantenimiento de los clústeres de las siguientes recomendaciones, cada uno en el control de seguridad pertinente como se muestra a continuación:
 
@@ -253,5 +253,5 @@ En este artículo, ha aprendido a configurar la protección de cargas de trabajo
 Para obtener material relacionado, consulte las páginas siguientes: 
 
 - [Recomendaciones de Security Center para proceso](recommendations-reference.md#recs-compute)
-- [Alertas del nivel de clúster de AKS](alerts-reference.md#alerts-akscluster)
+- [Alertas del nivel de clúster de AKS](alerts-reference.md#alerts-k8scluster)
 - [Alertas del nivel de host de contenedor](alerts-reference.md#alerts-containerhost)

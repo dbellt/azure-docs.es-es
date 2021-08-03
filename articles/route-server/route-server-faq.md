@@ -5,14 +5,14 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 04/22/2021
+ms.date: 06/07/2021
 ms.author: duau
-ms.openlocfilehash: 77b9cd7590b381a29fc0dc19b2a80b72afceca0a
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: 848134fec184febcdc5cde722fbec8e55d149d14
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107930306"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111748002"
 ---
 # <a name="azure-route-server-preview-faq"></a>Preguntas frecuentes sobre Azure Route Server (versión preliminar)
 
@@ -71,6 +71,12 @@ Los siguientes ASN están reservados por Azure o IANA:
 ### <a name="can-i-use-32-bit-4-byte-asns"></a>¿Se pueden usar ASN de 32 bits (4 bytes)?
 
 No, Azure Route Server solo admite ASN de 16 bits (2 bytes).
+
+### <a name="can-i-peer-two-route-servers-in-two-peered-virtual-networks-and-enable-the-nvas-connected-to-the-route-servers-to-talk-to-each-other"></a>¿Puedo emparejar dos servidores de rutas en dos redes virtuales emparejadas y permitir que las aplicaciones virtuales de red conectadas a los servidores de ruta se comuniquen entre sí? 
+
+***Topología: NVA1 -> RouteServer1 -> (a través de emparejamiento de red virtual) -> RouteServer2 -> NVA2***
+
+No, Azure Route Server no desvía el tráfico de datos. Para habilitar la conectividad de tránsito a través de la NVA, configure una conexión directa (por ejemplo, un túnel IPsec) entre las NVA y aproveche los servidores de rutas para la propagación dinámica de rutas. 
 
 ## <a name="route-server-limits"></a><a name = "limitations"></a>Límites de Route Server
 

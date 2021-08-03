@@ -1,32 +1,32 @@
 ---
-title: 'Problemas de diagnóstico de Windows Virtual Desktop: Azure'
-description: Procedimientos para usar la característica de diagnóstico de Windows Virtual Desktop para diagnosticar problemas.
+title: 'Problemas de diagnóstico de Azure Virtual Desktop: Azure'
+description: Procedimientos para usar la característica de diagnóstico de Azure Virtual Desktop para diagnosticar problemas.
 author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 09/21/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: cf654f07cbbd729fac8feb9e2f8f7ceff471ae6a
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: de140f83c4f00d92379b1ff0b70f627234480295
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447002"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757884"
 ---
-# <a name="identify-and-diagnose-windows-virtual-desktop-issues"></a>Identificación y diagnóstico de problemas de Windows Virtual Desktop
+# <a name="identify-and-diagnose-azure-virtual-desktop-issues"></a>Identificación y diagnóstico de problemas de Azure Virtual Desktop
 
 >[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop con objetos de Windows Virtual Desktop de Azure Resource Manager. Si usa Windows Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/diagnostics-role-service-2019.md).
+>Este contenido se aplica a Azure Virtual Desktop con objetos de Azure Resource Manager. Si usa Azure Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/diagnostics-role-service-2019.md).
 
-Windows Virtual Desktop ofrece una característica de diagnóstico que permite al administrador detectar problemas a través de una única interfaz. Para obtener más información sobre las funcionalidades de diagnóstico de Windows Virtual Desktop, consulte [Uso de Log Analytics para la característica de diagnóstico](diagnostics-log-analytics.md).
+Azure Virtual Desktop ofrece una característica de diagnóstico que permite al administrador detectar problemas a través de una única interfaz. Para obtener más información sobre las funcionalidades de diagnóstico de Azure Virtual Desktop, consulte [Uso de Log Analytics para la característica de diagnóstico](diagnostics-log-analytics.md).
 
-Las conexiones que no lleguen a Windows Virtual Desktop no aparecerán en los resultados de diagnóstico, ya que el propio servicio de rol de diagnóstico forma parte de Windows Virtual Desktop. Se pueden producir problemas de conexión a Windows Virtual Desktop si el usuario final está experimentando problemas de conectividad de red.
+Las conexiones que no lleguen a Azure Virtual Desktop no aparecerán en los resultados de diagnóstico, ya que el propio servicio de rol de diagnóstico forma parte de Azure Virtual Desktop. Se pueden producir problemas de conexión a Azure Virtual Desktop si el usuario final está experimentando problemas de conectividad de red.
 
 ## <a name="common-error-scenarios"></a>Escenarios de error habituales
 
 La tabla WVDErrors realiza un seguimiento de los errores en todos los tipos de actividad. La columna llamada "ServiceError" proporciona una marca adicional que indica "true" o "false". Esta marca le indicará si el error está relacionado con el servicio.
 
-* Si el valor es "true", es posible que el equipo de servicio ya haya investigado este problema. Si este afecta a la experiencia del usuario y aparece muchas veces, le recomendamos que envíe una incidencia de soporte técnico para Windows Virtual Desktop.
+* Si el valor es "true", es posible que el equipo de servicio ya haya investigado este problema. Si este afecta a la experiencia del usuario y aparece muchas veces, le recomendamos que envíe una incidencia de soporte técnico para Azure Virtual Desktop.
 * Si el valor es "false", puede que haya un error de configuración que pueda corregir por su cuenta. El mensaje de error puede proporcionarle una pista acerca de por dónde empezar.
 
 En la siguiente tabla se enumeran los errores comunes que los administradores pueden encontrarse.
@@ -71,6 +71,6 @@ Después de asignar un usuario a un grupo de aplicaciones, Azure Portal muestra 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre los roles de Windows Virtual Desktop, consulte [Entorno de Windows Virtual Desktop](environment-setup.md).
+Para más información sobre los roles de Azure Virtual Desktop, consulte [Entorno de Azure Virtual Desktop](environment-setup.md).
 
-Para ver una lista de cmdlets de PowerShell disponibles para Windows Virtual Desktop, vea la [referencia de PowerShell](/powershell/windows-virtual-desktop/overview).
+Para ver una lista de cmdlets de PowerShell disponibles para Azure Virtual Desktop, consulte la [referencia de PowerShell](/powershell/windows-virtual-desktop/overview).

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da22a4e5e9ab13ec18347e58bea6cfc5f45333de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 930fecda6a962c031b3e358fc640a41cc7b85d68
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98630707"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112075104"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Funcionamiento del inicio de sesión único en recursos locales de dispositivos unidos a Azure AD
 
@@ -41,6 +41,8 @@ Si tiene un entorno híbrido, tanto con Azure AD como con AD local, es probable
 
 >[!NOTE]
 > Windows Hello para empresas requiere configuración adicional para habilitar el inicio de sesión único de forma local desde un dispositivo unido a Azure AD. Para más información, consulte [Configure Azure AD joined devices for On-premises Single-Sign On using Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base) (Configuración de los dispositivos unidos a Azure AD para el inicio de sesión único local con Windows Hello para empresas). 
+>
+> La autenticación sin contraseña basada en claves de seguridad FIDO2 con Windows 10 requiere una configuración adicional para habilitar el inicio de sesión único local desde un dispositivo unido a Azure AD. Para obtener más información, consulte [Habilitación del inicio de sesión con una clave de seguridad sin contraseña en recursos locales con Azure Active Directory](/azure/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises). 
 
 Durante un intento de acceso a un recurso que solicita Kerberos o NTLM en el entorno local del usuario, el dispositivo:
 

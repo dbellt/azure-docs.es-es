@@ -4,15 +4,15 @@ description: Obtenga información acerca de la solución de problemas relacionad
 author: jianleishen
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 04/13/2021
+ms.date: 06/07/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref
-ms.openlocfilehash: c08456b08b6b11745cced97fd92417f07af23dda
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 7407a28c442ce2ddc7fe9df3fdd71c5af4c488bc
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109484836"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971886"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Solución de problemas de conectores en Azure Data Factory
 
@@ -499,7 +499,7 @@ En este artículo se exploran las formas más comunes de solucionar problemas co
   | Si el origen es una carpeta, es posible que los archivos de la carpeta especificada tengan otro esquema. | Asegúrese de que los archivos de la carpeta especificada tengan un esquema idéntico. |
 
 
-## <a name="dynamics-365-common-data-service-and-dynamics-crm"></a>Dynamics 365, Common Data Service y Dynamics CRM
+## <a name="dynamics-365-dataverse-common-data-service-and-dynamics-crm"></a>Dynamics 365, Dataverse (Common Data Service) y Dynamics CRM
 
 ### <a name="error-code-dynamicscreateserviceclienterror"></a>Código de error: DynamicsCreateServiceClientError
 
@@ -557,10 +557,21 @@ En este artículo se exploran las formas más comunes de solucionar problemas co
 - **Recomendación:**  Para conocer los detalles, compruebe la conectividad de red o el registro del servidor de Dynamics. Si necesita ayuda adicional, póngase en contacto con el soporte técnico de Dynamics.
 
 
-### <a name="error-code--dynamicsfailedtoconnect"></a>Código de error: DynamicsFailedToConnect 
+### <a name="error-code-dynamicsfailedtoconnect"></a>Código de error: DynamicsFailedToConnect 
  
  - **Mensaje**: `Failed to connect to Dynamics: %message;` 
  
+ - **Causa**: está viendo `ERROR REQUESTING ORGS FROM THE DISCOVERY SERVERFCB 'EnableRegionalDisco' is disabled.` o, en caso contrario, `Unable to Login to Dynamics CRM, message:ERROR REQUESTING Token FROM THE Authentication context - USER intervention required but not permitted by prompt behavior AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access '00000007-0000-0000-c000-000000000000'`, si el caso de uso cumple **todas** las condiciones siguientes:
+    - Se va a conectar a Dynamics 365, Common Data Service o Dynamics CRM.
+    - Va a usar la autenticación de Office365.
+    - El inquilino y el usuario están configurados en Azure Active Directory para el [acceso condicional](../active-directory/conditional-access/overview.md), o bien si la autenticación multifactor es necesaria (consulte este [vínculo](/powerapps/developer/data-platform/authenticate-office365-deprecation) para ver la documentación de Dataverse).
+    
+    En estas circunstancias, la conexión que se use funcionará correctamente hasta el 8/6/2021.
+    A partir del 9/6/2021, la conexión comenzará a producir un error debido al desuso del servicio de detección regional (consulte este [vínculo](/power-platform/important-changes-coming#regional-discovery-service-is-deprecated)).
+ 
+ -  **Recomendación:**  
+    El inquilino y el usuario están configurados en Azure Active Directory para el [acceso condicional](../active-directory/conditional-access/overview.md), o bien, si la autenticación multifactor es necesaria deberá utilizar "Azure AD service-principal" para autenticarse después del 8/6/2021. Consulte este [vínculo](./connector-dynamics-crm-office-365.md#prerequisites) para obtener pasos detallados.
+
 
  - **Causa**: Si ve `Office 365 auth with OAuth failed` en el mensaje de error, es posible que el servidor tenga algunas configuraciones no compatibles con OAuth. 
  
@@ -603,7 +614,7 @@ En este artículo se exploran las formas más comunes de solucionar problemas co
  - **Recomendación**: Use [XrmToolBox](https://www.xrmtoolbox.com/) para establecer la conexión. Si el error persiste, póngase en contacto con el equipo de soporte técnico de Dynamics para obtener ayuda. 
  
  
-### <a name="error-code--dynamicsoperationfailed"></a>Código de error: DynamicsOperationFailed 
+### <a name="error-code-dynamicsoperationfailed"></a>Código de error: DynamicsOperationFailed 
  
 - **Mensaje**: `Dynamics operation failed with error code: %code;, error message: %message;.` 
 
@@ -612,7 +623,7 @@ En este artículo se exploran las formas más comunes de solucionar problemas co
 - **Recomendación**: Extraiga el código de error de la operación de Dynamics que aparece en el mensaje de error: `Dynamics operation failed with error code: {code}`, y consulte el artículo [Códigos de error de servicio web](/powerapps/developer/data-platform/org-service/web-service-error-codes) para obtener información más detallada. Si es necesario, puede ponerse en contacto con el equipo de soporte técnico de Dynamics. 
  
  
-### <a name="error-code--dynamicsinvalidfetchxml"></a>Código de error: DynamicsInvalidFetchXml 
+### <a name="error-code-dynamicsinvalidfetchxml"></a>Código de error: DynamicsInvalidFetchXml 
   
 - **Mensaje**: `The Fetch Xml query specified is invalid.` 
 
@@ -621,7 +632,7 @@ En este artículo se exploran las formas más comunes de solucionar problemas co
 - **Recomendación**: Corrija el error en el XML de captura. 
  
  
-### <a name="error-code--dynamicsmissingkeycolumns"></a>Código de error: DynamicsMissingKeyColumns 
+### <a name="error-code-dynamicsmissingkeycolumns"></a>Código de error: DynamicsMissingKeyColumns 
  
 - **Mensaje**: `Input DataSet must contain keycolumn(s) in Upsert/Update scenario. Missing key column(s): %column;`
  
@@ -630,7 +641,7 @@ En este artículo se exploran las formas más comunes de solucionar problemas co
 - **Recomendación**: Confirme que las columnas de clave estén en los datos de origen o asigne una columna de origen a la columna de clave de la entidad receptora. 
  
  
-### <a name="error-code--dynamicsprimarykeymustbeguid"></a>Código de error: DynamicsPrimaryKeyMustBeGuid 
+### <a name="error-code-dynamicsprimarykeymustbeguid"></a>Código de error: DynamicsPrimaryKeyMustBeGuid 
  
 - **Mensaje**: `The primary key attribute '%attribute;' must be of type guid.` 
  
@@ -639,7 +650,7 @@ En este artículo se exploran las formas más comunes de solucionar problemas co
 - **Recomendación**: Asegúrese de que la columna de clave principal de los datos de origen sea de tipo "Guid". 
  
 
-### <a name="error-code--dynamicsalternatekeynotfound"></a>Código de error: DynamicsAlternateKeyNotFound 
+### <a name="error-code-dynamicsalternatekeynotfound"></a>Código de error: DynamicsAlternateKeyNotFound 
  
 - **Mensaje**: `Cannot retrieve key information of alternate key '%key;' for entity '%entity;'.` 
  
@@ -650,7 +661,7 @@ En este artículo se exploran las formas más comunes de solucionar problemas co
     1. Asegúrese de tener permisos suficientes en la entidad. 
  
  
-### <a name="error-code--dynamicsinvalidschemadefinition"></a>Código de error: DynamicsInvalidSchemaDefinition 
+### <a name="error-code-dynamicsinvalidschemadefinition"></a>Código de error: DynamicsInvalidSchemaDefinition 
  
 - **Mensaje**: `The valid structure information (column name and type) are required for Dynamics source.` 
  

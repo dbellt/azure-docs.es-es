@@ -1,22 +1,22 @@
 ---
-title: Expansión de un grupo de hosts existente de Windows Virtual Desktop (clásico) con nuevos hosts de sesión - Azure
-description: Expansión de un grupo de hosts existente con nuevos hosts de sesión en Windows Virtual Desktop (clásico)
+title: Expansión de un grupo de hosts existente de Azure Virtual Desktop (clásico) con nuevos hosts de sesión - Azure
+description: Procedimiento para expandir un grupo de hosts existente con nuevos hosts de sesión en Azure Virtual Desktop (clásico).
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: f82b831d887f0ebdd659167935f2134583b3bb87
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: e459737db621dfb55b5534e60989437b293e57a9
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551958"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745086"
 ---
-# <a name="expand-an-existing-host-pool-with-new-session-hosts-in-windows-virtual-desktop-classic"></a>Expansión de un grupo de hosts existente con nuevos hosts de sesión en Windows Virtual Desktop (clásico)
+# <a name="expand-an-existing-host-pool-with-new-session-hosts-in-azure-virtual-desktop-classic"></a>Expansión de un grupo de hosts existente con nuevos hosts de sesión en Azure Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../expand-existing-host-pool.md).
+>Este contenido se aplica a Azure Virtual Desktop (clásico), que no admite objetos de Azure Resource Manager. Si está intentando administrar objetos de Azure Virtual Desktop para Azure Resource Manager, consulte [este artículo](../expand-existing-host-pool.md).
 
 A medida que aumenta el uso en el grupo de hosts, puede que necesite expandir el grupo de hosts existente con nuevos hosts de sesión para controlar la nueva carga.
 
@@ -33,7 +33,7 @@ Antes de empezar, asegúrese de que ha creado un grupo de hosts y máquinas virt
 También necesitará la siguiente información de la primera vez que creó el grupo de hosts y las máquinas virtuales de host de sesión:
 
 - Tamaño de máquina virtual, imagen y prefijo de nombre
-- Unión a un dominio y credenciales de administrador de inquilinos de Windows Virtual Desktop
+- Unión a un dominio y credenciales de administrador de inquilinos de Azure Virtual Desktop
 - Nombre de red virtual y nombre de subred
 
 Las tres secciones siguientes son tres métodos que puede usar para expandir el grupo de hosts. Puede hacerlo con cualquier herramienta de implementación con la que esté familiarizado.
@@ -83,7 +83,7 @@ Todos los valores de esta sección deben coincidir con lo que proporcionó cuand
 3.    En *Región*, seleccione la misma región donde se encuentran las máquinas virtuales de host de sesión del grupo de hosts existente.
 4.    En *Nombre del grupo de hosts*, escriba el nombre del grupo de hosts existente.
 5.    En *Tipo de escritorio*, seleccione el tipo de escritorio que coincida con el grupo de hosts existente.
-6.    En *Usuarios de escritorio predeterminados*, escriba una lista separada por comas de los usuarios adicionales que pueden iniciar sesión en los clientes de Windows Virtual Desktop y acceder a un escritorio una vez finalizada la oferta de Azure Marketplace. Por ejemplo, si quiere asignar acceso a user3@contoso.com y user4@contoso.com, escriba user3@contoso.com,user4@contoso.com.
+6.    En *Usuarios de escritorio predeterminados*, escriba una lista separada por comas de los usuarios adicionales que pueden iniciar sesión en los clientes de Azure Virtual Desktop y acceder a un escritorio una vez finalizada la oferta de Azure Marketplace. Por ejemplo, si quiere asignar acceso a user3@contoso.com y user4@contoso.com, escriba user3@contoso.com,user4@contoso.com.
 7.    Seleccione **Siguiente: Configurar máquina virtual**.
 
 >[!NOTE]
@@ -109,14 +109,14 @@ Todos los valores de parámetros de esta sección deben coincidir con lo que pro
 1. En *Origen de imagen* y *Image OS version* (Versión de SO de la imagen), escriba la misma información que proporcionó la primera vez que creó el grupo de hosts.
 2. En *AD domain join UPN* (UPN de unión a un dominio de AD) y las contraseñas asociadas, escriba la misma información que proporcionó la primera vez que creó el grupo de hosts para unir las máquinas virtuales al dominio de Active Directory. Estas credenciales se usarán para crear una cuenta local en las máquinas virtuales. Puede restablecer estas cuentas locales más adelante para cambiar sus credenciales.
 3. Para información sobre la red virtual, seleccione la misma red virtual y subred en la que se encuentran las máquinas virtuales de host de sesión del grupo de hosts existente.
-4. Seleccione **Siguiente: Configure Windows Virtual Desktop information** (Configurar la información de Windows Virtual Desktop).
+4. Seleccione **Siguiente: Configurar información de Azure Virtual Desktop**.
 
-### <a name="windows-virtual-desktop-information"></a>Información de Windows Virtual Desktop
+### <a name="azure-virtual-desktop-information"></a>Información de Azure Virtual Desktop
 
 Todos los valores de parámetros de esta sección deben coincidir con lo que proporcionó cuando creó por primera vez el grupo de hosts y las máquinas virtuales de host de sesión:
 
-1. En *Nombre de grupo de inquilinos de Windows Virtual Desktop*, escriba el nombre del grupo de inquilinos que contiene su inquilino. A menos que se le haya proporcionado un nombre de grupo de inquilinos específico, deje el valor predeterminado.
-2. En *Nombre de inquilino de Windows Virtual Desktop*, escriba el nombre del inquilino donde se creará este grupo de hosts.
+1. En *Nombre de grupo de inquilinos de Azure Virtual Desktop*, escriba el nombre del grupo de inquilinos que contiene su inquilino. A menos que se le haya proporcionado un nombre de grupo de inquilinos específico, deje el valor predeterminado.
+2. En *Nombre de inquilino de Azure Virtual Desktop*, escriba el nombre del inquilino donde se creará este grupo de hosts.
 3. Especifique las mismas credenciales que usó cuando creó por primera vez el grupo de hosts y las máquinas virtuales de host de sesión. Si usa una entidad de servicio, escriba el identificador de la instancia de Azure Active Directory donde se encuentra la entidad de servicio.
 4. Seleccione **Siguiente: Review + create** (Revisar y crear).
 
@@ -126,7 +126,7 @@ Siga las instrucciones que se indican en [Ejecutar la plantilla de Azure Resourc
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha expandido el grupo de hosts existente, puede iniciar sesión en un cliente de Windows Virtual Desktop para realizar pruebas en él como parte de una sesión de usuario. Puede conectarse a una sesión con cualquiera de los siguientes clientes:
+Ahora que ha expandido el grupo de hosts existente, puede iniciar sesión en un cliente de Azure Virtual Desktop para realizar pruebas en él como parte de una sesión de usuario. Puede conectarse a una sesión con cualquiera de los siguientes clientes:
 
 - [Conexión con el cliente de Escritorio de Windows](connect-windows-7-10-2019.md)
 - [Conexión con el cliente web](connect-web-2019.md)

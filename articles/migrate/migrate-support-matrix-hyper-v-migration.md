@@ -6,12 +6,12 @@ ms.author: bsiva
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 33e34e777a78e1c609d2eacdcb501c0bce1f5c9d
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: 14660ca026dc51bc6e722559a28ef4a77361100b
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107714927"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094571"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Matriz de compatibilidad para la migración de Hyper-V
 
@@ -46,7 +46,7 @@ Puede seleccionar hasta 10 máquinas virtuales a la vez para la replicación. Si
 | **Arranque de Linux**                 | Si/boot está en una partición dedicada, debe residir en el disco del sistema operativo y no distribuirse en varios discos.<br/> Si /boot forma parte de la partición raíz (/), la partición "/" debe estar en el disco del sistema operativo y no abarcar otros discos. |
 | **Arranque UEFI**                  | Compatible. Las máquinas virtuales basadas en UEFI se migrarán a máquinas virtuales de segunda generación de Azure.  |
 | **UEFI: arranque seguro**         | No se admiten para la migración.|
-| **Tamaño del disco**                  | 2 TB para el disco del sistema operativo (arranque BIOS), 4 TB para el disco del sistema operativo (arranque UEFI), 4 TB para los discos de datos.|
+| **Tamaño del disco**                  | Disco de sistema operativo de hasta 2 TB, 8 TB para los discos de datos.|
 | **Número de discos** | Un máximo de 16 discos por VM.|
 | **Discos/volúmenes cifrados**    | No se admiten para la migración.|
 | **Discos RDM/de acceso directo**      | No se admiten para la migración.|

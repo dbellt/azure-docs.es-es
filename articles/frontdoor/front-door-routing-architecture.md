@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 948cf3c65dfdc912f2f807dfac34076985f1bc89
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f4e493b0cbc52c7f8f6165a8198dd19acf352378
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91449195"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110494341"
 ---
 # <a name="routing-architecture-overview"></a>Introducción a la arquitectura de enrutamiento
 
-Cuando Azure Front Door reciba las solicitudes de cliente, realizará una de estas dos cosas. O bien, responderá a ellas (si habilita el almacenamiento en caché), o bien, las reenviará al servidor back-end de la aplicación adecuado como proxy inverso.
+Cuando Azure Front Door reciba las solicitudes de cliente, realizará una de estas dos cosas. O bien, responderá a ellas (si habilita el almacenamiento en caché), o las reenviará al servidor back-end de la aplicación adecuado como proxy inverso.
 
 ## <a name="selecting-the-front-door-environment-for-traffic-routing-anycast"></a><a name = "anycast"></a>Selección del entorno de Front Door para el enrutamiento del tráfico (Anycast)
 

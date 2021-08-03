@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 03/17/2021
+ms.date: 06/10/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 32893a29b0fa6a22ca0b9d9a64281f6fb5df1cae
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 668584c7c254c1d1f200050154256621ba220b5a
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107888627"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111981807"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Protección de un área de trabajo de Azure Machine Learning con redes virtuales
 
@@ -56,8 +56,8 @@ Azure Private Link le permite conectarse a su área de trabajo mediante un punto
 
 Para obtener más información sobre la configuración de un área de trabajo de Private Link, consulte [Configuración de Private Link](how-to-configure-private-link.md).
 
-> [!Warning]
-> La protección de un área de trabajo con puntos de conexión privados no garantiza la seguridad de un extremo a otro por sí misma. Debe seguir los pasos que se describen en el resto de este artículo y la serie de redes virtuales para proteger componentes individuales de la solución.
+> [!WARNING]
+> La protección de un área de trabajo con puntos de conexión privados no garantiza la seguridad de un extremo a otro por sí misma. Debe seguir los pasos que se describen en el resto de este artículo y la serie de redes virtuales para proteger componentes individuales de la solución. Por ejemplo, si usa un punto de conexión privado para el área de trabajo, pero la cuenta de Azure Storage no está detrás de la red virtual, el tráfico entre el área de trabajo y el almacenamiento no usa la red virtual por motivos de seguridad.
 
 ## <a name="secure-azure-storage-accounts-with-service-endpoints"></a>Protección de cuentas de almacenamiento de Azure con puntos de conexión de servicio
 
@@ -94,6 +94,9 @@ Para usar una cuenta de Azure Storage para el área de trabajo en una red virtua
 
    [![Panel "Firewalls y redes virtuales" de Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
+> [!TIP]
+> Al usar un punto de conexión de servicio, también puede deshabilitar el acceso público. Para obtener más información, consulte la sección sobre cómo [deshabilitar el acceso de lectura público](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
+
 ## <a name="secure-azure-storage-accounts-with-private-endpoints"></a>Protección de cuentas de almacenamiento de Azure con puntos de conexión privados
 
 Azure Machine Learning admite cuentas de almacenamiento configuradas para usar puntos de conexión de servicio o puntos de conexión privados. Si la cuenta de almacenamiento usa puntos de conexión privados, debe configurar dos para la cuenta de almacenamiento predeterminada:
@@ -106,6 +109,8 @@ Para configurar un punto de conexión privado para una cuenta de almacenamiento 
 
 Para más información, consulte [Uso de puntos de conexión privados para Azure Storage](../storage/common/storage-private-endpoints.md).
 
+> [!TIP]
+> Al usar un punto de conexión privado, también puede deshabilitar el acceso público. Para obtener más información, consulte la sección sobre cómo [deshabilitar el acceso de lectura público](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
 ## <a name="secure-datastores-and-datasets"></a>Protección de almacenes de datos y conjuntos de datos
 
 En esta sección, aprenderá a usar el almacén de datos y los conjuntos de datos de la experiencia del SDK con una red virtual. Para obtener más información sobre la experiencia de Studio, consulte [Uso de Azure Machine Learning Studio en una red virtual](how-to-enable-studio-virtual-network.md).
@@ -238,6 +243,8 @@ Una vez cumplidos estos requisitos, siga los pasos que se indican a continuació
     
     Para más información, vea la referencia del método [update()](/python/api/azureml-core/azureml.core.workspace.workspace#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-).
 
+> [!TIP]
+> Si ACR está detrás de una red virtual, también puede [deshabilitar el acceso público](../container-registry/container-registry-access-selected-networks.md#disable-public-network-access) a la misma.
 ## <a name="next-steps"></a>Pasos siguientes
 
 Este artículo es la segunda parte de una serie de cinco capítulos sobre redes virtuales. Vea el resto de los artículos para obtener información sobre cómo proteger una red virtual:

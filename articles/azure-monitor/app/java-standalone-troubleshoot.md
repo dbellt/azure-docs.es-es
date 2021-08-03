@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo solucionar problemas del agente de
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9bcd0ead2516b040a5a5aee4a7fae042a5f678a2
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: cea6e93999477f7f33daaf5440e161a0da6fb2a2
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449994"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112027846"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>Guía de solución de problemas: Application Insights de Azure Monitor para Java
 
@@ -17,7 +17,7 @@ En este artículo se tratan algunos de los problemas comunes que podría encontr
 
 ## <a name="check-the-self-diagnostic-log-file"></a>Comprobación del archivo de registro de autodiagnóstico
 
-De forma predeterminada, el agente para Java 3.0 para Application Insights genera un archivo de registro denominado `applicationinsights.log` en el mismo directorio que contiene el archivo `applicationinsights-agent-3.0.3.jar`.
+De forma predeterminada, Application Insights Java 3.x genera un archivo de registro denominado `applicationinsights.log` en el mismo directorio que contiene el archivo `applicationinsights-agent-3.1.1.jar`.
 
 Este archivo de registro es la primera ubicación en la que buscar sugerencias sobre cualquier problema que se experimente.
 
@@ -27,7 +27,9 @@ Si JVM no se inicia con el mensaje "Error al abrir el archivo ZIP o falta el man
 
 ## <a name="upgrade-from-the-application-insights-java-2x-sdk"></a>Actualización del SDK de Application Insights para Java 2.x
 
-Si ya está usando el SDK de Application Insights para Java 2.x en la aplicación, puede seguir usándolo. El agente para Java 3.0 lo detectará. Para obtener más información, consulte [Actualización desde el SDK para Java 2.x](./java-standalone-upgrade-from-2x.md).
+Si ya está usando el SDK de Application Insights para Java 2.x en la aplicación, puede seguir usándolo.
+El agente de Application Insights Java 3.x lo detectará, y capturará y correlacionará cualquier telemetría personalizada que envíe a través del SDK 2.x, al mismo tiempo que suprimirá cualquier recopilación automática que realice el SDK 2.x para evitar la telemetría duplicada.
+Para obtener más información, consulte [Actualización desde el SDK para Java 2.x](./java-standalone-upgrade-from-2x.md).
 
 ## <a name="upgrade-from-application-insights-java-30-preview"></a>Actualización de Application Insights para Java 3.0 (versión preliminar)
 

@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.openlocfilehash: fc1bca1265139a438fad86bfce770026866d9a2f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 06/07/2021
+ms.openlocfilehash: 5a7b8c2f76abc9dd41894280e7cf610d0cae85ea
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90931851"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111554896"
 ---
 # <a name="manage-zone-redundant-high-availability-in-flexible-server"></a>Administración de la alta disponibilidad con redundancia de zona en un servidor flexible
 
@@ -95,6 +95,46 @@ Siga estos pasos para deshabilitar la alta disponibilidad en el servidor flexibl
 5.  Haga clic en el botón **Disable HA** (Deshabilitar la alta disponibilidad) para deshabilitar esta opción.
 
 6.  Aparece una notificación que muestra que la retirada de la implementación de la alta disponibilidad está en curso.
+
+## <a name="forced-failover"></a>conmutación por error forzada
+
+Siga estos pasos para forzar la conmutación por error desde el servidor flexible principal al servidor flexible en espera. Esto desactivará de inmediato la base de datos principal y desencadenará una conmutación por error al servidor en espera. Esto es útil para casos en que quiere probar el tiempo de conmutación por error de una interrupción no planeada para la carga de trabajo.
+
+1.  En [Azure Portal](https://portal.azure.com/), seleccione el servidor flexible existente que ya tiene habilitada la característica de alta disponibilidad.
+2.  En la página del servidor flexible, haga clic en Alta disponibilidad en el panel frontal para abrir la página de alta disponibilidad.
+3.  Compruebe la zona de disponibilidad principal y la zona de disponibilidad en espera
+4.  Haga clic en Conmutación por error forzada para iniciar el procedimiento de conmutación por error manual. Una ventana emergente le informará sobre el tiempo de inactividad potencial hasta que se complete la conmutación por error. Lea el mensaje y haga clic en Aceptar.
+5.  Aparecerá una notificación donde se menciona que la conmutación por error está en curso.
+6.  Una vez que se complete la conmutación por error al servidor en espera, se abrirá una ventana emergente.
+7.  Compruebe la nueva zona de disponibilidad principal y la zona de disponibilidad en espera.
+    
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/ha-forced-failover.png" alt-text="Conmutación por error forzada a petición"::: 
+
+>[!IMPORTANT] 
+> * No realice conmutaciones por error inmediatas consecutivas. Espere al menos entre 15 y 20 minutos entre una conmutación por error y otra, lo que también permitirá que el nuevo servidor en espera esté totalmente establecido.
+>
+> * El tiempo total de la operación de un extremo a otro, tal como se notifica en el portal, puede ser mayor que el tiempo de inactividad real experimentado por la aplicación. Mida el tiempo de inactividad desde la perspectiva de la aplicación. 
+
+## <a name="planned-failover"></a>Conmutación por error planeada
+
+Siga estos pasos para realizar una conmutación por error planeada desde el servidor flexible principal al servidor flexible en espera. Con esto se preparará primero el servidor en espera y se realizará la conmutación por error. Esto proporciona el menor tiempo de inactividad, ya que se realiza una conmutación por error correcta en el servidor en espera para situaciones en las que, por ejemplo, después de un evento de conmutación por error, quiere devolver el servidor principal a la zona de disponibilidad preferida.
+1.  En [Azure Portal](https://portal.azure.com/), seleccione el servidor flexible existente que ya tiene habilitada la característica de alta disponibilidad.
+2.  En la página del servidor flexible, haga clic en Alta disponibilidad en el panel frontal para abrir la página de alta disponibilidad.
+3.  Compruebe la zona de disponibilidad principal y la zona de disponibilidad en espera
+4.  Haga clic en Conmutación por error planeada para iniciar el procedimiento de conmutación por error manual. Una ventana emergente le informará del proceso. Lea el mensaje y haga clic en Aceptar.
+5.  Aparecerá una notificación donde se menciona que la conmutación por error está en curso.
+6.  Una vez que se complete la conmutación por error al servidor en espera, se abrirá una ventana emergente.
+7.  Compruebe la nueva zona de disponibilidad principal y la zona de disponibilidad en espera.
+        :::image type="content" source="./media/how-to-manage-high-availability-portal/ha-planned-failover.png" alt-text="Conmutación por error planeada a petición"::: 
+
+>[!IMPORTANT] 
+>
+> * No realice conmutaciones por error inmediatas consecutivas. Espere al menos entre 15 y 20 minutos entre una conmutación por error y otra, lo que también permitirá que el nuevo servidor en espera esté totalmente establecido.
+>
+> * Se recomienda realizar la conmutación por error planeada durante un período de baja actividad.
+>
+> * El tiempo total de la operación de un extremo a otro puede ser mayor que el tiempo de inactividad real experimentado por la aplicación. Mida el tiempo de inactividad desde la perspectiva de la aplicación.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

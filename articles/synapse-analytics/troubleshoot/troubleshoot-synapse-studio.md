@@ -1,6 +1,6 @@
 ---
 title: Solución de problemas de Synapse Studio
-description: Solución de problemas de Azure Synapse Studio
+description: Solución de problemas de Synapse Studio
 author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.subservice: troubleshooting
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 362b588112c5027b78285a77bbb556f2497b1892
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 16608f77971c3c19836d8f956512f28f945d3667
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108143150"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109809065"
 ---
-# <a name="azure-synapse-studio-troubleshooting"></a>Solución de problemas de Azure Synapse Studio
+# <a name="synapse-studio-troubleshooting"></a>Solución de problemas de Synapse Studio
 
 En esta guía de solución de problemas se brindan instrucciones sobre la información que se debe proporcionar al abrir una incidencia de soporte técnico sobre problemas de conectividad de red. Con la información adecuada, posiblemente podamos resolver el problema con más rapidez.
 
@@ -43,7 +43,7 @@ Abra el panel "Información de diagnóstico", seleccione el botón "Download Dia
 
 ![diagnostic-info](media/troubleshooting-synapse-studio/diagnostic-info-download.png)
 
-Para empezar a solucionar problemas, vuelva a intentar la operación que realizó en Azure Synapse Studio.
+Para empezar a solucionar problemas, vuelva a intentar la operación que realizó en Synapse Studio.
 
 - En el caso del síntoma 1, seleccione el botón "Actualizar" a la derecha de la lista desplegable "Use database" (Usar base de datos) en la pestaña "Script SQL" y compruebe si puede ver "grupo de SQL sin servidor".
 - En el caso del síntoma 2, intente ejecutar de nuevo la consulta para ver si se ejecuta correctamente.

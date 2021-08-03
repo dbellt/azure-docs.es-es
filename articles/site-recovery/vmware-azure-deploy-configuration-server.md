@@ -2,18 +2,18 @@
 title: Implementación del servidor de configuración en Azure Site Recovery
 description: En este artículo se describe cómo implementar un servidor de configuración para realizar la recuperación ante desastres de VMware con Azure Site Recovery
 services: site-recovery
-author: Rajeswari-Mamilla
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
-ms.topic: article
-ms.date: 10/15/2019
-ms.author: ramamill
-ms.openlocfilehash: a8ceb3df68ebe42f83c70ed62327bf59c0dfc225
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: conceptual
+ms.author: sharrai
+ms.date: 05/27/2021
+ms.openlocfilehash: 9fd9dd63967dc5fb27b9db6931fdc60d57b405fb
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92359822"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110576185"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar un servidor de configuración
 
@@ -185,7 +185,7 @@ Consulte el [artículo Solucionar problemas](vmware-azure-troubleshoot-configura
     No. No cambie la dirección IP del servidor de configuración. Asegúrese de que todas las direcciones IP asignadas al servidor de configuración sean direcciones IP estáticas y no direcciones IP de DHCP.
 * ¿Puedo configurar el servidor de configuración en Azure?
 
-    Configure el servidor de configuración en el entorno local con una línea de vista directa con vCenter para reducir las latencias de transferencia de datos. Puede realizar copias de seguridad programadas del servidor de configuración con [fines de conmutación por recuperación](vmware-azure-manage-configuration-server.md#failback-requirements).
+    Configure un servidor de configuración en un entorno local con una línea de vista directa con vCenter y para reducir las latencias de transferencia de datos. Puede realizar copias de seguridad programadas del servidor de configuración con [fines de conmutación por recuperación](vmware-azure-manage-configuration-server.md#failback-requirements).
 
 * ¿Puedo cambiar el controlador de caché en un servidor de configuración o en un servidor de procesos de escalabilidad horizontal?
 

@@ -1,24 +1,27 @@
 ---
 title: Administración de conflictos entre regiones en Azure Cosmos DB
 description: Obtenga información sobre cómo administrar los conflictos en Azure Cosmos DB mediante la creación de una directiva de tipo el último escritor gana o una directiva de resolución de conflictos personalizada.
-author: anfeldma-ms
+author: fsautomata
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2020
-ms.author: anfeldma
+ms.author: elioda
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8f98c2201159350f5774f4d2b05102384f31f3af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fd4743657e6ac45b37d1e5eb7b2687ab6fc52270
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93339349"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591645"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Administración de directivas de resolución de conflictos en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Con las operaciones de escritura en varias regiones, cuando varios clientes escriben en el mismo elemento podrían producirse conflictos. Cuando se produce un conflicto de datos, se puede resolver mediante el uso de distintas directivas de resolución de conflictos. En este artículo se describe cómo administrar directivas de resolución de conflictos.
+
+> [!TIP]
+> La directiva de resolución de conflictos solo se puede especificar en el momento de la creación del contenedor, y no se puede modificar una vez creado.
 
 ## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Creación de una directiva de resolución de conflictos del tipo "el último en escribir gana"
 

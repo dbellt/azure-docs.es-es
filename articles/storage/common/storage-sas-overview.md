@@ -10,12 +10,12 @@ ms.date: 12/28/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 51e73222233602491b0c8ed3835d032610c68e0d
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: c7f8f46cf8d6195df7d47663cae809c7074129e4
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104722793"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111903948"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)
 
@@ -78,7 +78,7 @@ Una firma de acceso compartido puede presentar una de las dos formas siguientes:
 Una Firma de acceso compartido es un URI firmado que apunta a uno o varios recursos de almacenamiento. El URI incluye un token que contiene un conjunto especial de parámetros de consulta. El token indica cómo puede el cliente tener acceso a los recursos. Uno de los parámetros de consulta, la firma, se construye a partir de parámetros SAS y se firma con la clave que se usó para crear la SAS. Azure Storage utiliza esta firma para autorizar el acceso al recurso de almacenamiento.
 
 > [!NOTE]
-> No es posible auditar la generación de tokens de SAS. Cualquier usuario que tenga privilegios para generar un token de SAS, ya sea mediante la clave de cuenta o a través de una asignación de roles de RBAC de Azure, puede hacerlo sin el conocimiento del propietario de la cuenta de almacenamiento. Tenga cuidado al restringir los permisos que permiten a los usuarios generar tokens de SAS. Para evitar que los usuarios generen una SAS firmada con la clave de cuenta para cargas de trabajo de blobs y colas, puede impedir el acceso con clave compartida a la cuenta de almacenamiento. Para más información, consulte [Evitar autorización con clave compartida](shared-key-authorization-prevent.md).
+> No es posible auditar la generación de tokens de SAS. Cualquier usuario que tenga privilegios para generar un token de SAS, ya sea mediante la clave de cuenta o a través de una asignación de roles de Azure, puede hacerlo sin el conocimiento del propietario de la cuenta de almacenamiento. Tenga cuidado al restringir los permisos que permiten a los usuarios generar tokens de SAS. Para evitar que los usuarios generen una SAS firmada con la clave de cuenta para cargas de trabajo de blobs y colas, puede impedir el acceso con clave compartida a la cuenta de almacenamiento. Para más información, consulte [Evitar autorización con clave compartida](shared-key-authorization-prevent.md).
 
 ### <a name="sas-signature-and-authorization"></a>Firma y autorización de SAS
 

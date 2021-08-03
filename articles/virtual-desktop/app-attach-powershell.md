@@ -1,17 +1,18 @@
 ---
-title: 'PowerShell para la conexión de aplicaciones MSIX en Windows Virtual Desktop: Azure'
-description: Configuración de la asociación de aplicaciones en formato MSIX para Windows Virtual Desktop con PowerShell.
+title: 'PowerShell para la asociación de aplicaciones en formato MSIX en Azure Virtual Desktop: Azure'
+description: Configuración de la asociación de aplicaciones en formato MSIX para Azure Virtual Desktop con PowerShell.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
+ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: f44cbf3764063c511c896f11bb7ebfaae2973f0c
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 6a5dd53bee4e6ae99559d63441f1240d5905644e
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365406"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745428"
 ---
 # <a name="set-up-msix-app-attach-using-powershell"></a>Configuración de la asociación de aplicaciones en formato MSIX (versión preliminar) con PowerShell
 
@@ -19,18 +20,14 @@ Además de Azure Portal, también puede configurar la conexión de aplicaciones
 
 ## <a name="requirements"></a>Requisitos
 
->[!IMPORTANT]
->Antes de empezar, asegúrese de rellenar [este formulario](https://aka.ms/enablemsixappattach) y enviarlo para habilitar la asociación de aplicaciones en formato MSIX en su suscripción. Si no tiene una solicitud aprobada, la asociación de aplicaciones en formato MSIX no funcionará. La aprobación de las solicitudes puede tardar hasta 24 horas durante los días laborables. Recibirá un correo electrónico cuando la solicitud se haya aceptado y completado.
-
 Esto es lo que necesita para configurar la asociación de aplicaciones en formato MSIX:
 
-- Una implementación de Windows Virtual Desktop en funcionamiento. Para obtener información sobre cómo implementar Windows Virtual Desktop (clásico), consulte [Creación de un inquilino en Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Para obtener información sobre cómo implementar Windows Virtual Desktop con la integración de Azure Resource Manager, consulte [Creación de un grupo de hosts con Azure Portal](./create-host-pools-azure-marketplace.md).
-- Un grupo de hosts de Windows Virtual Desktop con al menos un host de sesión activo.
-- Este grupo de hosts debe estar en el entorno de validación.
+- Una implementación de Azure Virtual Desktop en funcionamiento. Para aprender a implementar Azure Virtual Desktop (clásico), consulte [Creación de un inquilino en Azure Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Para aprender a implementar Azure Virtual Desktop con la integración de Azure Resource Manager, consulte [Creación de un grupo de hosts con Azure Portal](./create-host-pools-azure-marketplace.md).
+- Un grupo de hosts de Azure Virtual Desktop con al menos un host de sesión activo.
 - Un grupo de aplicaciones remotas de escritorio.
 - La herramienta de empaquetado MSIX.
 - Una aplicación empaquetada en formato MSIX expandida en una imagen MSIX que se carga en un recurso compartido de archivos.
-- Un recurso compartido de archivos en la implementación de Windows Virtual Desktop donde se almacenará el paquete MSIX.
+- Un recurso compartido de archivos en la implementación de Azure Virtual Desktop donde se almacenará el paquete MSIX.
 - El recurso compartido de archivos en el que cargó la imagen MSIX también debe ser accesible para todas las máquinas virtuales (VM) del grupo de hosts. Los usuarios necesitarán permisos de solo lectura para acceder a la imagen.
 - Descargue e instale PowerShell Core.
 - Descargue el módulo de Azure PowerShell de vista previa pública y expándalo a una carpeta local.
@@ -238,9 +235,9 @@ Por último, tendrá que publicar la aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Pregunte a la comunidad sobre esta característica en el espacio de [TechCommunity sobre Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
+Pregunte a la comunidad sobre esta característica en el espacio de [TechCommunity sobre Azure Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 
-También puede dejar comentarios sobre Windows Virtual Desktop en el [Concentrador de comentarios de Windows Virtual Desktop](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
+También puede dejar comentarios sobre Azure Virtual Desktop en el [Centro de opiniones de Azure Virtual Desktop](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
 
 Estos son algunos otros artículos que pueden resultarle útiles:
 

@@ -6,19 +6,19 @@ ms.author: valls
 ms.date: 2/14/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 819e3574a2341d2a9f946e7fa7e008c798bd099f
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 768e751f28f9725cab47f100188c318d6b35d667
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108756438"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969144"
 ---
 # <a name="device-update-for-iot-hub-and-iot-plug-and-play"></a>Device Update para IoT Hub e IoT Plug and Play
 
 Device Update para IoT Hub utiliza [IoT Plug and Play](../iot-pnp/index.yml) para detectar y administrar dispositivos que admiten actualizaciones de forma inalámbrica. El servicio Device Update enviará propiedades y mensajes a los dispositivos y los recibirá de estos utilizando interfaces de PnP. Device Update para IoT Hub necesita que los dispositivos IoT implementen las siguientes interfaces e identificadores de modelo que se indican a continuación.
 
 Conceptos: 
-* Comprenda el [cliente de dispositivo de IoT Plug and Play](https://docs.microsoft.com/azure/iot-pnp/concepts-developer-guide-device?pivots=programming-language-csharp#implement-telemetry,-properties,-and-commands). 
+* Comprenda el [cliente de dispositivo de IoT Plug and Play](../iot-pnp/concepts-developer-guide-device.md?pivots=programming-language-csharp#implement-telemetry-properties-and-commands). 
 * Vea cómo se [implementa el agente de Device Update](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md).
 
 ## <a name="adu-core-interface"></a>Interfaz principal de ADU
@@ -43,7 +43,7 @@ Los metadatos del agente contienen campos que se utilizan en el dispositivo o en
 
 Es el estado que notifica Device Update Agent después de recibir una acción del servicio Device Update. `State` es la respuesta a una `Action` ([Acción], consulte `Actions` a continuación) que se notifica y se envía a Device Update Agent desde el servicio Device Update. Consulte el [flujo de trabajo general](understand-device-update.md#device-update-agent) de las solicitudes que se transmiten entre el servicio Device Update y Device Update Agent.
 
-|Nombre|Value|Descripción|
+|Nombre|Valor|Descripción|
 |---------|-----|-----------|
 |Inactivo|0|El dispositivo está listo para recibir una acción del servicio Device Update. Cuando una actualización se realiza correctamente, el estado vuelve a ser `Idle`.|
 |DownloadSucceeded|2|Descarga correcta.|
@@ -56,8 +56,8 @@ Conjunto de propiedades que contienen el fabricante y el modelo.
 
 |Nombre|Schema|Dirección|Descripción|
 |----|------|---------|-----------|
-|fabricante|string|entre el dispositivo y la nube|Fabricante del dispositivo notificado mediante `deviceProperties`. Esta propiedad puede verse en uno de los dos lugares en los que la interfaz "AzureDeviceUpdateCore" va a intentar leer primero el valor "aduc_manufacturer" del [archivo de configuración](device-update-configuration-file.md).  Si el valor no figura en el archivo de configuración, se establecerá de forma predeterminada en un valor que informe del tiempo de compilación de ADUC_DEVICEPROPERTIES_MANUFACTURER. Esta propiedad solo se notificará en el momento del arranque.|
-|model|string|entre el dispositivo y la nube|Modelo del dispositivo, que se notifica mediante `deviceProperties`. Esta propiedad puede verse en uno de los dos lugares en los que la interfaz "AzureDeviceUpdateCore" va a intentar leer primero el valor de "aduc_model" del [archivo de configuración](device-update-configuration-file.md).  Si el valor no figura en el archivo de configuración, se establecerá de forma predeterminada en un valor que informe del tiempo de compilación de ADUC_DEVICEPROPERTIES_MODEL. Esta propiedad solo se notificará en el momento del arranque.|
+|fabricante|string|entre el dispositivo y la nube|Fabricante del dispositivo notificado mediante `deviceProperties`. Esta propiedad puede verse en uno de los dos lugares en los que la interfaz "AzureDeviceUpdateCore" va a intentar leer primero el valor "aduc_manufacturer" del [archivo de configuración](device-update-configuration-file.md).  Si el valor no figura en el archivo de configuración, se establecerá de forma predeterminada en un valor que informe del tiempo de compilación de ADUC_DEVICEPROPERTIES_MANUFACTURER. Esta propiedad solo se notificará en el momento del arranque. Valor predeterminado "Contoso"|
+|model|string|entre el dispositivo y la nube|Modelo del dispositivo, que se notifica mediante `deviceProperties`. Esta propiedad puede verse en uno de los dos lugares en los que la interfaz "AzureDeviceUpdateCore" va a intentar leer primero el valor de "aduc_model" del [archivo de configuración](device-update-configuration-file.md).  Si el valor no figura en el archivo de configuración, se establecerá de forma predeterminada en un valor que informe del tiempo de compilación de ADUC_DEVICEPROPERTIES_MODEL. Esta propiedad solo se notificará en el momento del arranque. Valor predeterminado "Video"|
 |aduVer|string|entre el dispositivo y la nube|Versión de Device Update Agent que se ejecuta en el dispositivo. Este valor solamente se obtiene de la compilación si durante el tiempo de compilación ENABLE_ADU_TELEMETRY_REPORTING está establecido en 1 (true). Los clientes pueden desactivar la notificación de la versión estableciendo el valor en 0 (false). [Personalización de las propiedades de Device Update Agent](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md).|
 |doVer|string|entre el dispositivo y la nube|Versión del agente de Optimización de distribución que se ejecuta en el dispositivo. Este valor solamente se obtiene de la compilación si durante el tiempo de compilación ENABLE_ADU_TELEMETRY_REPORTING está establecido en 1 (true). Los clientes pueden desactivar la notificación de la versión estableciendo el valor en 0 (false). [Personalización de las propiedades de Device Update Agent](https://github.com/microsoft/do-client/blob/main/README.md#building-do-client-components).|
 
@@ -80,7 +80,7 @@ Ejemplo de dispositivo gemelo de IoT Hub
                             }
 ```
 
-Nota: El dispositivo o módulo debe agregar el marcador {"__t": "c"} para indicar que el elemento hace referencia a un componente, obtenga más información [aquí](https://docs.microsoft.com/azure/iot-pnp/concepts-convention#sample-multiple-components-writable-property).
+Nota: El dispositivo o módulo debe agregar el marcador {"__t": "c"} para indicar que el elemento hace referencia a un componente, obtenga más información [aquí](../iot-pnp/concepts-convention.md#sample-multiple-components-writable-property).
 
 ### <a name="service-metadata"></a>Metadatos de servicio
 
@@ -97,7 +97,7 @@ Los metadatos del servicio contienen campos que los servicios de Device Update u
 
 El objeto `Actions` siguiente representa las acciones realizadas por Device Update Agent conforme a las instrucciones del servicio Device Update. Device Update Agent notificará un objeto `State` (consulte `State` en la sección anterior) sobre el procesamiento del valor de `Action` recibido. Consulte el [flujo de trabajo general](understand-device-update.md#device-update-agent) de las solicitudes que se transmiten entre el servicio Device Update y Device Update Agent.
 
-|Nombre|Value|Descripción|
+|Nombre|Valor|Descripción|
 |---------|-----|-----------|
 |Descargar|0|Descarga la actualización o el contenido que están publicados y cualquier otro contenido necesario|
 |Instalar|1|Instala el contenido o la actualización. Normalmente, esto significa que es necesario llamar al instalador del contenido o la actualización.|

@@ -6,12 +6,12 @@ ms.author: aysancag
 ms.date: 2/09/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 18388f067ccb5b8a8876aeae685664694c207613
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa3ee7e5b92044c35ac1856309f7265ad06923a1
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101678844"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110083537"
 ---
 # <a name="device-groups"></a>Grupos de dispositivos
 
@@ -19,11 +19,11 @@ Un grupo de dispositivos es una colección de dispositivos. Los grupos de dispos
 Si lo desea, puede crear varios grupos para organizar los dispositivos. Por ejemplo, Contoso podría utilizar el grupo de dispositivos "Distribución de paquetes piloto" para los dispositivos del laboratorio de pruebas y el grupo de dispositivos "Evaluación" para los dispositivos que el equipo de campo utiliza en el centro de operaciones. Además, podría agrupar los dispositivos de producción en función de las regiones geográficas en las que opera, y actualizar así los dispositivos conforme a una programación que se ajuste a la zona horaria de cada región. 
 
 
-## <a name="using-device-twin-tag-for-device-group-creation"></a>Uso de etiquetas de dispositivos gemelos para la creación de grupos de dispositivos
+## <a name="using-device-or-module-twin-tag-for-device-group-creation"></a>Uso de etiquetas de dispositivos o módulos gemelos para la creación de grupos de dispositivos
 
-Las etiquetas de dispositivos gemelos permiten a los usuarios agrupar los dispositivos. Los dispositivos deben tener una clave ADUGroup y un valor en su dispositivo gemelo para que puedan agruparse.
+Las etiquetas permiten a los usuarios agrupar los dispositivos. Los dispositivos deben tener una clave ADUGroup y un valor en su dispositivo o módulo gemelo para que puedan agruparse.
 
-### <a name="device-twin-tag-format"></a>Formato de etiqueta de dispositivo gemelo
+### <a name="device-or-module-twin-tag-format"></a>Formato de etiqueta de dispositivo o módulo gemelo
 
 ```markdown
 "tags": {
@@ -35,8 +35,8 @@ Las etiquetas de dispositivos gemelos permiten a los usuarios agrupar los dispos
 ## <a name="uncategorized-device-group"></a>Grupo de dispositivos "Uncategorized" (sin categoría)
 
 "Uncategorized" (Sin categoría) es una palabra reservada que se utiliza para agrupar dispositivos que:
-- No tienen una etiqueta de dispositivo gemelo de ADUGroup.
-- Tienen una etiqueta de dispositivo gemelo de ADUGroup, pero no se crea ningún grupo con este nombre.
+- No tienen la etiqueta de dispositivo o módulo gemelo de ADUGroup.
+- Tienen una etiqueta de dispositivo o módulo gemelo de ADUGroup, pero no se crea un grupo con este nombre de grupo.
 
 Por ejemplo, piense en unos dispositivos que tengan las siguientes etiquetas de dispositivo gemelo:
 

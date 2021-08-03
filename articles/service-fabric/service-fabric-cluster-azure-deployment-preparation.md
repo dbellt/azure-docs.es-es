@@ -3,12 +3,12 @@ title: Planeación de una implementación de clúster de Azure Service Fabric
 description: Obtenga información sobre la planificación y preparación de la implementación de un clúster de producción de Service Fabric.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 82521487b9a3e9438784e010a32cf6df8e7be2ef
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e6b7c0a14f6e5f63e84c8efa484347cd4ff322f4
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046324"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110789549"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planeamiento y preparación de la implementación de un clúster
 
@@ -33,7 +33,7 @@ En primer lugar, debe decidir para qué va a servir el clúster que va a crear. 
 ### <a name="select-node-properties-for-each-node-type"></a>Selección de propiedades de nodo para cada tipo de nodo
 Los tipos de nodo definen la SKU de máquina virtual el número y las propiedades de las máquinas virtuales en el conjunto de escalado asociado.
 
-El tamaño mínimo de las máquinas virtuales para cada tipo de nodo está determinado por el [nivel de durabilidad][durability] que elija para el tipo de nodo.
+El tamaño mínimo de las máquinas virtuales para cada tipo de nodo está determinado por el [nivel de durabilidad][durability] que elija para el tipo de nodo. Antes de elegir una SKU de máquina virtual, asegúrese de comprender los pasos necesarios para el [escalado vertical](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations) si decide que necesita una SKU de máquina virtual diferente en el futuro.
 
 El número mínimo de máquinas virtuales del tipo de nodo principal se determina mediante el [nivel de confiabilidad][reliability] que se elija.
 

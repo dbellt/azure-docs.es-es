@@ -1,23 +1,23 @@
 ---
-title: 'Configuración de un recurso compartido de archivos para conectar aplicaciones en formato MSIX en Windows Virtual Desktop: Azure'
-description: Configuración de un recurso compartido de archivos para asociar aplicaciones en formato MSIX en el contexto de Windows Virtual Desktop.
+title: 'Configuración de un recurso compartido de archivos para conectar aplicaciones en formato MSIX en Azure Virtual Desktop: Azure'
+description: Configuración de un recurso compartido de archivos para asociar aplicaciones en formato MSIX en el contexto de Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 59f2ac4021a4f3ae7d2121d9e96bac96c658485c
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 80de8767d96cacc5fdec95f26efec88c55e2ceb3
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109516945"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745698"
 ---
 # <a name="set-up-a-file-share-for-msix-app-attach"></a>Configuración de un recurso compartido de archivos para asociar aplicaciones en formato MSIX (versión preliminar)
 
 Todas las imágenes MSIX deben almacenarse en un recurso compartido de red al que puedan acceder los usuarios de un grupo host con permisos de solo lectura.
 
-La conexión de aplicaciones en formato MSIX no tiene dependencias en el tipo de tejido de almacenamiento que usa el recurso compartido de archivos. Las consideraciones para el recurso compartido de asociación en formato MSIX son las mismas que las de un recurso compartido de FSLogix. Para obtener más información sobre los requisitos de almacenamiento, consulte [Opciones de almacenamiento para los contenedores de perfiles de FSLogix de Windows Virtual Desktop](store-fslogix-profile.md).
+La conexión de aplicaciones en formato MSIX no tiene dependencias en el tipo de tejido de almacenamiento que usa el recurso compartido de archivos. Las consideraciones para el recurso compartido de asociación en formato MSIX son las mismas que las de un recurso compartido de FSLogix. Para más información sobre los requisitos de almacenamiento, consulte [Opciones de almacenamiento para los contenedores de perfiles de FSLogix de Azure Virtual Desktop](store-fslogix-profile.md).
 
 ## <a name="performance-requirements"></a>Requisitos de rendimiento
 
@@ -35,7 +35,7 @@ Los requisitos pueden variar considerablemente en función del número de aplica
 
 ### <a name="storage-recommendations"></a>Recomendaciones para almacenamiento
 
-Azure ofrece varias opciones de almacenamiento que se pueden usar para asociar aplicaciones en formato MISX. Se recomienda usar Azure Files o Azure NetApp Files, ya que esas opciones ofrecen la mejor relación entre costo y sobrecarga de administración. En el artículo [Opciones de almacenamiento para los contenedores de perfiles de FSLogix de Windows Virtual Desktop](store-fslogix-profile.md) se comparan las diferentes soluciones de almacenamiento administrado que Azure ofrece en el contexto de Windows Virtual Desktop.
+Azure ofrece varias opciones de almacenamiento que se pueden usar para asociar aplicaciones en formato MISX. Se recomienda usar Azure Files o Azure NetApp Files, ya que esas opciones ofrecen la mejor relación entre costo y sobrecarga de administración. En el artículo [Opciones de almacenamiento para los contenedores de perfiles de FSLogix de Azure Virtual Desktop](store-fslogix-profile.md) se comparan las diferentes soluciones de almacenamiento administrado que Azure ofrece en el contexto de Azure Virtual Desktop.
 
 ### <a name="optimize-msix-app-attach-performance"></a>Optimización del rendimiento de la asociación de aplicaciones en formato MSIX
 
@@ -53,7 +53,7 @@ Estas son algunas de las otras cosas que se recomiendan para optimizar el rendim
 
 - Separe el tejido de almacenamiento para asociar aplicaciones en formato MSIX desde contenedores de perfiles de FSLogix.
 - Todas las cuentas de usuario y cuentas de sistema de máquinas virtuales deben tener permisos de solo lectura para acceder al recurso compartido de archivos.
-- Los planes de recuperación ante desastres para Windows Virtual Desktop deben incluir la replicación del recurso compartido de archivos de asociación de aplicaciones en formato MSIX en la ubicación secundaria de conmutación por error. Para obtener más información sobre la recuperación ante desastres, consulte [Configuración de un plan de continuidad empresarial y recuperación ante desastres](disaster-recovery.md).
+- Los planes de recuperación ante desastres para Azure Virtual Desktop deben incluir la replicación del recurso compartido de archivos de asociación de aplicaciones en formato MSIX en la ubicación secundaria de conmutación por error. Para obtener más información sobre la recuperación ante desastres, consulte [Configuración de un plan de continuidad empresarial y recuperación ante desastres](disaster-recovery.md).
 
 ## <a name="how-to-set-up-the-file-share"></a>Configuración del recurso compartido de archivos
 
@@ -104,7 +104,7 @@ Estos son los otros pasos que debe realizar después de configurar el recurso co
 
 Una vez que haya terminado, aquí se muestran otros recursos que pueden resultarle útiles:
 
-- Pregunte a la comunidad sobre esta característica en el espacio de [TechCommunity sobre Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
-- También puede dejar comentarios sobre Windows Virtual Desktop en el [Concentrador de comentarios de Windows Virtual Desktop](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
+- Pregunte a la comunidad sobre esta característica en el espacio de [TechCommunity sobre Azure Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
+- También puede dejar comentarios sobre Azure Virtual Desktop en el [Centro de opiniones de Azure Virtual Desktop](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
 - [Glosario sobre la conexión de aplicaciones en formato MSIX](app-attach-glossary.md)
 - [Preguntas frecuentes sobre la asociación de aplicaciones en formato MSIX](app-attach-faq.md)

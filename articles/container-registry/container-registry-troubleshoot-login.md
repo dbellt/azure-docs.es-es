@@ -3,12 +3,12 @@ title: Solución de problemas de inicio de sesión en el registro
 description: Síntomas, causas y resolución de problemas comunes al iniciar sesión en un registro de contenedor de Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 47186cc8256836e5367ecee520787b67662eb42f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: d8579d2a590f722c40dc3582a03efb602dde6520
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780738"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110078155"
 ---
 # <a name="troubleshoot-registry-login"></a>Solución de problemas de inicio de sesión del registro
 
@@ -131,11 +131,11 @@ Vínculos relacionados:
 
 ## <a name="advanced-troubleshooting"></a>Pasos detallados para solucionar problemas de conexión a Escritorio remoto a máquinas virtuales Windows en Azure
 
-Si la [colección de registros de recursos](container-registry-diagnostics-audit-logs.md) está habilitada en el registro, revise el registro ContainterRegistryLoginEvents. Este registro almacena los eventos y el estado de autenticación, incluida la identidad entrante y la dirección IP. Consulte el registro para conocer los [errores de autenticación del registro](container-registry-diagnostics-audit-logs.md#registry-authentication-failures). 
+Si la [colección de registros de recursos](monitor-service.md) está habilitada en el registro, revise el registro ContainterRegistryLoginEvents. Este registro almacena los eventos y el estado de autenticación, incluida la identidad entrante y la dirección IP. Consulte el registro para conocer los [errores de autenticación del registro](monitor-service.md#registry-authentication-failures). 
 
 Vínculos relacionados:
 
-* [Registros para la evaluación y auditoría de diagnóstico](container-registry-diagnostics-audit-logs.md)
+* [Supervisión de Azure Container Registry](monitor-service.md)
 * [Preguntas frecuentes sobre Container Registry](container-registry-faq.md)
 * [Procedimientos recomendados para Azure Container Registry](container-registry-best-practices.md)
 

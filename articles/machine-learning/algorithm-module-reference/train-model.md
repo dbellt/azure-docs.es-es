@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 03/10/2021
-ms.openlocfilehash: 41b327e793c6b35a2b2aeae825c493a484d84fb4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 05/10/2021
+ms.openlocfilehash: 4bbb85593d41b56ba465f577c3be35de43ba610a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562773"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110468620"
 ---
 # <a name="train-model-module"></a>Módulo Entrenar modelo
 
@@ -75,9 +75,16 @@ Actualmente, el módulo **Train Model** (Entrenar modelo) admite el [uso del paq
 
 - Regresión lineal
 - Regresión de red neuronal
+- Regresión ampliada del árbol de decisión
+- Regresión de bosque de decisión
+- Regresión de Poisson
 - Regresión logística de dos clases
 - Máquina de vectores de soporte de dos clases
+- Árbol de decisión ampliado de dos clases
+- Bosque de decisión de dos clases
 - Bosque de decisión de varias clases
+- Regresión logística de varias clases
+- Red neuronal de varias clases
 
 Para generar explicaciones del modelo, puede seleccionar **Verdadero** en la lista desplegable **Model Explanation** (Explicación del modelo) del módulo Train Model (Entrenar modelo). De forma predeterminada, se establece en Falso en el módulo **Train Model** (Entrenar modelo). Tenga en cuenta que la generación de una explicación requiere costos de proceso adicionales.
 

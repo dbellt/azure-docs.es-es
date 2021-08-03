@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/16/2020
+ms.date: 04/30/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a3f8a0562df4b4eeef338ddf357f37d7d0bc8f5a
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 6477283b3eb96579b943baf0aa34c2737bf43a58
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107946644"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110059612"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de sugerencias de token de id. en una directiva personalizada de Azure Active Directory B2C
 
@@ -94,6 +94,8 @@ Los metadatos siguientes son pertinentes cuando se usa una clave asimétrica.
 | METADATOS| Sí | Una dirección URL que apunta a un documento de configuración del emisor del token, que es un punto de conexión de configuración conocido de OpenID.   |
 | issuer | No | Identifica el servicio de token de seguridad (emisor del token). Este valor se puede usar para sobrescribir el valor configurado en los metadatos y debe ser idéntico a la notificación `iss` dentro de la notificación del token JWT. |  
 | IdTokenAudience | No | Identifica al destinatario previsto del token. Debe coincidir con la notificación `aud` dentro de la notificación del token JWT. |  
+
+[!INCLUDE [active-directory-b2c-https-cipher-tls-requirements](../../includes/active-directory-b2c-https-cipher-tls-requirements.md)]
 
 ## <a name="cryptographic-keys"></a>Claves criptográficas
 
@@ -185,7 +187,7 @@ El emisor del token debe proporcionar los puntos de conexión siguientes:
 * `/.well-known/openid-configuration`: un punto de conexión de configuración conocido con la información pertinente sobre el token, como el nombre del emisor del token y el vínculo al punto de conexión JWK. 
 * `/.well-known/keys`: el punto de conexión de la clave web de JSON (JWK) con la clave pública que se usa para firmar la clave (con la parte de la clave privada del certificado).
 
-Vea el ejemplo de controlador MVC de .net [TokenMetadataController.cs](https://github.com/azure-ad-b2c/id-token-builder/blob/master/source-code/B2CIdTokenBuilder/Controllers/TokenMetadataController.cs).
+Vea el ejemplo de controlador MVC de .NET [TokenMetadataController.cs](https://github.com/azure-ad-b2c/id-token-builder/blob/master/source-code/B2CIdTokenBuilder/Controllers/TokenMetadataController.cs).
 
 #### <a name="step-1-prepare-a-self-signed-certificate"></a>Paso 1. Preparación de un certificado autofirmado
 
@@ -219,7 +221,7 @@ El siguiente perfil técnico valida el token y extrae las notificaciones. Cambie
       <Metadata>
         <!-- Replace with your endpoint location -->
         <Item Key="METADATA">https://your-app.azurewebsites.net/.well-known/openid-configuration</Item>
-        <Item Key="IdTokenAudience">your_optional_audience</Item> -->
+        <Item Key="IdTokenAudience">your_optional_audience</Item>
         <!-- <Item Key="issuer">your_optional_token_issuer_override</Item> -->
       </Metadata>
       <OutputClaims>

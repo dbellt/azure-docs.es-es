@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 29830357f7899d821d627595a3e533788e788205
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 21d9c4cebfdb22fb694cef8064991572159dcf48
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108769856"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111569843"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Tutorial: Requisitos previos para crear grupos de disponibilidad en VM con SQL Server en Azure
 
@@ -541,4 +541,11 @@ Repita estos pasos en la segunda máquina virtual con SQL Server.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Creación de un grupo de disponibilidad AlwaysOn de SQL Server en Azure Virtual Machines](availability-group-manually-configure-tutorial.md)
+Ahora que ha configurado los requisitos previos, comience con la [configuración del grupo de disponibilidad](availability-group-manually-configure-tutorial.md).
+
+Para obtener más información, consulte:
+
+- [Clúster de conmutación por error de Windows Server con SQL Server en máquinas virtuales de Azure](hadr-windows-server-failover-cluster-overview.md)
+- [Grupos de disponibilidad Always On para SQL Server en Azure Virtual Machines](availability-group-overview.md)
+- [Introducción a los grupos de disponibilidad Always On](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+- [Configuración de alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](hadr-cluster-best-practices.md)

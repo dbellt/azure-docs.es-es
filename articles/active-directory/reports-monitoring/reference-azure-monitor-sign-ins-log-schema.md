@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/12/2021
+ms.date: 05/21/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bad8ae86827144269e816a6c2e01d6af3f4d88ac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa9bc861ffdc2c8671f062bb41499c8ffee1123d
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103225425"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965631"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpretación del esquema de registros de inicio de sesión de Azure AD en Azure Monitor
 
@@ -151,8 +151,8 @@ En este artículo se describe el esquema de registro de inicio de sesión de Azu
 | OperationVersion | - | Versión de la API REST solicitada por el cliente. |
 | Category | - | Para inicios de sesión, este valor es siempre *SignIn*. | 
 | TenantId | - | GUID del inquilino asociado con los registros. |
-| ResultType | - | El resultado de la operación de inicio de sesión puede ser *Correcto* o *Error*. | 
-| ResultSignature | - | Contiene el código de error, si existe, de la operación de inicio de sesión. |
+| ResultType | - | El resultado de la operación de inicio de sesión puede ser `0` en caso de que sea correcto o un *código de error* en caso de error. | 
+| ResultSignature | - | Este valor siempre es *Ninguno*. |
 | ResultDescription | N/D o en blanco | Proporciona la descripción del error para la operación de inicio de sesión. |
 | riskDetail | riskDetail | Proporciona la "razón" detrás de un estado específico de un usuario de riesgo, un inicio de sesión o una detección de riesgo. Los valores posibles son: `none`, `adminGeneratedTemporaryPassword`, `userPerformedSecuredPasswordChange`, `userPerformedSecuredPasswordReset`, `adminConfirmedSigninSafe`, `aiConfirmedSigninSafe`, `userPassedMFADrivenByRiskBasedPolicy`, `adminDismissedAllRiskForUser`, `adminConfirmedSigninCompromised`, `unknownFutureValue`. El valor `none` significa que no se ha realizado hasta el momento ninguna acción sobre el usuario o el inicio de sesión. <br>**Nota:** Los detalles de esta propiedad requieren una licencia de Azure AD Premium P2. Otras licencias devuelven el valor `hidden`. |
 | riskEventTypes | riskEventTypes | Tipos de detecciones de riesgo asociadas con el inicio de sesión. Los valores posibles son: `unlikelyTravel`, `anonymizedIPAddress`, `maliciousIPAddress`, `unfamiliarFeatures`, `malwareInfectedIPAddress`, `suspiciousIPAddress`, `leakedCredentials`, `investigationsThreatIntelligence`,  `generic` y `unknownFutureValue`. |
@@ -171,5 +171,5 @@ En este artículo se describe el esquema de registro de inicio de sesión de Azu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Interpretación del esquema de registros de auditoría en Azure Monitor](reference-azure-monitor-audit-log-schema.md)
+* [Interpretación del esquema de registros de auditoría en Azure Monitor](./overview-reports.md)
 * [Más información sobre los registros de plataforma de Azure](../../azure-monitor/essentials/platform-logs-overview.md)

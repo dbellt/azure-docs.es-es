@@ -11,17 +11,129 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 4/30/2021
+ms.date: 6/14/2021
 ms.author: gunnarc
-ms.openlocfilehash: bdf729d3f5842953be6cf87b7dcaab38582711fc
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: a516fd1706fdd07ad3c28a0a9e3058de5603cd40
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108736135"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078643"
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se realizan para la [familia][family-explain] determinada en la que se introdujeron.
+
+## <a name="june-2021-guest-os"></a>SO invitado de junio de 2021
+
+>[!NOTE] 
+
+>El sistema operativo invitado de junio se está implementando actualmente en las máquinas virtuales del servicio en la nube que están configuradas para las actualizaciones automáticas. Una vez completada la implementación, esta versión estará disponible para las actualizaciones manuales mediante Azure Portal y los archivos de configuración. Las revisiones siguientes se incluyen en el sistema operativo invitado de junio. Esta lista está sujeta a cambios. 
+
+| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+|  Versión 21-06 |  [5003646]  |  Actualización acumulativa más reciente (LCU) | 6.32 | 8 de junio de 2021 |
+|  Versión 21-06 |  [4580325]  |  Actualización de Flash | 3,98, 4,91, 5,56, 6,32 USD | 13 de octubre de 2020 |
+|  Versión 21-06 |  [5003636]  |  Actualizaciones acumulativas de IE | 2,111, 3,98, 4,91 | 8 de junio de 2021 |
+|  Versión 21-06 |  [5003638]  |  Actualización acumulativa más reciente (LCU) | 5.56 | 8 de junio de 2021 |
+|  Versión 21-06 |  [4578952]  |  Acumulación de seguridad y calidad de .NET Framework 3.5  | 2,111 | 13 de octubre de 2020 |
+|  Versión 21-06 |  [4578955]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2  | 2,111 | 13 de octubre de 2020 |
+|  Versión 21-06 |  [4578953]  |  Acumulación de seguridad y calidad de .NET Framework 3.5  | 4,91 | 13 de octubre de 2020 |
+|  Versión 21-06 |  [4578956]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2  | 4,91 | 13 de octubre de 2020 |
+|  Versión 21-06 |  [4578950]  |  Acumulación de seguridad y calidad de .NET Framework 3.5  | 3,98 | 13 de octubre de 2020 |
+|  Versión 21-06 |  [4578954]  |  . Acumulación de seguridad y calidad de .NET Framework 4.5.2  | 3,98 | 13 de octubre de 2020 |
+|  Versión 21-06 |  [4601060]  |  . Actualización acumulativa de .NET Framework 3.5 y 4.7.2  | 6.32 | 9 de febrero de 2021 |
+|  Versión 21-06 |  [5003667]  |  Acumulación mensual  | 2,111 | 8 de junio de 2021 |
+|  Versión 21-06 |  [5003697]  |  Acumulación mensual  | 3,98 | 8 de junio de 2021 |
+|  Versión 21-06 |  [5003671]  |  Acumulación mensual  | 4,91 | 8 de junio de 2021 |
+|  Versión 21-06 |  [5001401]  |  Actualización de la pila de servicio  | 3,98 | 13 de abril de 2021 |
+|  Versión 21-06 |  [5001403]  |  Actualización de la pila de servicio  | 4,91 | 13 de abril de 2021 |
+|  Versión 21-06 OOB |  [4578013]  |  Actualización de seguridad independiente  | 4,91 | 19 de agosto de 2020 |
+|  Versión 21-06 |  [5001402]  |  Actualización de la pila de servicio  | 5.56 | 13 de abril de 2021 |
+|  Versión 21-06 |  [4592510]  |  Actualización de la pila de servicio  | 2,111 | 8 de diciembre de 2020 |
+|  Versión 21-06 |  [5003711]  |  Actualización de la pila de servicio  | 6.32 | 8 de junio de 2021 |
+|  Versión 21-06 |  [4494175]  |  Microcódigo  | 5.56 | 1 de septiembre de 2020 |
+|  Versión 21-06 |  [4494174]  |  Microcódigo  | 6.32 | 1 de septiembre de 2020 |
+|  Versión 21-06 |  [4052623]  |  Actualización de la plataforma antimalware de Microsoft Defender | 6.32, 5.56 | 13 de mayo de 2021 |
+
+[5003646]: https://support.microsoft.com/kb/5003646
+[4580325]: https://support.microsoft.com/kb/4580325
+[5003636]: https://support.microsoft.com/kb/5003636
+[5003638]: https://support.microsoft.com/kb/5003638
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4601060]: https://support.microsoft.com/kb/4601060
+[5003667]: https://support.microsoft.com/kb/5003667
+[5003697]: https://support.microsoft.com/kb/5003697
+[5003671]: https://support.microsoft.com/kb/5003671
+[5001401]: https://support.microsoft.com/kb/5001401
+[5001403]: https://support.microsoft.com/kb/5001403
+[4578013]: https://support.microsoft.com/kb/4578013
+[5001402]: https://support.microsoft.com/kb/5001402
+[4592510]: https://support.microsoft.com/kb/4592510
+[5003711]: https://support.microsoft.com/kb/5003711
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[4052623]: https://support.microsoft.com/kb/4052623
+
+## <a name="may-2021-guest-os"></a>Sistema operativo invitado de mayo de 2021
+
+
+| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+|  Versión 21-05 |  [5003171]  |  Actualización acumulativa más reciente (LCU) | [6.31] | 11 de mayo de 2021 |
+|  Versión 21-05 |  [4580325]  |  Actualización de Flash | [3.97], [4.90], [5.55], [6.31] | 13 de octubre de 2020 |
+|  Versión 21-05 |  [5003165]  |  Actualizaciones acumulativas de IE | [2.110], [3.97], [4.90] | 11 de mayo de 2021 |
+|  Versión 21-05 |  [5003197]  |  Actualización acumulativa más reciente (LCU) | [5.55] | 11 de mayo de 2021 |
+|  Versión 21-05 |  [4578952]  |  Acumulación de seguridad y calidad de .NET Framework 3.5  | [2.110] | 13 de octubre de 2020 |
+|  Versión 21-05 |  [4578955]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2  | [2.110] | 13 de octubre de 2020 |
+|  Versión 21-05 |  [4578953]  |  Acumulación de seguridad y calidad de .NET Framework 3.5  | [4.90] | 13 de octubre de 2020 |
+|  Versión 21-05 |  [4578956]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2  | [4.90] | 13 de octubre de 2020 |
+|  Versión 21-05 |  [4578950]  |  Acumulación de seguridad y calidad de .NET Framework 3.5  | [3.97] | 13 de octubre de 2020 |
+|  Versión 21-05 |  [4578954]  |  . Acumulación de seguridad y calidad de .NET Framework 4.5.2  | [3.97] | 13 de octubre de 2020 |
+|  Versión 21-05 |  [4601060]  |  . Actualización acumulativa de .NET Framework 3.5 y 4.7.2  | [6.31] | 9 de febrero de 2021 |
+|  Versión 21-05 |  [5003233]  |  Acumulación mensual  | [2.110] | 11 de mayo de 2021 |
+|  Versión 21-05 |  [5003208]  |  Acumulación mensual  | [3.97] | 11 de mayo de 2021 |
+|  Versión 21-05 |  [5003209]  |  Acumulación mensual  | [4.90] | 11 de mayo de 2021 |
+|  Versión 21-05 |  [5001401]  |  Actualización de la pila de servicio  | [3.97] | 13 de abril de 2021 |
+|  Versión 21-05 |  [5001403]  |  Actualización de la pila de servicio  | [4.90] | 13 de abril de 2021 |
+|  Versión 21-05 OOB |  [4578013]  |  Actualización de seguridad independiente  | [4.90] | 19 de agosto de 2020 |
+|  Versión 21-05 |  [5001402]  |  Actualización de la pila de servicio  | [5.55] | 13 de abril de 2021 |
+|  Versión 21-05 |  [4592510]  |  Actualización de la pila de servicio  | [2.110] | 8 de diciembre de 2020 |
+|  Versión 21-05 |  [5003243]  |  Actualización de la pila de servicio  | [6.31] | 11 de mayo de 2021 |
+|  Versión 21-05 |  [4494175]  |  Microcódigo  | [5.55] | 1 de septiembre de 2020 |
+|  Versión 21-05 |  [4494174]  |  Microcódigo  | [6.31] | 1 de septiembre de 2020 |
+
+[5003171]: https://support.microsoft.com/kb/5003171
+[4580325]: https://support.microsoft.com/kb/4580325
+[5003165]: https://support.microsoft.com/kb/5003165
+[5003197]: https://support.microsoft.com/kb/5003197
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4601060]: https://support.microsoft.com/kb/4601060
+[5003233]: https://support.microsoft.com/kb/5003233
+[5003208]: https://support.microsoft.com/kb/5003208
+[5003209]: https://support.microsoft.com/kb/5003209
+[5001401]: https://support.microsoft.com/kb/5001401
+[5001403]: https://support.microsoft.com/kb/5001403
+[4578013]: https://support.microsoft.com/kb/4578013
+[5001402]: https://support.microsoft.com/kb/5001402
+[4592510]: https://support.microsoft.com/kb/4592510
+[5003243]: https://support.microsoft.com/kb/5003243
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[2.110]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.97]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.90]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.55]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.31]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 ## <a name="april-2021-guest-os"></a>SO invitado de abril de 2021
 

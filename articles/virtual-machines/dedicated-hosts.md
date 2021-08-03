@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 12/07/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 8824ea38121b8f440f1b0ef1f07737f46e8b7295
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: d1bb111bbaa909c52261a0dbafe6d6e0a24390ac
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109732891"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112007269"
 ---
 # <a name="azure-dedicated-hosts"></a>Hosts dedicados de Azure
 
@@ -63,7 +63,7 @@ Las máquinas virtuales implementadas en hosts con distintos dominios de error, 
 
 Puede usar ambas funcionalidades juntas para lograr un mayor aislamiento de los errores. En este caso, especificará la zona de disponibilidad y el número de dominios de error en cada grupo de hosts, asignará un dominio de error a cada uno de los hosts del grupo y asignará una zona de disponibilidad a cada una de las máquinas virtuales
 
-La plantilla de ejemplo de Resource Manager que se encuentra [aquí](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md) usa zonas y dominios de error para distribuir los hosts para obtener la máxima resistencia en una región.
+La [plantilla de ejemplo de Resource Manager](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md) usa zonas y dominios de error para distribuir los hosts a fin de conseguir la máxima resistencia en una región.
 
 
 ## <a name="manual-vs-automatic-placement"></a>Selección de ubicación manual frente a automático
@@ -176,6 +176,6 @@ Azure supervisa y administra el estado de mantenimiento de los hosts. Al consult
 
 - Puede implementar un host dedicado mediante [Azure PowerShell](./windows/dedicated-hosts-powershell.md), el [portal](./dedicated-hosts-portal.md) y la [CLI de Azure](./linux/dedicated-hosts-cli.md).
 
-- [Aquí](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md) encontrará una plantilla de ejemplo en la que se usan zonas y dominios de error para obtener la máxima resistencia en una región.
+- Hay una [plantilla de ejemplo](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md) en la que se usan zonas y dominios de error para obtener la máxima resistencia en una región.
 
 - También puede ahorrar costos con una [instancia reservada de Azure Dedicated Host](prepay-dedicated-hosts-reserved-instances.md).

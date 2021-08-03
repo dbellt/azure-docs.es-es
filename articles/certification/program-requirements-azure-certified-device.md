@@ -1,20 +1,20 @@
 ---
-title: Requisitos de Azure Certified Device
-description: Requisitos del programa Azure Certified Device
+title: Requisitos de certificación de Azure Certified Device
+description: Requisitos de certificación de Azure Certified Device
 author: cbroad
 ms.author: cbroad
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: Azure Certified Device Certification Requirements
 ms.service: certification
-ms.openlocfilehash: 5acbd4a9cc48841999716cfd9c52d72ccad733b4
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 8e68cf180927e000c93c4c2d73d25d4ae6ccf0f8
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109712827"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111538150"
 ---
-# <a name="azure-certified-device-requirements"></a>Requisitos de Azure Certified Device 
+# <a name="azure-certified-device-certification-requirements"></a>Requisitos de certificación de Azure Certified Device 
 (conocido anteriormente como IoT Hub)
 
 En este documento se describen las funcionalidades específicas del dispositivo que se representarán en el catálogo de Azure Certified Device. Una funcionalidad es un atributo de dispositivo singular que puede ser una implementación de software o una combinación de implementaciones de software y hardware. 

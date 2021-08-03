@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 2d3c7026fd221b1a17b8efe56b03b2a26358c7ab
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 09fa626e77e20feff55f7b17807754ac1d2b873f
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364434"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111568853"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Biblioteca BulkExecutor para Java: Información de descarga
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,13 +25,13 @@ ms.locfileid: "107364434"
 > * [SDK de .NET Core v2](sql-api-sdk-dotnet-core.md)
 > * [SDK de fuente de cambios de .NET, versión 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [SDK de Java v4](sql-api-sdk-java-v4.md)
+> * [SDK para Java v4](sql-api-sdk-java-v4.md)
 > * [Versión 2 del SDK de Java asincrónico](sql-api-sdk-async-java.md)
 > * [SDK de Java v2 sincrónico](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Conector OLTP de Spark 3](sql-api-sdk-java-spark-v3.md)
-> * [Conector OLTP de Spark 2](sql-api-sdk-java-spark.md)
+> * [Conector Spark 3 OLTP](sql-api-sdk-java-spark-v3.md)
+> * [Conector Spark 2 OLTP](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Proveedor de recursos de REST](/rest/api/cosmos-db-resource-provider/)
@@ -49,6 +49,26 @@ ms.locfileid: "107364434"
 |**Tiempo de ejecución mínimo admitido**|[Java Development Kit (JDK) 7+](/java/azure/jdk/)|
 
 ## <a name="release-notes"></a>Notas de la versión
+### <a name="2123"></a><a name="2.12.3"></a>2.12.3
+
+* Corrección de la directiva de reintentos cuando `GoneException` se encapsula en `IllegalStateException`: este cambio es necesario para asegurarse de que la memoria caché de Gateway se actualiza en la versión 410 para que el conector de Spark (en Spark 2.4) pueda usar una directiva de reintentos personalizada a fin de permitir que las consultas se realicen correctamente durante las divisiones de particiones.
+
+### <a name="2122"></a><a name="2.12.2"></a>2.12.2
+
+* Corrección de un error que daba como resultado que los documentos no se importaran siempre en caso de errores transitorios.
+
+### <a name="2121"></a><a name="2.12.1"></a>2.12.1
+
+* Actualización para usar la última versión del SDK de Cosmos Core.
+
+### <a name="2120"></a><a name="2.12.0"></a>2.12.0
+
+* Mejora del control del presupuesto de RU que se proporciona a través del conector de Spark para una operación masiva. Se realiza una importación en bloque única inicial desde el conector de Spark con un valor baseBatchSize y se recopila el consumo de RU para la importación en bloque anterior.
+  Se calcula el valor miniBatchSizeAdjustmentFactor en función del consumo de RU anterior y se toma como base para ajustar el tamaño del mini lote. En función del tiempo transcurrido y del consumo de RU para cada importación por lotes, se calcula una duración de la suspensión para limitar el consumo de RU por segundo y se usa para pausar el subproceso antes de la importación por lotes siguiente.
+
+### <a name="2110"></a><a name="2.11.0"></a>2.11.0
+
+* Corrección de un error que impedía las actualizaciones masivas al usar una clave de partición anidada.
 
 ### <a name="2100"></a><a name="2.10.0"></a>2.10.0
 

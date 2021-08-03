@@ -1,21 +1,21 @@
 ---
-title: 'Recurso compartido de contenedores de perfiles de FSLogix para Windows Virtual Desktop: Azure'
-description: Configuración de un contenedor de perfiles de FSLogix para un grupo de hosts de Windows Virtual Desktop mediante un recurso compartido de archivos basado en máquinas virtuales.
+title: 'Recurso compartido de contenedores de perfiles de FSLogix para Azure Virtual Desktop: Azure'
+description: Configuración de un contenedor de perfiles de FSLogix para un grupo de hosts de Azure Virtual Desktop mediante un recurso compartido de archivos basado en máquinas virtuales.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 33e1b069221331aed8f8ca13bd088ba067a85ba7
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: a1398c23adcadaf245bae7271ed91e7d2a6763da
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109752470"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756102"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Creación de un contenedor de perfiles para un grupo host mediante un recurso compartido de archivos
 
-El servicio Windows Virtual Desktop ofrece contenedores de perfiles de FSLogix como solución recomendada para los perfiles de usuario. No se recomienda usar la solución Disco de perfil de usuario (UPD), que estará en desuso en futuras versiones de Windows Virtual Desktop.
+El servicio Azure Virtual Desktop ofrece contenedores de perfiles de FSLogix como solución recomendada para los perfiles de usuario. No se recomienda usar la solución Disco de perfil de usuario (UPD), que estará en desuso en futuras versiones de Azure Virtual Desktop.
 
 En este artículo se explica cómo configurar un recurso compartido de contenedor de perfiles de FSLogix para un grupo de hosts mediante un recurso compartido de archivos basado en máquina virtual. Se recomienda encarecidamente usar Azure Files en lugar de recursos compartidos de archivos. Para más información sobre FSLogix, consulte el [sitio web de FSLogix](https://docs.fslogix.com/).
 
@@ -42,12 +42,12 @@ Después de crear la máquina virtual, únala al dominio haciendo lo siguiente:
 
 Las siguientes son instrucciones generales sobre cómo preparar una máquina virtual para que actúe como recurso compartido de archivos para perfiles de usuario:
 
-1. Agregue los usuarios de Active Directory de Windows Virtual Desktop a un [grupo de seguridad de Active Directory](/windows/security/identity-protection/access-control/active-directory-security-groups/). Este grupo de seguridad se usará para autenticar a los usuarios de Windows Virtual Desktop en la máquina de virtual del recurso compartido de archivos que acaba de crear.
+1. Agregue los usuarios de Active Directory de Azure Virtual Desktop a un [grupo de seguridad de Active Directory](/windows/security/identity-protection/access-control/active-directory-security-groups/). Este grupo de seguridad se usará para autenticar a los usuarios de Azure Virtual Desktop en la máquina de virtual del recurso compartido de archivos que acaba de crear.
 2. [Conéctese a la máquina virtual del recurso compartido de archivos](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine).
 3. En la máquina virtual del recurso compartido de archivos, cree una carpeta en la **unidad C**, que se usará como recurso compartido de perfiles.
 4. Haga clic con el botón derecho en la nueva carpeta, seleccione **Propiedades**, seleccione **Uso compartido**, luego, seleccione **Uso compartido avanzado…**
 5. Seleccione **Compartir esta carpeta**, seleccione **Permisos…** , luego, seleccione **Agregar…**
-6. Busque el grupo de seguridad al que agregó los usuarios de Windows Virtual Desktop, luego, asegúrese de que ese grupo tenga **Control total**.
+6. Busque el grupo de seguridad al que agregó los usuarios de Azure Virtual Desktop, luego, asegúrese de que ese grupo tenga **Control total**.
 7. Después de agregar el grupo de seguridad, haga clic con el botón derecho en la carpeta, seleccione **Propiedades**, seleccione **Uso compartido**, luego, copie la **Ruta de acceso de red** para consultar más adelante.
 
 Para más información acerca de los permisos, consulte la [documentación de FSLogix](/fslogix/fslogix-storage-config-ht/).
@@ -70,4 +70,4 @@ Para configurar las máquinas virtuales con el software de FSLogix, siga este pr
 | VHDLocations        | Valor de varias cadenas | "Network path for file share"     |
 
 >[!IMPORTANT]
->Para ayudar a proteger su entorno de Windows Virtual Desktop en Azure, se recomienda no abrir el puerto de entrada 3389 en las máquinas virtuales. Windows Virtual Desktop no requiere un puerto de entrada abierto 3389 para que los usuarios accedan a máquinas virtuales del grupo host. Si debe abrir el puerto 3389 para solucionar problemas, se recomienda usar [acceso de máquina virtual Just-in-Time](../security-center/security-center-just-in-time.md).
+>Para ayudar a proteger su entorno de Azure Virtual Desktop en Azure, se recomienda no abrir el puerto de entrada 3389 en las máquinas virtuales. Azure Virtual Desktop no requiere un puerto de entrada 3389 abierto para que los usuarios accedan a máquinas virtuales del grupo de hosts. Si debe abrir el puerto 3389 para solucionar problemas, se recomienda usar [acceso de máquina virtual Just-in-Time](../security-center/security-center-just-in-time.md).

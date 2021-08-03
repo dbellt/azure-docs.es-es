@@ -1,32 +1,32 @@
 ---
-title: 'Problemas de diagnóstico de Windows Virtual Desktop (clásico): Azure'
-description: Procedimientos para usar la característica de diagnóstico de Windows Virtual Desktop (clásico) para diagnosticar problemas.
+title: 'Problemas de diagnóstico de Azure Virtual Desktop (clásico): Azure'
+description: Procedimientos para usar la característica de diagnóstico de Azure Virtual Desktop (clásico) para diagnosticar problemas.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: e23a1e9a2a0118402df0d9b8869f170762a52284
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 29826aba135c2d409a99489aeb9e2c71f6d6a7c4
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106444962"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111754716"
 ---
-# <a name="identify-and-diagnose-issues-in-windows-virtual-desktop-classic"></a>Identificación y diagnóstico de problemas de Windows Virtual Desktop (clásico)
+# <a name="identify-and-diagnose-issues-in-azure-virtual-desktop-classic"></a>Identificación y diagnóstico de problemas de Azure Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../diagnostics-role-service.md).
+>Este contenido se aplica a Azure Virtual Desktop (clásico), que no admite objetos de Azure Resource Manager. Si está intentando administrar objetos de Azure Virtual Desktop para Azure Resource Manager, consulte [este artículo](../diagnostics-role-service.md).
 
-Windows Virtual Desktop ofrece una característica de diagnóstico que permite al administrador detectar problemas a través de una única interfaz. Los roles de Windows Virtual Desktop registran una actividad de diagnóstico cada vez que un usuario interactúa con el sistema. Cada registro contiene información relevante, como los roles de Windows Virtual Desktop que han participado en la transacción, los mensajes de error, la información del inquilino y la información del usuario. Las actividades de diagnóstico se crean mediante acciones tanto del administrador como del usuario final, y se pueden clasificar en tres categorías principales:
+Azure Virtual Desktop ofrece una característica de diagnóstico que permite al administrador detectar problemas a través de una única interfaz. Los roles de Azure Virtual Desktop registran una actividad de diagnóstico cada vez que un usuario interactúa con el sistema. Cada registro contiene información relevante, como los roles de Azure Virtual Desktop que han participado en la transacción, los mensajes de error, la información del inquilino y la información del usuario. Las actividades de diagnóstico se crean mediante acciones tanto del administrador como del usuario final, y se pueden clasificar en tres categorías principales:
 
 * Actividades de suscripción a fuente: el usuario final desencadena estas actividades cada vez que intenta conectarse a su fuente mediante aplicaciones de Microsoft Remote Desktop.
 * Actividades de conexión: el usuario final desencadena estas actividades cada vez que intenta conectarse a un escritorio o a RemoteApp mediante aplicaciones de Microsoft Remote Desktop.
 * Actividades de administración: el administrador desencadena estas actividades cada vez que realiza operaciones de administración en el sistema, como crear grupos de hosts, asignar usuarios a grupos de aplicaciones y crear asignaciones de roles.
 
-Las conexiones que no lleguen a Windows Virtual Desktop no aparecerán en los resultados de diagnóstico, ya que el propio servicio de rol de diagnóstico forma parte de Windows Virtual Desktop. Se pueden producir problemas de conexión a Windows Virtual Desktop si el usuario final está experimentando problemas de conectividad de red.
+Las conexiones que no lleguen a Azure Virtual Desktop no aparecerán en los resultados de diagnóstico, ya que el propio servicio de rol de diagnóstico forma parte de Azure Virtual Desktop. Se pueden producir problemas de conexión a Azure Virtual Desktop si el usuario final está experimentando problemas de conectividad de red.
 
-Para empezar, [descargue e importe el módulo de PowerShell para Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/) que se usará en la sesión de PowerShell, si aún no lo ha hecho. Después, ejecute el siguiente cmdlet para iniciar sesión en su cuenta:
+Para empezar, [descargue e importe el módulo de PowerShell para Azure Virtual Desktop](/powershell/windows-virtual-desktop/overview/) que se usará en la sesión de PowerShell, si aún no lo ha hecho. Después, ejecute el siguiente cmdlet para iniciar sesión en su cuenta:
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
@@ -34,7 +34,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 ## <a name="diagnose-issues-with-powershell"></a>Diagnóstico de problemas con PowerShell
 
-Los diagnósticos de Windows Virtual Desktop usan un solo cmdlet de PowerShell, pero contienen muchos parámetros opcionales que sirven para restringir y aislar problemas. En las siguientes secciones se enumeran los cmdlets que se pueden ejecutar para diagnosticar problemas. La mayoría de los filtros se pueden aplicar de manera conjunta. Los valores que se muestran entre corchetes angulares, como `<tenantName>`, se deben reemplazar por los valores oportunos según su situación.
+Los diagnósticos de Azure Virtual Desktop usan un solo cmdlet de PowerShell, pero contienen muchos parámetros opcionales que sirven para restringir y aislar problemas. En las siguientes secciones se enumeran los cmdlets que se pueden ejecutar para diagnosticar problemas. La mayoría de los filtros se pueden aplicar de manera conjunta. Los valores que se muestran entre corchetes angulares, como `<tenantName>`, se deben reemplazar por los valores oportunos según su situación.
 
 >[!IMPORTANT]
 >La característica de diagnóstico es para la solución de problemas de un solo usuario. Todas las consultas que usan PowerShell deben incluir los parámetros *-UserName* o *-ActivityID*. Para las funcionalidades de supervisión, use Log Analytics. Consulte [Uso de Log Analytics para la característica de diagnóstico](diagnostics-log-analytics-2019.md) para obtener más información sobre cómo enviar datos de diagnóstico al área de trabajo.
@@ -123,10 +123,10 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityGuid> 
 
 ## <a name="common-error-scenarios"></a>Escenarios de error habituales
 
-Los escenarios de error se clasifican como internos en el servicio y como externos en Windows Virtual Desktop.
+Los escenarios de error se clasifican como internos en el servicio y como externos en Azure Virtual Desktop.
 
-* Problema interno: especifica escenarios que el administrador de inquilinos no puede mitigar y que deben resolverse como un problema de soporte técnico. Cuando aporte sus comentarios a través de la [comunidad de técnicos de Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), incluya el identificador de la actividad y el período de tiempo aproximado en que se produjo el problema.
-* Problema externo: hace referencia a escenarios que el administrador del sistema puede mitigar. Son externos en Windows Virtual Desktop.
+* Problema interno: especifica escenarios que el administrador de inquilinos no puede mitigar y que deben resolverse como un problema de soporte técnico. Cuando aporte sus comentarios a través de la [comunidad de técnicos de Azure Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), incluya el identificador de la actividad y el período de tiempo aproximado en que se produjo el problema.
+* Problema externo: hace referencia a escenarios que el administrador del sistema puede mitigar. Son externos en Azure Virtual Desktop.
 
 En la siguiente tabla se enumeran los errores comunes que los administradores pueden encontrarse.
 
@@ -153,7 +153,7 @@ En la siguiente tabla se enumeran los errores comunes que los administradores pu
 |8000|InvalidAuthorizationRoleScope|El nombre de rol especificado no coincide con ningún nombre de rol existente. Revise el nombre de rol para ver si hay errores tipográficos e inténtelo de nuevo. |
 |8001|UserNotFound |El nombre de usuario especificado no coincide con ningún nombre de usuario existente. Revise el nombre para ver si hay errores tipográficos e inténtelo de nuevo.|
 |8005|UserNotFoundInAAD |El nombre de usuario especificado no coincide con ningún nombre de usuario existente. Revise el nombre para ver si hay errores tipográficos e inténtelo de nuevo.|
-|8008|TenantConsentRequired|Siga las instrucciones que se indican [aquí](tenant-setup-azure-active-directory.md#grant-permissions-to-windows-virtual-desktop) para proporcionar consentimiento para el inquilino.|
+|8008|TenantConsentRequired|Siga las instrucciones que se indican [aquí](tenant-setup-azure-active-directory.md#grant-permissions-to-azure-virtual-desktop) para proporcionar consentimiento para el inquilino.|
 
 ### <a name="external-connection-error-codes"></a>Códigos de error de conexión externa
 
@@ -174,6 +174,6 @@ En la siguiente tabla se enumeran los errores comunes que los administradores pu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre los roles de Windows Virtual Desktop, consulte [Entorno de Windows Virtual Desktop](environment-setup-2019.md).
+Para más información sobre los roles de Azure Virtual Desktop, consulte [Entorno de Azure Virtual Desktop](environment-setup-2019.md).
 
-Para ver una lista de cmdlets de PowerShell disponibles para Windows Virtual Desktop, vea la [referencia de PowerShell](/powershell/windows-virtual-desktop/overview).
+Para ver una lista de cmdlets de PowerShell disponibles para Azure Virtual Desktop, consulte la [referencia de PowerShell](/powershell/windows-virtual-desktop/overview).

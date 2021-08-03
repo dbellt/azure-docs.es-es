@@ -1,17 +1,17 @@
 ---
-title: 'Solución de problemas del cliente de Escritorio remoto de Windows Virtual Desktop: Azure'
-description: Cómo resolver problemas al configurar conexiones de cliente en un entorno de inquilinos de Windows Virtual Desktop.
+title: 'Solución de problemas del cliente de Escritorio remoto de Azure Virtual Desktop: Azure'
+description: Cómo resolver problemas al configurar conexiones de cliente en un entorno de inquilinos de Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: e31ff0bfdb0ead13c2636ea2f4d175c9ced34581
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 9534425344a09bb2e2e733cde5294d08d175eb96
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445438"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111755346"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Solución de problemas del cliente de Escritorio remoto
 
@@ -60,9 +60,9 @@ Si el explorador comienza a dar problemas o deja de funcionar mientras usa el cl
 
 ## <a name="client-doesnt-show-my-resources"></a>El cliente web no muestra mis recursos
 
-Primero compruebe la cuenta de Azure Active Directory que está usando. Si ya ha iniciado sesión con una cuenta de Azure Active Directory diferente a la que quiere usar para Windows Virtual Desktop, debe cerrar la sesión o usar una ventana privada del explorador.
+Primero compruebe la cuenta de Azure Active Directory que está usando. Si ya ha iniciado sesión con una cuenta de Azure Active Directory diferente a la que quiere usar para Azure Virtual Desktop, debe cerrar la sesión o usar una ventana privada del explorador.
 
-Si usa Windows Virtual Desktop (clásico), use el vínculo del cliente web de [este artículo](./virtual-desktop-fall-2019/connect-web-2019.md) para conectarse a los recursos.
+Si usa Azure Virtual Desktop (clásico), use el vínculo del cliente web de [este artículo](./virtual-desktop-fall-2019/connect-web-2019.md) para conectarse a los recursos.
 
 Si eso no funciona, asegúrese de que el grupo de aplicaciones está asociado a un área de trabajo.
 
@@ -79,19 +79,19 @@ Si los problemas continúan incluso después de haber cambiado de explorador, es
 Si el cliente web sigue solicitando las credenciales, siga estas instrucciones:
 
 1. Confirme que la dirección URL del cliente web es correcta.
-2. Confirme que las credenciales que está usando son para el entorno de Windows Virtual Desktop asociado a la dirección URL.
+2. Confirme que las credenciales que está usando son para el entorno de Azure Virtual Desktop asociado a la dirección URL.
 3. Borre las cookies del explorador. Para más información, consulte [Cómo eliminar archivos de cookies en Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
 4. Borre la memoria caché del explorador Para más información, consulte [Borrar la memoria caché del explorador](https://binged.it/2RKyfdU).
 5. Abra el explorador en modo privado.
 
-## <a name="windows-client-blocks-windows-virtual-desktop-classic-feed"></a>El cliente de Windows bloquea la fuente de Windows Virtual Desktop (clásico)
+## <a name="windows-client-blocks-azure-virtual-desktop-classic-feed"></a>El cliente de Windows bloquea la fuente de Azure Virtual Desktop (clásico)
 
-Si la fuente de cliente de Windows no va a mostrar las aplicaciones de Windows Virtual Desktop (clásico), siga estas instrucciones:
+Si la fuente de cliente de Windows no va a mostrar las aplicaciones de Azure Virtual Desktop (clásico), siga estas instrucciones:
 
-1. Compruebe si la Directiva de acceso condicional incluye los identificadores de aplicación asociados al escritorio virtual de Windows (clásico).
-2. Compruebe si la directiva de acceso condicional bloquea todo el acceso excepto los identificadores de aplicación de Windows Virtual Desktop (clásico). Si es así, deberá agregar el id. de la aplicación **9cdead84-A844-4324-93f2-b2e6bb768d07** a la directiva para permitir que el cliente detecte las fuentes.
+1. Compruebe si la directiva de acceso condicional incluye los identificadores de aplicación asociados Azure Virtual Desktop (clásico).
+2. Compruebe si la directiva de acceso condicional bloquea todo el acceso excepto los identificadores de aplicación de Azure Virtual Desktop (clásico). Si es así, deberá agregar el id. de la aplicación **9cdead84-A844-4324-93f2-b2e6bb768d07** a la directiva para permitir que el cliente detecte las fuentes.
 
-Si no encuentra el id. de la aplicación 9cdead84-A844-4324-93f2-b2e6bb768d07 en la lista, deberá registrar el proveedor de recursos de Windows Virtual Desktop. Para registrar el proveedor de recursos:
+Si no encuentra el id. de la aplicación 9cdead84-A844-4324-93f2-b2e6bb768d07 en la lista, deberá registrar el proveedor de recursos de Azure Virtual Desktop. Para registrar el proveedor de recursos:
 
 1. Inicie sesión en Azure Portal.
 2. Vaya a **Suscripción** y seleccione la suscripción.
@@ -100,9 +100,9 @@ Si no encuentra el id. de la aplicación 9cdead84-A844-4324-93f2-b2e6bb768d07 en
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información general sobre cómo solucionar problemas de Windows Virtual Desktop y las pistas de escalación, consulte [Introducción, comentarios y soporte técnico para solucionar problemas](troubleshoot-set-up-overview.md).
-- Para solucionar problemas durante la creación de un entorno de Windows Virtual Desktop y de un grupo de hosts de este, consulte [Creación de entorno y grupo de hosts](troubleshoot-set-up-issues.md).
-- Para solucionar problemas al configurar una máquina virtual (VM) en Windows Virtual Desktop, consulte [Configuración de la máquina virtual del host de sesión](troubleshoot-vm-configuration.md).
-- Para solucionar problemas relacionados con el agente de Windows Virtual Desktop o la conectividad de sesión, consulte [Solución de problemas comunes del agente de Windows Virtual Desktop](troubleshoot-agent.md).
-- Para solucionar problemas al usar PowerShell con Windows Virtual Desktop, consulte [PowerShell para Windows Virtual Desktop](troubleshoot-powershell.md).
+- Para información general sobre la solución de problemas de Azure Virtual Desktop y las pistas de escalación, consulte [Introducción a la solución de problemas, comentarios y soporte técnico](troubleshoot-set-up-overview.md).
+- Para solucionar problemas durante la creación de un entorno de Azure Virtual Desktop y de un grupo de hosts de este, consulte [Creación de entorno y grupo de hosts](troubleshoot-set-up-issues.md).
+- Para solucionar problemas al configurar una máquina virtual (VM) en Azure Virtual Desktop, consulte [Configuración de la máquina virtual del host de sesión](troubleshoot-vm-configuration.md).
+- Para solucionar problemas relacionados con el agente de Azure Virtual Desktop o la conectividad de sesión, consulte [Solución de problemas comunes del agente de Azure Virtual Desktop](troubleshoot-agent.md).
+- Para solucionar problemas al usar PowerShell con Azure Virtual Desktop, consulte [PowerShell para Azure Virtual Desktop](troubleshoot-powershell.md).
 - Para realizar un tutorial de solución de problemas, consulte [Tutorial: Solución de problemas de las implementaciones de plantillas de Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).

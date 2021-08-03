@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 39a7c92ca6c83684658cf767722698806ed994ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2ec7f9a874bff6eaa0e23f5fb926bf031f2b059d
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88935456"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111555978"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Creación de un conjunto de aptitudes en una canalización de enriquecimiento de inteligencia artificial en Azure Cognitive Search 
 
@@ -84,7 +84,7 @@ Content-Type: application/json
       "outputs": [
         {
           "name": "organizations",
-          "targetName": "organizations"
+          "targetName": "orgs"
         }
       ]
     },
@@ -110,11 +110,11 @@ Content-Type: application/json
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
       },
-      "context": "/document/organizations/*",
+      "context": "/document/orgs/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/organizations/*"
+          "source": "/document/orgs/*"
         }
       ],
       "outputs": [
@@ -144,11 +144,11 @@ La siguiente parte del conjunto de aptitudes es una matriz de aptitudes. Cada ap
 
 ## <a name="add-built-in-skills"></a>Agregar aptitudes integradas
 
-Echemos un vistazo a la primera aptitud, que es la [aptitud de reconocimiento de entidades](cognitive-search-skill-entity-recognition.md) integrada:
+Echemos un vistazo a la primera aptitud, que es la [aptitud de reconocimiento de entidades](cognitive-search-skill-entity-recognition-v3.md) integrada:
 
 ```json
     {
-      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
       "context": "/document",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
@@ -161,7 +161,7 @@ Echemos un vistazo a la primera aptitud, que es la [aptitud de reconocimiento de
       "outputs": [
         {
           "name": "organizations",
-          "targetName": "organizations"
+          "targetName": "orgs"
         }
       ]
     }
@@ -169,19 +169,21 @@ Echemos un vistazo a la primera aptitud, que es la [aptitud de reconocimiento de
 
 * Cada aptitud integrada tiene las propiedades `odata.type`, `input` y `output`. Las propiedades específicas de la aptitud proporcionan información adicional aplicable a dicha aptitud. Para el reconocimiento de entidades, `categories` es una entidad entre un conjunto fijo de tipos de entidad que el modelo previamente entrenado puede reconocer.
 
-* Cada aptitud debe tener un ```"context"```. El contexto representa el nivel en el que tienen lugar las operaciones. En la aptitud anterior, el contexto es todo el documento, lo que significa que a la aptitud de reconocimiento de entidades se la llama una vez por documento. Las salidas también se producen en ese nivel. Más específicamente, ```"organizations"``` se generan como un miembro de ```"/document"```. En las aptitudes de bajada, puede hacer referencia a esta información recién creada como ```"/document/organizations"```.  Si el campo ```"context"``` no se establece explícitamente, el contexto predeterminado es el documento.
+* Cada aptitud debe tener un ```"context"```. El contexto representa el nivel en el que tienen lugar las operaciones. En la aptitud anterior, el contexto es todo el documento, lo que significa que a la aptitud de reconocimiento de entidades se la llama una vez por documento. Las salidas también se producen en ese nivel. La aptitud devuelve una propiedad denominada ```organizations``` que se captura como ```orgs```. Más concretamente, ```"orgs"``` ahora se agregó como miembro de ```"/document"```. En las aptitudes de bajada, puede hacer referencia a este enriquecimiento recién creado como ```"/document/orgs"```.  Si el campo ```"context"``` no se establece explícitamente, el contexto predeterminado es el documento.
 
-* La aptitud tiene una entrada denominada "text", con una entrada de origen establecida en ```"/document/content"```. La aptitud (reconocimiento de entidades) funciona en el campo *content* de cada documento, que es un campo estándar creado por el indizador de blobs de Azure. 
+* Las salidas de una aptitud pueden estar en conflicto con las salidas de otra aptitud. Si tiene varias aptitudes que devuelven una propiedad ```result```, puede usar la propiedad ```targetName``` de las salidas de aptitud para capturar una salida JSON con nombre de una aptitud hacia una propiedad diferente.
 
-* La aptitud tiene una salida denominada ```"organizations"```. Salidas existen únicamente durante el procesamiento. Para encadenar esta salida a la entrada de una aptitud de bajada, haga referencia a la salida como ```"/document/organizations"```.
+* La aptitud tiene una entrada denominada "text", con una entrada de origen establecida en ```"/document/content"```. La aptitud (reconocimiento de entidades) funciona en el campo *content* de cada documento, que es un campo estándar que crea el indexador de Azure Blob. 
 
-* Para un documento determinado, el valor de ```"/document/organizations"``` es una matriz de las organizaciones extraídas del texto. Por ejemplo:
+* La aptitud tiene una salida denominada ```"organizations"``` que se captura en una propiedad ```orgs```. Salidas existen únicamente durante el procesamiento. Para encadenar esta salida a la entrada de una aptitud de bajada, haga referencia a la salida como ```"/document/orgs"```.
+
+* Para un documento determinado, el valor de ```"/document/orgs"``` es una matriz de las organizaciones extraídas del texto. Por ejemplo:
 
   ```json
   ["Microsoft", "LinkedIn"]
   ```
 
-Algunas situaciones requieren que se haga referencia a cada elemento de una matriz por separado. Por ejemplo, imagine que desea pasar cada elemento de ```"/document/organizations"``` por separado a otra aptitud (por ejemplo, el enriquecedor de Entity Search de Bing personalizado). Puede hacer referencia a cada elemento de la matriz agregando un asterisco a la ruta de acceso: ```"/document/organizations/*"``` 
+Algunas situaciones requieren que se haga referencia a cada elemento de una matriz por separado. Por ejemplo, imagine que desea pasar cada elemento de ```"/document/orgs"``` por separado a otra aptitud (por ejemplo, el enriquecedor de Entity Search de Bing personalizado). Puede hacer referencia a cada elemento de la matriz agregando un asterisco a la ruta de acceso: ```"/document/orgs/*"``` 
 
 La segunda aptitud para la extracción de opiniones sigue el mismo patrón que el primer enriquecedor. Toma ```"/document/content"``` como entrada y devuelve una puntuación de opinión para cada instancia del contenido. Puesto que no estableció el campo ```"context"``` explícitamente, la salida (mySentiment) ahora es un elemento secundario de ```"/document"```.
 
@@ -215,11 +217,11 @@ Recupere la estructura del enriquecedor de Entity Search de Bing personalizado:
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
       },
-      "context": "/document/organizations/*",
+      "context": "/document/orgs/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/organizations/*"
+          "source": "/document/orgs/*"
         }
       ],
       "outputs": [
@@ -233,9 +235,9 @@ Recupere la estructura del enriquecedor de Entity Search de Bing personalizado:
 
 Esta definición es una [aptitud personalizada](cognitive-search-custom-skill-web-api.md) que llama a una API web como parte del proceso de enriquecimiento. En cada organización identificada por el reconocimiento de entidades, esta aptitud llama a una API web para encontrar la descripción de esa organización. La orquestación de cuándo llamar a la API web y cómo pasar la información recibida se controla internamente mediante el motor de enriquecimiento. Sin embargo, se debe proporcionar la inicialización necesaria para llamar a esta API personalizada en JSON (por ejemplo, el identificador uri, httpHeaders y las entradas esperadas). Para obtener instrucciones para crear una API web personalizada para la canalización de enriquecimiento, consulte [How to define a custom interface](cognitive-search-custom-skill-interface.md) (Definición de una interfaz personalizada).
 
-Tenga en cuenta que el campo "context" está establecido en ```"/document/organizations/*"``` con un asterisco, lo que significa que se llama al paso de enriquecimiento *para cada* organización bajo ```"/document/organizations"```. 
+Tenga en cuenta que el campo "context" está establecido en ```"/document/orgs/*"``` con un asterisco, lo que significa que se llama al paso de enriquecimiento *para cada* organización bajo ```"/document/orgs"```. 
 
-La salida, en este caso una descripción de la compañía, se genera para cada organización identificada. Cuando se hace referencia a la descripción en un paso de bajada (por ejemplo, en la extracción de frases clave), se usaría la ruta de acceso ```"/document/organizations/*/description"``` para hacerlo. 
+La salida, en este caso una descripción de la compañía, se genera para cada organización identificada. Cuando se hace referencia a la descripción en un paso de bajada (por ejemplo, en la extracción de frases clave), se usaría la ruta de acceso ```"/document/orgs/*/description"``` para hacerlo. 
 
 ## <a name="add-structure"></a>Agregar estructura
 
