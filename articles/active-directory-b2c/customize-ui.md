@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 05/26/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: ecece3a00a788b67f6c831804bf5b00372fef93d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ba24afb329b5d588ab7a71976f56f50eb475b04b
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99056888"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110575414"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalización de la interfaz de usuario en Azure Active Directory B2C
 
@@ -36,6 +36,9 @@ La personalización de marca y la personalización de la interfaz de usuario que
 ## <a name="overview"></a>Información general
 
 Azure AD B2C proporciona varias plantillas integradas que puede elegir para dar a sus páginas de experiencia del usuario una apariencia profesional. Estas plantillas de página también pueden servir como punto de partida para su propia personalización con la característica de [personalización de marca](#company-branding).
+
+> [!NOTE]
+> Los exploradores admitidos para la plantilla clásica incluyen versiones actuales y anteriores de Internet Explorer, Microsoft Edge, Google Chrome, Mozilla Firefox y Safari. Las plantillas Ocean Blue y Slate Gray pueden tener compatibilidad limitada con versiones anteriores del explorador, como Internet Explorer 11 y 10. Se recomienda probar la aplicación con los exploradores que pretende admitir.
 
 ### <a name="ocean-blue"></a>Azul océano
 

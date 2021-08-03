@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/30/2021
+ms.date: 06/08/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbe90455142da55289c053c64390f354668b52bc
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: c21e03870a53858fe877410a7cd75fdc7e82a83b
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108766086"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963526"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Incorporación de Google como proveedor de identidades para los usuarios invitados de B2B
 
@@ -61,7 +61,7 @@ También puede proporcionar a los usuarios invitados de Google un vínculo direc
 A partir del segundo semestre de 2021,Google empezará a [retirar la compatibilidad con el inicio de sesión en vista web insertado](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si usa la federación de Google para B2B o [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), si usa el [registro de autoservicio con Gmail](identity-providers.md) o si las aplicaciones autentican a los usuarios con una vista web insertada, los usuarios de Google Gmail no podrán autenticarse.
 
 Estos son escenarios conocidos que afectarán a los usuarios de Gmail:
-- Aplicaciones de Windows que usan el control [WebView](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/webview), [WebView2](https://docs.microsoft.com/microsoft-edge/webview2/) o el control WebBrowser anterior, para la autenticación. Estas aplicaciones deben migrarse para usar el flujo Administrador de cuentas web (WAM).
+- Aplicaciones de Windows que usan el control [WebView](/windows/communitytoolkit/controls/wpf-winforms/webview), [WebView2](/microsoft-edge/webview2/) o el control WebBrowser anterior, para la autenticación. Estas aplicaciones deben migrarse para usar el flujo Administrador de cuentas web (WAM).
 - Aplicaciones Android que usan el elemento de interfaz de usuario WebView 
 - Aplicaciones iOS con UIWebView/WKWebview 
 - Aplicaciones que usan ADAL
@@ -78,11 +78,15 @@ Estamos confirmando con Google si este cambio afecta a lo siguiente:
 
 Seguimos probando varias plataformas y escenarios y actualizaremos este artículo en consecuencia.
 ### <a name="action-needed-for-embedded-web-views"></a>Acción necesaria para las vistas web insertadas
-Modifique sus aplicaciones para que usen el explorador del sistema para el inicio de sesión. Para más información, consulte [Interfaz de usuario web del sistema frente a insertada](https://docs.microsoft.com/azure/active-directory/develop/msal-net-web-browsers#embedded-vs-system-web-ui) en la documentación de MSAL.NET. Todos los SDK de MSAL usan la vista web del sistema de forma predeterminada.
+Modifique sus aplicaciones para que usen el explorador del sistema para el inicio de sesión. Para más información, consulte [Interfaz de usuario web del sistema frente a insertada](../develop/msal-net-web-browsers.md#embedded-vs-system-web-ui) en la documentación de MSAL.NET. Todos los SDK de MSAL usan la vista web del sistema de forma predeterminada.
 ### <a name="what-to-expect"></a>Qué esperar
 Antes de que Google ponga en marcha estos cambios en el segundo semestre de 2021, Microsoft implementará una solución alternativa para las aplicaciones que aún usan vistas web insertadas para asegurarse de que la autenticación no se bloquee.
 
 Las aplicaciones que se migran a una vista web permitida para la autenticación no se verán afectadas, y los usuarios podrán autenticarse a través de Google como de costumbre.
+
+Si las aplicaciones no se migran a una vista web permitida para la autenticación, los usuarios de Gmail afectados verán la pantalla siguiente.
+
+![Error de inicio de sesión de Google si las aplicaciones no se migran a los exploradores del sistema](media/google-federation/google-sign-in-error-ewv.png)
 
 Actualizaremos este documento a medida que Google comparta fechas y más detalles.
 

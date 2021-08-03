@@ -13,12 +13,12 @@ ms.date: 09/15/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 69df3dc8ef9f2ab4519f5bcb8947da221908f5a7
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: eb9a6e1f3044492b09dac3fb3168a9bd26aeff0f
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126748"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110494618"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Complemento Microsoft Enterprise SSO para dispositivos Apple (versión preliminar)
 
@@ -75,7 +75,7 @@ La configuración del perfil que habilita el complemento SSO se aplica automáti
 
 ### <a name="manual-configuration-for-other-mdm-services"></a>Configuración manual para otros servicios de MDM
 
-Si no usa Intune para MDM, use los parámetros siguientes para configurar el complemento Microsoft Enterprise SSO para dispositivos Apple.
+Si no usa Intune para MDM, puede configurar una carga de perfil de inicio de sesión único extensible para dispositivos Apple. Use los parámetros siguientes para configurar el complemento Microsoft Enterprise SSO y sus opciones de configuración.
 
 Configuración de iOS:
 

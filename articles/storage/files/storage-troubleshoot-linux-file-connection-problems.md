@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e680ba10c507ef83591b56652ee8e95c4d665dda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c618fad5b1e85df1ffa19fa2aa0e8621ae2bdd9
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96492070"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094463"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Solución de problemas de Azure Files en Linux (SMB)
 
@@ -29,23 +29,13 @@ Además de los pasos de solución de problemas de este artículo, también puede
 
 Las causas comunes de este problema son las siguientes:
 
-- Está usando un cliente de distribución de Linux incompatible. Se recomienda usar las siguientes distribuciones de Linux para conectarse al recurso compartido de archivos de Azure:
-
-|   | SMB 2.1 <br>(Se monta en máquinas virtuales dentro de la misma región de Azure) | SMB 3.0 <br>(Puede montar desde el nivel local a entre regiones) |
-| --- | :---: | :---: |
-| **Ubuntu Server** | 14.04+ | 16.04 (o posterior) |
-| **RHEL** | 7 (o posterior) | 7.5 (o posterior) |
-| **CentOS** | 7 (o posterior) |  7.5 (o posterior) |
-| **Debian** | 8 (o posterior) |   |
-| **openSUSE** | 13.2 (o posterior) | 42.3+ |
-| **SUSE Linux Enterprise Server** | 12 | 12 SP3 (o posterior) |
-
-- Las utilidades de CIFS (cfs-utils) no están instaladas en el cliente.
-- La versión 2.1 mínima de SMB/CIFS no está instalada en el cliente.
-- No se admite el cifrado SMB 3.0 en el cliente. La tabla anterior proporciona una lista de las distribuciones de Linux que admiten el montaje en el entorno local y entre regiones mediante el cifrado. Otras distribuciones requieren kernel 4.11 y versiones posteriores.
+- Utiliza una distribución de Linux con un cliente SMB obsoleto. Consulte [Uso de Azure Files con Linux](storage-how-to-use-files-linux.md) para más información sobre las distribuciones comunes de Linux disponibles en Azure que tienen clientes compatibles.
+- Las utilidades de SMB (cifs-utils) no están instaladas en el cliente.
+- La versión mínima de SMB, 2.1, no está disponible en el cliente.
+- El cifrado SMB 3.x no se admite en el cliente. La tabla anterior proporciona una lista de las distribuciones de Linux que admiten el montaje en el entorno local y entre regiones mediante el cifrado. Otras distribuciones requieren kernel 4.11 y versiones posteriores.
 - Está intentando conectarse a una cuenta de almacenamiento a través del puerto TCP 445 que no es compatible.
 - Está intentando conectarse al recurso compartido de archivos de Azure desde una máquina virtual de Azure y la máquina virtual no se encuentra en la misma región que la cuenta de almacenamiento.
-- Si la opción [Se requiere transferencia segura]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) está habilitada para la cuenta de almacenamiento, Azure Files solo permitirá las conexiones que usen SMB 3.0 con cifrado.
+- Si el valor [Se requiere transferencia segura](../common/storage-require-secure-transfer.md) está habilitado en la cuenta de almacenamiento, Azure Files solo permitirá conexiones que usen SMB 3.x con el cifrado.
 
 ### <a name="solution"></a>Solución
 
@@ -121,17 +111,17 @@ Para cerrar los identificadores abiertos de un recurso compartido de archivos, u
     - y después - copiar los archivos sin escrituras de extensión en paralelo: `$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
 
 <a id="error115"></a>
-## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>"Error de montaje(115): Operación en curso" cuando monta Azure Files mediante SMB 3.0
+## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-3x"></a>"Error de montaje (115): Operación en curso" cuando monta Azure Files mediante SMB 3.x
 
 ### <a name="cause"></a>Causa
 
-Algunas distribuciones de Linux aún no admiten características de cifrado de SMB 3.0. Los usuarios pueden recibir un mensaje de error 115 al tratar de montar Azure Files mediante SMB 3.0 porque falta una característica. SMB 3.0 con cifrado completo solo se admite cuando se usa Ubuntu 16.04 o una versión posterior.
+Algunas distribuciones de Linux aún no admiten características de cifrado de SMB 3.x. Los usuarios pueden recibir un mensaje de error 115 al tratar de montar Azure Files mediante SMB 3.x porque falta una característica. SMB 3.x con cifrado completo solo se admite cuando se usa Ubuntu 16.04 o una versión posterior.
 
 ### <a name="solution"></a>Solución
 
-La característica de cifrado de SMB 3.0 para Linux se introdujo en el kernel 4.11. Esta característica permite montar un recurso compartido de archivos de Azure desde el entorno local o una región distinta de Azure. Algunas distribuciones de Linux pueden haber adaptado los cambios del kernel de la 4.11 a las versiones anteriores del kernel Linux que mantienen. Para ayudar a determinar si su versión de Linux admite SMB 3,0 con cifrado, consulte [Uso de Azure Files con Linux](storage-how-to-use-files-linux.md). 
+La característica de cifrado de SMB 3.x para Linux se introdujo en el kernel 4.11. Esta característica permite montar un recurso compartido de archivos de Azure desde el entorno local o una región distinta de Azure. Algunas distribuciones de Linux pueden haber adaptado los cambios del kernel de la 4.11 a las versiones anteriores del kernel Linux que mantienen. Para ayudar a determinar si su versión de Linux admite SMB 3.x con cifrado, consulte [Uso de Azure Files con Linux](storage-how-to-use-files-linux.md). 
 
-Si el cliente de SMB de Linux no admite el cifrado, monte Azure Files con SMB 2.1 desde una máquina virtual Linux de Azure que se encuentre en el mismo centro de datos que el recurso de archivos. Compruebe que el ajuste [Se requiere transferencia segura]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) esté deshabilitado en la cuenta de almacenamiento. 
+Si el cliente de SMB de Linux no admite el cifrado, monte Azure Files con SMB 2.1 desde una máquina virtual Linux de Azure que se encuentre en el mismo centro de datos que el recurso de archivos. Compruebe que el ajuste [Se requiere transferencia segura](../common/storage-require-secure-transfer.md) esté deshabilitado en la cuenta de almacenamiento. 
 
 <a id="noaaccessfailureportal"></a>
 ## <a name="error-no-access-when-you-try-to-access-or-delete-an-azure-file-share"></a>Error "sin acceso" al intentar acceder a un recurso compartido de archivos de Azure o eliminarlo  
@@ -291,7 +281,7 @@ Una solución alternativa para este problema es especificar un montaje forzado. 
 
 Si no puede actualizar a las versiones más recientes del kernel, puede solucionar este problema manteniendo un archivo en el recurso compartido de archivos de Azure en el que se escribe cada 30 segundos o menos. Esta debe ser una operación de escritura, como volver a escribir la fecha de creación o modificación en el archivo. De lo contrario, podría obtener resultados almacenados en caché y la operación podría no desencadenar la reconexión.
 
-## <a name="cifs-vfs-error--22-on-ioctl-to-get-interface-list-when-you-mount-an-azure-file-share-by-using-smb-30"></a>Error "CIFS VFS: error -22 on ioctl to get interface list" al montar un recurso compartido de archivos de Azure por medio de SMB 3.0
+## <a name="cifs-vfs-error--22-on-ioctl-to-get-interface-list-when-you-mount-an-azure-file-share-by-using-smb-3x"></a>Error "CIFS VFS: error -22 on ioctl to get interface list" al montar un recurso compartido de archivos de Azure por medio de SMB 3.x
 
 ### <a name="cause"></a>Causa
 Este error se registra porque Azure Files [no admite SMB multicanal actualmente](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).

@@ -3,12 +3,12 @@ title: Solución de problemas de copia de seguridad de recursos compartidos de a
 description: Este artículo contiene información para solución de problemas que se producen al proteger recursos compartidos de archivos de Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 4c934d2295fa702425e8df0a03636b9f9208cfa4
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 86324c80f0df70713c6ea76a43e4b9da50c1fae6
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515080"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111555027"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Solución de problemas al realizar copias de seguridad de recursos compartidos de archivos de Azure
 
@@ -42,6 +42,7 @@ Vuelva a intentar el registro. Si el problema persiste, póngase en contacto con
 - Asegúrese de que el recurso compartido de archivos que desea proteger no se ha eliminado.
 - Asegúrese de que la cuenta de almacenamiento es una cuenta de almacenamiento admitida para la copia de seguridad de recursos compartidos de archivos. Puede consultar la [Matriz de compatibilidad de copia de seguridad de recursos compartidos de archivos de Azure](azure-file-share-support-matrix.md) para encontrar las cuentas de almacenamiento admitidas.
 - Compruebe si el recurso compartido de archivos ya está protegido en el mismo almacén de Recovery Services.
+- Compruebe la configuración de enrutamiento de red de la cuenta de almacenamiento para asegurarse de que la preferencia de enrutamiento está establecida como enrutamiento de red de Microsoft.
 
 ### <a name="backup-file-share-configuration-or-the-protection-policy-configuration-is-failing"></a>Error en la configuración de copia de seguridad del recurso compartido de archivos (o en la configuración de la directiva de protección)
 
@@ -126,6 +127,14 @@ Mensaje de error: Ya hay un trabajo de copia de seguridad en curso para el recur
 - La copia de seguridad del recurso compartido de archivos no admite solicitudes de instantáneas paralelas en el mismo recurso compartido de archivos.
 
 - Espere a que el trabajo de copia de seguridad existente finalice e inténtelo de nuevo. Si no encuentra un trabajo de copia de seguridad en el almacén de Recovery Services, compruebe otros almacenes de Recovery Services de la misma suscripción.
+
+### <a name="usererrorstorageaccountinternetroutingnotsupported--storage-accounts-with-internet-routing-configuration-are-not-supported-by-azure-backup"></a>UserErrorStorageAccountInternetRoutingNotSupported: Azure Backup no admite las cuentas de almacenamiento con configuración de enrutamiento de Internet
+
+Código de error: UserErrorStorageAccountInternetRoutingNotSupported
+
+Mensaje de error: Azure Backup no admite las cuentas de almacenamiento con configuración de enrutamiento de Internet
+
+Asegúrese de que la preferencia de enrutamiento establecida para la cuenta de almacenamiento que hospeda el recurso compartido de archivos con copia de seguridad es el enrutamiento de red de Microsoft.
 
 ### <a name="filesharebackupfailedwithazurerprequestthrottling-filesharerestorefailedwithazurerprequestthrottling--file-share-backup-or-restore-failed-due-to-storage-service-throttling-this-may-be-because-the-storage-service-is-busy-processing-other-requests-for-the-given-storage-account"></a>FileshareBackupFailedWithAzureRpRequestThrottling/ FileshareRestoreFailedWithAzureRpRequestThrottling: error de restauración o copia de seguridad de recursos compartidos de archivos debido a la limitación del servicio de almacenamiento. Esto puede ser debido a que el servicio de almacenamiento está ocupado procesando otras solicitudes para la cuenta de almacenamiento dada.
 

@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 05/02/2021
+ms.date: 06/14/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 49cd718bc0beb5128980e5e25a01cef94e966221
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: f7bdadaf8570fe06d7573ff622ed921137229ae1
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108754026"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112061567"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoría para Azure SQL Database y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -40,7 +40,7 @@ Puede usar la auditoría de SQL Database para:
 - **Analizar** informes. Puede buscar eventos sospechosos, actividades inusuales y tendencias.
 
 > [!IMPORTANT]
-> La auditoría de Azure SQL Database y Azure Synapse está optimizada para el rendimiento y la disponibilidad. Durante periodos de actividad muy elevada o alta carga en la red, Azure SQL Database o Azure Synapse permiten que las operaciones continúen y es posible que no registren algunos eventos auditados.
+> La auditoría de Azure SQL Database, Azure Synapse y Azure SQL Managed Instance está optimizada para el rendimiento y la disponibilidad. Durante periodos de actividad muy elevada o alta carga en la red, Azure SQL Database, Azure Synapse y Azure SQL Managed Instance permiten que las operaciones continúen y es posible que no registren algunos eventos auditados.
 
 ### <a name="auditing-limitations"></a>Limitaciones de auditoría
 

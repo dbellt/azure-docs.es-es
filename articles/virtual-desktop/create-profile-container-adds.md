@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/09/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 59e2fc1f528040515398e51d359840f6ef1bbefc
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 33e73a70db1a0fd16fae98ee5bc4bbdaa3759fe8
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107255807"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756066"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Creación de un contenedor de perfiles con Azure Files y Azure AD DS
 
@@ -113,7 +113,7 @@ Para obtener la clave de acceso a la cuenta de almacenamiento:
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile
      ```
 
-8. Ejecute los siguientes comandos para permitir que los usuarios de Windows Virtual Desktop creen sus propios contenedores de perfiles mientras bloquean el acceso a los contenedores de perfiles de otros usuarios.
+8. Ejecute los comandos siguientes para permitir que los usuarios de Azure Virtual Desktop creen sus propios contenedores de perfiles mientras bloquean el acceso a sus contenedores de perfiles de otros usuarios.
 
      ```cmd
      icacls <mounted-drive-letter>: /grant <user-email>:(M)
@@ -175,7 +175,7 @@ Ahora deberá asignar usuarios al host de sesión.
 
 Para asignar usuarios:
 
-1. Ejecute Windows PowerShell como administrador y después ejecute el siguiente cmdlet para iniciar sesión en Windows Virtual Desktop con PowerShell:
+1. Ejecute Windows PowerShell como administrador y después ejecute el siguiente cmdlet para iniciar sesión en Azure Virtual Desktop con PowerShell:
 
    ```powershell
    Import-Module Microsoft.RdInfra.RdPowershell
@@ -188,7 +188,7 @@ Para asignar usuarios:
    Add-RdsAccount -DeploymentUrl $brokerurl
    ```
 
-   Cuando se le pidan las credenciales, especifique el mismo usuario al que se le concedió el rol Creador de inquilinos, Propietario de RDS o Colaborador de RDS en el inquilino de Windows Virtual Desktop.
+   Cuando se le pidan las credenciales, especifique el mismo usuario al que se le concedió el rol Creador de inquilinos, Propietario de RDS o Colaborador de RDS en el inquilino de Azure Virtual Desktop.
 
 2. Ejecute los siguientes cmdlets para asignar el usuario a un grupo de Escritorio remoto:
 
@@ -226,7 +226,7 @@ Ahora todo lo que tiene que hacer es asegurarse de que el perfil que creó exist
 
 Para comprobar el perfil:
 
-1. Abra un explorador y vaya al [cliente de Windows Virtual Desktop](https://rdweb.wvd.microsoft.com/arm/webclient).
+1. Abra un explorador y vaya al [cliente de Azure Virtual Desktop](https://rdweb.wvd.microsoft.com/arm/webclient).
 
 2. Inicie sesión con la cuenta de usuario asignada al grupo de Escritorio remoto.
 

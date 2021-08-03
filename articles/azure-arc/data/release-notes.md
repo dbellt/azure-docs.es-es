@@ -7,20 +7,116 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 05/04/2021
+ms.date: 06/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: 58dd7baa612e2dcf302ce87b2d77cd0e71f90187
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: fc4dd4bcdb18b33fa9c6098c32e0aefecb7c46ee
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108763854"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111439645"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Notas de la versión: servicios de datos habilitados para Azure Arc (versión preliminar)
 
 En este artículo se resaltan las funcionalidades, las características y las mejoras que se han publicado u optimizado recientemente para los servicios de datos habilitados para Azure Arc. 
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+## <a name="may-2021"></a>Mayo de 2021
+
+Esta versión preliminar se publicó el 2 de junio de 2021.
+
+Como característica en versión preliminar, la tecnología que se presenta en este artículo está sujeta a los [términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+### <a name="breaking-change"></a>Cambio importante
+
+- Se han modificado las plantillas de implementación nativa de Kubernetes. Actualice las plantillas .yml.
+    - Se han actualizado las plantillas para el controlador de datos, el programa previo y SQL Managed Instance: [GitHub microsoft/azure-arc pr 574](https://github.com/microsoft/azure_arc/pull/574).
+    - Se han actualizado las plantillas para Hiperescala de PostgreSQL: [GitHub microsoft/azure-arc pr 574](https://github.com/microsoft/azure_arc/pull/574).
+
+### <a name="whats-new"></a>Novedades
+
+#### <a name="platform"></a>Plataforma
+
+- Cree y elimine el controlador de datos, SQL Managed Instance y los grupos de servidores de Hiperescala de PostgreSQL desde Azure Portal. 
+- Valide las acciones del portal al eliminar servicios de datos de Azure Arc. Por ejemplo, el portal alerta cuando intenta eliminar el controlador de datos cuando hay instancias de SQL Managed Instance implementadas mediante el controlador de datos.
+- Cree perfiles de configuración personalizados para admitir la configuración personalizada al implementar el controlador de datos habilitado para Arc mediante Azure Portal.
+- De manera opcional, cargue automáticamente los registros en el área de trabajo de Azure Log Analytics en el modo de conexión directa.
+
+####    <a name="azure-arc-enabled-postgresql-hyperscale"></a>Hiperescala de PostgreSQL habilitada para Azure Arc
+
+Esta versión presenta las siguientes características o funcionalidades:
+
+- Elimine una instancia de Hiperescala de PostgreSQL habilitada para Azure Arc desde Azure Portal cuando su controlador de datos se haya configurado para el modo de conexión directa.
+- Implemente Hiperescala de PostgreSQL habilitada para Azure Arc desde la página de implementación de Azure Database for Postgres en Azure Portal. Consulte [Selección de la opción de implementación de Azure Database for PostgreSQL: Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer).
+- Especifique las clases de almacenamiento y las extensiones de Postgres al implementar Hiperescala de PostgreSQL habilitada para Azure Arc desde Azure Portal.
+- Reduzca el número de nodos de trabajo en su instancia de Hiperescala de PostgreSQL habilitada para Azure Arc. Puede realizar esta operación (conocida como reducción horizontal, en oposición al escalado horizontal, al aumentar el número de nodos de trabajo) desde la línea de comandos `azdata`.
+
+#### <a name="azure-arc-enabled-sql-managed-instance"></a>SQL Managed Instance para Azure Arc
+
+- La nueva [extensión de la CLI de Azure](/cli/azure/azure-cli-extensions-overview) para SQL Managed Instance habilitada para Arc tiene los mismos comandos que `azdata arc sql mi <command>`. Todos los comandos de SQL Managed Instance habilitada para Arc se encuentran en `az sql mi-arc`. Todos los comandos de `azdata` relacionados con Arc estarán en desuso y se moverán a la CLI de Azure en una versión futura.
+
+   Para agregar la extensión:
+  
+   ```azurecli
+   az extension add --source https://azurearcdatacli.blob.core.windows.net/cli-extensions/arcdata-0.0.1-py2.py3-none-any.whl -y
+   az sql mi-arc --help
+   ```
+
+- Desencadene manualmente una conmutación por error de mediante Transact-SQL. Ejecute los comandos siguientes en orden:
+
+   1. En la conexión del punto de conexión de la réplica principal:
+   
+      ```sql
+       ALTER AVAILABILITY GROUP current SET (ROLE = SECONDARY);
+      ```
+
+   1. En la conexión del punto de conexión de la réplica secundaria:
+   
+      ```sql
+      ALTER AVAILABILITY GROUP current SET (ROLE = PRIMARY);
+      ```
+    
+- El comando `BACKUP` de Transact-SQL está bloqueado, a menos que use el valor `COPY_ONLY`. Esto admite la funcionalidad de restauración a un momento dado.
+
+### <a name="known-issues"></a>Problemas conocidos
+
+#### <a name="platform"></a>Plataforma
+
+- Puede crear un controlador de datos, una instancia SQL Managed Instance o un grupo de servidores de Hiperescala de PostgreSQL en un clúster conectado con Azure Portal. No se admite la implementación con otras herramientas de Servicios de datos habilitados para Azure Arc. En concreto, no se puede implementar un controlador de datos en modo de conexión directa con ninguna de las herramientas siguientes durante esta versión.
+   - Azure Data Studio
+   - CLI de datos de Azure (`azdata`)
+   - Herramientas nativas de Kubernetes (`kubectl`)
+
+   En [Controlador de datos de Azure Arc | Modo de conexión directa](deploy-data-controller-direct-mode.md) se explica cómo crear el controlador de datos en el portal. 
+
+- Todavía puede usar `kubectl` para crear recursos directamente en un clúster de Kubernetes, pero no se verán reflejados en Azure Portal.
+
+- En el modo de conexión directa, la carga de uso, las métricas y los registros mediante `azdata arc dc upload` están bloqueados actualmente. El uso se carga automáticamente. La carga del controlador de datos creado en modo de conexión indirecta debe seguir funcionando.
+- La carga automática de datos de uso en modo de conexión directa no se realizará correctamente si se usa el proxy mediante `–proxy-cert <path-t-cert-file>`.
+- SQL Managed Instance habilitado para Azure Arc e Hiperescala de PostgreSQL habilitada para Azure Arc no tiene la certificación GB18030.
+- Actualmente, solo se admite un controlador de datos de Azure Arc en modo de conexión directa por clúster de Kubernetes.
+
+#### <a name="azure-arc-enabled-postgresql-hyperscale"></a>Hiperescala de PostgreSQL habilitada para Azure Arc
+
+- La restauración a un momento dado no se admite por ahora en el almacenamiento NFS.
+- No es posible habilitar ni configurar la extensión `pg_cron` al mismo tiempo. Debe usar dos comandos para esto. Un comando para habilitarlo y otro para configurarlo. Por ejemplo:
+
+   1. Habilite la extensión:
+   
+      ```console
+      azdata arc postgres server edit -n myservergroup --extensions pg_cron 
+      ```
+
+   1. Reinicie el grupo de servidores.
+
+   1. Configure la extensión:
+   
+      ```console
+      azdata arc postgres server edit -n myservergroup --engine-settings cron.database_name='postgres'
+      ```
+
+   Si ejecuta el segundo comando antes de que se complete el reinicio, se producirá un error. Si ese es el caso, espere unos instantes más y vuelva a ejecutar el segundo comando.
+
+- Al pasar un valor no válido al parámetro `--extensions` al editar la configuración de un grupo de servidores para habilitar extensiones adicionales, se restablece incorrectamente la lista de extensiones habilitadas al momento de la creación del grupo de servidores e impide que el usuario cree extensiones adicionales. La única solución disponible cuando esto sucede es eliminar el grupo de servidores y volver a implementarlo.
 
 ## <a name="april-2021"></a>Abril de 2021
 
@@ -47,47 +143,6 @@ En esta sección se describen las nuevas características incorporadas o habilit
 
 - Restaure una base de datos a SQL Managed Instance con tres réplicas para que se agregue automáticamente al grupo de disponibilidad. 
 - Conéctese a un punto de conexión secundario de solo lectura en las instancias de SQL Managed Instance implementadas con tres réplicas. Use `azdata arc sql endpoint list` para ver el punto de conexión secundario de solo lectura.
-
-### <a name="known-issues"></a>Problemas conocidos
-
-- Puede crear un controlador de datos en modo de conexión directa con Azure Portal. No se admite la implementación con otras herramientas de Servicios de datos habilitados para Azure Arc. En concreto, no se puede implementar un controlador de datos en modo de conexión directa con ninguna de las herramientas siguientes durante esta versión.
-   - Azure Data Studio
-   - CLI de datos de Azure (`azdata`)
-   - Herramientas nativas de Kubernetes (`kubectl`)
-
-   En [Controlador de datos de Azure Arc | Modo de conexión directa](deploy-data-controller-direct-mode.md) se explica cómo crear el controlador de datos en el portal. 
-
-- En el modo de conexión directa, la carga de uso, las métricas y los registros mediante `azdata arc dc upload` están bloqueados actualmente. El uso se carga automáticamente. La carga del controlador de datos creado en modo de conexión indirecta debe seguir funcionando.
-- La carga automática de datos de uso en modo de conexión directa no se realizará correctamente si se usa el proxy mediante `–proxy-cert <path-t-cert-file>`.
-- SQL Managed Instance habilitado para Azure Arc e Hiperescala de PostgreSQL habilitada para Azure Arc no tiene la certificación GB18030.
-- Actualmente, solo se admite un controlador de datos de Azure Arc en modo de conexión directa por clúster de Kubernetes.
-
-#### <a name="azure-arc-enabled-sql-managed-instance"></a>SQL Managed Instance para Azure Arc
-
-- La implementación de SQL Managed Instance habilitado para Azure Arc en modo directo solo se puede realizar desde Azure Portal y no está disponible desde herramientas como azdata, Azure Data Studio o kubectl.
-
-#### <a name="azure-arc-enabled-postgresql-hyperscale"></a>Hiperescala de PostgreSQL habilitada para Azure Arc
-
-- La restauración a un momento dado no se admite por ahora en el almacenamiento NFS.
-- No es posible habilitar ni configurar la extensión `pg_cron` al mismo tiempo. Debe usar dos comandos para esto. Un comando para habilitarlo y otro para configurarlo. Por ejemplo:
-
-   1. Habilite la extensión:
-   
-      ```console
-      azdata arc postgres server edit -n myservergroup --extensions pg_cron 
-      ```
-
-   1. Reinicie el grupo de servidores.
-
-   1. Configure la extensión:
-   
-      ```console
-      azdata arc postgres server edit -n myservergroup --engine-settings cron.database_name='postgres'
-      ```
-
-   Si ejecuta el segundo comando antes de que se complete el reinicio, se producirá un error. Si ese es el caso, espere unos instantes más y vuelva a ejecutar el segundo comando.
-
-- Al pasar un valor no válido al parámetro `--extensions` al editar la configuración de un grupo de servidores para habilitar extensiones adicionales, se restablece incorrectamente la lista de extensiones habilitadas al momento de la creación del grupo de servidores e impide que el usuario cree extensiones adicionales. La única solución disponible cuando esto sucede es eliminar el grupo de servidores y volver a implementarlo.
 
 ## <a name="march-2021"></a>Marzo de 2021
 

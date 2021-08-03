@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 04/02/2021
+ms.date: 06/11/2021
 ms.author: victorh
-ms.openlocfilehash: 8dbfb23d4314f8ceb13ad36ca9733e446e176090
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 364072c44791cb9b74d385dbc3f2688a3725d76c
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278191"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112033517"
 ---
 # <a name="azure-firewall-features"></a>Características de Azure Firewall
 
@@ -59,7 +59,7 @@ Para más información sobre Availability Zones, consulte [¿Qué son las zonas 
 
 ## <a name="unrestricted-cloud-scalability"></a>Escalabilidad a la nube sin restricciones
 
-Azure Firewall puede escalarse verticalmente todo lo que sea necesario para acoger los flujos de tráfico de red cambiantes, por lo que no es necesario elaborar un presupuesto para el tráfico en su momento álgido.
+Azure Firewall puede escalarse horizontalmente todo lo que sea necesario para acoger los flujos de tráfico de red cambiantes, por lo que no es necesario elaborar un presupuesto para el tráfico en su momento álgido.
 
 ## <a name="application-fqdn-filtering-rules"></a>Reglas de filtrado de FQDN de aplicación
 

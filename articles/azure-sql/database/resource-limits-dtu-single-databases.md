@@ -3,20 +3,20 @@ title: Límites de recursos de la unidad de procesamiento de base de datos en ba
 description: En esta página se describen algunos límites de recursos de DTU comunes para bases de datos únicas en Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: service-overview
 ms.custom: references_regions, seo-lt-2019, sqldbrb=1
 ms.devlang: ''
 ms.topic: reference
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
-ms.date: 04/09/2021
-ms.openlocfilehash: 3afc2a1e3b279e7c4fd350e96787454e01e01f79
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma
+ms.date: 04/16/2021
+ms.openlocfilehash: aecf872bcac77c94090d374cc18415eba6323b61
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303226"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110689818"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model---azure-sql-database"></a>Límites de recursos de bases de datos únicas que usan el modelo de compra de DTU: Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -114,8 +114,11 @@ Las siguientes tablas muestran los recursos disponibles para una base de datos �
 
 > [!IMPORTANT]
 > Existe más de 1 TB de almacenamiento en el nivel Premium actualmente disponible en todas las regiones excepto: Este de China, Norte de China, Centro de Alemania y Nordeste de Alemania. En estas regiones, el almacenamiento máximo en el nivel Prémium está limitado a 1 TB.  Para más información, consulte las [limitaciones actuales de P11 y P15](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).
+
 > [!NOTE]
 > Para obtener información sobre los límites de `tempdb`, consulte los [límites de tempdb](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
+> 
+> Para información adicional sobre los límites de almacenamiento en el nivel de servicio prémium, consulte [Gobernanza del espacio de almacenamiento](resource-limits-logical-server.md#storage-space-governance).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

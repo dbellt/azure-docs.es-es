@@ -9,42 +9,38 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fad9356d3379e76aa259d67711d18f14a4e266f
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 78468c9528c4502ce691dec183c261b9636325f8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107505282"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094337"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Administración de unidades administrativas en Azure Active Directory
 
 Para un control administrativo más pormenorizado en Azure Active Directory (Azure AD), puede asignar a los usuarios un rol de Azure AD con un ámbito limitado a una o varias unidades administrativas.
 
-## <a name="get-started"></a>Introducción
 
-1. Para ejecutar consultas a partir de las siguientes instrucciones mediante el [Probador de Graph](https://aka.ms/ge), asegúrese de cumplir con lo siguiente:
+## <a name="prerequisites"></a>Requisitos previos
 
-    a. En Azure Portal, vaya a Azure AD. 
-    
-    b. En la lista de aplicaciones, seleccione **Probador de Graph**.
-    
-    c. En el panel **Permisos**, seleccione **Conceder consentimiento de administrador para Probador de Graph**.
+- Una licencia de Azure AD Premium P1 o P2 para cada administrador de la unidad administrativa
+- Licencias de Azure AD Free para los miembros de la unidad administrativa
+- Administrador global o administrador de roles con privilegios
+- Módulo AzureAD al usar PowerShell
+- Consentimiento del administrador al usar Probador de Graph para Microsoft Graph API
 
-    ![Captura de pantalla en la que se muestra el vínculo "Conceder consentimiento de administrador para Probador de Graph".](./media/admin-units-manage/select-graph-explorer.png)
-
-
-1. Use [Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
+Para más información, consulte [Requisitos previos para usar PowerShell o Probador de Graph](prerequisites.md).
 
 ## <a name="add-an-administrative-unit"></a>Incorporación de una unidad administrativa
 
 Puede agregar una unidad administrativa mediante Azure Portal o PowerShell.
 
-### <a name="use-the-azure-portal"></a>Uso de Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 
 1. En Azure Portal, vaya a Azure AD. A continuación, en el panel de la izquierda, seleccione **Unidades administrativas**.
 
@@ -56,9 +52,7 @@ Puede agregar una unidad administrativa mediante Azure Portal o PowerShell.
 
 1. Seleccione el botón azul **Agregar** para finalizar la unidad administrativa.
 
-### <a name="use-powershell"></a>Uso de PowerShell
-
-Instale [Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/) antes de intentar ejecutar los siguientes comandos:
+### <a name="powershell"></a>PowerShell
 
 ```powershell
 Connect-AzureAD
@@ -67,7 +61,7 @@ New-AzureADMSAdministrativeUnit -Description "West Coast region" -DisplayName "W
 
 Puede modificar los valores entre comillas, según sea necesario.
 
-### <a name="use-microsoft-graph"></a>Uso de Microsoft Graph
+### <a name="microsoft-graph-api"></a>Microsoft Graph API
 
 Request
 
@@ -88,7 +82,7 @@ Cuerpo
 
 En Azure AD, puede quitar una unidad administrativa que ya no necesite como unidad de ámbito para los roles administrativos.
 
-### <a name="use-the-azure-portal"></a>Uso de Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 
 1. En Azure Portal, vaya a **Azure AD** y, luego, seleccione **Unidades administrativas**. 
 1. Seleccione la unidad administrativa que quiera eliminar y, a continuación, seleccione **Eliminar**. 
@@ -96,7 +90,7 @@ En Azure AD, puede quitar una unidad administrativa que ya no necesite como uni
 
 ![Captura de pantalla del botón Eliminar de la unidad administrativa y de la ventana de confirmación](./media/admin-units-manage/select-admin-unit-to-delete.png)
 
-### <a name="use-powershell"></a>Uso de PowerShell
+### <a name="powershell"></a>PowerShell
 
 ```powershell
 $adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
@@ -105,7 +99,7 @@ Remove-AzureADMSAdministrativeUnit -Id $adminUnitObj.Id
 
 Puede modificar los valores entre comillas, según sea necesario para el entorno específico.
 
-### <a name="use-the-graph-api"></a>Uso de Graph API
+### <a name="microsoft-graph-api"></a>Microsoft Graph API
 
 Request
 

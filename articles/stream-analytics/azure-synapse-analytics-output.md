@@ -6,12 +6,12 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 7e85df8ae67624a253a9fb617629d7355109c210
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c61f378dd9121c727fc245d177e11921a8a8e26
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98019608"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094391"
 ---
 # <a name="azure-synapse-analytics-output-from-azure-stream-analytics"></a>Salida de Azure Synapse Analytics desde Azure Stream Analytics
 
@@ -21,7 +21,8 @@ Los trabajos de Azure Stream Analytics se pueden generar en una tabla de grupos 
 
 La tabla del grupo de SQL dedicado debe existir antes de poder agregarla como salida al trabajo de Stream Analytics. El esquema de tabla debe coincidir con los campos y los tipos en la salida del trabajo. 
 
-Para usar Azure Synapse como salida, debe asegurarse de que tiene la cuenta de almacenamiento configurada. Vaya a Configuración de cuenta de almacenamiento para configurar la cuenta de almacenamiento. Solo se permiten los tipos de cuenta de almacenamiento que admiten tablas: Uso general V2 y uso general V1. Seleccione solo el nivel estándar. No se admite el nivel Premium.
+> [!NOTE] 
+> Para usar Azure Synapse Analytics como salida, asegúrese de que la cuenta de almacenamiento está configurada en el nivel de trabajo, no en el nivel de salida. Para cambiar la configuración de la cuenta de almacenamiento, en el menú **Configure** (Configurar) del trabajo de Stream Analytics, vaya a **Storage account settings** (Configuración de cuenta de almacenamiento). Use solo los tipos de cuenta de almacenamiento que admiten tablas: De uso general V2 y De uso general V1. Elija solo el nivel Estándar. El nivel Prémium no se admite en este escenario.
 
 ## <a name="output-configuration"></a>Configuración de salida
 

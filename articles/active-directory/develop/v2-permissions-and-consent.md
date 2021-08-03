@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/14/2021
+ms.date: 05/25/2021
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: f04a0ca4222ec86e793bf935247029fa78f1acf1
-ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
+ms.openlocfilehash: fed830833e9f68bcf734be65cba16f1cc84c8f89
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109627931"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110494358"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Permisos y consentimiento en la plataforma de identidad de Microsoft
 
@@ -105,6 +105,13 @@ En la plataforma de identidad de Microsoft (solicitudes realizadas al punto de c
 El token de acceso es válido durante un breve período de tiempo. Suele expirar al cabo de una hora. En ese momento, la aplicación tiene que redirigir al usuario de vuelta al punto de conexión `/authorize` para que obtenga un nuevo código de autorización. Durante esta redirección y, en función del tipo de aplicación, puede que el usuario tenga que volver a escribir sus credenciales o dar de nuevo el consentimiento a permisos.
 
 Para más información sobre cómo obtener y usar tokens de actualización, consulte la [referencia del protocolo de la Plataforma de identidad de Microsoft](active-directory-v2-protocols.md).
+
+## <a name="incremental-and-dynamic-consent"></a>Consentimiento incremental y dinámico
+Con el punto de conexión de la plataforma de identidad de Microsoft, puede ignorar los permisos estáticos definidos en la información de registro de la aplicación en Azure Portal y, en su lugar, solicitar permisos de forma incremental.  Puede solicitar un conjunto mínimo de permisos por adelantado y solicitar más con el tiempo, a medida que el cliente utilice las funciones adicionales de la aplicación. Para ello, puede especificar los ámbitos que la aplicación necesita en cualquier momento incluyendo los nuevos ámbitos en el parámetro `scope` cuando [solicite un token de acceso](#requesting-individual-user-consent). No es necesario predefinirlos en la información de registro de la aplicación. Si el usuario aún no ha dado su consentimiento a los ámbitos nuevos que se agregan a la solicitud, se le pedirá que dé su consentimiento solo a los nuevos permisos. El consentimiento incremental o dinámico solo se aplica a los permisos delegados y no a los permisos de la aplicación.
+
+Permitir que una aplicación solicite permisos dinámicamente mediante el parámetro `scope` da a los desarrolladores un control total sobre la experiencia del usuario. También puede adelantar la experiencia de consentimiento y pedir todos los permisos en una solicitud de autorización inicial. Si su aplicación requiere un gran número de permisos, puede elegir recopilarlos del usuario de forma incremental, a medida que intentan usar determinadas características de la aplicación con el tiempo.
+
+El [consentimiento del administrador](#using-the-admin-consent-endpoint) que se realiza en nombre de una organización sigue requiriendo los permisos estáticos registrados para la aplicación, por lo que debería establecer esos permisos para las aplicaciones en el portal de registro de aplicaciones si necesita que un administrador dé su consentimiento en nombre de toda la organización. Esto reduce los ciclos que el administrador de la organización necesita para instalar la aplicación.
 
 ## <a name="requesting-individual-user-consent"></a>Solicitud de consentimiento de usuario individual
 

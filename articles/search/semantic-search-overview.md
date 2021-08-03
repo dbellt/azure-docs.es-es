@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/06/2021
+ms.date: 05/25/2021
 ms.custom: references_regions
-ms.openlocfilehash: 4e6b30e6b6df02bac366e2907f33fd2bda13716f
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: c55ca73d63fb380dece0350de482dcc9087bd315
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109789810"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111744816"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Búsqueda semántica en Azure Cognitive Search
 
@@ -26,7 +26,7 @@ La búsqueda semántica es una colección de funcionalidades relacionadas con la
 La búsqueda semántica es una característica Prémium. Si necesita información general, le recomendamos este artículo, pero si prefiere empezar a trabajar, siga estos pasos:
 
 1. [Compruebe los requisitos regionales y de nivel de servicio](#availability-and-pricing).
-1. [Regístrese para el programa de versión preliminar](https://aka.ms/SemanticSearchPreviewSignup).
+1. [Regístrese para el programa de versión preliminar](https://aka.ms/SemanticSearchPreviewSignup). La solicitud puede tardar hasta dos días laborables en procesarse.
 1. Tras la aceptación, cree o modifique las consultas para devolver [títulos y resaltados semánticos](semantic-how-to-query-request.md).
 1. Agregue algunas propiedades más para devolver también [respuestas semánticas](semantic-answers.md).
 1. También puede incluir una propiedad de [corrección ortográfica](speller-how-to-add.md) para maximizar la precisión y la coincidencia.
@@ -72,13 +72,23 @@ A continuación, los resultados se vuelven a puntuar en función de la [similitu
 
 Para usar las funcionalidades semánticas en las consultas, deberá realizar pequeñas modificaciones en la [solicitud de búsqueda](semantic-how-to-query-request.md), pero no necesitará realizar más configuraciones ni nuevas indexaciones.
 
+## <a name="semantic-capabilities-and-limitations"></a>Funcionalidades y limitaciones semánticas
+
+La búsqueda semántica es una tecnología novedosa, por lo que es importante establecer expectativas sobre lo que puede y no puede hacer.
+
+Mejora la calidad de los resultados de la búsqueda de dos maneras. En primer lugar, la promoción de documentos que están semánticamente más cerca de la intención de la consulta original es una ventaja importante. En segundo lugar, los resultados son de uso más inmediato cuando los títulos, y posiblemente las respuestas, están presentes en la página. En todo momento, el motor está trabajando con contenido existente. Los modelos de lenguaje usados en la búsqueda semántica están diseñados para extraer una cadena intacta que parece una respuesta, pero no intentará crear una nueva cadena como respuesta a una consulta o como un título para un documento coincidente.
+
+La búsqueda semántica no es un motor lógico y no deduce información de diferentes fragmentos de contenido del documento o corpus de documentos. Por ejemplo, dada una consulta sobre "complejos hoteleros en el desierto", que no tiene ninguna entrada geográfica, el motor no producirá coincidencias para hoteles ubicados en Arizona o Nevada, aunque ambos estados tengan desiertos. De igual manera, si la consulta incluye la cláusula "en los últimos 5 años", el motor no calculará un intervalo de tiempo basado en la fecha actual que se va a devolver.
+
+En Cognitive Search, los mecanismos que podrían ser útiles para los escenarios anteriores incluyen [mapas de sinónimos](search-synonyms.md) que le permiten crear asociaciones entre términos que son distintos externamente, o [filtros de fecha](search-query-odata-filter.md) especificados como una expresión de OData.
+
 ## <a name="availability-and-pricing"></a>Disponibilidad y precios
 
-La búsqueda semántica está disponible a través del [registro de suscripción](https://aka.ms/SemanticSearchPreviewSignup). Desde el lanzamiento de la versión preliminar del 2 de marzo hasta primeros de junio, las características semánticas se ofrecen de forma gratuita.
+La búsqueda semántica está disponible a través del [registro de suscripción](https://aka.ms/SemanticSearchPreviewSignup). Desde el lanzamiento de la versión preliminar del 2 de marzo hasta primeros de julio, las características semánticas se ofrecen de forma gratuita.
 
 | Característica | Nivel | Region (Región) | Suscripción | Precios proyectados |
 |---------|------|--------|---------------------|-------------------|
-| Búsqueda semántica (títulos, resaltados, respuestas) | Nivel estándar (S1, S2, S3) | Centro-norte de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU. 2, Norte de Europa, Oeste de Europa | Obligatorio | A partir del 1 de junio, el precio esperado de las primeras 250 000 consultas son 500 USD al mes y 2 USD para cada 1000 consultas adicionales.  |
+| Búsqueda semántica (títulos, resaltados, respuestas) | Nivel estándar (S1, S2, S3) | Centro-norte de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU. 2, Norte de Europa, Oeste de Europa | Obligatorio | Desde principios de julio, el precio esperado de las primeras 250 000 consultas son 500 USD al mes y 2 USD por cada 1000 consultas adicionales.  |
 | Corrector ortográfico | Any | Centro-norte de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU. 2, Norte de Europa, Oeste de Europa | Obligatorio | Ninguno (gratis) |
 
 Hay un [registro de suscripción](https://aka.ms/SemanticSearchPreviewSignup) para las características semánticas y la revisión ortográfica. 
@@ -91,4 +101,4 @@ La información de los precios finales se documentará en la [página de precios
 
 [Regístrese](https://aka.ms/SemanticSearchPreviewSignup) para obtener la versión preliminar en un servicio de búsqueda que cumple con los requisitos regionales y de nivel indicados en la sección anterior.
 
-Cuando el servicio esté listo, [cree una consulta semántica](semantic-how-to-query-request.md) para ver la clasificación semántica en acción.
+La solicitud puede tardar hasta dos días laborables en procesarse. Cuando el servicio esté listo, [cree una consulta semántica](semantic-how-to-query-request.md) para ver la clasificación semántica en acción.

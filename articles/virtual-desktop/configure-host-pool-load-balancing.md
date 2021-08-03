@@ -1,28 +1,29 @@
 ---
-title: 'Configuración del equilibrio de carga de Windows Virtual Desktop: Azure'
-description: Cómo configurar el método de equilibrio de carga de un entorno de Windows Virtual Desktop.
+title: 'Configuración del equilibrio de carga de Azure Virtual Desktop: Azure'
+description: Procedimiento para configurar el método de equilibrio de carga de un entorno de Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 10/12/2020
 ms.author: helohr
+ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 0e742a046d43fef6e8263f73fc2ca8460848ad40
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: a39aad7889ee395c723d76a74cfb006b6d09caa3
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448124"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751062"
 ---
-# <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Configuración del método de equilibrio de carga de Windows Virtual Desktop
+# <a name="configure-the-azure-virtual-desktop-load-balancing-method"></a>Configuración del método de equilibrio de carga de Azure Virtual Desktop
 
-La configuración del método de equilibrio de carga de un grupo de hosts le permite ajustar el entorno de Windows Virtual Desktop para satisfacer mejor sus necesidades.
+La configuración del método de equilibrio de carga de un grupo de hosts le permite ajustar el entorno de Azure Virtual Desktop para satisfacer mejor sus necesidades.
 
 >[!NOTE]
 > Esto no se aplica a un grupo de hosts de escritorio persistente, ya que los usuarios siempre tienen una asignación de 1:1 a un host de sesión dentro del grupo de hosts.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-En este artículo se supone que ha seguido las instrucciones que se indican en [Configuración del módulo de PowerShell para Windows Virtual Desktop](powershell-module.md) para descargar e instalar el módulo de PowerShell e iniciar sesión en su cuenta de Azure.
+En este artículo se supone que ha seguido las instrucciones que se indican en [Configuración del módulo de PowerShell para Azure Virtual Desktop](powershell-module.md) para descargar e instalar el módulo de PowerShell e iniciar sesión en su cuenta de Azure.
 
 ## <a name="configure-breadth-first-load-balancing"></a>Configuración del equilibrio de carga en amplitud
 
@@ -82,8 +83,8 @@ También puede configurar el equilibrio de carga con Azure Portal.
 Para configurar el equilibrio de carga:
 
 1. Inicie sesión en Azure Portal en https://portal.azure.com.
-2. Busque y seleccione **Windows Virtual Desktop** en Servicios.
-3. En la página de Windows Virtual Desktop, seleccione **Grupos de hosts**.
+2. Busque y seleccione **Azure Virtual Desktop** en Servicios.
+3. En la página de Azure Virtual Desktop, seleccione **Grupos de hosts**.
 4. Seleccione el nombre del grupo de hosts que quiera editar.
 5. Seleccione **Propiedades**.
 6. En el menú desplegable, escriba el **límite máximo de sesiones** en el campo y seleccione el **algoritmo de equilibrio de carga** que desee para este grupo de hosts.

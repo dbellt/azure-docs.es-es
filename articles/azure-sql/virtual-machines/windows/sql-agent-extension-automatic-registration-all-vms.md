@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/07/2020
-ms.openlocfilehash: 139852949a3744fd603cb197b2e27fa32679aae0
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 187e51d049d965d0fb9cef1af93a5036819e957f
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102042431"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110665817"
 ---
 # <a name="automatic-registration-with-sql-iaas-agent-extension"></a>Registro automático con la extensión Agente de IaaS de SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -28,9 +29,9 @@ En este artículo se enseña a habilitar la característica de registro automát
 
 Registro de la VM con SQL Server con la [extensión Agente de IaaS de SQL](sql-server-iaas-agent-extension-automate-management.md) para desbloquear todo el conjunto de ventajosas características. 
 
-Cuando el registro automático está habilitado, un trabajo se ejecuta diariamente para detectar si SQL Server está instalado en todas las máquinas virtuales no registradas de la suscripción. Para ello, copie los archivos binarios de extensión del agente de IaaS de SQL en la máquina virtual y, a continuación, ejecute una utilidad puntual que compruebe el subárbol del Registro de SQL Server. Si se detecta el subárbol de SQL Server, la máquina virtual se registra con la extensión en modo ligero. Si no existe ningún subárbol de SQL Server en el Registro, se quitan los archivos binarios.
+Cuando el registro automático está habilitado, un trabajo se ejecuta diariamente para detectar si SQL Server está instalado en todas las máquinas virtuales no registradas de la suscripción. Para ello, copie los archivos binarios de extensión del agente de IaaS de SQL en la máquina virtual y, a continuación, ejecute una utilidad puntual que compruebe el subárbol del Registro de SQL Server. Si se detecta el subárbol de SQL Server, la máquina virtual se registra con la extensión en modo ligero. Si no existe ningún subárbol de SQL Server en el Registro, se quitan los archivos binarios. El registro automático puede tardar hasta 4 días en detectar máquinas virtuales con SQL Server recién creadas.
 
-Una vez que el registro automático esté habilitado para una suscripción, todas las máquinas virtuales actuales y futuras que tengan SQL Server instalado se registrarán con la extensión de agente de IaaS de SQL **en modo ligero sin tiempo de inactividad y sin reiniciar el servicio de SQL Server**. Aún debe [actualizar manualmente al modo de administración completo](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full) para aprovechar todo el conjunto de características. 
+Una vez que el registro automático esté habilitado para una suscripción, todas las máquinas virtuales actuales y futuras que tengan SQL Server instalado se registrarán con la extensión de agente de IaaS de SQL **en modo ligero sin tiempo de inactividad y sin reiniciar el servicio de SQL Server**. Aún debe [actualizar manualmente al modo de administración completo](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full) para aprovechar todo el conjunto de características. El tipo de licencia predeterminado es el de la imagen de máquina virtual. Si usa una imagen de pago por uso para la máquina virtual, el tipo de licencia será `PAYG`; de lo contrario, el tipo de licencia será `AHUB` de forma predeterminada. 
 
 > [!IMPORTANT]
 > La extensión del Agente de IaaS de SQL recopila datos con el fin de ofrecer a los clientes ventajas opcionales al usar SQL Server en Azure Virtual Machines. Microsoft no usará estos datos para auditorías de licencias sin el consentimiento previo del cliente. Para obtener más información, consulte [Complemento de privacidad de SQL Server](/sql/sql-server/sql-server-privacy#non-personal-data).
@@ -87,7 +88,7 @@ Puede habilitar la característica de registro automático para varias suscripci
 
 Para ello, siga estos pasos:
 
-1. Guarde [este script](https://github.com/microsoft/tigertoolbox/blob/master/AzureSQLVM/RegisterSubscriptionsToSqlVmAutomaticRegistration.ps1) en un archivo de `.ps1`, como `EnableBySubscription.ps1`. 
+1. Guarde [este script](https://github.com/microsoft/tigertoolbox/blob/master/AzureSQLVM/AutoRegTools.psm1).
 1. Navegue hasta la ubicación donde guardó el script mediante un símbolo del sistema administrativo o una ventana de PowerShell. 
 1. Conéctese a Azure (`az login`).
 1. Ejecute el script, pasando SubscriptionIds como parámetros, como:   

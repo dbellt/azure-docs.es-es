@@ -1,5 +1,5 @@
 ---
-title: Planeamiento de una oferta de SaaS en el marketplace comercial de Microsoft
+title: Planeamiento de una oferta de SaaS en el marketplace comercial de Microsoft (Azure Marketplace)
 description: Cómo planear una nueva oferta de software como servicio (SaaS) para publicarla o venderla en Microsoft AppSource, Azure Marketplace o mediante el programa del Proveedor de soluciones en la nube (CSP) por medio del programa del marketplace comercial del Centro de partners de Microsoft.
 author: mingshen-ms
 ms.author: mingshen
@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/26/2021
-ms.openlocfilehash: b9b2270034853832f6795203dfaa60b6809a89ba
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 05/25/2021
+ms.openlocfilehash: 92edc1e2e2ae1e359cfd951a239e30d506d2452c
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138956"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110692024"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planeamiento de una oferta de SaaS en el marketplace comercial
 
@@ -49,15 +49,13 @@ La opción _Ponerse en contacto conmigo_ no tiene requisitos técnicos. Tiene la
 
 Las opciones de publicación _Obtener ahora (gratis)_ , _Evaluación gratuita_ y _Venta mediante Microsoft_ presentan los siguientes requisitos técnicos:
 
-- La aplicación de SaaS debe ser una solución para varios inquilinos.
-- Puede permitir la autenticación de los usuarios tanto con cuentas de Microsoft (MSA) como de [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/).
-- Debe crear una página de aterrizaje. Después de que un usuario compre su oferta, se le dirigirá a la página de aterrizaje. Esto les ayuda a completar cualquier aprovisionamiento o configuración adicional que sea necesaria. Puede encontrar instrucciones sobre la creación de la página de aterrizaje en estos artículos:
+- Debe habilitar tanto las cuentas Microsoft (MSA) como [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) para que los compradores se autentiquen en el sitio. Debe permitir que los compradores con una cuenta de Azure AD inicien sesión en la aplicación mediante Azure AD con inicio de sesión único (SSO).
+- Debe crear una página de aterrizaje que ofrezca una experiencia fácil de inicio de sesión e incorporación para los clientes que hayan comprado su oferta. Esta página les ayuda a realizar cualquier aprovisionamiento o configuración adicional que sean necesarios. Puede encontrar instrucciones sobre la creación de la página de aterrizaje en estos artículos:
   - [Creación de la página de aterrizaje de su oferta de SaaS comercializable en el marketplace comercial](azure-ad-transactable-saas-landing-page.md)
   - [Creación de la página de aterrizaje de su oferta de SaaS gratuita o de evaluación en el marketplace comercial](azure-ad-free-or-trial-landing-page.md)
 
 Estos requisitos técnicos adicionales se aplican solo a la opción de publicación _Venta mediante Microsoft_ (procesable):
 
-- Se requiere Azure AD con la autenticación y la administración de identidades de inicio de sesión único (SSO) para el usuario comprador que accede a la página de aterrizaje. Para más información, consulte [Azure AD y ofertas de SaaS comercializables en el marketplace comercial](azure-ad-saas.md).
 - Debe usar las [API de cumplimiento de SaaS](./partner-center-portal/pc-saas-fulfillment-api-v2.md) para la integración con Azure Marketplace y Microsoft AppSource. Debe exponer un servicio que pueda interactuar con la suscripción SaaS para crear, actualizar y eliminar una cuenta de usuario y un plan de servicio. Los cambios importantes en la API deben admitirse dentro de un plazo de 24 horas. Los cambios no importantes en la API se publicarán de forma periódica. En la documentación de las [API](./partner-center-portal/pc-saas-fulfillment-api-v2.md) hay diagramas y explicaciones detalladas que describen el uso de los campos recopilados.
 - Debe crear al menos un plan para la oferta. El precio del plan se basa en el modelo de precios seleccionado antes de la publicación: _tarifa plana_ o _por usuario_. Se proporcionan más detalles sobre los [planes](#plans) más adelante en este artículo.
 - El cliente puede cancelar su oferta en cualquier momento.
@@ -149,12 +147,13 @@ La integración con Microsoft 365 permite que la oferta de SaaS proporcione exp
 En el caso de los productos vinculados, la búsqueda en AppSource devolverá un resultado que incluye tanto SaaS como todos los complementos vinculados. El cliente puede desplazarse entre las páginas de detalles de producto de la oferta de SaaS y los complementos vinculados. Los administradores de TI pueden revisar e implementar los complementos de SaaS y vinculados dentro del mismo proceso a través de una experiencia integrada y conectada en el centro de administración de Microsoft 365. Para más información, consulte [Prueba e implementación de aplicaciones de Microsoft 365: administración de Microsoft 365](/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps).
 
 ### <a name="microsoft-365-integration-support-limitations"></a>Limitaciones de compatibilidad con la integración de Microsoft 365
+
 La detección como una única solución de E2E es compatible con AppSource para todos los casos. Sin embargo, la implementación simplificada de la solución E2E como se describió anteriormente a través del centro de administración de Microsoft 365 no se admite en los siguientes escenarios:
 
+   - Ofertas solo para anuncio "Póngase en contacto conmigo". 
    - El mismo complemento está vinculado a más de una oferta de SaaS.
    - La oferta de SaaS está vinculada a complementos, pero no se integra con Microsoft Graph y no se proporciona ningún identificador de aplicación de AAD.
   - La oferta de SaaS está vinculada a complementos, pero el identificador de aplicación de AAD proporcionado para la integración de Microsoft Graph se ha compartido en varias ofertas de SaaS.
-
  
 ## <a name="offer-listing-details"></a>Detalles de la descripción de la oferta
 
@@ -198,7 +197,7 @@ Para facilitar la creación de la oferta, prepare algunos de estos elementos con
 
     Este cuadro de texto tiene controles de editor de texto enriquecido que puede utilizar para que su descripción sea más atractiva. También puede usar etiquetas HTML para dar formato a la descripción. En este cuadro puede escribir hasta 3000 caracteres de texto, incluido el marcado HTML. Consulte [Escribir una excelente descripción de la aplicación](/windows/uwp/publish/write-a-great-app-description) para encontrar más sugerencias.
 
-- **Instrucciones de inicio** Si opta por vender su oferta a través de Microsoft (oferta procesable), este campo es obligatorio. Estas instrucciones ayudarán a los clientes a conectarse a su oferta de SaaS. Puede agregar hasta 3000 caracteres de texto y vínculos a documentación en línea más detallada.
+- **Instrucciones de inicio:** si opta por vender su oferta a través de Microsoft (oferta procesable), este campo es obligatorio. Estas instrucciones ayudarán a los clientes a conectarse a su oferta de SaaS. Puede agregar hasta 3000 caracteres de texto y vínculos a documentación en línea más detallada.
 - **Palabras clave de búsqueda** (opcional): escriba al menos tres palabras clave de búsqueda que los clientes puedan usar para buscar su oferta en las tiendas en línea. No es necesario incluir el **nombre** y la **descripción** de la oferta: ese texto se incluye automáticamente en la búsqueda.
 - **Vínculo a la directiva de privacidad**: la dirección URL que lleva a la directiva de privacidad de su empresa. Debe proporcionar una directiva de privacidad válida y usted es responsable de garantizar que la aplicación cumple con las leyes y normativas de privacidad.
 - **Información de contacto**: Debe proporcionar los siguientes contactos de la organización:
@@ -221,12 +220,12 @@ Para facilitar la creación de la oferta, prepare algunos de estos elementos con
 
 - **Elementos multimedia (capturas de pantalla)** : debe agregar entre una y cinco capturas de pantallas que muestren el funcionamiento de la oferta, con los siguientes requisitos:
   - 1280 x 720 píxeles
-  - Archivo .png
+  - Tipo de archivo PNG
   - Se debe incluir un título
 - **Elementos multimedia (vídeos)** (opcional): puede agregar hasta cuatro vídeos que muestren su oferta, con los siguientes requisitos:
   - Nombre
   - Dirección URL: solo se debe hospedar en YouTube o en Vimeo.
-  - Miniatura: archivo .png de 1280 x 720
+  - Miniatura: archivo PNG de 1280 x 720
 
 > [!Note]
 > La oferta debe cumplir las [directivas de certificación del marketplace comercial](/legal/marketplace/certification-policies#100-general) generales y las [directivas de software como servicio](/legal/marketplace/certification-policies#1000-software-as-a-service-saas) que se van a publicar en el marketplace comercial.
@@ -321,7 +320,7 @@ Puede optar por participar en los canales de marketing y ventas respaldados por 
 
 - **Resell through CSPs** (Revender a través de los CSP): use esta opción para permitir que los asociados de los proveedores de soluciones en la nube (CSP) de Microsoft revendan la solución como parte de una oferta agrupada. Para más información sobre este programa, vea el [programa de proveedores de soluciones en la nube](cloud-solution-providers.md).
 
-- **Venta conjunta con Microsoft**: esta opción permite que los equipos de ventas de Microsoft consideren la solución idónea para la venta conjunta de IP al evaluar las necesidades de los clientes. Para obtener más información sobre la elegibilidad de la venta conjunta, vea [Requisitos para el estado de la venta conjunta](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). Para información detallada sobre cómo preparar la oferta para la evaluación, vea [Opción de venta conjunta en el Centro de partners](./co-sell-configure.md).
+- **Venta conjunta con Microsoft**: esta opción permite que los equipos de ventas de Microsoft consideren la solución idónea para la venta conjunta de IP al evaluar las necesidades de los clientes. Para obtener más información sobre la elegibilidad de la venta conjunta, vea [Requisitos para el estado de la venta conjunta](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). Para información detallada sobre cómo preparar la oferta para la evaluación, vea [Opción de venta conjunta en el Centro de partners](co-sell-configure.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

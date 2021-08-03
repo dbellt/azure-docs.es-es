@@ -1,5 +1,5 @@
 ---
-title: Montaje de Azure Blob Storage con el protocolo NFS 3.0 (versión preliminar) | Microsoft Docs
+title: Montaje de Azure Blob Storage con el protocolo NFS 3.0 (versión preliminar) | Microsoft Docs
 description: Aprenda a montar un contenedor en Blob Storage desde una máquina virtual (VM) de Azure o un cliente que se ejecuta de forma local mediante el protocolo NFS 3.0.
 author: normesta
 ms.subservice: blobs
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
-ms.custom: references_regions
-ms.openlocfilehash: 1c71c6b55049d81d5c1ff3e26cba3436f0e2dd23
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.custom: references_regions, devx-track-azurepowershell
+ms.openlocfilehash: d184569fd28e23b14ff3cb24a0c8e68477b9842d
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107890751"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111888741"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Montaje de Blob Storage con el protocolo Network File System (NFS) 3.0 (versión preliminar)
 
-Puede montar un contenedor en Blob Storage desde una máquina virtual (VM) de Azure basada en Linux o un sistema Linux que se ejecuta de forma local mediante el protocolo NFS 3.0. En este artículo se proporcionan instrucciones paso a paso. Para obtener más información acerca de la compatibilidad con el protocolo NFS 3.0 en Blob Storage, consulte [Compatibilidad del protocolo Network File System (NFS) 3.0 en Azure Blob Storage (versión preliminar)](network-file-system-protocol-support.md).
+Puede montar un contenedor en Blob Storage desde una máquina virtual (VM) de Azure basada en Linux o un sistema Linux que se ejecuta de forma local mediante el protocolo NFS 3.0. En este artículo se proporcionan instrucciones paso a paso. Para más información sobre la compatibilidad con el protocolo NFS 3.0 en Blob Storage, vea [Compatibilidad del protocolo Network File System (NFS) 3.0 en Azure Blob Storage (versión preliminar)](network-file-system-protocol-support.md).
 
 ## <a name="step-1-register-the-nfs-30-protocol-feature-with-your-subscription"></a>Paso 1: Registro de la característica de protocolo NFS 3.0 con la suscripción
 
@@ -124,10 +124,10 @@ A medida que configure la cuenta, elija estos valores:
 
 |Configuración | Rendimiento Premium | Rendimiento Estándar  
 |----|---|---|
-|Location|Todas las regiones disponibles |Una de las regiones siguientes: Este de Australia, Centro de Corea del Sur, Este de EE. UU. y Centro-sur de EE. UU.   
+|Location|Todas las regiones disponibles |Todas las regiones disponibles    
 |Rendimiento|Premium| Estándar
 |Tipo de cuenta|BlockBlobStorage| Uso general v2
-|Replicación|Almacenamiento con redundancia local (LRS)| Almacenamiento con redundancia local (LRS)
+|Replicación|Almacenamiento con redundancia local (LRS)| Almacenamiento con redundancia local (LRS) o almacenamiento con redundancia de zona (ZRS)
 |Método de conectividad|Punto de conexión público (redes seleccionadas) o punto de conexión privado. |Punto de conexión público (redes seleccionadas) o punto de conexión privado.
 |Se requiere transferencia segura|Disabled|Disabled
 |Espacio de nombres jerárquico|habilitado|habilitado
@@ -178,4 +178,4 @@ Cree un directorio en el sistema Linux y, a continuación, monte un contenedor e
 
 ## <a name="see-also"></a>Consulte también
 
-[Compatibilidad del protocolo Network File System (NFS) 3.0 en Azure Blob Storage (versión preliminar)](network-file-system-protocol-support.md)
+[Compatibilidad del protocolo Network File System (NFS) 3.0 en Azure Blob Storage (versión preliminar)](network-file-system-protocol-support.md)

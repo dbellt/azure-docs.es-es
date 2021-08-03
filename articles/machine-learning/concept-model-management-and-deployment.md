@@ -1,7 +1,7 @@
 ---
 title: 'MLOps: Administración de modelos de Machine Learning'
 titleSuffix: Azure Machine Learning
-description: 'Más información sobre la administración de modelos con Azure Machine Learning (MLOps) Implemente, administre y supervise sus propios modelos para mejorarlos permanentemente. '
+description: 'Más información sobre la administración de modelos con Azure Machine Learning (MLOps) Implemente, administre, rastree el linaje y supervise sus modelos para mejorarlos continuamente. '
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 32777d9f8313457036b103777f251329687b3997
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 88a2dc2e38861cff540cfa1fcdc0b3f6e9651b04
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102508017"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111439915"
 ---
-# <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Administración, implementación y supervisión de modelos con Azure Machine Learning
+# <a name="mlops-model-management-deployment-lineage-and-monitoring-with-azure-machine-learning"></a>MLOps: administración de modelos, implementación, linaje y supervisión con Azure Machine Learning
 
 En este artículo, obtendrá información sobre cómo usar Azure Machine Learning para administrar el ciclo de vida de los modelos. Azure Machine Learning usa un enfoque de Operaciones de Machine Learning (MLOps). MLOps mejora la calidad y la coherencia de las soluciones de aprendizaje automático. 
 
@@ -27,14 +27,14 @@ Operaciones de Machine Learning (MLOps) se basa en los principios y prácticas d
 
 * Conseguir una experimentación y desarrollo de modelos más rápidos
 * Conseguir una implementación más rápida de los modelos en producción
-* Control de calidad
+* Control de calidad y seguimiento de linaje de un extremo a otro
 
 Azure Machine Learning ofrece las siguientes funcionalidades de MLOps:
 
 - **Creación de canalizaciones de ML reproducibles**. Las canalizaciones de Machine Learning permiten definir pasos repetibles y reutilizables para los procesos de preparación de datos, entrenamiento y puntuación.
 - **Cree entornos de software reutilizables** para entrenar e implementar modelos.
 - **Registro, empaquetado e implementación de modelos desde cualquier lugar**. También puede realizar el seguimiento de los metadatos asociados necesarios para utilizar el modelo.
-- **Captura de los datos de gobernanza del ciclo de vida de Machine Learning de un extremo a otro**. La información registrada puede incluir quién está publicando modelos, por qué se han realizado los cambios y cuándo se implementaron o usaron los modelos en producción.
+- **Captura de los datos de gobernanza del ciclo de vida de Machine Learning de un extremo a otro**. La información de linaje registrada puede incluir quién está publicando modelos, por qué se han realizado los cambios y cuándo se implementaron o usaron los modelos en producción.
 - **Notificación y alerta sobre eventos en el ciclo de vida de Machine Learning**. Por ejemplo, la finalización del experimento, el registro del modelo, la implementación de este y la detección del desfase de datos.
 - **Supervisión de las aplicaciones de ML para las incidencias relacionadas con ML y operativas**. Compare las entradas del modelo durante el entrenamiento y la inferencia, explore las métricas de un modelo específico e incluya supervisión y alertas en su infraestructura de ML.
 - **Automatización del ciclo de vida de un extremo a otro de Machine Learning con Azure Machine Learning y Azure Pipelines**. El uso de canalizaciones le permite actualizar con frecuencia los modelos, probar los modelos nuevos e implementar continuamente nuevos modelos de ML junto con sus otras aplicaciones y servicios.

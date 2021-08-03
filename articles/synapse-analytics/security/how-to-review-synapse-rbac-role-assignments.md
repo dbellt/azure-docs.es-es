@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9065ca9c7638f3d2bda36e4831b81963936f4b45
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: acc1ed8cece087628f6f8deb41696acefe124874
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100102162"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110784040"
 ---
 # <a name="how-to-review-synapse-rbac-role-assignments"></a>Cómo examinar asignaciones de roles de Synapse RBAC
 
@@ -24,7 +24,7 @@ En este artículo se explica cómo revisar las asignaciones de roles actuales pa
 Con cualquier rol de Synapse RBAC, puede enumerar las asignaciones de roles de Synapse RBAC para todos los ámbitos, incluidas las asignaciones de objetos a los que no tiene acceso. Solo un administrador de Synapse puede conceder acceso a Synapse RBAC.  
 
 >[!Note]
->Los usuarios invitados (usuarios de un inquilino de AD distinto) no pueden ver ni administrar las asignaciones de roles, aunque se les asigne el rol de administrador de Synapse.    
+> Los usuarios invitados (usuarios de un inquilino de AD distinto) también pueden ver y administrar las asignaciones de roles, después de que se les asigne el rol de administrador de Synapse.    
 
 ## <a name="open-synapse-studio"></a>Abrir Synapse Studio  
 

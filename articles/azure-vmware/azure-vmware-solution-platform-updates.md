@@ -2,17 +2,33 @@
 title: Actualizaciones de la plataforma para Azure VMware Solution
 description: Más información sobre las actualizaciones de la plataforma en Azure VMware Solution.
 ms.topic: reference
-ms.date: 04/26/2021
-ms.openlocfilehash: ea6edff8408dc710d8c5bfe3b95555243b4ddd52
-ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
+ms.date: 05/26/2021
+ms.openlocfilehash: 38cd183b783989f6a682b68e92e490354b032750
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108007509"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110538070"
 ---
 # <a name="platform-updates-for-azure-vmware-solution"></a>Actualizaciones de la plataforma para Azure VMware Solution
 
 Azure VMware Solution va a aplicar actualizaciones importantes a partir de marzo de 2021. Va a recibir una notificación por medio de Azure Service Health con la escala de tiempo del mantenimiento. Para más información, consulte [Mantenimiento del host y administración del ciclo de vida](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
+
+## <a name="may-25-2021"></a>25 de mayo de 2021
+Según el aviso de seguridad de VMware [VMSA-2021-0010](https://www.vmware.com/security/advisories/VMSA-2021-0010.html), se ha informado a VMware de múltiples vulnerabilidades en VMware ESXi y vSphere Client (HTML5). 
+
+Para hacer frente a las vulnerabilidades ([CVE-2021-21985](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21985) y [CVE-2021-21986](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21986)) notificadas en el aviso de seguridad de VMware [VMSA-2021-0010](https://www.vmware.com/security/advisories/VMSA-2021-0010.html), se ha actualizado vCenter Server en todas las nubes privadas de Azure VMware Solution.
+
+No es necesario hacer nada.
+
+## <a name="may-21-2021"></a>21 de mayo de 2021
+ 
+El servicio Azure VMware Solution realizará tareas de mantenimiento hasta el 23 de mayo de 2021 para aplicar actualizaciones importantes a vCenter Server en su nube privada.  Va a recibir una notificación por medio de Azure Service Health con la escala de tiempo del mantenimiento de su nube privada.
+ 
+Durante este tiempo, VMware vCenter no estará disponible y no podrá administrar las máquinas virtuales (detener, iniciar, crear o eliminar). Se recomienda que, durante este tiempo, no planee ninguna otra actividad, como el escalado vertical de la nube privada, la creación de nuevas redes, entre otras, en la nube privada.
+ 
+No hay ningún impacto en las cargas de trabajo que se ejecutan en la nube privada.
+
 
 ## <a name="april-26-2021"></a>26 de abril de 2021
 Todas las nuevas nubes privadas de Azure VMware Solution se implementan ahora con VMware vCenter, versión 6.7U3l y NSX-T, versión 2.5.2. No se usa NSX-T 3.1.1 en este escenario debido a un problema identificado en este entorno que afecta a la conectividad de las máquinas virtuales del cliente. 

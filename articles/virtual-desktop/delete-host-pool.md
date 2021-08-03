@@ -1,21 +1,22 @@
 ---
-title: 'Eliminación de grupos de hosts de Windows Virtual Desktop: Azure'
-description: Eliminación de un grupo de hosts en Windows Virtual Desktop.
+title: 'Eliminación de grupos de hosts de Azure Virtual Desktop: Azure'
+description: Procedimiento para eliminar un grupo de hosts en Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 07/11/2020
 ms.author: helohr
+ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 3693a82a0d9c9544ed6a14d4596d544725125bd3
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: e4621799389e738bd03e75f84f5c1706f90d69d3
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447053"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751962"
 ---
 # <a name="delete-a-host-pool"></a>Eliminación de un grupo de hosts
 
-Todos los grupos de hosts creados en Windows Virtual Desktop se adjuntan a los hosts de sesión y a los grupos de aplicaciones. Para eliminar un grupo de hosts, debe eliminar los grupos de aplicaciones y los hosts de sesión asociados. Eliminar un grupo de aplicaciones es bastante sencillo, pero eliminar un host de sesión es más complicado. Cuando se elimina un host de sesión, es necesario asegurarse de que no tiene ninguna sesión de usuario activa. Se deben cerrar todas las sesiones de usuario en el host de sesión para evitar que los usuarios pierdan datos.
+Todos los grupos de hosts creados en Azure Virtual Desktop se adjuntan a los grupos de aplicaciones y hosts de sesión. Para eliminar un grupo de hosts, debe eliminar los grupos de aplicaciones y los hosts de sesión asociados. Eliminar un grupo de aplicaciones es bastante sencillo, pero eliminar un host de sesión es más complicado. Cuando se elimina un host de sesión, es necesario asegurarse de que no tiene ninguna sesión de usuario activa. Se deben cerrar todas las sesiones de usuario en el host de sesión para evitar que los usuarios pierdan datos.
 
 ## <a name="delete-a-host-pool-with-powershell"></a>Eliminación de un grupo de hosts con PowerShell
 
@@ -39,7 +40,7 @@ Para eliminar un grupo de hosts en Azure Portal:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-2. Busque y seleccione **Windows Virtual Desktop**.
+2. Busque y seleccione **Azure Virtual Desktop**.
 
 3. Seleccione **Grupos de hosts** en el menú de la izquierda de la página y seleccione el nombre del grupo de hosts que quiere eliminar.
 
@@ -65,5 +66,5 @@ Para información sobre cómo crear un grupo de hosts, consulte estos artículos
 Para información sobre cómo configurar grupos de hosts, consulte estos artículos:
 
 - [Personalización de las propiedades de Protocolo de escritorio remoto para un grupo de hosts](customize-rdp-properties.md)
-- [Configuración del método de equilibrio de carga de Windows Virtual Desktop](configure-host-pool-load-balancing.md)
+- [Configuración del método de equilibrio de carga de Azure Virtual Desktop](configure-host-pool-load-balancing.md)
 - [Configuración del tipo de asignación de grupo de host de escritorio personal](configure-host-pool-personal-desktop-assignment-type.md)

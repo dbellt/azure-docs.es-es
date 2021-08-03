@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/31/2021
 ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: 3e9baedafb436bc92f734bf39519918686cec58d
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 2e54eb0ea8166b32dd4bcc794bfcf401d9196884
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124480"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110469251"
 ---
 # <a name="azure-storage-migration-overview"></a>Introducción a la migración del almacenamiento
 
@@ -37,7 +37,9 @@ La migración de datos no estructurados incluye los siguientes escenarios:
 
 Una migración completa consta de varias fases diferentes: detección, evaluación y migración.
 
-![Diagrama que muestra las fases de la migración: detección, evaluación y migración.](./media/storage-migration-overview/migration-phases.png)
+| Detección | Evaluación | Migración |
+| --------- | ---------- | --------- |
+| - Detectar los orígenes que se van a migrar | - Evaluar el servicio de destino aplicable <br> - Consideraciones técnicas frente a costos | - Migración inicial <br> - Resincronización <br> - Cambio final |
 
 #### <a name="discovery-phase"></a>Fase de detección
 

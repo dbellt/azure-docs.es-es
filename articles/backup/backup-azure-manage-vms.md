@@ -3,12 +3,12 @@ title: Administración y supervisión de copias de seguridad de máquinas virtua
 description: Aprenda a administrar y supervisar las copias de seguridad de Azure VM con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 51ce88bb67d64ce129a3479d38db9a66dfe65d0a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 70ce8ababcb596c3eb804e429156000ff7d64ecc
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100635084"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111372578"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Administración de las copias de seguridad de máquina virtual de Azure con el servicio Azure Backup
 
@@ -21,7 +21,7 @@ En Azure Portal, el panel Almacén de Recovery Services proporciona acceso a inf
 * El tamaño total de todas las instantáneas de copia de seguridad.
 * El número de máquinas virtuales habilitadas para la copia de seguridad.
 
-Puede administrar copias de seguridad mediante el panel y por medio de la exploración en profundidad hasta las máquinas virtuales individuales. Para empezar las copias de seguridad de la máquina, abra el almacén en el panel.
+Puede administrar copias de seguridad mediante el panel y por medio de la exploración en profundidad hasta las máquinas virtuales individuales. Para empezar las copias de seguridad de la máquina, abra el almacén en el panel:
 
 ![Vista de panel completo con el control deslizante](./media/backup-azure-manage-vms/bottom-slider.png)
 

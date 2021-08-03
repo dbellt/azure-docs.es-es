@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 05/27/2021
 ms.author: justinha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 367657b803ce50cd923c08b4b7b58dc3f945e1f4
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6f344496bab8f2864c8ccbdff4f98b57e1d6f432
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108749001"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110613264"
 ---
 # <a name="harden-an-azure-active-directory-domain-services-managed-domain"></a>Reforzar un dominio administrado por Azure Active Directory Domain Services
 
@@ -47,7 +47,7 @@ Para completar este artículo, necesita los siguientes recursos:
 1. En Azure Portal, seleccione **Azure AD Domain Services**.
 1. Elija el dominio administrado como, por ejemplo, *aaddscontoso.com*.
 1. En el lado izquierdo, seleccione **Configuración de seguridad**.
-1. Haga clic en **Deshabilitar** para realizar la configuración siguiente:
+1. Haga clic en **Habilitar** o **Deshabilitar** en las siguientes opciones:
    - **Modo de solo TLS 1.2**
    - **Autenticación NTLM**
    - **Sincronización de contraseñas de NTLM desde el entorno local**
@@ -55,6 +55,15 @@ Para completar este artículo, necesita los siguientes recursos:
    - **Protección de Kerberos**
 
    ![Captura de pantalla de la configuración de seguridad para deshabilitar los cifrados débiles y la sincronización de hash de contraseñas de NTLM](media/secure-your-domain/security-settings.png)
+
+## <a name="assign-azure-policy-compliance-for-tls-12-usage"></a>Asignación de cumplimiento de Azure Policy para el uso de TLS 1.2
+
+Además de la **configuración de seguridad**, Microsoft Azure Policy tiene una configuración de **cumplimiento** para exigir el uso de TLS 1.2. La directiva no tiene ningún efecto hasta que se asigna. Cuando se asigna la directiva, aparece en **Cumplimiento**:
+
+- Si la asignación es **Auditar**, el cumplimiento notificará si la instancia de Azure AD DS es compatible.
+- Si la asignación es **Denegar**, el cumplimiento impedirá que se cree una instancia de Azure AD DS si no se requiere TLS 1.2 e impedirá las actualizaciones a dicha instancia hasta que se exija este protocolo.
+
+![Captura de pantalla de la configuración de cumplimiento](media/secure-your-domain/policy-tls.png)
 
 ## <a name="use-powershell-to-harden-your-domain"></a>Uso de PowerShell para reforzar el dominio
 

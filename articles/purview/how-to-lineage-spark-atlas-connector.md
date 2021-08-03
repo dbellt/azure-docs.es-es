@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 04/28/2021
-ms.openlocfilehash: 1ba281dfd0accbac486abb00785fbd6c552fff8d
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: aebe227c8f2a278131d38143c43c38ee4687e701
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109520567"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579059"
 ---
 # <a name="how-to-use-apache-atlas-connector-to-collect-spark-lineage"></a>Uso del conector de Apache Atlas para recopilar linajes de Spark
 
@@ -88,7 +88,7 @@ Una vez que se cree correctamente la definición del modelo de Atlas Spark, siga
 1. Obtenga la definición de tipo de Spark de GitHub https://github.com/apache/atlas/blob/release-2.1.0-rc3/addons/models/1000-Hadoop/1100-spark_model.json
 
 2. Asigne el rol:
-    1. Abra el centro de administración de Purview y elija Asignar roles.
+    1. Vaya a la cuenta de Purview y seleccione Control de acceso (IAM). 
     1. Agregue usuarios y conceda a la entidad de servicio el rol *Administrador de orígenes de datos de Purview*.
 3. Obtenga el token de autenticación:
     1. Abra "postman" o una herramienta similar. 
@@ -97,7 +97,7 @@ Una vez que se cree correctamente la definición del modelo de Atlas Spark, siga
         * grant_type: client_credentials
         * client_id: {identificador de la entidad de servicio}
         * client_secret: {clave de la entidad de servicio}
-        * resource: https://projectbabylon.azure.net
+        * resource: `https://purview.azure.net`
 
         :::image type="content" source="./media/how-to-lineage-spark-atlas-connector/postman-examples.png" alt-text="Captura de pantalla que muestra el ejemplo de Postman" lightbox="./media/how-to-lineage-spark-atlas-connector/postman-examples.png":::      
 

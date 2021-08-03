@@ -5,18 +5,18 @@ description: Los clientes que necesiten más seguridad de que sus datos estén s
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 05/11/2021
+ms.date: 06/01/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3c3c6f00cb6c2ca5d8b0006a7436fba70fd38655
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 5c87ed5222b5bb95660b6e63e259a2b5e14b7b47
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787318"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111372680"
 ---
 # <a name="enable-infrastructure-encryption-for-double-encryption-of-data"></a>Habilitación del cifrado de infraestructura para el cifrado doble de datos
 
@@ -140,6 +140,9 @@ En el ejemplo siguiente de JSON se crea una cuenta de almacenamiento v2 de uso g
 ```
 
 ---
+
+Azure Policy proporciona una directiva integrada para requerir que el cifrado de infraestructura esté habilitado para una cuenta de almacenamiento. Para obtener más información, consulte la sección **Almacenamiento** de las [definiciones de directivas integradas de Azure Policy](../../governance/policy/samples/built-in-policies.md#storage).
+
 
 ## <a name="create-an-encryption-scope-with-infrastructure-encryption-enabled"></a>Creación de un ámbito de cifrado con el cifrado de infraestructura habilitado
 

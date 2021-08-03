@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2019
 ms.author: amsriva
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 23afe1e91a07277a3b6e583fcf5d767a843ef4e5
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 2f1892ab7cafae0b344026ed73a801ca30f4d9ee
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108320482"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111421562"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Solución de errores de puerta de enlace incorrecta en el servicio Puerta de enlace de aplicaciones
 
@@ -131,7 +131,7 @@ Valide que el sondeo de mantenimiento personalizado esté configurado correctame
 
 ### <a name="cause"></a>Causa
 
-Cuando se recibe una solicitud de usuario, la instancia de Application Gateway aplica las reglas configuradas a la solicitud y la enruta a una instancia del grupo de back-end. Espera, durante un intervalo de tiempo que puede configurarse, una respuesta de la instancia back-end. De forma predeterminada, este intervalo es de **20 segundos**. Si la instancia de Application Gateway no recibe una respuesta de la aplicación de back-end en este intervalo, la solicitud de usuario obtiene un error 502.
+Cuando se recibe una solicitud de usuario, la instancia de Application Gateway aplica las reglas configuradas a la solicitud y la enruta a una instancia del grupo de back-end. Espera, durante un intervalo de tiempo que puede configurarse, una respuesta de la instancia back-end. De forma predeterminada, este intervalo es de **20 segundos**. En Application Gateway v1, si la instancia de Application Gateway no recibe una respuesta de la aplicación de back-end en este intervalo, la solicitud de usuario obtiene un error 502.  En Application Gateway v2, si la instancia de Application Gateway no recibe una respuesta de la aplicación de back-end en este intervalo, la solicitud se probará en un segundo miembro del grupo de back-end.  Si se produce un error en la segunda solicitud, la solicitud de usuario obtiene un error 502.
 
 ### <a name="solution"></a>Solución
 

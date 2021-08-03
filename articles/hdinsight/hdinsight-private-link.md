@@ -4,12 +4,12 @@ description: Aprenda a aislar los clústeres de Azure HDInsight en una red virtu
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: bc7834a0f8272da3f8954c7dd9f3e18163795cba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fe3b9617db20f445d4139c006c283bbfe537d544
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98939360"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110616485"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Protección y aislamiento de clústeres de Azure HDInsight con Private Link (versión preliminar)
 
@@ -28,7 +28,7 @@ Los equilibradores de carga básicos que se usan en la arquitectura de red virtu
 
 La configuración de `resourceProviderConnection` como saliente también le permite acceder a recursos específicos del clúster, como Azure Data Lake Storage Gen2 o metastores externos, mediante puntos de conexión privados. No es obligatorio usar puntos de conexión privados para estos recursos, pero si planea hacerlo, debe configurar los puntos de conexión privados y las entradas DNS `before` de crear el clúster de HDInsight. Es recomendable crear y proporcionar todas las bases de datos SQL externas necesarias, como Apache Ranger, Ambari, Oozie y metastores de Hive, durante la creación del clúster. Todos estos recursos deben ser accesibles desde dentro de la subred del clúster, ya sea a través de su propio punto de conexión privado o de cualquier otro modo.
 
-No se pueden usar puntos de conexión privados para Azure Key Vault. Si usa Azure Key Vault para el cifrado de CMK en reposo, el punto de conexión de Azure Key Vault debe ser accesible desde la subred de HDInsight sin ningún punto de conexión privado.
+Al conectarse a Azure Data Lake Storage Gen2 a través de un punto de conexión privado, asegúrese de que la cuenta de almacenamiento de Gen2 tenga un punto de conexión establecido para "blob" y "dfs". Para más información, consulte [Creación de un punto de conexión privado](../storage/common/storage-private-endpoints.md).
 
 En el diagrama siguiente se muestra el aspecto que podría tener una posible arquitectura de red virtual de HDInsight cuando `resourceProviderConnection` está establecido en "saliente":
 

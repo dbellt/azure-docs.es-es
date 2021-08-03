@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2021
+ms.date: 05/11/2021
 ms.author: yelevin
-ms.openlocfilehash: ba757474ab24006b7b8b514bda085522bd353ea8
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 95158fc5aa9d768e7174bc3c72736614efa7f57c
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107312678"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111371659"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>Tutorial: Detección de amenazas integrada
 
@@ -54,7 +54,9 @@ Basada en la tecnología de fusión, la detección avanzada de ataques de varias
 >
 > Para ver qué detecciones se encuentran en versión preliminar, consulte [Detección avanzada de ataques de varias fases en Azure Sentinel](fusion.md).
 
-### <a name="machine-learning-behavioral-analytics"></a>Análisis de comportamiento de aprendizaje automático
+Además, el motor de Fusion ahora puede correlacionar las alertas generadas por las [reglas de análisis programadas](#scheduled) con las de otros sistemas, lo da lugar a incidentes de alta fidelidad.
+
+### <a name="machine-learning-ml-behavioral-analytics"></a>Análisis de comportamiento de aprendizaje automático (ML)
 
 Estas plantillas se basan en algoritmos de aprendizaje automático de Microsoft, por lo que no se puede ver la lógica interna de cómo funcionan y cuándo se ejecutan. Dado que la lógica está oculta y, por lo tanto, no se puede personalizar, solo puede crear una regla con cada plantilla de este tipo.
 
@@ -63,9 +65,18 @@ Estas plantillas se basan en algoritmos de aprendizaje automático de Microsoft,
 >
 > - Mediante la creación y la habilitación de reglas basadas en las plantillas de análisis de comportamiento de ML, **se concede permiso a Microsoft para copiar los datos ingeridos fuera de la geografía del área de trabajo de Azure Sentinel** según sea necesario para el procesamiento por parte de los modelos y motores de aprendizaje automático.
 
+### <a name="anomaly"></a>Anomalía
+
+Las plantillas de reglas de anomalías usan SOC-ML (aprendizaje automático) para detectar tipos específicos de comportamiento anómalo. Cada regla tiene sus propios parámetros y umbrales únicos, adecuados para el comportamiento que se está analizando y, aunque su configuración no se puede cambiar ni ajustar, puede duplicar la regla, cambiar y ajustar el duplicado, ejecutar el duplicado en modo **Vuelo** y el original simultáneamente en modo de **Producción**, comparar los resultados y cambiar el duplicado a **Producción** si y cuando su ajuste sea de su agrado. Obtenga más información sobre [SOC-ML y](soc-ml-anomalies.md) [cómo trabajar con reglas de anomalías](work-with-anomaly-rules.md).
+
+> [!IMPORTANT]
+> Las plantillas de regla de anomalías se encuentran actualmente en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+
 ### <a name="scheduled"></a>Programado
 
 Las reglas de análisis programado se basan en consultas integradas escritas por expertos de seguridad de Microsoft. Puede ver la lógica de consulta y realizar cambios en ella. Puede usar la plantilla de reglas programadas y personalizar la lógica de consulta y la configuración de programación para crear otras reglas.
+
+Varias plantillas de reglas de análisis programadas nuevas generan alertas correlacionadas por el motor de Fusion con alertas de otros sistemas para generar incidentes de alta fidelidad. Consulte [Detección avanzada de ataques de varias fases en Azure Sentinel](fusion.md#configure-scheduled-analytics-rules-for-fusion-detections).
 
 > [!TIP]
 > Las opciones de programación de reglas incluyen configurar la regla para que se ejecute cada número especificado de minutos, horas o días, y el tiempo empezará a correr al habilitar la regla.
@@ -82,6 +93,10 @@ Las reglas de análisis programado se basan en consultas integradas escritas por
 1. Al hacer clic en el botón **Crear regla**, se abre el Asistente para la creación de reglas basado en la plantilla seleccionada. Todos los detalles se rellenan automáticamente y, con las plantillas **Programado** o **Microsoft security** (Seguridad de Microsoft), puede personalizar la lógica y otras configuraciones de reglas para satisfacer mejor sus necesidades específicas. Este proceso puede repetirse para crear reglas adicionales en función de la plantilla integrada. Después de seguir los pasos del Asistente para la creación de reglas hasta el final, habrá terminado de crear una regla basada en la plantilla. Las nuevas reglas aparecerán en la pestaña **Active rules** (Reglas activas).
 
     Para más información sobre cómo personalizar las reglas en el Asistente para la creación de reglas, consulte [Tutorial: Creación de reglas de análisis personalizadas para detectar amenazas](tutorial-detect-threats-custom.md).
+
+## <a name="export-rules-to-an-arm-template"></a>Exportación de reglas a una plantilla de ARM
+
+Puede [exportar fácilmente la regla a una plantilla de Azure Resource Manager (ARM)](import-export-analytics-rules.md) si desea administrar e implementar las reglas como código. También puede importar reglas de archivos de plantilla para verlos y editarlos en la interfaz de usuario.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

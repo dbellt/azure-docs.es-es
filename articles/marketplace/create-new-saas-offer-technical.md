@@ -1,6 +1,6 @@
 ---
-title: Incorporación de detalles técnicos a la oferta de SaaS en el Centro de partners de Microsoft
-description: Aprenda a proporcionar detalles técnicos de la oferta de software como servicio (SaaS) para el marketplace comercial de Microsoft.
+title: Adición de detalles técnicos de una oferta de SaaS en Azure Marketplace
+description: Proporcione los detalles técnicos de la oferta de software como servicio (SaaS) en Azure Marketplace.
 author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
@@ -8,14 +8,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 28c0be40387f411286230f94c19fa23a80e650af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 236a7729a8be0fb1ad20be28efd7b45f5796c1dd
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96746410"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110615169"
 ---
-# <a name="how-to-add-technical-details-for-your-saas-offer"></a>Incorporación de detalles técnicos a la oferta de SaaS
+# <a name="add-technical-details-for-a-saas-offer"></a>Adición de detalles técnicos de una oferta de SaaS
 
 En este artículo se describe cómo especificar detalles técnicos que ayuden al marketplace comercial de Microsoft a conectarse a su solución. Esta conexión nos permite aprovisionar su oferta para el cliente, en caso de que este elija adquirirla y administrarla. Para más información sobre esta configuración, consulte [Información técnica](plan-saas-offer.md#technical-information).
 
@@ -44,4 +44,4 @@ Seleccione **Guardar borrador** antes de continuar con la siguiente pestaña: In
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Creación de planes para la oferta de SaaS](create-new-saas-offer-plans.md).
+- [Creación de planes para una oferta de SaaS](create-new-saas-offer-plans.md)

@@ -1,18 +1,18 @@
 ---
 title: Conexión a una máquina virtual Linux con Azure Bastion
-description: En este artículo aprenderá a conectarse a una máquina virtual Linux mediante Azure Bastion.
+description: Aprenda a conectarse a una máquina virtual Linux mediante Azure Bastion.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.author: cherylmc
-ms.openlocfilehash: a5cda5d4d447bc04f853ea4a9abd15be75e7e177
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a6f9add11b6632d1ee26041ade0ade45ec58716d
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100588642"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110538087"
 ---
 # <a name="connect-using-ssh-to-a-linux-virtual-machine-using-azure-bastion"></a>Conexión mediante SSH a una máquina virtual Linux con Azure Bastion
 

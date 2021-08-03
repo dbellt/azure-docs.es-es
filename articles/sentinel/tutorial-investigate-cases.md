@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2021
 ms.author: yelevin
-ms.openlocfilehash: 82efc1d36176003d11b610fd8e0e669f034dc0a1
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: ab24c9157a82591352e3511e15d4b45c750444db
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109786688"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110497665"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Tutorial: Investigación de incidentes con Azure Sentinel
 
 > [!IMPORTANT]
-> El gráfico de investigación está ahora en **Disponibilidad general**. 
+> El gráfico de investigación está ahora en **Disponibilidad general**.
 
 Este tutorial le ayuda a investigar incidentes con Azure Sentinel. Después de conectar los orígenes de datos a Azure Sentinel, querrá recibir una notificación cuando suceda algo sospechoso. Para ello, Azure Sentinel le permite crear reglas de alerta avanzadas, que generan incidentes que se pueden asignar e investigar.
 
@@ -85,12 +85,14 @@ Para usar el gráfico de investigación:
 
 1. Seleccione un incidente y, a continuación, seleccione **Investigar**. Esto le llevará al gráfico de investigación. El gráfico proporciona un mapa ilustrativo de las entidades conectadas directamente a la alerta y de cada recurso conectado más allá.
 
+
+    [ ![Visualización de mapas.](media/tutorial-investigate-cases/investigation-map.png) ](media/tutorial-investigate-cases/investigation-map.png#lightbox)
+
    > [!IMPORTANT] 
    > - Solo podrá investigar el incidente si ha usado los campos de asignación de entidades al configurar la regla de análisis. El gráfico de investigación requiere que el incidente original incluya entidades.
    >
    > - Actualmente, Azure Sentinel admite la investigación de **incidentes cuya antigüedad no supere los 30 días**.
 
-   ![Visualización de mapas](media/tutorial-investigate-cases/map1.png)
 
 1. Seleccione una entidad para abrir el panel **Entidades** para que pueda revisar la información de esa entidad.
 

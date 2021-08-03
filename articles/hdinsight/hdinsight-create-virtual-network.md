@@ -3,14 +3,14 @@ title: Creación de redes virtuales para clústeres de Azure HDInsight
 description: Aprenda a crear una red virtual de Azure para conectar HDInsight con otros recursos en la nube o recursos en su centro de datos.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive, devx-track-azurecli
-ms.date: 04/16/2020
-ms.openlocfilehash: 43d57eac94cabb5c648183911e0c0bf72889946d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: hdinsightactive, devx-track-azurecli, devx-track-azurepowershell
+ms.date: 05/12/2021
+ms.openlocfilehash: 28d2cc40d1272fdf29b6df3f08469418ecbc36da
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98946078"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111559401"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Creación de redes virtuales para clústeres de Azure HDInsight
 
@@ -38,7 +38,7 @@ En los ejemplos de esta sección se muestra cómo crear reglas de grupo de segur
 
 La siguiente plantilla de administración de recursos crea una red virtual que restringe el tráfico de entrada pero permite el tráfico desde las direcciones IP requeridas por HDInsight. Esta plantilla crea también un clúster de HDInsight en la red virtual.
 
-* [Implementar una instancia segura de Azure Virtual Network y un clúster de Hadoop de HDInsight](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
+* [Implementar una instancia segura de Azure Virtual Network y un clúster de Hadoop de HDInsight](https://azure.microsoft.com/resources/templates/hdinsight-secure-vnet/)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -366,6 +366,60 @@ En este ejemplo se da por supuesto lo siguiente:
 4. Para usar la configuración, reinicie Bind. Por ejemplo, `sudo service bind9 restart` en ambos servidores DNS.
 
 Después de completar estos pasos, puede conectarse a recursos en la red virtual mediante nombres de dominio completo (FQDN). Ahora puede instalar HDInsight en la red virtual.
+
+## <a name="test-your-settings-before-deploying-an-hdinsight-cluster"></a>Prueba de la configuración antes de implementar un clúster de HDInsight
+
+Antes de implementar el clúster, puede comprobar que muchas de las opciones de configuración de red son correctas mediante la ejecución de la [herramienta networkValidator](https://github.com/Azure-Samples/hdinsight-diagnostic-scripts/blob/main/HDInsightNetworkValidator) en una máquina virtual en la misma red virtual y subred que el clúster planeado.
+
+**Para implementar una máquina virtual para ejecutar el script networkValidator.sh**
+
+1. Abra la [página de Azure Portal Ubuntu Server 18.04 LTS](https://portal.azure.com/?feature.customportal=false#create/Canonical.UbuntuServer1804LTS-ARM) y haga clic en **Crear**.
+
+1. En la pestaña **Aspectos básicos** en **Detalles del proyecto**, seleccione su suscripción y elija un grupo de recursos existente o cree uno.
+
+    :::image type="content" source="./media/hdinsight-create-virtual-network/project-details.png" alt-text="Captura de pantalla de la sección Detalles del proyecto en la que se muestra dónde se selecciona la suscripción de Azure y el grupo de recursos de la máquina virtual.":::
+
+1. En **Detalles de la instancia**, escriba un **Nombre de máquina virtual** único, seleccione la misma **Región** de la red virtual, elija *No se requiere redundancia de la infraestructura* para **Opciones de disponibilidad**, elija *Ubuntu 18.04 LTS* para la **Imagen**, deje **Instancia de Azure Spot** en blanco y elija Standard_B1s (o más grande) como **Tamaño**.
+
+    :::image type="content" source="./media/hdinsight-create-virtual-network/instance-details.png" alt-text="Captura de pantalla de la sección Detalles de la instancia, en la que se proporciona un nombre para la máquina virtual y se selecciona su región, imagen y tamaño.":::
+
+1. En **Cuenta de administrador**, seleccione **Contraseña** y escriba un nombre de usuario y una contraseña para la cuenta de administrador. 
+
+    :::image type="content" source="./media/hdinsight-create-virtual-network/administrator-account.png" alt-text="Captura de pantalla de la sección Cuenta de administrador, en la que se selecciona un tipo de autenticación y se proporcionan las credenciales del administrador.":::
+
+1. En **Reglas de puerto de entrada** > **Puertos de entrada públicos**, elija **Permitir los puertos seleccionados** y, a continuación, seleccione **SSH (22)** en la lista desplegable y, después, haga clic en **Siguiente: Discos >** .
+
+    :::image type="content" source="./media/hdinsight-create-virtual-network/inbound-port-rules.png" alt-text="Captura de pantalla de la sección de reglas de puerto de entrada, donde se seleccionan los puertos en los que se permiten conexiones entrantes.":::
+
+1. En **Opciones de disco**, elija *SSD estándar para el tipo de disco del sistema operativo* y, a continuación, haga clic en **Siguiente: Redes >** .
+
+1. En la página **Redes**, en **Interfaz de red**, seleccione la **Red virtual** y la **Subred** en las que planea agregar el clúster de HDInsight y, a continuación, seleccione el botón **Revisar y crear** en la parte inferior de la página.
+
+    :::image type="content" source="./media/hdinsight-create-virtual-network/vnet.png" alt-text="Captura de pantalla de la sección de interfaz de red donde se selecciona la red virtual y la subred en las que se va a agregar la máquina virtual.":::
+
+1. En la página **Crear una máquina virtual** verá los detalles de la máquina virtual que va a crear. Cuando esté preparado, seleccione **Crear**.
+
+1. Cuando la implementación finalice, seleccione **Ir al recurso**.
+
+1. En la página de la nueva máquina virtual, seleccione la dirección IP pública y cópiela en el portapapeles.
+
+    :::image type="content" source="./media/hdinsight-create-virtual-network/ip-address.png" alt-text="Captura de pantalla en que se muestra cómo copiar la dirección IP de la máquina virtual.":::
+
+**Ejecución del script /networkValidator.sh**
+
+1. Use SSH para la nueva máquina virtual.
+1. Copie todos los archivos de [github](https://github.com/Azure-Samples/hdinsight-diagnostic-scripts/tree/main/HDInsightNetworkValidator) en la máquina virtual con el comando siguiente:
+
+    `wget -i https://raw.githubusercontent.com/Azure-Samples/hdinsight-diagnostic-scripts/main/HDInsightNetworkValidator/all.txt`
+
+1. Abra el archivo params.txt en un editor de texto y agregue valores a todas las variables. Use una cadena vacía ("") cuando quiera omitir la validación relacionada.
+1. Ejecute `sudo chmod +x ./setup.sh` para hacer que setup.sh sea ejecutable y ejecútelo con `sudo ./setup.sh` a fin de instalar pip para Python 2.x e instalar los módulos necesarios de Python 2.x.
+1. Ejecute el script principal con `sudo python2 ./networkValidator.py`.
+1. Una vez que se completa el script, la sección Resumen indica si las comprobaciones se han realizado correctamente y se puede crear el clúster, o bien si se ha detectado algún problema, en cuyo caso deberá revisar la salida del error y la documentación relacionada para corregirlo.
+
+    Después de intentar corregir los errores, puede volver a ejecutar el script para comprobar el progreso.
+1. Una vez que se han completado las comprobaciones y el resumen indica que se han realizado correctamente y que puede crear el clúster de HDInsight en esta red virtual o subred, puede crear el clúster. 
+1. Elimine la nueva máquina virtual cuando haya terminado de ejecutar el script de validación. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

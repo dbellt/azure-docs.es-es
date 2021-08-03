@@ -8,18 +8,18 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: c4720cbfea072561e5413afd54407b7b0a7878ba
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: f2d9d9afb1e31f959c4e219c0c95e435c966ccd1
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108229655"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757074"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>Descripción del acceso a la máquina virtual Just-in-Time (JIT)
 
 En esta página se explican los principios en los que se basa la característica de acceso a la máquina virtual Just-in-Time (JIT) de Azure Security Center y la lógica que hay detrás de la recomendación.
 
-Para obtener información sobre cómo aplicar JIT a las máquinas virtuales mediante Azure Portal (ya sea Security Center o Azure Virtual Machines) o mediante programación, vea [Procedimientos para proteger los puertos de administración con JIT](security-center-just-in-time.md).
+Para información sobre cómo aplicar JIT a las máquinas virtuales mediante Azure Portal (ya sea Security Center o Azure Virtual Machines) o mediante programación, consulte [Procedimientos para proteger los puertos de administración con acceso Just-In-Time](security-center-just-in-time.md).
 
 
 ## <a name="the-risk-of-open-management-ports-on-a-virtual-machine"></a>Riesgos de abrir los puertos de administración abiertos en una máquina virtual

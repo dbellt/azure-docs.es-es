@@ -1,18 +1,18 @@
 ---
 title: Creación de un host de Bastion con CLI de Azure | Azure Bastion
-description: En este artículo aprenderá a crear y eliminar un host de Bastion
+description: Aprenda a crear y eliminar un host de Bastion mediante la CLI de Azure.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8654b557de8242910c665596ca8bfd29fe86d1ff
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 4944ae62bda23f33aa30011314826beb499ac791
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106578831"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110534760"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-cli"></a>Creación de un host de Azure Bastion con CLI de Azure
 

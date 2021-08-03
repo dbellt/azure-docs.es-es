@@ -4,12 +4,12 @@ description: Más información sobre la copia de seguridad de Azure Database for
 ms.topic: conceptual
 ms.date: 04/12/2021
 ms.custom: references_regions , devx-track-azurecli
-ms.openlocfilehash: 8fd69e016c7f0b175ef49b98add5692743858f62
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 4f8e44bbaba87581b3c988602a436ed18b1a1a20
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107480076"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110061775"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Copia de seguridad de Azure Database for PostgreSQL con retención a largo plazo (versión preliminar)
 
@@ -214,7 +214,7 @@ Siga esta guía paso a paso para desencadenar una restauración:
 
 ## <a name="prerequisite-permissions-for-configure-backup-and-restore"></a>Permisos previos para configurar copias de seguridad y restauraciones
 
-Azure Backup sigue unas estrictas directrices de seguridad. Aunque es un servicio nativo de Azure, no se asumen los permisos en el recurso y es necesario que el usuario los proporcione explícitamente.  Del mismo modo, no se almacenan las credenciales para conectarse a la base de datos. Esto es importante para proteger los datos. En su lugar, se usa la autenticación de Azure Active Directory.
+Azure Backup sigue unas estrictas directrices de seguridad. Aunque sea un servicio nativo de Azure, no se asumen los permisos en el recurso, por lo que el usuario debe concederlos explícitamente.  Del mismo modo, no se almacenan las credenciales para conectarse a la base de datos. Esto es importante para proteger los datos. En su lugar, se usa la autenticación de Azure Active Directory.
 
 [Descargue este documento](https://download.microsoft.com/download/7/4/d/74d689aa-909d-4d3e-9b18-f8e465a7ebf5/OSSbkpprep_automated.docx) para obtener un script automatizado y las instrucciones relacionadas. Este script le concederá un conjunto de permisos adecuado para realizar copias de seguridad y restauraciones en un servidor de Azure PostgreSQL.
 
@@ -334,4 +334,4 @@ Habilite la marca **Permitir el acceso a servicios de Azure** para establecer la
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Introducción a los almacenes de Backup](backup-vault-overview.md)
+[Introducción a los almacenes de Backup](backup-vault-overview.md)

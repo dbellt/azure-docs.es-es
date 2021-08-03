@@ -4,12 +4,12 @@ description: Aprenda a habilitar y configurar discos Ultra en un clúster de Azu
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 7dbe0a75ce2079bdec752f7fee0c3e97e3ae2ffa
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: d42834252416a2aeed40db5fe307cd97f1bbada9
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107767356"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112007308"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Uso de discos Ultra de Azure en Azure Kubernetes Service (versión preliminar)
 
@@ -21,30 +21,6 @@ Esta característica solo se puede establecer durante la creación del clúster 
 
 > [!IMPORTANT]
 > Los discos Ultra de Azure requieren grupos de nodos implementados en zonas de disponibilidad y regiones que admiten estos discos, así como solo series de máquinas virtuales específicas. Consulte el [**ámbito y las limitaciones de la disponibilidad general de los discos Ultra**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations).
-
-### <a name="register-the-enableultrassd-preview-feature"></a>Registro de la característica en vista previa (GB) `EnableUltraSSD`
-
-Para crear un clúster de AKS o un grupo de nodos que pueda aprovechar los discos Ultra, debe habilitar la marca de la característica `EnableUltraSSD` en la suscripción.
-
-Registro de `EnableUltraSSD` la marca de característica con el comando de [característica de registro az][az-feature-register], tal como se muestra en el siguiente ejemplo:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "EnableUltraSSD"
-```
-
-Tarda unos minutos en que el estado muestre *Registrado*. Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableUltraSSD')].{Name:name,State:properties.state}"
-```
-
-Cuando todo esté listo, actualice el registro del proveedor de recursos *Microsoft.ContainerService* con el comando [az provider register][az-provider-register]:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalación de la extensión aks-preview de la CLI
 
@@ -64,7 +40,7 @@ az extension update --name aks-preview
 
 ## <a name="create-a-new-cluster-that-can-use-ultra-disks"></a>Creación de un nuevo clúster que pueda usar discos Ultra
 
-Cree un clúster de AKS que pueda aprovechar los discos Ultra mediante los siguientes comandos de la CLI. Use la marca `--aks-custom-headers` para establecer la característica `EnableUltraSSD`.
+Cree un clúster de AKS que pueda aprovechar los discos Ultra mediante los siguientes comandos de la CLI. Use la marca `--enable-ultra-ssd` para establecer la característica `EnableUltraSSD`.
 
 Crear un grupo de recursos de Azure:
 
@@ -77,20 +53,20 @@ Cree el clúster de AKS con compatibilidad con Ultra Disks.
 
 ```azurecli-interactive
 # Create an AKS-managed Azure AD cluster
-az aks create -g MyResourceGroup -n MyManagedCluster -l westus2 --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true
+az aks create -g MyResourceGroup -n MyManagedCluster -l westus2 --node-vm-size Standard_D2s_v3 --zones 1 2 --node-count 2 --enable-ultra-ssd
 ```
 
-Si desea crear clústeres sin la compatibilidad con disco Ultra, puede omitir el parámetro `--aks-custom-headers` personalizado para hacerlo.
+Si desea crear clústeres sin la compatibilidad con disco Ultra, puede omitir el parámetro `--enable-ultra-ssd` para hacerlo.
 
 ## <a name="enable-ultra-disks-on-an-existing-cluster"></a>Habilitación de discos Ultra en un clúster existente
 
-Puede habilitar los discos Ultra en clústeres existentes agregando un nuevo grupo de nodos al clúster que admitan discos Ultra. Configure un nuevo grupo de nodos para usar Ultra Disks mediante la marca `--aks-custom-headers`.
+Puede habilitar los discos Ultra en clústeres existentes agregando un nuevo grupo de nodos al clúster que admitan discos Ultra. Configure un nuevo grupo de nodos para usar Ultra Disks mediante la marca `--enable-ultra-ssd`.
 
 ```azurecli
-az aks nodepool add --name ultradisk --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true
+az aks nodepool add --name ultradisk --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_D2s_v3 --zones 1 2 --node-count 2 --enable-ultra-ssd
 ```
 
-Si desea crear grupos de nodos nuevos sin compatibilidad con los discos Ultra, puede hacerlo omitiendo el parámetro `--aks-custom-headers` personalizado.
+Si desea crear grupos de nodos nuevos sin compatibilidad con los discos Ultra, puede hacerlo omitiendo el parámetro `--enable-ultra-ssd`.
 
 ## <a name="use-ultra-disks-dynamically-with-a-storage-class"></a>Uso de discos Ultra dinámicamente con una clase de almacenamiento
 

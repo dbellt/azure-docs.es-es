@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: 25deccdd190e13d3f0ade319c7a8243e20847ee6
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 328dd2145cb72de929c421e8688cd35db435ca30
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108071057"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110075311"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Uso de Logstash para conectar orígenes de datos a Azure Sentinel
 
@@ -44,7 +44,9 @@ El motor de Logstash consta de tres componentes:
 - Complementos de salida: envío personalizado de datos recopilados y procesados a varios destinos.
 
 > [!NOTE]
-> - Azure Sentinel solo admite el complemento de salida propio que ofrece. La versión actual de este complemento es v1.0.0, publicada el 25/08/2020. No admite complementos de salida de terceros para Azure Sentinel ni cualquier otro complemento de Logstash de ningún tipo.
+> - Microsoft solo admite el complemento de salida de Logstash proporcionado por Azure Sentinel que se trata aquí. La versión actual de este complemento es v1.0.0, publicada el 25/08/2020. Puede abrir [una incidencia de soporte técnico ](https://ms.portal.azure.com/#create/Microsoft.Support) en caso de que surja cualquier problema relacionado con el complemento de salida.
+>
+> - Microsoft no admite complementos de salida de terceros de Logstash para Azure Sentinel ni ningún otro complemento de Logstash o componente de ningún tipo.
 >
 > - El complemento de salida de Logstash de Azure Sentinel solo admite las **versiones de Logstash de 7.0 a 7.9.**
 

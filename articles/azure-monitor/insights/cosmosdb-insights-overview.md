@@ -1,20 +1,20 @@
 ---
-title: Supervisión de Azure Cosmos DB con Azure Monitor para Cosmos DB | Microsoft Docs
-description: En este artículo se describe la característica Azure Monitor para Cosmos DB que proporciona a los administradores de Cosmos DB una comprensión rápida de los problemas de uso y rendimiento de sus cuentas de Cosmos DB.
+title: Supervisión de Azure Cosmos DB con Información de Cosmos DB de Azure Monitor| Microsoft Docs
+description: En este artículo se describe la característica Información de Cosmos DB de Azure Monitor que proporciona a los administradores de Cosmos DB un rápido conocimiento de los problemas de uso y rendimiento de sus cuentas de Cosmos DB.
 author: lgayhardt
 ms.author: lagayhar
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: d88bf65f1bd94e29bd9f60f5597d655f0040623b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b6666e43e1dc3461bf7e0cc5849d26c1a8fef70e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101725807"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095093"
 ---
-# <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Exploración de Azure Monitor para Azure Cosmos DB
+# <a name="explore-azure-monitor-cosmos-db-insights"></a>Exploración de Información de Cosmos DB de Azure Monitor
 
-Azure Monitor para Azure Cosmos DB proporciona una vista del rendimiento general, los errores, la capacidad y el estado operativo de todos los recursos de Azure Cosmos DB en una experiencia interactiva unificada. Este artículo le ayudará a comprender las ventajas de esta nueva experiencia de supervisión y cómo puede modificar y adaptar la experiencia para adaptarla a las necesidades únicas de su organización.   
+Información de Cosmos DB proporciona una vista del rendimiento general, los errores, la capacidad y el estado operativo de todos los recursos de Azure Cosmos DB en una experiencia interactiva unificada. Este artículo le ayudará a comprender las ventajas de esta nueva experiencia de supervisión y cómo puede modificar y adaptar la experiencia para adaptarla a las necesidades únicas de su organización.   
 
 ## <a name="introduction"></a>Introducción
 
@@ -147,7 +147,7 @@ Para expandir o contraer todas las vistas desplegables del libro, seleccione el 
 
 ![Icono de expansión del libro](./media/cosmosdb-insights-overview/expand.png)
 
-## <a name="customize-azure-monitor-for-azure-cosmos-db"></a>Personalización de Azure Monitor para Azure Cosmos DB
+## <a name="customize-cosmos-db-insights"></a>Personalización de Información de Cosmos DB
 
 Puesto que esta experiencia se basa en plantillas de Azure Monitor, tiene la posibilidad de **personalizar** > **editar** y **guardar** una copia de la versión modificada en un libro personalizado. 
 

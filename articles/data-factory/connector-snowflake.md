@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/16/2021
-ms.openlocfilehash: 03dbfc96d0df6ac8539b454177cd8f75cda80193
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: a412af3020012844a633d01c1b5b928ec4a4758f
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482838"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110535053"
 ---
 # <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Copia y transformación de datos en Snowflake mediante Azure Data Factory
 
@@ -31,7 +31,8 @@ Este conector Snowflake es compatible con las actividades siguientes:
 Para la actividad de copia, este conector Snowflake admite las siguientes funciones:
 
 - Copie los datos de Snowflake que usan el comando [COPY into [ubicación]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) de Snowflake para lograr el mejor rendimiento.
-- Copie los datos a Snowflake que aprovechan el comando [ [tabla]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) de Snowflake para lograr el mejor rendimiento. Es compatible con Snowflake en Azure. 
+- Copie los datos a Snowflake que aprovechan el comando [ [tabla]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) de Snowflake para lograr el mejor rendimiento. Es compatible con Snowflake en Azure.
+- Si se requiere un proxy para conectarse a Snowflake desde un entorno de ejecución de integración autohospedado, debe configurar las variables de entorno para HTTP_PROXY y HTTPS_PROXY en el host del entorno de ejecución de integración. 
 
 ## <a name="get-started"></a>Introducción
 

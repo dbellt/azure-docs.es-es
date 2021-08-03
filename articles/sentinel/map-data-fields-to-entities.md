@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
-ms.openlocfilehash: cb91d269f6b166510db54637d17d776e71137408
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 247ae926dde9b07b1d627621c456333282f00a42
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102456179"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060082"
 ---
 # <a name="map-data-fields-to-entities-in-azure-sentinel"></a>Asignación de campos de datos a entidades en Azure Sentinel 
 
@@ -41,17 +41,23 @@ El procedimiento que se detalla a continuación forma parte del asistente para c
 
 1. En el menú de navegación de Azure Sentinel, seleccione **Análisis**.
 
-1. Seleccione una regla de consulta programada y haga clic en **Editar**. O bien, para crear una nueva regla, haga clic en **Crear &#10132; Regla de consulta programada** en la parte superior de la pantalla.
+1. Seleccione una regla de consulta programada y haga clic en **Editar**. O bien, para crear una nueva regla, haga clic en **Crear > Regla de consulta programada** en la parte superior de la pantalla.
 
-1. Haga clic en la pestaña **Establecer la lógica de la regla**.
+1. Haga clic en la pestaña **Establecer la lógica de la regla**. 
 
-    :::image type="content" source="media/map-data-fields-to-entities/map-entities.png" alt-text="Asignación de campos a entidades":::
+1. En la sección **Enriquecimiento de alertas (versión preliminar)** , expanda **Asignación de entidades**.
 
-1. En la sección **Mejora de alertas**, en **Asignación de entidades**, seleccione un tipo de entidad en la lista desplegable **Tipo de entidad**.
+    :::image type="content" source="media/map-data-fields-to-entities/alert-enrichment.png" alt-text="Expansión de la asignación de entidades":::
+
+1. En la sección **Asignación de entidades**, seleccione un tipo de entidad en la lista desplegable **Tipo de entidad**.
+
+    :::image type="content" source="media/map-data-fields-to-entities/choose-entity-type.png" alt-text="Elegir un tipo de entidad":::
 
 1. Seleccione un **identificador** para la entidad. Los identificadores son atributos de una entidad que puede identificarla de manera suficiente. Elija uno en la lista desplegable **Identificador** y, a continuación, elija un campo de datos en la lista desplegable **Valor** que se corresponda con el identificador. Con algunas excepciones, la lista **Valor** se rellena con los campos de datos de la tabla definida como asunto de la regla de consulta.
 
     Puede definir **hasta tres identificadores** para una entidad determinada. Algunos identificadores son obligatorios y otros son opcionales. Debe elegir al menos un identificador obligatorio. Si no lo hace, un mensaje de advertencia le indicará qué identificadores son necesarios. Para obtener los mejores resultados para una identificación única máxima, debe usar **identificadores seguros** siempre que sea posible y el uso de varios identificadores seguros permitirá una mayor correlación entre los orígenes de datos. Consulte la lista completa de [entidades e identificadores](entities-reference.md) disponibles.
+
+    :::image type="content" source="media/map-data-fields-to-entities/map-entities.png" alt-text="Asignación de campos a entidades":::
 
 1. Haga clic en **Agregar nueva entidad** para asignar más entidades. Puede asignar **hasta cinco entidades** en una sola regla de análisis. También puede asignar más de una del mismo tipo. Por ejemplo, puede asignar dos entidades de **dirección IP**, una a partir de un campo de *dirección IP de origen* y otra a partir de un campo de *dirección IP de destino*. De este modo, puede realizar el seguimiento de ambas.
 

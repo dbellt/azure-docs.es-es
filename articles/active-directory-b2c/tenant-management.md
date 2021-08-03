@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/03/2021
+ms.date: 06/10/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 47947945759faee9f38393f06f7ec9396d9c715b
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 17be85bd21a61ced7772786bb1fdaad1c947e4d1
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108749112"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111962256"
 ---
 # <a name="manage-your-azure-active-directory-b2c-tenant"></a>Administración del inquilino de Azure Active Directory B2C
 
@@ -29,11 +29,13 @@ Azure AD B2C se basa en la plataforma de Azure AD. Las siguientes caracterís
 
 |Característica  |Azure AD  | Azure AD B2C |
 |---------|---------|---------|
-| [Grupos](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) | Los grupos se pueden usar para administrar cuentas administrativas y de usuario.| Los grupos se pueden usar para administrar cuentas administrativas. Las [cuentas de consumidor](user-overview.md#consumer-user) no admiten grupos. |
+| [Grupos](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) | Los grupos se pueden usar para administrar cuentas administrativas y de usuario.| Los grupos se pueden usar para administrar cuentas administrativas. Las [cuentas de consumidor](user-overview.md#consumer-user) no pueden ser miembro de ningún grupo. |
 | [Invitar a usuarios a External Identities](../active-directory//external-identities/add-users-administrator.md)| Puede invitar a usuarios y configurar las características de External Identities, como la federación y el inicio de sesión con cuentas de Facebook y Google. | Solo puede invitar a una cuenta de Microsoft o a un usuario de Azure AD a su inquilino de Azure AD para acceder a aplicaciones o administrar inquilinos. En el caso de las [cuentas de consumidor](user-overview.md#consumer-user), se usan directivas personalizadas y flujos de usuarios de Azure AD B2C para administrar usuarios y para el registro o el inicio de sesión con proveedores de identidades externos, como Google o Facebook. |
 | [Roles y administradores](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)| Totalmente compatible con cuentas administrativas y de usuario. | Los roles no son compatibles con las [cuentas de consumidor](user-overview.md#consumer-user). Las cuentas de consumidor no tienen acceso a ningún recurso de Azure.|
-| [Nombres de dominio personalizados](../active-directory/roles/permissions-reference.md#) |  Puede usar los dominios personalizados de Azure AD solo para las cuentas administrativas. | Las [cuentas de consumidor](user-overview.md#consumer-user) pueden iniciar sesión con un nombre de usuario, un número de teléfono o cualquier dirección de correo electrónico. Puede usar los [dominios personalizados](custom-domain.md) en las direcciones URL de redireccionamiento.|
-| [Acceso condicional](../active-directory/roles/permissions-reference.md#) | Totalmente compatible con cuentas administrativas y de usuario. | Se admite un subconjunto de características de acceso condicional de Azure AD con las [cuentas de consumidor](user-overview.md#consumer-user). Obtenga información sobre cómo configurar los [dominios personalizados](conditional-access-user-flow.md) de Azure AD B2C.|
+| [Nombres de dominio personalizados](../active-directory/fundamentals/add-custom-domain.md) |  Puede usar los dominios personalizados de Azure AD solo para las cuentas administrativas. | Las [cuentas de consumidor](user-overview.md#consumer-user) pueden iniciar sesión con un nombre de usuario, un número de teléfono o cualquier dirección de correo electrónico. Puede usar los [dominios personalizados](custom-domain.md) en las direcciones URL de redireccionamiento.|
+| [Acceso condicional](../active-directory/conditional-access/overview.md) | Totalmente compatible con cuentas administrativas y de usuario. | Se admite un subconjunto de características de acceso condicional de Azure AD con las [cuentas de consumidor](user-overview.md#consumer-user). Obtenga información sobre cómo configurar el [acceso condicional](conditional-access-user-flow.md) de Azure AD B2C.|
+| [Premium P1](https://azure.microsoft.com/pricing/details/active-directory) | Totalmente compatible con las características de Azure AD Premium P1. Por ejemplo, [protección de contraseñas](../active-directory/authentication/concept-password-ban-bad.md), [identidades híbridas](../active-directory/hybrid/whatis-hybrid-identity.md), [acceso condicional](../active-directory/roles/permissions-reference.md#), [grupos dinámicos](../active-directory/enterprise-users/groups-create-rule.md), etc. | Se admite un subconjunto de características de acceso condicional de Azure AD con las [cuentas de consumidor](user-overview.md#consumer-user). Aprenda a configurar el [acceso condicional](conditional-access-user-flow.md) de Azure AD B2C.|
+| [Premium P2](https://azure.microsoft.com/pricing/details/active-directory.md) | Totalmente compatible con las características de Azure AD Premium P2. Por ejemplo, [Identity Protection](../active-directory/identity-protection/overview-identity-protection.md) e [Identity Governance](../active-directory/governance/identity-governance-overview.md).  | Un subconjunto de características de Azure AD Identity Protection es compatible con las [cuentas de consumidor](user-overview.md#consumer-user). Aprenda a [investigar el riesgo con Identity Protection](identity-protection-investigate-risk.md) y a configurar el [acceso condicional](conditional-access-user-flow.md) de Azure AD B2C. |
 
 ## <a name="other-azure-resources-in-your-tenant"></a>Otros recursos de Azure en el inquilino
 
@@ -179,7 +181,27 @@ Se recomienda proteger todas las cuentas de administrador con la autenticación 
 
 Puede habilitar los [valores predeterminados de seguridad de Azure AD](../active-directory/fundamentals/concept-fundamentals-security-defaults.md) para forzar a todas las cuentas administrativas a usar MFA.
 
+## <a name="get-your-tenant-name"></a>Obtención del nombre del inquilino
 
+Para obtener el nombre del inquilino de Azure AD B2C, siga estos pasos:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. En Azure Portal, busque y seleccione **Azure AD B2C**.
+1. En **Información general**, copie el **nombre de dominio**.
+
+![Captura de pantalla que muestra cómo obtener el nombre del inquilino de Azure AD B2C.](./media/tenant-management/get-azure-ad-b2c-tenant-name.png)  
+
+## <a name="get-your-tenant-id"></a>Obtención del identificador del inquilino
+
+Para obtener el identificador del inquilino de Azure AD B2C, siga estos pasos:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. En Azure Portal, busque y seleccione **Azure Active Directory**.
+1. En **Información general**, copie el **identificador de inquilino**.
+
+![Captura de pantalla que muestra cómo obtener el identificador del inquilino de Azure AD B2C.](./media/tenant-management/get-azure-ad-b2c-tenant-id.png)  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

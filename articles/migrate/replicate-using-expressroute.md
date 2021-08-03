@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.openlocfilehash: 3a6afa0fadf5a84ad938b0b0cec321c0e17adeff
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: e26434ae1ff2f9d8829d3665807f7d9916233833
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108317530"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110792244"
 ---
 # <a name="replicate-data-over-expressroute-with-azure-migrate-server-migration"></a>Replicación de datos a través de ExpressRoute con Azure Migrate: Server Migration
 
@@ -87,7 +87,7 @@ Solo se pueden crear puntos de conexión privados en una cuenta de almacenamient
 1. En **Confirmar actualización**, escriba el nombre de la cuenta.
 1. Seleccione **Actualizar** en la parte inferior de la página.
 
-   ![Captura de pantalla que muestra cómo se actualiza una cuenta de almacenamiento.](./media/replicate-using-expressroute/upgrade-storage-account.png)
+   ![Captura de pantalla que muestra cómo se actualiza una cuenta de almacenamiento.](./media/replicate-using-expressroute/upgrade-storage-account.png) 
 
 ### <a name="create-a-private-endpoint-for-the-storage-account"></a>Creación de un punto de conexión privado para la cuenta de almacenamiento
 
@@ -148,7 +148,27 @@ Para crear manualmente una zona DNS privada:
     1. En la página **Agregar conjunto de registros**, agregue una entrada para el nombre de dominio completo y la dirección IP privada como un registro de tipo D.
 
 > [!Important]
-> Puede requerir una configuración adicional de DNS para resolver la dirección IP privada del punto de conexión privado de la cuenta de almacenamiento desde el entorno de origen. Para comprender la configuración de DNS necesaria, consulte [Configuración de DNS para puntos de conexión privados de Azure](../private-link/private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder).
+> Puede requerir una configuración adicional de DNS para resolver la dirección IP privada del punto de conexión privado de la cuenta de almacenamiento desde el entorno de origen. Para comprender la configuración de DNS necesaria, consulte [Configuración de DNS para puntos de conexión privados de Azure](../private-link/private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder).  
+
+### <a name="verify-network-connectivity-to-the-storage-account"></a>Comprobación de la conectividad de red con la cuenta almacenamiento
+
+Para validar la conexión del enlace privado, realice una resolución DNS del punto de conexión de recursos de la cuenta de almacenamiento de caché desde la máquina virtual local en la que se hospeda el dispositivo de Azure Migrate, y asegúrese de que se resuelve en una dirección IP privada.
+
+Ejemplo ilustrativo de la resolución DNS de la cuenta de almacenamiento de caché. 
+
+- Escriba nslookup _storageaccountname_.blob.core.windows.net. Reemplace <nombre_de_la_cuenta_de_almacenamiento> por el nombre de la cuenta de almacenamiento de caché creada por Azure Migrate.  
+
+    Recibirá un mensaje similar a este:  
+
+   ![Ejemploo de resolución DNS](./media/how-to-use-azure-migrate-with-private-endpoints/dns-resolution-example.png)
+
+- Se devuelve una dirección IP privada de 10.1.0.5 para la cuenta de almacenamiento. Esta dirección debe pertenecer al punto de conexión privado de la cuenta de almacenamiento. 
+
+Si la resolución DNS es incorrecta, siga estos pasos:  
+
+- **Sugerencia:** Puede actualizar manualmente los registros DNS del entorno de origen editando el archivo de hosts DNS en el dispositivo local con el vínculo FQDN de la cuenta de almacenamiento, _storageaccountname_.blob.core.windows.net y la dirección IP privada asociada. Esta opción solo se recomienda para pruebas. 
+- Si usa un DNS personalizado, revise la configuración personalizada de DNS y compruebe que esta sea correcta. Para más información, consulte [Introducción al punto de conexión privado: Configuración de DNS](../private-link/private-endpoint-overview.md#dns-configuration). 
+- Si usa servidores DNS proporcionados por Azure, use esta guía como referencia para [solucionar problemas adicionales](./troubleshoot-network-connectivity.md#validate-the-private-dns-zone).   
 
 ## <a name="replicate-data-by-using-an-expressroute-circuit-with-microsoft-peering"></a>Replicación de datos mediante un circuito ExpressRoute con emparejamiento de Microsoft
 
@@ -181,7 +201,7 @@ Para configurar la lista de omisión de proxy en el servidor de configuración y
 1. Descargue la [herramienta PsExec](/sysinternals/downloads/psexec) para acceder al contexto de usuario del sistema.
 1. Abra Internet Explorer en el contexto de usuario del sistema ejecutando la línea de comandos siguiente: `psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"`.
 1. Agregue la configuración de proxy en Internet Explorer.
-1. En la lista de omisión, agregue la dirección URL de Azure Storage: *.blob.core.windows.net.
+1. En la lista de omisión, agregue las direcciones URL: *.blob.core.windows.net, *.hypervrecoverymanager.windowsazure.com y *.backup.windowsazure.com. 
 
 Las reglas de omisión anteriores garantizarán que el tráfico de replicación puede fluir a través de ExpressRoute, mientras que la comunicación de administración puede cruzar el proxy de Internet.
 

@@ -1,22 +1,22 @@
 ---
 title: 'Configuración de Microsoft Endpoint Configuration Manager: Azure'
-description: Cómo configurar Microsoft Endpoint Configuration Manager para implementar actualizaciones de software en la sesión múltiple de Windows 10 Enterprise en Windows Virtual Desktop.
+description: Cómo configurar Microsoft Endpoint Configuration Manager para implementar actualizaciones de software en la sesión múltiple de Windows 10 Enterprise en Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 06/12/2020
 ms.author: helohr
 ms.reviewer: v-cawood; clemr
 manager: femila
-ms.openlocfilehash: fe2da5c60c06e5617d130940af4909c52272d551
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 8266473553288584a534e8833d8c50dcb2ec40cf
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448175"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111754554"
 ---
 # <a name="configure-microsoft-endpoint-configuration-manager"></a>Configuración de Microsoft Endpoint Configuration Manager
 
-En este artículo se explica cómo configurar Microsoft Endpoint Configuration Manager para aplicar automáticamente las actualizaciones a un host de Windows Virtual Desktop que ejecuta la sesión múltiple de Windows 10 Enterprise.
+En este artículo se explica cómo configurar Microsoft Endpoint Configuration Manager para aplicar automáticamente actualizaciones a un host de Azure Virtual Desktop que ejecuta la sesión múltiple de Windows 10 Enterprise.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

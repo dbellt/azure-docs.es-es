@@ -3,20 +3,19 @@ title: ¿Qué es BareMetal Infrastructure en Azure?
 description: Ofrece información general sobre BareMetal Infrastructure en Azure.
 ms.custom: references_regions
 ms.topic: conceptual
-ms.subservice: workloads
-ms.date: 04/14/2021
-ms.openlocfilehash: c0fd250a63ce93d3f8b62dfe76fe753c928801ce
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.date: 05/27/2021
+ms.openlocfilehash: c0f3303f02332e9fc7766b1c73c9bbfa607a30c1
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107536890"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110653279"
 ---
 #  <a name="what-is-baremetal-infrastructure-on-azure"></a>¿Qué es BareMetal Infrastructure en Azure?
 
 Microsoft Azure ofrece una infraestructura en la nube con una amplia gama de servicios en la nube integrados para satisfacer sus necesidades empresariales. Sin embargo, en algunos casos, es posible que tenga que ejecutar servicios en servidores sin sistema operativo sin una capa de virtualización. Es posible que necesite acceso raíz y control sobre el sistema operativo (SO). Para satisfacer esta necesidad, Azure ofrece BareMetal Infrastructure para varias aplicaciones de alto valor y críticas.
 
-BareMetal Infrastructure consta de instancias de BareMetal dedicadas (instancias de proceso), de almacenamiento adecuado para aplicaciones y alto rendimiento (NFS, ISCSI y canal de fibra), así como de un conjunto de LAN virtuales (VLAN) específicas de funciones en un entorno aislado. El almacenamiento se puede compartir entre instancias de BareMetal para habilitar características, como clústeres de escalabilidad horizontal, o para crear pares de alta disponibilidad con STONITH.
+BareMetal Infrastructure está formado por instancias de BareMetal dedicadas (instancias de proceso). Se caracteriza por el almacenamiento adecuado de aplicaciones y alto rendimiento (NFS, ISCSI y canal de fibra), y por un conjunto de LAN virtuales (VLAN) específicas de la función en un entorno aislado. El almacenamiento se puede compartir entre instancias de BareMetal para permitir características como los clústeres de escalabilidad horizontal o los pares de alta disponibilidad con STONITH.
  
 Este entorno también tiene VLAN especiales a las que puede acceder si ejecuta máquinas virtuales (VM) en una o varias redes virtuales (VNet) de Azure en su suscripción de Azure. Todo el entorno se representa como un grupo de recursos en la suscripción de Azure.
 
@@ -28,13 +27,16 @@ Algunas cargas de trabajo centrales de la empresa se componen de tecnologías qu
 
 BareMetal Infrastructure se ha creado, certificado y probado para un conjunto seleccionado de estas aplicaciones. Azure fue el primero en ofrecer este tipo de soluciones y, desde entonces, destaca como líder con la cartera más grande y los sistemas más sofisticados.
 
-BareMetal Infrastructure ofrece estas ventajas: 
+### <a name="baremetal-benefits"></a>Ventajas de BareMetal  
 
-- Instancias dedicadas
+BareMetal Infrastructure se ha pensado para cargas de trabajo críticas que requieren certificación para ejecutar las aplicaciones empresariales. Las instancias de BareMetal están dedicadas solo a usted y tendrá acceso completo (acceso raíz) al sistema operativo (SO). Puede administrar la instalación del sistema operativo y la aplicación según sus necesidades. Por motivos de seguridad, las instancias se aprovisionan dentro de Azure Virtual Network (VNet) sin conectividad a Internet. Solo los servicios que se ejecutan en las máquinas virtuales (VM) y otros servicios de Azure de la misma red de nivel 2 pueden comunicarse con las instancias de BareMetal.  
+
+BareMetal Infrastructure ofrece estas ventajas:
+
 - Hardware certificado para cargas de trabajo especializadas
     - SAP (consulte la [nota de SAP n.º 1928533](https://launchpad.support.sap.com/#/notes/1928533))
     - Oracle (consulte el [id. de documento de Oracle n.º 948372.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=52088246571495&id=948372.1&_adf.ctrl-state=kwnkj1hzm_52))
-- Sin sistema operativo (sin virtualización de proceso)
+- Instancia de BareMetal no hipervisada, propiedad de un solo inquilino
 - Baja latencia entre las máquinas virtuales de aplicaciones hospedadas de Azure en las instancias de BareMetal (0,35 ms)
 - Todas las unidades NVMe y SSD Flash
     - Hasta 1 PB/inquilino 
@@ -45,23 +47,6 @@ BareMetal Infrastructure ofrece estas ventajas:
 - Reservas activas de sustitución en caso de error (sin necesidad de volver a configurar)
 - Ventanas de mantenimiento coordinadas por el cliente
 - Instantáneas compatibles con aplicación, archivo, creación de reflejo y clonación
-
-
-## <a name="baremetal-benefits"></a>Ventajas de BareMetal  
-
-BareMetal Infrastructure se ha pensado para cargas de trabajo críticas que requieren certificación para ejecutar las aplicaciones empresariales. Las instancias de BareMetal están dedicadas solo a usted y tendrá acceso completo (acceso raíz) al sistema operativo (SO). Puede administrar la instalación del sistema operativo y la aplicación según sus necesidades. Por motivos de seguridad, las instancias se aprovisionan dentro de Azure Virtual Network (VNet) sin conectividad a Internet. Solo los servicios que se ejecutan en las máquinas virtuales (VM) y otros servicios de Azure de la misma red de nivel 2 pueden comunicarse con las instancias de BareMetal.  
-
-BareMetal Infrastructure ofrece estas ventajas: 
-
-- Hardware certificado para cargas de trabajo especializadas
-- SAP (consulte la [nota de SAP n.º 1928533](https://launchpad.support.sap.com/#/notes/1928533))
-- Oracle (consulte el [id. de documento de Oracle n.º 948372.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=52088246571495&id=948372.1&_adf.ctrl-state=kwnkj1hzm_52))
-- Instancia de BareMetal no hipervisada, propiedad de un solo inquilino
-- Baja latencia entre las máquinas virtuales de aplicaciones hospedadas de Azure en las instancias de BareMetal (0,35 ms)
-- Toda la compatibilidad con NVMe y SSD Flash
-- Base de datos de hasta 1 PB/inquilino 
-- IOPS hasta 1,2 millones/inquilino 
-- Ancho de banda de red de 50 GB 
 
 ## <a name="sku-availability-in-azure-regions"></a>Disponibilidad de SKU en regiones de Azure
 
@@ -92,6 +77,7 @@ Cuando se aprovisiona BareMetal Infrastructure, el sistema operativo, las redes,
 Podrá ver todos los recursos de BareMetal, así como su estado y sus atributos, en Azure Portal. Desde ahí, también puede operar las instancias y abrir solicitudes de servicio e incidencias de soporte técnico. 
 
 ## <a name="operational-model"></a>Modelo de funcionamiento
+
 BareMetal Infrastructure es compatible con ISO 27001, ISO 27017, SOC 1 y SOC 2. También usa un modelo Traiga su propia licencia (BYOL): SO, carga de trabajo especializada y aplicaciones de terceros.  
 
 En cuanto recibe acceso a la raíz y control total, asume la responsabilidad de los siguientes aspectos:
@@ -120,6 +106,7 @@ Dentro de la infraestructura multiinquilino del sello de BareMetal, los clientes
 >Un cliente que implementa una instancia de BareMetal está aislado en un inquilino. Un inquilino se aísla en el nivel de redes, almacenamiento y proceso de otros inquilinos. Las unidades de almacenamiento y proceso asignadas a distintos inquilinos no pueden verse ni comunicarse entre sí en sus instancias de BareMetal.
 
 ## <a name="operating-system"></a>Sistema operativo
+
 Durante el aprovisionamiento de la instancia de BareMetal, puede seleccionar el sistema operativo que desea instalar en los equipos. 
 
 >[!NOTE]
@@ -130,6 +117,7 @@ Las versiones del sistema operativo Linux disponibles son:
 - SUSE Linux Enterprise Server (SLES)
 
 ## <a name="storage"></a>Storage
+
 BareMetal Infrastructure proporciona almacenamiento de NFS con redundancia alta y almacenamiento con canal de fibra. La infraestructura ofrece una integración profunda con cargas de trabajo empresariales como SAP, SQL, etc. También proporciona funcionalidades de administración de datos y protección de datos coherentes con la aplicación. Las herramientas de administración de autoservicio ofrecen funcionalidades de replicación pormenorizada, clonación e instantáneas que requieren menos espacio, junto con la supervisión desde un único panel. La infraestructura habilita las funcionalidades de RTO y RPO cero para satisfacer las necesidades de continuidad empresarial y disponibilidad de datos. 
 
 La infraestructura de almacenamiento ofrece lo siguiente:
@@ -147,6 +135,7 @@ Se admiten estos protocolos de acceso a los datos:
 - NVMe a través de FC  
 
 ## <a name="networking"></a>Redes
+
 La arquitectura del servicio de red de Azure es un componente clave para implementar las carga de trabajo especializadas correctamente en instancias de BareMetal. Es probable que no todos los sistemas de TI ya se encuentren en Azure. Azure ofrece tecnología de red, de forma que se asemeja a un centro de datos virtual para las implementaciones de software locales. La funcionalidad de red de Azure necesaria para las instancias de BareMetal incluye lo siguiente:
 
 - Redes virtuales de Azure conectadas al circuito Azure ExpressRoute que se conecta con los recursos de red locales.

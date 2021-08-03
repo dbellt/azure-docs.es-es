@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/15/2021
+ms.date: 05/26/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b1c8bf5cb8944b990737d557326b2741716bab3d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9a1771dd6f312129d418cac3ddac8ef2411e95c6
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579763"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110496140"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -142,7 +142,7 @@ El elemento **UserJourneyBehaviors** contiene los siguientes elementos:
 | ------- | ----------- | ----------- |
 | SingleSignOn | 0:1 | Ámbito del comportamiento de sesión de inicio de sesión único (SSO) de un recorrido del usuario. |
 | SessionExpiryType |0:1 | El comportamiento de autenticación de la sesión. Valores posibles: `Rolling` o `Absolute`. El valor (predeterminado) `Rolling` indica que el usuario permanece conectado siempre y cuando el usuario esté activo en la aplicación. El valor `Absolute` indica que el usuario está obligado a autenticarse de nuevo tras el período de tiempo especificado por la duración de sesión de la aplicación. |
-| SessionExpiryInSeconds | 0:1 | La duración de la cookie de la sesión de Azure AD B2C especificada como un entero se ha almacenado en el explorador del usuario tras la autenticación correcta. |
+| SessionExpiryInSeconds | 0:1 | La duración de la cookie de la sesión de Azure AD B2C especificada como un entero se ha almacenado en el explorador del usuario tras la autenticación correcta. El valor predeterminado es 86 400 segundos (24 horas). El mínimo es 900 segundos (15 minutos). El máximo es 86 400 segundos (24 horas). |
 | JourneyInsights | 0:1 | La clave de instrumentación de Application Insights de Azure que se va a usar. |
 | ContentDefinitionParameters | 0:1 | La lista de pares clave-valor que se anexará a la URI de carga de la definición de contenido. |
 |ScriptExecution| 0:1| Modos de ejecución de [JavaScript](javascript-and-page-layout.md) admitidos. Valores posibles: `Allow` o `Disallow` (valor predeterminado).

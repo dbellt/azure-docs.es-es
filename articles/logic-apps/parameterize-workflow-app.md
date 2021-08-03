@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: azla
 ms.topic: how-to
-ms.date: 05/25/2021
-ms.openlocfilehash: e9e29a091608be54c806a98323b9e485bc7a49a8
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/08/2021
+ms.openlocfilehash: 7de89605f86e47b3062ec07160288ab14584f42e
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388731"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111747426"
 ---
 # <a name="create-parameters-for-values-that-change-in-workflows-across-environments-for-single-tenant-azure-logic-apps"></a>Creación de parámetros para los valores que cambian en los flujos de trabajo entre entornos de Azure Logic Apps de un solo inquilino
 
@@ -90,6 +90,16 @@ Para reemplazar los archivos de parámetros de forma dinámica mediante la CLI d
 
 ```azurecli
 az functionapp deploy --resource-group MyResourceGroup --name MyLogicApp --src-path C:\parameters.json --type static --target-path parameters.json
+```
+
+Si tiene un proyecto de Logic Apps basado en NuGet, tendrá que actualizar el archivo de proyecto ( **&lt;nombre de aplicación lógica&gt;.csproj**) para incluir el archivo de parámetros en la salida de compilación, por ejemplo:
+  
+```csproj
+<ItemGroup>
+  <None Update="parameters.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </None>
+</ItemGroup>
 ```
 
 > [!NOTE]

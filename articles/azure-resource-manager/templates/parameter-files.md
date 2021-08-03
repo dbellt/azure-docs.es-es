@@ -2,18 +2,18 @@
 title: Creación de archivo de parámetros
 description: Creación de un archivo de parámetros para pasar valores durante la implementación de una plantilla de Azure Resource Manager
 ms.topic: conceptual
-ms.date: 04/15/2021
+ms.date: 05/11/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 50404df278da22352344bbd12e139cc86f0a0615
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 8b7d9afc91462ec3dc61b25135460e347b121e5c
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321652"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111960290"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Creación de un archivo de parámetros de Resource Manager
 
-En lugar de pasar parámetros como valores en línea en el script, puede usar un archivo JSON que contenga los valores de parámetro. En este artículo se muestra cómo crear un archivo de parámetros que se usa con una plantilla JSON o un archivo Bicep.
+En lugar de pasar parámetros como valores en línea en el script, puede usar un archivo JSON que contenga los valores de parámetro. En este artículo se muestra cómo crear un archivo de parámetros que se usa con una plantilla JSON.
 
 ## <a name="parameter-file"></a>Archivo de parámetros
 
@@ -62,9 +62,7 @@ Para más información sobre el uso de valores de una instancia de Key Vault, co
 
 ## <a name="define-parameter-values"></a>Definición de los valores de parámetro
 
-Para determinar cómo definir los nombres y valores de los parámetros, abra la plantilla JSON o Bicep. Examine la sección de parámetros de la plantilla. En los ejemplos siguientes se muestran los parámetros de las plantillas JSON y Bicep.
-
-# <a name="json"></a>[JSON](#tab/json)
+Para determinar cómo definir los nombres y valores de los parámetros, abra la plantilla JSON y revise la sección `parameters`. En el ejemplo siguiente se muestran los parámetros de la plantilla JSON.
 
 ```json
 "parameters": {
@@ -84,23 +82,6 @@ Para determinar cómo definir los nombres y valores de los parámetros, abra la 
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-@maxLength(11)
-param storagePrefix string
-
-@allowed([
-  'Standard_LRS'
-  'Standard_GRS'
-  'Standard_ZRS'
-  'Premium_LRS'
-])
-param storageAccountType string = 'Standard_LRS'
-```
-
----
 
 En el archivo de parámetros, el primer detalle que se debe tener en cuenta es el nombre de cada parámetro. Los nombres de los parámetros del archivo de parámetros deben coincidir con los nombres de los parámetros de la plantilla.
 
@@ -217,7 +198,7 @@ az deployment group create \
   --parameters @storage.parameters.json
 ```
 
-Para más información, consulte [Implementación de recursos con plantillas de ARM y la CLI de Azure](./deploy-cli.md#parameters). Para implementar archivos _.bicep_, necesita la CLI de Azure versión 2.20 o posterior.
+Para más información, consulte [Implementación de recursos con plantillas de ARM y la CLI de Azure](./deploy-cli.md#parameters).
 
 Desde Azure PowerShell se pasa un archivo de parámetros local mediante el parámetro `TemplateParameterFile`.
 
@@ -227,7 +208,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
   -TemplateParameterFile C:\MyTemplates\storage.parameters.json
 ```
 
-Para más información, consulte [Implementación de recursos con las plantillas de ARM y Azure PowerShell](./deploy-powershell.md#pass-parameter-values). Para implementar archivos _.bicep_, necesita Azure PowerShell versión 5.6.0 o posterior.
+Para más información, consulte [Implementación de recursos con las plantillas de ARM y Azure PowerShell](./deploy-powershell.md#pass-parameter-values).
 
 > [!NOTE]
 > No es posible usar un archivo de parámetros con la hoja de plantilla personalizada en el portal.
@@ -253,5 +234,5 @@ Si la plantilla incluye un parámetro con el mismo nombre que uno de los paráme
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener más información sobre cómo definir parámetros en una plantilla, vea [Parámetros en plantillas de ARM](template-parameters.md).
+- Para obtener más información sobre cómo definir parámetros en una plantilla, vea [Parámetros en plantillas de ARM](./parameters.md).
 - Para más información sobre el uso de valores de una instancia de Key Vault, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](key-vault-parameter.md).

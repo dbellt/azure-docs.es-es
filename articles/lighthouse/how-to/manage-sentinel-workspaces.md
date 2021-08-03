@@ -1,14 +1,14 @@
 ---
 title: Administración de áreas de trabajo de Azure Sentinel a gran escala
-description: Obtenga información sobre cómo a administrar de forma eficaz Azure Sentinel en recursos delegados de clientes.
+description: Azure Lighthouse le ayuda a administrar Azure Sentinel de manera eficaz en los recursos delegados del cliente.
 ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 009edaefe021dedb5d9a40a8cc3bac2c2974ae10
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c72dcdd190acfaf3db0b5c9feb1a30b00c63a94d
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101702528"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077833"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Administración de áreas de trabajo de Azure Sentinel a gran escala
 

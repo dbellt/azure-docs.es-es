@@ -1,21 +1,21 @@
 ---
 title: 'Configuración de redireccionamientos de dispositivos: Azure'
-description: Cómo configurar el redireccionamiento de dispositivos para Windows Virtual Desktop.
+description: Cómo configurar el redireccionamiento de dispositivos para Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: f603a4b44b555382e4178d90522ae41fa2388663
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 570983229c16fa9c01d14bd7575d0720a7197191
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107947724"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756552"
 ---
 # <a name="configure-device-redirections"></a>Configuración de redireccionamientos de dispositivos
 
-La configuración de redireccionamientos de dispositivos para el entorno de Windows Virtual Desktop le permite usar impresoras, dispositivos USB, micrófonos y otros dispositivos periféricos en la sesión remota. Algunos redireccionamientos de dispositivos requieren cambios en las propiedades del Protocolo de Escritorio remoto (RDP) y en la configuración de la directiva de grupo.
+La configuración de redireccionamientos de dispositivos para el entorno de Azure Virtual Desktop le permite usar impresoras, dispositivos USB, micrófonos y otros dispositivos periféricos en la sesión remota. Algunos redireccionamientos de dispositivos requieren cambios en las propiedades del Protocolo de Escritorio remoto (RDP) y en la configuración de la directiva de grupo.
 
 ## <a name="supported-device-redirections"></a>Redireccionamientos de dispositivos admitidos
 

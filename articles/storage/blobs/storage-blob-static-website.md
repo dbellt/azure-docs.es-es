@@ -9,12 +9,12 @@ ms.reviewer: dineshm
 ms.date: 09/04/2020
 ms.subservice: blobs
 ms.custom: devx-track-js
-ms.openlocfilehash: bbb996362df1f99a8702de310bc11f6828cc303a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 10caff631d59085aa2bbfcd573c3e3114b0306f7
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103008457"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111560877"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedaje de sitios web estáticos en Azure Storage
 
@@ -108,6 +108,9 @@ Si quiere usar encabezados para controlar el almacenamiento en caché, consulte 
 
 Si planea hospedar un sitio web en varias zonas geográficas, se recomienda usar [Content Delivery Network](../../cdn/index.yml) para el almacenamiento en caché regional. Use [Azure Front Door](../../frontdoor/index.yml) para proporcionar contenido diferente en cada región. También proporciona funcionalidad de conmutación por error. [No se recomienda](../../traffic-manager/index.yml) Azure Traffic Manager si tiene previsto usar un dominio personalizado. Pueden surgir problemas debido a cómo Azure Storage comprueba los nombres de dominio personalizados.
 
+## <a name="permissions"></a>Permisos
+
+El permiso para habilitar el sitio web estático es Microsoft.Storage/storageAccounts/blobServices/write o clave compartida.  Los roles integrados que proporcionan este acceso incluyen Colaborador de la cuenta de almacenamiento.  
 
 ## <a name="pricing"></a>Precios
 

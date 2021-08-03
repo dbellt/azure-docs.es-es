@@ -1,5 +1,5 @@
 ---
-title: Guía de personalización de marca | Azure
+title: Directrices de personalización de marca de Iniciar sesión con Microsoft | Azure AD
 titleSuffix: Microsoft identity platform
 description: Obtenga información sobre las directrices de personalización de marca de aplicación para la plataforma de identidad de Microsoft.
 services: active-directory
@@ -13,14 +13,14 @@ ms.date: 08/31/2020
 ms.author: ryanwi
 ms.reviewer: arielgo, jiml
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 236e82ab97244e1428441f83295f6a5d4ed56350
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: beccbb77f27ef462f8725cf6b2ffb6966c68e23b
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99581999"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110471370"
 ---
-# <a name="branding-guidelines-for-applications"></a>Directrices de personalización de marca para aplicaciones
+# <a name="sign-in-with-microsoft-branding-guidelines-for-applications"></a>Iniciar sesión con Microsoft: directrices de personalización de marca para aplicaciones
 
 Cuando desarrolle aplicaciones con la plataforma de identidad de Microsoft, deberá dirigir a los clientes cuando estos quieran usar su cuenta profesional o educativa (administrada en Azure AD), o su cuenta personal, para suscribirse a la aplicación o iniciar sesión en ella.
 

@@ -3,15 +3,15 @@ title: Uso de referencias de Key Vault
 description: Aprenda a configurar Azure App Service y Azure Functions para que usen referencias de Azure Key Vault. Haga que los secretos de Key Vault estén disponibles para el código de aplicación.
 author: mattchenderson
 ms.topic: article
-ms.date: 04/23/2021
+ms.date: 05/25/2021
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 0ca620d50706f10081e955cf206fcf8c06ae5fd4
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.openlocfilehash: 3300f5fbb5613672d7979f161ca0c92126f26a83
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108064942"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110578122"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Uso de referencias de Key Vault para App Service y Azure Functions
 
@@ -77,7 +77,7 @@ Si no se especifica una versión en la referencia, la aplicación usará la vers
 
 Las referencias de Key Vault pueden usarse como valores en [Configuración de la aplicación](configure-common.md#configure-app-settings), lo que le permite conservar los secretos en Key Vault en lugar de en la configuración del sitio. La configuración de la aplicación se cifra de forma segura en reposo, pero si necesita funcionalidades de administración de secretos, debe incluirse en Key Vault.
 
-Para usar una referencia de Key Vault para la configuración de la aplicación, establezca la referencia como el valor de la configuración. La aplicación puede hacer referencia al secreto mediante su clave de la forma habitual. No se requiere ningún cambio de código.
+Para usar una referencia de Key Vault para la [configuración de la aplicación](configure-common.md#add-or-edit), establezca la referencia como valor de la configuración. La aplicación puede hacer referencia al secreto mediante su clave de la forma habitual. No se requiere ningún cambio de código.
 
 > [!TIP]
 > La mayoría de los valores de configuración de la aplicación que usan referencias de Key Vault se deben marcar como configuración de ranuras, así que debe tener distintos almacenes para cada entorno.
@@ -161,8 +161,8 @@ Una seudoplantilla de ejemplo para una aplicación de función podría tener est
                 //...
                 "accessPolicies": [
                     {
-                        "tenantId": "[reference(concat('Microsoft.Web/sites/',  variables('functionAppName'), '/providers/Microsoft.ManagedIdentity/Identities/default'), '2015-08-31-PREVIEW').tenantId]",
-                        "objectId": "[reference(concat('Microsoft.Web/sites/',  variables('functionAppName'), '/providers/Microsoft.ManagedIdentity/Identities/default'), '2015-08-31-PREVIEW').principalId]",
+                        "tenantId": "[reference(resourceId('Microsoft.Web/sites/', variables('functionAppName')), '2020-12-01', 'Full').identity.tenantId]",
+                        "objectId": "[reference(resourceId('Microsoft.Web/sites/', variables('functionAppName')), '2020-12-01', 'Full').identity.principalId]",
                         "permissions": {
                             "secrets": [ "get" ]
                         }
@@ -179,7 +179,7 @@ Una seudoplantilla de ejemplo para una aplicación de función podría tener est
                         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
                     ],
                     "properties": {
-                        "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountResourceId'),'2015-05-01-preview').key1)]"
+                        "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountResourceId'),'2019-09-01').key1)]"
                     }
                 },
                 {
@@ -191,7 +191,7 @@ Una seudoplantilla de ejemplo para una aplicación de función podría tener est
                         "[resourceId('Microsoft.Insights/components', variables('appInsightsName'))]"
                     ],
                     "properties": {
-                        "value": "[reference(resourceId('microsoft.insights/components/', variables('appInsightsName')), '2015-05-01').InstrumentationKey]"
+                        "value": "[reference(resourceId('microsoft.insights/components/', variables('appInsightsName')), '2019-09-01').InstrumentationKey]"
                     }
                 }
             ]

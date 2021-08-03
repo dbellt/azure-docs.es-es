@@ -3,12 +3,12 @@ title: Recopilar y analizar registros de recursos
 description: Obtenga información sobre cómo enviar registros de recursos y datos de eventos de grupos de contenedores en Azure Container Instances a los registros de Azure Monitor.
 ms.topic: article
 ms.date: 07/13/2020
-ms.openlocfilehash: e46a1df65a4cfe5d10a58704aff485aa2834b55f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 0c95535c80425abb8bdc904132581531b8cdd24e
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107763926"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112029070"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Registro de instancias y grupos de contenedores con registros de Azure Monitor
 
@@ -146,6 +146,53 @@ ContainerInstanceLog_CL
 | where (ContainerGroup_s == "mycontainergroup001")
 | where (TimeGenerated > ago(1h))
 ```
+
+## <a name="log-schema"></a>Esquema de registro
+
+> [!NOTE]
+> Algunas de las columnas enumeradas a continuación solo existen como parte del esquema y no tendrán ningún dato emitido en los registros. Estas columnas se indican a continuación con una descripción de "Vacío".
+
+### <a name="containerinstancelog_cl"></a>ContainerInstanceLog_CL
+
+|Columna|Tipo|Descripción|
+|-|-|-|
+|Computer|string|Vacío|
+|ContainerGroup_s|string|Nombre del grupo de contenedores asociado al registro.|
+|ContainerID_s|string|Identificador único para el contenedor asociado al registro.|
+|ContainerImage_s|string|Nombre de la imagen de contenedor asociada al registro.|
+|Location_s|string|Ubicación del recurso asociado al registro.|
+|Message|string|Si procede, el mensaje del contenedor.|
+|OSType_s|string|Nombre del sistema operativo en el que se basa el contenedor.|
+|RawData|string|Vacío|
+|ResourceGroup|string|Nombre del grupo de recursos al que está asociado el registro.|
+|Source_s|string|Nombre del componente de registro, "LoggingAgent".|
+|SubscriptionId|string|Identificador único de la suscripción a la que está asociado el registro.|
+|TimeGenerated|datetime|Marca de tiempo de cuando el servicio de Azure generó el evento que procesó la solicitud correspondiente al evento.|
+|Tipo|string|Nombre de la tabla.|
+|_ResourceId|string|Identificador único del recurso al que está asociado el registro.|
+|_SubscriptionId|string|Identificador único de la suscripción a la que está asociado el registro.|
+
+### <a name="containerevent_cl"></a>ContainerEvent_CL
+
+|Columna|Tipo|Descripción|
+|-|-|-|
+|Computer|string|Vacío|
+|ContainerGroupInstanceId_g|string|Identificador único del grupo de contenedores asociado al registro.|
+|ContainerGroup_s|string|Nombre del grupo de contenedores asociado al registro.|
+|ContainerName_s|string|Nombre del contenedor asociado al registro.|
+|Count_d|real|Número de veces que se ha producido el evento desde el último sondeo.|
+|FirstTimestamp_t|datetime|Marca de tiempo de la primera vez que se produjo el evento.|
+|Location_s|string|Ubicación del recurso asociado al registro.|
+|Message|string|Si procede, el mensaje del contenedor.|
+|OSType_s|string|Nombre del sistema operativo en el que se basa el contenedor.|
+|RawData|string|Vacío|
+|Reason_s|string|Vacío|
+|ResourceGroup|string|Nombre del grupo de recursos al que está asociado el registro.|
+|SubscriptionId|string|Identificador único de la suscripción a la que está asociado el registro.|
+|TimeGenerated|datetime|Marca de tiempo de cuando el servicio de Azure generó el evento que procesó la solicitud correspondiente al evento.|
+|Tipo|string|Nombre de la tabla.|
+|_ResourceId|string|Identificador único del recurso al que está asociado el registro.|
+|_SubscriptionId|string|Identificador único de la suscripción a la que está asociado el registro.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

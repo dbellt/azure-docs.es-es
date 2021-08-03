@@ -4,16 +4,16 @@ description: Descubra cómo diagnosticar y corregir excepciones de recurso no en
 author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 07/13/2020
+ms.date: 05/26/2021
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 22cce2c620d23ab477de5d92bb8c6d4f5ef5a493
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b9a78c1adeb5aa833c7c60be1dc4e553ae7d5393
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102425131"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110538851"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>Diagnóstico y solución de problemas de excepciones recurso de Azure Cosmos DB no encontrado
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -37,6 +37,12 @@ Hay varias instancias de cliente de SDK y la lectura se produjo antes de la escr
 #### <a name="solution"></a>Solución:
 1. La coherencia de la cuenta predeterminada para Azure Cosmos DB es la coherencia de la sesión. Cuando se crea o se actualiza un elemento, la respuesta devolverá un token de sesión que se puede pasar de una instancia de SDK a otra para garantizar que la solicitud de lectura lea desde una réplica que tiene ese cambio.
 1. Cambie el [nivel de coherencia](./consistency-levels.md) a un [nivel más seguro](./consistency-levels.md).
+
+### <a name="reading-throughput-for-a-container-or-database-resource"></a>Lectura del rendimiento de un contenedor o recurso de base de datos
+Uso de PowerShell o la CLI de Azure y recepción de un mensaje de error *no encontrado*.
+
+#### <a name="solution"></a>Solución:
+El rendimiento se puede aprovisionar en el nivel de base de datos, en el nivel de contenedor o en ambos. Si recibe un error *no encontrado*, intente leer el rendimiento del recurso de base de datos principal o el recurso de contenedor secundario.
 
 ### <a name="invalid-partition-key-and-id-combination"></a>Combinación no válida de clave de partición e identificador
 La combinación de la clave de partición y el identificador no es válida.

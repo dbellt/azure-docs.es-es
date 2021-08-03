@@ -3,12 +3,12 @@ title: Instancias reservadas de Azure VMware Solution
 description: Obtenga información sobre cómo comprar una instancia reservada para Azure VMware Solution. Las instancias reservadas solo cubren la parte del uso dedicada a los procesos y tienen costos de licencias de software.
 ms.topic: how-to
 ms.date: 05/13/2021
-ms.openlocfilehash: 2ec43374561db9b0de39f4d1c571b85a75df13ba
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 8407d4e85718660bfcf17b3597710ed5237b41e1
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110063107"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745824"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Ahorro de costos con Azure VMware Solution
 
@@ -138,6 +138,6 @@ Los CSP pueden cancelar, intercambiar o reembolsar reservas, con algunas limitac
 Ahora que se han explicado las instancias reservadas de Azure VMware Solution, es posible que necesite más información sobre:
 
 - [Creación de una evaluación de Azure VMware Solution](../migrate/how-to-create-azure-vmware-solution-assessment.md).
-- [Administración de DHCP para Azure VMware Solution](configure-dhcp-azure-vmware-solution.md).
-- [Supervisión y administración de máquinas virtuales de Azure VMware Solution](lifecycle-management-of-azure-vmware-solution-vms.md)
+- [Configuración de DHCP para Azure VMware Solution](configure-dhcp-azure-vmware-solution.md)
+- [Integración de servicios nativos de Azure en Azure VMware Solution](integrate-azure-native-services.md)
  

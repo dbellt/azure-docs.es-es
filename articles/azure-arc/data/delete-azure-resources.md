@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: ce46b7afe7344fabde03805dc2a0977411be5811
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: bde1b1f84847c3ebf05f14312b89ae8227908948
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107716086"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411186"
 ---
 # <a name="delete-resources-from-azure"></a>Eliminación de recursos de Azure
 
@@ -22,6 +22,18 @@ En este artículo se describe cómo eliminar recursos de Azure.
 
 > [!WARNING]
 > Al eliminar recursos como se describe en este artículo, estas acciones son irreversibles.
+
+## <a name="before"></a>Antes
+
+Antes de eliminar un recurso como una instancia administrada de SQL de Azure Arc o un controlador de datos de Azure Arc, debe exportar y cargar la información de uso en Azure para realizar un cálculo de facturación preciso siguiendo las instrucciones descritas en [Carga de datos de facturación en Azure](view-billing-data-in-azure.md#upload-billing-data-to-azure).
+
+## <a name="direct-connectivity-mode"></a>Modo de conectividad directa
+
+Cuando un clúster esté conectado a Azure con el modo de conectividad directa, use Azure Portal para administrar los recursos. Use el portal para todas las operaciones de creación, lectura, actualización y eliminación (CRUD) para el controlador de datos, Instancia administrada y grupos de PostgreSQL.
+
+Consulte [Administración de recursos de Azure con Azure Portal](../../azure-resource-manager/management/manage-resources-portal.md).
+
+## <a name="indirect-connectivity-mode"></a>Modo de conectividad indirecta
 
 En el modo de conexión indirecto, la eliminación de una instancia de Kubernetes no la elimina de Azure y la eliminación de una instancia de Azure no la elimina de Kubernetes. En el modo de conexión indirecto, la eliminación de un recurso es un proceso de dos pasos y se mejorará en el futuro. Kubernetes será el origen de verdad y el portal se actualizará para reflejarlo.
 

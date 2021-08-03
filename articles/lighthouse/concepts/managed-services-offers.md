@@ -1,14 +1,14 @@
 ---
 title: Ofertas de servicios administrados en Azure Marketplace
-description: Las ofertas de servicios administrados le permiten vender ofertas de administración de recursos a los clientes en Azure Marketplace.
+description: Ofrezca sus servicios de administración de Azure Lighthouse a los clientes a través de ofertas de servicios administrados en Azure Marketplace.
 ms.date: 05/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 056efee8b8bb7a1e32619cc46c0f2665e5463343
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: df3cd76d840e37e711bdd92d93c2499d701afef9
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788650"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112074780"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Ofertas de servicios administrados en Azure Marketplace
 

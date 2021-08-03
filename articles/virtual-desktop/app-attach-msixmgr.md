@@ -1,24 +1,24 @@
 ---
 title: 'Uso de la herramienta MSIXMGR: Azure'
-description: Cómo usar la herramienta MSIXMGR para Windows Virtual Desktop.
+description: Cómo usar la herramienta MSIXMGR para Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 02/23/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: b2cab56fb99bda7da361cc2068396e53e794501d
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 7b997f817e8e430d6f2985f73e4005da86dcda10
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448345"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745536"
 ---
 # <a name="using-the-msixmgr-tool"></a>Uso de la herramienta MSIXMGR
 
-La herramienta MSIXMGR se utiliza para expandir aplicaciones empaquetadas con MSIX en imágenes MSIX. La herramienta toma una aplicación empaquetada con MSIX (.MSIX) y la expande en un archivo VHD, VHDx o CIM. La imagen MSIX resultante se almacena en la cuenta de Azure Storage utilizada por la implementación de Windows Virtual Desktop. En este artículo se muestra cómo usar la herramienta MSIXMGR.
+La herramienta MSIXMGR se utiliza para expandir aplicaciones empaquetadas con MSIX en imágenes MSIX. La herramienta toma una aplicación empaquetada con MSIX (.MSIX) y la expande en un archivo VHD, VHDx o CIM. La imagen MSIX resultante se almacena en la cuenta de Azure Storage utilizada por la implementación de Azure Virtual Desktop. En este artículo se muestra cómo usar la herramienta MSIXMGR.
 
 >[!NOTE]
->Para garantizar la compatibilidad, asegúrese de que los archivos CIM que almacenan las imágenes MSIX se generan en la versión del sistema operativo que se ejecuta en los grupos de hosts de Windows Virtual Desktop. MSIXMGR puede crear archivos CIM, pero solo puede usar esos archivos con un grupo de hosts que ejecute Windows 10 20H2.
+>Para garantizar la compatibilidad, asegúrese de que los archivos CIM que almacenan las imágenes MSIX se generan en la versión del sistema operativo que se ejecuta en los grupos de hosts de Azure Virtual Desktop. MSIXMGR puede crear archivos CIM, pero solo puede usar esos archivos con un grupo de hosts que ejecute Windows 10 20H2.
 
 ## <a name="requirements"></a>Requisitos
 
@@ -81,7 +81,7 @@ Para obtener información sobre cómo configurar la asociación de la aplicació
 - [Configuración de la asociación de aplicaciones en formato .MSIX con Azure Portal](app-attach-azure-portal.md)
 - [Configuración de la asociación de aplicaciones en formato MSIX (versión preliminar) con PowerShell](app-attach-powershell.md)
 - [Creación de scripts de PowerShell para la asociación de aplicaciones en formato MSIX (versión preliminar)](app-attach.md)
-- [Preparación de una imagen de MSIX para Windows Virtual Desktop](app-attach-image-prep.md)
+- [Preparación de una imagen de MSIX para Azure Virtual Desktop](app-attach-image-prep.md)
 - [Configuración de un recurso compartido de archivos para asociar aplicaciones en formato MSIX (versión preliminar)](app-attach-file-share.md)
 
 Si tiene alguna pregunta sobre la asociación de aplicaciones MSIX, consulte [Preguntas frecuentes sobre la asociación de aplicaciones en formato MSIX](app-attach-faq.md) y [Glosario sobre la conexión de aplicaciones en formato MSIX](app-attach-glossary.md).

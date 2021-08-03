@@ -1,31 +1,31 @@
 ---
-title: 'Procedimientos recomendados de seguridad para Windows Virtual Desktop: Azure'
-description: Procedimientos recomendados para proteger su entorno de Windows Virtual Desktop.
+title: 'Procedimientos recomendados de seguridad de Azure Virtual Desktop: Azure'
+description: Procedimientos recomendados para proteger su entorno de Azure Virtual Desktop.
 author: heidilohr
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: c7d7b5ec4d35cd2bd1be1b6b34c374e949114a16
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: e09f3c8f4691eaf978e0b5245626508e4aa2b961
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110070343"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746868"
 ---
 # <a name="security-best-practices"></a>Recomendaciones de seguridad
 
-Windows Virtual Desktop es un servicio de escritorio virtual administrado que incluye muchas funcionalidades de seguridad para mantener protegida su organización. En una implementación de Windows Virtual Desktop, Microsoft administra parte de los servicios en nombre del cliente. El servicio tiene muchas características de seguridad avanzadas integradas, como la conexión inversa, que reduce el riesgo que conlleva tener acceso a los escritorios remotos desde cualquier lugar.
+Azure Virtual Desktop es un servicio de escritorio virtual administrado que incluye muchas funcionalidades de seguridad para mantener protegida su organización. En una implementación de Azure Virtual Desktop, Microsoft administra parte de los servicios en nombre del cliente. El servicio tiene muchas características de seguridad avanzadas integradas, como la conexión inversa, que reduce el riesgo que conlleva tener acceso a los escritorios remotos desde cualquier lugar.
 
-En este artículo se describen las medidas adicionales que puede tomar como administrador para proteger las implementaciones de Windows Virtual Desktop de sus clientes.
+En este artículo se describen las medidas adicionales que puede tomar como administrador para proteger las implementaciones de Azure Virtual Desktop de sus clientes.
 
 ## <a name="security-responsibilities"></a>Responsabilidades de seguridad
 
 La diferencia entre los servicios en la nube y las infraestructuras locales de escritorio virtual (VDIs) tradicionales es cómo controlan las responsabilidades de seguridad. Por ejemplo, en una VDI local tradicional, el cliente es responsable de todos los aspectos de seguridad. Sin embargo, en la mayoría de los servicios en la nube, estas responsabilidades se comparten entre el cliente y la empresa.
 
-Cuando se usa Windows Virtual Desktop, es importante comprender que, aunque algunos componentes ya están protegidos en el entorno, deberá configurar otras áreas para adaptarse a las necesidades de seguridad de su organización.
+Cuando se usa Azure Virtual Desktop, es importante comprender que, aunque algunos componentes ya están protegidos en el entorno, deberá configurar otras áreas para adaptarse a las necesidades de seguridad de su organización.
 
-Estos son los requisitos de seguridad que son su responsabilidad en la implementación de Windows Virtual Desktop:
+Estos son los requisitos de seguridad que son su responsabilidad en la implementación de Azure Virtual Desktop:
 
 | Requisito de seguridad | ¿Es responsabilidad del cliente? |
 |---------------|:-------------------------:|
@@ -44,7 +44,7 @@ Microsoft se encarga de los requisitos de seguridad que no son responsabilidad d
 
 ## <a name="azure-security-best-practices"></a>Procedimientos recomendados de seguridad de Azure
 
-Windows Virtual Desktop es un servicio de Azure. Para maximizar la protección de la implementación de Windows Virtual Desktop, también debe asegurarse de proteger la infraestructura de Azure circundante y el plano de administración. Para proteger la infraestructura, considere cómo encaja Windows Virtual Desktop en el ecosistema de Azure general. Para más información sobre el ecosistema de Azure, consulte [Patrones y procedimientos recomendados de seguridad en Azure](../security/fundamentals/best-practices-and-patterns.md).
+Azure Virtual Desktop es un servicio de Azure. Para maximizar la protección de la implementación de Azure Virtual Desktop, también debe asegurarse de proteger la infraestructura de Azure circundante y el plano de administración. Para proteger la infraestructura, considere cómo encaja Azure Virtual Desktop en el ecosistema de Azure general. Para más información sobre el ecosistema de Azure, consulte [Patrones y procedimientos recomendados de seguridad en Azure](../security/fundamentals/best-practices-and-patterns.md).
 
 En esta sección se describen los procedimientos recomendados para proteger el ecosistema de Azure.
 
@@ -64,27 +64,27 @@ Para más información, consulte [Incorporación de su suscripción a Azure al n
 
 La puntuación de seguridad proporciona recomendaciones y procedimientos recomendados para mejorar la seguridad general. Estas recomendaciones se clasifican por orden de prioridad para ayudarle a elegir las más importantes, mientras que las opciones de corrección rápida le ayudan a abordar las posibles vulnerabilidades rápidamente. Estas recomendaciones también se actualizan con el tiempo, lo que permite mantenerse al día con las mejores formas de mantener la seguridad del entorno. Para más información, consulte [Mejora de la puntuación de seguridad de Azure Security Center](../security-center/secure-score-security-controls.md).
 
-## <a name="windows-virtual-desktop-security-best-practices"></a>Procedimientos recomendados de seguridad para Windows Virtual Desktop
+## <a name="azure-virtual-desktop-security-best-practices"></a>Procedimientos recomendados de seguridad de Azure Virtual Desktop
 
-Windows Virtual Desktop tiene muchos controles de seguridad integrados. En esta sección, aprenderá sobre los controles de seguridad que puede usar para mantener protegidos a los usuarios y los datos.
+Azure Virtual Desktop tiene muchos controles de seguridad integrados. En esta sección, aprenderá sobre los controles de seguridad que puede usar para mantener protegidos a los usuarios y los datos.
 
 ### <a name="require-multi-factor-authentication"></a>Requerir autenticación multifactor
 
-Al requerir la autenticación multifactor para todos los usuarios y administradores en Windows Virtual Desktop, mejora la seguridad de toda la implementación. Para más información, consulte [Habilitación de Azure AD Multi-Factor Authentication para Windows Virtual Desktop](set-up-mfa.md).
+Al requerir la autenticación multifactor para todos los usuarios y administradores en Azure Virtual Desktop, mejora la seguridad de toda la implementación. Para más información, consulte [Habilitación de Azure AD Multi-Factor Authentication para Azure Virtual Desktop](set-up-mfa.md).
 
 ### <a name="enable-conditional-access"></a>Habilitación del acceso condicional
 
-Al habilitar el [acceso condicional](../active-directory/conditional-access/overview.md), podrá administrar los riesgos antes de conceder acceso al entorno de Windows Virtual Desktop a los usuarios. A la hora de decidir a qué usuarios se concederá acceso, se recomienda considerar también quién es el usuario, cómo inicia sesión y qué dispositivo está usando.
+Al habilitar el [acceso condicional](../active-directory/conditional-access/overview.md), podrá administrar los riesgos antes de conceder acceso al entorno de Azure Virtual Desktop a los usuarios. A la hora de decidir a qué usuarios se concederá acceso, se recomienda considerar también quién es el usuario, cómo inicia sesión y qué dispositivo está usando.
 
 ### <a name="collect-audit-logs"></a>Recopilación de registros de auditoría
 
-Al habilitar la recopilación de registros de auditoría, podrá ver la actividad de los usuario y administradores relacionada con Windows Virtual Desktop. Los siguientes son algunos ejemplos de registros de auditoría clave:
+Al habilitar la recopilación de registros de auditoría, podrá ver la actividad de los usuarios y administradores relacionada con Azure Virtual Desktop. Los siguientes son algunos ejemplos de registros de auditoría clave:
 
 -   [Registro de actividad de Azure](../azure-monitor/essentials/activity-log.md)
 -   [Registro de actividad de Azure Active Directory](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 -   [Hosts de sesión](../azure-monitor/agents/agent-windows.md)
--   [Registro de diagnóstico de Windows Virtual Desktop](../virtual-desktop/diagnostics-log-analytics.md)
+-   [Registro de diagnóstico de Azure Virtual Desktop](../virtual-desktop/diagnostics-log-analytics.md)
 -   [Registros de Key Vault](../key-vault/general/logging.md)
 
 ### <a name="use-remoteapps"></a>Uso de RemoteApps
@@ -93,11 +93,11 @@ Al elegir un modelo de implementación, puede proporcionar a los usuarios remoto
 
 ### <a name="monitor-usage-with-azure-monitor"></a>Supervisión de uso con Azure Monitor
 
-Supervise el uso y la disponibilidad del servicio de Windows Virtual Desktop con [Azure Monitor](https://azure.microsoft.com/services/monitor/). Considere la posibilidad de crear [alertas de estado del servicio](../service-health/alerts-activity-log-service-notifications-portal.md) para que el servicio de Windows Virtual Desktop reciba notificaciones siempre que se produzca un evento que afecta al servicio.
+Supervise el uso y la disponibilidad del servicio de Azure Virtual Desktop con [Azure Monitor](https://azure.microsoft.com/services/monitor/). Considere la posibilidad de crear [alertas de estado del servicio](../service-health/alerts-activity-log-service-notifications-portal.md) para que el servicio de Azure Virtual Desktop reciba notificaciones siempre que se produzca un evento que afecta al servicio.
 
 ## <a name="session-host-security-best-practices"></a>Procedimientos recomendados de seguridad del host de sesión
 
-Los hosts de sesión son máquinas virtuales que se ejecutan dentro de una suscripción a Azure y una red virtual. La seguridad general de su implementación de Windows Virtual Desktop depende de los controles de seguridad que se aplican en los hosts de la sesión. En esta sección se describen los procedimientos recomendados para proteger los hosts de la sesión.
+Los hosts de sesión son máquinas virtuales que se ejecutan dentro de una suscripción a Azure y una red virtual. La seguridad general de su implementación de Azure Virtual Desktop depende de los controles de seguridad que se aplican en los hosts de la sesión. En esta sección se describen los procedimientos recomendados para proteger los hosts de la sesión.
 
 ### <a name="enable-endpoint-protection"></a>Habilitación de Endpoint Protection
 
@@ -123,7 +123,7 @@ Al cerrar la sesión de los usuarios cuando están inactivos, se conservan los r
 
 ### <a name="set-up-screen-locks-for-idle-sessions"></a>Configuración de bloqueos de pantalla para sesiones inactivas
 
-Para evitar los accesos no deseados al sistema, configure Windows Virtual Desktop para que bloquee la pantalla de una máquina durante el tiempo de inactividad y solicite una autenticación para desbloquearla.
+Para evitar los accesos no deseados al sistema, configure Azure Virtual Desktop para que bloquee la pantalla de una máquina durante el tiempo de inactividad y solicite una autenticación para desbloquearla.
 
 ### <a name="establish-tiered-admin-access"></a>Establecimiento del acceso de administrador en capas
 
@@ -131,7 +131,7 @@ Se recomienda no conceder a los usuarios acceso de administrador para escritorio
 
 ### <a name="consider-which-users-should-access-which-resources"></a>Cuáles usuarios que deben tener acceso a qué recursos
 
-Considere a los hosts de sesión como una extensión de la implementación de escritorio existente. Se recomienda controlar el acceso a los recursos de red del mismo modo que lo haría con otros equipos de escritorio del entorno, como la segmentación y filtrado de la red. De forma predeterminada, los hosts de sesión pueden conectarse a cualquier recurso de Internet. Hay varias maneras de limitar el tráfico, incluido el uso de Azure Firewall, dispositivos virtuales de red o servidores proxy. Si necesita limitar el tráfico, asegúrese de agregar las reglas adecuadas para que Windows Virtual Desktop pueda funcionar correctamente.
+Considere a los hosts de sesión como una extensión de la implementación de escritorio existente. Se recomienda controlar el acceso a los recursos de red del mismo modo que lo haría con otros equipos de escritorio del entorno, como la segmentación y filtrado de la red. De forma predeterminada, los hosts de sesión pueden conectarse a cualquier recurso de Internet. Hay varias maneras de limitar el tráfico, incluido el uso de Azure Firewall, dispositivos virtuales de red o servidores proxy. Si necesita limitar el tráfico, asegúrese de agregar las reglas adecuadas para que Azure Virtual Desktop pueda funcionar correctamente.
 
 ### <a name="manage-office-pro-plus-security"></a>Administración de la seguridad de Office Pro Plus
 
@@ -151,9 +151,9 @@ Al restringir las funcionalidades del sistema operativo, puede mejorar la seguri
 
 - Impedir que el software no deseado se ejecute en los hosts de sesión. Puede habilitar el Bloqueo de aplicación para mayor seguridad en los hosts de sesión. Así, se asegura de que solo las aplicaciones que habilite se pueden ejecutar en el host.
 
-## <a name="windows-virtual-desktop-support-for-trusted-launch"></a>Compatibilidad de Windows Virtual Desktop con el inicio seguro
+## <a name="azure-virtual-desktop-support-for-trusted-launch"></a>Compatibilidad de Azure Virtual Desktop con el inicio seguro
 
-El inicio seguro son máquinas virtuales de Azure de Gen2 con características de seguridad mejoradas cuyo fin es proteger contra amenazas de “parte inferior de la pila” a través de vectores de ataque como rootkits, kits de arranque y malware de nivel de kernel. A continuación se muestran las características de seguridad mejoradas del inicio seguro, que se admiten en su totalidad en Windows Virtual Desktop. Para obtener más información sobre el inicio seguro, visite [Inicio seguro para máquinas virtuales de Azure (versión preliminar)](../virtual-machines/trusted-launch.md).
+El inicio seguro son máquinas virtuales de Azure de Gen2 con características de seguridad mejoradas cuyo fin es proteger contra amenazas de “parte inferior de la pila” a través de vectores de ataque como rootkits, kits de arranque y malware de nivel de kernel. A continuación se muestran las características de seguridad mejoradas del inicio seguro, que se admiten en su totalidad en Azure Virtual Desktop. Para obtener más información sobre el inicio seguro, visite [Inicio seguro para máquinas virtuales de Azure (versión preliminar)](../virtual-machines/trusted-launch.md).
 
 ### <a name="secure-boot"></a>Arranque seguro
 
@@ -167,7 +167,7 @@ La atestación remota es una excelente forma de comprobar el estado de las máqu
 
 vTPM es una versión virtualizada de un Módulo de plataforma segura (TPM) de hardware, con una instancia virtual de un TPM por máquina virtual. vTPM habilita la atestación remota llevando a cabo una medida de integridad de toda la cadena de arranque de la máquina virtual (UEFI, sistema operativo, sistema y controladores). 
 
-Se recomienda habilitar vTPM para usar la atestación remota en las máquinas virtuales. Con vTPM habilitado, también puede habilitar la funcionalidad de BitLocker, que proporciona cifrado de volumen completo para proteger los datos en reposo. Cualquier característica que use vTPM producirá secretos enlazados a la máquina virtual específica. Cuando los usuarios se conectan al servicio de Windows Virtual Desktop en un escenario agrupado, los usuarios se pueden redirigir a cualquier máquina virtual en el grupo hosts. En función de cómo esté diseñada la característica, puede repercutir de una forma determinada.
+Se recomienda habilitar vTPM para usar la atestación remota en las máquinas virtuales. Con vTPM habilitado, también puede habilitar la funcionalidad de BitLocker, que proporciona cifrado de volumen completo para proteger los datos en reposo. Cualquier característica que use vTPM producirá secretos enlazados a la máquina virtual específica. Cuando los usuarios se conectan al servicio de Azure Virtual Desktop en un escenario agrupado, los usuarios se pueden redirigir a cualquier máquina virtual en el grupo hosts. En función de cómo esté diseñada la característica, puede repercutir de una forma determinada.
 
 >[!NOTE]
 >No se debe usar BitLocker para cifrar el disco específico donde se almacenan los datos de perfiles de FSLogix.
@@ -184,13 +184,13 @@ HVCI es una mitigación del sistema eficaz que usa VBS para proteger los proceso
 
 Credential Guard de Windows Defender utiliza VBS para aislar y proteger los secretos, de modo que solo el software del sistema con privilegios pueda acceder a ellos. Esto evita el acceso no autorizado a estos secretos y ataques de robo de credenciales, como los ataques Pass-the-Hash.
 
-### <a name="deploy-trusted-launch-in-your-windows-virtual-desktop-environment"></a>Implementación del inicio seguro en el entorno de Windows Virtual Desktop
+### <a name="deploy-trusted-launch-in-your-azure-virtual-desktop-environment"></a>Implementación del inicio seguro en el entorno de Azure Virtual Desktop
 
-Windows Virtual Desktop no admite actualmente la configuración automática del inicio seguro durante el proceso de instalación del grupo de hosts. Para usar el inicio seguro en el entorno de Windows Virtual Desktop, tendrá que implementar el seguro de manera habitual y, a continuación, agregar manualmente la máquina virtual al grupo de hosts que desee.
+Azure Virtual Desktop no admite actualmente la configuración automática del inicio seguro durante el proceso de instalación del grupo de hosts. Para usar el inicio seguro en el entorno de Azure Virtual Desktop, tendrá que implementar el inicio seguro de manera habitual y, a continuación, agregar manualmente la máquina virtual al grupo de hosts que desee.
 
 ## <a name="nested-virtualization"></a>Virtualización anidada
 
-Los sistemas operativos siguientes admiten la ejecución de la virtualización anidada en Windows Virtual Desktop:
+Los sistemas operativos siguientes admiten la ejecución de la virtualización anidada en Azure Virtual Desktop:
 
 - Windows Server 2016
 - Windows Server 2019

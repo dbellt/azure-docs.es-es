@@ -6,17 +6,17 @@ ms.date: 12/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: 0978bd669855d264ed6dfa5eeddc45ad499aa2a5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5d704ed2213a77873780a005823f25541e6563d0
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101734594"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111895353"
 ---
 # <a name="telemetry-processor-examples---azure-monitor-application-insights-for-java"></a>Ejemplos de procesadores de telemetría: Azure Monitor Application Insights para Java
 
 En este artículo se proporcionan ejemplos de procesadores de telemetría en Application Insights para Java. Encontrará ejemplos de configuraciones de inclusión y exclusión. También encontrará ejemplos de procesadores de atributos y procesadores de intervalos.
-## <a name="include-and-exclude-samples"></a>Ejemplos de inclusión y exclusión
+## <a name="include-and-exclude-span-samples"></a>Ejemplos de inclusión y exclusión de intervalos
 
 En esta sección, verá cómo incluir y excluir intervalos. También verá cómo excluir varios intervalos y aplicar un procesamiento selectivo.
 ### <a name="include-spans"></a>Inclusión de intervalos
@@ -104,7 +104,7 @@ Este intervalo no coincide con las propiedades de exclusión, de modo que se apl
 En esta sección se muestra cómo excluir intervalos para un procesador de atributos. Este procesador no procesará aquellos intervalos que coincidan con las propiedades.
 
 Una coincidencia requiere que se cumplan las siguientes condiciones:
-* Debe haber un atributo (por ejemplo, `env` o `dev`) en el intervalo.
+* Debe haber un atributo (por ejemplo, `env` con el valor `dev`) en el intervalo.
 * El intervalo debe tener un atributo con la clave `test_request`.
 
 Los siguientes intervalos coinciden con las propiedades de exclusión, por lo que no se aplican las acciones del procesador:
@@ -202,11 +202,12 @@ Estos intervalos no coinciden con las propiedades de inclusión, de modo que las
   }
 }
 ```
+
 ## <a name="attribute-processor-samples"></a>Ejemplos de procesador de atributos
 
 ### <a name="insert"></a>Insertar
 
-En el ejemplo siguiente se inserta el nuevo atributo `{"attribute1": "attributeValue1"}` en intervalos en los que la clave `attribute1` no existe.
+En el ejemplo siguiente se inserta el nuevo atributo `{"attribute1": "attributeValue1"}` en intervalos y registros en los que la clave `attribute1` no existe.
 
 ```json
 {
@@ -230,7 +231,7 @@ En el ejemplo siguiente se inserta el nuevo atributo `{"attribute1": "attributeV
 
 ### <a name="insert-from-another-key"></a>Inserción desde otra clave
 
-En el ejemplo siguiente se usa el valor del atributo `anotherkey` para insertar el nuevo atributo `{"newKey": "<value from attribute anotherkey>"}` en intervalos en los que la clave `newKey` no existe. Si el atributo `anotherkey` no existe, no se inserta ningún atributo nuevo en los intervalos.
+En el ejemplo siguiente se usa el valor del atributo `anotherkey` para insertar el nuevo atributo `{"newKey": "<value from attribute anotherkey>"}` en intervalos y registros en los que la clave `newKey` no existe. Si el atributo `anotherkey` no existe, no se inserta ningún atributo nuevo en los intervalos y registros.
 
 ```json
 {
@@ -254,7 +255,7 @@ En el ejemplo siguiente se usa el valor del atributo `anotherkey` para insertar 
 
 ### <a name="update"></a>Actualizar
 
-En el ejemplo siguiente se actualiza el atributo a `{"db.secret": "redacted"}`. El atributo `boo` se actualiza con el valor del atributo `foo`. Los intervalos que no tienen el atributo `boo` no cambian.
+En el ejemplo siguiente se actualiza el atributo a `{"db.secret": "redacted"}`. El atributo `boo` se actualiza con el valor del atributo `foo`. Los intervalos y registros que no tienen el atributo `boo` no cambian.
 
 ```json
 {
@@ -477,6 +478,66 @@ En el ejemplo siguiente se muestra cómo cambiar el nombre del intervalo a `{ope
             ]
           }
         }
+      }
+    ]
+  }
+}
+```
+
+
+## <a name="log-processor-samples"></a>Ejemplos de procesador de registros
+
+### <a name="extract-attributes-from-a-log-message-body"></a>Extracción de atributos del cuerpo del mensaje de un registro
+
+Supongamos que el cuerpo del mensaje del registro de entrada es `Starting PetClinicApplication on WorkLaptop with PID 27984 (C:\randompath\target\classes started by userx in C:\randompath)`. En el ejemplo siguiente se obtiene el cuerpo del mensaje de salida `Starting PetClinicApplication on WorkLaptop with PID {PIDVALUE} (C:\randompath\target\classes started by userx in C:\randompath)`. Agrega el nuevo atributo `PIDVALUE=27984` al registro.
+
+```json
+{
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "preview": {
+    "processors": [
+      {
+        "type": "log",
+        "body": {
+          "toAttributes": {
+            "rules": [
+              "^Starting PetClinicApplication on WorkLaptop with PID (?<PIDVALUE>\\d+) .*"
+            ]
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+### <a name="masking-sensitive-data-in-log-message"></a>Enmascaramiento de datos confidenciales en el mensaje de registro
+
+En el ejemplo siguiente se muestra cómo enmascarar datos confidenciales en el cuerpo del mensaje de un registro mediante el procesador de registros y el procesador de atributos.
+Supongamos que el cuerpo del mensaje del registro de entrada es `User account with userId 123456xx failed to login`. El procesador de registros actualiza el cuerpo del mensaje de salida a `User account with userId {redactedUserId} failed to login`, y el procesador de atributos elimina el nuevo atributo `redactedUserId` que se agregaba en el paso anterior.
+```json
+{
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "preview": {
+    "processors": [
+      {
+        "type": "log",
+        "body": {
+          "toAttributes": {
+            "rules": [
+              "^User account with userId (?<redactedUserId>\\d+) .*"
+            ]
+          }
+        }
+      },
+      {
+        "type": "attribute",
+        "actions": [
+          {
+            "key": "redactedUserId",
+            "action": "delete"
+          }
+        ]
       }
     ]
   }

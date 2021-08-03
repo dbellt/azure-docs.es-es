@@ -3,12 +3,12 @@ title: 'Notas de la versión de Azure Video Analyzer: Azure'
 description: En este tema encontrará las notas de la versión de las mejoras, las versiones, las correcciones de errores y los problemas conocidos de Azure Video Analyzer.
 ms.topic: conceptual
 ms.date: 05/25/2021
-ms.openlocfilehash: ffb6381fafd4aabed3bd27b14f4778d23fa7441e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: ef1c395bb10000599f901e62cf77b3573146aeee
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388639"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591231"
 ---
 # <a name="azure-video-analyzer-release-notes"></a>Notas de la versión de Azure Video Analyzer
 
@@ -23,13 +23,30 @@ En este artículo se proporciona información acerca de lo siguiente:
 
 <hr width=100%>
 
+## <a name="june-3-2021"></a>3 de junio de 2021
+
+La etiqueta de versión de la actualización de julio de 2021 del módulo es la siguiente:
+
+```
+     mcr.microsoft.com/media/video-analyzer:1.0.1
+```
+> [!NOTE]
+> En los artículos de inicio rápido y tutoriales, los manifiestos de implementación usan una etiqueta 1 (video-analyzer:1). Por lo tanto, con tan solo reimplementar tales manifiestos se debería actualizar el módulo en los dispositivos perimetrales cuando se publiquen etiquetas más nuevas.
+
+### <a name="module-updates"></a>Actualizaciones del módulo
+* Admite caracteres Unicode en las credenciales para conectarse a una cámara RTSP
+* Actualizaciones para habilitar registros detallados en modo de depuración
+
+<hr width=100%>
+
 ## <a name="may-25-2021"></a>25 de mayo de 2021
 
 Esta versión es la primera versión preliminar pública de Azure Video Analyzer. La etiqueta de versión es la siguiente:
 
 ```
-     mcr.microsoft.com/media/video-analyzer:1.0.0
+mcr.microsoft.com/media/video-analyzer:1.0.0
 ```
+
 > [!NOTE]
 > En los artículos de inicio rápido y tutoriales, los manifiestos de implementación usan una etiqueta 1 (video-analyzer:1). Por lo tanto, con tan solo reimplementar tales manifiestos se debería actualizar el módulo en los dispositivos perimetrales cuando se publiquen etiquetas más nuevas.
 

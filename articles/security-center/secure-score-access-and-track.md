@@ -7,12 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
 ms.date: 02/25/2021
-ms.openlocfilehash: 5efc48d348e9cfceab590bcfba8c621e7721376f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 50ab34a73a7709a47efdf6904acf005cd5db9da5
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102107224"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753600"
 ---
 # <a name="access-and-track-your-secure-score"></a>Acceso y seguimiento de la puntuación segura
 
@@ -98,7 +98,7 @@ La página de libros de Security Center incluye un informe ya preparado para rea
 Si es un usuario de Power BI con una cuenta Pro, puede usar el panel de Power BI de **puntuación de seguridad a lo largo del tiempo** para realizar un seguimiento de la puntuación de seguridad a lo largo del tiempo e investigar los cambios.
 
 > [!TIP]
-> Puede encontrar este panel, así como otras herramientas para trabajar mediante programación con la puntuación de seguridad, en el área dedicada de la comunidad de Azure Security Center en GitHub: https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score.
+> Puede encontrar este panel, así como otras herramientas para trabajar mediante programación con la puntuación de seguridad, en el área dedicada de la comunidad de Azure Security Center en GitHub: https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score
 
 El panel contiene los dos informes siguientes para ayudarle a analizar el estado de seguridad:
 

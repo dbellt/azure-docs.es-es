@@ -1,18 +1,18 @@
 ---
 title: 'Copiado y pegado entre máquinas virtuales: Azure Bastion'
-description: Aprenda con este artículo a copiar y pegar entre máquinas virtuales de Azure al usar Bastion.
+description: Aprenda a copiar y pegar entre máquinas virtuales de Azure al usar Bastion.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
 ms.date: 03/22/2021
 ms.author: cherylmc
-ms.openlocfilehash: 4b0c2b734366f9a74a9b007ab9450ab4b4f51feb
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: b8c90e3c8bea7f6471a60804f546957f5236b70b
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104800438"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110536019"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>Copiado y pegado entre máquinas virtuales: Azure Bastion
 

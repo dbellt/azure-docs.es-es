@@ -1,24 +1,24 @@
 ---
-title: Implementación de la herramienta de diagnósticos para Windows Virtual Desktop (clásico) - Azure
-description: Procedimiento para implementar la herramienta de diagnósticos de experiencia de usuario para Windows Virtual Desktop (clásico).
+title: 'Implementación de la herramienta de diagnósticos para Azure Virtual Desktop (clásico): Azure'
+description: Procedimiento para implementar la herramienta de diagnósticos de experiencia de usuario para Azure Virtual Desktop (clásico).
 author: Heidilohr
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: ed010b3eed875c8b14892a588be13a32fbbd95ac
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 92876524f036126f39a2e4e5db8eb5dbd660cee9
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445098"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111754788"
 ---
-# <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Implementación de la herramienta de diagnósticos para Windows Virtual Desktop (clásico)
+# <a name="deploy-the-azure-virtual-desktop-classic-diagnostics-tool"></a>Implementación de la herramienta de diagnósticos para Azure Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager.
+>Este contenido se aplica a Azure Virtual Desktop (clásico), que no admite objetos de Azure Resource Manager.
 
-Esto es lo que la herramienta de diagnósticos para Windows Virtual Desktop puede hacer:
+Esto es lo que la herramienta de diagnósticos para Azure Virtual Desktop puede hacer:
 
 - Buscar actividades de diagnóstico (administración, conexión o fuente) para un solo usuario durante un período de una semana.
 - Recopilar información del host de sesión para las actividades de conexión desde el área de trabajo de Log Analytics.
@@ -27,7 +27,7 @@ Esto es lo que la herramienta de diagnósticos para Windows Virtual Desktop pued
 - Enviar un mensaje a los usuarios activos en un host de sesión específico.
 - Cerrar la sesión de los usuarios de un host de sesión.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Debe crear un registro de aplicaciones de Azure Active Directory y un área de trabajo de Log Analytics antes de implementar la plantilla de Azure Resource Manager para la herramienta. El usuario o el administrador necesitan estos permisos para hacerlo:
 
@@ -50,7 +50,7 @@ Cuando ya lo tenga todo en orden, puede crear el registro de la aplicación de A
 En esta sección se muestra cómo usar PowerShell para crear la aplicación de Azure Active Directory con una entidad de servicio y obtener permisos de API para ella.
 
 >[!NOTE]
->Los permisos de API son de Windows Virtual Desktop, los permisos de Log Analytics y Microsoft Graph API se agregan a la aplicación de Azure Active Directory.
+>Los permisos de API son de Azure Virtual Desktop, los permisos de Log Analytics y Microsoft Graph API se agregan a la aplicación de Azure Active Directory.
 
 1. Abra PowerShell como administrador.
 2. Inicie sesión en Azure con una cuenta que tenga permisos de propietario o de colaborador en la suscripción de Azure que desea utilizar para la herramienta de diagnóstico:
@@ -200,7 +200,7 @@ Para establecer el URI de redirección:
 Antes de que la herramienta de diagnóstico esté disponible para los usuarios, asegúrese de que tienen los siguientes permisos:
 
 - Los usuarios necesitan acceso de lectura para Log Analytics. Para más información, consulte [Introducción a roles, permisos y seguridad con Azure Monitor](../../azure-monitor/roles-permissions-security.md).
--  Los usuarios también necesitan acceso de lectura para el inquilino de Windows Virtual Desktop (rol de lector de RDS). Para más información, consulte [Acceso delegado en Windows Virtual Desktop](delegated-access-virtual-desktop-2019.md).
+-  Los usuarios también necesitan acceso de lectura para el inquilino de Azure Virtual Desktop (rol de lector de RDS). Para más información, consulte [Acceso delegado en Azure Virtual Desktop](delegated-access-virtual-desktop-2019.md).
 
 También debe proporcionar a los usuarios la siguiente información:
 

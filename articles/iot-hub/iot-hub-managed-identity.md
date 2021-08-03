@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/11/2021
 ms.author: miag
-ms.openlocfilehash: 37e5ea1413f48dc52fc18ecee9bf79f6332311df
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 7122cfc12e47734b84aab752901fa9750b7e5164
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109737931"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111892002"
 ---
 # <a name="iot-hub-support-for-managed-identities"></a>Compatibilidad de IoT Hub con identidades administradas 
 
@@ -37,57 +37,70 @@ En IoT Hub, las identidades administradas se pueden usar para la conectividad de
 
     :::image type="content" source="./media/iot-hub-managed-identity/system-assigned.png" alt-text="Captura de pantalla que muestra dónde activar la identidad administrada asignada por el sistema para un centro de IoT":::        
 
-### <a name="enable-managed-identity-at-hub-creation-time-using-arm-template"></a>Habilitación de la identidad administrada en el momento de la creación del centro con la plantilla de ARM
+### <a name="enable-system-assigned-managed-identity-at-hub-creation-time-using-arm-template"></a>Habilitación de la identidad administrada asignada por el sistema en el momento de la creación del centro con la plantilla de ARM
 
-Para habilitar la identidad administrada asignada por el sistema en el centro de IoT en el momento del aprovisionamiento de recursos, use la plantilla de Azure Resource Manager (ARM) siguiente. Esta plantilla de ARM tiene dos recursos necesarios y ambos deben implementarse antes de crear otros recursos, como `Microsoft.Devices/IotHubs/eventHubEndpoints/ConsumerGroups`. 
+Para habilitar la identidad administrada asignada por el sistema en el centro de IoT en el momento del aprovisionamiento de recursos, use la plantilla de Azure Resource Manager (ARM) siguiente. 
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "resources": [
+  "parameters": 
     {
-      "type": "Microsoft.Devices/IotHubs",
-      "apiVersion": "2020-03-01",
-      "name": "<provide-a-valid-resource-name>",
-      "location": "<any-of-supported-regions>",
-      "identity": {
-        "type": "SystemAssigned"
+      "iotHubName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of iothub resource"
+        }
       },
-      "sku": {
-        "name": "<your-hubs-SKU-name>",
-        "tier": "<your-hubs-SKU-tier>",
-        "capacity": 1
+      "skuName": {
+        "type": "string",
+        "defaultValue": "S1",
+        "metadata": {
+          "description": "SKU name of iothub resource, by default is Standard S1"
+        }
+      },
+      "skuTier": {
+        "type": "string",
+        "defaultValue": "Standard",
+        "metadata": {
+          "description": "SKU tier of iothub resource, by default is Standard"
+        }
+      },
+      "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]",
+        "metadata": {
+          "description": "Location of iothub resource. Please provide any of supported-regions of iothub"
+        }
       }
     },
+  "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-02-01",
+      "apiVersion": "2020-10-01",
       "name": "createIotHub",
-      "dependsOn": [
-        "[resourceId('Microsoft.Devices/IotHubs', '<provide-a-valid-resource-name>')]"
-      ],
       "properties": {
         "mode": "Incremental",
         "template": {
           "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-          "contentVersion": "0.9.0.0",
+          "contentVersion": "1.0.0.0",
           "resources": [
             {
               "type": "Microsoft.Devices/IotHubs",
-              "apiVersion": "2020-03-01",
-              "name": "<provide-a-valid-resource-name>",
-              "location": "<any-of-supported-regions>",
+              "apiVersion": "2021-03-31",
+              "name": "[parameters('iotHubName')]",
+              "location": "[parameters('location')]",
               "identity": {
                 "type": "SystemAssigned"
               },
               "sku": {
-                "name": "<your-hubs-SKU-name>",
-                "tier": "<your-hubs-SKU-tier>",
-                "capacity": 1
+              "name": "[parameters('skuName')]",
+              "tier": "[parameters('skuTier')]",
+              "capacity": 1
               }
             }
-          ]
+          ] 
         }
       }
     }
@@ -98,10 +111,10 @@ Para habilitar la identidad administrada asignada por el sistema en el centro de
 Después de sustituir los valores del recurso `name`, `location`, `SKU.name` y `SKU.tier`, puede usar la CLI de Azure para implementar el recurso en un grupo de recursos existente mediante:
 
 ```azurecli-interactive
-az deployment group create --name <deployment-name> --resource-group <resource-group-name> --template-file <template-file.json>
+az deployment group create --name <deployment-name> --resource-group <resource-group-name> --template-file <template-file.json> --parameters iotHubName=<valid-iothub-name> skuName=<sku-name> skuTier=<sku-tier> location=<any-of-supported-regions>
 ```
 
-Una vez creado el recurso, puede recuperar la instancia de Managed Service Identity asignada al concentrador mediante la CLI de Azure:
+Una vez creado el recurso, puede recuperar la identidad asignada por el sistema al centro mediante la CLI de Azure:
 
 ```azurecli-interactive
 az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resource-name> --resource-group <resource-group-name>
@@ -115,6 +128,99 @@ En esta sección, aprenderá a agregar y quitar una identidad administrada asign
 
     :::image type="content" source="./media/iot-hub-managed-identity/user-assigned.png" alt-text="Captura de pantalla que muestra cómo agregar una identidad administrada asignada por el usuario para un centro de IoT":::        
 
+
+### <a name="enable-user-assigned-managed-identity-at-hub-creation-time-using-arm-template"></a>Habilitación de la identidad administrada asignada por el usuario en el momento de la creación del centro con la plantilla de ARM
+A continuación, se muestra la plantilla de ejemplo que se puede usar para crear un centro con una identidad administrada asignada por el usuario. Esta plantilla crea una identidad asignada por el usuario con el nombre *[iothub-name-provided]-identity* y la asigna al centro de IoT creado. Puede cambiar la plantilla para agregar varias identidades asignadas por el usuario según sea necesario.
+ 
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "iotHubName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of iothub resource"
+      }
+    },
+  "skuName": {
+    "type": "string",
+    "defaultValue": "S1",
+    "metadata": {
+      "description": "SKU name of iothub resource, by default is Standard S1"
+    }
+  },
+  "skuTier": {
+    "type": "string",
+    "defaultValue": "Standard",
+    "metadata": {
+      "description": "SKU tier of iothub resource, by default is Standard"
+    }
+  },
+  "location": {
+    "type": "string",
+    "defaultValue": "[resourceGroup().location]",
+    "metadata": {
+      "description": "Location of iothub resource. Please provide any of supported-regions of iothub"
+    }
+  }
+},
+  "variables": {
+    "identityName": "[concat(parameters('iotHubName'), '-identity')]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-10-01",
+      "name": "createIotHub",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "resources": [
+            {
+              "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+              "name": "[variables('identityName')]",
+              "apiVersion": "2018-11-30",
+              "location": "[resourceGroup().location]"
+            },
+            {
+              "type": "Microsoft.Devices/IotHubs",
+              "apiVersion": "2021-03-31",
+              "name": "[parameters('iotHubName')]",
+              "location": "[parameters('location')]",
+              "identity": {
+                "type": "UserAssigned",
+                "userAssignedIdentities": {
+                  "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('identityName'))]": {}
+                }
+              },
+              "sku": {
+                "name": "[parameters('skuName')]",
+                "tier": "[parameters('skuTier')]",
+                "capacity": 1
+              },
+              "dependsOn": [
+                "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('identityName'))]"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+```azurecli-interactive
+az deployment group create --name <deployment-name> --resource-group <resource-group-name> --template-file <template-file.json> --parameters iotHubName=<valid-iothub-name> skuName=<sku-name> skuTier=<sku-tier> location=<any-of-supported-regions>
+```
+
+Una vez creado el recurso, puede recuperar la identidad administrada asignada por el usuario al centro mediante la CLI de Azure:
+
+```azurecli-interactive
+az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resource-name> --resource-group <resource-group-name>
+```
 ## <a name="egress-connectivity-from-iot-hub-to-other-azure-resources"></a>Conectividad de salida de IoT Hub a otros recursos de Azure
 En IoT Hub, las identidades administradas se pueden usar para la conectividad de salida de IoT Hub a otros servicios de Azure para el [enrutamiento de mensajes](iot-hub-devguide-messages-d2c.md), la [carga de archivos](iot-hub-devguide-file-upload.md) y la [importación o exportación masivas de dispositivos](iot-hub-bulk-identity-mgmt.md). Puede elegir qué identidad administrada usar para cada conexión de salida de IoT Hub a los puntos de conexión propiedad del cliente, incluidas las cuentas de almacenamiento, los centros de eventos y los puntos de conexión de Service Bus. 
 
@@ -170,6 +276,9 @@ La característica de [carga de archivos](iot-hub-devguide-file-upload.md) de Io
 6. En la página que se muestra, seleccione el contenedor que quiere usar en Blob Storage, y configure las opciones **Configuración de notificación de archivos, TTL de SAS, TTL predeterminado y Número máximo de entregas**. Elija el tipo de autenticación preferido y haga clic en **Guardar**.
 
     :::image type="content" source="./media/iot-hub-managed-identity/file-upload.png" alt-text="Carga de archivos de IoT Hub con msi":::
+
+    > [!NOTE]
+    > En el escenario de carga de archivos, tanto el centro como el dispositivo deben conectarse con la cuenta de almacenamiento. Los pasos anteriores sirven para conectar el centro de IoT a la cuenta de almacenamiento con el tipo de autenticación deseado. Todavía debe conectar el dispositivo al almacenamiento mediante el URI de SAS. Actualmente, el URI de SAS se genera mediante la cadena de conexión. Pronto se agregará compatibilidad para generar el URI de SAS con la identidad administrada. Siga los pasos descritos en [Carga de archivos](iot-hub-devguide-file-upload.md).
 
 ### <a name="bulk-device-importexport"></a>Importación/exportación masiva de dispositivos
 

@@ -11,12 +11,12 @@ ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviwer: mimckitt
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3a388ade2b44260bfa21e22866d85a46e482bc97
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 08b6e72d6b4cb1352a203008e3f20ae39333ec02
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102499958"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111592293"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata Service: Scheduled Events para máquinas virtuales Windows
 
@@ -68,21 +68,22 @@ Por ello, revise el campo `Resources` del evento para identificar cuáles son la
 ### <a name="endpoint-discovery"></a>Detección de punto de conexión
 En el caso de las máquinas virtuales con red virtual habilitada, el servicio de metadatos está disponible desde una dirección IP no enrutable estática, `169.254.169.254`. El punto de conexión completo de la versión más reciente de Scheduled Events es: 
 
- > `http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01`
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2020-07-01`
 
 Si la máquina virtual no se crea dentro de una red virtual (la opción predeterminada para servicios en la nube y máquinas virtuales clásicas), se necesita lógica adicional para detectar la dirección IP que se va a usar. Para aprender a [detectar el punto de conexión de host](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm), consulte este ejemplo.
 
 ### <a name="version-and-region-availability"></a>Disponibilidad por región y versión
-El servicio Scheduled Events tiene versiones. Las versiones son obligatorias; la actual es `2019-01-01`.
+El servicio Scheduled Events tiene versiones. Las versiones son obligatorias; la actual es `2020-07-01`.
 
 | Versión | Tipo de versión | Regions | Notas de la versión | 
 | - | - | - | - | 
+| 01-07-2020 | Disponibilidad general | All | <li> Compatibilidad agregada con la duración de eventos |
 | 2019-08-01 | Disponibilidad general | All | <li> Compatibilidad agregada con EventSource |
 | 01-04-2019 | Disponibilidad general | All | <li> Compatibilidad agregada con la descripción de eventos |
 | 2019-01-01 | Disponibilidad general | All | <li> Compatibilidad agregada con conjuntos de escalado de máquinas virtuales EventType "Terminate" |
 | 01-11-2017 | Disponibilidad general | All | <li> Se agregó compatibilidad para la expulsión de la máquina virtual de Azure Spot EventType 'Preempt'<br> | 
 | 2017-08-01 | Disponibilidad general | All | <li> Se quitó el guion bajo antepuesto de los nombres de recursos en las máquinas virtuales de IaaS<br><li>Se aplicó el requisito de encabezado de metadatos para todas las solicitudes | 
-| 2017-03-01 | Versión preliminar | All | <li>Versión inicial |
+| 2017-03-01 | Vista previa | All | <li>Versión inicial |
 
 
 > [!NOTE] 
@@ -108,7 +109,7 @@ Puede consultar los eventos programados; para ello, simplemente haga la siguient
 
 #### <a name="bash"></a>Bash
 ```
-curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2020-07-01
 ```
 
 Una respuesta contiene una matriz de eventos programados. Una matriz vacía significa que actualmente no hay eventos programados.
@@ -126,6 +127,7 @@ En caso de que haya eventos programados, la respuesta contiene una matriz de eve
             "NotBefore": {timeInUTC},       
             "Description": {eventDescription},
             "EventSource" : "Platform" | "User",
+            "DurationInSeconds" : {timeInSeconds},
         }
     ]
 }
@@ -142,6 +144,7 @@ En caso de que haya eventos programados, la respuesta contiene una matriz de eve
 | NotBefore| Hora a partir de la que puede iniciarse este evento. <br><br> Ejemplo: <br><ul><li> Lunes, 19 de septiembre de 2016, 18:29:47 GMT  |
 | Descripción | Descripción de este evento. <br><br> Ejemplo: <br><ul><li> El servidor host está en mantenimiento. |
 | EventSource | Iniciador del evento. <br><br> Ejemplo: <br><ul><li> `Platform`: la plataforma inicia este evento. <li>`User`: el usuario inicia este evento. |
+| DurationInSeconds | La duración que se espera de la interrupción causada por el evento. <br><br> Ejemplo: <br><ul><li> `9`: la interrupción causada por el evento durará nueve segundos. <li>`-1`: valor predeterminado que se usa si la duración del impacto se desconoce o no es aplicable. |
 
 ### <a name="event-scheduling"></a>Programación de eventos
 Cada evento se programa una cantidad mínima de tiempo en el futuro en función de su tipo. Este tiempo se refleja en la propiedad `NotBefore` de un evento. 
@@ -178,7 +181,7 @@ A continuación se muestra el JSON de ejemplo en el cuerpo de la solicitud `POST
 
 #### <a name="bash-sample"></a>Ejemplo de Bash
 ```
-curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01
+curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2020-07-01
 ```
 
 > [!NOTE] 
@@ -195,7 +198,7 @@ import json
 import socket
 import urllib2
 
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01"
+metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2020-07-01"
 this_host = socket.gethostname()
 
 

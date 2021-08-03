@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/21/2021
+ms.date: 05/12/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 1d4b6c8d442d1a0d6e9451b314ee95ae50c20ede
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: a95f83dbfa0574aa88b964538f329c7d9075a50b
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107891504"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111593747"
 ---
 Por ahora, los discos Ultra tienen limitaciones adicionales, como se indica a continuación:
 
@@ -62,8 +62,8 @@ En la tabla siguiente se describen las regiones en las que los discos Ultra Disk
     - [Dsv4](../articles/virtual-machines/dv4-dsv4-series.md#dsv4-series)
     - [FSv2](../articles/virtual-machines/fsv2-series.md)
     - [LSv2](../articles/virtual-machines/lsv2-series.md)
-    - [M](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
-    - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
+    - [M](../articles/virtual-machines/m-series.md)
+    - [Mv2](../articles/virtual-machines/mv2-series.md)
     - [HBv2](../articles/virtual-machines/hbv2-series.md)
     - [HB](../articles/virtual-machines/hb-series.md)
     - [HC](../articles/virtual-machines/hc-series.md)
@@ -79,7 +79,7 @@ En la tabla siguiente se describen las regiones en las que los discos Ultra Disk
 - Solo están disponibles como discos de datos. 
 - Compatibilidad de forma predeterminada con el tamaño de sector físico de 4 k. El tamaño de sector de 512E se puede encontrar como una oferta disponible con carácter general (sin necesidad de registrarse). La mayoría de las aplicaciones son compatibles con los tamaños de sector de 4 k, pero algunas requieren tamaños de sector de 512 bytes. Un ejemplo sería Oracle Database, que requiere la versión 12.2 o posterior para admitir los discos nativos de 4 k. En las versiones anteriores de Oracle DB, se requiere un tamaño de sector de 512 bytes.
 - Solo pueden crearse como discos vacíos.
-- Actualmente, no se admiten instantáneas de disco, imágenes de máquinas virtuales, conjuntos de disponibilidad, instancias de Azure Dedicated Host ni Azure Disk Encryption.
+- Actualmente, no se admiten instantáneas de disco, exportaciones de disco, cambios del tipo de disco, imágenes de máquinas virtuales, conjuntos de disponibilidad, instancias de Azure Dedicated Host ni Azure Disk Encryption.
 - Actualmente, no se admite la integración con Azure Backup o Azure Site Recovery.
 - Solo se admiten lecturas y escrituras sin almacenamiento en caché.
 - El límite máximo actual de IOPS en máquinas virtuales de disponibilidad general es 80 000.

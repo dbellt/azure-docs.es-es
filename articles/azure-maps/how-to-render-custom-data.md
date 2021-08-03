@@ -3,18 +3,18 @@ title: Representación de datos personalizados en un mapa de trama | Microsoft A
 description: Aprenda a agregar chinchetas, etiquetas y formas geométricas a un mapa de tramas. Vea cómo usar el servicio de imágenes estáticas de Azure Maps para este fin.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/26/2020
+ms.date: 05/26/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 80919473d5d3f4b34ce8d621d82bf4bc458b8b58
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: f5c9bf695dc9eb11f1d44857783a727d7afafe03
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326856"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112029718"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Representación de datos personalizados en un mapa de trama
 
@@ -23,21 +23,21 @@ En este artículo se explica cómo usar el [servicio de imagen estática](/rest/
 Para representar marcadores, etiquetas y superposiciones geométricas personalizadas, se puede usar la aplicación Postman. Puede usar las [API de Data Service](/rest/api/maps/data) de Azure Maps para almacenar y representar superposiciones.
 
 > [!Tip]
-> A menudo es mucho más rentable usar el SDK web de Azure Maps para mostrar un mapa sencillo en una página web que usar el servicio de imágenes estáticas. El SDK web usa mosaicos de mapa y, a menos que el usuario desplace lateralmente el mapa y lo acerque, con frecuencia solo se generará una fracción de una transacción por carga del mapa. Observe que el SDK web de Azure Maps tiene opciones para deshabilitar las funciones de desplazar lateralmente y acercar. Además, ofrece un conjunto mucho más rico de opciones de visualización de datos que las de un servicio web de mapas estáticos.  
+> Para mostrar un mapa sencillo en una página web, a menudo es mucho más rentable usar el SDK web de Azure Maps, en lugar de usar el servicio de imágenes estáticas. El SDK web usa mosaicos de mapa y, a menos que el usuario desplace lateralmente el mapa y lo acerque, con frecuencia solo se generará una fracción de una transacción por carga del mapa. El SDK web de Azure Maps tiene opciones para deshabilitar el movimiento panorámico y el zoom. Además, ofrece un conjunto mucho más rico de opciones de visualización de datos que las de un servicio web de mapas estáticos.  
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-### <a name="create-an-azure-maps-account"></a>Crear una cuenta de Azure Maps
+1. [Cree una cuenta de Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account).
+2. [Obtenga una clave de suscripción principal](quick-demo-map-app.md#get-the-primary-key-for-your-account), también conocida como clave principal o clave de suscripción.
 
-Para completar los procedimientos descritos en este artículo, primero debe crear una cuenta de Azure Maps y obtener la clave de cuenta de los mapas. Siga las instrucciones que se indican en [Creación de una cuenta](quick-demo-map-app.md#create-an-azure-maps-account) para crear una suscripción a una cuenta de Azure Maps y siga los pasos para [obtener la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) de la cuenta. Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](./how-to-manage-authentication.md).
-
+En este tutorial se usa la aplicación [Postman](https://www.postman.com/), pero puede usar un entorno de desarrollo de API diferente.
 
 ## <a name="render-pushpins-with-labels-and-a-custom-image"></a>Representación de marcadores con etiquetas e imágenes personalizadas
 
 > [!Note]
 > El procedimiento descrito en esta sección requiere una cuenta de Azure Maps en el plan de tarifa Gen 1 o Gen 2.
 
-El nivel S0 de la cuenta de Azure Maps solo admite una única instancia del parámetro `pins`. Permite representar hasta cinco marcadores, especificados en la solicitud de dirección URL, con una imagen personalizada.
+El nivel S0 estándar Gen 1 de la cuenta de Azure Maps solo admite una única instancia del parámetro `pins`. Permite representar hasta cinco marcadores, especificados en la solicitud de dirección URL, con una imagen personalizada.
 
 Para representar los marcadores con etiquetas y una imagen personalizada, siga estos pasos:
 
@@ -52,6 +52,7 @@ Para representar los marcadores con etiquetas y una imagen personalizada, siga e
     ```HTTP
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.98,%2040.77&pins=custom%7Cla15+50%7Cls12%7Clc003b61%7C%7C%27CentralPark%27-73.9657974+40.781971%7C%7Chttps%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FAzureMapsCodeSamples%2Fmaster%2FAzureMapsCodeSamples%2FCommon%2Fimages%2Ficons%2Fylw-pushpin.png
     ```
+
     Esta es la imagen resultante:
 
     ![Un marcador personalizado con una etiqueta](./media/how-to-render-custom-data/render-pins.png)
@@ -62,16 +63,16 @@ Para representar los marcadores con etiquetas y una imagen personalizada, siga e
 > [!Note]
 > El procedimiento descrito en esta sección requiere una cuenta de Azure Maps en el plan de tarifa Gen 1 (S1) o Gen 2.
 
-También puede obtener la información de ubicación de ruta de acceso y de pin mediante la [API de carga de datos](/rest/api/maps/data/uploadpreview). Siga los pasos descritos a continuación para cargar los datos de la ruta de acceso y de los marcadores.
+También puede obtener la información de ubicación de ruta de acceso y de pin mediante la [API de carga de datos](/rest/api/maps/data-v2/upload-preview). Siga los pasos descritos a continuación para cargar los datos de la ruta de acceso y de los marcadores.
 
 1. En la aplicación Postman, abra una nueva pestaña en la colección que creó en la sección anterior. Seleccione el método POST HTTP en la pestaña del generador y escriba la siguiente dirección URL para realizar una solicitud POST:
 
     ```HTTP
-    https://atlas.microsoft.com/mapData/upload?subscription-key={subscription-key}&api-version=1.0&dataFormat=geojson
+    https://us.atlas.microsoft.com/mapData?subscription-key={subscription-key}&api-version=2.0&dataFormat=geojson
     ```
 
 2. En la pestaña **Params** (Parámetros), escriba los siguientes pares de clave-valor que se usarán para la dirección URL de la solicitud POST. Reemplace el valor de `subscription-key` por su clave de suscripción de Azure Maps.
-    
+
     ![Parámetros de clave-valor en Postman](./media/how-to-render-custom-data/postman-key-vals.png)
 
 3. En **Body** (Cuerpo), seleccione el formato de entrada sin procesar y elija JSON como formato de entrada en la lista desplegable. Proporcione el código JSON como datos que se van a cargar:
@@ -136,19 +137,19 @@ También puede obtener la información de ubicación de ruta de acceso y de pin 
     }
     ```
 
-4. Haga clic en **Send** (Enviar) y revise el encabezado de la respuesta. Tras una solicitud correcta, el encabezado de ubicación contendrá el URI de estado para comprobar el estado actual de la solicitud de carga. El URI de estado tendría el formato siguiente.  
+4. Haga clic en **Send** (Enviar) y revise el encabezado de la respuesta. Tras una solicitud correcta, el encabezado *Operation-Location* contendrá `status URL` para comprobar el estado actual de la solicitud de carga. `status URL` tiene el siguiente formato:
 
    ```HTTP
-   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
+   https://us.atlas.microsoft.com/mapData/operations/{statusUrl}?api-version=2.0
    ```
 
 5. Copie el identificador URI de estado y anéxele un parámetro subscription-key, cuyo valor sea la clave de suscripción de la cuenta de Azure Maps. Use la misma clave de suscripción de la cuenta que usó para cargar los datos. El formato del URI de estado debe ser similar al siguiente:
 
    ```HTTP
-   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
+     https://us.atlas.microsoft.com/mapData/operations/{statusUrl}?api-version=2.0&subscription-key={Subscription-key}
    ```
 
-6. Para obtener el UDID, abra una nueva pestaña en la aplicación de Postman. Seleccione el método GET HTTP en la pestaña del generador. Realice una solicitud GET en el identificador URI de estado. Si la carga de datos se realizó correctamente, recibirá un UDID en el cuerpo de respuesta. Copie el UDID.
+6. Para obtener `udid`, abra una nueva pestaña en la aplicación de Postman. Seleccione el método GET HTTP en la pestaña del generador. Realice una solicitud GET en `status URL`. Si la carga de datos se realizó correctamente, recibirá un `udid` en el cuerpo de respuesta. Copie el valor de `udid`.
 
    ```JSON
    {
@@ -156,7 +157,7 @@ También puede obtener la información de ubicación de ruta de acceso y de pin 
    }
    ```
 
-7. Use el valor de `udId` recibido de la API de carga de datos para representar las características en el mapa. Para ello, abra una nueva pestaña en la colección que creó en la sección anterior. Seleccione el método GET HTTP en la pestaña Builder, reemplace {subscription-Key} y {udId} por sus valores y escriba esta dirección URL para realizar una solicitud GET:
+7. Use el valor de `udid` recibido de la API de carga de datos para representar las características en el mapa. Para ello, abra una nueva pestaña en la colección que creó en la sección anterior. Seleccione el método GET HTTP en la pestaña Builder, reemplace {subscription-Key} y {udId} por sus valores y escriba esta dirección URL para realizar una solicitud GET:
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.96682739257812%2C40.78119135317995&pins=default|la-35+50|ls12|lc003C62|co9B2F15||'Times Square'-73.98516297340393 40.758781646381024|'Central Park'-73.96682739257812 40.78119135317995&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.30||udid-{udId}
@@ -221,6 +222,5 @@ Del mismo modo, puede cambiar, agregar y quitar otros modificadores de estilo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-
 * Explore la documentación sobre [Get Map Image API de Azure Maps Get](/rest/api/maps/render/getmapimage).
-* Para más información sobre el servicio Data de Azure Maps (versión preliminar), consulte la [documentación del servicio](/rest/api/maps/data).
+* Para más información sobre el servicio Data de Azure Maps, consulte la [documentación sobre el servicio](/rest/api/maps/data).

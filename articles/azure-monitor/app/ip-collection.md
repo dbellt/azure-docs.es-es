@@ -4,12 +4,12 @@ description: Información acerca de cómo controlar las direcciones IP y la ubic
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.custom: devx-track-js, devx-track-azurepowershell
-ms.openlocfilehash: d5bacde864d42dfefab9c4b0d5dc90072081a25f
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 8115ea2334d0ea90ef0e31bb857f3e76154912ce
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321364"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110082547"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Administración de la ubicación geográfica y la dirección IP
 
@@ -58,7 +58,7 @@ Para habilitar la recopilación y el almacenamiento de direcciones IP, la propie
 }
 ```
 
-### <a name="portal"></a>Portal 
+### <a name="portal"></a>Portal
 
 Si solo necesita modificar el comportamiento de un recurso de Application Insights, use Azure Portal. 
 
@@ -79,15 +79,14 @@ Si solo necesita modificar el comportamiento de un recurso de Application Insigh
     > [!WARNING]
     > Si experimenta un error que dice: **_El grupo de recursos está en una ubicación que no es compatible con uno o varios recursos de la plantilla. Elija otro grupo de recursos._** Seleccione temporalmente otro grupo de recursos en la lista desplegable y, a continuación, vuelva a seleccionar el grupo de recursos original para resolver el error.
 
-5. Seleccione **Acepto** > **Comprar**. 
+5. Seleccione **Revisar y crear** > **Crear**.
 
-    ![Casilla con las palabras "Acepto los términos y condiciones indicados anteriormente" resaltadas en rojo encima de un botón con la palabra "Compra" resaltada en rojo.](media/ip-collection/purchase.png)
-
-    En este caso, no se compra nada nuevo. Solo se va a actualizar la configuración del recurso de Application Insights existente.
+    > [!NOTE]
+    > Si ve "Error en la implementación", busque en los detalles de implementación el que tenga el tipo "microsoft.insights/components" y compruebe el estado. Si se ejecutó correctamente, se implementaron los cambios realizados en DisableIpMasking.
 
 6. Una vez finalizada la implementación, se registrarán nuevos datos de telemetría.
 
-    Si selecciona y edita de nuevo la plantilla, solo verá la plantilla predeterminada sin la propiedad recién agregada. Si no ve los datos de dirección IP y quiere confirmar que `"DisableIpMasking": true` está establecido, ejecute el siguiente comando de PowerShell: 
+    Si selecciona y edita de nuevo la plantilla, solo verá la plantilla predeterminada sin la propiedad recién agregada. Si no ve los datos de dirección IP y quiere confirmar que `"DisableIpMasking": true` está establecido, ejecute el siguiente comando de PowerShell:
     
     ```powershell
     # Replace `Fabrikam-dev` with the appropriate resource and resource group name.

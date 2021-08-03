@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/10/2021
+ms.date: 05/17/2021
 ms.author: b-juche
-ms.openlocfilehash: 695dd379e0b9f02f5ec6a08f2a037d071259d2b7
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: effca5e663f91489bc534934d26faec8c18e7460
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109734522"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110090630"
 ---
 # <a name="configure-an-nfs-client-for-azure-netapp-files"></a>Configuración de un cliente NFS para Azure NetApp Files
 
@@ -258,9 +258,42 @@ En el ejemplo siguiente se realiza una consulta al servidor LDAP de AD desde el 
 `root@cbs-k8s-varun4-04:/home/cbs# getent passwd hari1`   
 `hari1:*:1237:1237:hari1:/home/hari1:/bin/bash`   
 
+## <a name="configure-two-vms-with-the-same-hostname-to-access-nfsv41-volumes"></a>Configuración de dos máquinas virtuales con el mismo nombre de host para acceder a volúmenes NFSv4.1 
+
+En esta sección se explica cómo configurar dos máquinas virtuales que tienen el mismo nombre de host para acceder a volúmenes de Azure NetApp Files NFSv4.1. Este procedimiento puede ser útil cuando se realiza una prueba de recuperación ante desastres (DR) y se requiere un sistema de prueba con el mismo nombre de host que el sistema de recuperación ante desastres principal. Este procedimiento solo es necesario cuando se tiene el mismo nombre de host en dos máquinas virtuales que acceden a los mismos volúmenes de Azure NetApp Files.  
+
+NFSv4.x requiere que cada cliente se identifique en los servidores con una cadena *única*. El estado de apertura y bloqueo de archivos compartido entre un cliente y un servidor está asociado a esta identidad. Para admitir la recuperación de estado NFSv4.x sólida y la migración de estado transparente, esta cadena de identidad no debe cambiar entre reinicios del cliente.
+
+1. Muestre la cadena `nfs4_unique_id` en los clientes de máquina virtual mediante el comando siguiente:
+    
+    `# systool -v -m nfs | grep -i nfs4_unique`     
+    `    nfs4_unique_id      = ""`
+
+    Para montar el mismo volumen en una máquina virtual adicional con el mismo nombre de host, por ejemplo, el sistema de recuperación ante desastres, cree un valor de `nfs4_unique_id` para que pueda identificarse de forma única en el servicio NFS de Azure NetApp Files.  Este paso permite al servicio distinguir entre las dos máquinas virtuales con el mismo nombre de host y habilitar el montaje de volúmenes NFSv4.1 en ambas.  
+
+    Solo debe realizar este paso en el sistema de recuperación ante desastres de prueba. Por coherencia, puede considerar la posibilidad de aplicar una configuración única en cada máquina virtual implicada.
+
+2. En el sistema de recuperación ante desastres de prueba, agregue la siguiente línea al archivo `nfsclient.conf`, que normalmente se encuentra en `/etc/modprobe.d/`:
+
+    `options nfs nfs4_unique_id=uniquenfs4-1`  
+
+    La cadena `uniquenfs4-1` puede ser cualquier cadena alfanumérica, siempre que sea única entre las máquinas virtuales que se conectarán al servicio.
+
+    Consulte la documentación de la distribución sobre cómo configurar el cliente NFS.
+
+    Reinicie la máquina virtual para que el cambio surta efecto.
+
+3. En el sistema de recuperación ante desastres de prueba, compruebe que se ha establecido `nfs4_unique_id` después del reinicio de la máquina virtual:       
+
+    `# systool -v -m nfs | grep -i nfs4_unique`   
+    `   nfs4_unique_id      = "uniquenfs4-1"`   
+
+4. [Monte el volumen NFSv4.1](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) en ambas máquinas virtuales de la forma habitual.
+
+    Ahora, ambas máquinas virtuales con el mismo nombre de host pueden montarse en el volumen NFSv4.1 y acceder a él.  
 
 ## <a name="next-steps"></a>Pasos siguientes  
 
 * [Creación de un volumen de NFS para Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Creación de un volumen de dos protocolos para Azure NetApp Files](create-volumes-dual-protocol.md)
-
+* [Montaje o desmontaje de un volumen para máquinas virtuales Windows o Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) 

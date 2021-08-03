@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: 4f5cc0d5eefd5969566040e4148ca7358d348736
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53428a0185b003e22fd0ad68001b2b1588f994b1
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104951511"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111750756"
 ---
 # <a name="creating-queries-in-azure-cognitive-search"></a>Creación de consultas en Azure Cognitive Search
 
@@ -21,11 +21,11 @@ Si va a compilar una consulta por primera vez, en este artículo se describen lo
 
 ## <a name="whats-a-query-request"></a>¿Qué es una solicitud de consulta?
 
-Una consulta es una solicitud de solo lectura en la colección de documentos de un índice de búsqueda único. Especifica que un parámetro "search" contiene la expresión de consulta, formada por términos, expresiones entre comillas y operadores.
+Una consulta es una solicitud de solo lectura en la colección de documentos de un índice de búsqueda único. Especifica un parámetro "search" que contiene la expresión de consulta, formada por términos, expresiones entre comillas y operadores.
 
-Los parámetros adicionales proporcionan más definición a la consulta y la respuesta. Por ejemplo, "searchFields" limita el ámbito de ejecución de consultas a campos específicos, "select" especifica los campos que se devolverán en los resultados y "count" devuelve el número de coincidencias encontradas en el índice.
+Los parámetros adicionales de la solicitud proporcionan más definición a la consulta y la respuesta. Por ejemplo, "searchFields" limita el ámbito de ejecución de consultas a campos específicos, "select" especifica los campos que se devolverán en los resultados y "count" devuelve el número de coincidencias encontradas en el índice.
 
-En el ejemplo siguiente se ofrece una idea general de una solicitud de consulta al mostrar un subconjunto de los parámetros disponibles. Para obtener más información sobre la composición de consultas, vea [Tipos de consultas y composiciones](search-query-overview.md) y [Documentos de búsqueda (REST)](/rest/api/searchservice/search-documents).
+En el ejemplo siguiente se ofrece una idea general de una solicitud de consulta al mostrar algunos de los parámetros disponibles. Para obtener más información sobre la composición de consultas, vea [Tipos de consultas y composiciones](search-query-overview.md) y [Documentos de búsqueda (REST)](/rest/api/searchservice/search-documents).
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -45,7 +45,7 @@ Necesitará una herramienta como Azure Portal o Postman, o bien código que cree
 
 ### <a name="permissions"></a>Permisos
 
-Cualquier operación, incluidas las solicitudes de consulta, funcionará con una [clave de API de administración ](search-security-api-keys.md), pero las solicitudes de consulta tienen la opción de usar una [clave de API de consulta](search-security-api-keys.md#create-query-keys). Se recomiendan encarecidamente las claves de API de consulta. Puede crear hasta 50 por servicio y asignar diferentes claves a diferentes aplicaciones.
+Una solicitud de consulta requiere permisos de lectura, concedidos a través de una clave de API que se transmite en el encabezado. Cualquier operación, incluidas las solicitudes de consulta, funcionará con una [clave de API de administración ](search-security-api-keys.md), pero las solicitudes de consulta tienen la opción de usar una [clave de API de consulta](search-security-api-keys.md#create-query-keys). Se recomiendan encarecidamente las claves de API de consulta. Puede crear hasta 50 por servicio y asignar diferentes claves a diferentes aplicaciones.
 
 En Azure Portal, es necesario tener un rol de colaborador o superior en el servicio para obtener acceso a herramientas, asistentes y objetos. 
 

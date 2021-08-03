@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/22/2021
 ms.author: apimpm
-ms.openlocfilehash: 743a7e7d34457405aa4be42b196dc994506c6587
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 37a0ac51f5cbc7d3eaa98027b5e8568dfcf208ee
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105035816"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111747714"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorización de las cuentas de desarrollador mediante Azure Active Directory en Azure API Management
 
@@ -92,18 +92,21 @@ Después de guardar los cambios, los usuarios de la instancia de Azure AD especi
 
 Después de permitir el acceso para los usuarios en un inquilino de Azure AD, se pueden agregar grupos de Azure AD en API Management. Como resultado, se puede controlar la visibilidad del producto mediante el uso de grupos de Azure AD.
 
-Para agregar un grupo de Azure AD externo a APIM, primero se debe completar la sección anterior. Además, se debe conceder acceso a la aplicación que se ha registrado en Microsoft Graph API con el permiso `Directory.Read.All`; para ello, siga estos pasos: 
+Para agregar un grupo de Azure AD externo a APIM, primero se debe completar la sección anterior. De manera predeterminada, la aplicación que registró tiene acceso a Microsoft Graph API con el permiso delegado `User.Read` requerido. También debe conceder a la aplicación acceso a Microsoft Graph API y Graph API de Azure Active Directory con el permiso de aplicación `Directory.Read.All`. Para ello, siga estos pasos: 
 
 1. Vuelva al Registro de aplicaciones que se ha creado en la sección anterior.
-2. Seleccione **Permisos de API** y, luego, haga clic en **Agregar un permiso**. 
-3. En el panel **Solicitud de permisos de API**, seleccione la pestaña **API de Microsoft** y, a continuación, seleccione el icono **Azure Active Directory Graph**. Seleccione **Permisos de la aplicación**, busque **Directorio** y, a continuación, seleccione el permiso **Directory.Read.All**. 
-4. Haga clic en **Agregar permisos** en la parte inferior del panel y, a continuación, haga clic en **Conceder consentimiento de administrador para {nombredeinquilino}** a fin de conceder acceso a todos los usuarios de este directorio. 
+2. Seleccione **Permisos de API** y, luego, **Agregar un permiso**. 
+3. En el panel **Solicitud de permisos de API**, seleccione la pestaña **API de Microsoft** y, a continuación, seleccione el icono **Microsoft Graph**. Seleccione **Permisos de aplicación** y busque **Directorio**. Seleccione el permiso **Directory.Read.All** y, luego, **Agregar permisos** en la parte inferior del panel.
+4. Seleccione **Agregar un permiso**. 
+5. En el panel **Solicitud de permisos de API**, seleccione la pestaña **API de Microsoft** y, a continuación, seleccione el icono **Azure Active Directory Graph**. Seleccione **Permisos de aplicación** y busque **Directorio**. Seleccione el permiso **Directory.Read.All** y, luego, **Agregar permisos**. 
+6. Seleccione **Conceder consentimiento del administrador para {tenantname}** con el fin de conceder acceso a todos los usuarios de este directorio. 
 
 Ahora los grupos externos de Azure AD se pueden agregan desde la pestaña **Grupos** de la instancia de API Management.
 
 1. Seleccione la pestaña **Grupos** .
 2. Seleccione el botón **Add AAD group** (Agregar grupo de AAD).
-    ![Botón "Add AAD group" (Agregar grupo de AAD)](./media/api-management-howto-aad/api-management-with-aad008.png)
+
+   ![Botón "Add A A D group" (Agregar grupo de AAD)](./media/api-management-howto-aad/api-management-with-aad008.png)
 3. Seleccione el grupo que quiere agregar.
 4. Presione el botón **Select** (Seleccionar).
 

@@ -1,19 +1,19 @@
 ---
 title: 'Niveles de rendimiento del almacenamiento de blobs en bloques: Azure Storage'
 description: Describe las diferencias entre los niveles de rendimiento Premium y Estándar para el almacenamiento de blobs en bloques de Azure.
-author: twooley
-ms.author: twooley
-ms.date: 11/12/2019
+author: normesta
+ms.author: normesta
+ms.date: 05/17/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 93e6fcc11703fc24d97bc19ab9cc0d2129ff666f
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: faf26ce78e0d6137c93e150d31bd49b9e72b6b8b
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108143330"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110655108"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>Niveles de rendimiento para el almacenamiento de blobs en bloques
 
@@ -26,14 +26,14 @@ El almacenamiento de blobs en bloques de Azure ofrece dos niveles de rendimiento
 
 Las siguientes consideraciones se aplican a los distintos niveles de rendimiento:
 
-| Área |Rendimiento Estándar  |Rendimiento Premium  |
-|---------|---------|---------|
-|Disponibilidad en regiones     |   Todas las regiones      | En [regiones seleccionadas](https://azure.microsoft.com/global-infrastructure/services/?products=storage)       |
-|[Tipos de cuenta de almacenamiento](../common/storage-account-overview.md#types-of-storage-accounts) admitidos     |     Uso general v2, BlobStorage y uso general v1    |    BlockBlobStorage     |
-|Admite [blobs en bloques de alto rendimiento](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/)     |    Sí, con tamaños de PutBlock o PutBlob superiores a 4 MiB     |    Sí, con tamaños de PutBlock o PutBlob superiores a 256 KiB    |
-|Redundancia     |     Consulte [Tipos de cuentas de almacenamiento](../common/storage-account-overview.md#types-of-storage-accounts).   |  Actualmente solo se admite almacenamiento con redundancia local (LRS) y con redundancia de zona (ZRS).<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>1</sup></div>     |
+| Área | Rendimiento Estándar | Rendimiento Premium |
+|--|--|--|
+| Disponibilidad en regiones | Todas las regiones | En [regiones seleccionadas](https://azure.microsoft.com/global-infrastructure/services/?products=storage) |
+| [Tipos de cuenta de almacenamiento](../common/storage-account-overview.md#types-of-storage-accounts) admitidos | Uso general v2, uso general v1, blob heredado | Blobs en bloques Premium |
+| Admite [blobs en bloques de alto rendimiento](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) | Sí, con tamaños de PutBlock o PutBlob superiores a 4 MiB | Sí, con tamaños de PutBlock o PutBlob superiores a 256 KiB |
+| Redundancia | Consulte [Tipos de cuentas de almacenamiento](../common/storage-account-overview.md#types-of-storage-accounts). | Actualmente solo se admite almacenamiento con redundancia local (LRS) y con redundancia de zona (ZRS).<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>1</sup></div> |
 
-<div id="zone-redundant-storage"><sup>1</sup>El almacenamiento con redundancia de zona (ZRS) está disponible en regiones seleccionadas de cuentas de almacenamiento de blobs en bloques de rendimiento Premium.</div>
+<div id="zone-redundant-storage"><sup>1</sup>El almacenamiento con redundancia de zona (ZRS) está disponible en algunas regiones para cuentas de almacenamiento de blobs en bloques prémium.</div>
 
 En relación con el costo, el rendimiento Premium ofrece precios optimizados para aplicaciones con altas tasas de transacciones para ayudar a [reducir el costo de almacenamiento total](https://azure.microsoft.com/blog/reducing-overall-storage-costs-with-azure-premium-blob-storage/) de estas cargas de trabajo.
 
@@ -63,7 +63,7 @@ El rendimiento Estándar admite distintos [niveles de acceso](storage-blob-stora
 
 ## <a name="migrate-from-standard-to-premium"></a>Migración de Estándar a Premium
 
-No se puede convertir una cuenta de almacenamiento de rendimiento Estándar existente en una cuenta de almacenamiento de blobs en bloques con rendimiento Premium. Para migrar a una cuenta de almacenamiento de rendimiento Premium, debe crear una cuenta de BlockBlobStorage y migrar los datos a la nueva cuenta. Para más información, consulte [Creación de una cuenta de BlockBlobStorage](../common/storage-account-create.md).
+No se puede convertir una cuenta de almacenamiento de rendimiento Estándar existente en una cuenta de almacenamiento de blobs en bloques con rendimiento Premium. Para migrar a una cuenta de almacenamiento de rendimiento prémium, debe crear una cuenta de blob en bloques prémium y migrar los datos a la nueva cuenta. Para más información, consulte [Creación de una cuenta de BlockBlobStorage](../common/storage-account-create.md).
 
 Para copiar blobs entre cuentas de almacenamiento, puede usar la versión más reciente de la herramienta [AzCopy](../common/storage-use-azcopy-v10.md#transfer-data) de la línea de comandos. Otras herramientas, como Azure Data Factory, también están disponibles para el movimiento y la transformación de datos.
 

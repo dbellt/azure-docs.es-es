@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8e95f770a3335d66eae0a690e148c4d6ddc22d5c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e283ff2de003146c8228d36843f00ca8e4faced9
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555336"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111748578"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Azure Disk Encryption para máquinas virtuales Windows
 
@@ -64,6 +64,9 @@ Para habilitar Azure Disk Encryption, las máquinas virtuales deben cumplir los 
 Azure Disk Encryption usa el protector de claves externas de BitLocker para las máquinas virtuales Windows. Para las máquinas virtuales unidas en un dominio, no cree ninguna directiva de grupo que exija protectores de TPM. Para obtener información acerca de la directiva de grupo para "Permitir BitLocker sin un TPM compatible", consulte la [Referencia de la directiva de grupo de BitLocker](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
 
 La directiva de BitLocker en máquinas virtuales de unión a un dominio con directivas de grupo personalizadas debe incluir la siguiente configuración: [Configuración de almacenamiento de usuario de información de recuperación de BitLocker -> Permitir clave de recuperación de 256 bits](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption presentará un error cuando la configuración de la directiva de grupo personalizada para BitLocker sea incompatible. En máquinas que no tengan la configuración de directiva correcta, puede que sea necesario aplicar la nueva directiva, forzar la nueva directiva a actualizarse (gpupdate.exe /force) y luego reiniciar.
+
+> [!WARNING]
+> Azure Disk Encryption **no almacena las claves de recuperación**. Si la opción de seguridad [Inicio de sesión interactivo: umbral de bloqueo de cuenta del equipo](/windows/security/threat-protection/security-policy-settings/interactive-logon-machine-account-lockout-threshold) está habilitada, las máquinas solo se pueden recuperar si se proporciona una clave de recuperación a través de la consola serie. Puede encontrar instrucciones para asegurarse de que las directivas de recuperación adecuadas están habilitadas en el [plan de la guía de recuperación de BitLocker](/windows/security/information-protection/bitlocker/bitlocker-recovery-guide-plan).
 
 Azure Disk Encryption producirá un error si la directiva de grupo de nivel de dominio bloquea el algoritmo AES-CBC, que BitLocker usa.
 

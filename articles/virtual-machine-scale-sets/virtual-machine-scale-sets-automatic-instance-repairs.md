@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: instance-protection
 ms.date: 02/28/2020
 ms.reviewer: jushiman
-ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: e1505a1a901472f0ce1a93ae71ba8ea0364b7b8d
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.custom: avverma, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: af63d27f60c3e3fa8f6aa95cd30d1f93114d4078
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109754162"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031176"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Reparaciones automáticas de instancias para conjuntos de escalado de máquinas virtuales de Azure
 
@@ -38,7 +38,7 @@ En el caso de las instancias marcadas con el estado "Incorrecto", el conjunto de
 
 **Número máximo de instancias del conjunto de escalado**
 
-Esta característica solo está disponible para los conjuntos de escalado que tienen 500 instancias como máximo. El conjunto de escalado se puede implementar como un solo grupo de selección de ubicación o un grupo de varias ubicaciones; sin embargo, el recuento de instancias no puede ser superior a 200 si está habilitada la reparación automática de instancias para el conjunto de escalado.
+Esta característica solo está disponible para los conjuntos de escalado que tienen 500 instancias como máximo. El conjunto de escalado se puede implementar como un solo grupo de selección de ubicación o un grupo de varias ubicaciones; sin embargo, el recuento de instancias no puede ser superior a 500 si está habilitada la reparación automática de instancias para el conjunto de escalado.
 
 **Versión de API**
 

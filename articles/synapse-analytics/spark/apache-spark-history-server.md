@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 10/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 4471fed7b423fe05147db30afe57f6c845fe640e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2cdf4277c1177f0a963e7b7bb05813d47d2c1f57
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670702"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109814341"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Uso del servidor de historial de Apache Spark extendido para depurar y diagnosticar aplicaciones Spark
 
@@ -44,7 +44,7 @@ El servidor de historial de Apache Spark es la interfaz de usuario web para las 
 
 ### <a name="open-the-spark-history-server-web-ui-from-data-node&quot;></a>Apertura de la interfaz de usuario web del servidor de historial de Spark desde el nodo Datos
 
-1. En el cuaderno de Azure Synapse Studio, seleccione **Servidor de historial de Spark** desde la celda de resultados de la ejecución del trabajo o desde el panel de estado en la parte inferior del documento del cuaderno. Seleccione **Detalles de la sesión**.
+1. En el cuaderno de Synapse Studio, seleccione **Servidor del historial de Spark** desde la celda de resultados de la ejecución del trabajo o desde el panel de estado en la parte inferior del documento del cuaderno. Seleccione **Detalles de la sesión**.
 
    ![Iniciar servidor de historial de Spark 1](./media/apache-spark-history-server/launch-history-server2.png &quot;Iniciar servidor de historial de Spark")
 

@@ -1,30 +1,30 @@
 ---
-title: 'Análisis de registros de diagnóstico de Windows Virtual Desktop (clásico): Azure'
-description: Uso del análisis de registros con la característica de diagnóstico de Windows Virtual Desktop (clásico).
+title: 'Análisis de registros de diagnóstico de Azure Virtual Desktop (clásico): Azure'
+description: Uso del análisis de registros con la característica de diagnóstico de Azure Virtual Desktop (clásico).
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 9cfa50e13756692295c84b02d02dd71228b16eb9
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 5c1bdadf92d72ebec7ffa122b3c49c5878e2d2b8
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445008"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745176"
 ---
-# <a name="use-log-analytics-for-the-diagnostics-feature-in-windows-virtual-desktop-classic"></a>Uso de Log Analytics para la característica de diagnóstico en Windows Virtual Desktop (clásico)
+# <a name="use-log-analytics-for-the-diagnostics-feature-in-azure-virtual-desktop-classic"></a>Uso de Log Analytics para la característica de diagnóstico en Azure Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../diagnostics-log-analytics.md).
+>Este contenido se aplica a Azure Virtual Desktop (clásico), que no admite objetos de Azure Resource Manager. Si está intentando administrar objetos de Azure Virtual Desktop para Azure Resource Manager, consulte [este artículo](../diagnostics-log-analytics.md).
 
-Windows Virtual Desktop ofrece una característica de diagnóstico que permite al administrador detectar problemas a través de una única interfaz. Esta característica registra información de diagnóstico cada vez que alguien que tiene asignado el rol de Windows Virtual Desktop usa el servicio. Cada registro contiene información sobre el rol de Windows Virtual Desktop implicado en la actividad, los mensajes de error que se muestran durante la sesión, la información del inquilino y la información del usuario. La característica de diagnóstico crea registros de actividad para las acciones de usuario y administrativas. Cada registro de actividad se divide en tres categorías principales:
+Azure Virtual Desktop ofrece una característica de diagnóstico que permite al administrador detectar problemas a través de una única interfaz. Esta característica registra información de diagnóstico cada vez que alguien que tiene asignado el rol de Azure Virtual Desktop usa el servicio. Cada registro contiene información sobre el rol de Azure Virtual Desktop implicado en la actividad, los mensajes de error que se muestran durante la sesión, la información del inquilino y la información del usuario. La característica de diagnóstico crea registros de actividad para las acciones de usuario y administrativas. Cada registro de actividad se divide en tres categorías principales:
 
 - Actividades de suscripción a fuente: cuando un usuario intenta conectarse a su fuente mediante aplicaciones de Escritorio remoto de Microsoft.
 - Actividades de conexión: cuando un usuario intenta conectarse a un escritorio o a RemoteApp mediante aplicaciones de Escritorio remoto de Microsoft.
 - Actividades de administración: cuando un administrador realiza operaciones de administración en el sistema, como crear grupos de hosts, asignar usuarios a grupos de aplicaciones y crear asignaciones de roles.
 
-Las conexiones que no lleguen a Windows Virtual Desktop no aparecerán en los resultados de diagnóstico, ya que el propio servicio de rol de diagnóstico forma parte de Windows Virtual Desktop. Se pueden producir problemas de conexión a Windows Virtual Desktop si el usuario está experimentando problemas de conectividad de red.
+Las conexiones que no lleguen a Azure Virtual Desktop no aparecerán en los resultados de diagnóstico, ya que el propio servicio de rol de diagnóstico forma parte de Azure Virtual Desktop. Se pueden producir problemas de conexión a Azure Virtual Desktop si el usuario está experimentando problemas de conectividad de red.
 
 ## <a name="why-you-should-use-log-analytics"></a>Por qué debería usar Log Analytics
 
@@ -43,9 +43,9 @@ Necesitará esta información posteriormente en el proceso de instalación.
 
 ## <a name="push-diagnostics-data-to-your-workspace"></a>Inserción de datos de diagnóstico en el área de trabajo
 
-Puede insertar datos de diagnóstico desde el inquilino de Windows Virtual Desktop a Log Analytics para el área de trabajo. Puede configurar esta característica directamente cuando cree el inquilino por primera vez. Para ello, vincule el área de trabajo a su inquilino. También puede configurarlo más adelante con un inquilino existente.
+Puede insertar datos de diagnóstico desde el inquilino de Azure Virtual Desktop a Log Analytics para el área de trabajo. Puede configurar esta característica directamente cuando cree el inquilino por primera vez. Para ello, vincule el área de trabajo a su inquilino. También puede configurarlo más adelante con un inquilino existente.
 
-Para vincular el inquilino al área de trabajo de Log Analytics mientras configura el nuevo inquilino, ejecute el siguiente cmdlet a fin de iniciar sesión en Windows Virtual Desktop con su cuenta de usuario de TenantCreator:
+Para vincular el inquilino al área de trabajo de Log Analytics mientras configura el nuevo inquilino, ejecute el siguiente cmdlet a fin de iniciar sesión en Azure Virtual Desktop con su cuenta de usuario de TenantCreator:
 
 ```powershell
 Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com

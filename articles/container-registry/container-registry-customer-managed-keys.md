@@ -2,14 +2,14 @@
 title: Cifrado del registro con una clave administrada por el cliente
 description: Obtenga información sobre el cifrado en reposo de una instancia de Azure Container Registry y sobre cómo cifrar el registro Premium con una clave administrada por el cliente almacenada en Azure Key Vault
 ms.topic: article
-ms.date: 03/03/2021
+ms.date: 05/27/2021
 ms.custom: ''
-ms.openlocfilehash: 9ec32e32d187a3db07f023c78efbd301ef578cbc
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 84a949e26bbf5677888185741e06139ed2d35db2
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107817042"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111412752"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Cifrado del registro con una clave administrada por el cliente
 
@@ -26,7 +26,7 @@ Esta característica está disponible en el nivel de servicio de un registro de 
 
 ## <a name="things-to-know"></a>Cosas que debe saber
 
-* De momento, solo se puede habilitar una clave administrada por el cliente al crear un registro. Al habilitar la clave, se configura una identidad administrada *asignada por el usuario* para acceder al almacén de claves.
+* De momento, solo se puede habilitar una clave administrada por el cliente al crear un registro. Al habilitar la clave, se configura una identidad administrada *asignada por el usuario* para acceder al almacén de claves. Más adelante, puede habilitar la identidad administrada por el sistema del registro para el acceso al almacén de claves si es necesario.
 * Después de habilitar el cifrado con una clave administrada por el cliente en un registro, no es posible deshabilitarlo.  
 * Azure Container Registry solo admite claves RSA o RSA-HSM. Las claves de curva elíptica no se admiten en este momento.
 * [Confianza de contenido](container-registry-content-trust.md) no se admite actualmente en un registro cifrado con una clave administrada por el cliente.
@@ -516,11 +516,14 @@ az keyvault delete-policy \
   --object-id $identityPrincipalID
 ```
 
-Al revocar la clave realmente, se bloquea el acceso a todos los datos del registro, ya que este no puede acceder a la clave de cifrado. Si se habilita el acceso a la clave o se restaura la clave eliminada, el registro toma la clave para que se pueda acceder de nuevo a los datos cifrados del registro.
+Al revocar la clave realmente, se bloquea el acceso a todos los datos del registro, ya que este no puede acceder a la clave de cifrado. Si se habilita el acceso a la clave o se restaura la clave eliminada, el registro toma la clave para que se pueda acceder de nuevo a los datos cifrados del registro. 
 
 ## <a name="advanced-scenario-key-vault-firewall"></a>Escenario avanzado: Firewall de Key Vault
 
-Es posible que quiera almacenar la clave de cifrado mediante una instancia de Azure Key Vault existente configurada con un [firewall de Key Vault](../key-vault/general/network-security.md), que deniegue el acceso público y solo permita el punto de conexión privado o las redes virtuales seleccionadas. 
+> [!IMPORTANT]
+> Actualmente, durante la implementación del registro, la identidad *asignada por el usuario* de un registro solo se puede configurar para acceder a una clave de cifrado en un almacén de claves que permita el acceso público, no una configurada con un [firewall de Key Vault](../key-vault/general/network-security.md). 
+> 
+> Para acceder a un almacén de claves protegido con un firewall de Key Vault, el registro debe omitir el firewall mediante su identidad *administrada por el sistema*. Actualmente, esta configuración solo se puede definir después de implementar el registro. 
 
 En este escenario, primero cree una nueva identidad asignada por el usuario, un almacén de claves y un registro de contenedor cifrados con una clave administrada por el cliente, mediante la [CLI de Azure](#enable-customer-managed-key---cli), el [portal](#enable-customer-managed-key---portal) o una [plantilla](#enable-customer-managed-key---template). En las secciones anteriores de este artículo se describen los pasos detallados.
    > [!NOTE]

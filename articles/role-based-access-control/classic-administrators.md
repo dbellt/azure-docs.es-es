@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2020
+ms.date: 05/20/2021
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b61636d6048f63ae962d4f755a29c02e6785d5e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d1f997ff34703e95c498a0f3c1646bf3acb0129e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100557536"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110470032"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de la suscripción clásica de Azure
 
@@ -42,7 +42,7 @@ En este artículo se describe cómo agregar o cambiar los roles de coadministrad
 
 1. Haga clic en la pestaña **Administradores clásicos**.
 
-    ![Captura de pantalla que abre la pestaña Administradores clásicos](./media/classic-administrators/classic-administrators.png)
+    ![Captura de pantalla que abre la pestaña Administradores clásicos](./media/shared/classic-administrators.png)
 
 1. Haga clic en **Agregar** > **Agregar coadministrador** para abrir el panel correspondiente.
 
@@ -97,7 +97,9 @@ Para información donde se comparan los usuarios miembros y los usuarios invitad
 
 ## <a name="change-the-service-administrator"></a>Cambiar el administrador de servicios
 
-Solo el administrador de cuenta puede cambiar el administrador de servicios de una suscripción. De forma predeterminada, al registrarse en una suscripción de Azure, el administrador de servicios es también el administrador de cuenta. El usuario con el rol de administrador de cuenta no tiene acceso a Azure Portal. El usuario con el rol de administrador de servicios tiene acceso total a Azure Portal. Si el administrador de cuenta y el administrador de servicios son el mismo usuario y cambia el administrador de servicios a otro usuario distinto, el administrador de cuenta pierde el acceso a Azure Portal. Sin embargo, el administrador de cuenta siempre puede usar el Centro de cuentas para cambiar el administrador de servicio de nuevo a sí mismo.
+Solo el administrador de cuenta puede cambiar el administrador de servicios de una suscripción. De forma predeterminada, al registrarse en una suscripción de Azure, el administrador de servicios es también el administrador de cuenta.
+
+El usuario con el rol Administrador de cuenta puede acceder a Azure Portal y administrar la facturación, pero no puede cancelar suscripciones. El usuario con el rol Administrador de servicios tiene acceso total a Azure Portal y puede cancelar suscripciones. El administrador de cuenta puede hacerse administrador de servicios.
 
 Siga estos pasos para cambiar el administrador de servicios en Azure Portal.
 
@@ -109,7 +111,7 @@ Siga estos pasos para cambiar el administrador de servicios en Azure Portal.
 
 1. En el panel de navegación izquierdo, haga clic en **Propiedades**.
 
-1. Haga clic en **Service Admin**(Administrador del servicios).
+1. Haga clic en **Cambiar administrador del servicio**.
 
     ![Captura de pantalla que muestra las propiedades de una suscripción en Azure Portal](./media/classic-administrators/service-admin.png)
 

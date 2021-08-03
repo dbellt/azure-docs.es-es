@@ -9,19 +9,19 @@ ms.date: 04/28/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: f50255510d5f4716f181a8e2b51cb5fa3998062d
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 709f4ed6fb57dc11d4a2b8672f253664835f20e3
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109715089"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965028"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Compatibilidad del protocolo Network File System (NFS) 3.0 en Azure Blob Storage (versión preliminar)
 
 Blob Storage ya es compatible con el protocolo Network File System (NFS) 3.0. De este modo, proporciona compatibilidad con el sistema de archivos de Linux en cuanto a los precios y la escala de almacenamiento de objetos, y permite a los clientes de Linux montar un contenedor en el Blob Storage desde una máquina virtual (VM) de Azure o un equipo local. 
 
 > [!NOTE]
-> La compatibilidad con el protocolo NFS 3.0 en Azure Blob Storage se encuentra en versión preliminar pública. Este protocolo admite cuentas de almacenamiento GPV2 con un rendimiento de nivel estándar en las siguientes regiones: Este de Australia, Centro de Corea del Sur, Este de EE. UU. y Centro-sur de EE. UU. La versión preliminar también admite blobs en bloques con el nivel de rendimiento Premium en todas las regiones públicas.
+> La compatibilidad con el protocolo NFS 3.0 en Azure Blob Storage se encuentra en versión preliminar pública. Admite cuentas de almacenamiento GPV2 con rendimiento de nivel Estándar y cuentas de almacenamiento de blobs en bloques con nivel de rendimiento Premium en todas las regiones públicas.
 
 Siempre es un reto ejecutar cargas de trabajo heredadas a gran escala, como la informática de alto rendimiento (HPC) en la nube. Una razón es que las aplicaciones suelen usar protocolos de archivo tradicionales, como NFS o Bloque de mensajes del servidor (SMB), para acceder a los datos. Además, los servicios nativos de almacenamiento en la nube se centran en el almacenamiento de objetos que tienen un espacio de nombres plano y metadatos extensivos, en lugar de sistemas de archivos que proporcionan un espacio de nombres jerárquico y operaciones de metadatos eficientes. 
 
@@ -106,19 +106,19 @@ El estado de los elementos que aparecen en esta tabla va a cambiar con el tiempo
 
 | Característica de Azure Storage | Premium | Estándar |Característica de Azure Storage | Premium | Estándar |
 |-----------------|---------|----------|----------------|---------|----------|
-| [API REST de Blob service](/rest/api/storageservices/blob-service-rest-api)  | ✔️ |  ⛔ | [API REST de Azure Data Lake Storage](/rest/api/storageservices/data-lake-storage-gen2) | ⛔ |    ⛔ |
-| [Niveles de acceso para Azure Blob Storage](storage-blob-storage-tiers.md) |    ✔️ |    ⛔ | [Etiquetas de índice de blobs](storage-blob-index-how-to.md) |   ⛔ | ⛔ |
-| [Administración del ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md) | ✔️  |   ⛔ | [Registro de Azure Storage Analytics](../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json) | ⛔ |   ⛔ |
-|  [Inventario de blobs de Azure Storage](blob-inventory.md) |  ✔️  |   ⛔ | [Fuente de cambios](storage-blob-change-feed.md) |    ⛔ | ⛔ |
-| [Azure Monitor](monitor-blob-storage.md) |    ✔️ |    ⛔ | [Control de versiones de blobs](versioning-enable.md) | ⛔ |   ⛔ |
-| [Instantáneas de blob](snapshots-overview.md) | ✔️  |   ⛔ | [Restauración a un momento dado para blobs en bloques](point-in-time-restore-overview.md) | ⛔ |    ⛔ |
-| [Puntos de conexión privados](../common/storage-private-endpoints.md?toc=/azure/storage/blobs/toc.json) | ✔️  | ⛔ | [Integración de Azure Backup](/azure/backup/blob-backup-overview) | ⛔ |    ⛔ |
-| [Puntos de conexión de servicio](../../virtual-network/virtual-network-service-endpoints-overview.md) | ✔️  |  ⛔ | [Eliminación temporal de contenedores](soft-delete-container-overview.md) |   ⛔ | ⛔ |
-| [Reglas de firewall](../common/storage-network-security.md?toc=/azure/storage/blobs/toc.json) | ✔️  | ⛔ | [Eliminación temporal para blobs](soft-delete-blob-overview.md) | ⛔ | ⛔ |
-| [Impedir la autorización con clave compartida](../common/shared-key-authorization-prevent.md)  | ✔️ |    ⛔ | [Seguimiento de la hora del último acceso para la administración del ciclo de vida](storage-lifecycle-management-concepts.md#move-data-based-on-last-accessed-date-preview) |  ⛔|  ⛔ |
-| [Claves administradas por el cliente para el cifrado de Azure Storage](../common/customer-managed-keys-overview.md) |   ✔️ |    ⛔ | [Claves proporcionadas por el cliente para el cifrado de Azure Storage](encryption-customer-provided-keys.md)  |  ⛔ | ⛔ |
-| [Almacenamiento de blobs inmutable](storage-blob-immutable-storage.md) | ✔️    | ⛔ | [Hospedaje de sitios web estáticos](storage-blob-static-website.md) | ⛔  |    ⛔ |
-| [Blobs en anexos](storage-blobs-introduction.md#blobs) | ✔️   |  ⛔ | [Blobs en páginas](storage-blobs-introduction.md#blobs) | ⛔ | ⛔ |
+| [API REST de Blob service](/rest/api/storageservices/blob-service-rest-api)  | ✔️ |  ✔️ | [API REST de Azure Data Lake Storage](/rest/api/storageservices/data-lake-storage-gen2) | ✔️ |  ✔️ |
+| [Niveles de acceso para Azure Blob Storage](storage-blob-storage-tiers.md) |    ✔️ |    ✔️ | [Etiquetas de índice de blobs](storage-blob-index-how-to.md) |  ⛔ | ⛔ |
+| [Administración del ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md) | ✔️  |   ✔️ | [Registro de Azure Storage Analytics](../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json) | ⛔ |  ⛔ |
+|  [Inventario de blobs de Azure Storage](blob-inventory.md) |  ✔️  |   ✔️ | [Fuente de cambios](storage-blob-change-feed.md) |   ⛔ | ⛔ |
+| [Azure Monitor](monitor-blob-storage.md) |    ✔️ |    ✔️ | [Control de versiones de blobs](versioning-enable.md) | ⛔ |  ⛔ |
+| [Instantáneas de blob](snapshots-overview.md) | ✔️  |   ✔️ | [Restauración a un momento dado para blobs en bloques](point-in-time-restore-overview.md) | ⛔ |   ⛔ |
+| [Puntos de conexión privados](../common/storage-private-endpoints.md?toc=/azure/storage/blobs/toc.json) | ✔️  | ✔️ | [Integración de Azure Backup](../../backup/blob-backup-overview.md) | ⛔ | ⛔ |
+| [Puntos de conexión de servicio](../../virtual-network/virtual-network-service-endpoints-overview.md) | ✔️  |  ✔️ | [Eliminación temporal de contenedores](soft-delete-container-overview.md) |  ⛔ | ⛔ |
+| [Reglas de firewall](../common/storage-network-security.md?toc=/azure/storage/blobs/toc.json) | ✔️  | ✔️ | [Eliminación temporal para blobs](soft-delete-blob-overview.md) |    ⛔ | ⛔ |
+| [Impedir la autorización con clave compartida](../common/shared-key-authorization-prevent.md)  | ✔️ |    ✔️ | [Seguimiento de la hora del último acceso para la administración del ciclo de vida](storage-lifecycle-management-concepts.md#move-data-based-on-last-accessed-date-preview) | ⛔|  ⛔ |
+| [Claves administradas por el cliente para el cifrado de Azure Storage](../common/customer-managed-keys-overview.md) |   ✔️ |    ✔️ | [Claves proporcionadas por el cliente para el cifrado de Azure Storage](encryption-customer-provided-keys.md)  | ⛔ | ⛔ |
+| [Almacenamiento de blobs inmutable](storage-blob-immutable-storage.md) | ✔️    | ✔️ | [Hospedaje de sitios web estáticos](storage-blob-static-website.md) |    ⛔  |    ⛔ |
+| [Blobs en anexos](storage-blobs-introduction.md#blobs) | ✔️   |  ✔️ | [Blobs en páginas](storage-blobs-introduction.md#blobs) | ⛔ |    ⛔ |
 | [Seguridad de Azure Active Directory (AD).](../common/storage-auth-aad.md?toc=/azure/storage/blobs/toc.json) | ⛔ | ⛔ | [Ámbitos de cifrado](encryption-scope-overview.md)  |    ⛔ | ⛔ |
 | [Replicación de objetos para blobs en bloques](object-replication-overview.md) | ⛔  |   ⛔ | [Conmutación por error de cuenta administrada por el cliente](../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json) | ⛔ |    ⛔ |
 | [Eventos de Blob Storage](storage-blob-event-overview.md)| ⛔ |    ⛔ 
@@ -129,8 +129,6 @@ El estado de los elementos que aparecen en esta tabla va a cambiar con el tiempo
 - La compatibilidad con NFS 3.0 no se puede habilitar en las cuentas de almacenamiento existentes.
 
 - La compatibilidad con NFS 3.0 no se puede deshabilitar en una cuenta de almacenamiento después de haberla habilitado.
-
--  Los archivos no se pueden ver en Azure Portal o en el Explorador de Azure Storage. Para enumerar archivos y directorios, [monte un contenedor de Blob Storage mediante el protoloco NFS 3.0](network-file-system-protocol-support-how-to.md) o use la [API REST de Blob service](/rest/api/storageservices/blob-service-rest-api).
 
 ### <a name="nfs-30-features-not-yet-supported"></a>Características de NFS 3.0 que aún no son compatibles
 

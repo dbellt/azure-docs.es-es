@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 03/05/2021
-ms.openlocfilehash: 30579536b8051e9a045c217751871287636a3976
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d6f3368619395934dd358536e39f227bc66dfbfd
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102454285"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110497405"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Directiva de soporte técnico de Red Hat OpenShift en Azure
 
@@ -35,6 +35,7 @@ Ciertas configuraciones de los clústeres de la versión 4 de Red Hat OpenShift
 * No establezca ninguna opción unsupportedConfigOverrides. Establecer estas opciones impide que la versión secundaria se actualice.
 * El servicio Red Hat OpenShift en Azure accede al clúster a través del servicio Private Link.  No quite ni modifique el acceso al servicio.
 * No se admiten nodos de ejecución que no sean de Red Hat Enterprise Linux CoreOS. Por ejemplo, no puede usar un nodo de proceso de Red Hat Enterprise Linux.
+* No coloque directivas dentro de su suscripción o grupo de administración que impidan que los SRE realicen un mantenimiento normal en el clúster de ARO, como requerir etiquetas en el grupo de recursos de clúster administrado por ARO RP.
 
 ## <a name="supported-virtual-machine-sizes"></a>Tamaños de máquinas virtuales que se admiten
 
