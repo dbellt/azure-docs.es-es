@@ -9,13 +9,13 @@ ms.author: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 03/29/2021
-ms.openlocfilehash: d19a080ef596975dd3377207b84bade6ef0d3b12
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.date: 06/21/2021
+ms.openlocfilehash: 02249fc08dc661a31a461116dab3ab08e230cbc6
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111537594"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112520922"
 ---
 # <a name="what-is-spatial-analysis"></a>¿Qué es Spatial Analysis?
 
@@ -43,9 +43,7 @@ Las operaciones principales de Spatial Analysis se basan en una canalización qu
 
 ## <a name="get-started"></a>Introducción
 
-### <a name="follow-a-quickstart"></a>Consulta de inicios rápidos
-
-Una vez que se le haya concedido acceso a Spatial Analysis, siga el [inicio rápido](spatial-analysis-container.md) para configurar el contenedor y empezar a analizar vídeo.
+Siga el [inicio rápido](spatial-analysis-container.md) para configurar el contenedor y empezar a analizar vídeo.
 
 ## <a name="responsible-use-of-spatial-analysis-technology"></a>Uso responsable de la tecnología de análisis espacial
 

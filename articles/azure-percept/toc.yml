@@ -10,16 +10,6 @@
       href: overview-azure-percept-dk.md
     - name: Azure Percept Audio
       href: overview-azure-percept-audio.md
-    - name: Modelos de inteligencia artificial de Azure Percept
-      href: overview-ai-models.md
-    - name: Desarrollo avanzado
-      href: overview-advanced-code.md
-    - name: Seguridad de Azure Percept
-      href: overview-percept-security.md
-    - name: Integración con 80/20
-      href: overview-8020-integration.md
-    - name: Actualizaciones del dispositivo
-      href: overview-update-experience.md
 - name: Guías de inicio rápido
   items:
     - name: Instalación de dispositivos Azure Percept
@@ -42,14 +32,28 @@
   items:
     - name: "Azure Percept\_DK"
       items:
+        - name: Integración con 80/20
+          href: overview-8020-integration.md
         - name: Conexión a través de telefonía móvil
           href: connect-over-cellular.md
+        - name: Actualizaciones del dispositivo
+          href: overview-update-experience.md
     - name: Azure Percept Audio
       items:
         - name: Comportamiento de indicadores LED y botones
           href: audio-button-led-behavior.md
+    - name: Desarrollo avanzado
+      items:
+        - name: Desarrollo avanzado
+          href: overview-advanced-code.md
+        - name: Modelos de inteligencia artificial de Azure Percept
+          href: overview-ai-models.md
+        - name: Interfaz y flujo de trabajo del módulo de voz
+          href: speech-module-interface-workflow.md
     - name: Seguridad
       items:
+        - name: Seguridad de Azure Percept
+          href: overview-percept-security.md
         - name: Recomendaciones de seguridad y configuración del firewall
           href: concept-security-configuration.md
 - name: Guías paso a paso
@@ -84,6 +88,8 @@
       items:
         - name: Conexión a través de Ethernet
           href: how-to-connect-over-ethernet.md
+        - name: Configuración de red avanzada
+          href: how-to-set-up-advanced-network-settings.md
         - name: Conexión mediante SSH
           href: how-to-ssh-into-percept-dk.md
         - name: Conexión en serie
@@ -104,6 +110,8 @@
           href: troubleshoot-audio-accessory-speech-module.md
         - name: Problemas conocidos
           href: known-issues.md
+        - name: Obtención de soporte técnico para hardware
+          href: how-to-get-hardware-support.md
 - name: Referencia
   items:
     - name: Fichas técnicas de los dispositivos Azure Percept
