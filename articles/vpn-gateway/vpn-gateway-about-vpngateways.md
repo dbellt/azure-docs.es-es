@@ -5,17 +5,17 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 04/28/2021
+ms.date: 07/08/2021
 ms.author: cherylmc
 ms.custom:
 - contperf-fy21q1
 - e2e-hybrid
-ms.openlocfilehash: bdaa61aa45c357e95e35196a5be7774f0af95ec0
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: ae7c9ee5357e09dcf7c33cd2ae3111cce15b6641
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108202342"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114721195"
 ---
 # <a name="what-is-vpn-gateway"></a>¿Qué es VPN Gateway?
 
@@ -27,7 +27,7 @@ Una puerta de enlace de red virtual se compone de dos o más máquinas virtuales
 
 Al configurar una puerta de enlace de red virtual, se configura un valor que especifica el tipo de puerta de enlace. El tipo de puerta de enlace especifica cómo se utilizará la puerta de enlace de red virtual y las acciones que realiza la puerta de enlace. El tipo de puerta de enlace "Vpn" especifica que el tipo de puerta de enlace de red virtual creado es una "puerta de enlace de VPN". Esto lo distingue de una puerta de enlace de ExpressRoute, que usa un tipo de puerta de enlace diferente. Una red virtual puede tener dos puertas de enlace de red virtual, una puerta de enlace de VPN y una puerta de enlace de ExpressRoute. Para más información, consulte [Tipos de puerta de enlace](vpn-gateway-about-vpn-gateway-settings.md#gwtype).
 
-La creación de una puerta de enlace de red virtual puede tardar en completarse hasta 45 minutos. Al crear una puerta de enlace de red virtual, las máquinas virtuales de puerta de enlace se implementan en la subred de puerta de enlace y se configuran con las opciones que especifique. Después de crear una instancia de VPN Gateway, puede crear una conexión de túnel de VPN de IPsec o IKE entre esa instancia y otra instancia de VPN Gateway (de red virtual a red virtual), o crear una conexión de túnel de VPN de IPsec o IKE con implementaciones locales entre la instancia de VPN Gateway y un dispositivo VPN local (de sitio a sitio). También puede crear una conexión VPN de punto a sitio (VPN a través de OpenVPN, IKEv2 o SSTP) que le permite conectarse a la red virtual desde una ubicación remota como, por ejemplo, una sala de conferencias o desde su casa.
+La creación de una puerta de enlace suele tardar 45 minutos o más, según la SKU de la puerta de enlace seleccionada. Al crear una puerta de enlace de red virtual, las máquinas virtuales de puerta de enlace se implementan en la subred de puerta de enlace y se configuran con las opciones que especifique. Después de crear una instancia de VPN Gateway, puede crear una conexión de túnel de VPN de IPsec o IKE entre esa instancia y otra instancia de VPN Gateway (de red virtual a red virtual), o crear una conexión de túnel de VPN de IPsec o IKE con implementaciones locales entre la instancia de VPN Gateway y un dispositivo VPN local (de sitio a sitio). También puede crear una conexión VPN de punto a sitio (VPN a través de OpenVPN, IKEv2 o SSTP) que le permite conectarse a la red virtual desde una ubicación remota como, por ejemplo, una sala de conferencias o desde su casa.
 
 ## <a name="configuring-a-vpn-gateway"></a><a name="configuring"></a>Configuración de una instancia de VPN Gateway
 
@@ -82,6 +82,7 @@ Suscríbase a la fuente RSS y vea las actualizaciones más recientes de las cara
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte las [Preguntas más frecuentes sobre VPN Gateway](vpn-gateway-vpn-faq.md) para más información.
-- Consulte [Límites del servicio y la suscripción](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
-- Obtenga información sobre las demás [funcionalidades de red](../networking/fundamentals/networking-overview.md) clave de Azure.
+- [Tutorial: Creación y administración de una instancia de VPN Gateway](tutorial-create-gateway-portal.md).
+- [Módulo de aprendizaje: Conexión de la red local a Azure con VPN Gateway](/learn/modules/connect-on-premises-network-with-vpn-gateway/).
+- [Límites del servicio y la suscripción](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
+

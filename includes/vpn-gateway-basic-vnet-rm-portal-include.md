@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 05/27/2021
+ms.date: 06/30/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c5741ab0207d5631aab4abd594f5ff557ebfe23b
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: 82db4939b6f980e1d9fb9a82a6cd255bb10c04cb
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110657992"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113126377"
 ---
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. En **Buscar recursos, servicios y documentos (G +/)** , escriba *red virtual*.
@@ -47,7 +47,7 @@ ms.locfileid: "110657992"
 
 1. En la pestaña **Seguridad**, en este momento, deje los valores predeterminados:
 
-   - **Protección contra DDos**: Básico
+   - **Protección contra DDoS**: deshabilitada
    - **Firewall**: Disabled
 1. Seleccione **Revisar y crear** para validar la configuración de la red virtual.
 1. Una vez validada la configuración, seleccione **Crear**.

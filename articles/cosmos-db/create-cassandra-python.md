@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 129d66f762966f55567793d6a39589585f194b35
-ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
+ms.openlocfilehash: d6a4feb5f758753ad4750d59f4e7ca379c624844
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113223577"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114297538"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>Inicio rápido: Creación de una aplicación de Cassandra con el SDK para Python y Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -127,7 +127,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
     
 ## <a name="use-the-x509-certificate"></a>Uso del certificado X509
 
-1. Descargue el certificado Baltimore CyberTrust Root de forma loca desde [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt). Cambie el nombre del archivo con la extensión de archivo *.cer*.
+1. Copie los detalles del certificado raíz de Baltimore CyberTrust de [https://baltimore-cybertrust-root.chain-demos.digicert.com/info/index.html](https://baltimore-cybertrust-root.chain-demos.digicert.com/info/index.html) en un archivo de texto. Guarde el archivo con la extensión de archivo *.cer*.
 
    El certificado tiene el número de serie `02:00:00:b9` y la huella digital SHA1 `d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 06/10/2021
+ms.date: 06/15/2021
 ms.author: aahi
-ms.openlocfilehash: 3fdd5db4abc2b16153f6758827e152337887a095
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 989045e552a42d6ebf06d6c0ecadcb1a1f0bb5ff
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111962806"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113549983"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Uso del reconocimiento de entidades con nombre en Text Analytics
 
@@ -35,7 +35,7 @@ La característica PII forma parte de NER y puede identificar y suprimir entidad
 
 ## <a name="named-entity-recognition-features-and-versions"></a>Características y versiones del reconocimiento de entidades con nombre
 
-| Característica                                                         | NER v3.0 | NER v3.1-preview.5 |
+| Característica                                                         | NER v3.0 | NER v3.1 |
 |-----------------------------------------------------------------|--------|----------|
 | Métodos para solicitudes individuales y por lotes                          | X      | X        |
 | Reconocimiento de entidades expandidas en varias categorías           | X      | X        |
@@ -47,8 +47,8 @@ Consulte [Compatibilidad de idioma](../language-support.md) para obtener más in
 
 El reconocimiento de entidades con nombre v3 proporciona detección expandida en varios tipos. Actualmente, NER v3.0 puede reconocer entidades en la [categoría de entidad general](../named-entity-types.md).
 
-La versión 3.1-preview.5 de Reconocimiento de entidades con nombre incluye las funcionalidades de detección de la versión 3.0 y además: 
-* La capacidad para detectar información personal (`PII`) mediante el punto de conexión `v3.1-preview.5/entities/recognition/pii`. 
+La versión 3.1 de Reconocimiento de entidades con nombre incluye las funcionalidades de detección de la versión 3.0 y además: 
+* La capacidad para detectar información personal (`PII`) mediante el punto de conexión `v3.1/entities/recognition/pii`. 
 * Un parámetro opcional `domain=phi` para detectar información de estado confidencial (`PHI`).
 * El [funcionamiento asincrónico](text-analytics-how-to-call-api.md) mediante el punto de conexión `/analyze`.
 
@@ -72,40 +72,43 @@ Cree una solicitud POST. Puede [usar Postman](text-analytics-how-to-call-api.md)
 
 ### <a name="request-endpoints"></a>Puntos de conexión de solicitud
 
-#### <a name="version-31-preview"></a>[Versión 3.1: versión preliminar](#tab/version-3-preview)
+#### <a name="version-31"></a>[Versión 3.1](#tab/version-3-1)
 
-El reconocimiento de entidades con nombre `v3.1-preview.5` usa puntos de conexión independientes para las solicitudes de NER, de PII y de vinculación de entidad. Use un formato de dirección URL a continuación en función de la solicitud.
+El reconocimiento de entidades con nombre `v3.1` usa puntos de conexión independientes para las solicitudes de NER, de PII y de vinculación de entidad. Use un formato de dirección URL a continuación en función de la solicitud.
 
 **Vinculación de entidad**
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/linking`
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/linking`
 
-[Referencia de la versión 3.1-versión preliminar para el reconocimiento de entidades con nombre para `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-5/operations/EntitiesLinking)
+[Referencia de la versión 3.1 para el reconocimiento de entidades con nombre para `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesLinking)
 
 **Reconocimiento de entidades con nombre**
-* Entidades generales: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/recognition/general`
+* Entidades generales: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/recognition/general`
 
-[Referencia de la versión 3.1-versión preliminar para el reconocimiento de entidades con nombre para `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-5/operations/EntitiesRecognitionGeneral)
+[Referencia de la versión 3.1 para el reconocimiento de entidades con nombre para `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesRecognitionGeneral)
 
 **Información de identificación personal**
-* Información personal (`PII`): `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/recognition/pii`
+* Información personal (`PII`): `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/recognition/pii`
 
 También se puede usar el parámetro opcional `domain=phi` para detectar información de estado (`PHI`) en el texto. 
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/recognition/pii?domain=phi`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/recognition/pii?domain=phi`
 
-A partir de `v3.1-preview.5`, la respuesta JSON incluye una propiedad `redactedText`, que contiene el texto de entrada modificado donde las entidades PII detectadas se reemplazan por `*` en cada carácter de las entidades.
+A partir de `v3.1`, la respuesta JSON incluye una propiedad `redactedText`, que contiene el texto de entrada modificado donde las entidades PII detectadas se reemplazan por `*` en cada carácter de las entidades.
 
-[Referencia de la versión 3.1-versión preliminar para el reconocimiento de entidades con nombre para `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-5/operations/EntitiesRecognitionPii)
+[Referencia de la versión 3.1 para el reconocimiento de entidades con nombre para `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesRecognitionPii)
 
-La API intentará detectar las [categorías de entidad enumeradas](../named-entity-types.md?tabs=personal) para un idioma de documento determinado. Si desea especificar qué entidades se detectarán y devolverán, use el parámetro opcional pii-categories con las categorías de entidad adecuadas. Este parámetro también puede permitirle detectar entidades que no están habilitadas de forma predeterminada para el lenguaje del documento. Por ejemplo, un número de permiso de conducir francés que puede aparecer en texto en inglés.
+La API intentará detectar las [categorías de entidad enumeradas](../named-entity-types.md?tabs=personal) para un idioma de documento determinado. Si desea especificar qué entidades se detectarán y devolverán, use el parámetro opcional `piiCategories` con las categorías de entidad adecuadas. Este parámetro también puede permitirle detectar entidades que no están habilitadas de forma predeterminada para el lenguaje del documento. En el ejemplo siguiente se detectaría un número del carné de conducir de un conductor francés que podría aparecer en inglés, junto con las entidades predeterminadas en inglés.
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/recognition/pii?piiCategories=[FRDriversLicenseNumber]`
+> [!TIP]
+> Si no incluye `default` al especificar las categorías de entidad, la API solo devolverá las categorías de entidad que especifique.
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/recognition/pii?piiCategories=default,FRDriversLicenseNumber`
 
 **Operación asincrónica**
 
-A partir de `v3.1-preview.5`, puede enviar solicitudes NER y de vinculación de entidad de forma asincrónica mediante el punto de conexión `/analyze`.
+A partir de `v3.1`, puede enviar solicitudes NER y de vinculación de entidad de forma asincrónica mediante el punto de conexión `/analyze`.
 
-* Operación asincrónica: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/analyze`
+* Operación asincrónica: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/analyze`
 
 Consulte [Cómo llamar a la API de Text Analytics](text-analytics-how-to-call-api.md) para obtener información sobre el envío de solicitudes asincrónicas.
 
@@ -116,7 +119,7 @@ El reconocimiento de entidades con nombre v3 usa puntos de conexión independien
 **Vinculación de entidad**
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/linking`
 
-[Referencia de la versión 3.0 para el reconocimiento de entidades con nombre para `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
+[Referencia de la versión 3.1 para el reconocimiento de entidades con nombre para `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesRecognitionGeneral)
 
 **Reconocimiento de entidades con nombre**
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
@@ -129,7 +132,7 @@ Establezca un encabezado de la solicitud para incluir la clave de la API Text An
 
 ## <a name="example-requests"></a>Solicitudes de ejemplo
 
-#### <a name="version-31-preview"></a>[Versión 3.1: versión preliminar](#tab/version-3-preview)
+#### <a name="version-31"></a>[Versión 3.1](#tab/version-3-1)
 
 ### <a name="example-synchronous-ner-request"></a>Ejemplo de solicitud de NER sincrónica 
 
@@ -142,6 +145,22 @@ El siguiente código JSON es un ejemplo que se podría enviar a la API. El forma
         "id": "1",
         "language": "en",
         "text": "Our tour guide took us up the Space Needle during our trip to Seattle last week."
+    }
+  ]
+}
+```
+
+### <a name="example-synchronous-pii-request"></a>Ejemplo de solicitud de PII sincrónica
+
+El siguiente código JSON es un ejemplo de contenido que se podría enviar a la API para detectar PII en el texto.
+
+```json
+{
+  "documents": [
+    {
+        "id": "1",
+        "language": "en",
+        "text": "You can even pre-order from their online menu at www.contososteakhouse.com, call 312-555-0176 or send email to order@contososteakhouse.com!"
     }
   ]
 }
@@ -170,8 +189,7 @@ Si usa el punto de conexión `/analyze` en la [operación asincrónica](text-ana
         "entityRecognitionTasks": [
             {
                 "parameters": {
-                    "model-version": "latest",
-                    "stringIndexType": "TextElements_v8"
+                    "model-version": "latest"
                 }
             }
         ],
@@ -220,7 +238,7 @@ La salida se devuelve inmediatamente. Puede transmitir los resultados a una apli
 
 La versión 3 proporciona puntos de conexión independientes para la vinculación de entidad y para NER y PII. Versión 3.1: la versión preliminar incluye un modo de análisis asincrónico. A continuación se muestran las respuestas para esas operaciones. 
 
-#### <a name="version-31-preview"></a>[Versión 3.1: versión preliminar](#tab/version-3-preview)
+#### <a name="version-31"></a>[Versión 3.1](#tab/version-3-1)
 
 ### <a name="synchronous-example-results"></a>Resultados sincrónicos de ejemplo
 
@@ -228,53 +246,46 @@ Respuesta de NER general de ejemplo:
 
 ```json
 {
-  "documents": [
-    {
-      "id": "1",
-      "entities": [
+    "documents": [
         {
-          "text": "tour guide",
-          "category": "PersonType",
-          "offset": 4,
-          "length": 10,
-          "confidenceScore": 0.45
-        },
-        {
-          "text": "Space Needle",
-          "category": "Location",
-          "offset": 30,
-          "length": 12,
-          "confidenceScore": 0.38
-        },
-        {
-          "text": "trip",
-          "category": "Event",
-          "offset": 54,
-          "length": 4,
-          "confidenceScore": 0.78
-        },
-        {
-          "text": "Seattle",
-          "category": "Location",
-          "subcategory": "GPE",
-          "offset": 62,
-          "length": 7,
-          "confidenceScore": 0.78
-        },
-        {
-          "text": "last week",
-          "category": "DateTime",
-          "subcategory": "DateRange",
-          "offset": 70,
-          "length": 9,
-          "confidenceScore": 0.8
+            "id": "1",
+            "entities": [
+                {
+                    "text": "tour guide",
+                    "category": "PersonType",
+                    "offset": 4,
+                    "length": 10,
+                    "confidenceScore": 0.94
+                },
+                {
+                    "text": "Space Needle",
+                    "category": "Location",
+                    "offset": 30,
+                    "length": 12,
+                    "confidenceScore": 0.96
+                },
+                {
+                    "text": "Seattle",
+                    "category": "Location",
+                    "subcategory": "GPE",
+                    "offset": 62,
+                    "length": 7,
+                    "confidenceScore": 1.0
+                },
+                {
+                    "text": "last week",
+                    "category": "DateTime",
+                    "subcategory": "DateRange",
+                    "offset": 70,
+                    "length": 9,
+                    "confidenceScore": 0.8
+                }
+            ],
+            "warnings": []
         }
-      ],
-      "warnings": []
-    }
-  ],
-  "errors": [],
-  "modelVersion": "2020-04-01"
+    ],
+    "errors": [],
+    "modelVersion": "2021-06-01"
 }
 ```
 
@@ -282,38 +293,38 @@ Ejemplo de una respuesta PII:
 
 ```json
 {
-  "documents": [
-    {
-    "redactedText": "You can even pre-order from their online menu at *************************, call ************ or send email to ***************************!",
-    "id": "0",
-    "entities": [
+    "documents": [
         {
-        "text": "www.contososteakhouse.com",
-        "category": "URL",
-        "offset": 49,
-        "length": 25,
-        "confidenceScore": 0.8
-        }, 
-        {
-        "text": "312-555-0176",
-        "category": "Phone Number",
-        "offset": 81,
-        "length": 12,
-        "confidenceScore": 0.8
-        }, 
-        {
-        "text": "order@contososteakhouse.com",
-        "category": "Email",
-        "offset": 111,
-        "length": 27,
-        "confidenceScore": 0.8
+            "redactedText": "You can even pre-order from their online menu at www.contososteakhouse.com, call ************ or send email to ***************************!",
+            "id": "1",
+            "entities": [
+                {
+                    "text": "312-555-0176",
+                    "category": "PhoneNumber",
+                    "offset": 81,
+                    "length": 12,
+                    "confidenceScore": 0.8
+                },
+                {
+                    "text": "order@contososteakhouse.com",
+                    "category": "Email",
+                    "offset": 111,
+                    "length": 27,
+                    "confidenceScore": 0.8
+                },
+                {
+                    "text": "contososteakhouse",
+                    "category": "Organization",
+                    "offset": 117,
+                    "length": 17,
+                    "confidenceScore": 0.45
+                }
+            ],
+            "warnings": []
         }
-      ],
-    "warnings": []
-    }
-  ],
-  "errors": [],
-  "modelVersion": "2020-07-01"
+    ],
+    "errors": [],
+    "modelVersion": "2021-01-15"
 }
 ```
 
@@ -321,48 +332,48 @@ Respuesta de vinculación de entidad de ejemplo:
 
 ```json
 {
-  "documents": [
-    {
-      "id": "1",
-      "entities": [
+    "documents": [
         {
-          "bingId": "f8dd5b08-206d-2554-6e4a-893f51f4de7e", 
-          "name": "Space Needle",
-          "matches": [
-            {
-              "text": "Space Needle",
-              "offset": 30,
-              "length": 12,
-              "confidenceScore": 0.4
-            }
-          ],
-          "language": "en",
-          "id": "Space Needle",
-          "url": "https://en.wikipedia.org/wiki/Space_Needle",
-          "dataSource": "Wikipedia"
-        },
-        {
-          "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
-          "name": "Seattle",
-          "matches": [
-            {
-              "text": "Seattle",
-              "offset": 62,
-              "length": 7,
-              "confidenceScore": 0.25
-            }
-          ],
-          "language": "en",
-          "id": "Seattle",
-          "url": "https://en.wikipedia.org/wiki/Seattle",
-          "dataSource": "Wikipedia"
+            "id": "1",
+            "entities": [
+                {
+                    "bingId": "f8dd5b08-206d-2554-6e4a-893f51f4de7e",
+                    "name": "Space Needle",
+                    "matches": [
+                        {
+                            "text": "Space Needle",
+                            "offset": 30,
+                            "length": 12,
+                            "confidenceScore": 0.4
+                        }
+                    ],
+                    "language": "en",
+                    "id": "Space Needle",
+                    "url": "https://en.wikipedia.org/wiki/Space_Needle",
+                    "dataSource": "Wikipedia"
+                },
+                {
+                    "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
+                    "name": "Seattle",
+                    "matches": [
+                        {
+                            "text": "Seattle",
+                            "offset": 62,
+                            "length": 7,
+                            "confidenceScore": 0.25
+                        }
+                    ],
+                    "language": "en",
+                    "id": "Seattle",
+                    "url": "https://en.wikipedia.org/wiki/Seattle",
+                    "dataSource": "Wikipedia"
+                }
+            ],
+            "warnings": []
         }
-      ],
-      "warnings": []
-    }
-  ],
-  "errors": [],
-  "modelVersion": "2020-02-01"
+    ],
+    "errors": [],
+    "modelVersion": "2021-06-01"
 }
 ```
 
@@ -370,51 +381,83 @@ Respuesta de vinculación de entidad de ejemplo:
 
 ```json
 {
-  "displayName": "My Analyze Job",
-  "jobId": "dbec96a8-ea22-4ad1-8c99-280b211eb59e_637408224000000000",
-  "lastUpdateDateTime": "2020-11-13T04:01:14Z",
-  "createdDateTime": "2020-11-13T04:01:13Z",
-  "expirationDateTime": "2020-11-14T04:01:13Z",
-  "status": "running",
-  "errors": [],
-  "tasks": {
-      "details": {
-          "name": "My Analyze Job",
-          "lastUpdateDateTime": "2020-11-13T04:01:14Z"
-      },
-      "completed": 1,
-      "failed": 0,
-      "inProgress": 2,
-      "total": 3,
-      "keyPhraseExtractionTasks": [
-          {
-              "name": "My Analyze Job",
-              "lastUpdateDateTime": "2020-11-13T04:01:14.3763516Z",
-              "results": {
-                  "inTerminalState": true,
-                  "documents": [
-                      {
-                          "id": "doc1",
-                          "keyPhrases": [
-                              "sunny outside"
-                          ],
-                          "warnings": []
-                      },
-                      {
-                          "id": "doc2",
-                          "keyPhrases": [
-                              "favorite Seattle attraction",
-                              "Pike place market"
-                          ],
-                          "warnings": []
-                      }
-                  ],
-                  "errors": [],
-                  "modelVersion": "2020-07-01"
-              }
-          }
-      ]
-  }
+    "jobId": "f480e1f9-0b61-4d47-93da-240f084582cf",
+    "lastUpdateDateTime": "2021-07-06T19:03:15Z",
+    "createdDateTime": "2021-07-06T19:02:47Z",
+    "expirationDateTime": "2021-07-07T19:02:47Z",
+    "status": "succeeded",
+    "errors": [],
+    "displayName": "My Job",
+    "tasks": {
+        "completed": 2,
+        "failed": 0,
+        "inProgress": 0,
+        "total": 2,
+        "entityRecognitionTasks": [
+            {
+                "lastUpdateDateTime": "2021-07-06T19:03:15.212633Z",
+                "taskName": "NamedEntityRecognition_latest",
+                "state": "succeeded",
+                "results": {
+                    "documents": [
+                        {
+                            "id": "doc1",
+                            "entities": [],
+                            "warnings": []
+                        },
+                        {
+                            "id": "doc2",
+                            "entities": [
+                                {
+                                    "text": "Pike place market",
+                                    "category": "Location",
+                                    "offset": 0,
+                                    "length": 17,
+                                    "confidenceScore": 0.95
+                                },
+                                {
+                                    "text": "Seattle",
+                                    "category": "Location",
+                                    "subcategory": "GPE",
+                                    "offset": 33,
+                                    "length": 7,
+                                    "confidenceScore": 0.99
+                                }
+                            ],
+                            "warnings": []
+                        }
+                    ],
+                    "errors": [],
+                    "modelVersion": "2021-06-01"
+                }
+            }
+        ],
+        "entityRecognitionPiiTasks": [
+            {
+                "lastUpdateDateTime": "2021-07-06T19:03:03.2063832Z",
+                "taskName": "PersonallyIdentifiableInformation_latest",
+                "state": "succeeded",
+                "results": {
+                    "documents": [
+                        {
+                            "redactedText": "It's incredibly sunny outside! I'm so happy",
+                            "id": "doc1",
+                            "entities": [],
+                            "warnings": []
+                        },
+                        {
+                            "redactedText": "Pike place market is my favorite Seattle attraction.",
+                            "id": "doc2",
+                            "entities": [],
+                            "warnings": []
+                        }
+                    ],
+                    "errors": [],
+                    "modelVersion": "2021-01-15"
+                }
+            }
+        ]
+    }
 }
 ```
 

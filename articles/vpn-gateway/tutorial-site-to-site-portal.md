@@ -6,13 +6,13 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 04/28/2021
-ms.openlocfilehash: 83c2e42db4cc3e1a287341592f4917afce7309e2
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.date: 07/21/2021
+ms.openlocfilehash: f035f1dce7639d8d90ca3edbe3e6cc548b68cf2a
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108204232"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114439905"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-in-the-azure-portal"></a>Tutorial: Creación de una conexión de sitio a sitio mediante Azure Portal
 
@@ -68,8 +68,8 @@ Cree una puerta de enlace de VPN con los siguientes valores:
 * **Región:** Este de EE. UU.
 * **Tipo de puerta de enlace:** VPN
 * **Tipo de VPN:** basada en rutas
-* **SKU:** VpnGw1
-* **Generación:** Generación 1
+* **SKU:** VpnGw2
+* **Generación:** Generación 2
 * **Red virtual:** VNet1
 * **Intervalo de direcciones de subred de puerta de enlace:** 10.1.255.0/27
 * **Dirección IP pública**: Crear nuevo
@@ -77,7 +77,10 @@ Cree una puerta de enlace de VPN con los siguientes valores:
 * **Habilitar el modo activo-activo:** Disabled
 * **Configuración de BGP:** Disabled
 
-[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
+[!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]
+
+Puede ver el estado de implementación en la página Información general de la puerta de enlace. Una puerta de enlace puede tardar hasta 45 minutos en crearse e implementarse completamente. Una vez creada la puerta de enlace, puede ver la dirección IP que se le ha asignado consultando la red virtual en el portal. La puerta de enlace aparece como un dispositivo conectado.
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 

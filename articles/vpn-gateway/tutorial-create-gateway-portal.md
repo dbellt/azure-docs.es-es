@@ -6,13 +6,13 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 04/28/2021
-ms.openlocfilehash: 29f479444679d1f76dc90eec4546539faea5337f
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.date: 07/21/2021
+ms.openlocfilehash: d0723d4a5e77fe9bcf52f515a1310dfc270338f6
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108202576"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114721830"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-azure-portal"></a>Tutorial: Creación y administración de una puerta de enlace de VPN mediante Azure Portal
 
@@ -50,7 +50,7 @@ Utilice estos valores para crear una red virtual:
 
 ## <a name="create-a-vpn-gateway"></a><a name="VNetGateway"></a>Creación de una puerta de enlace de VPN
 
-En este paso, se crea la puerta de enlace para la red virtual. La creación de una puerta de enlace suele tardar 45 minutos o más, según la SKU de la puerta de enlace seleccionada.
+En este paso, se crea la puerta de enlace de red virtual (puerta de enlace de VPN). La creación de una puerta de enlace suele tardar 45 minutos o más, según la SKU de la puerta de enlace seleccionada.
 
 Cree una puerta de enlace de red virtual con los siguientes valores:
 
@@ -58,16 +58,17 @@ Cree una puerta de enlace de red virtual con los siguientes valores:
 * **Región:** Este de EE. UU.
 * **Tipo de puerta de enlace:** VPN
 * **Tipo de VPN:** basada en rutas
-* **SKU:** VpnGw1
-* **Generación:** Generación 1
+* **SKU:** VpnGw2
+* **Generación:** Generación 2
 * **Red virtual:** VNet1
 * **Intervalo de direcciones de subred de puerta de enlace:** 10.1.255.0/27
 * **Dirección IP pública**: Crear nuevo
 * **Dirección IP pública:** VNet1GWpip
-* **Habilitar el modo activo-activo:** Disabled
-* **Configuración de BGP:** Disabled
 
-[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
+[!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]
+
+Una puerta de enlace puede tardar 45 minutos aproximadamente en crearse e implementarse completamente. Puede ver el estado de implementación en la página Información general de la puerta de enlace. Una vez creada la puerta de enlace, puede ver la dirección IP que se le ha asignado consultando la red virtual en el portal. La puerta de enlace aparece como un dispositivo conectado.
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 

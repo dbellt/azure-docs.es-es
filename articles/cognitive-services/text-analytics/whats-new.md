@@ -8,29 +8,41 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/03/2021
+ms.date: 07/12/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 63063ef205b456c368cec2d5c1a8ce1f456aaa59
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: f79c9cb7381f2325de2efca5e20b37c60ab72013
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111756480"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113652470"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novedades de Text Analytics API
 
 Text Analytics API se actualiza constantemente. Para mantenerse al día con los avances recientes, en este artículo se proporciona información sobre las nuevas versiones y características.
 
+## <a name="july-2021"></a>Julio de 2021
+
+### <a name="ga-release-updates"></a>Actualizaciones de versiones con disponibilidad general
+
+* Disponibilidad general para [Text Analytics for Health](how-tos/text-analytics-for-health.md?tabs=ner) para los contenedores y la API hospedada (/health).
+* Disponibilidad general para la [minería de opiniones](how-tos/text-analytics-how-to-sentiment-analysis.md?tabs=version-3-1#opinion-mining).
+* Disponibilidad general para la [extracción y redacción de PII](how-tos/text-analytics-how-to-entity-linking.md?tabs=version-3-1#personally-identifiable-information-pii).
+* Disponibilidad general para los [puntos de conexión asincrónicos (`/analyze`)](how-tos/text-analytics-how-to-call-api.md?tabs=synchronous#using-the-api-asynchronously).
+* Se han actualizado los ejemplos de [inicio rápido](quickstarts/client-libraries-rest-api.md) con el nuevo SDK. 
+
 ## <a name="june-2021"></a>Junio de 2021
 
 ### <a name="general-api-updates"></a>Actualizaciones de API generales
 
-* Nueva versión del modelo `2021-06-01` para la extracción de frases clave, que agrega compatibilidad con chino simplificado.
+* Nueva versión del modelo `2021-06-01` para la extracción de frases clave basada en transformadores. Proporciona:
+  * Compatibilidad con 10 idiomas (alfabeto latino y CJK). 
+  * Extracción de frases clave mejorada.
 * La versión del modelo de `2021-06-01` para [Reconocimiento de entidades con nombre](how-tos/text-analytics-how-to-entity-linking.md) v3.x, que proporciona: 
   * Se ha mejorado la calidad de la inteligencia artificial y se ha ampliado la compatibilidad con los idiomas en la categoría de entidad *Aptitud*. 
   * Se ha agregado compatibilidad con los idiomas español, francés, alemán, italiano y portugués en la categoría de entidad *Aptitud*.
-* Tanto las operaciones asincrónicas como Text Analytics for Health están disponibles en todas las regiones. 
+* Las operaciones asincrónicas (/analyze) y Text Analytics for Health (versión preliminar no validada) están disponibles en todas las regiones. 
 
 ### <a name="text-analytics-for-health-updates"></a>Actualizaciones de Text Analytics for Health
 
@@ -40,7 +52,7 @@ Text Analytics API se actualiza constantemente. Para mantenerse al día con los 
     * Catorce nuevos tipos de relación.
     * Detección de aserciones expandida para nuevos tipos de entidad.
     * Compatibilidad de vinculación con el tipo de entidad ALLERGEN.
-
+* Nueva imagen del contenedor de Text Analytics for Health con la etiqueta `3.0.016230002-onprem-amd64` y la versión del modelo `2021-05-15`. Este contenedor está disponible para su descarga desde Microsoft Container Registry.
  
 ## <a name="may-2021"></a>Mayo de 2021
 
